@@ -115,6 +115,7 @@ func (WorkspaceState) ElementType() reflect.Type {
 
 type workspaceArgs struct {
 	AzureADOnlyAuthentication        *bool                             `pulumi:"azureADOnlyAuthentication"`
+	ConnectivityEndpoints            map[string]string                 `pulumi:"connectivityEndpoints"`
 	CspWorkspaceAdminProperties      *CspWorkspaceAdminProperties      `pulumi:"cspWorkspaceAdminProperties"`
 	DefaultDataLakeStorage           *DataLakeStorageAccountDetails    `pulumi:"defaultDataLakeStorage"`
 	Encryption                       *EncryptionDetails                `pulumi:"encryption"`
@@ -139,6 +140,7 @@ type workspaceArgs struct {
 
 type WorkspaceArgs struct {
 	AzureADOnlyAuthentication        pulumi.BoolPtrInput
+	ConnectivityEndpoints            pulumi.StringMapInput
 	CspWorkspaceAdminProperties      CspWorkspaceAdminPropertiesPtrInput
 	DefaultDataLakeStorage           DataLakeStorageAccountDetailsPtrInput
 	Encryption                       EncryptionDetailsPtrInput

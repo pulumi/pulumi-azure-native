@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:DataNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220101preview:DataNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:DataNetwork"},
                 },
             };

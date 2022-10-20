@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { AzureTrafficCollectorArgs } from "./azureTrafficCollector";
 export type AzureTrafficCollector = import("./azureTrafficCollector").AzureTrafficCollector;
 export const AzureTrafficCollector: typeof import("./azureTrafficCollector").AzureTrafficCollector = null as any;
+utilities.lazyLoad(exports, ["AzureTrafficCollector"], () => require("./azureTrafficCollector"));
 
 export { CollectorPolicyArgs } from "./collectorPolicy";
 export type CollectorPolicy = import("./collectorPolicy").CollectorPolicy;
 export const CollectorPolicy: typeof import("./collectorPolicy").CollectorPolicy = null as any;
+utilities.lazyLoad(exports, ["CollectorPolicy"], () => require("./collectorPolicy"));
 
 export { GetAzureTrafficCollectorArgs, GetAzureTrafficCollectorResult, GetAzureTrafficCollectorOutputArgs } from "./getAzureTrafficCollector";
 export const getAzureTrafficCollector: typeof import("./getAzureTrafficCollector").getAzureTrafficCollector = null as any;
 export const getAzureTrafficCollectorOutput: typeof import("./getAzureTrafficCollector").getAzureTrafficCollectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureTrafficCollector","getAzureTrafficCollectorOutput"], () => require("./getAzureTrafficCollector"));
 
 export { GetCollectorPolicyArgs, GetCollectorPolicyResult, GetCollectorPolicyOutputArgs } from "./getCollectorPolicy";
 export const getCollectorPolicy: typeof import("./getCollectorPolicy").getCollectorPolicy = null as any;
 export const getCollectorPolicyOutput: typeof import("./getCollectorPolicy").getCollectorPolicyOutput = null as any;
-
-utilities.lazyLoad(exports, ["AzureTrafficCollector"], () => require("./azureTrafficCollector"));
-utilities.lazyLoad(exports, ["CollectorPolicy"], () => require("./collectorPolicy"));
-utilities.lazyLoad(exports, ["getAzureTrafficCollector","getAzureTrafficCollectorOutput"], () => require("./getAzureTrafficCollector"));
 utilities.lazyLoad(exports, ["getCollectorPolicy","getCollectorPolicyOutput"], () => require("./getCollectorPolicy"));
+
 
 // Export enums:
 export * from "../../types/enums/networkfunction/v20220501";

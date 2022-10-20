@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211001
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
+        /// Name of the secret
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }

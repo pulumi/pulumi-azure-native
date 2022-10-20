@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ConnectedClusterArgs } from "./connectedCluster";
 export type ConnectedCluster = import("./connectedCluster").ConnectedCluster;
 export const ConnectedCluster: typeof import("./connectedCluster").ConnectedCluster = null as any;
+utilities.lazyLoad(exports, ["ConnectedCluster"], () => require("./connectedCluster"));
 
 export { GetConnectedClusterArgs, GetConnectedClusterResult, GetConnectedClusterOutputArgs } from "./getConnectedCluster";
 export const getConnectedCluster: typeof import("./getConnectedCluster").getConnectedCluster = null as any;
 export const getConnectedClusterOutput: typeof import("./getConnectedCluster").getConnectedClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedCluster","getConnectedClusterOutput"], () => require("./getConnectedCluster"));
 
 export { ListConnectedClusterUserCredentialArgs, ListConnectedClusterUserCredentialResult, ListConnectedClusterUserCredentialOutputArgs } from "./listConnectedClusterUserCredential";
 export const listConnectedClusterUserCredential: typeof import("./listConnectedClusterUserCredential").listConnectedClusterUserCredential = null as any;
 export const listConnectedClusterUserCredentialOutput: typeof import("./listConnectedClusterUserCredential").listConnectedClusterUserCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["listConnectedClusterUserCredential","listConnectedClusterUserCredentialOutput"], () => require("./listConnectedClusterUserCredential"));
 
 export { ListConnectedClusterUserCredentialsArgs, ListConnectedClusterUserCredentialsResult, ListConnectedClusterUserCredentialsOutputArgs } from "./listConnectedClusterUserCredentials";
 export const listConnectedClusterUserCredentials: typeof import("./listConnectedClusterUserCredentials").listConnectedClusterUserCredentials = null as any;
 export const listConnectedClusterUserCredentialsOutput: typeof import("./listConnectedClusterUserCredentials").listConnectedClusterUserCredentialsOutput = null as any;
-
-utilities.lazyLoad(exports, ["ConnectedCluster"], () => require("./connectedCluster"));
-utilities.lazyLoad(exports, ["getConnectedCluster","getConnectedClusterOutput"], () => require("./getConnectedCluster"));
-utilities.lazyLoad(exports, ["listConnectedClusterUserCredential","listConnectedClusterUserCredentialOutput"], () => require("./listConnectedClusterUserCredential"));
 utilities.lazyLoad(exports, ["listConnectedClusterUserCredentials","listConnectedClusterUserCredentialsOutput"], () => require("./listConnectedClusterUserCredentials"));
+
 
 // Export enums:
 export * from "../types/enums/kubernetes";
@@ -35,7 +35,6 @@ import * as v20210301 from "./v20210301";
 import * as v20210401preview from "./v20210401preview";
 import * as v20211001 from "./v20211001";
 import * as v20220501preview from "./v20220501preview";
-import * as v20221001preview from "./v20221001preview";
 
 export {
     v20200101preview,
@@ -43,7 +42,6 @@ export {
     v20210401preview,
     v20211001,
     v20220501preview,
-    v20221001preview,
 };
 
 const _module = {

@@ -44,12 +44,12 @@ class NetworkRuleSetArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'SkuName']],
-                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
+                 name: pulumi.Input[Union[str, 'Name']],
+                 tier: Optional[pulumi.Input[Union[str, 'Tier']]] = None):
         """
         The SKU name. Required for account creation; optional for update.
-        :param pulumi.Input[Union[str, 'SkuName']] name: The sku name.
-        :param pulumi.Input[Union[str, 'SkuTier']] tier: The sku tier.
+        :param pulumi.Input[Union[str, 'Name']] name: The sku name.
+        :param pulumi.Input[Union[str, 'Tier']] tier: The sku tier.
         """
         pulumi.set(__self__, "name", name)
         if tier is not None:
@@ -57,26 +57,26 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
+    def name(self) -> pulumi.Input[Union[str, 'Name']]:
         """
         The sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
+    def name(self, value: pulumi.Input[Union[str, 'Name']]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'Tier']]]:
         """
         The sku tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'Tier']]]):
         pulumi.set(self, "tier", value)
 
 

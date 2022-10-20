@@ -111,7 +111,6 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:Image"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:Image"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:Image"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:Image"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

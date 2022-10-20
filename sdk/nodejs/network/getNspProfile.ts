@@ -45,10 +45,6 @@ export interface GetNspProfileResult {
      */
     readonly accessRulesVersion: string;
     /**
-     * Version number that increases with every update to diagnostic settings within the profile.
-     */
-    readonly diagnosticSettingsVersion: string;
-    /**
      * Resource ID.
      */
     readonly id: string;

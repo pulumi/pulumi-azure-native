@@ -80,9 +80,6 @@ func NewGalleryImage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20220103:GalleryImage"),
 		},
-		{
-			Type: pulumi.String("azure-native:compute/v20220303:GalleryImage"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource GalleryImage

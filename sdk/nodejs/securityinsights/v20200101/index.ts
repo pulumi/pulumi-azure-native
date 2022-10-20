@@ -8,163 +8,163 @@ import * as utilities from "../../utilities";
 export { AADDataConnectorArgs } from "./aaddataConnector";
 export type AADDataConnector = import("./aaddataConnector").AADDataConnector;
 export const AADDataConnector: typeof import("./aaddataConnector").AADDataConnector = null as any;
+utilities.lazyLoad(exports, ["AADDataConnector"], () => require("./aaddataConnector"));
 
 export { AATPDataConnectorArgs } from "./aatpdataConnector";
 export type AATPDataConnector = import("./aatpdataConnector").AATPDataConnector;
 export const AATPDataConnector: typeof import("./aatpdataConnector").AATPDataConnector = null as any;
+utilities.lazyLoad(exports, ["AATPDataConnector"], () => require("./aatpdataConnector"));
 
 export { ActionArgs } from "./action";
 export type Action = import("./action").Action;
 export const Action: typeof import("./action").Action = null as any;
+utilities.lazyLoad(exports, ["Action"], () => require("./action"));
 
 export { AlertRuleArgs } from "./alertRule";
 export type AlertRule = import("./alertRule").AlertRule;
 export const AlertRule: typeof import("./alertRule").AlertRule = null as any;
+utilities.lazyLoad(exports, ["AlertRule"], () => require("./alertRule"));
 
 export { ASCDataConnectorArgs } from "./ascdataConnector";
 export type ASCDataConnector = import("./ascdataConnector").ASCDataConnector;
 export const ASCDataConnector: typeof import("./ascdataConnector").ASCDataConnector = null as any;
+utilities.lazyLoad(exports, ["ASCDataConnector"], () => require("./ascdataConnector"));
 
 export { AwsCloudTrailDataConnectorArgs } from "./awsCloudTrailDataConnector";
 export type AwsCloudTrailDataConnector = import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector;
 export const AwsCloudTrailDataConnector: typeof import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector = null as any;
+utilities.lazyLoad(exports, ["AwsCloudTrailDataConnector"], () => require("./awsCloudTrailDataConnector"));
 
 export { BookmarkArgs } from "./bookmark";
 export type Bookmark = import("./bookmark").Bookmark;
 export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
+utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
 
 export { DataConnectorArgs } from "./dataConnector";
 export type DataConnector = import("./dataConnector").DataConnector;
 export const DataConnector: typeof import("./dataConnector").DataConnector = null as any;
+utilities.lazyLoad(exports, ["DataConnector"], () => require("./dataConnector"));
 
 export { FusionAlertRuleArgs } from "./fusionAlertRule";
 export type FusionAlertRule = import("./fusionAlertRule").FusionAlertRule;
 export const FusionAlertRule: typeof import("./fusionAlertRule").FusionAlertRule = null as any;
+utilities.lazyLoad(exports, ["FusionAlertRule"], () => require("./fusionAlertRule"));
 
 export { GetAADDataConnectorArgs, GetAADDataConnectorResult, GetAADDataConnectorOutputArgs } from "./getAADDataConnector";
 export const getAADDataConnector: typeof import("./getAADDataConnector").getAADDataConnector = null as any;
 export const getAADDataConnectorOutput: typeof import("./getAADDataConnector").getAADDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAADDataConnector","getAADDataConnectorOutput"], () => require("./getAADDataConnector"));
 
 export { GetAATPDataConnectorArgs, GetAATPDataConnectorResult, GetAATPDataConnectorOutputArgs } from "./getAATPDataConnector";
 export const getAATPDataConnector: typeof import("./getAATPDataConnector").getAATPDataConnector = null as any;
 export const getAATPDataConnectorOutput: typeof import("./getAATPDataConnector").getAATPDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAATPDataConnector","getAATPDataConnectorOutput"], () => require("./getAATPDataConnector"));
 
 export { GetASCDataConnectorArgs, GetASCDataConnectorResult, GetASCDataConnectorOutputArgs } from "./getASCDataConnector";
 export const getASCDataConnector: typeof import("./getASCDataConnector").getASCDataConnector = null as any;
 export const getASCDataConnectorOutput: typeof import("./getASCDataConnector").getASCDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getASCDataConnector","getASCDataConnectorOutput"], () => require("./getASCDataConnector"));
 
 export { GetActionArgs, GetActionResult, GetActionOutputArgs } from "./getAction";
 export const getAction: typeof import("./getAction").getAction = null as any;
 export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
+utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
 
 export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
 export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
 export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
 
 export { GetAwsCloudTrailDataConnectorArgs, GetAwsCloudTrailDataConnectorResult, GetAwsCloudTrailDataConnectorOutputArgs } from "./getAwsCloudTrailDataConnector";
 export const getAwsCloudTrailDataConnector: typeof import("./getAwsCloudTrailDataConnector").getAwsCloudTrailDataConnector = null as any;
 export const getAwsCloudTrailDataConnectorOutput: typeof import("./getAwsCloudTrailDataConnector").getAwsCloudTrailDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAwsCloudTrailDataConnector","getAwsCloudTrailDataConnectorOutput"], () => require("./getAwsCloudTrailDataConnector"));
 
 export { GetBookmarkArgs, GetBookmarkResult, GetBookmarkOutputArgs } from "./getBookmark";
 export const getBookmark: typeof import("./getBookmark").getBookmark = null as any;
 export const getBookmarkOutput: typeof import("./getBookmark").getBookmarkOutput = null as any;
+utilities.lazyLoad(exports, ["getBookmark","getBookmarkOutput"], () => require("./getBookmark"));
 
 export { GetDataConnectorArgs, GetDataConnectorResult, GetDataConnectorOutputArgs } from "./getDataConnector";
 export const getDataConnector: typeof import("./getDataConnector").getDataConnector = null as any;
 export const getDataConnectorOutput: typeof import("./getDataConnector").getDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getDataConnector","getDataConnectorOutput"], () => require("./getDataConnector"));
 
 export { GetFusionAlertRuleArgs, GetFusionAlertRuleResult, GetFusionAlertRuleOutputArgs } from "./getFusionAlertRule";
 export const getFusionAlertRule: typeof import("./getFusionAlertRule").getFusionAlertRule = null as any;
 export const getFusionAlertRuleOutput: typeof import("./getFusionAlertRule").getFusionAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getFusionAlertRule","getFusionAlertRuleOutput"], () => require("./getFusionAlertRule"));
 
 export { GetIncidentArgs, GetIncidentResult, GetIncidentOutputArgs } from "./getIncident";
 export const getIncident: typeof import("./getIncident").getIncident = null as any;
 export const getIncidentOutput: typeof import("./getIncident").getIncidentOutput = null as any;
+utilities.lazyLoad(exports, ["getIncident","getIncidentOutput"], () => require("./getIncident"));
 
 export { GetMCASDataConnectorArgs, GetMCASDataConnectorResult, GetMCASDataConnectorOutputArgs } from "./getMCASDataConnector";
 export const getMCASDataConnector: typeof import("./getMCASDataConnector").getMCASDataConnector = null as any;
 export const getMCASDataConnectorOutput: typeof import("./getMCASDataConnector").getMCASDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getMCASDataConnector","getMCASDataConnectorOutput"], () => require("./getMCASDataConnector"));
 
 export { GetMDATPDataConnectorArgs, GetMDATPDataConnectorResult, GetMDATPDataConnectorOutputArgs } from "./getMDATPDataConnector";
 export const getMDATPDataConnector: typeof import("./getMDATPDataConnector").getMDATPDataConnector = null as any;
 export const getMDATPDataConnectorOutput: typeof import("./getMDATPDataConnector").getMDATPDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getMDATPDataConnector","getMDATPDataConnectorOutput"], () => require("./getMDATPDataConnector"));
 
 export { GetMicrosoftSecurityIncidentCreationAlertRuleArgs, GetMicrosoftSecurityIncidentCreationAlertRuleResult, GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs } from "./getMicrosoftSecurityIncidentCreationAlertRule";
 export const getMicrosoftSecurityIncidentCreationAlertRule: typeof import("./getMicrosoftSecurityIncidentCreationAlertRule").getMicrosoftSecurityIncidentCreationAlertRule = null as any;
 export const getMicrosoftSecurityIncidentCreationAlertRuleOutput: typeof import("./getMicrosoftSecurityIncidentCreationAlertRule").getMicrosoftSecurityIncidentCreationAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getMicrosoftSecurityIncidentCreationAlertRule","getMicrosoftSecurityIncidentCreationAlertRuleOutput"], () => require("./getMicrosoftSecurityIncidentCreationAlertRule"));
 
 export { GetOfficeDataConnectorArgs, GetOfficeDataConnectorResult, GetOfficeDataConnectorOutputArgs } from "./getOfficeDataConnector";
 export const getOfficeDataConnector: typeof import("./getOfficeDataConnector").getOfficeDataConnector = null as any;
 export const getOfficeDataConnectorOutput: typeof import("./getOfficeDataConnector").getOfficeDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getOfficeDataConnector","getOfficeDataConnectorOutput"], () => require("./getOfficeDataConnector"));
 
 export { GetScheduledAlertRuleArgs, GetScheduledAlertRuleResult, GetScheduledAlertRuleOutputArgs } from "./getScheduledAlertRule";
 export const getScheduledAlertRule: typeof import("./getScheduledAlertRule").getScheduledAlertRule = null as any;
 export const getScheduledAlertRuleOutput: typeof import("./getScheduledAlertRule").getScheduledAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledAlertRule","getScheduledAlertRuleOutput"], () => require("./getScheduledAlertRule"));
 
 export { GetTIDataConnectorArgs, GetTIDataConnectorResult, GetTIDataConnectorOutputArgs } from "./getTIDataConnector";
 export const getTIDataConnector: typeof import("./getTIDataConnector").getTIDataConnector = null as any;
 export const getTIDataConnectorOutput: typeof import("./getTIDataConnector").getTIDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getTIDataConnector","getTIDataConnectorOutput"], () => require("./getTIDataConnector"));
 
 export { IncidentArgs } from "./incident";
 export type Incident = import("./incident").Incident;
 export const Incident: typeof import("./incident").Incident = null as any;
+utilities.lazyLoad(exports, ["Incident"], () => require("./incident"));
 
 export { MCASDataConnectorArgs } from "./mcasdataConnector";
 export type MCASDataConnector = import("./mcasdataConnector").MCASDataConnector;
 export const MCASDataConnector: typeof import("./mcasdataConnector").MCASDataConnector = null as any;
+utilities.lazyLoad(exports, ["MCASDataConnector"], () => require("./mcasdataConnector"));
 
 export { MDATPDataConnectorArgs } from "./mdatpdataConnector";
 export type MDATPDataConnector = import("./mdatpdataConnector").MDATPDataConnector;
 export const MDATPDataConnector: typeof import("./mdatpdataConnector").MDATPDataConnector = null as any;
+utilities.lazyLoad(exports, ["MDATPDataConnector"], () => require("./mdatpdataConnector"));
 
 export { MicrosoftSecurityIncidentCreationAlertRuleArgs } from "./microsoftSecurityIncidentCreationAlertRule";
 export type MicrosoftSecurityIncidentCreationAlertRule = import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule;
 export const MicrosoftSecurityIncidentCreationAlertRule: typeof import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule = null as any;
+utilities.lazyLoad(exports, ["MicrosoftSecurityIncidentCreationAlertRule"], () => require("./microsoftSecurityIncidentCreationAlertRule"));
 
 export { OfficeDataConnectorArgs } from "./officeDataConnector";
 export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConnector;
 export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
+utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
 
 export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
 export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
 export const ScheduledAlertRule: typeof import("./scheduledAlertRule").ScheduledAlertRule = null as any;
+utilities.lazyLoad(exports, ["ScheduledAlertRule"], () => require("./scheduledAlertRule"));
 
 export { TIDataConnectorArgs } from "./tidataConnector";
 export type TIDataConnector = import("./tidataConnector").TIDataConnector;
 export const TIDataConnector: typeof import("./tidataConnector").TIDataConnector = null as any;
-
-utilities.lazyLoad(exports, ["AADDataConnector"], () => require("./aaddataConnector"));
-utilities.lazyLoad(exports, ["AATPDataConnector"], () => require("./aatpdataConnector"));
-utilities.lazyLoad(exports, ["Action"], () => require("./action"));
-utilities.lazyLoad(exports, ["AlertRule"], () => require("./alertRule"));
-utilities.lazyLoad(exports, ["ASCDataConnector"], () => require("./ascdataConnector"));
-utilities.lazyLoad(exports, ["AwsCloudTrailDataConnector"], () => require("./awsCloudTrailDataConnector"));
-utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
-utilities.lazyLoad(exports, ["DataConnector"], () => require("./dataConnector"));
-utilities.lazyLoad(exports, ["FusionAlertRule"], () => require("./fusionAlertRule"));
-utilities.lazyLoad(exports, ["getAADDataConnector","getAADDataConnectorOutput"], () => require("./getAADDataConnector"));
-utilities.lazyLoad(exports, ["getAATPDataConnector","getAATPDataConnectorOutput"], () => require("./getAATPDataConnector"));
-utilities.lazyLoad(exports, ["getASCDataConnector","getASCDataConnectorOutput"], () => require("./getASCDataConnector"));
-utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
-utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
-utilities.lazyLoad(exports, ["getAwsCloudTrailDataConnector","getAwsCloudTrailDataConnectorOutput"], () => require("./getAwsCloudTrailDataConnector"));
-utilities.lazyLoad(exports, ["getBookmark","getBookmarkOutput"], () => require("./getBookmark"));
-utilities.lazyLoad(exports, ["getDataConnector","getDataConnectorOutput"], () => require("./getDataConnector"));
-utilities.lazyLoad(exports, ["getFusionAlertRule","getFusionAlertRuleOutput"], () => require("./getFusionAlertRule"));
-utilities.lazyLoad(exports, ["getIncident","getIncidentOutput"], () => require("./getIncident"));
-utilities.lazyLoad(exports, ["getMCASDataConnector","getMCASDataConnectorOutput"], () => require("./getMCASDataConnector"));
-utilities.lazyLoad(exports, ["getMDATPDataConnector","getMDATPDataConnectorOutput"], () => require("./getMDATPDataConnector"));
-utilities.lazyLoad(exports, ["getMicrosoftSecurityIncidentCreationAlertRule","getMicrosoftSecurityIncidentCreationAlertRuleOutput"], () => require("./getMicrosoftSecurityIncidentCreationAlertRule"));
-utilities.lazyLoad(exports, ["getOfficeDataConnector","getOfficeDataConnectorOutput"], () => require("./getOfficeDataConnector"));
-utilities.lazyLoad(exports, ["getScheduledAlertRule","getScheduledAlertRuleOutput"], () => require("./getScheduledAlertRule"));
-utilities.lazyLoad(exports, ["getTIDataConnector","getTIDataConnectorOutput"], () => require("./getTIDataConnector"));
-utilities.lazyLoad(exports, ["Incident"], () => require("./incident"));
-utilities.lazyLoad(exports, ["MCASDataConnector"], () => require("./mcasdataConnector"));
-utilities.lazyLoad(exports, ["MDATPDataConnector"], () => require("./mdatpdataConnector"));
-utilities.lazyLoad(exports, ["MicrosoftSecurityIncidentCreationAlertRule"], () => require("./microsoftSecurityIncidentCreationAlertRule"));
-utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
-utilities.lazyLoad(exports, ["ScheduledAlertRule"], () => require("./scheduledAlertRule"));
 utilities.lazyLoad(exports, ["TIDataConnector"], () => require("./tidataConnector"));
+
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20200101";

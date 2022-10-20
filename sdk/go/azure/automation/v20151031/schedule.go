@@ -64,9 +64,6 @@ func NewSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:automation/v20200113preview:Schedule"),
 		},
-		{
-			Type: pulumi.String("azure-native:automation/v20220808:Schedule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Schedule

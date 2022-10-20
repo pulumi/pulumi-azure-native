@@ -205,7 +205,7 @@ export class Metadata extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Metadata" }, { type: "azure-native:securityinsights/v20210301preview:Metadata" }, { type: "azure-native:securityinsights/v20210901preview:Metadata" }, { type: "azure-native:securityinsights/v20211001preview:Metadata" }, { type: "azure-native:securityinsights/v20220101preview:Metadata" }, { type: "azure-native:securityinsights/v20220401preview:Metadata" }, { type: "azure-native:securityinsights/v20220501preview:Metadata" }, { type: "azure-native:securityinsights/v20220601preview:Metadata" }, { type: "azure-native:securityinsights/v20220801preview:Metadata" }, { type: "azure-native:securityinsights/v20220901preview:Metadata" }, { type: "azure-native:securityinsights/v20221001preview:Metadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Metadata" }, { type: "azure-native:securityinsights/v20210301preview:Metadata" }, { type: "azure-native:securityinsights/v20210901preview:Metadata" }, { type: "azure-native:securityinsights/v20211001preview:Metadata" }, { type: "azure-native:securityinsights/v20220101preview:Metadata" }, { type: "azure-native:securityinsights/v20220401preview:Metadata" }, { type: "azure-native:securityinsights/v20220501preview:Metadata" }, { type: "azure-native:securityinsights/v20220601preview:Metadata" }, { type: "azure-native:securityinsights/v20220801preview:Metadata" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Metadata.__pulumiType, name, resourceInputs, opts);
     }

@@ -8,38 +8,38 @@ import * as utilities from "../../utilities";
 export { GetPatchScheduleArgs, GetPatchScheduleResult, GetPatchScheduleOutputArgs } from "./getPatchSchedule";
 export const getPatchSchedule: typeof import("./getPatchSchedule").getPatchSchedule = null as any;
 export const getPatchScheduleOutput: typeof import("./getPatchSchedule").getPatchScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getPatchSchedule","getPatchScheduleOutput"], () => require("./getPatchSchedule"));
 
 export { GetRedisArgs, GetRedisResult, GetRedisOutputArgs } from "./getRedis";
 export const getRedis: typeof import("./getRedis").getRedis = null as any;
 export const getRedisOutput: typeof import("./getRedis").getRedisOutput = null as any;
+utilities.lazyLoad(exports, ["getRedis","getRedisOutput"], () => require("./getRedis"));
 
 export { GetRedisFirewallRuleArgs, GetRedisFirewallRuleResult, GetRedisFirewallRuleOutputArgs } from "./getRedisFirewallRule";
 export const getRedisFirewallRule: typeof import("./getRedisFirewallRule").getRedisFirewallRule = null as any;
 export const getRedisFirewallRuleOutput: typeof import("./getRedisFirewallRule").getRedisFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getRedisFirewallRule","getRedisFirewallRuleOutput"], () => require("./getRedisFirewallRule"));
 
 export { ListRedisKeysArgs, ListRedisKeysResult, ListRedisKeysOutputArgs } from "./listRedisKeys";
 export const listRedisKeys: typeof import("./listRedisKeys").listRedisKeys = null as any;
 export const listRedisKeysOutput: typeof import("./listRedisKeys").listRedisKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listRedisKeys","listRedisKeysOutput"], () => require("./listRedisKeys"));
 
 export { PatchScheduleArgs } from "./patchSchedule";
 export type PatchSchedule = import("./patchSchedule").PatchSchedule;
 export const PatchSchedule: typeof import("./patchSchedule").PatchSchedule = null as any;
+utilities.lazyLoad(exports, ["PatchSchedule"], () => require("./patchSchedule"));
 
 export { RedisArgs } from "./redis";
 export type Redis = import("./redis").Redis;
 export const Redis: typeof import("./redis").Redis = null as any;
+utilities.lazyLoad(exports, ["Redis"], () => require("./redis"));
 
 export { RedisFirewallRuleArgs } from "./redisFirewallRule";
 export type RedisFirewallRule = import("./redisFirewallRule").RedisFirewallRule;
 export const RedisFirewallRule: typeof import("./redisFirewallRule").RedisFirewallRule = null as any;
-
-utilities.lazyLoad(exports, ["getPatchSchedule","getPatchScheduleOutput"], () => require("./getPatchSchedule"));
-utilities.lazyLoad(exports, ["getRedis","getRedisOutput"], () => require("./getRedis"));
-utilities.lazyLoad(exports, ["getRedisFirewallRule","getRedisFirewallRuleOutput"], () => require("./getRedisFirewallRule"));
-utilities.lazyLoad(exports, ["listRedisKeys","listRedisKeysOutput"], () => require("./listRedisKeys"));
-utilities.lazyLoad(exports, ["PatchSchedule"], () => require("./patchSchedule"));
-utilities.lazyLoad(exports, ["Redis"], () => require("./redis"));
 utilities.lazyLoad(exports, ["RedisFirewallRule"], () => require("./redisFirewallRule"));
+
 
 // Export enums:
 export * from "../../types/enums/cache/v20160401";

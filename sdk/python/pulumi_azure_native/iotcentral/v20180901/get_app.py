@@ -24,16 +24,13 @@ class GetAppResult:
     """
     The IoT Central application.
     """
-    def __init__(__self__, application_id=None, display_name=None, geography=None, id=None, location=None, name=None, sku=None, state=None, subdomain=None, tags=None, template=None, tenant=None, thumbnail_url=None, type=None):
+    def __init__(__self__, application_id=None, display_name=None, id=None, location=None, name=None, sku=None, subdomain=None, tags=None, template=None, type=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
-        if geography and not isinstance(geography, str):
-            raise TypeError("Expected argument 'geography' to be a str")
-        pulumi.set(__self__, "geography", geography)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,9 +43,6 @@ class GetAppResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
         if subdomain and not isinstance(subdomain, str):
             raise TypeError("Expected argument 'subdomain' to be a str")
         pulumi.set(__self__, "subdomain", subdomain)
@@ -58,12 +52,6 @@ class GetAppResult:
         if template and not isinstance(template, str):
             raise TypeError("Expected argument 'template' to be a str")
         pulumi.set(__self__, "template", template)
-        if tenant and not isinstance(tenant, str):
-            raise TypeError("Expected argument 'tenant' to be a str")
-        pulumi.set(__self__, "tenant", tenant)
-        if thumbnail_url and not isinstance(thumbnail_url, str):
-            raise TypeError("Expected argument 'thumbnail_url' to be a str")
-        pulumi.set(__self__, "thumbnail_url", thumbnail_url)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -83,14 +71,6 @@ class GetAppResult:
         The display name of the application.
         """
         return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def geography(self) -> str:
-        """
-        The geography the application is in.
-        """
-        return pulumi.get(self, "geography")
 
     @property
     @pulumi.getter
@@ -126,14 +106,6 @@ class GetAppResult:
 
     @property
     @pulumi.getter
-    def state(self) -> str:
-        """
-        The current state of the application.
-        """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter
     def subdomain(self) -> Optional[str]:
         """
         The subdomain of the application.
@@ -158,22 +130,6 @@ class GetAppResult:
 
     @property
     @pulumi.getter
-    def tenant(self) -> str:
-        """
-        The tenant ID the application belongs to.
-        """
-        return pulumi.get(self, "tenant")
-
-    @property
-    @pulumi.getter(name="thumbnailUrl")
-    def thumbnail_url(self) -> str:
-        """
-        The URI for the thumbnail image used in the application.
-        """
-        return pulumi.get(self, "thumbnail_url")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         The resource type.
@@ -189,17 +145,13 @@ class AwaitableGetAppResult(GetAppResult):
         return GetAppResult(
             application_id=self.application_id,
             display_name=self.display_name,
-            geography=self.geography,
             id=self.id,
             location=self.location,
             name=self.name,
             sku=self.sku,
-            state=self.state,
             subdomain=self.subdomain,
             tags=self.tags,
             template=self.template,
-            tenant=self.tenant,
-            thumbnail_url=self.thumbnail_url,
             type=self.type)
 
 
@@ -223,17 +175,13 @@ def get_app(resource_group_name: Optional[str] = None,
     return AwaitableGetAppResult(
         application_id=__ret__.application_id,
         display_name=__ret__.display_name,
-        geography=__ret__.geography,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,
-        state=__ret__.state,
         subdomain=__ret__.subdomain,
         tags=__ret__.tags,
         template=__ret__.template,
-        tenant=__ret__.tenant,
-        thumbnail_url=__ret__.thumbnail_url,
         type=__ret__.type)
 
 

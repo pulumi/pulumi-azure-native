@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetScheduledQueryRuleArgs, GetScheduledQueryRuleResult, GetScheduledQueryRuleOutputArgs } from "./getScheduledQueryRule";
 export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").getScheduledQueryRule = null as any;
 export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
 
 export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
 export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
 export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
 
 export { ScheduledQueryRuleArgs } from "./scheduledQueryRule";
 export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRule;
 export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
+utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
 
 export { WorkbookArgs } from "./workbook";
 export type Workbook = import("./workbook").Workbook;
 export const Workbook: typeof import("./workbook").Workbook = null as any;
-
-utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
-utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
-utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
 utilities.lazyLoad(exports, ["Workbook"], () => require("./workbook"));
+
 
 // Export enums:
 export * from "../../types/enums/insights/v20210801";

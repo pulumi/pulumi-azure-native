@@ -178,7 +178,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
             __props__.__dict__["policy_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20180330preview:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20180601preview:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20180701:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20200501:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20210601:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20211101:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20220801:ContentKeyPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20180330preview:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20180601preview:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20180701:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20200501:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20210601:ContentKeyPolicy"), pulumi.Alias(type_="azure-native:media/v20211101:ContentKeyPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContentKeyPolicy, __self__).__init__(
             'azure-native:media:ContentKeyPolicy',

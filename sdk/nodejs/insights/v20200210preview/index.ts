@@ -7,5 +7,5 @@ import * as utilities from "../../utilities";
 export { GetTestResultFileArgs, GetTestResultFileResult, GetTestResultFileOutputArgs } from "./getTestResultFile";
 export const getTestResultFile: typeof import("./getTestResultFile").getTestResultFile = null as any;
 export const getTestResultFileOutput: typeof import("./getTestResultFile").getTestResultFileOutput = null as any;
-
 utilities.lazyLoad(exports, ["getTestResultFile","getTestResultFileOutput"], () => require("./getTestResultFile"));
+

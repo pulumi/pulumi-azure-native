@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         public Output<string?> AvsDataStore { get; private set; } = null!;
 
         /// <summary>
+        /// UUID v4 or resource identifier used to identify the Backup.
+        /// </summary>
+        [Output("backupId")]
+        public Output<string?> BackupId { get; private set; } = null!;
+
+        /// <summary>
         /// Unique Baremetal Tenant Identifier.
         /// </summary>
         [Output("baremetalTenantId")]
@@ -226,6 +232,12 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
 
         /// <summary>
+        /// UUID v4 or resource identifier used to identify the Snapshot.
+        /// </summary>
+        [Output("snapshotId")]
+        public Output<string?> SnapshotId { get; private set; } = null!;
+
+        /// <summary>
         /// Provides storage to network proximity information for the volume.
         /// </summary>
         [Output("storageToNetworkProximity")]
@@ -271,7 +283,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         public Output<string?> UnixPermissions { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         /// </summary>
         [Output("usageThreshold")]
         public Output<double> UsageThreshold { get; private set; } = null!;
@@ -349,7 +361,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Volume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -593,7 +604,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         public Input<string>? UnixPermissions { get; set; }
 
         /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         /// </summary>
         [Input("usageThreshold", required: true)]
         public Input<double> UsageThreshold { get; set; } = null!;

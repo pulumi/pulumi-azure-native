@@ -47,6 +47,9 @@ func NewSite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:mobilenetwork:Site"),
 		},
 		{
+			Type: pulumi.String("azure-native:mobilenetwork/v20220101preview:Site"),
+		},
+		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220301preview:Site"),
 		},
 	})

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// Connectivity endpoints
         /// </summary>
         [Output("connectivityEndpoints")]
-        public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> ConnectivityEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Initial workspace AAD admin properties for a CSP subscription
@@ -231,6 +231,18 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         [Input("azureADOnlyAuthentication")]
         public Input<bool>? AzureADOnlyAuthentication { get; set; }
+
+        [Input("connectivityEndpoints")]
+        private InputMap<string>? _connectivityEndpoints;
+
+        /// <summary>
+        /// Connectivity endpoints
+        /// </summary>
+        public InputMap<string> ConnectivityEndpoints
+        {
+            get => _connectivityEndpoints ?? (_connectivityEndpoints = new InputMap<string>());
+            set => _connectivityEndpoints = value;
+        }
 
         /// <summary>
         /// Initial workspace AAD admin properties for a CSP subscription

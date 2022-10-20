@@ -150,7 +150,7 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20220101:ManagementGroupNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ManagementGroupNetworkManagerConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20220101:ManagementGroupNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroupNetworkManagerConnection, __self__).__init__(
             'azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection',

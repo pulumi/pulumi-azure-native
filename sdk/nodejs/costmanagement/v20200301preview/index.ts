@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { CostAllocationRuleArgs } from "./costAllocationRule";
 export type CostAllocationRule = import("./costAllocationRule").CostAllocationRule;
 export const CostAllocationRule: typeof import("./costAllocationRule").CostAllocationRule = null as any;
+utilities.lazyLoad(exports, ["CostAllocationRule"], () => require("./costAllocationRule"));
 
 export { GetCostAllocationRuleArgs, GetCostAllocationRuleResult, GetCostAllocationRuleOutputArgs } from "./getCostAllocationRule";
 export const getCostAllocationRule: typeof import("./getCostAllocationRule").getCostAllocationRule = null as any;
 export const getCostAllocationRuleOutput: typeof import("./getCostAllocationRule").getCostAllocationRuleOutput = null as any;
-
-utilities.lazyLoad(exports, ["CostAllocationRule"], () => require("./costAllocationRule"));
 utilities.lazyLoad(exports, ["getCostAllocationRule","getCostAllocationRuleOutput"], () => require("./getCostAllocationRule"));
+
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20200301preview";

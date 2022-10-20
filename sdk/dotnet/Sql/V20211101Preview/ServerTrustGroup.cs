@@ -73,7 +73,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerTrustGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerTrustGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerTrustGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ServerTrustGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -49,9 +49,6 @@ func NewBuildServiceBuilder(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:appplatform/v20220501preview:BuildServiceBuilder"),
 		},
-		{
-			Type: pulumi.String("azure-native:appplatform/v20220901preview:BuildServiceBuilder"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource BuildServiceBuilder

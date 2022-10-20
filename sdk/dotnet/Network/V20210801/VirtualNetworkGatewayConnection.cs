@@ -266,7 +266,6 @@ namespace Pulumi.AzureNative.Network.V20210801
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkGatewayConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualNetworkGatewayConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkGatewayConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualNetworkGatewayConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -89,7 +89,7 @@ export class Track extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:Track" }, { type: "azure-native:media/v20220801:Track" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:Track" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Track.__pulumiType, name, resourceInputs, opts);
     }

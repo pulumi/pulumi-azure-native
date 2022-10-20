@@ -29,12 +29,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The geography the application is in.
-        /// </summary>
-        [Output("geography")]
-        public Output<string> Geography { get; private set; } = null!;
-
-        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -53,12 +47,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
         public Output<Outputs.AppSkuInfoResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the application.
-        /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
-
-        /// <summary>
         /// The subdomain of the application.
         /// </summary>
         [Output("subdomain")]
@@ -75,18 +63,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
         /// </summary>
         [Output("template")]
         public Output<string?> Template { get; private set; } = null!;
-
-        /// <summary>
-        /// The tenant ID the application belongs to.
-        /// </summary>
-        [Output("tenant")]
-        public Output<string> Tenant { get; private set; } = null!;
-
-        /// <summary>
-        /// The URI for the thumbnail image used in the application.
-        /// </summary>
-        [Output("thumbnailUrl")]
-        public Output<string> ThumbnailUrl { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

@@ -61,12 +61,6 @@ func NewArcSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:azurestackhci/v20220501:ArcSetting"),
 		},
-		{
-			Type: pulumi.String("azure-native:azurestackhci/v20220901:ArcSetting"),
-		},
-		{
-			Type: pulumi.String("azure-native:azurestackhci/v20221001:ArcSetting"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ArcSetting

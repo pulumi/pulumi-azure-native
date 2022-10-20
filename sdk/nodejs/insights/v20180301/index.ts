@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { ActionGroupArgs } from "./actionGroup";
 export type ActionGroup = import("./actionGroup").ActionGroup;
 export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
+utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
 
 export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
 export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
 export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
 
 export { GetMetricAlertArgs, GetMetricAlertResult, GetMetricAlertOutputArgs } from "./getMetricAlert";
 export const getMetricAlert: typeof import("./getMetricAlert").getMetricAlert = null as any;
 export const getMetricAlertOutput: typeof import("./getMetricAlert").getMetricAlertOutput = null as any;
+utilities.lazyLoad(exports, ["getMetricAlert","getMetricAlertOutput"], () => require("./getMetricAlert"));
 
 export { MetricAlertArgs } from "./metricAlert";
 export type MetricAlert = import("./metricAlert").MetricAlert;
 export const MetricAlert: typeof import("./metricAlert").MetricAlert = null as any;
-
-utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
-utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
-utilities.lazyLoad(exports, ["getMetricAlert","getMetricAlertOutput"], () => require("./getMetricAlert"));
 utilities.lazyLoad(exports, ["MetricAlert"], () => require("./metricAlert"));
+
 
 // Export enums:
 export * from "../../types/enums/insights/v20180301";

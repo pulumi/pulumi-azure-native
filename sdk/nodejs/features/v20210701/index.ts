@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetSubscriptionFeatureRegistrationArgs, GetSubscriptionFeatureRegistrationResult, GetSubscriptionFeatureRegistrationOutputArgs } from "./getSubscriptionFeatureRegistration";
 export const getSubscriptionFeatureRegistration: typeof import("./getSubscriptionFeatureRegistration").getSubscriptionFeatureRegistration = null as any;
 export const getSubscriptionFeatureRegistrationOutput: typeof import("./getSubscriptionFeatureRegistration").getSubscriptionFeatureRegistrationOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionFeatureRegistration","getSubscriptionFeatureRegistrationOutput"], () => require("./getSubscriptionFeatureRegistration"));
 
 export { SubscriptionFeatureRegistrationArgs } from "./subscriptionFeatureRegistration";
 export type SubscriptionFeatureRegistration = import("./subscriptionFeatureRegistration").SubscriptionFeatureRegistration;
 export const SubscriptionFeatureRegistration: typeof import("./subscriptionFeatureRegistration").SubscriptionFeatureRegistration = null as any;
-
-utilities.lazyLoad(exports, ["getSubscriptionFeatureRegistration","getSubscriptionFeatureRegistrationOutput"], () => require("./getSubscriptionFeatureRegistration"));
 utilities.lazyLoad(exports, ["SubscriptionFeatureRegistration"], () => require("./subscriptionFeatureRegistration"));
+
 
 // Export enums:
 export * from "../../types/enums/features/v20210701";

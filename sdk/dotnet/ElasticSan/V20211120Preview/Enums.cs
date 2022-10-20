@@ -74,11 +74,11 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     /// The sku name.
     /// </summary>
     [EnumType]
-    public readonly struct SkuName : IEquatable<SkuName>
+    public readonly struct Name : IEquatable<Name>
     {
         private readonly string _value;
 
-        private SkuName(string value)
+        private Name(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -86,53 +86,20 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// <summary>
         /// Premium locally redundant storage
         /// </summary>
-        public static SkuName Premium_LRS { get; } = new SkuName("Premium_LRS");
+        public static Name Premium_LRS { get; } = new Name("Premium_LRS");
         /// <summary>
         /// Premium zone redundant storage
         /// </summary>
-        public static SkuName Premium_ZRS { get; } = new SkuName("Premium_ZRS");
+        public static Name Premium_ZRS { get; } = new Name("Premium_ZRS");
 
-        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
-        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+        public static bool operator ==(Name left, Name right) => left.Equals(right);
+        public static bool operator !=(Name left, Name right) => !left.Equals(right);
 
-        public static explicit operator string(SkuName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
-        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(Name value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The sku tier.
-    /// </summary>
-    [EnumType]
-    public readonly struct SkuTier : IEquatable<SkuTier>
-    {
-        private readonly string _value;
-
-        private SkuTier(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Premium Tier
-        /// </summary>
-        public static SkuTier Premium { get; } = new SkuTier("Premium");
-
-        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
-        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
-
-        public static explicit operator string(SkuTier value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
-        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Name other && Equals(other);
+        public bool Equals(Name other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -164,6 +131,39 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageTargetType other && Equals(other);
         public bool Equals(StorageTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The sku tier.
+    /// </summary>
+    [EnumType]
+    public readonly struct Tier : IEquatable<Tier>
+    {
+        private readonly string _value;
+
+        private Tier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Premium Tier
+        /// </summary>
+        public static Tier Premium { get; } = new Tier("Premium");
+
+        public static bool operator ==(Tier left, Tier right) => left.Equals(right);
+        public static bool operator !=(Tier left, Tier right) => !left.Equals(right);
+
+        public static explicit operator string(Tier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Tier other && Equals(other);
+        public bool Equals(Tier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

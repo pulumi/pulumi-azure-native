@@ -29,9 +29,9 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The list of user identities associated with the container group.
+        /// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponse>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.ContainerGroupIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ContainerGroupIdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponse>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.ContainerGroupIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

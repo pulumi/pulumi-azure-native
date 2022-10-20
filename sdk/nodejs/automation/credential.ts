@@ -105,7 +105,7 @@ export class Credential extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Credential" }, { type: "azure-native:automation/v20190601:Credential" }, { type: "azure-native:automation/v20200113preview:Credential" }, { type: "azure-native:automation/v20220808:Credential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Credential" }, { type: "azure-native:automation/v20190601:Credential" }, { type: "azure-native:automation/v20200113preview:Credential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Credential.__pulumiType, name, resourceInputs, opts);
     }

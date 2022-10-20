@@ -8,28 +8,28 @@ import * as utilities from "../../utilities";
 export { FederatedIdentityCredentialArgs } from "./federatedIdentityCredential";
 export type FederatedIdentityCredential = import("./federatedIdentityCredential").FederatedIdentityCredential;
 export const FederatedIdentityCredential: typeof import("./federatedIdentityCredential").FederatedIdentityCredential = null as any;
+utilities.lazyLoad(exports, ["FederatedIdentityCredential"], () => require("./federatedIdentityCredential"));
 
 export { GetFederatedIdentityCredentialArgs, GetFederatedIdentityCredentialResult, GetFederatedIdentityCredentialOutputArgs } from "./getFederatedIdentityCredential";
 export const getFederatedIdentityCredential: typeof import("./getFederatedIdentityCredential").getFederatedIdentityCredential = null as any;
 export const getFederatedIdentityCredentialOutput: typeof import("./getFederatedIdentityCredential").getFederatedIdentityCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedIdentityCredential","getFederatedIdentityCredentialOutput"], () => require("./getFederatedIdentityCredential"));
 
 export { GetUserAssignedIdentityArgs, GetUserAssignedIdentityResult, GetUserAssignedIdentityOutputArgs } from "./getUserAssignedIdentity";
 export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity").getUserAssignedIdentity = null as any;
 export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
 
 export { ListUserAssignedIdentityAssociatedResourcesArgs, ListUserAssignedIdentityAssociatedResourcesResult, ListUserAssignedIdentityAssociatedResourcesOutputArgs } from "./listUserAssignedIdentityAssociatedResources";
 export const listUserAssignedIdentityAssociatedResources: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResources = null as any;
 export const listUserAssignedIdentityAssociatedResourcesOutput: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResourcesOutput = null as any;
+utilities.lazyLoad(exports, ["listUserAssignedIdentityAssociatedResources","listUserAssignedIdentityAssociatedResourcesOutput"], () => require("./listUserAssignedIdentityAssociatedResources"));
 
 export { UserAssignedIdentityArgs } from "./userAssignedIdentity";
 export type UserAssignedIdentity = import("./userAssignedIdentity").UserAssignedIdentity;
 export const UserAssignedIdentity: typeof import("./userAssignedIdentity").UserAssignedIdentity = null as any;
-
-utilities.lazyLoad(exports, ["FederatedIdentityCredential"], () => require("./federatedIdentityCredential"));
-utilities.lazyLoad(exports, ["getFederatedIdentityCredential","getFederatedIdentityCredentialOutput"], () => require("./getFederatedIdentityCredential"));
-utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
-utilities.lazyLoad(exports, ["listUserAssignedIdentityAssociatedResources","listUserAssignedIdentityAssociatedResourcesOutput"], () => require("./listUserAssignedIdentityAssociatedResources"));
 utilities.lazyLoad(exports, ["UserAssignedIdentity"], () => require("./userAssignedIdentity"));
+
 
 const _module = {
     version: utilities.getVersion(),

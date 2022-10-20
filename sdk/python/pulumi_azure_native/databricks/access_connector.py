@@ -173,7 +173,7 @@ class AccessConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20220401preview:AccessConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20220401preview:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20221001preview:AccessConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessConnector, __self__).__init__(
             'azure-native:databricks:AccessConnector',

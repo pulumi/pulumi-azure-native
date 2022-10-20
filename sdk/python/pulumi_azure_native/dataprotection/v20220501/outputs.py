@@ -813,8 +813,6 @@ class BackupVaultResponse(dict):
             suggest = "resource_move_state"
         elif key == "storageSettings":
             suggest = "storage_settings"
-        elif key == "isVaultProtectedByResourceGuard":
-            suggest = "is_vault_protected_by_resource_guard"
         elif key == "monitoringSettings":
             suggest = "monitoring_settings"
 
@@ -834,7 +832,6 @@ class BackupVaultResponse(dict):
                  resource_move_details: 'outputs.ResourceMoveDetailsResponse',
                  resource_move_state: str,
                  storage_settings: Sequence['outputs.StorageSettingResponse'],
-                 is_vault_protected_by_resource_guard: Optional[bool] = None,
                  monitoring_settings: Optional['outputs.MonitoringSettingsResponse'] = None):
         """
         Backup Vault
@@ -842,15 +839,12 @@ class BackupVaultResponse(dict):
         :param 'ResourceMoveDetailsResponse' resource_move_details: Resource move details for backup vault
         :param str resource_move_state: Resource move state for backup vault
         :param Sequence['StorageSettingResponse'] storage_settings: Storage Settings
-        :param bool is_vault_protected_by_resource_guard: Is vault protected by resource guard
         :param 'MonitoringSettingsResponse' monitoring_settings: Monitoring Settings
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "resource_move_details", resource_move_details)
         pulumi.set(__self__, "resource_move_state", resource_move_state)
         pulumi.set(__self__, "storage_settings", storage_settings)
-        if is_vault_protected_by_resource_guard is not None:
-            pulumi.set(__self__, "is_vault_protected_by_resource_guard", is_vault_protected_by_resource_guard)
         if monitoring_settings is not None:
             pulumi.set(__self__, "monitoring_settings", monitoring_settings)
 
@@ -885,14 +879,6 @@ class BackupVaultResponse(dict):
         Storage Settings
         """
         return pulumi.get(self, "storage_settings")
-
-    @property
-    @pulumi.getter(name="isVaultProtectedByResourceGuard")
-    def is_vault_protected_by_resource_guard(self) -> Optional[bool]:
-        """
-        Is vault protected by resource guard
-        """
-        return pulumi.get(self, "is_vault_protected_by_resource_guard")
 
     @property
     @pulumi.getter(name="monitoringSettings")

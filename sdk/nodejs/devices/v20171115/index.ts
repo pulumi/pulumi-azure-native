@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { DpsCertificateArgs } from "./dpsCertificate";
 export type DpsCertificate = import("./dpsCertificate").DpsCertificate;
 export const DpsCertificate: typeof import("./dpsCertificate").DpsCertificate = null as any;
+utilities.lazyLoad(exports, ["DpsCertificate"], () => require("./dpsCertificate"));
 
 export { GetDpsCertificateArgs, GetDpsCertificateResult, GetDpsCertificateOutputArgs } from "./getDpsCertificate";
 export const getDpsCertificate: typeof import("./getDpsCertificate").getDpsCertificate = null as any;
 export const getDpsCertificateOutput: typeof import("./getDpsCertificate").getDpsCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getDpsCertificate","getDpsCertificateOutput"], () => require("./getDpsCertificate"));
 
 export { GetIotDpsResourceArgs, GetIotDpsResourceResult, GetIotDpsResourceOutputArgs } from "./getIotDpsResource";
 export const getIotDpsResource: typeof import("./getIotDpsResource").getIotDpsResource = null as any;
 export const getIotDpsResourceOutput: typeof import("./getIotDpsResource").getIotDpsResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getIotDpsResource","getIotDpsResourceOutput"], () => require("./getIotDpsResource"));
 
 export { IotDpsResourceArgs } from "./iotDpsResource";
 export type IotDpsResource = import("./iotDpsResource").IotDpsResource;
 export const IotDpsResource: typeof import("./iotDpsResource").IotDpsResource = null as any;
+utilities.lazyLoad(exports, ["IotDpsResource"], () => require("./iotDpsResource"));
 
 export { ListIotDpsResourceKeysArgs, ListIotDpsResourceKeysResult, ListIotDpsResourceKeysOutputArgs } from "./listIotDpsResourceKeys";
 export const listIotDpsResourceKeys: typeof import("./listIotDpsResourceKeys").listIotDpsResourceKeys = null as any;
 export const listIotDpsResourceKeysOutput: typeof import("./listIotDpsResourceKeys").listIotDpsResourceKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listIotDpsResourceKeys","listIotDpsResourceKeysOutput"], () => require("./listIotDpsResourceKeys"));
 
 export { ListIotDpsResourceKeysForKeyNameArgs, ListIotDpsResourceKeysForKeyNameResult, ListIotDpsResourceKeysForKeyNameOutputArgs } from "./listIotDpsResourceKeysForKeyName";
 export const listIotDpsResourceKeysForKeyName: typeof import("./listIotDpsResourceKeysForKeyName").listIotDpsResourceKeysForKeyName = null as any;
 export const listIotDpsResourceKeysForKeyNameOutput: typeof import("./listIotDpsResourceKeysForKeyName").listIotDpsResourceKeysForKeyNameOutput = null as any;
-
-utilities.lazyLoad(exports, ["DpsCertificate"], () => require("./dpsCertificate"));
-utilities.lazyLoad(exports, ["getDpsCertificate","getDpsCertificateOutput"], () => require("./getDpsCertificate"));
-utilities.lazyLoad(exports, ["getIotDpsResource","getIotDpsResourceOutput"], () => require("./getIotDpsResource"));
-utilities.lazyLoad(exports, ["IotDpsResource"], () => require("./iotDpsResource"));
-utilities.lazyLoad(exports, ["listIotDpsResourceKeys","listIotDpsResourceKeysOutput"], () => require("./listIotDpsResourceKeys"));
 utilities.lazyLoad(exports, ["listIotDpsResourceKeysForKeyName","listIotDpsResourceKeysForKeyNameOutput"], () => require("./listIotDpsResourceKeysForKeyName"));
+
 
 // Export enums:
 export * from "../../types/enums/devices/v20171115";

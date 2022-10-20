@@ -46,9 +46,6 @@ func NewAFDEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cdn/v20210601:AFDEndpoint"),
 		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20220501preview:AFDEndpoint"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AFDEndpoint

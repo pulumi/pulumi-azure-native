@@ -79,10 +79,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The geography the application is in.
-        /// </summary>
-        public readonly string Geography;
-        /// <summary>
         /// The ARM resource identifier.
         /// </summary>
         public readonly string Id;
@@ -99,10 +95,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
         /// </summary>
         public readonly Outputs.AppSkuInfoResponse Sku;
         /// <summary>
-        /// The current state of the application.
-        /// </summary>
-        public readonly string State;
-        /// <summary>
         /// The subdomain of the application.
         /// </summary>
         public readonly string? Subdomain;
@@ -115,14 +107,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
         /// </summary>
         public readonly string? Template;
         /// <summary>
-        /// The tenant ID the application belongs to.
-        /// </summary>
-        public readonly string Tenant;
-        /// <summary>
-        /// The URI for the thumbnail image used in the application.
-        /// </summary>
-        public readonly string ThumbnailUrl;
-        /// <summary>
         /// The resource type.
         /// </summary>
         public readonly string Type;
@@ -133,8 +117,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
 
             string? displayName,
 
-            string geography,
-
             string id,
 
             string location,
@@ -143,33 +125,23 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
 
             Outputs.AppSkuInfoResponse sku,
 
-            string state,
-
             string? subdomain,
 
             ImmutableDictionary<string, string>? tags,
 
             string? template,
 
-            string tenant,
-
-            string thumbnailUrl,
-
             string type)
         {
             ApplicationId = applicationId;
             DisplayName = displayName;
-            Geography = geography;
             Id = id;
             Location = location;
             Name = name;
             Sku = sku;
-            State = state;
             Subdomain = subdomain;
             Tags = tags;
             Template = template;
-            Tenant = tenant;
-            ThumbnailUrl = thumbnailUrl;
             Type = type;
         }
     }

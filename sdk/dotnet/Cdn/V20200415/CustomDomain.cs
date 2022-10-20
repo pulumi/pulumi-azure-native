@@ -108,7 +108,6 @@ namespace Pulumi.AzureNative.Cdn.V20200415
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

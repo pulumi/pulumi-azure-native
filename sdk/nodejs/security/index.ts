@@ -8,233 +8,233 @@ import * as utilities from "../utilities";
 export { AdaptiveApplicationControlArgs } from "./adaptiveApplicationControl";
 export type AdaptiveApplicationControl = import("./adaptiveApplicationControl").AdaptiveApplicationControl;
 export const AdaptiveApplicationControl: typeof import("./adaptiveApplicationControl").AdaptiveApplicationControl = null as any;
+utilities.lazyLoad(exports, ["AdaptiveApplicationControl"], () => require("./adaptiveApplicationControl"));
 
 export { AdvancedThreatProtectionArgs } from "./advancedThreatProtection";
 export type AdvancedThreatProtection = import("./advancedThreatProtection").AdvancedThreatProtection;
 export const AdvancedThreatProtection: typeof import("./advancedThreatProtection").AdvancedThreatProtection = null as any;
+utilities.lazyLoad(exports, ["AdvancedThreatProtection"], () => require("./advancedThreatProtection"));
 
 export { AlertsSuppressionRuleArgs } from "./alertsSuppressionRule";
 export type AlertsSuppressionRule = import("./alertsSuppressionRule").AlertsSuppressionRule;
 export const AlertsSuppressionRule: typeof import("./alertsSuppressionRule").AlertsSuppressionRule = null as any;
+utilities.lazyLoad(exports, ["AlertsSuppressionRule"], () => require("./alertsSuppressionRule"));
 
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { AssessmentArgs } from "./assessment";
 export type Assessment = import("./assessment").Assessment;
 export const Assessment: typeof import("./assessment").Assessment = null as any;
+utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
 
 export { AssessmentMetadataInSubscriptionArgs } from "./assessmentMetadataInSubscription";
 export type AssessmentMetadataInSubscription = import("./assessmentMetadataInSubscription").AssessmentMetadataInSubscription;
 export const AssessmentMetadataInSubscription: typeof import("./assessmentMetadataInSubscription").AssessmentMetadataInSubscription = null as any;
+utilities.lazyLoad(exports, ["AssessmentMetadataInSubscription"], () => require("./assessmentMetadataInSubscription"));
 
 export { AssignmentArgs } from "./assignment";
 export type Assignment = import("./assignment").Assignment;
 export const Assignment: typeof import("./assignment").Assignment = null as any;
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
 
 export { AutomationArgs } from "./automation";
 export type Automation = import("./automation").Automation;
 export const Automation: typeof import("./automation").Automation = null as any;
+utilities.lazyLoad(exports, ["Automation"], () => require("./automation"));
 
 export { ConnectorArgs } from "./connector";
 export type Connector = import("./connector").Connector;
 export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
 
 export { CustomAssessmentAutomationArgs } from "./customAssessmentAutomation";
 export type CustomAssessmentAutomation = import("./customAssessmentAutomation").CustomAssessmentAutomation;
 export const CustomAssessmentAutomation: typeof import("./customAssessmentAutomation").CustomAssessmentAutomation = null as any;
+utilities.lazyLoad(exports, ["CustomAssessmentAutomation"], () => require("./customAssessmentAutomation"));
 
 export { CustomEntityStoreAssignmentArgs } from "./customEntityStoreAssignment";
 export type CustomEntityStoreAssignment = import("./customEntityStoreAssignment").CustomEntityStoreAssignment;
 export const CustomEntityStoreAssignment: typeof import("./customEntityStoreAssignment").CustomEntityStoreAssignment = null as any;
+utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
 
 export { DeviceSecurityGroupArgs } from "./deviceSecurityGroup";
 export type DeviceSecurityGroup = import("./deviceSecurityGroup").DeviceSecurityGroup;
 export const DeviceSecurityGroup: typeof import("./deviceSecurityGroup").DeviceSecurityGroup = null as any;
+utilities.lazyLoad(exports, ["DeviceSecurityGroup"], () => require("./deviceSecurityGroup"));
 
 export { GetAdaptiveApplicationControlArgs, GetAdaptiveApplicationControlResult, GetAdaptiveApplicationControlOutputArgs } from "./getAdaptiveApplicationControl";
 export const getAdaptiveApplicationControl: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControl = null as any;
 export const getAdaptiveApplicationControlOutput: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControlOutput = null as any;
+utilities.lazyLoad(exports, ["getAdaptiveApplicationControl","getAdaptiveApplicationControlOutput"], () => require("./getAdaptiveApplicationControl"));
 
 export { GetAdvancedThreatProtectionArgs, GetAdvancedThreatProtectionResult, GetAdvancedThreatProtectionOutputArgs } from "./getAdvancedThreatProtection";
 export const getAdvancedThreatProtection: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtection = null as any;
 export const getAdvancedThreatProtectionOutput: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtectionOutput = null as any;
+utilities.lazyLoad(exports, ["getAdvancedThreatProtection","getAdvancedThreatProtectionOutput"], () => require("./getAdvancedThreatProtection"));
 
 export { GetAlertsSuppressionRuleArgs, GetAlertsSuppressionRuleResult, GetAlertsSuppressionRuleOutputArgs } from "./getAlertsSuppressionRule";
 export const getAlertsSuppressionRule: typeof import("./getAlertsSuppressionRule").getAlertsSuppressionRule = null as any;
 export const getAlertsSuppressionRuleOutput: typeof import("./getAlertsSuppressionRule").getAlertsSuppressionRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertsSuppressionRule","getAlertsSuppressionRuleOutput"], () => require("./getAlertsSuppressionRule"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetAssessmentArgs, GetAssessmentResult, GetAssessmentOutputArgs } from "./getAssessment";
 export const getAssessment: typeof import("./getAssessment").getAssessment = null as any;
 export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
 
 export { GetAssessmentMetadataInSubscriptionArgs, GetAssessmentMetadataInSubscriptionResult, GetAssessmentMetadataInSubscriptionOutputArgs } from "./getAssessmentMetadataInSubscription";
 export const getAssessmentMetadataInSubscription: typeof import("./getAssessmentMetadataInSubscription").getAssessmentMetadataInSubscription = null as any;
 export const getAssessmentMetadataInSubscriptionOutput: typeof import("./getAssessmentMetadataInSubscription").getAssessmentMetadataInSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentMetadataInSubscription","getAssessmentMetadataInSubscriptionOutput"], () => require("./getAssessmentMetadataInSubscription"));
 
 export { GetAssignmentArgs, GetAssignmentResult, GetAssignmentOutputArgs } from "./getAssignment";
 export const getAssignment: typeof import("./getAssignment").getAssignment = null as any;
 export const getAssignmentOutput: typeof import("./getAssignment").getAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAssignment","getAssignmentOutput"], () => require("./getAssignment"));
 
 export { GetAutomationArgs, GetAutomationResult, GetAutomationOutputArgs } from "./getAutomation";
 export const getAutomation: typeof import("./getAutomation").getAutomation = null as any;
 export const getAutomationOutput: typeof import("./getAutomation").getAutomationOutput = null as any;
+utilities.lazyLoad(exports, ["getAutomation","getAutomationOutput"], () => require("./getAutomation"));
 
 export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
 export const getConnector: typeof import("./getConnector").getConnector = null as any;
 export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
 
 export { GetCustomAssessmentAutomationArgs, GetCustomAssessmentAutomationResult, GetCustomAssessmentAutomationOutputArgs } from "./getCustomAssessmentAutomation";
 export const getCustomAssessmentAutomation: typeof import("./getCustomAssessmentAutomation").getCustomAssessmentAutomation = null as any;
 export const getCustomAssessmentAutomationOutput: typeof import("./getCustomAssessmentAutomation").getCustomAssessmentAutomationOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomAssessmentAutomation","getCustomAssessmentAutomationOutput"], () => require("./getCustomAssessmentAutomation"));
 
 export { GetCustomEntityStoreAssignmentArgs, GetCustomEntityStoreAssignmentResult, GetCustomEntityStoreAssignmentOutputArgs } from "./getCustomEntityStoreAssignment";
 export const getCustomEntityStoreAssignment: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignment = null as any;
 export const getCustomEntityStoreAssignmentOutput: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
 
 export { GetDeviceSecurityGroupArgs, GetDeviceSecurityGroupResult, GetDeviceSecurityGroupOutputArgs } from "./getDeviceSecurityGroup";
 export const getDeviceSecurityGroup: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroup = null as any;
 export const getDeviceSecurityGroupOutput: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDeviceSecurityGroup","getDeviceSecurityGroupOutput"], () => require("./getDeviceSecurityGroup"));
 
 export { GetIngestionSettingArgs, GetIngestionSettingResult, GetIngestionSettingOutputArgs } from "./getIngestionSetting";
 export const getIngestionSetting: typeof import("./getIngestionSetting").getIngestionSetting = null as any;
 export const getIngestionSettingOutput: typeof import("./getIngestionSetting").getIngestionSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getIngestionSetting","getIngestionSettingOutput"], () => require("./getIngestionSetting"));
 
 export { GetIotSecuritySolutionArgs, GetIotSecuritySolutionResult, GetIotSecuritySolutionOutputArgs } from "./getIotSecuritySolution";
 export const getIotSecuritySolution: typeof import("./getIotSecuritySolution").getIotSecuritySolution = null as any;
 export const getIotSecuritySolutionOutput: typeof import("./getIotSecuritySolution").getIotSecuritySolutionOutput = null as any;
+utilities.lazyLoad(exports, ["getIotSecuritySolution","getIotSecuritySolutionOutput"], () => require("./getIotSecuritySolution"));
 
 export { GetJitNetworkAccessPolicyArgs, GetJitNetworkAccessPolicyResult, GetJitNetworkAccessPolicyOutputArgs } from "./getJitNetworkAccessPolicy";
 export const getJitNetworkAccessPolicy: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicy = null as any;
 export const getJitNetworkAccessPolicyOutput: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getJitNetworkAccessPolicy","getJitNetworkAccessPolicyOutput"], () => require("./getJitNetworkAccessPolicy"));
 
 export { GetSecurityConnectorArgs, GetSecurityConnectorResult, GetSecurityConnectorOutputArgs } from "./getSecurityConnector";
 export const getSecurityConnector: typeof import("./getSecurityConnector").getSecurityConnector = null as any;
 export const getSecurityConnectorOutput: typeof import("./getSecurityConnector").getSecurityConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityConnector","getSecurityConnectorOutput"], () => require("./getSecurityConnector"));
 
 export { GetSecurityConnectorApplicationArgs, GetSecurityConnectorApplicationResult, GetSecurityConnectorApplicationOutputArgs } from "./getSecurityConnectorApplication";
 export const getSecurityConnectorApplication: typeof import("./getSecurityConnectorApplication").getSecurityConnectorApplication = null as any;
 export const getSecurityConnectorApplicationOutput: typeof import("./getSecurityConnectorApplication").getSecurityConnectorApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityConnectorApplication","getSecurityConnectorApplicationOutput"], () => require("./getSecurityConnectorApplication"));
 
 export { GetSecurityContactArgs, GetSecurityContactResult, GetSecurityContactOutputArgs } from "./getSecurityContact";
 export const getSecurityContact: typeof import("./getSecurityContact").getSecurityContact = null as any;
 export const getSecurityContactOutput: typeof import("./getSecurityContact").getSecurityContactOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityContact","getSecurityContactOutput"], () => require("./getSecurityContact"));
 
 export { GetServerVulnerabilityAssessmentArgs, GetServerVulnerabilityAssessmentResult, GetServerVulnerabilityAssessmentOutputArgs } from "./getServerVulnerabilityAssessment";
 export const getServerVulnerabilityAssessment: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessment = null as any;
 export const getServerVulnerabilityAssessmentOutput: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getServerVulnerabilityAssessment","getServerVulnerabilityAssessmentOutput"], () => require("./getServerVulnerabilityAssessment"));
 
 export { GetSqlVulnerabilityAssessmentBaselineRuleArgs, GetSqlVulnerabilityAssessmentBaselineRuleResult, GetSqlVulnerabilityAssessmentBaselineRuleOutputArgs } from "./getSqlVulnerabilityAssessmentBaselineRule";
 export const getSqlVulnerabilityAssessmentBaselineRule: typeof import("./getSqlVulnerabilityAssessmentBaselineRule").getSqlVulnerabilityAssessmentBaselineRule = null as any;
 export const getSqlVulnerabilityAssessmentBaselineRuleOutput: typeof import("./getSqlVulnerabilityAssessmentBaselineRule").getSqlVulnerabilityAssessmentBaselineRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlVulnerabilityAssessmentBaselineRule","getSqlVulnerabilityAssessmentBaselineRuleOutput"], () => require("./getSqlVulnerabilityAssessmentBaselineRule"));
 
 export { GetStandardArgs, GetStandardResult, GetStandardOutputArgs } from "./getStandard";
 export const getStandard: typeof import("./getStandard").getStandard = null as any;
 export const getStandardOutput: typeof import("./getStandard").getStandardOutput = null as any;
+utilities.lazyLoad(exports, ["getStandard","getStandardOutput"], () => require("./getStandard"));
 
 export { GetWorkspaceSettingArgs, GetWorkspaceSettingResult, GetWorkspaceSettingOutputArgs } from "./getWorkspaceSetting";
 export const getWorkspaceSetting: typeof import("./getWorkspaceSetting").getWorkspaceSetting = null as any;
 export const getWorkspaceSettingOutput: typeof import("./getWorkspaceSetting").getWorkspaceSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceSetting","getWorkspaceSettingOutput"], () => require("./getWorkspaceSetting"));
 
 export { IngestionSettingArgs } from "./ingestionSetting";
 export type IngestionSetting = import("./ingestionSetting").IngestionSetting;
 export const IngestionSetting: typeof import("./ingestionSetting").IngestionSetting = null as any;
+utilities.lazyLoad(exports, ["IngestionSetting"], () => require("./ingestionSetting"));
 
 export { IotSecuritySolutionArgs } from "./iotSecuritySolution";
 export type IotSecuritySolution = import("./iotSecuritySolution").IotSecuritySolution;
 export const IotSecuritySolution: typeof import("./iotSecuritySolution").IotSecuritySolution = null as any;
+utilities.lazyLoad(exports, ["IotSecuritySolution"], () => require("./iotSecuritySolution"));
 
 export { JitNetworkAccessPolicyArgs } from "./jitNetworkAccessPolicy";
 export type JitNetworkAccessPolicy = import("./jitNetworkAccessPolicy").JitNetworkAccessPolicy;
 export const JitNetworkAccessPolicy: typeof import("./jitNetworkAccessPolicy").JitNetworkAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["JitNetworkAccessPolicy"], () => require("./jitNetworkAccessPolicy"));
 
 export { ListIngestionSettingConnectionStringsArgs, ListIngestionSettingConnectionStringsResult, ListIngestionSettingConnectionStringsOutputArgs } from "./listIngestionSettingConnectionStrings";
 export const listIngestionSettingConnectionStrings: typeof import("./listIngestionSettingConnectionStrings").listIngestionSettingConnectionStrings = null as any;
 export const listIngestionSettingConnectionStringsOutput: typeof import("./listIngestionSettingConnectionStrings").listIngestionSettingConnectionStringsOutput = null as any;
+utilities.lazyLoad(exports, ["listIngestionSettingConnectionStrings","listIngestionSettingConnectionStringsOutput"], () => require("./listIngestionSettingConnectionStrings"));
 
 export { ListIngestionSettingTokensArgs, ListIngestionSettingTokensResult, ListIngestionSettingTokensOutputArgs } from "./listIngestionSettingTokens";
 export const listIngestionSettingTokens: typeof import("./listIngestionSettingTokens").listIngestionSettingTokens = null as any;
 export const listIngestionSettingTokensOutput: typeof import("./listIngestionSettingTokens").listIngestionSettingTokensOutput = null as any;
+utilities.lazyLoad(exports, ["listIngestionSettingTokens","listIngestionSettingTokensOutput"], () => require("./listIngestionSettingTokens"));
 
 export { SecurityConnectorArgs } from "./securityConnector";
 export type SecurityConnector = import("./securityConnector").SecurityConnector;
 export const SecurityConnector: typeof import("./securityConnector").SecurityConnector = null as any;
+utilities.lazyLoad(exports, ["SecurityConnector"], () => require("./securityConnector"));
 
 export { SecurityConnectorApplicationArgs } from "./securityConnectorApplication";
 export type SecurityConnectorApplication = import("./securityConnectorApplication").SecurityConnectorApplication;
 export const SecurityConnectorApplication: typeof import("./securityConnectorApplication").SecurityConnectorApplication = null as any;
+utilities.lazyLoad(exports, ["SecurityConnectorApplication"], () => require("./securityConnectorApplication"));
 
 export { SecurityContactArgs } from "./securityContact";
 export type SecurityContact = import("./securityContact").SecurityContact;
 export const SecurityContact: typeof import("./securityContact").SecurityContact = null as any;
+utilities.lazyLoad(exports, ["SecurityContact"], () => require("./securityContact"));
 
 export { ServerVulnerabilityAssessmentArgs } from "./serverVulnerabilityAssessment";
 export type ServerVulnerabilityAssessment = import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment;
 export const ServerVulnerabilityAssessment: typeof import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment = null as any;
+utilities.lazyLoad(exports, ["ServerVulnerabilityAssessment"], () => require("./serverVulnerabilityAssessment"));
 
 export { SqlVulnerabilityAssessmentBaselineRuleArgs } from "./sqlVulnerabilityAssessmentBaselineRule";
 export type SqlVulnerabilityAssessmentBaselineRule = import("./sqlVulnerabilityAssessmentBaselineRule").SqlVulnerabilityAssessmentBaselineRule;
 export const SqlVulnerabilityAssessmentBaselineRule: typeof import("./sqlVulnerabilityAssessmentBaselineRule").SqlVulnerabilityAssessmentBaselineRule = null as any;
+utilities.lazyLoad(exports, ["SqlVulnerabilityAssessmentBaselineRule"], () => require("./sqlVulnerabilityAssessmentBaselineRule"));
 
 export { StandardArgs } from "./standard";
 export type Standard = import("./standard").Standard;
 export const Standard: typeof import("./standard").Standard = null as any;
+utilities.lazyLoad(exports, ["Standard"], () => require("./standard"));
 
 export { WorkspaceSettingArgs } from "./workspaceSetting";
 export type WorkspaceSetting = import("./workspaceSetting").WorkspaceSetting;
 export const WorkspaceSetting: typeof import("./workspaceSetting").WorkspaceSetting = null as any;
-
-utilities.lazyLoad(exports, ["AdaptiveApplicationControl"], () => require("./adaptiveApplicationControl"));
-utilities.lazyLoad(exports, ["AdvancedThreatProtection"], () => require("./advancedThreatProtection"));
-utilities.lazyLoad(exports, ["AlertsSuppressionRule"], () => require("./alertsSuppressionRule"));
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
-utilities.lazyLoad(exports, ["AssessmentMetadataInSubscription"], () => require("./assessmentMetadataInSubscription"));
-utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
-utilities.lazyLoad(exports, ["Automation"], () => require("./automation"));
-utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
-utilities.lazyLoad(exports, ["CustomAssessmentAutomation"], () => require("./customAssessmentAutomation"));
-utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
-utilities.lazyLoad(exports, ["DeviceSecurityGroup"], () => require("./deviceSecurityGroup"));
-utilities.lazyLoad(exports, ["getAdaptiveApplicationControl","getAdaptiveApplicationControlOutput"], () => require("./getAdaptiveApplicationControl"));
-utilities.lazyLoad(exports, ["getAdvancedThreatProtection","getAdvancedThreatProtectionOutput"], () => require("./getAdvancedThreatProtection"));
-utilities.lazyLoad(exports, ["getAlertsSuppressionRule","getAlertsSuppressionRuleOutput"], () => require("./getAlertsSuppressionRule"));
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
-utilities.lazyLoad(exports, ["getAssessmentMetadataInSubscription","getAssessmentMetadataInSubscriptionOutput"], () => require("./getAssessmentMetadataInSubscription"));
-utilities.lazyLoad(exports, ["getAssignment","getAssignmentOutput"], () => require("./getAssignment"));
-utilities.lazyLoad(exports, ["getAutomation","getAutomationOutput"], () => require("./getAutomation"));
-utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
-utilities.lazyLoad(exports, ["getCustomAssessmentAutomation","getCustomAssessmentAutomationOutput"], () => require("./getCustomAssessmentAutomation"));
-utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
-utilities.lazyLoad(exports, ["getDeviceSecurityGroup","getDeviceSecurityGroupOutput"], () => require("./getDeviceSecurityGroup"));
-utilities.lazyLoad(exports, ["getIngestionSetting","getIngestionSettingOutput"], () => require("./getIngestionSetting"));
-utilities.lazyLoad(exports, ["getIotSecuritySolution","getIotSecuritySolutionOutput"], () => require("./getIotSecuritySolution"));
-utilities.lazyLoad(exports, ["getJitNetworkAccessPolicy","getJitNetworkAccessPolicyOutput"], () => require("./getJitNetworkAccessPolicy"));
-utilities.lazyLoad(exports, ["getSecurityConnector","getSecurityConnectorOutput"], () => require("./getSecurityConnector"));
-utilities.lazyLoad(exports, ["getSecurityConnectorApplication","getSecurityConnectorApplicationOutput"], () => require("./getSecurityConnectorApplication"));
-utilities.lazyLoad(exports, ["getSecurityContact","getSecurityContactOutput"], () => require("./getSecurityContact"));
-utilities.lazyLoad(exports, ["getServerVulnerabilityAssessment","getServerVulnerabilityAssessmentOutput"], () => require("./getServerVulnerabilityAssessment"));
-utilities.lazyLoad(exports, ["getSqlVulnerabilityAssessmentBaselineRule","getSqlVulnerabilityAssessmentBaselineRuleOutput"], () => require("./getSqlVulnerabilityAssessmentBaselineRule"));
-utilities.lazyLoad(exports, ["getStandard","getStandardOutput"], () => require("./getStandard"));
-utilities.lazyLoad(exports, ["getWorkspaceSetting","getWorkspaceSettingOutput"], () => require("./getWorkspaceSetting"));
-utilities.lazyLoad(exports, ["IngestionSetting"], () => require("./ingestionSetting"));
-utilities.lazyLoad(exports, ["IotSecuritySolution"], () => require("./iotSecuritySolution"));
-utilities.lazyLoad(exports, ["JitNetworkAccessPolicy"], () => require("./jitNetworkAccessPolicy"));
-utilities.lazyLoad(exports, ["listIngestionSettingConnectionStrings","listIngestionSettingConnectionStringsOutput"], () => require("./listIngestionSettingConnectionStrings"));
-utilities.lazyLoad(exports, ["listIngestionSettingTokens","listIngestionSettingTokensOutput"], () => require("./listIngestionSettingTokens"));
-utilities.lazyLoad(exports, ["SecurityConnector"], () => require("./securityConnector"));
-utilities.lazyLoad(exports, ["SecurityConnectorApplication"], () => require("./securityConnectorApplication"));
-utilities.lazyLoad(exports, ["SecurityContact"], () => require("./securityContact"));
-utilities.lazyLoad(exports, ["ServerVulnerabilityAssessment"], () => require("./serverVulnerabilityAssessment"));
-utilities.lazyLoad(exports, ["SqlVulnerabilityAssessmentBaselineRule"], () => require("./sqlVulnerabilityAssessmentBaselineRule"));
-utilities.lazyLoad(exports, ["Standard"], () => require("./standard"));
 utilities.lazyLoad(exports, ["WorkspaceSetting"], () => require("./workspaceSetting"));
+
 
 // Export enums:
 export * from "../types/enums/security";
@@ -256,7 +256,6 @@ import * as v20211201preview from "./v20211201preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220701preview from "./v20220701preview";
-import * as v20220801preview from "./v20220801preview";
 
 export {
     v20150601preview,
@@ -275,7 +274,6 @@ export {
     v20220101preview,
     v20220501preview,
     v20220701preview,
-    v20220801preview,
 };
 
 const _module = {

@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
 export const getVault: typeof import("./getVault").getVault = null as any;
 export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
 
 export { VaultArgs } from "./vault";
 export type Vault = import("./vault").Vault;
 export const Vault: typeof import("./vault").Vault = null as any;
-
-utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
 utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
+
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20220131preview";

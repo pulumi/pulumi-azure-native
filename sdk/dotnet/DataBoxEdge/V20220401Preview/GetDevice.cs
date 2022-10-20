@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         /// <summary>
         /// The status of the Data Box Edge/Gateway device.
         /// </summary>
-        public readonly string DataBoxEdgeDeviceStatus;
+        public readonly string? DataBoxEdgeDeviceStatus;
         /// <summary>
         /// The details of data-residency related properties for this resource
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         /// <summary>
         /// The etag for the devices.
         /// </summary>
-        public readonly string Etag;
+        public readonly string? Etag;
         /// <summary>
         /// The Data Box Edge/Gateway device name.
         /// </summary>
@@ -132,11 +132,11 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         /// <summary>
         /// Msi identity of the resource
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse Identity;
+        public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
         /// The kind of the device.
         /// </summary>
-        public readonly string Kind;
+        public readonly string? Kind;
         /// <summary>
         /// Type of Kubernetes Platform
         /// </summary>
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
 
             string culture,
 
-            string dataBoxEdgeDeviceStatus,
+            string? dataBoxEdgeDeviceStatus,
 
             Outputs.DataResidencyResponse? dataResidency,
 
@@ -212,15 +212,15 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
 
             Outputs.EdgeProfileResponse edgeProfile,
 
-            string etag,
+            string? etag,
 
             string friendlyName,
 
             string id,
 
-            Outputs.ResourceIdentityResponse identity,
+            Outputs.ResourceIdentityResponse? identity,
 
-            string kind,
+            string? kind,
 
             string kubernetesPlatform,
 

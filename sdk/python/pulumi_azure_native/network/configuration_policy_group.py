@@ -235,7 +235,7 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
             __props__.__dict__["p2_s_connection_configurations"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210801:ConfigurationPolicyGroup"), pulumi.Alias(type_="azure-native:network/v20220101:ConfigurationPolicyGroup"), pulumi.Alias(type_="azure-native:network/v20220501:ConfigurationPolicyGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210801:ConfigurationPolicyGroup"), pulumi.Alias(type_="azure-native:network/v20220101:ConfigurationPolicyGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationPolicyGroup, __self__).__init__(
             'azure-native:network:ConfigurationPolicyGroup',

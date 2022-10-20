@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetScheduledQueryRuleArgs, GetScheduledQueryRuleResult, GetScheduledQueryRuleOutputArgs } from "./getScheduledQueryRule";
 export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").getScheduledQueryRule = null as any;
 export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
 
 export { ScheduledQueryRuleArgs } from "./scheduledQueryRule";
 export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRule;
 export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
-
-utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
 utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
+
 
 // Export enums:
 export * from "../../types/enums/insights/v20200501preview";

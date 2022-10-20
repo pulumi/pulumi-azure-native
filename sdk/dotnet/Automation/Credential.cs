@@ -80,7 +80,6 @@ namespace Pulumi.AzureNative.Automation
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Credential"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Credential"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Credential"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Credential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

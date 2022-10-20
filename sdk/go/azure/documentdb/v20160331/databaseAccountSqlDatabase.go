@@ -121,12 +121,6 @@ func NewDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20220515preview:DatabaseAccountSqlDatabase"),
 		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20220815:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20220815preview:DatabaseAccountSqlDatabase"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountSqlDatabase

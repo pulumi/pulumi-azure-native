@@ -67,7 +67,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform:ApiPortalCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ApiPortalCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ApiPortalCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:ApiPortalCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

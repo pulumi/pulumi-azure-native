@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { ExtensionArgs } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
 
 export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
 export const getExtension: typeof import("./getExtension").getExtension = null as any;
 export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
 export { GetSourceControlConfigurationArgs, GetSourceControlConfigurationResult, GetSourceControlConfigurationOutputArgs } from "./getSourceControlConfiguration";
 export const getSourceControlConfiguration: typeof import("./getSourceControlConfiguration").getSourceControlConfiguration = null as any;
 export const getSourceControlConfigurationOutput: typeof import("./getSourceControlConfiguration").getSourceControlConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceControlConfiguration","getSourceControlConfigurationOutput"], () => require("./getSourceControlConfiguration"));
 
 export { SourceControlConfigurationArgs } from "./sourceControlConfiguration";
 export type SourceControlConfiguration = import("./sourceControlConfiguration").SourceControlConfiguration;
 export const SourceControlConfiguration: typeof import("./sourceControlConfiguration").SourceControlConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
-utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
-utilities.lazyLoad(exports, ["getSourceControlConfiguration","getSourceControlConfigurationOutput"], () => require("./getSourceControlConfiguration"));
 utilities.lazyLoad(exports, ["SourceControlConfiguration"], () => require("./sourceControlConfiguration"));
+
 
 // Export enums:
 export * from "../../types/enums/kubernetesconfiguration/v20210501preview";

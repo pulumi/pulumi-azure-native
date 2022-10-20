@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights:AttestationAtResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20220901:AttestationAtResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

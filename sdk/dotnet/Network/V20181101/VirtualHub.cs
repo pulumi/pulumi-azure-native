@@ -145,7 +145,6 @@ namespace Pulumi.AzureNative.Network.V20181101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualHub"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualHub"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -115,7 +115,6 @@ namespace Pulumi.AzureNative.Security.V20220501Preview
                     new global::Pulumi.Alias { Type = "azure-native:security:SecurityConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:security/v20210701preview:SecurityConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:security/v20211201preview:SecurityConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20220801preview:SecurityConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

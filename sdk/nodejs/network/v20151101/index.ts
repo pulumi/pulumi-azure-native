@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { EndpointArgs } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
 export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
 export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
 export const getProfile: typeof import("./getProfile").getProfile = null as any;
 export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
 
 export { ProfileArgs } from "./profile";
 export type Profile = import("./profile").Profile;
 export const Profile: typeof import("./profile").Profile = null as any;
-
-utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
-utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
-utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
 utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
+
 
 const _module = {
     version: utilities.getVersion(),

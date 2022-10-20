@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetWorkbookTemplateArgs, GetWorkbookTemplateResult, GetWorkbookTemplateOutputArgs } from "./getWorkbookTemplate";
 export const getWorkbookTemplate: typeof import("./getWorkbookTemplate").getWorkbookTemplate = null as any;
 export const getWorkbookTemplateOutput: typeof import("./getWorkbookTemplate").getWorkbookTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkbookTemplate","getWorkbookTemplateOutput"], () => require("./getWorkbookTemplate"));
 
 export { WorkbookTemplateArgs } from "./workbookTemplate";
 export type WorkbookTemplate = import("./workbookTemplate").WorkbookTemplate;
 export const WorkbookTemplate: typeof import("./workbookTemplate").WorkbookTemplate = null as any;
-
-utilities.lazyLoad(exports, ["getWorkbookTemplate","getWorkbookTemplateOutput"], () => require("./getWorkbookTemplate"));
 utilities.lazyLoad(exports, ["WorkbookTemplate"], () => require("./workbookTemplate"));
+
 
 const _module = {
     version: utilities.getVersion(),

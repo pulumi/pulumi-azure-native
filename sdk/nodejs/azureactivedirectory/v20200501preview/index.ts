@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetGuestUsageArgs, GetGuestUsageResult, GetGuestUsageOutputArgs } from "./getGuestUsage";
 export const getGuestUsage: typeof import("./getGuestUsage").getGuestUsage = null as any;
 export const getGuestUsageOutput: typeof import("./getGuestUsage").getGuestUsageOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestUsage","getGuestUsageOutput"], () => require("./getGuestUsage"));
 
 export { GuestUsageArgs } from "./guestUsage";
 export type GuestUsage = import("./guestUsage").GuestUsage;
 export const GuestUsage: typeof import("./guestUsage").GuestUsage = null as any;
-
-utilities.lazyLoad(exports, ["getGuestUsage","getGuestUsageOutput"], () => require("./getGuestUsage"));
 utilities.lazyLoad(exports, ["GuestUsage"], () => require("./guestUsage"));
+
 
 const _module = {
     version: utilities.getVersion(),

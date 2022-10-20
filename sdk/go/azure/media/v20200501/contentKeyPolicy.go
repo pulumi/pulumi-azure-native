@@ -59,9 +59,6 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:media/v20211101:ContentKeyPolicy"),
 		},
-		{
-			Type: pulumi.String("azure-native:media/v20220801:ContentKeyPolicy"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ContentKeyPolicy

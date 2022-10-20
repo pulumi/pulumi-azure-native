@@ -42,9 +42,6 @@ func NewAttestationAtSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:policyinsights:AttestationAtSubscription"),
 		},
-		{
-			Type: pulumi.String("azure-native:policyinsights/v20220901:AttestationAtSubscription"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AttestationAtSubscription

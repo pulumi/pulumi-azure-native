@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { AdvancedThreatProtectionArgs } from "./advancedThreatProtection";
 export type AdvancedThreatProtection = import("./advancedThreatProtection").AdvancedThreatProtection;
 export const AdvancedThreatProtection: typeof import("./advancedThreatProtection").AdvancedThreatProtection = null as any;
+utilities.lazyLoad(exports, ["AdvancedThreatProtection"], () => require("./advancedThreatProtection"));
 
 export { GetAdvancedThreatProtectionArgs, GetAdvancedThreatProtectionResult, GetAdvancedThreatProtectionOutputArgs } from "./getAdvancedThreatProtection";
 export const getAdvancedThreatProtection: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtection = null as any;
 export const getAdvancedThreatProtectionOutput: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtectionOutput = null as any;
-
-utilities.lazyLoad(exports, ["AdvancedThreatProtection"], () => require("./advancedThreatProtection"));
 utilities.lazyLoad(exports, ["getAdvancedThreatProtection","getAdvancedThreatProtectionOutput"], () => require("./getAdvancedThreatProtection"));
+
 
 const _module = {
     version: utilities.getVersion(),

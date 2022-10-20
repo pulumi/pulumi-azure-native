@@ -110,7 +110,7 @@ export class ConnectionType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:ConnectionType" }, { type: "azure-native:automation/v20190601:ConnectionType" }, { type: "azure-native:automation/v20200113preview:ConnectionType" }, { type: "azure-native:automation/v20220808:ConnectionType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:ConnectionType" }, { type: "azure-native:automation/v20190601:ConnectionType" }, { type: "azure-native:automation/v20200113preview:ConnectionType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionType.__pulumiType, name, resourceInputs, opts);
     }

@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { DscNodeConfigurationArgs } from "./dscNodeConfiguration";
 export type DscNodeConfiguration = import("./dscNodeConfiguration").DscNodeConfiguration;
 export const DscNodeConfiguration: typeof import("./dscNodeConfiguration").DscNodeConfiguration = null as any;
+utilities.lazyLoad(exports, ["DscNodeConfiguration"], () => require("./dscNodeConfiguration"));
 
 export { GetDscNodeConfigurationArgs, GetDscNodeConfigurationResult, GetDscNodeConfigurationOutputArgs } from "./getDscNodeConfiguration";
 export const getDscNodeConfiguration: typeof import("./getDscNodeConfiguration").getDscNodeConfiguration = null as any;
 export const getDscNodeConfigurationOutput: typeof import("./getDscNodeConfiguration").getDscNodeConfigurationOutput = null as any;
-
-utilities.lazyLoad(exports, ["DscNodeConfiguration"], () => require("./dscNodeConfiguration"));
 utilities.lazyLoad(exports, ["getDscNodeConfiguration","getDscNodeConfigurationOutput"], () => require("./getDscNodeConfiguration"));
+
 
 // Export enums:
 export * from "../../types/enums/automation/v20180115";

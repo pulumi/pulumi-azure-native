@@ -8,133 +8,133 @@ import * as utilities from "../../utilities";
 export { DataMaskingPolicyArgs } from "./dataMaskingPolicy";
 export type DataMaskingPolicy = import("./dataMaskingPolicy").DataMaskingPolicy;
 export const DataMaskingPolicy: typeof import("./dataMaskingPolicy").DataMaskingPolicy = null as any;
+utilities.lazyLoad(exports, ["DataMaskingPolicy"], () => require("./dataMaskingPolicy"));
 
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { DatabaseAdvisorArgs } from "./databaseAdvisor";
 export type DatabaseAdvisor = import("./databaseAdvisor").DatabaseAdvisor;
 export const DatabaseAdvisor: typeof import("./databaseAdvisor").DatabaseAdvisor = null as any;
+utilities.lazyLoad(exports, ["DatabaseAdvisor"], () => require("./databaseAdvisor"));
 
 export { DatabaseThreatDetectionPolicyArgs } from "./databaseThreatDetectionPolicy";
 export type DatabaseThreatDetectionPolicy = import("./databaseThreatDetectionPolicy").DatabaseThreatDetectionPolicy;
 export const DatabaseThreatDetectionPolicy: typeof import("./databaseThreatDetectionPolicy").DatabaseThreatDetectionPolicy = null as any;
+utilities.lazyLoad(exports, ["DatabaseThreatDetectionPolicy"], () => require("./databaseThreatDetectionPolicy"));
 
 export { DisasterRecoveryConfigurationArgs } from "./disasterRecoveryConfiguration";
 export type DisasterRecoveryConfiguration = import("./disasterRecoveryConfiguration").DisasterRecoveryConfiguration;
 export const DisasterRecoveryConfiguration: typeof import("./disasterRecoveryConfiguration").DisasterRecoveryConfiguration = null as any;
+utilities.lazyLoad(exports, ["DisasterRecoveryConfiguration"], () => require("./disasterRecoveryConfiguration"));
 
 export { ElasticPoolArgs } from "./elasticPool";
 export type ElasticPool = import("./elasticPool").ElasticPool;
 export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
+utilities.lazyLoad(exports, ["ElasticPool"], () => require("./elasticPool"));
 
 export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
 
 export { GeoBackupPolicyArgs } from "./geoBackupPolicy";
 export type GeoBackupPolicy = import("./geoBackupPolicy").GeoBackupPolicy;
 export const GeoBackupPolicy: typeof import("./geoBackupPolicy").GeoBackupPolicy = null as any;
+utilities.lazyLoad(exports, ["GeoBackupPolicy"], () => require("./geoBackupPolicy"));
 
 export { GetDataMaskingPolicyArgs, GetDataMaskingPolicyResult, GetDataMaskingPolicyOutputArgs } from "./getDataMaskingPolicy";
 export const getDataMaskingPolicy: typeof import("./getDataMaskingPolicy").getDataMaskingPolicy = null as any;
 export const getDataMaskingPolicyOutput: typeof import("./getDataMaskingPolicy").getDataMaskingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDataMaskingPolicy","getDataMaskingPolicyOutput"], () => require("./getDataMaskingPolicy"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetDatabaseAdvisorArgs, GetDatabaseAdvisorResult, GetDatabaseAdvisorOutputArgs } from "./getDatabaseAdvisor";
 export const getDatabaseAdvisor: typeof import("./getDatabaseAdvisor").getDatabaseAdvisor = null as any;
 export const getDatabaseAdvisorOutput: typeof import("./getDatabaseAdvisor").getDatabaseAdvisorOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAdvisor","getDatabaseAdvisorOutput"], () => require("./getDatabaseAdvisor"));
 
 export { GetDatabaseThreatDetectionPolicyArgs, GetDatabaseThreatDetectionPolicyResult, GetDatabaseThreatDetectionPolicyOutputArgs } from "./getDatabaseThreatDetectionPolicy";
 export const getDatabaseThreatDetectionPolicy: typeof import("./getDatabaseThreatDetectionPolicy").getDatabaseThreatDetectionPolicy = null as any;
 export const getDatabaseThreatDetectionPolicyOutput: typeof import("./getDatabaseThreatDetectionPolicy").getDatabaseThreatDetectionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseThreatDetectionPolicy","getDatabaseThreatDetectionPolicyOutput"], () => require("./getDatabaseThreatDetectionPolicy"));
 
 export { GetDisasterRecoveryConfigurationArgs, GetDisasterRecoveryConfigurationResult, GetDisasterRecoveryConfigurationOutputArgs } from "./getDisasterRecoveryConfiguration";
 export const getDisasterRecoveryConfiguration: typeof import("./getDisasterRecoveryConfiguration").getDisasterRecoveryConfiguration = null as any;
 export const getDisasterRecoveryConfigurationOutput: typeof import("./getDisasterRecoveryConfiguration").getDisasterRecoveryConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDisasterRecoveryConfiguration","getDisasterRecoveryConfigurationOutput"], () => require("./getDisasterRecoveryConfiguration"));
 
 export { GetElasticPoolArgs, GetElasticPoolResult, GetElasticPoolOutputArgs } from "./getElasticPool";
 export const getElasticPool: typeof import("./getElasticPool").getElasticPool = null as any;
 export const getElasticPoolOutput: typeof import("./getElasticPool").getElasticPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticPool","getElasticPoolOutput"], () => require("./getElasticPool"));
 
 export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
 export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
 export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
 
 export { GetGeoBackupPolicyArgs, GetGeoBackupPolicyResult, GetGeoBackupPolicyOutputArgs } from "./getGeoBackupPolicy";
 export const getGeoBackupPolicy: typeof import("./getGeoBackupPolicy").getGeoBackupPolicy = null as any;
 export const getGeoBackupPolicyOutput: typeof import("./getGeoBackupPolicy").getGeoBackupPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getGeoBackupPolicy","getGeoBackupPolicyOutput"], () => require("./getGeoBackupPolicy"));
 
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
 export { GetServerAdvisorArgs, GetServerAdvisorResult, GetServerAdvisorOutputArgs } from "./getServerAdvisor";
 export const getServerAdvisor: typeof import("./getServerAdvisor").getServerAdvisor = null as any;
 export const getServerAdvisorOutput: typeof import("./getServerAdvisor").getServerAdvisorOutput = null as any;
+utilities.lazyLoad(exports, ["getServerAdvisor","getServerAdvisorOutput"], () => require("./getServerAdvisor"));
 
 export { GetServerAzureADAdministratorArgs, GetServerAzureADAdministratorResult, GetServerAzureADAdministratorOutputArgs } from "./getServerAzureADAdministrator";
 export const getServerAzureADAdministrator: typeof import("./getServerAzureADAdministrator").getServerAzureADAdministrator = null as any;
 export const getServerAzureADAdministratorOutput: typeof import("./getServerAzureADAdministrator").getServerAzureADAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getServerAzureADAdministrator","getServerAzureADAdministratorOutput"], () => require("./getServerAzureADAdministrator"));
 
 export { GetServerCommunicationLinkArgs, GetServerCommunicationLinkResult, GetServerCommunicationLinkOutputArgs } from "./getServerCommunicationLink";
 export const getServerCommunicationLink: typeof import("./getServerCommunicationLink").getServerCommunicationLink = null as any;
 export const getServerCommunicationLinkOutput: typeof import("./getServerCommunicationLink").getServerCommunicationLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getServerCommunicationLink","getServerCommunicationLinkOutput"], () => require("./getServerCommunicationLink"));
 
 export { GetTransparentDataEncryptionArgs, GetTransparentDataEncryptionResult, GetTransparentDataEncryptionOutputArgs } from "./getTransparentDataEncryption";
 export const getTransparentDataEncryption: typeof import("./getTransparentDataEncryption").getTransparentDataEncryption = null as any;
 export const getTransparentDataEncryptionOutput: typeof import("./getTransparentDataEncryption").getTransparentDataEncryptionOutput = null as any;
+utilities.lazyLoad(exports, ["getTransparentDataEncryption","getTransparentDataEncryptionOutput"], () => require("./getTransparentDataEncryption"));
 
 export { ServerArgs } from "./server";
 export type Server = import("./server").Server;
 export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
 
 export { ServerAdvisorArgs } from "./serverAdvisor";
 export type ServerAdvisor = import("./serverAdvisor").ServerAdvisor;
 export const ServerAdvisor: typeof import("./serverAdvisor").ServerAdvisor = null as any;
+utilities.lazyLoad(exports, ["ServerAdvisor"], () => require("./serverAdvisor"));
 
 export { ServerAzureADAdministratorArgs } from "./serverAzureADAdministrator";
 export type ServerAzureADAdministrator = import("./serverAzureADAdministrator").ServerAzureADAdministrator;
 export const ServerAzureADAdministrator: typeof import("./serverAzureADAdministrator").ServerAzureADAdministrator = null as any;
+utilities.lazyLoad(exports, ["ServerAzureADAdministrator"], () => require("./serverAzureADAdministrator"));
 
 export { ServerCommunicationLinkArgs } from "./serverCommunicationLink";
 export type ServerCommunicationLink = import("./serverCommunicationLink").ServerCommunicationLink;
 export const ServerCommunicationLink: typeof import("./serverCommunicationLink").ServerCommunicationLink = null as any;
+utilities.lazyLoad(exports, ["ServerCommunicationLink"], () => require("./serverCommunicationLink"));
 
 export { TransparentDataEncryptionArgs } from "./transparentDataEncryption";
 export type TransparentDataEncryption = import("./transparentDataEncryption").TransparentDataEncryption;
 export const TransparentDataEncryption: typeof import("./transparentDataEncryption").TransparentDataEncryption = null as any;
-
-utilities.lazyLoad(exports, ["DataMaskingPolicy"], () => require("./dataMaskingPolicy"));
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["DatabaseAdvisor"], () => require("./databaseAdvisor"));
-utilities.lazyLoad(exports, ["DatabaseThreatDetectionPolicy"], () => require("./databaseThreatDetectionPolicy"));
-utilities.lazyLoad(exports, ["DisasterRecoveryConfiguration"], () => require("./disasterRecoveryConfiguration"));
-utilities.lazyLoad(exports, ["ElasticPool"], () => require("./elasticPool"));
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
-utilities.lazyLoad(exports, ["GeoBackupPolicy"], () => require("./geoBackupPolicy"));
-utilities.lazyLoad(exports, ["getDataMaskingPolicy","getDataMaskingPolicyOutput"], () => require("./getDataMaskingPolicy"));
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-utilities.lazyLoad(exports, ["getDatabaseAdvisor","getDatabaseAdvisorOutput"], () => require("./getDatabaseAdvisor"));
-utilities.lazyLoad(exports, ["getDatabaseThreatDetectionPolicy","getDatabaseThreatDetectionPolicyOutput"], () => require("./getDatabaseThreatDetectionPolicy"));
-utilities.lazyLoad(exports, ["getDisasterRecoveryConfiguration","getDisasterRecoveryConfigurationOutput"], () => require("./getDisasterRecoveryConfiguration"));
-utilities.lazyLoad(exports, ["getElasticPool","getElasticPoolOutput"], () => require("./getElasticPool"));
-utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
-utilities.lazyLoad(exports, ["getGeoBackupPolicy","getGeoBackupPolicyOutput"], () => require("./getGeoBackupPolicy"));
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
-utilities.lazyLoad(exports, ["getServerAdvisor","getServerAdvisorOutput"], () => require("./getServerAdvisor"));
-utilities.lazyLoad(exports, ["getServerAzureADAdministrator","getServerAzureADAdministratorOutput"], () => require("./getServerAzureADAdministrator"));
-utilities.lazyLoad(exports, ["getServerCommunicationLink","getServerCommunicationLinkOutput"], () => require("./getServerCommunicationLink"));
-utilities.lazyLoad(exports, ["getTransparentDataEncryption","getTransparentDataEncryptionOutput"], () => require("./getTransparentDataEncryption"));
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
-utilities.lazyLoad(exports, ["ServerAdvisor"], () => require("./serverAdvisor"));
-utilities.lazyLoad(exports, ["ServerAzureADAdministrator"], () => require("./serverAzureADAdministrator"));
-utilities.lazyLoad(exports, ["ServerCommunicationLink"], () => require("./serverCommunicationLink"));
 utilities.lazyLoad(exports, ["TransparentDataEncryption"], () => require("./transparentDataEncryption"));
+
 
 // Export enums:
 export * from "../../types/enums/sql/v20140401";

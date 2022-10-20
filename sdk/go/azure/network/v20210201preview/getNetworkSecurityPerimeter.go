@@ -27,9 +27,9 @@ type LookupNetworkSecurityPerimeterArgs struct {
 
 type LookupNetworkSecurityPerimeterResult struct {
 	Id                string            `pulumi:"id"`
-	Location          *string           `pulumi:"location"`
+	Location          string            `pulumi:"location"`
 	Name              string            `pulumi:"name"`
-	PerimeterGuid     string            `pulumi:"perimeterGuid"`
+	PerimeterGuid     *string           `pulumi:"perimeterGuid"`
 	ProvisioningState string            `pulumi:"provisioningState"`
 	Tags              map[string]string `pulumi:"tags"`
 	Type              string            `pulumi:"type"`
@@ -76,16 +76,16 @@ func (o LookupNetworkSecurityPerimeterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkSecurityPerimeterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupNetworkSecurityPerimeterResultOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNetworkSecurityPerimeterResult) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o LookupNetworkSecurityPerimeterResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkSecurityPerimeterResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o LookupNetworkSecurityPerimeterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkSecurityPerimeterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupNetworkSecurityPerimeterResultOutput) PerimeterGuid() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkSecurityPerimeterResult) string { return v.PerimeterGuid }).(pulumi.StringOutput)
+func (o LookupNetworkSecurityPerimeterResultOutput) PerimeterGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkSecurityPerimeterResult) *string { return v.PerimeterGuid }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNetworkSecurityPerimeterResultOutput) ProvisioningState() pulumi.StringOutput {

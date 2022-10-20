@@ -4747,6 +4747,139 @@ func (o RefreshDetailsResponsePtrOutput) LastJob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceIdentity struct {
+	Type *string `pulumi:"type"`
+}
+
+
+
+
+
+type ResourceIdentityInput interface {
+	pulumi.Input
+
+	ToResourceIdentityOutput() ResourceIdentityOutput
+	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
+}
+
+type ResourceIdentityArgs struct {
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return i.ToResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
+	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
+}
+
+type resourceIdentityPtrType ResourceIdentityArgs
+
+func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
+	return (*resourceIdentityPtrType)(v)
+}
+
+func (*resourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
+}
+
+type ResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return o
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return o
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
+		return &v
+	}).(ResourceIdentityPtrOutput)
+}
+
+func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
+}
+
+func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResourceIdentityResponse struct {
 	PrincipalId string  `pulumi:"principalId"`
 	TenantId    string  `pulumi:"tenantId"`
@@ -4777,6 +4910,57 @@ func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 
 func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
+}
+
+func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ResourceMoveDetailsResponse struct {
@@ -5771,7 +5955,10 @@ func init() {
 	pulumi.RegisterOutputType(RefreshDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceMoveDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RoleSinkInfoOutput{})
 	pulumi.RegisterOutputType(RoleSinkInfoResponseOutput{})

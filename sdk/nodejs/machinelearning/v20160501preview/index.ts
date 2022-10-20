@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { CommitmentPlanArgs } from "./commitmentPlan";
 export type CommitmentPlan = import("./commitmentPlan").CommitmentPlan;
 export const CommitmentPlan: typeof import("./commitmentPlan").CommitmentPlan = null as any;
+utilities.lazyLoad(exports, ["CommitmentPlan"], () => require("./commitmentPlan"));
 
 export { GetCommitmentPlanArgs, GetCommitmentPlanResult, GetCommitmentPlanOutputArgs } from "./getCommitmentPlan";
 export const getCommitmentPlan: typeof import("./getCommitmentPlan").getCommitmentPlan = null as any;
 export const getCommitmentPlanOutput: typeof import("./getCommitmentPlan").getCommitmentPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getCommitmentPlan","getCommitmentPlanOutput"], () => require("./getCommitmentPlan"));
 
 export { GetWebServiceArgs, GetWebServiceResult, GetWebServiceOutputArgs } from "./getWebService";
 export const getWebService: typeof import("./getWebService").getWebService = null as any;
 export const getWebServiceOutput: typeof import("./getWebService").getWebServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getWebService","getWebServiceOutput"], () => require("./getWebService"));
 
 export { WebServiceArgs } from "./webService";
 export type WebService = import("./webService").WebService;
 export const WebService: typeof import("./webService").WebService = null as any;
-
-utilities.lazyLoad(exports, ["CommitmentPlan"], () => require("./commitmentPlan"));
-utilities.lazyLoad(exports, ["getCommitmentPlan","getCommitmentPlanOutput"], () => require("./getCommitmentPlan"));
-utilities.lazyLoad(exports, ["getWebService","getWebServiceOutput"], () => require("./getWebService"));
 utilities.lazyLoad(exports, ["WebService"], () => require("./webService"));
+
 
 // Export enums:
 export * from "../../types/enums/machinelearning/v20160501preview";

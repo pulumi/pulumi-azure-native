@@ -7,9 +7,13 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
+	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
+	env "github.com/manicminer/hamilton/environments"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -219,10 +223,12 @@ const (
 )
 
 // newBlob creates a custom resource for a Storage Blob.
-func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *CustomResource {
+func newBlob(subscriptionId string, env *azure.Environment, accountsClient *storage.AccountsClient, authFactory AuthorizerFactory) *CustomResource {
 	r := blob{
+		subscriptionId: subscriptionId,
 		env:            env,
 		accountsClient: accountsClient,
+		authFactory:    authFactory,
 	}
 	return &CustomResource{
 		path:   blobPath,
@@ -379,21 +385,79 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 }
 
 type blob struct {
+	subscriptionId string
 	accountsClient *storage.AccountsClient
 	env            *azure.Environment
+	authFactory    AuthorizerFactory
 }
 
 // newDataClient creates a new blob client given a property map with a resource group and a storage account name.
 // Returns false as the second result if the storage account does not exist (the error is nil in this case).
 func (r *blob) newDataClient(ctx context.Context, properties resource.PropertyMap) (*blobs.Client, bool, error) {
-	storageAuth, exists, err := newAccountAuthorizer(ctx, r.accountsClient, properties)
-	if err != nil || !exists {
-		return nil, exists, err
+	rg := properties[resourceGroupName]
+	if !rg.HasValue() || !rg.IsString() {
+		return nil, false, errors.Errorf("%q not found in resource state", resourceGroupName)
+	}
+	rgName := rg.StringValue()
+
+	acc := properties[accountName]
+	if !acc.HasValue() || !acc.IsString() {
+		return nil, false, errors.Errorf("%q not found in resource state", accountName)
+	}
+	accName := acc.StringValue()
+
+	accountsClient, err := armstorage.NewAccountsClient(r.subscriptionId, &azidentity.EnvironmentCredential{}, nil)
+	if err != nil {
+		return nil, false, err
+	}
+
+	accountProperties, err := accountsClient.GetProperties(ctx, rgName, accName, nil)
+	if err != nil {
+		return nil, false, err
 	}
 
 	dataClient := blobs.NewWithEnvironment(*r.env)
-	dataClient.Client.Authorizer = storageAuth
+
+	if *accountProperties.Properties.AllowSharedKeyAccess {
+		storageAuth, exists, err := newAccountAuthorizer(ctx, r.accountsClient, properties)
+		if err != nil || !exists {
+			return nil, exists, err
+		}
+		dataClient.Client.Authorizer = storageAuth
+	} else {
+		// TODO getting a token for https://<account>.blob.core.windows.net would be more secure
+		api := env.StoragePublic
+
+		authorizer, err := r.authFactory(api)
+		if err != nil {
+			return nil, false, err
+		}
+		dataClient.Client.Authorizer = autorest.NewBearerAuthorizer(&ThisSucks{authorizer})
+	}
+
 	return &dataClient, true, nil
+}
+
+type ThisSucks struct {
+	autorestAuth autorest.Authorizer
+}
+
+func (s *ThisSucks) OAuthToken() string {
+	var token string
+	ba, ok := s.autorestAuth.(*autorest.BearerAuthorizer)
+	if ok {
+		tokenProvider := ba.TokenProvider()
+		token = tokenProvider.OAuthToken()
+	} else {
+		if outer, ok := s.autorestAuth.(*hamiltonAuth.Authorizer); ok {
+			t, err := outer.Token()
+			if err != nil {
+				return ""
+			}
+			token = t.AccessToken
+		}
+	}
+	return token
 }
 
 func (r *blob) create(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {

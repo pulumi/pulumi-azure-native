@@ -9,9 +9,13 @@ import (
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/manicminer/hamilton/environments"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
+
+// TODO,tkappler move to a new auth package
+type AuthorizerFactory func(api environments.Api) (autorest.Authorizer, error)
 
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
 // crucial operations.
@@ -42,6 +46,7 @@ func BuildCustomResources(env *azure.Environment,
 	bearerAuth autorest.Authorizer,
 	tokenAuth autorest.Authorizer,
 	kvBearerAuth autorest.Authorizer,
+	bearerAuthFactory AuthorizerFactory,
 	userAgent string) map[string]*CustomResource {
 
 	kvClient := keyvault.New()
@@ -58,7 +63,7 @@ func BuildCustomResources(env *azure.Environment,
 		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
-		newBlob(env, &storageAccountsClient),
+		newBlob(subscriptionID, env, &storageAccountsClient, bearerAuthFactory),
 	}
 
 	result := map[string]*CustomResource{}
@@ -69,7 +74,7 @@ func BuildCustomResources(env *azure.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, "")
+var featureLookup = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, nil, "")
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {

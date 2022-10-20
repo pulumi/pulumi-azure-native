@@ -116,7 +116,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryImageVersion" }, { type: "azure-native:compute/v20180601:GalleryImageVersion" }, { type: "azure-native:compute/v20190301:GalleryImageVersion" }, { type: "azure-native:compute/v20190701:GalleryImageVersion" }, { type: "azure-native:compute/v20191201:GalleryImageVersion" }, { type: "azure-native:compute/v20200930:GalleryImageVersion" }, { type: "azure-native:compute/v20211001:GalleryImageVersion" }, { type: "azure-native:compute/v20220103:GalleryImageVersion" }, { type: "azure-native:compute/v20220303:GalleryImageVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryImageVersion" }, { type: "azure-native:compute/v20180601:GalleryImageVersion" }, { type: "azure-native:compute/v20190301:GalleryImageVersion" }, { type: "azure-native:compute/v20190701:GalleryImageVersion" }, { type: "azure-native:compute/v20191201:GalleryImageVersion" }, { type: "azure-native:compute/v20200930:GalleryImageVersion" }, { type: "azure-native:compute/v20211001:GalleryImageVersion" }, { type: "azure-native:compute/v20220103:GalleryImageVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImageVersion.__pulumiType, name, resourceInputs, opts);
     }

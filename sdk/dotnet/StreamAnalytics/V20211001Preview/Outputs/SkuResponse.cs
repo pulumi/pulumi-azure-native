@@ -17,21 +17,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
     public sealed class SkuResponse
     {
         /// <summary>
-        /// The capacity of the SKU.
-        /// </summary>
-        public readonly int? Capacity;
-        /// <summary>
         /// The name of the SKU. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]
-        private SkuResponse(
-            int? capacity,
-
-            string? name)
+        private SkuResponse(string? name)
         {
-            Capacity = capacity;
             Name = name;
         }
     }

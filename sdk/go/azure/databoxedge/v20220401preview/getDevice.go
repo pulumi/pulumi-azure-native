@@ -29,7 +29,7 @@ type LookupDeviceResult struct {
 	ComputeVersionInformation ComputeVersionInformationResponse `pulumi:"computeVersionInformation"`
 	ConfiguredRoleTypes       []string                          `pulumi:"configuredRoleTypes"`
 	Culture                   string                            `pulumi:"culture"`
-	DataBoxEdgeDeviceStatus   string                            `pulumi:"dataBoxEdgeDeviceStatus"`
+	DataBoxEdgeDeviceStatus   *string                           `pulumi:"dataBoxEdgeDeviceStatus"`
 	DataResidency             *DataResidencyResponse            `pulumi:"dataResidency"`
 	Description               string                            `pulumi:"description"`
 	DeviceHcsVersion          string                            `pulumi:"deviceHcsVersion"`
@@ -38,11 +38,11 @@ type LookupDeviceResult struct {
 	DeviceSoftwareVersion     string                            `pulumi:"deviceSoftwareVersion"`
 	DeviceType                string                            `pulumi:"deviceType"`
 	EdgeProfile               EdgeProfileResponse               `pulumi:"edgeProfile"`
-	Etag                      string                            `pulumi:"etag"`
+	Etag                      *string                           `pulumi:"etag"`
 	FriendlyName              string                            `pulumi:"friendlyName"`
 	Id                        string                            `pulumi:"id"`
-	Identity                  ResourceIdentityResponse          `pulumi:"identity"`
-	Kind                      string                            `pulumi:"kind"`
+	Identity                  *ResourceIdentityResponse         `pulumi:"identity"`
+	Kind                      *string                           `pulumi:"kind"`
 	KubernetesPlatform        string                            `pulumi:"kubernetesPlatform"`
 	Location                  string                            `pulumi:"location"`
 	ModelDescription          string                            `pulumi:"modelDescription"`
@@ -106,8 +106,8 @@ func (o LookupDeviceResultOutput) Culture() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Culture }).(pulumi.StringOutput)
 }
 
-func (o LookupDeviceResultOutput) DataBoxEdgeDeviceStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDeviceResult) string { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringOutput)
+func (o LookupDeviceResultOutput) DataBoxEdgeDeviceStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeviceResult) *string { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDeviceResultOutput) DataResidency() DataResidencyResponsePtrOutput {
@@ -142,8 +142,8 @@ func (o LookupDeviceResultOutput) EdgeProfile() EdgeProfileResponseOutput {
 	return o.ApplyT(func(v LookupDeviceResult) EdgeProfileResponse { return v.EdgeProfile }).(EdgeProfileResponseOutput)
 }
 
-func (o LookupDeviceResultOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDeviceResult) string { return v.Etag }).(pulumi.StringOutput)
+func (o LookupDeviceResultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeviceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDeviceResultOutput) FriendlyName() pulumi.StringOutput {
@@ -154,12 +154,12 @@ func (o LookupDeviceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupDeviceResultOutput) Identity() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v LookupDeviceResult) ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponseOutput)
+func (o LookupDeviceResultOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupDeviceResult) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
 }
 
-func (o LookupDeviceResultOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDeviceResult) string { return v.Kind }).(pulumi.StringOutput)
+func (o LookupDeviceResultOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeviceResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDeviceResultOutput) KubernetesPlatform() pulumi.StringOutput {

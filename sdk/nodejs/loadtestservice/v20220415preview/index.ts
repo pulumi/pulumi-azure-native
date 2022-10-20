@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetLoadTestArgs, GetLoadTestResult, GetLoadTestOutputArgs } from "./getLoadTest";
 export const getLoadTest: typeof import("./getLoadTest").getLoadTest = null as any;
 export const getLoadTestOutput: typeof import("./getLoadTest").getLoadTestOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadTest","getLoadTestOutput"], () => require("./getLoadTest"));
 
 export { LoadTestArgs } from "./loadTest";
 export type LoadTest = import("./loadTest").LoadTest;
 export const LoadTest: typeof import("./loadTest").LoadTest = null as any;
-
-utilities.lazyLoad(exports, ["getLoadTest","getLoadTestOutput"], () => require("./getLoadTest"));
 utilities.lazyLoad(exports, ["LoadTest"], () => require("./loadTest"));
+
 
 // Export enums:
 export * from "../../types/enums/loadtestservice/v20220415preview";

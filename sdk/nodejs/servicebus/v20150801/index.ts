@@ -8,88 +8,88 @@ import * as utilities from "../../utilities";
 export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
 export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
 export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
 
 export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
 export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
 export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
 
 export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
 export const getQueue: typeof import("./getQueue").getQueue = null as any;
 export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
 
 export { GetQueueAuthorizationRuleArgs, GetQueueAuthorizationRuleResult, GetQueueAuthorizationRuleOutputArgs } from "./getQueueAuthorizationRule";
 export const getQueueAuthorizationRule: typeof import("./getQueueAuthorizationRule").getQueueAuthorizationRule = null as any;
 export const getQueueAuthorizationRuleOutput: typeof import("./getQueueAuthorizationRule").getQueueAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getQueueAuthorizationRule","getQueueAuthorizationRuleOutput"], () => require("./getQueueAuthorizationRule"));
 
 export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
 export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
 export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
 
 export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
 export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
 
 export { GetTopicAuthorizationRuleArgs, GetTopicAuthorizationRuleResult, GetTopicAuthorizationRuleOutputArgs } from "./getTopicAuthorizationRule";
 export const getTopicAuthorizationRule: typeof import("./getTopicAuthorizationRule").getTopicAuthorizationRule = null as any;
 export const getTopicAuthorizationRuleOutput: typeof import("./getTopicAuthorizationRule").getTopicAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getTopicAuthorizationRule","getTopicAuthorizationRuleOutput"], () => require("./getTopicAuthorizationRule"));
 
 export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
 export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
 export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
 
 export { ListQueueKeysArgs, ListQueueKeysResult, ListQueueKeysOutputArgs } from "./listQueueKeys";
 export const listQueueKeys: typeof import("./listQueueKeys").listQueueKeys = null as any;
 export const listQueueKeysOutput: typeof import("./listQueueKeys").listQueueKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listQueueKeys","listQueueKeysOutput"], () => require("./listQueueKeys"));
 
 export { ListTopicKeysArgs, ListTopicKeysResult, ListTopicKeysOutputArgs } from "./listTopicKeys";
 export const listTopicKeys: typeof import("./listTopicKeys").listTopicKeys = null as any;
 export const listTopicKeysOutput: typeof import("./listTopicKeys").listTopicKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listTopicKeys","listTopicKeysOutput"], () => require("./listTopicKeys"));
 
 export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
 export { NamespaceAuthorizationRuleArgs } from "./namespaceAuthorizationRule";
 export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
 export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
 
 export { QueueArgs } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 
 export { QueueAuthorizationRuleArgs } from "./queueAuthorizationRule";
 export type QueueAuthorizationRule = import("./queueAuthorizationRule").QueueAuthorizationRule;
 export const QueueAuthorizationRule: typeof import("./queueAuthorizationRule").QueueAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["QueueAuthorizationRule"], () => require("./queueAuthorizationRule"));
 
 export { SubscriptionArgs } from "./subscription";
 export type Subscription = import("./subscription").Subscription;
 export const Subscription: typeof import("./subscription").Subscription = null as any;
+utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
 
 export { TopicArgs } from "./topic";
 export type Topic = import("./topic").Topic;
 export const Topic: typeof import("./topic").Topic = null as any;
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
 export { TopicAuthorizationRuleArgs } from "./topicAuthorizationRule";
 export type TopicAuthorizationRule = import("./topicAuthorizationRule").TopicAuthorizationRule;
 export const TopicAuthorizationRule: typeof import("./topicAuthorizationRule").TopicAuthorizationRule = null as any;
-
-utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
-utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
-utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
-utilities.lazyLoad(exports, ["getQueueAuthorizationRule","getQueueAuthorizationRuleOutput"], () => require("./getQueueAuthorizationRule"));
-utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
-utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
-utilities.lazyLoad(exports, ["getTopicAuthorizationRule","getTopicAuthorizationRuleOutput"], () => require("./getTopicAuthorizationRule"));
-utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
-utilities.lazyLoad(exports, ["listQueueKeys","listQueueKeysOutput"], () => require("./listQueueKeys"));
-utilities.lazyLoad(exports, ["listTopicKeys","listTopicKeysOutput"], () => require("./listTopicKeys"));
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
-utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
-utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
-utilities.lazyLoad(exports, ["QueueAuthorizationRule"], () => require("./queueAuthorizationRule"));
-utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
-utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 utilities.lazyLoad(exports, ["TopicAuthorizationRule"], () => require("./topicAuthorizationRule"));
+
 
 // Export enums:
 export * from "../../types/enums/servicebus/v20150801";

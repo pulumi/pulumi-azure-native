@@ -114,10 +114,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Whether autotune is required or not.
-        /// </summary>
-        public readonly bool? IsAutotuneEnabled;
-        /// <summary>
         /// Whether compute isolation is required or not.
         /// </summary>
         public readonly bool? IsComputeIsolationEnabled;
@@ -196,8 +192,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             string id,
 
-            bool? isAutotuneEnabled,
-
             bool? isComputeIsolationEnabled,
 
             string lastSucceededTimestamp,
@@ -236,7 +230,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             DefaultSparkLogFolder = defaultSparkLogFolder;
             DynamicExecutorAllocation = dynamicExecutorAllocation;
             Id = id;
-            IsAutotuneEnabled = isAutotuneEnabled;
             IsComputeIsolationEnabled = isComputeIsolationEnabled;
             LastSucceededTimestamp = lastSucceededTimestamp;
             LibraryRequirements = libraryRequirements;

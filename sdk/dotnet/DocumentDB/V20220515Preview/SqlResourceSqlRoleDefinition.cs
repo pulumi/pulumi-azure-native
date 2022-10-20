@@ -83,8 +83,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:SqlResourceSqlRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:SqlResourceSqlRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515:SqlResourceSqlRoleDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:SqlResourceSqlRoleDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:SqlResourceSqlRoleDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

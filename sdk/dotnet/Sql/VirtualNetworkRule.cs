@@ -81,7 +81,6 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:VirtualNetworkRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:VirtualNetworkRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:VirtualNetworkRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

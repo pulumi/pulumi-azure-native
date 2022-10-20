@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetMoveCollectionArgs, GetMoveCollectionResult, GetMoveCollectionOutputArgs } from "./getMoveCollection";
 export const getMoveCollection: typeof import("./getMoveCollection").getMoveCollection = null as any;
 export const getMoveCollectionOutput: typeof import("./getMoveCollection").getMoveCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getMoveCollection","getMoveCollectionOutput"], () => require("./getMoveCollection"));
 
 export { GetMoveResourceArgs, GetMoveResourceResult, GetMoveResourceOutputArgs } from "./getMoveResource";
 export const getMoveResource: typeof import("./getMoveResource").getMoveResource = null as any;
 export const getMoveResourceOutput: typeof import("./getMoveResource").getMoveResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getMoveResource","getMoveResourceOutput"], () => require("./getMoveResource"));
 
 export { MoveCollectionArgs } from "./moveCollection";
 export type MoveCollection = import("./moveCollection").MoveCollection;
 export const MoveCollection: typeof import("./moveCollection").MoveCollection = null as any;
+utilities.lazyLoad(exports, ["MoveCollection"], () => require("./moveCollection"));
 
 export { MoveResourceArgs } from "./moveResource";
 export type MoveResource = import("./moveResource").MoveResource;
 export const MoveResource: typeof import("./moveResource").MoveResource = null as any;
-
-utilities.lazyLoad(exports, ["getMoveCollection","getMoveCollectionOutput"], () => require("./getMoveCollection"));
-utilities.lazyLoad(exports, ["getMoveResource","getMoveResourceOutput"], () => require("./getMoveResource"));
-utilities.lazyLoad(exports, ["MoveCollection"], () => require("./moveCollection"));
 utilities.lazyLoad(exports, ["MoveResource"], () => require("./moveResource"));
+
 
 // Export enums:
 export * from "../../types/enums/migrate/v20191001preview";

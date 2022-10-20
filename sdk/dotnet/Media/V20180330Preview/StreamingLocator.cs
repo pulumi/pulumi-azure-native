@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
                     new global::Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingLocator"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingLocator"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingLocator"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingLocator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -29,6 +29,7 @@ type LookupVolumeArgs struct {
 
 type LookupVolumeResult struct {
 	AvsDataStore                      *string                                 `pulumi:"avsDataStore"`
+	BackupId                          *string                                 `pulumi:"backupId"`
 	BaremetalTenantId                 string                                  `pulumi:"baremetalTenantId"`
 	CapacityPoolResourceId            *string                                 `pulumi:"capacityPoolResourceId"`
 	CloneProgress                     int                                     `pulumi:"cloneProgress"`
@@ -65,6 +66,7 @@ type LookupVolumeResult struct {
 	SmbContinuouslyAvailable          *bool                                   `pulumi:"smbContinuouslyAvailable"`
 	SmbEncryption                     *bool                                   `pulumi:"smbEncryption"`
 	SnapshotDirectoryVisible          *bool                                   `pulumi:"snapshotDirectoryVisible"`
+	SnapshotId                        *string                                 `pulumi:"snapshotId"`
 	StorageToNetworkProximity         string                                  `pulumi:"storageToNetworkProximity"`
 	SubnetId                          string                                  `pulumi:"subnetId"`
 	SystemData                        SystemDataResponse                      `pulumi:"systemData"`
@@ -193,6 +195,10 @@ func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx cont
 
 func (o LookupVolumeResultOutput) AvsDataStore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *string { return v.AvsDataStore }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVolumeResultOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVolumeResultOutput) BaremetalTenantId() pulumi.StringOutput {
@@ -337,6 +343,10 @@ func (o LookupVolumeResultOutput) SmbEncryption() pulumi.BoolPtrOutput {
 
 func (o LookupVolumeResultOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupVolumeResultOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVolumeResultOutput) StorageToNetworkProximity() pulumi.StringOutput {

@@ -5,26 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetScheduledQueryRuleArgs, GetScheduledQueryRuleResult, GetScheduledQueryRuleOutputArgs } from "./getScheduledQueryRule";
-export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").getScheduledQueryRule = null as any;
-export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
-
 export { GetWebTestArgs, GetWebTestResult, GetWebTestOutputArgs } from "./getWebTest";
 export const getWebTest: typeof import("./getWebTest").getWebTest = null as any;
 export const getWebTestOutput: typeof import("./getWebTest").getWebTestOutput = null as any;
-
-export { ScheduledQueryRuleArgs } from "./scheduledQueryRule";
-export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRule;
-export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
+utilities.lazyLoad(exports, ["getWebTest","getWebTestOutput"], () => require("./getWebTest"));
 
 export { WebTestArgs } from "./webTest";
 export type WebTest = import("./webTest").WebTest;
 export const WebTest: typeof import("./webTest").WebTest = null as any;
-
-utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
-utilities.lazyLoad(exports, ["getWebTest","getWebTestOutput"], () => require("./getWebTest"));
-utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
 utilities.lazyLoad(exports, ["WebTest"], () => require("./webTest"));
+
 
 // Export enums:
 export * from "../../types/enums/insights/v20220615";
@@ -33,8 +23,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:insights/v20220615:ScheduledQueryRule":
-                return new ScheduledQueryRule(name, <any>undefined, { urn })
             case "azure-native:insights/v20220615:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
             default:

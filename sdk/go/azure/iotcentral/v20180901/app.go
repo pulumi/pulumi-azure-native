@@ -17,16 +17,12 @@ type App struct {
 
 	ApplicationId pulumi.StringOutput      `pulumi:"applicationId"`
 	DisplayName   pulumi.StringPtrOutput   `pulumi:"displayName"`
-	Geography     pulumi.StringOutput      `pulumi:"geography"`
 	Location      pulumi.StringOutput      `pulumi:"location"`
 	Name          pulumi.StringOutput      `pulumi:"name"`
 	Sku           AppSkuInfoResponseOutput `pulumi:"sku"`
-	State         pulumi.StringOutput      `pulumi:"state"`
 	Subdomain     pulumi.StringPtrOutput   `pulumi:"subdomain"`
 	Tags          pulumi.StringMapOutput   `pulumi:"tags"`
 	Template      pulumi.StringPtrOutput   `pulumi:"template"`
-	Tenant        pulumi.StringOutput      `pulumi:"tenant"`
-	ThumbnailUrl  pulumi.StringOutput      `pulumi:"thumbnailUrl"`
 	Type          pulumi.StringOutput      `pulumi:"type"`
 }
 
@@ -154,10 +150,6 @@ func (o AppOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) Geography() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Geography }).(pulumi.StringOutput)
-}
-
 func (o AppOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -170,10 +162,6 @@ func (o AppOutput) Sku() AppSkuInfoResponseOutput {
 	return o.ApplyT(func(v *App) AppSkuInfoResponseOutput { return v.Sku }).(AppSkuInfoResponseOutput)
 }
 
-func (o AppOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
-}
-
 func (o AppOutput) Subdomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Subdomain }).(pulumi.StringPtrOutput)
 }
@@ -184,14 +172,6 @@ func (o AppOutput) Tags() pulumi.StringMapOutput {
 
 func (o AppOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
-}
-
-func (o AppOutput) Tenant() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Tenant }).(pulumi.StringOutput)
-}
-
-func (o AppOutput) ThumbnailUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.ThumbnailUrl }).(pulumi.StringOutput)
 }
 
 func (o AppOutput) Type() pulumi.StringOutput {

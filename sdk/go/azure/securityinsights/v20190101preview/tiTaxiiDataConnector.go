@@ -99,12 +99,6 @@ func NewTiTaxiiDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220801preview:TiTaxiiDataConnector"),
 		},
-		{
-			Type: pulumi.String("azure-native:securityinsights/v20220901preview:TiTaxiiDataConnector"),
-		},
-		{
-			Type: pulumi.String("azure-native:securityinsights/v20221001preview:TiTaxiiDataConnector"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource TiTaxiiDataConnector

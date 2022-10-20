@@ -228,7 +228,7 @@ class DefaultAdminRule(pulumi.CustomResource):
             __props__.__dict__["sources"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:DefaultAdminRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultAdminRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultAdminRule, __self__).__init__(
             'azure-native:network/v20210501preview:DefaultAdminRule',

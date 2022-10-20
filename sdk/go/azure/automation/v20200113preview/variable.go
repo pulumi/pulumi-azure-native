@@ -49,9 +49,6 @@ func NewVariable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:automation/v20190601:Variable"),
 		},
-		{
-			Type: pulumi.String("azure-native:automation/v20220808:Variable"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Variable

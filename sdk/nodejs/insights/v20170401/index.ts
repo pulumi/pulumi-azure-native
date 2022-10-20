@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { ActionGroupArgs } from "./actionGroup";
 export type ActionGroup = import("./actionGroup").ActionGroup;
 export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
+utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
 
 export { ActivityLogAlertArgs } from "./activityLogAlert";
 export type ActivityLogAlert = import("./activityLogAlert").ActivityLogAlert;
 export const ActivityLogAlert: typeof import("./activityLogAlert").ActivityLogAlert = null as any;
+utilities.lazyLoad(exports, ["ActivityLogAlert"], () => require("./activityLogAlert"));
 
 export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
 export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
 export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
 
 export { GetActivityLogAlertArgs, GetActivityLogAlertResult, GetActivityLogAlertOutputArgs } from "./getActivityLogAlert";
 export const getActivityLogAlert: typeof import("./getActivityLogAlert").getActivityLogAlert = null as any;
 export const getActivityLogAlertOutput: typeof import("./getActivityLogAlert").getActivityLogAlertOutput = null as any;
-
-utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
-utilities.lazyLoad(exports, ["ActivityLogAlert"], () => require("./activityLogAlert"));
-utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
 utilities.lazyLoad(exports, ["getActivityLogAlert","getActivityLogAlertOutput"], () => require("./getActivityLogAlert"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -241,23 +241,6 @@ type NetworkRuleSets struct {
 }
 
 
-func (val *NetworkRuleSets) Defaults() *NetworkRuleSets {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ApplyToDevices) {
-		applyToDevices_ := false
-		tmp.ApplyToDevices = &applyToDevices_
-	}
-	if isZero(tmp.ApplyToIoTCentral) {
-		applyToIoTCentral_ := false
-		tmp.ApplyToIoTCentral = &applyToIoTCentral_
-	}
-	return &tmp
-}
-
-
 
 
 
@@ -275,20 +258,6 @@ type NetworkRuleSetsArgs struct {
 	IpRules           NetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
 }
 
-
-func (val *NetworkRuleSetsArgs) Defaults() *NetworkRuleSetsArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ApplyToDevices) {
-		tmp.ApplyToDevices = pulumi.BoolPtr(false)
-	}
-	if isZero(tmp.ApplyToIoTCentral) {
-		tmp.ApplyToIoTCentral = pulumi.BoolPtr(false)
-	}
-	return &tmp
-}
 func (NetworkRuleSetsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkRuleSets)(nil)).Elem()
 }
@@ -447,23 +416,6 @@ type NetworkRuleSetsResponse struct {
 	ApplyToIoTCentral *bool                          `pulumi:"applyToIoTCentral"`
 	DefaultAction     *string                        `pulumi:"defaultAction"`
 	IpRules           []NetworkRuleSetIpRuleResponse `pulumi:"ipRules"`
-}
-
-
-func (val *NetworkRuleSetsResponse) Defaults() *NetworkRuleSetsResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.ApplyToDevices) {
-		applyToDevices_ := false
-		tmp.ApplyToDevices = &applyToDevices_
-	}
-	if isZero(tmp.ApplyToIoTCentral) {
-		applyToIoTCentral_ := false
-		tmp.ApplyToIoTCentral = &applyToIoTCentral_
-	}
-	return &tmp
 }
 
 type NetworkRuleSetsResponseOutput struct{ *pulumi.OutputState }

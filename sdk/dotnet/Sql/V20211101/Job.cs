@@ -80,7 +80,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

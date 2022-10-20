@@ -84,9 +84,6 @@ func NewProtectionIntent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20220301:ProtectionIntent"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20220901preview:ProtectionIntent"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionIntent

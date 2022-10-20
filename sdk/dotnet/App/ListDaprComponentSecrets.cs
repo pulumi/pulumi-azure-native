@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.App
     public static class ListDaprComponentSecrets
     {
         /// <summary>
-        /// Dapr component Secrets Collection for ListSecrets Action
+        /// Dapr component Secrets Collection ARM resource.
         /// API Version: 2022-03-01.
         /// </summary>
         public static Task<ListDaprComponentSecretsResult> InvokeAsync(ListDaprComponentSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDaprComponentSecretsResult>("azure-native:app:listDaprComponentSecrets", args ?? new ListDaprComponentSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Dapr component Secrets Collection for ListSecrets Action
+        /// Dapr component Secrets Collection ARM resource.
         /// API Version: 2022-03-01.
         /// </summary>
         public static Output<ListDaprComponentSecretsResult> Invoke(ListDaprComponentSecretsInvokeArgs args, InvokeOptions? options = null)
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNative.App
     public sealed class ListDaprComponentSecretsResult
     {
         /// <summary>
-        /// Collection of secrets for ListSecrets Action
+        /// Collection of secrets used by a Dapr component
         /// </summary>
-        public readonly ImmutableArray<Outputs.DaprSecretResponse> Value;
+        public readonly ImmutableArray<Outputs.SecretResponse> Value;
 
         [OutputConstructor]
-        private ListDaprComponentSecretsResult(ImmutableArray<Outputs.DaprSecretResponse> value)
+        private ListDaprComponentSecretsResult(ImmutableArray<Outputs.SecretResponse> value)
         {
             Value = value;
         }

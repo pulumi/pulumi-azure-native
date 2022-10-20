@@ -36,15 +36,6 @@ func NewCatalog(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:devcenter:Catalog"),
-		},
-		{
-			Type: pulumi.String("azure-native:devcenter/v20220901preview:Catalog"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Catalog
 	err := ctx.RegisterResource("azure-native:devcenter/v20220801preview:Catalog", name, args, &resource, opts...)
 	if err != nil {

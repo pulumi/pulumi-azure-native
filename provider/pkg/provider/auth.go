@@ -15,6 +15,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 
 	goversion "github.com/hashicorp/go-version"
 	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
@@ -138,10 +139,8 @@ func runAzCmd(target interface{}, arg ...string) error {
 	return nil
 }
 
-type AuthorizerFactory func(api environments.Api) (autorest.Authorizer, error)
-
 func (k *azureNativeProvider) makeAuthorizerFactories(ctx context.Context,
-	authConfig *authentication.Config) (AuthorizerFactory, AuthorizerFactory, error) {
+	authConfig *authentication.Config) (resources.AuthorizerFactory, resources.AuthorizerFactory, error) {
 
 	buildSender := sender.BuildSender("AzureNative")
 

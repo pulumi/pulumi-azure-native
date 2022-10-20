@@ -80,8 +80,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ReplicationMigrationItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ReplicationMigrationItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220501:ReplicationMigrationItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220801:ReplicationMigrationItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220910:ReplicationMigrationItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

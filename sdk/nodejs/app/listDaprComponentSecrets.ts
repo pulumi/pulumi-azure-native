@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Dapr component Secrets Collection for ListSecrets Action
+ * Dapr component Secrets Collection ARM resource.
  * API Version: 2022-03-01.
  */
 export function listDaprComponentSecrets(args: ListDaprComponentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDaprComponentSecretsResult> {
@@ -40,13 +40,13 @@ export interface ListDaprComponentSecretsArgs {
 }
 
 /**
- * Dapr component Secrets Collection for ListSecrets Action
+ * Dapr component Secrets Collection ARM resource.
  */
 export interface ListDaprComponentSecretsResult {
     /**
-     * Collection of secrets for ListSecrets Action
+     * Collection of secrets used by a Dapr component
      */
-    readonly value: outputs.app.DaprSecretResponse[];
+    readonly value: outputs.app.SecretResponse[];
 }
 
 export function listDaprComponentSecretsOutput(args: ListDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDaprComponentSecretsResult> {

@@ -8,33 +8,33 @@ import * as utilities from "../../utilities";
 export { CustomAssessmentAutomationArgs } from "./customAssessmentAutomation";
 export type CustomAssessmentAutomation = import("./customAssessmentAutomation").CustomAssessmentAutomation;
 export const CustomAssessmentAutomation: typeof import("./customAssessmentAutomation").CustomAssessmentAutomation = null as any;
+utilities.lazyLoad(exports, ["CustomAssessmentAutomation"], () => require("./customAssessmentAutomation"));
 
 export { CustomEntityStoreAssignmentArgs } from "./customEntityStoreAssignment";
 export type CustomEntityStoreAssignment = import("./customEntityStoreAssignment").CustomEntityStoreAssignment;
 export const CustomEntityStoreAssignment: typeof import("./customEntityStoreAssignment").CustomEntityStoreAssignment = null as any;
+utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
 
 export { GetCustomAssessmentAutomationArgs, GetCustomAssessmentAutomationResult, GetCustomAssessmentAutomationOutputArgs } from "./getCustomAssessmentAutomation";
 export const getCustomAssessmentAutomation: typeof import("./getCustomAssessmentAutomation").getCustomAssessmentAutomation = null as any;
 export const getCustomAssessmentAutomationOutput: typeof import("./getCustomAssessmentAutomation").getCustomAssessmentAutomationOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomAssessmentAutomation","getCustomAssessmentAutomationOutput"], () => require("./getCustomAssessmentAutomation"));
 
 export { GetCustomEntityStoreAssignmentArgs, GetCustomEntityStoreAssignmentResult, GetCustomEntityStoreAssignmentOutputArgs } from "./getCustomEntityStoreAssignment";
 export const getCustomEntityStoreAssignment: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignment = null as any;
 export const getCustomEntityStoreAssignmentOutput: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
 
 export { GetSecurityConnectorArgs, GetSecurityConnectorResult, GetSecurityConnectorOutputArgs } from "./getSecurityConnector";
 export const getSecurityConnector: typeof import("./getSecurityConnector").getSecurityConnector = null as any;
 export const getSecurityConnectorOutput: typeof import("./getSecurityConnector").getSecurityConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityConnector","getSecurityConnectorOutput"], () => require("./getSecurityConnector"));
 
 export { SecurityConnectorArgs } from "./securityConnector";
 export type SecurityConnector = import("./securityConnector").SecurityConnector;
 export const SecurityConnector: typeof import("./securityConnector").SecurityConnector = null as any;
-
-utilities.lazyLoad(exports, ["CustomAssessmentAutomation"], () => require("./customAssessmentAutomation"));
-utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
-utilities.lazyLoad(exports, ["getCustomAssessmentAutomation","getCustomAssessmentAutomationOutput"], () => require("./getCustomAssessmentAutomation"));
-utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
-utilities.lazyLoad(exports, ["getSecurityConnector","getSecurityConnectorOutput"], () => require("./getSecurityConnector"));
 utilities.lazyLoad(exports, ["SecurityConnector"], () => require("./securityConnector"));
+
 
 // Export enums:
 export * from "../../types/enums/security/v20210701preview";

@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         /// The status of the Data Box Edge/Gateway device.
         /// </summary>
         [Output("dataBoxEdgeDeviceStatus")]
-        public Output<string> DataBoxEdgeDeviceStatus { get; private set; } = null!;
+        public Output<string?> DataBoxEdgeDeviceStatus { get; private set; } = null!;
 
         /// <summary>
         /// The details of data-residency related properties for this resource
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         /// The etag for the devices.
         /// </summary>
         [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The Data Box Edge/Gateway device name.
@@ -103,13 +103,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         /// Msi identity of the resource
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponse> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the device.
         /// </summary>
         [Output("kind")]
-        public Output<string> Kind { get; private set; } = null!;
+        public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Type of Kubernetes Platform
@@ -245,6 +245,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
     public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The status of the Data Box Edge/Gateway device.
+        /// </summary>
+        [Input("dataBoxEdgeDeviceStatus")]
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20220401Preview.DataBoxEdgeDeviceStatus>? DataBoxEdgeDeviceStatus { get; set; }
+
+        /// <summary>
         /// The details of data-residency related properties for this resource
         /// </summary>
         [Input("dataResidency")]
@@ -255,6 +261,18 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
+
+        /// <summary>
+        /// Msi identity of the resource
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The kind of the device.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20220401Preview.DataBoxEdgeDeviceKind>? Kind { get; set; }
 
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.

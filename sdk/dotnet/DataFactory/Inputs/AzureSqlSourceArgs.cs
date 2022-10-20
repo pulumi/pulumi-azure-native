@@ -81,11 +81,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("sqlReaderStoredProcedureName")]
         public Input<object>? SqlReaderStoredProcedureName { get; set; }
 
+        [Input("storedProcedureParameters")]
+        private InputMap<Inputs.StoredProcedureParameterArgs>? _storedProcedureParameters;
+
         /// <summary>
         /// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         /// </summary>
-        [Input("storedProcedureParameters")]
-        public Input<object>? StoredProcedureParameters { get; set; }
+        public InputMap<Inputs.StoredProcedureParameterArgs> StoredProcedureParameters
+        {
+            get => _storedProcedureParameters ?? (_storedProcedureParameters = new InputMap<Inputs.StoredProcedureParameterArgs>());
+            set => _storedProcedureParameters = value;
+        }
 
         /// <summary>
         /// Copy source type.

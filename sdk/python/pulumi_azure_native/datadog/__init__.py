@@ -22,10 +22,7 @@ if typing.TYPE_CHECKING:
     v20200201preview = __v20200201preview
     import pulumi_azure_native.datadog.v20210301 as __v20210301
     v20210301 = __v20210301
-    import pulumi_azure_native.datadog.v20220601 as __v20220601
-    v20220601 = __v20220601
 else:
     v20200201preview = _utilities.lazy_import('pulumi_azure_native.datadog.v20200201preview')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.datadog.v20210301')
-    v20220601 = _utilities.lazy_import('pulumi_azure_native.datadog.v20220601')
 

@@ -8,83 +8,83 @@ import * as utilities from "../../utilities";
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { ApplicationGroupArgs } from "./applicationGroup";
 export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
 export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
+utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
 export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
 export const getApplicationGroupOutput: typeof import("./getApplicationGroup").getApplicationGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
 
 export { GetHostPoolArgs, GetHostPoolResult, GetHostPoolOutputArgs } from "./getHostPool";
 export const getHostPool: typeof import("./getHostPool").getHostPool = null as any;
 export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
 
 export { GetMSIXPackageArgs, GetMSIXPackageResult, GetMSIXPackageOutputArgs } from "./getMSIXPackage";
 export const getMSIXPackage: typeof import("./getMSIXPackage").getMSIXPackage = null as any;
 export const getMSIXPackageOutput: typeof import("./getMSIXPackage").getMSIXPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getMSIXPackage","getMSIXPackageOutput"], () => require("./getMSIXPackage"));
 
 export { GetPrivateEndpointConnectionByHostPoolArgs, GetPrivateEndpointConnectionByHostPoolResult, GetPrivateEndpointConnectionByHostPoolOutputArgs } from "./getPrivateEndpointConnectionByHostPool";
 export const getPrivateEndpointConnectionByHostPool: typeof import("./getPrivateEndpointConnectionByHostPool").getPrivateEndpointConnectionByHostPool = null as any;
 export const getPrivateEndpointConnectionByHostPoolOutput: typeof import("./getPrivateEndpointConnectionByHostPool").getPrivateEndpointConnectionByHostPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByHostPool","getPrivateEndpointConnectionByHostPoolOutput"], () => require("./getPrivateEndpointConnectionByHostPool"));
 
 export { GetPrivateEndpointConnectionByWorkspaceArgs, GetPrivateEndpointConnectionByWorkspaceResult, GetPrivateEndpointConnectionByWorkspaceOutputArgs } from "./getPrivateEndpointConnectionByWorkspace";
 export const getPrivateEndpointConnectionByWorkspace: typeof import("./getPrivateEndpointConnectionByWorkspace").getPrivateEndpointConnectionByWorkspace = null as any;
 export const getPrivateEndpointConnectionByWorkspaceOutput: typeof import("./getPrivateEndpointConnectionByWorkspace").getPrivateEndpointConnectionByWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByWorkspace","getPrivateEndpointConnectionByWorkspaceOutput"], () => require("./getPrivateEndpointConnectionByWorkspace"));
 
 export { GetScalingPlanArgs, GetScalingPlanResult, GetScalingPlanOutputArgs } from "./getScalingPlan";
 export const getScalingPlan: typeof import("./getScalingPlan").getScalingPlan = null as any;
 export const getScalingPlanOutput: typeof import("./getScalingPlan").getScalingPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getScalingPlan","getScalingPlanOutput"], () => require("./getScalingPlan"));
 
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
 export { HostPoolArgs } from "./hostPool";
 export type HostPool = import("./hostPool").HostPool;
 export const HostPool: typeof import("./hostPool").HostPool = null as any;
+utilities.lazyLoad(exports, ["HostPool"], () => require("./hostPool"));
 
 export { MSIXPackageArgs } from "./msixpackage";
 export type MSIXPackage = import("./msixpackage").MSIXPackage;
 export const MSIXPackage: typeof import("./msixpackage").MSIXPackage = null as any;
+utilities.lazyLoad(exports, ["MSIXPackage"], () => require("./msixpackage"));
 
 export { PrivateEndpointConnectionByHostPoolArgs } from "./privateEndpointConnectionByHostPool";
 export type PrivateEndpointConnectionByHostPool = import("./privateEndpointConnectionByHostPool").PrivateEndpointConnectionByHostPool;
 export const PrivateEndpointConnectionByHostPool: typeof import("./privateEndpointConnectionByHostPool").PrivateEndpointConnectionByHostPool = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionByHostPool"], () => require("./privateEndpointConnectionByHostPool"));
 
 export { PrivateEndpointConnectionByWorkspaceArgs } from "./privateEndpointConnectionByWorkspace";
 export type PrivateEndpointConnectionByWorkspace = import("./privateEndpointConnectionByWorkspace").PrivateEndpointConnectionByWorkspace;
 export const PrivateEndpointConnectionByWorkspace: typeof import("./privateEndpointConnectionByWorkspace").PrivateEndpointConnectionByWorkspace = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionByWorkspace"], () => require("./privateEndpointConnectionByWorkspace"));
 
 export { ScalingPlanArgs } from "./scalingPlan";
 export type ScalingPlan = import("./scalingPlan").ScalingPlan;
 export const ScalingPlan: typeof import("./scalingPlan").ScalingPlan = null as any;
+utilities.lazyLoad(exports, ["ScalingPlan"], () => require("./scalingPlan"));
 
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
-utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
-utilities.lazyLoad(exports, ["getMSIXPackage","getMSIXPackageOutput"], () => require("./getMSIXPackage"));
-utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByHostPool","getPrivateEndpointConnectionByHostPoolOutput"], () => require("./getPrivateEndpointConnectionByHostPool"));
-utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByWorkspace","getPrivateEndpointConnectionByWorkspaceOutput"], () => require("./getPrivateEndpointConnectionByWorkspace"));
-utilities.lazyLoad(exports, ["getScalingPlan","getScalingPlanOutput"], () => require("./getScalingPlan"));
-utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-utilities.lazyLoad(exports, ["HostPool"], () => require("./hostPool"));
-utilities.lazyLoad(exports, ["MSIXPackage"], () => require("./msixpackage"));
-utilities.lazyLoad(exports, ["PrivateEndpointConnectionByHostPool"], () => require("./privateEndpointConnectionByHostPool"));
-utilities.lazyLoad(exports, ["PrivateEndpointConnectionByWorkspace"], () => require("./privateEndpointConnectionByWorkspace"));
-utilities.lazyLoad(exports, ["ScalingPlan"], () => require("./scalingPlan"));
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
 
 // Export enums:
 export * from "../../types/enums/desktopvirtualization/v20220210preview";

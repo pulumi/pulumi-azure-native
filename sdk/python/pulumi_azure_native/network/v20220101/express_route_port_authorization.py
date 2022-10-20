@@ -172,7 +172,7 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:ExpressRoutePortAuthorization"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRoutePortAuthorization"), pulumi.Alias(type_="azure-native:network/v20220501:ExpressRoutePortAuthorization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:ExpressRoutePortAuthorization"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRoutePortAuthorization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRoutePortAuthorization, __self__).__init__(
             'azure-native:network/v20220101:ExpressRoutePortAuthorization',

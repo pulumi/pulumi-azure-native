@@ -22,7 +22,7 @@ class ListContainerAppCustomHostNameAnalysisResult:
     """
     Custom domain analysis.
     """
-    def __init__(__self__, a_records=None, alternate_c_name_records=None, alternate_txt_records=None, c_name_records=None, conflict_with_environment_custom_domain=None, conflicting_container_app_resource_id=None, custom_domain_verification_failure_info=None, custom_domain_verification_test=None, has_conflict_on_managed_environment=None, host_name=None, is_hostname_already_verified=None, txt_records=None):
+    def __init__(__self__, a_records=None, alternate_c_name_records=None, alternate_txt_records=None, c_name_records=None, conflicting_container_app_resource_id=None, custom_domain_verification_failure_info=None, custom_domain_verification_test=None, has_conflict_on_managed_environment=None, host_name=None, is_hostname_already_verified=None, txt_records=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
@@ -35,9 +35,6 @@ class ListContainerAppCustomHostNameAnalysisResult:
         if c_name_records and not isinstance(c_name_records, list):
             raise TypeError("Expected argument 'c_name_records' to be a list")
         pulumi.set(__self__, "c_name_records", c_name_records)
-        if conflict_with_environment_custom_domain and not isinstance(conflict_with_environment_custom_domain, bool):
-            raise TypeError("Expected argument 'conflict_with_environment_custom_domain' to be a bool")
-        pulumi.set(__self__, "conflict_with_environment_custom_domain", conflict_with_environment_custom_domain)
         if conflicting_container_app_resource_id and not isinstance(conflicting_container_app_resource_id, str):
             raise TypeError("Expected argument 'conflicting_container_app_resource_id' to be a str")
         pulumi.set(__self__, "conflicting_container_app_resource_id", conflicting_container_app_resource_id)
@@ -91,14 +88,6 @@ class ListContainerAppCustomHostNameAnalysisResult:
         CName records visible for this hostname.
         """
         return pulumi.get(self, "c_name_records")
-
-    @property
-    @pulumi.getter(name="conflictWithEnvironmentCustomDomain")
-    def conflict_with_environment_custom_domain(self) -> bool:
-        """
-        <code>true</code> if there is a conflict on the Container App's managed environment level custom domain; otherwise, <code>false</code>.
-        """
-        return pulumi.get(self, "conflict_with_environment_custom_domain")
 
     @property
     @pulumi.getter(name="conflictingContainerAppResourceId")
@@ -167,7 +156,6 @@ class AwaitableListContainerAppCustomHostNameAnalysisResult(ListContainerAppCust
             alternate_c_name_records=self.alternate_c_name_records,
             alternate_txt_records=self.alternate_txt_records,
             c_name_records=self.c_name_records,
-            conflict_with_environment_custom_domain=self.conflict_with_environment_custom_domain,
             conflicting_container_app_resource_id=self.conflicting_container_app_resource_id,
             custom_domain_verification_failure_info=self.custom_domain_verification_failure_info,
             custom_domain_verification_test=self.custom_domain_verification_test,
@@ -201,7 +189,6 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[st
         alternate_c_name_records=__ret__.alternate_c_name_records,
         alternate_txt_records=__ret__.alternate_txt_records,
         c_name_records=__ret__.c_name_records,
-        conflict_with_environment_custom_domain=__ret__.conflict_with_environment_custom_domain,
         conflicting_container_app_resource_id=__ret__.conflicting_container_app_resource_id,
         custom_domain_verification_failure_info=__ret__.custom_domain_verification_failure_info,
         custom_domain_verification_test=__ret__.custom_domain_verification_test,

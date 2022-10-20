@@ -1515,12 +1515,8 @@ class GatewayResourceRequestsArgs:
         :param pulumi.Input[str] cpu: Cpu allocated to each Spring Cloud Gateway instance.
         :param pulumi.Input[str] memory: Memory allocated to each Spring Cloud Gateway instance.
         """
-        if cpu is None:
-            cpu = '1'
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
-        if memory is None:
-            memory = '2Gi'
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
 

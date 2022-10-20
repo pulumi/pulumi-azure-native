@@ -96,9 +96,6 @@ func NewEventGridDataConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:kusto/v20210827:EventGridDataConnection"),
 		},
-		{
-			Type: pulumi.String("azure-native:kusto/v20220707:EventGridDataConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource EventGridDataConnection

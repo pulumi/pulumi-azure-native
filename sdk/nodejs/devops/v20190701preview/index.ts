@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetPipelineArgs, GetPipelineResult, GetPipelineOutputArgs } from "./getPipeline";
 export const getPipeline: typeof import("./getPipeline").getPipeline = null as any;
 export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
+utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
 
 export { PipelineArgs } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
-
-utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
 utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
+
 
 // Export enums:
 export * from "../../types/enums/devops/v20190701preview";

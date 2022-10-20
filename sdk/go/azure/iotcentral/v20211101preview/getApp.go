@@ -16,7 +16,7 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 	if err != nil {
 		return nil, err
 	}
-	return rv.Defaults(), nil
+	return &rv, nil
 }
 
 type LookupAppArgs struct {
@@ -43,17 +43,6 @@ type LookupAppResult struct {
 	Tags                       map[string]string                      `pulumi:"tags"`
 	Template                   *string                                `pulumi:"template"`
 	Type                       string                                 `pulumi:"type"`
-}
-
-
-func (val *LookupAppResult) Defaults() *LookupAppResult {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.NetworkRuleSets = tmp.NetworkRuleSets.Defaults()
-
-	return &tmp
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {

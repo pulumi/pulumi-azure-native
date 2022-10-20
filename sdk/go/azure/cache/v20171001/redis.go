@@ -80,9 +80,6 @@ func NewRedis(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cache/v20220501:Redis"),
 		},
-		{
-			Type: pulumi.String("azure-native:cache/v20220601:Redis"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Redis

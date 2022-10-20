@@ -51,15 +51,6 @@ func NewPool(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:devcenter:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-native:devcenter/v20220901preview:Pool"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Pool
 	err := ctx.RegisterResource("azure-native:devcenter/v20220801preview:Pool", name, args, &resource, opts...)
 	if err != nil {

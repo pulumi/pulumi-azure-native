@@ -86,7 +86,7 @@ export class JobTargetGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:JobTargetGroup" }, { type: "azure-native:sql/v20170301preview:JobTargetGroup" }, { type: "azure-native:sql/v20200801preview:JobTargetGroup" }, { type: "azure-native:sql/v20201101preview:JobTargetGroup" }, { type: "azure-native:sql/v20210201preview:JobTargetGroup" }, { type: "azure-native:sql/v20210501preview:JobTargetGroup" }, { type: "azure-native:sql/v20210801preview:JobTargetGroup" }, { type: "azure-native:sql/v20211101:JobTargetGroup" }, { type: "azure-native:sql/v20211101preview:JobTargetGroup" }, { type: "azure-native:sql/v20220201preview:JobTargetGroup" }, { type: "azure-native:sql/v20220501preview:JobTargetGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:JobTargetGroup" }, { type: "azure-native:sql/v20170301preview:JobTargetGroup" }, { type: "azure-native:sql/v20200801preview:JobTargetGroup" }, { type: "azure-native:sql/v20201101preview:JobTargetGroup" }, { type: "azure-native:sql/v20210201preview:JobTargetGroup" }, { type: "azure-native:sql/v20210501preview:JobTargetGroup" }, { type: "azure-native:sql/v20210801preview:JobTargetGroup" }, { type: "azure-native:sql/v20211101:JobTargetGroup" }, { type: "azure-native:sql/v20211101preview:JobTargetGroup" }, { type: "azure-native:sql/v20220201preview:JobTargetGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobTargetGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -48,9 +48,6 @@ func NewVolumeGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:netapp/v20220301:VolumeGroup"),
 		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20220501:VolumeGroup"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VolumeGroup

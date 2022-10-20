@@ -40,10 +40,6 @@ export class NspProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly accessRulesVersion!: pulumi.Output<string>;
     /**
-     * Version number that increases with every update to diagnostic settings within the profile.
-     */
-    public /*out*/ readonly diagnosticSettingsVersion!: pulumi.Output<string>;
-    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -85,11 +81,9 @@ export class NspProfile extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accessRulesVersion"] = undefined /*out*/;
-            resourceInputs["diagnosticSettingsVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessRulesVersion"] = undefined /*out*/;
-            resourceInputs["diagnosticSettingsVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

@@ -39,9 +39,6 @@ func NewModeling(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recommendationsservice:Modeling"),
 		},
-		{
-			Type: pulumi.String("azure-native:recommendationsservice/v20220301preview:Modeling"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Modeling

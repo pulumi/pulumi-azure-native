@@ -49,10 +49,6 @@ export class App extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * The geography the application is in.
-     */
-    public /*out*/ readonly geography!: pulumi.Output<string>;
-    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -65,10 +61,6 @@ export class App extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.iotcentral.v20180901.AppSkuInfoResponse>;
     /**
-     * The current state of the application.
-     */
-    public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
      * The subdomain of the application.
      */
     public readonly subdomain!: pulumi.Output<string | undefined>;
@@ -80,14 +72,6 @@ export class App extends pulumi.CustomResource {
      * The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
      */
     public readonly template!: pulumi.Output<string | undefined>;
-    /**
-     * The tenant ID the application belongs to.
-     */
-    public /*out*/ readonly tenant!: pulumi.Output<string>;
-    /**
-     * The URI for the thumbnail image used in the application.
-     */
-    public /*out*/ readonly thumbnailUrl!: pulumi.Output<string>;
     /**
      * The resource type.
      */
@@ -121,25 +105,17 @@ export class App extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["template"] = args ? args.template : undefined;
             resourceInputs["applicationId"] = undefined /*out*/;
-            resourceInputs["geography"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["tenant"] = undefined /*out*/;
-            resourceInputs["thumbnailUrl"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["geography"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["template"] = undefined /*out*/;
-            resourceInputs["tenant"] = undefined /*out*/;
-            resourceInputs["thumbnailUrl"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

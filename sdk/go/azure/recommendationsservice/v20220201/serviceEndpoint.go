@@ -39,9 +39,6 @@ func NewServiceEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recommendationsservice:ServiceEndpoint"),
 		},
-		{
-			Type: pulumi.String("azure-native:recommendationsservice/v20220301preview:ServiceEndpoint"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceEndpoint

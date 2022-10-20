@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.NetApp.V20210401
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

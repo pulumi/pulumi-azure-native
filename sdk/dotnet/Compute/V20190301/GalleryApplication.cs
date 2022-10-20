@@ -108,7 +108,6 @@ namespace Pulumi.AzureNative.Compute.V20190301
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryApplication"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryApplication"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:GalleryApplication"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220303:GalleryApplication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -692,6 +692,21 @@ export const SsisPackageLocationType = {
  */
 export type SsisPackageLocationType = (typeof SsisPackageLocationType)[keyof typeof SsisPackageLocationType];
 
+export const StoredProcedureParameterType = {
+    String: "String",
+    Int: "Int",
+    Int64: "Int64",
+    Decimal: "Decimal",
+    Guid: "Guid",
+    Boolean: "Boolean",
+    Date: "Date",
+} as const;
+
+/**
+ * Stored procedure parameter type.
+ */
+export type StoredProcedureParameterType = (typeof StoredProcedureParameterType)[keyof typeof StoredProcedureParameterType];
+
 export const SybaseAuthenticationType = {
     Basic: "Basic",
     Windows: "Windows",

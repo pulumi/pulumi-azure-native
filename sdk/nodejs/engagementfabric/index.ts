@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { AccountArgs } from "./account";
 export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
 export { ChannelArgs } from "./channel";
 export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
 export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
 export const getChannel: typeof import("./getChannel").getChannel = null as any;
 export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
 
 export { ListAccountChannelTypesArgs, ListAccountChannelTypesResult, ListAccountChannelTypesOutputArgs } from "./listAccountChannelTypes";
 export const listAccountChannelTypes: typeof import("./listAccountChannelTypes").listAccountChannelTypes = null as any;
 export const listAccountChannelTypesOutput: typeof import("./listAccountChannelTypes").listAccountChannelTypesOutput = null as any;
+utilities.lazyLoad(exports, ["listAccountChannelTypes","listAccountChannelTypesOutput"], () => require("./listAccountChannelTypes"));
 
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
 export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
-utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
-utilities.lazyLoad(exports, ["listAccountChannelTypes","listAccountChannelTypesOutput"], () => require("./listAccountChannelTypes"));
 utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
+
 
 // Export sub-modules:
 import * as v20180901preview from "./v20180901preview";

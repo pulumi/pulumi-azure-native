@@ -91,7 +91,7 @@ export class EnvironmentVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:EnvironmentVersion" }, { type: "azure-native:machinelearningservices/v20210301preview:EnvironmentVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:EnvironmentVersion" }, { type: "azure-native:machinelearningservices/v20220501:EnvironmentVersion" }, { type: "azure-native:machinelearningservices/v20221001:EnvironmentVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:EnvironmentVersion" }, { type: "azure-native:machinelearningservices/v20210301preview:EnvironmentVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:EnvironmentVersion" }, { type: "azure-native:machinelearningservices/v20220501:EnvironmentVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentVersion.__pulumiType, name, resourceInputs, opts);
     }

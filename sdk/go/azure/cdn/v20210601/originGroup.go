@@ -60,9 +60,6 @@ func NewOriginGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cdn/v20200901:OriginGroup"),
 		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20220501preview:OriginGroup"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource OriginGroup

@@ -124,7 +124,6 @@ namespace Pulumi.AzureNative.Kusto.V20190515
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:IotHubDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:IotHubDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:IotHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

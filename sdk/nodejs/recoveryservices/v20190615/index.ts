@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetProtectedItemArgs, GetProtectedItemResult, GetProtectedItemOutputArgs } from "./getProtectedItem";
 export const getProtectedItem: typeof import("./getProtectedItem").getProtectedItem = null as any;
 export const getProtectedItemOutput: typeof import("./getProtectedItem").getProtectedItemOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectedItem","getProtectedItemOutput"], () => require("./getProtectedItem"));
 
 export { ProtectedItemArgs } from "./protectedItem";
 export type ProtectedItem = import("./protectedItem").ProtectedItem;
 export const ProtectedItem: typeof import("./protectedItem").ProtectedItem = null as any;
-
-utilities.lazyLoad(exports, ["getProtectedItem","getProtectedItemOutput"], () => require("./getProtectedItem"));
 utilities.lazyLoad(exports, ["ProtectedItem"], () => require("./protectedItem"));
+
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20190615";

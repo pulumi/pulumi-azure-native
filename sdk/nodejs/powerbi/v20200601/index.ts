@@ -8,18 +8,18 @@ import * as utilities from "../../utilities";
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { PowerBIResourceArgs } from "./powerBIResource";
 export type PowerBIResource = import("./powerBIResource").PowerBIResource;
 export const PowerBIResource: typeof import("./powerBIResource").PowerBIResource = null as any;
+utilities.lazyLoad(exports, ["PowerBIResource"], () => require("./powerBIResource"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["PowerBIResource"], () => require("./powerBIResource"));
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
 
 // Export enums:
 export * from "../../types/enums/powerbi/v20200601";

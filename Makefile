@@ -114,6 +114,9 @@ test: export PULUMI_LOCAL_NUGET=$(WORKING_DIR)/nuget
 test: build install_sdks
 	cd examples && go test -v -tags=all -timeout 2h
 
+test2:
+	cd examples && go test -v -tags=nodejs -run TestAccKeyVaultTs -timeout 2h
+
 # --------- File-based targets --------- #
 
 .init_submodules.sentinel:

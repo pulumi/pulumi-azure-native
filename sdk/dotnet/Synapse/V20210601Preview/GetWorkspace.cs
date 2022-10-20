@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// <summary>
         /// Connectivity endpoints
         /// </summary>
-        public readonly ImmutableDictionary<string, string> ConnectivityEndpoints;
+        public readonly ImmutableDictionary<string, string>? ConnectivityEndpoints;
         /// <summary>
         /// Initial workspace AAD admin properties for a CSP subscription
         /// </summary>
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             bool? azureADOnlyAuthentication,
 
-            ImmutableDictionary<string, string> connectivityEndpoints,
+            ImmutableDictionary<string, string>? connectivityEndpoints,
 
             Outputs.CspWorkspaceAdminPropertiesResponse? cspWorkspaceAdminProperties,
 

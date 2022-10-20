@@ -41,9 +41,6 @@ func NewDeployment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cognitiveservices/v20220301:Deployment"),
 		},
-		{
-			Type: pulumi.String("azure-native:cognitiveservices/v20221001:Deployment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Deployment

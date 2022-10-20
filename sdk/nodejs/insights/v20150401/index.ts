@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { AutoscaleSettingArgs } from "./autoscaleSetting";
 export type AutoscaleSetting = import("./autoscaleSetting").AutoscaleSetting;
 export const AutoscaleSetting: typeof import("./autoscaleSetting").AutoscaleSetting = null as any;
+utilities.lazyLoad(exports, ["AutoscaleSetting"], () => require("./autoscaleSetting"));
 
 export { GetAutoscaleSettingArgs, GetAutoscaleSettingResult, GetAutoscaleSettingOutputArgs } from "./getAutoscaleSetting";
 export const getAutoscaleSetting: typeof import("./getAutoscaleSetting").getAutoscaleSetting = null as any;
 export const getAutoscaleSettingOutput: typeof import("./getAutoscaleSetting").getAutoscaleSettingOutput = null as any;
-
-utilities.lazyLoad(exports, ["AutoscaleSetting"], () => require("./autoscaleSetting"));
 utilities.lazyLoad(exports, ["getAutoscaleSetting","getAutoscaleSettingOutput"], () => require("./getAutoscaleSetting"));
+
 
 // Export enums:
 export * from "../../types/enums/insights/v20150401";

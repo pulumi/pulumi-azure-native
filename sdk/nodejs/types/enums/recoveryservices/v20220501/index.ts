@@ -12,13 +12,6 @@ export const AgentAutoUpdateStatus = {
  */
 export type AgentAutoUpdateStatus = (typeof AgentAutoUpdateStatus)[keyof typeof AgentAutoUpdateStatus];
 
-export const AlertsState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-export type AlertsState = (typeof AlertsState)[keyof typeof AlertsState];
-
 export const AutomationAccountAuthenticationType = {
     RunAsAccount: "RunAsAccount",
     SystemAssignedIdentity: "SystemAssignedIdentity",
@@ -59,16 +52,6 @@ export const FailoverDeploymentModel = {
  * The failover deployment model.
  */
 export type FailoverDeploymentModel = (typeof FailoverDeploymentModel)[keyof typeof FailoverDeploymentModel];
-
-export const InfrastructureEncryptionState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Enabling/Disabling the Double Encryption state
- */
-export type InfrastructureEncryptionState = (typeof InfrastructureEncryptionState)[keyof typeof InfrastructureEncryptionState];
 
 export const LicenseType = {
     NotSpecified: "NotSpecified",
@@ -128,18 +111,6 @@ export const ReplicationProtectedItemOperation = {
 
 export type ReplicationProtectedItemOperation = (typeof ReplicationProtectedItemOperation)[keyof typeof ReplicationProtectedItemOperation];
 
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    None: "None",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
-} as const;
-
-/**
- * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
 export const SetMultiVmSyncStatus = {
     Enable: "Enable",
     Disable: "Disable",
@@ -149,16 +120,6 @@ export const SetMultiVmSyncStatus = {
  * A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
  */
 export type SetMultiVmSyncStatus = (typeof SetMultiVmSyncStatus)[keyof typeof SetMultiVmSyncStatus];
-
-export const SkuName = {
-    Standard: "Standard",
-    RS0: "RS0",
-} as const;
-
-/**
- * Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
- */
-export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SqlServerLicenseType = {
     NotSpecified: "NotSpecified",

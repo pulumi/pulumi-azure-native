@@ -139,8 +139,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:FusionAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:FusionAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:FusionAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:FusionAlertRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221001preview:FusionAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -194,6 +192,18 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801
         /// </summary>
         [Input("ruleId")]
         public Input<string>? RuleId { get; set; }
+
+        [Input("techniques")]
+        private InputList<string>? _techniques;
+
+        /// <summary>
+        /// The techniques of the alert rule
+        /// </summary>
+        public InputList<string> Techniques
+        {
+            get => _techniques ?? (_techniques = new InputList<string>());
+            set => _techniques = value;
+        }
 
         /// <summary>
         /// The name of the workspace.

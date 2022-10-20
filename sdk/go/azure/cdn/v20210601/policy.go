@@ -62,9 +62,6 @@ func NewPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cdn/v20200901:Policy"),
 		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20220501preview:Policy"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Policy

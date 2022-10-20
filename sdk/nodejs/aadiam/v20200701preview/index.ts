@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { AzureADMetricArgs } from "./azureADMetric";
 export type AzureADMetric = import("./azureADMetric").AzureADMetric;
 export const AzureADMetric: typeof import("./azureADMetric").AzureADMetric = null as any;
+utilities.lazyLoad(exports, ["AzureADMetric"], () => require("./azureADMetric"));
 
 export { GetazureADMetricArgs, GetazureADMetricResult, GetazureADMetricOutputArgs } from "./getazureADMetric";
 export const getazureADMetric: typeof import("./getazureADMetric").getazureADMetric = null as any;
 export const getazureADMetricOutput: typeof import("./getazureADMetric").getazureADMetricOutput = null as any;
-
-utilities.lazyLoad(exports, ["AzureADMetric"], () => require("./azureADMetric"));
 utilities.lazyLoad(exports, ["getazureADMetric","getazureADMetricOutput"], () => require("./getazureADMetric"));
+
 
 const _module = {
     version: utilities.getVersion(),

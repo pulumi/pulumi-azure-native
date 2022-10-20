@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.Datadog.V20200201Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datadog:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20210301:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20220601:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

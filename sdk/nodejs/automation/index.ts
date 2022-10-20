@@ -8,208 +8,208 @@ import * as utilities from "../utilities";
 export { AutomationAccountArgs } from "./automationAccount";
 export type AutomationAccount = import("./automationAccount").AutomationAccount;
 export const AutomationAccount: typeof import("./automationAccount").AutomationAccount = null as any;
+utilities.lazyLoad(exports, ["AutomationAccount"], () => require("./automationAccount"));
 
 export { CertificateArgs } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
 export { ConnectionArgs } from "./connection";
 export type Connection = import("./connection").Connection;
 export const Connection: typeof import("./connection").Connection = null as any;
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
 
 export { ConnectionTypeArgs } from "./connectionType";
 export type ConnectionType = import("./connectionType").ConnectionType;
 export const ConnectionType: typeof import("./connectionType").ConnectionType = null as any;
+utilities.lazyLoad(exports, ["ConnectionType"], () => require("./connectionType"));
 
 export { CredentialArgs } from "./credential";
 export type Credential = import("./credential").Credential;
 export const Credential: typeof import("./credential").Credential = null as any;
+utilities.lazyLoad(exports, ["Credential"], () => require("./credential"));
 
 export { DscConfigurationArgs } from "./dscConfiguration";
 export type DscConfiguration = import("./dscConfiguration").DscConfiguration;
 export const DscConfiguration: typeof import("./dscConfiguration").DscConfiguration = null as any;
+utilities.lazyLoad(exports, ["DscConfiguration"], () => require("./dscConfiguration"));
 
 export { DscNodeConfigurationArgs } from "./dscNodeConfiguration";
 export type DscNodeConfiguration = import("./dscNodeConfiguration").DscNodeConfiguration;
 export const DscNodeConfiguration: typeof import("./dscNodeConfiguration").DscNodeConfiguration = null as any;
+utilities.lazyLoad(exports, ["DscNodeConfiguration"], () => require("./dscNodeConfiguration"));
 
 export { GetAutomationAccountArgs, GetAutomationAccountResult, GetAutomationAccountOutputArgs } from "./getAutomationAccount";
 export const getAutomationAccount: typeof import("./getAutomationAccount").getAutomationAccount = null as any;
 export const getAutomationAccountOutput: typeof import("./getAutomationAccount").getAutomationAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAutomationAccount","getAutomationAccountOutput"], () => require("./getAutomationAccount"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
 export const getConnection: typeof import("./getConnection").getConnection = null as any;
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
 
 export { GetConnectionTypeArgs, GetConnectionTypeResult, GetConnectionTypeOutputArgs } from "./getConnectionType";
 export const getConnectionType: typeof import("./getConnectionType").getConnectionType = null as any;
 export const getConnectionTypeOutput: typeof import("./getConnectionType").getConnectionTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionType","getConnectionTypeOutput"], () => require("./getConnectionType"));
 
 export { GetCredentialArgs, GetCredentialResult, GetCredentialOutputArgs } from "./getCredential";
 export const getCredential: typeof import("./getCredential").getCredential = null as any;
 export const getCredentialOutput: typeof import("./getCredential").getCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getCredential","getCredentialOutput"], () => require("./getCredential"));
 
 export { GetDscConfigurationArgs, GetDscConfigurationResult, GetDscConfigurationOutputArgs } from "./getDscConfiguration";
 export const getDscConfiguration: typeof import("./getDscConfiguration").getDscConfiguration = null as any;
 export const getDscConfigurationOutput: typeof import("./getDscConfiguration").getDscConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDscConfiguration","getDscConfigurationOutput"], () => require("./getDscConfiguration"));
 
 export { GetDscNodeConfigurationArgs, GetDscNodeConfigurationResult, GetDscNodeConfigurationOutputArgs } from "./getDscNodeConfiguration";
 export const getDscNodeConfiguration: typeof import("./getDscNodeConfiguration").getDscNodeConfiguration = null as any;
 export const getDscNodeConfigurationOutput: typeof import("./getDscNodeConfiguration").getDscNodeConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDscNodeConfiguration","getDscNodeConfigurationOutput"], () => require("./getDscNodeConfiguration"));
 
 export { GetHybridRunbookWorkerArgs, GetHybridRunbookWorkerResult, GetHybridRunbookWorkerOutputArgs } from "./getHybridRunbookWorker";
 export const getHybridRunbookWorker: typeof import("./getHybridRunbookWorker").getHybridRunbookWorker = null as any;
 export const getHybridRunbookWorkerOutput: typeof import("./getHybridRunbookWorker").getHybridRunbookWorkerOutput = null as any;
+utilities.lazyLoad(exports, ["getHybridRunbookWorker","getHybridRunbookWorkerOutput"], () => require("./getHybridRunbookWorker"));
 
 export { GetHybridRunbookWorkerGroupArgs, GetHybridRunbookWorkerGroupResult, GetHybridRunbookWorkerGroupOutputArgs } from "./getHybridRunbookWorkerGroup";
 export const getHybridRunbookWorkerGroup: typeof import("./getHybridRunbookWorkerGroup").getHybridRunbookWorkerGroup = null as any;
 export const getHybridRunbookWorkerGroupOutput: typeof import("./getHybridRunbookWorkerGroup").getHybridRunbookWorkerGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getHybridRunbookWorkerGroup","getHybridRunbookWorkerGroupOutput"], () => require("./getHybridRunbookWorkerGroup"));
 
 export { GetJobScheduleArgs, GetJobScheduleResult, GetJobScheduleOutputArgs } from "./getJobSchedule";
 export const getJobSchedule: typeof import("./getJobSchedule").getJobSchedule = null as any;
 export const getJobScheduleOutput: typeof import("./getJobSchedule").getJobScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getJobSchedule","getJobScheduleOutput"], () => require("./getJobSchedule"));
 
 export { GetModuleArgs, GetModuleResult, GetModuleOutputArgs } from "./getModule";
 export const getModule: typeof import("./getModule").getModule = null as any;
 export const getModuleOutput: typeof import("./getModule").getModuleOutput = null as any;
+utilities.lazyLoad(exports, ["getModule","getModuleOutput"], () => require("./getModule"));
 
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { GetPython2PackageArgs, GetPython2PackageResult, GetPython2PackageOutputArgs } from "./getPython2Package";
 export const getPython2Package: typeof import("./getPython2Package").getPython2Package = null as any;
 export const getPython2PackageOutput: typeof import("./getPython2Package").getPython2PackageOutput = null as any;
+utilities.lazyLoad(exports, ["getPython2Package","getPython2PackageOutput"], () => require("./getPython2Package"));
 
 export { GetRunbookArgs, GetRunbookResult, GetRunbookOutputArgs } from "./getRunbook";
 export const getRunbook: typeof import("./getRunbook").getRunbook = null as any;
 export const getRunbookOutput: typeof import("./getRunbook").getRunbookOutput = null as any;
+utilities.lazyLoad(exports, ["getRunbook","getRunbookOutput"], () => require("./getRunbook"));
 
 export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./getSchedule";
 export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
 export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
 
 export { GetSoftwareUpdateConfigurationByNameArgs, GetSoftwareUpdateConfigurationByNameResult, GetSoftwareUpdateConfigurationByNameOutputArgs } from "./getSoftwareUpdateConfigurationByName";
 export const getSoftwareUpdateConfigurationByName: typeof import("./getSoftwareUpdateConfigurationByName").getSoftwareUpdateConfigurationByName = null as any;
 export const getSoftwareUpdateConfigurationByNameOutput: typeof import("./getSoftwareUpdateConfigurationByName").getSoftwareUpdateConfigurationByNameOutput = null as any;
+utilities.lazyLoad(exports, ["getSoftwareUpdateConfigurationByName","getSoftwareUpdateConfigurationByNameOutput"], () => require("./getSoftwareUpdateConfigurationByName"));
 
 export { GetSourceControlArgs, GetSourceControlResult, GetSourceControlOutputArgs } from "./getSourceControl";
 export const getSourceControl: typeof import("./getSourceControl").getSourceControl = null as any;
 export const getSourceControlOutput: typeof import("./getSourceControl").getSourceControlOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
 
 export { GetVariableArgs, GetVariableResult, GetVariableOutputArgs } from "./getVariable";
 export const getVariable: typeof import("./getVariable").getVariable = null as any;
 export const getVariableOutput: typeof import("./getVariable").getVariableOutput = null as any;
+utilities.lazyLoad(exports, ["getVariable","getVariableOutput"], () => require("./getVariable"));
 
 export { GetWatcherArgs, GetWatcherResult, GetWatcherOutputArgs } from "./getWatcher";
 export const getWatcher: typeof import("./getWatcher").getWatcher = null as any;
 export const getWatcherOutput: typeof import("./getWatcher").getWatcherOutput = null as any;
+utilities.lazyLoad(exports, ["getWatcher","getWatcherOutput"], () => require("./getWatcher"));
 
 export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
 export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
 export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
+utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
 
 export { HybridRunbookWorkerArgs } from "./hybridRunbookWorker";
 export type HybridRunbookWorker = import("./hybridRunbookWorker").HybridRunbookWorker;
 export const HybridRunbookWorker: typeof import("./hybridRunbookWorker").HybridRunbookWorker = null as any;
+utilities.lazyLoad(exports, ["HybridRunbookWorker"], () => require("./hybridRunbookWorker"));
 
 export { HybridRunbookWorkerGroupArgs } from "./hybridRunbookWorkerGroup";
 export type HybridRunbookWorkerGroup = import("./hybridRunbookWorkerGroup").HybridRunbookWorkerGroup;
 export const HybridRunbookWorkerGroup: typeof import("./hybridRunbookWorkerGroup").HybridRunbookWorkerGroup = null as any;
+utilities.lazyLoad(exports, ["HybridRunbookWorkerGroup"], () => require("./hybridRunbookWorkerGroup"));
 
 export { JobScheduleArgs } from "./jobSchedule";
 export type JobSchedule = import("./jobSchedule").JobSchedule;
 export const JobSchedule: typeof import("./jobSchedule").JobSchedule = null as any;
+utilities.lazyLoad(exports, ["JobSchedule"], () => require("./jobSchedule"));
 
 export { ListKeyByAutomationAccountArgs, ListKeyByAutomationAccountResult, ListKeyByAutomationAccountOutputArgs } from "./listKeyByAutomationAccount";
 export const listKeyByAutomationAccount: typeof import("./listKeyByAutomationAccount").listKeyByAutomationAccount = null as any;
 export const listKeyByAutomationAccountOutput: typeof import("./listKeyByAutomationAccount").listKeyByAutomationAccountOutput = null as any;
+utilities.lazyLoad(exports, ["listKeyByAutomationAccount","listKeyByAutomationAccountOutput"], () => require("./listKeyByAutomationAccount"));
 
 export { ModuleArgs } from "./module";
 export type Module = import("./module").Module;
 export const Module: typeof import("./module").Module = null as any;
+utilities.lazyLoad(exports, ["Module"], () => require("./module"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { Python2PackageArgs } from "./python2Package";
 export type Python2Package = import("./python2Package").Python2Package;
 export const Python2Package: typeof import("./python2Package").Python2Package = null as any;
+utilities.lazyLoad(exports, ["Python2Package"], () => require("./python2Package"));
 
 export { RunbookArgs } from "./runbook";
 export type Runbook = import("./runbook").Runbook;
 export const Runbook: typeof import("./runbook").Runbook = null as any;
+utilities.lazyLoad(exports, ["Runbook"], () => require("./runbook"));
 
 export { ScheduleArgs } from "./schedule";
 export type Schedule = import("./schedule").Schedule;
 export const Schedule: typeof import("./schedule").Schedule = null as any;
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 
 export { SoftwareUpdateConfigurationByNameArgs } from "./softwareUpdateConfigurationByName";
 export type SoftwareUpdateConfigurationByName = import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName;
 export const SoftwareUpdateConfigurationByName: typeof import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName = null as any;
+utilities.lazyLoad(exports, ["SoftwareUpdateConfigurationByName"], () => require("./softwareUpdateConfigurationByName"));
 
 export { SourceControlArgs } from "./sourceControl";
 export type SourceControl = import("./sourceControl").SourceControl;
 export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
+utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
 
 export { VariableArgs } from "./variable";
 export type Variable = import("./variable").Variable;
 export const Variable: typeof import("./variable").Variable = null as any;
+utilities.lazyLoad(exports, ["Variable"], () => require("./variable"));
 
 export { WatcherArgs } from "./watcher";
 export type Watcher = import("./watcher").Watcher;
 export const Watcher: typeof import("./watcher").Watcher = null as any;
+utilities.lazyLoad(exports, ["Watcher"], () => require("./watcher"));
 
 export { WebhookArgs } from "./webhook";
 export type Webhook = import("./webhook").Webhook;
 export const Webhook: typeof import("./webhook").Webhook = null as any;
-
-utilities.lazyLoad(exports, ["AutomationAccount"], () => require("./automationAccount"));
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
-utilities.lazyLoad(exports, ["ConnectionType"], () => require("./connectionType"));
-utilities.lazyLoad(exports, ["Credential"], () => require("./credential"));
-utilities.lazyLoad(exports, ["DscConfiguration"], () => require("./dscConfiguration"));
-utilities.lazyLoad(exports, ["DscNodeConfiguration"], () => require("./dscNodeConfiguration"));
-utilities.lazyLoad(exports, ["getAutomationAccount","getAutomationAccountOutput"], () => require("./getAutomationAccount"));
-utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
-utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
-utilities.lazyLoad(exports, ["getConnectionType","getConnectionTypeOutput"], () => require("./getConnectionType"));
-utilities.lazyLoad(exports, ["getCredential","getCredentialOutput"], () => require("./getCredential"));
-utilities.lazyLoad(exports, ["getDscConfiguration","getDscConfigurationOutput"], () => require("./getDscConfiguration"));
-utilities.lazyLoad(exports, ["getDscNodeConfiguration","getDscNodeConfigurationOutput"], () => require("./getDscNodeConfiguration"));
-utilities.lazyLoad(exports, ["getHybridRunbookWorker","getHybridRunbookWorkerOutput"], () => require("./getHybridRunbookWorker"));
-utilities.lazyLoad(exports, ["getHybridRunbookWorkerGroup","getHybridRunbookWorkerGroupOutput"], () => require("./getHybridRunbookWorkerGroup"));
-utilities.lazyLoad(exports, ["getJobSchedule","getJobScheduleOutput"], () => require("./getJobSchedule"));
-utilities.lazyLoad(exports, ["getModule","getModuleOutput"], () => require("./getModule"));
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["getPython2Package","getPython2PackageOutput"], () => require("./getPython2Package"));
-utilities.lazyLoad(exports, ["getRunbook","getRunbookOutput"], () => require("./getRunbook"));
-utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
-utilities.lazyLoad(exports, ["getSoftwareUpdateConfigurationByName","getSoftwareUpdateConfigurationByNameOutput"], () => require("./getSoftwareUpdateConfigurationByName"));
-utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
-utilities.lazyLoad(exports, ["getVariable","getVariableOutput"], () => require("./getVariable"));
-utilities.lazyLoad(exports, ["getWatcher","getWatcherOutput"], () => require("./getWatcher"));
-utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
-utilities.lazyLoad(exports, ["HybridRunbookWorker"], () => require("./hybridRunbookWorker"));
-utilities.lazyLoad(exports, ["HybridRunbookWorkerGroup"], () => require("./hybridRunbookWorkerGroup"));
-utilities.lazyLoad(exports, ["JobSchedule"], () => require("./jobSchedule"));
-utilities.lazyLoad(exports, ["listKeyByAutomationAccount","listKeyByAutomationAccountOutput"], () => require("./listKeyByAutomationAccount"));
-utilities.lazyLoad(exports, ["Module"], () => require("./module"));
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-utilities.lazyLoad(exports, ["Python2Package"], () => require("./python2Package"));
-utilities.lazyLoad(exports, ["Runbook"], () => require("./runbook"));
-utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
-utilities.lazyLoad(exports, ["SoftwareUpdateConfigurationByName"], () => require("./softwareUpdateConfigurationByName"));
-utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
-utilities.lazyLoad(exports, ["Variable"], () => require("./variable"));
-utilities.lazyLoad(exports, ["Watcher"], () => require("./watcher"));
 utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
+
 
 // Export enums:
 export * from "../types/enums/automation";
@@ -223,7 +223,6 @@ import * as v20190601 from "./v20190601";
 import * as v20200113preview from "./v20200113preview";
 import * as v20210622 from "./v20210622";
 import * as v20220222 from "./v20220222";
-import * as v20220808 from "./v20220808";
 
 export {
     v20151031,
@@ -234,7 +233,6 @@ export {
     v20200113preview,
     v20210622,
     v20220222,
-    v20220808,
 };
 
 const _module = {

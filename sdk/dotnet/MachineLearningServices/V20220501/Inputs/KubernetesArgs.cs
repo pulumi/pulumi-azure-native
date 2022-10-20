@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220501.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
         /// Properties of Kubernetes
         /// </summary>
         [Input("properties")]

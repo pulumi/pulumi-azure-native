@@ -85,7 +85,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
     /**
      * The techniques of the alert rule
      */
-    public /*out*/ readonly techniques!: pulumi.Output<string[]>;
+    public readonly techniques!: pulumi.Output<string[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -122,6 +122,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["kind"] = "Fusion";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleId"] = args ? args.ruleId : undefined;
+            resourceInputs["techniques"] = args ? args.techniques : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -131,7 +132,6 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["severity"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tactics"] = undefined /*out*/;
-            resourceInputs["techniques"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["alertRuleTemplateName"] = undefined /*out*/;
@@ -149,7 +149,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:FusionAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20200101:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:FusionAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:FusionAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20200101:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:FusionAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FusionAlertRule.__pulumiType, name, resourceInputs, opts);
     }
@@ -180,6 +180,10 @@ export interface FusionAlertRuleArgs {
      * Alert rule ID
      */
     ruleId?: pulumi.Input<string>;
+    /**
+     * The techniques of the alert rule
+     */
+    techniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the workspace.
      */

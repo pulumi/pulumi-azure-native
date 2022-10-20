@@ -146,7 +146,7 @@ export class ElasticPool extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:ElasticPool" }, { type: "azure-native:sql/v20171001preview:ElasticPool" }, { type: "azure-native:sql/v20200202preview:ElasticPool" }, { type: "azure-native:sql/v20200801preview:ElasticPool" }, { type: "azure-native:sql/v20201101preview:ElasticPool" }, { type: "azure-native:sql/v20210201preview:ElasticPool" }, { type: "azure-native:sql/v20210501preview:ElasticPool" }, { type: "azure-native:sql/v20210801preview:ElasticPool" }, { type: "azure-native:sql/v20211101:ElasticPool" }, { type: "azure-native:sql/v20211101preview:ElasticPool" }, { type: "azure-native:sql/v20220201preview:ElasticPool" }, { type: "azure-native:sql/v20220501preview:ElasticPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:ElasticPool" }, { type: "azure-native:sql/v20171001preview:ElasticPool" }, { type: "azure-native:sql/v20200202preview:ElasticPool" }, { type: "azure-native:sql/v20200801preview:ElasticPool" }, { type: "azure-native:sql/v20201101preview:ElasticPool" }, { type: "azure-native:sql/v20210201preview:ElasticPool" }, { type: "azure-native:sql/v20210501preview:ElasticPool" }, { type: "azure-native:sql/v20210801preview:ElasticPool" }, { type: "azure-native:sql/v20211101:ElasticPool" }, { type: "azure-native:sql/v20211101preview:ElasticPool" }, { type: "azure-native:sql/v20220201preview:ElasticPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticPool.__pulumiType, name, resourceInputs, opts);
     }

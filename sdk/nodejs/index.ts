@@ -8,8 +8,8 @@ import * as utilities from "./utilities";
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
-
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
 
 // Export sub-modules:
 import * as aad from "./aad";
@@ -106,7 +106,6 @@ import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
 import * as hybridcompute from "./hybridcompute";
 import * as hybridconnectivity from "./hybridconnectivity";
-import * as hybridcontainerservice from "./hybridcontainerservice";
 import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
 import * as importexport from "./importexport";
@@ -299,7 +298,6 @@ export {
     healthcareapis,
     hybridcompute,
     hybridconnectivity,
-    hybridcontainerservice,
     hybriddata,
     hybridnetwork,
     importexport,

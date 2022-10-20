@@ -110,7 +110,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:Compute"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Compute"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Compute"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:Compute"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

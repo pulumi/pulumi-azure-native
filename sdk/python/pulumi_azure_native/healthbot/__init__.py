@@ -25,8 +25,6 @@ if typing.TYPE_CHECKING:
     v20210610 = __v20210610
     import pulumi_azure_native.healthbot.v20210824 as __v20210824
     v20210824 = __v20210824
-    import pulumi_azure_native.healthbot.v20220808 as __v20220808
-    v20220808 = __v20220808
 else:
     v20201020 = _utilities.lazy_import('pulumi_azure_native.healthbot.v20201020')
     v20201020preview = _utilities.lazy_import('pulumi_azure_native.healthbot.v20201020preview')
@@ -34,5 +32,4 @@ else:
     v20201208preview = _utilities.lazy_import('pulumi_azure_native.healthbot.v20201208preview')
     v20210610 = _utilities.lazy_import('pulumi_azure_native.healthbot.v20210610')
     v20210824 = _utilities.lazy_import('pulumi_azure_native.healthbot.v20210824')
-    v20220808 = _utilities.lazy_import('pulumi_azure_native.healthbot.v20220808')
 

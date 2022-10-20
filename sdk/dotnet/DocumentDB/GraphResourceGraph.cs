@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:GraphResourceGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:GraphResourceGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:GraphResourceGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

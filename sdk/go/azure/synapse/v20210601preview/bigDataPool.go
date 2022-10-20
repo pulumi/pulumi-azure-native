@@ -21,7 +21,6 @@ type BigDataPool struct {
 	CustomLibraries             LibraryInfoResponseArrayOutput             `pulumi:"customLibraries"`
 	DefaultSparkLogFolder       pulumi.StringPtrOutput                     `pulumi:"defaultSparkLogFolder"`
 	DynamicExecutorAllocation   DynamicExecutorAllocationResponsePtrOutput `pulumi:"dynamicExecutorAllocation"`
-	IsAutotuneEnabled           pulumi.BoolPtrOutput                       `pulumi:"isAutotuneEnabled"`
 	IsComputeIsolationEnabled   pulumi.BoolPtrOutput                       `pulumi:"isComputeIsolationEnabled"`
 	LastSucceededTimestamp      pulumi.StringOutput                        `pulumi:"lastSucceededTimestamp"`
 	LibraryRequirements         LibraryRequirementsResponsePtrOutput       `pulumi:"libraryRequirements"`
@@ -116,7 +115,6 @@ type bigDataPoolArgs struct {
 	DefaultSparkLogFolder       *string                    `pulumi:"defaultSparkLogFolder"`
 	DynamicExecutorAllocation   *DynamicExecutorAllocation `pulumi:"dynamicExecutorAllocation"`
 	Force                       *bool                      `pulumi:"force"`
-	IsAutotuneEnabled           *bool                      `pulumi:"isAutotuneEnabled"`
 	IsComputeIsolationEnabled   *bool                      `pulumi:"isComputeIsolationEnabled"`
 	LibraryRequirements         *LibraryRequirements       `pulumi:"libraryRequirements"`
 	Location                    *string                    `pulumi:"location"`
@@ -143,7 +141,6 @@ type BigDataPoolArgs struct {
 	DefaultSparkLogFolder       pulumi.StringPtrInput
 	DynamicExecutorAllocation   DynamicExecutorAllocationPtrInput
 	Force                       pulumi.BoolPtrInput
-	IsAutotuneEnabled           pulumi.BoolPtrInput
 	IsComputeIsolationEnabled   pulumi.BoolPtrInput
 	LibraryRequirements         LibraryRequirementsPtrInput
 	Location                    pulumi.StringPtrInput
@@ -223,10 +220,6 @@ func (o BigDataPoolOutput) DefaultSparkLogFolder() pulumi.StringPtrOutput {
 
 func (o BigDataPoolOutput) DynamicExecutorAllocation() DynamicExecutorAllocationResponsePtrOutput {
 	return o.ApplyT(func(v *BigDataPool) DynamicExecutorAllocationResponsePtrOutput { return v.DynamicExecutorAllocation }).(DynamicExecutorAllocationResponsePtrOutput)
-}
-
-func (o BigDataPoolOutput) IsAutotuneEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BigDataPool) pulumi.BoolPtrOutput { return v.IsAutotuneEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o BigDataPoolOutput) IsComputeIsolationEnabled() pulumi.BoolPtrOutput {

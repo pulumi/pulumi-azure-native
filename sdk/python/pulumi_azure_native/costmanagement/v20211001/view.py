@@ -354,7 +354,7 @@ class View(pulumi.CustomResource):
             __props__.__dict__["date_range"] = None
             __props__.__dict__["modified_on"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement:View"), pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:View")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement:View"), pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(
             'azure-native:costmanagement/v20211001:View',

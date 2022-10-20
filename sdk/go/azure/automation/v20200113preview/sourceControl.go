@@ -50,9 +50,6 @@ func NewSourceControl(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:automation/v20190601:SourceControl"),
 		},
-		{
-			Type: pulumi.String("azure-native:automation/v20220808:SourceControl"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SourceControl

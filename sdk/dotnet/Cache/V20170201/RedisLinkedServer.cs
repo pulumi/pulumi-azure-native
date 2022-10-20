@@ -85,7 +85,6 @@ namespace Pulumi.AzureNative.Cache.V20170201
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:RedisLinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:RedisLinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:RedisLinkedServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:RedisLinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

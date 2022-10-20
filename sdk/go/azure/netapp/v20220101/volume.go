@@ -15,6 +15,7 @@ type Volume struct {
 	pulumi.CustomResourceState
 
 	AvsDataStore              pulumi.StringPtrOutput                          `pulumi:"avsDataStore"`
+	BackupId                  pulumi.StringPtrOutput                          `pulumi:"backupId"`
 	BaremetalTenantId         pulumi.StringOutput                             `pulumi:"baremetalTenantId"`
 	CapacityPoolResourceId    pulumi.StringPtrOutput                          `pulumi:"capacityPoolResourceId"`
 	CloneProgress             pulumi.IntOutput                                `pulumi:"cloneProgress"`
@@ -49,6 +50,7 @@ type Volume struct {
 	SmbContinuouslyAvailable  pulumi.BoolPtrOutput                            `pulumi:"smbContinuouslyAvailable"`
 	SmbEncryption             pulumi.BoolPtrOutput                            `pulumi:"smbEncryption"`
 	SnapshotDirectoryVisible  pulumi.BoolPtrOutput                            `pulumi:"snapshotDirectoryVisible"`
+	SnapshotId                pulumi.StringPtrOutput                          `pulumi:"snapshotId"`
 	StorageToNetworkProximity pulumi.StringOutput                             `pulumi:"storageToNetworkProximity"`
 	SubnetId                  pulumi.StringOutput                             `pulumi:"subnetId"`
 	SystemData                SystemDataResponseOutput                        `pulumi:"systemData"`
@@ -206,9 +208,6 @@ func NewVolume(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20220301:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-native:netapp/v20220501:Volume"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -369,6 +368,10 @@ func (o VolumeOutput) AvsDataStore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.AvsDataStore }).(pulumi.StringPtrOutput)
 }
 
+func (o VolumeOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.BackupId }).(pulumi.StringPtrOutput)
+}
+
 func (o VolumeOutput) BaremetalTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.BaremetalTenantId }).(pulumi.StringOutput)
 }
@@ -503,6 +506,10 @@ func (o VolumeOutput) SmbEncryption() pulumi.BoolPtrOutput {
 
 func (o VolumeOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeOutput) StorageToNetworkProximity() pulumi.StringOutput {

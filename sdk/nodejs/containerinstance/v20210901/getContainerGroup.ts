@@ -72,7 +72,7 @@ export interface GetContainerGroupResult {
     /**
      * The instance view of the container group. Only valid in response.
      */
-    readonly instanceView: outputs.containerinstance.v20210901.ContainerGroupPropertiesResponseInstanceView;
+    readonly instanceView: outputs.containerinstance.v20210901.ContainerGroupResponseInstanceView;
     /**
      * The IP address type of the container group.
      */

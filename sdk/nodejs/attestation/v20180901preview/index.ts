@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { AttestationProviderArgs } from "./attestationProvider";
 export type AttestationProvider = import("./attestationProvider").AttestationProvider;
 export const AttestationProvider: typeof import("./attestationProvider").AttestationProvider = null as any;
+utilities.lazyLoad(exports, ["AttestationProvider"], () => require("./attestationProvider"));
 
 export { GetAttestationProviderArgs, GetAttestationProviderResult, GetAttestationProviderOutputArgs } from "./getAttestationProvider";
 export const getAttestationProvider: typeof import("./getAttestationProvider").getAttestationProvider = null as any;
 export const getAttestationProviderOutput: typeof import("./getAttestationProvider").getAttestationProviderOutput = null as any;
-
-utilities.lazyLoad(exports, ["AttestationProvider"], () => require("./attestationProvider"));
 utilities.lazyLoad(exports, ["getAttestationProvider","getAttestationProviderOutput"], () => require("./getAttestationProvider"));
+
 
 const _module = {
     version: utilities.getVersion(),

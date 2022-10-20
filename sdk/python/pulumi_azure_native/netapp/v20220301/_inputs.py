@@ -1246,7 +1246,7 @@ class VolumeGroupVolumePropertiesArgs:
         Volume resource
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB, 500 GiB for large volumes. Upper limit is 100TiB. Specified in bytes.
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param pulumi.Input[Union[str, 'AvsDataStore']] avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         :param pulumi.Input[str] backup_id: UUID v4 or resource identifier used to identify the Backup.
         :param pulumi.Input[str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
@@ -1407,7 +1407,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> pulumi.Input[float]:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB, 500 GiB for large volumes. Upper limit is 100TiB. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
 

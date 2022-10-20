@@ -87,7 +87,7 @@ export class CodeContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220501:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20221001:CodeContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220501:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:CodeContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeContainer.__pulumiType, name, resourceInputs, opts);
     }

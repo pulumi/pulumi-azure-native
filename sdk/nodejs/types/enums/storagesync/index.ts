@@ -4,12 +4,10 @@
 // Export sub-modules:
 import * as v20200301 from "./v20200301";
 import * as v20200901 from "./v20200901";
-import * as v20220601 from "./v20220601";
 
 export {
     v20200301,
     v20200901,
-    v20220601,
 };
 
 export const FeatureStatus = {

@@ -141,7 +141,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         :param pulumi.Input[str] maxmemory_reserved: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param pulumi.Input[str] preferred_data_persistence_auth_method: Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
         :param pulumi.Input[str] rdb_backup_enabled: Specifies whether the rdb backup is enabled
-        :param pulumi.Input[str] rdb_backup_frequency: Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
+        :param pulumi.Input[str] rdb_backup_frequency: Specifies the frequency for creating rdb backup
         :param pulumi.Input[str] rdb_backup_max_snapshot_count: Specifies the maximum number of snapshots for rdb backup
         :param pulumi.Input[str] rdb_storage_connection_string: The storage account connection string for storing rdb file
         """
@@ -296,7 +296,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @pulumi.getter(name="rdbBackupFrequency")
     def rdb_backup_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
+        Specifies the frequency for creating rdb backup
         """
         return pulumi.get(self, "rdb_backup_frequency")
 

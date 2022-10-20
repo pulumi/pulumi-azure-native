@@ -27,7 +27,6 @@ __all__ = [
     'DataBoxCustomerDiskJobDetailsResponse',
     'DataBoxDiskCopyLogDetailsResponse',
     'DataBoxDiskCopyProgressResponse',
-    'DataBoxDiskGranularCopyLogDetailsResponse',
     'DataBoxDiskGranularCopyProgressResponse',
     'DataBoxDiskJobDetailsResponse',
     'DataBoxDiskJobSecretsResponse',
@@ -1741,99 +1740,6 @@ class DataBoxDiskCopyProgressResponse(dict):
 
 
 @pulumi.output_type
-class DataBoxDiskGranularCopyLogDetailsResponse(dict):
-    """
-    Granular Copy Log Details for customer disk
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accountName":
-            suggest = "account_name"
-        elif key == "copyLogDetailsType":
-            suggest = "copy_log_details_type"
-        elif key == "errorLogLink":
-            suggest = "error_log_link"
-        elif key == "serialNumber":
-            suggest = "serial_number"
-        elif key == "verboseLogLink":
-            suggest = "verbose_log_link"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataBoxDiskGranularCopyLogDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataBoxDiskGranularCopyLogDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataBoxDiskGranularCopyLogDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 account_name: str,
-                 copy_log_details_type: str,
-                 error_log_link: str,
-                 serial_number: str,
-                 verbose_log_link: str):
-        """
-        Granular Copy Log Details for customer disk
-        :param str account_name: Account name.
-        :param str copy_log_details_type: Indicates the type of job details.
-               Expected value is 'DataBoxCustomerDisk'.
-        :param str error_log_link: Link for copy error logs.
-        :param str serial_number: Disk Serial Number.
-        :param str verbose_log_link: Link for copy verbose logs.
-        """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "copy_log_details_type", 'DataBoxCustomerDisk')
-        pulumi.set(__self__, "error_log_link", error_log_link)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "verbose_log_link", verbose_log_link)
-
-    @property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
-        """
-        Account name.
-        """
-        return pulumi.get(self, "account_name")
-
-    @property
-    @pulumi.getter(name="copyLogDetailsType")
-    def copy_log_details_type(self) -> str:
-        """
-        Indicates the type of job details.
-        Expected value is 'DataBoxCustomerDisk'.
-        """
-        return pulumi.get(self, "copy_log_details_type")
-
-    @property
-    @pulumi.getter(name="errorLogLink")
-    def error_log_link(self) -> str:
-        """
-        Link for copy error logs.
-        """
-        return pulumi.get(self, "error_log_link")
-
-    @property
-    @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> str:
-        """
-        Disk Serial Number.
-        """
-        return pulumi.get(self, "serial_number")
-
-    @property
-    @pulumi.getter(name="verboseLogLink")
-    def verbose_log_link(self) -> str:
-        """
-        Link for copy verbose logs.
-        """
-        return pulumi.get(self, "verbose_log_link")
-
-
-@pulumi.output_type
 class DataBoxDiskGranularCopyProgressResponse(dict):
     """
     DataBox Disk Granular Copy Progress
@@ -2108,8 +2014,6 @@ class DataBoxDiskJobDetailsResponse(dict):
             suggest = "device_erasure_details"
         elif key == "disksAndSizeDetails":
             suggest = "disks_and_size_details"
-        elif key == "granularCopyLogDetails":
-            suggest = "granular_copy_log_details"
         elif key == "granularCopyProgress":
             suggest = "granular_copy_progress"
         elif key == "jobDetailsType":
@@ -2157,7 +2061,6 @@ class DataBoxDiskJobDetailsResponse(dict):
                  delivery_package: 'outputs.PackageShippingDetailsResponse',
                  device_erasure_details: 'outputs.DeviceErasureDetailsResponse',
                  disks_and_size_details: Mapping[str, int],
-                 granular_copy_log_details: Sequence['outputs.DataBoxDiskGranularCopyLogDetailsResponse'],
                  granular_copy_progress: Sequence['outputs.DataBoxDiskGranularCopyProgressResponse'],
                  job_details_type: str,
                  job_stages: Sequence['outputs.JobStagesResponse'],
@@ -2184,7 +2087,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         :param 'PackageShippingDetailsResponse' delivery_package: Delivery package shipping details.
         :param 'DeviceErasureDetailsResponse' device_erasure_details: Holds device data erasure details
         :param Mapping[str, int] disks_and_size_details: Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
-        :param Sequence['DataBoxDiskGranularCopyLogDetailsResponse'] granular_copy_log_details: Copy progress per disk.
         :param Sequence['DataBoxDiskGranularCopyProgressResponse'] granular_copy_progress: Copy progress per disk.
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxDisk'.
@@ -2211,7 +2113,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         pulumi.set(__self__, "delivery_package", delivery_package)
         pulumi.set(__self__, "device_erasure_details", device_erasure_details)
         pulumi.set(__self__, "disks_and_size_details", disks_and_size_details)
-        pulumi.set(__self__, "granular_copy_log_details", granular_copy_log_details)
         pulumi.set(__self__, "granular_copy_progress", granular_copy_progress)
         pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
         pulumi.set(__self__, "job_stages", job_stages)
@@ -2314,14 +2215,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
         """
         return pulumi.get(self, "disks_and_size_details")
-
-    @property
-    @pulumi.getter(name="granularCopyLogDetails")
-    def granular_copy_log_details(self) -> Sequence['outputs.DataBoxDiskGranularCopyLogDetailsResponse']:
-        """
-        Copy progress per disk.
-        """
-        return pulumi.get(self, "granular_copy_log_details")
 
     @property
     @pulumi.getter(name="granularCopyProgress")

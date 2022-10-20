@@ -63,11 +63,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("sqlWriterUseTableLock")]
         public Input<object>? SqlWriterUseTableLock { get; set; }
 
+        [Input("storedProcedureParameters")]
+        private InputMap<Inputs.StoredProcedureParameterArgs>? _storedProcedureParameters;
+
         /// <summary>
         /// SQL stored procedure parameters.
         /// </summary>
-        [Input("storedProcedureParameters")]
-        public Input<object>? StoredProcedureParameters { get; set; }
+        public InputMap<Inputs.StoredProcedureParameterArgs> StoredProcedureParameters
+        {
+            get => _storedProcedureParameters ?? (_storedProcedureParameters = new InputMap<Inputs.StoredProcedureParameterArgs>());
+            set => _storedProcedureParameters = value;
+        }
 
         /// <summary>
         /// The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).

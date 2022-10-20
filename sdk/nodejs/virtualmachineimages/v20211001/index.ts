@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetVirtualMachineImageTemplateArgs, GetVirtualMachineImageTemplateResult, GetVirtualMachineImageTemplateOutputArgs } from "./getVirtualMachineImageTemplate";
 export const getVirtualMachineImageTemplate: typeof import("./getVirtualMachineImageTemplate").getVirtualMachineImageTemplate = null as any;
 export const getVirtualMachineImageTemplateOutput: typeof import("./getVirtualMachineImageTemplate").getVirtualMachineImageTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineImageTemplate","getVirtualMachineImageTemplateOutput"], () => require("./getVirtualMachineImageTemplate"));
 
 export { VirtualMachineImageTemplateArgs } from "./virtualMachineImageTemplate";
 export type VirtualMachineImageTemplate = import("./virtualMachineImageTemplate").VirtualMachineImageTemplate;
 export const VirtualMachineImageTemplate: typeof import("./virtualMachineImageTemplate").VirtualMachineImageTemplate = null as any;
-
-utilities.lazyLoad(exports, ["getVirtualMachineImageTemplate","getVirtualMachineImageTemplateOutput"], () => require("./getVirtualMachineImageTemplate"));
 utilities.lazyLoad(exports, ["VirtualMachineImageTemplate"], () => require("./virtualMachineImageTemplate"));
+
 
 // Export enums:
 export * from "../../types/enums/virtualmachineimages/v20211001";

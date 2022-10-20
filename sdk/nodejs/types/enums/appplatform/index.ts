@@ -10,7 +10,6 @@ import * as v20220101preview from "./v20220101preview";
 import * as v20220301preview from "./v20220301preview";
 import * as v20220401 from "./v20220401";
 import * as v20220501preview from "./v20220501preview";
-import * as v20220901preview from "./v20220901preview";
 
 export {
     v20200701,
@@ -21,7 +20,6 @@ export {
     v20220301preview,
     v20220401,
     v20220501preview,
-    v20220901preview,
 };
 
 export const BindingType = {

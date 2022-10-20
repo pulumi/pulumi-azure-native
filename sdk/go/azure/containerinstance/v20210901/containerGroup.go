@@ -14,26 +14,26 @@ import (
 type ContainerGroup struct {
 	pulumi.CustomResourceState
 
-	Containers               ContainerResponseArrayOutput                       `pulumi:"containers"`
-	Diagnostics              ContainerGroupDiagnosticsResponsePtrOutput         `pulumi:"diagnostics"`
-	DnsConfig                DnsConfigurationResponsePtrOutput                  `pulumi:"dnsConfig"`
-	EncryptionProperties     EncryptionPropertiesResponsePtrOutput              `pulumi:"encryptionProperties"`
-	Identity                 ContainerGroupIdentityResponsePtrOutput            `pulumi:"identity"`
-	ImageRegistryCredentials ImageRegistryCredentialResponseArrayOutput         `pulumi:"imageRegistryCredentials"`
-	InitContainers           InitContainerDefinitionResponseArrayOutput         `pulumi:"initContainers"`
-	InstanceView             ContainerGroupPropertiesResponseInstanceViewOutput `pulumi:"instanceView"`
-	IpAddress                IpAddressResponsePtrOutput                         `pulumi:"ipAddress"`
-	Location                 pulumi.StringPtrOutput                             `pulumi:"location"`
-	Name                     pulumi.StringOutput                                `pulumi:"name"`
-	OsType                   pulumi.StringOutput                                `pulumi:"osType"`
-	ProvisioningState        pulumi.StringOutput                                `pulumi:"provisioningState"`
-	RestartPolicy            pulumi.StringPtrOutput                             `pulumi:"restartPolicy"`
-	Sku                      pulumi.StringPtrOutput                             `pulumi:"sku"`
-	SubnetIds                ContainerGroupSubnetIdResponseArrayOutput          `pulumi:"subnetIds"`
-	Tags                     pulumi.StringMapOutput                             `pulumi:"tags"`
-	Type                     pulumi.StringOutput                                `pulumi:"type"`
-	Volumes                  VolumeResponseArrayOutput                          `pulumi:"volumes"`
-	Zones                    pulumi.StringArrayOutput                           `pulumi:"zones"`
+	Containers               ContainerResponseArrayOutput               `pulumi:"containers"`
+	Diagnostics              ContainerGroupDiagnosticsResponsePtrOutput `pulumi:"diagnostics"`
+	DnsConfig                DnsConfigurationResponsePtrOutput          `pulumi:"dnsConfig"`
+	EncryptionProperties     EncryptionPropertiesResponsePtrOutput      `pulumi:"encryptionProperties"`
+	Identity                 ContainerGroupIdentityResponsePtrOutput    `pulumi:"identity"`
+	ImageRegistryCredentials ImageRegistryCredentialResponseArrayOutput `pulumi:"imageRegistryCredentials"`
+	InitContainers           InitContainerDefinitionResponseArrayOutput `pulumi:"initContainers"`
+	InstanceView             ContainerGroupResponseInstanceViewOutput   `pulumi:"instanceView"`
+	IpAddress                IpAddressResponsePtrOutput                 `pulumi:"ipAddress"`
+	Location                 pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name                     pulumi.StringOutput                        `pulumi:"name"`
+	OsType                   pulumi.StringOutput                        `pulumi:"osType"`
+	ProvisioningState        pulumi.StringOutput                        `pulumi:"provisioningState"`
+	RestartPolicy            pulumi.StringPtrOutput                     `pulumi:"restartPolicy"`
+	Sku                      pulumi.StringPtrOutput                     `pulumi:"sku"`
+	SubnetIds                ContainerGroupSubnetIdResponseArrayOutput  `pulumi:"subnetIds"`
+	Tags                     pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type                     pulumi.StringOutput                        `pulumi:"type"`
+	Volumes                  VolumeResponseArrayOutput                  `pulumi:"volumes"`
+	Zones                    pulumi.StringArrayOutput                   `pulumi:"zones"`
 }
 
 
@@ -236,8 +236,8 @@ func (o ContainerGroupOutput) InitContainers() InitContainerDefinitionResponseAr
 	return o.ApplyT(func(v *ContainerGroup) InitContainerDefinitionResponseArrayOutput { return v.InitContainers }).(InitContainerDefinitionResponseArrayOutput)
 }
 
-func (o ContainerGroupOutput) InstanceView() ContainerGroupPropertiesResponseInstanceViewOutput {
-	return o.ApplyT(func(v *ContainerGroup) ContainerGroupPropertiesResponseInstanceViewOutput { return v.InstanceView }).(ContainerGroupPropertiesResponseInstanceViewOutput)
+func (o ContainerGroupOutput) InstanceView() ContainerGroupResponseInstanceViewOutput {
+	return o.ApplyT(func(v *ContainerGroup) ContainerGroupResponseInstanceViewOutput { return v.InstanceView }).(ContainerGroupResponseInstanceViewOutput)
 }
 
 func (o ContainerGroupOutput) IpAddress() IpAddressResponsePtrOutput {

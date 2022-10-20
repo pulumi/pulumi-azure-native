@@ -52,15 +52,6 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:devcenter:Schedule"),
-		},
-		{
-			Type: pulumi.String("azure-native:devcenter/v20220901preview:Schedule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Schedule
 	err := ctx.RegisterResource("azure-native:devcenter/v20220801preview:Schedule", name, args, &resource, opts...)
 	if err != nil {

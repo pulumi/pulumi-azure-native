@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public Input<string> AdxResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
+        /// The name of the Azure Data Explorer table.
         /// </summary>
         [Input("adxTableName")]
         public Input<string>? AdxTableName { get; set; }
@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
 
         public AzureDataExplorerConnectionPropertiesArgs()
         {
-            AdxTableName = "AdtPropertyEvents";
-            EventHubConsumerGroup = "$Default";
         }
         public static new AzureDataExplorerConnectionPropertiesArgs Empty => new AzureDataExplorerConnectionPropertiesArgs();
     }

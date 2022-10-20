@@ -107,7 +107,6 @@ namespace Pulumi.AzureNative.Network.V20200301
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501:BastionHost"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:BastionHost"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:BastionHost"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:BastionHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { AccountArgs } from "./account";
 export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+
 
 // Export enums:
 export * from "../types/enums/videoindexer";
@@ -24,7 +24,6 @@ import * as v20211018preview from "./v20211018preview";
 import * as v20211027preview from "./v20211027preview";
 import * as v20211110preview from "./v20211110preview";
 import * as v20220413preview from "./v20220413preview";
-import * as v20220720preview from "./v20220720preview";
 import * as v20220801 from "./v20220801";
 
 export {
@@ -32,7 +31,6 @@ export {
     v20211027preview,
     v20211110preview,
     v20220413preview,
-    v20220720preview,
     v20220801,
 };
 

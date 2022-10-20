@@ -134,6 +134,75 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
     }
 
     /// <summary>
+    /// The kind of the device.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataBoxEdgeDeviceKind : IEquatable<DataBoxEdgeDeviceKind>
+    {
+        private readonly string _value;
+
+        private DataBoxEdgeDeviceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataBoxEdgeDeviceKind AzureDataBoxGateway { get; } = new DataBoxEdgeDeviceKind("AzureDataBoxGateway");
+        public static DataBoxEdgeDeviceKind AzureStackEdge { get; } = new DataBoxEdgeDeviceKind("AzureStackEdge");
+        public static DataBoxEdgeDeviceKind AzureStackHub { get; } = new DataBoxEdgeDeviceKind("AzureStackHub");
+        public static DataBoxEdgeDeviceKind AzureModularDataCentre { get; } = new DataBoxEdgeDeviceKind("AzureModularDataCentre");
+
+        public static bool operator ==(DataBoxEdgeDeviceKind left, DataBoxEdgeDeviceKind right) => left.Equals(right);
+        public static bool operator !=(DataBoxEdgeDeviceKind left, DataBoxEdgeDeviceKind right) => !left.Equals(right);
+
+        public static explicit operator string(DataBoxEdgeDeviceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataBoxEdgeDeviceKind other && Equals(other);
+        public bool Equals(DataBoxEdgeDeviceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the Data Box Edge/Gateway device.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataBoxEdgeDeviceStatus : IEquatable<DataBoxEdgeDeviceStatus>
+    {
+        private readonly string _value;
+
+        private DataBoxEdgeDeviceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataBoxEdgeDeviceStatus ReadyToSetup { get; } = new DataBoxEdgeDeviceStatus("ReadyToSetup");
+        public static DataBoxEdgeDeviceStatus Online { get; } = new DataBoxEdgeDeviceStatus("Online");
+        public static DataBoxEdgeDeviceStatus Offline { get; } = new DataBoxEdgeDeviceStatus("Offline");
+        public static DataBoxEdgeDeviceStatus NeedsAttention { get; } = new DataBoxEdgeDeviceStatus("NeedsAttention");
+        public static DataBoxEdgeDeviceStatus Disconnected { get; } = new DataBoxEdgeDeviceStatus("Disconnected");
+        public static DataBoxEdgeDeviceStatus PartiallyDisconnected { get; } = new DataBoxEdgeDeviceStatus("PartiallyDisconnected");
+        public static DataBoxEdgeDeviceStatus Maintenance { get; } = new DataBoxEdgeDeviceStatus("Maintenance");
+
+        public static bool operator ==(DataBoxEdgeDeviceStatus left, DataBoxEdgeDeviceStatus right) => left.Equals(right);
+        public static bool operator !=(DataBoxEdgeDeviceStatus left, DataBoxEdgeDeviceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataBoxEdgeDeviceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataBoxEdgeDeviceStatus other && Equals(other);
+        public bool Equals(DataBoxEdgeDeviceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Data policy of the storage Account.
     /// </summary>
     [EnumType]
@@ -284,6 +353,38 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MonitoringStatus other && Equals(other);
         public bool Equals(MonitoringStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Identity type
+    /// </summary>
+    [EnumType]
+    public readonly struct MsiIdentityType : IEquatable<MsiIdentityType>
+    {
+        private readonly string _value;
+
+        private MsiIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MsiIdentityType None { get; } = new MsiIdentityType("None");
+        public static MsiIdentityType SystemAssigned { get; } = new MsiIdentityType("SystemAssigned");
+        public static MsiIdentityType UserAssigned { get; } = new MsiIdentityType("UserAssigned");
+
+        public static bool operator ==(MsiIdentityType left, MsiIdentityType right) => left.Equals(right);
+        public static bool operator !=(MsiIdentityType left, MsiIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(MsiIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MsiIdentityType other && Equals(other);
+        public bool Equals(MsiIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

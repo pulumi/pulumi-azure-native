@@ -123,7 +123,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
-    def connectivity_endpoints(self) -> Mapping[str, str]:
+    def connectivity_endpoints(self) -> Optional[Mapping[str, str]]:
         """
         Connectivity endpoints
         """

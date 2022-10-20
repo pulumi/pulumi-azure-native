@@ -119,9 +119,6 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20220101:DdosProtectionPlan"),
 		},
-		{
-			Type: pulumi.String("azure-native:network/v20220501:DdosProtectionPlan"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DdosProtectionPlan

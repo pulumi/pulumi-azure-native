@@ -73,7 +73,6 @@ namespace Pulumi.AzureNative.Network.V20220101
                     new global::Pulumi.Alias { Type = "azure-native:network:RoutingIntent"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501:RoutingIntent"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RoutingIntent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

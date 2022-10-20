@@ -1614,6 +1614,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "volume_group_name"
         elif key == "avsDataStore":
             suggest = "avs_data_store"
+        elif key == "backupId":
+            suggest = "backup_id"
         elif key == "capacityPoolResourceId":
             suggest = "capacity_pool_resource_id"
         elif key == "coolAccess":
@@ -1658,6 +1660,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "smb_encryption"
         elif key == "snapshotDirectoryVisible":
             suggest = "snapshot_directory_visible"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
         elif key == "throughputMibps":
             suggest = "throughput_mibps"
         elif key == "unixPermissions":
@@ -1696,6 +1700,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  usage_threshold: float,
                  volume_group_name: str,
                  avs_data_store: Optional[str] = None,
+                 backup_id: Optional[str] = None,
                  capacity_pool_resource_id: Optional[str] = None,
                  cool_access: Optional[bool] = None,
                  coolness_period: Optional[int] = None,
@@ -1719,6 +1724,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  smb_continuously_available: Optional[bool] = None,
                  smb_encryption: Optional[bool] = None,
                  snapshot_directory_visible: Optional[bool] = None,
+                 snapshot_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  throughput_mibps: Optional[float] = None,
                  unix_permissions: Optional[str] = None,
@@ -1740,9 +1746,10 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param str subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param str t2_network: T2 network information
         :param str type: Resource type
-        :param float usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        :param float usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param str volume_group_name: Volume Group Name
         :param str avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+        :param str backup_id: UUID v4 or resource identifier used to identify the Backup.
         :param str capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
         :param bool cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
         :param int coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
@@ -1766,6 +1773,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param bool smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param bool smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param bool snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        :param str snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param Mapping[str, str] tags: Resource tags
         :param str unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param str volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
@@ -1793,6 +1801,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             avs_data_store = 'Disabled'
         if avs_data_store is not None:
             pulumi.set(__self__, "avs_data_store", avs_data_store)
+        if backup_id is not None:
+            pulumi.set(__self__, "backup_id", backup_id)
         if capacity_pool_resource_id is not None:
             pulumi.set(__self__, "capacity_pool_resource_id", capacity_pool_resource_id)
         if cool_access is None:
@@ -1865,6 +1875,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             snapshot_directory_visible = True
         if snapshot_directory_visible is not None:
             pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if throughput_mibps is not None:
@@ -1994,7 +2006,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> float:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
 
@@ -2013,6 +2025,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         """
         return pulumi.get(self, "avs_data_store")
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> Optional[str]:
+        """
+        UUID v4 or resource identifier used to identify the Backup.
+        """
+        return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="capacityPoolResourceId")
@@ -2197,6 +2217,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter

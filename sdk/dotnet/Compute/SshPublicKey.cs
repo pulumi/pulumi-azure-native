@@ -79,7 +79,6 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:SshPublicKey"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:SshPublicKey"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:SshPublicKey"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:SshPublicKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

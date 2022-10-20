@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { AutoScaleVCoreArgs } from "./autoScaleVCore";
 export type AutoScaleVCore = import("./autoScaleVCore").AutoScaleVCore;
 export const AutoScaleVCore: typeof import("./autoScaleVCore").AutoScaleVCore = null as any;
+utilities.lazyLoad(exports, ["AutoScaleVCore"], () => require("./autoScaleVCore"));
 
 export { CapacityDetailsArgs } from "./capacityDetails";
 export type CapacityDetails = import("./capacityDetails").CapacityDetails;
 export const CapacityDetails: typeof import("./capacityDetails").CapacityDetails = null as any;
+utilities.lazyLoad(exports, ["CapacityDetails"], () => require("./capacityDetails"));
 
 export { GetAutoScaleVCoreArgs, GetAutoScaleVCoreResult, GetAutoScaleVCoreOutputArgs } from "./getAutoScaleVCore";
 export const getAutoScaleVCore: typeof import("./getAutoScaleVCore").getAutoScaleVCore = null as any;
 export const getAutoScaleVCoreOutput: typeof import("./getAutoScaleVCore").getAutoScaleVCoreOutput = null as any;
+utilities.lazyLoad(exports, ["getAutoScaleVCore","getAutoScaleVCoreOutput"], () => require("./getAutoScaleVCore"));
 
 export { GetCapacityDetailsArgs, GetCapacityDetailsResult, GetCapacityDetailsOutputArgs } from "./getCapacityDetails";
 export const getCapacityDetails: typeof import("./getCapacityDetails").getCapacityDetails = null as any;
 export const getCapacityDetailsOutput: typeof import("./getCapacityDetails").getCapacityDetailsOutput = null as any;
-
-utilities.lazyLoad(exports, ["AutoScaleVCore"], () => require("./autoScaleVCore"));
-utilities.lazyLoad(exports, ["CapacityDetails"], () => require("./capacityDetails"));
-utilities.lazyLoad(exports, ["getAutoScaleVCore","getAutoScaleVCoreOutput"], () => require("./getAutoScaleVCore"));
 utilities.lazyLoad(exports, ["getCapacityDetails","getCapacityDetailsOutput"], () => require("./getCapacityDetails"));
+
 
 // Export enums:
 export * from "../types/enums/powerbidedicated";

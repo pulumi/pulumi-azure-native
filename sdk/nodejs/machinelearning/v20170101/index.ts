@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { GetWebServiceArgs, GetWebServiceResult, GetWebServiceOutputArgs } from "./getWebService";
 export const getWebService: typeof import("./getWebService").getWebService = null as any;
 export const getWebServiceOutput: typeof import("./getWebService").getWebServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getWebService","getWebServiceOutput"], () => require("./getWebService"));
 
 export { WebServiceArgs } from "./webService";
 export type WebService = import("./webService").WebService;
 export const WebService: typeof import("./webService").WebService = null as any;
-
-utilities.lazyLoad(exports, ["getWebService","getWebServiceOutput"], () => require("./getWebService"));
 utilities.lazyLoad(exports, ["WebService"], () => require("./webService"));
+
 
 // Export enums:
 export * from "../../types/enums/machinelearning/v20170101";

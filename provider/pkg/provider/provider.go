@@ -206,7 +206,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.client.UserAgent = k.getUserAgent()
 
 	k.customResources = resources.BuildCustomResources(&env, k.subscriptionID,
-		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth,
+		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, bearerAuth,
 		k.client.UserAgent)
 
 	return &rpc.ConfigureResponse{

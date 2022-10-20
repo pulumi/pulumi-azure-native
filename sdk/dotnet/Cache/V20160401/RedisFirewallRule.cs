@@ -74,7 +74,6 @@ namespace Pulumi.AzureNative.Cache.V20160401
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:RedisFirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:RedisFirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:RedisFirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:RedisFirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

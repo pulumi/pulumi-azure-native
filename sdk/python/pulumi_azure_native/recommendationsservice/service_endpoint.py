@@ -193,7 +193,7 @@ class ServiceEndpoint(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recommendationsservice/v20220201:ServiceEndpoint"), pulumi.Alias(type_="azure-native:recommendationsservice/v20220301preview:ServiceEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recommendationsservice/v20220201:ServiceEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceEndpoint, __self__).__init__(
             'azure-native:recommendationsservice:ServiceEndpoint',

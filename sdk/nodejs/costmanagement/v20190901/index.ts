@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { ExportArgs } from "./export";
 export type Export = import("./export").Export;
 export const Export: typeof import("./export").Export = null as any;
+utilities.lazyLoad(exports, ["Export"], () => require("./export"));
 
 export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
 export const getExport: typeof import("./getExport").getExport = null as any;
 export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
-
-utilities.lazyLoad(exports, ["Export"], () => require("./export"));
 utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
+
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20190901";

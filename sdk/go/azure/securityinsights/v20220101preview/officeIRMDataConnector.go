@@ -83,12 +83,6 @@ func NewOfficeIRMDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220801preview:OfficeIRMDataConnector"),
 		},
-		{
-			Type: pulumi.String("azure-native:securityinsights/v20220901preview:OfficeIRMDataConnector"),
-		},
-		{
-			Type: pulumi.String("azure-native:securityinsights/v20221001preview:OfficeIRMDataConnector"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource OfficeIRMDataConnector

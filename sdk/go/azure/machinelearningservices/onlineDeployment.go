@@ -56,9 +56,6 @@ func NewOnlineDeployment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20220601preview:OnlineDeployment"),
 		},
-		{
-			Type: pulumi.String("azure-native:machinelearningservices/v20221001:OnlineDeployment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource OnlineDeployment

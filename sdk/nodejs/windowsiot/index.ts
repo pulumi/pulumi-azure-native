@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
 export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
-
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+
 
 // Export sub-modules:
 import * as v20180216preview from "./v20180216preview";

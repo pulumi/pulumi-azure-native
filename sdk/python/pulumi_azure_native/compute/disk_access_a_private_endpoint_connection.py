@@ -156,7 +156,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskAccessAPrivateEndpointConnection, __self__).__init__(
             'azure-native:compute:DiskAccessAPrivateEndpointConnection',

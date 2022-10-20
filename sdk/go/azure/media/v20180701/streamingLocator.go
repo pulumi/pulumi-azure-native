@@ -66,9 +66,6 @@ func NewStreamingLocator(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:media/v20211101:StreamingLocator"),
 		},
-		{
-			Type: pulumi.String("azure-native:media/v20220801:StreamingLocator"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource StreamingLocator

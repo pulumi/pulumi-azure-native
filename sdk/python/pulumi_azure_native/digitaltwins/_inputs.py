@@ -43,7 +43,7 @@ class AzureDataExplorerConnectionPropertiesArgs:
         :param pulumi.Input[str] event_hub_endpoint_uri: The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
         :param pulumi.Input[str] event_hub_entity_path: The EventHub name in the EventHub namespace for identity-based authentication.
         :param pulumi.Input[str] event_hub_namespace_resource_id: The resource ID of the EventHub namespace.
-        :param pulumi.Input[str] adx_table_name: The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
+        :param pulumi.Input[str] adx_table_name: The name of the Azure Data Explorer table.
         :param pulumi.Input[str] event_hub_consumer_group: The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
         """
         pulumi.set(__self__, "adx_database_name", adx_database_name)
@@ -53,12 +53,8 @@ class AzureDataExplorerConnectionPropertiesArgs:
         pulumi.set(__self__, "event_hub_endpoint_uri", event_hub_endpoint_uri)
         pulumi.set(__self__, "event_hub_entity_path", event_hub_entity_path)
         pulumi.set(__self__, "event_hub_namespace_resource_id", event_hub_namespace_resource_id)
-        if adx_table_name is None:
-            adx_table_name = 'AdtPropertyEvents'
         if adx_table_name is not None:
             pulumi.set(__self__, "adx_table_name", adx_table_name)
-        if event_hub_consumer_group is None:
-            event_hub_consumer_group = '$Default'
         if event_hub_consumer_group is not None:
             pulumi.set(__self__, "event_hub_consumer_group", event_hub_consumer_group)
 
@@ -151,7 +147,7 @@ class AzureDataExplorerConnectionPropertiesArgs:
     @pulumi.getter(name="adxTableName")
     def adx_table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
+        The name of the Azure Data Explorer table.
         """
         return pulumi.get(self, "adx_table_name")
 

@@ -1992,6 +1992,42 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// Stored procedure parameter type.
+    /// </summary>
+    [EnumType]
+    public readonly struct StoredProcedureParameterType : IEquatable<StoredProcedureParameterType>
+    {
+        private readonly string _value;
+
+        private StoredProcedureParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StoredProcedureParameterType String { get; } = new StoredProcedureParameterType("String");
+        public static StoredProcedureParameterType Int { get; } = new StoredProcedureParameterType("Int");
+        public static StoredProcedureParameterType Int64 { get; } = new StoredProcedureParameterType("Int64");
+        public static StoredProcedureParameterType Decimal { get; } = new StoredProcedureParameterType("Decimal");
+        public static StoredProcedureParameterType Guid { get; } = new StoredProcedureParameterType("Guid");
+        public static StoredProcedureParameterType Boolean { get; } = new StoredProcedureParameterType("Boolean");
+        public static StoredProcedureParameterType Date { get; } = new StoredProcedureParameterType("Date");
+
+        public static bool operator ==(StoredProcedureParameterType left, StoredProcedureParameterType right) => left.Equals(right);
+        public static bool operator !=(StoredProcedureParameterType left, StoredProcedureParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(StoredProcedureParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StoredProcedureParameterType other && Equals(other);
+        public bool Equals(StoredProcedureParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// AuthenticationType to be used for connection.
     /// </summary>
     [EnumType]

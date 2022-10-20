@@ -17,7 +17,6 @@ const (
 	EnterprisePolicyKindPrivateEndpoint  = EnterprisePolicyKind("PrivateEndpoint")
 	EnterprisePolicyKindEncryption       = EnterprisePolicyKind("Encryption")
 	EnterprisePolicyKindNetworkInjection = EnterprisePolicyKind("NetworkInjection")
-	EnterprisePolicyKindIdentity         = EnterprisePolicyKind("Identity")
 )
 
 type PrivateEndpointServiceConnectionStatus string

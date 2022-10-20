@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capacity of the SKU.
-        /// </summary>
-        [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
-
-        /// <summary>
         /// The name of the SKU. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("name")]

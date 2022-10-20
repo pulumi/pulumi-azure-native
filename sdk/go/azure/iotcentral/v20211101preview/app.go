@@ -45,9 +45,6 @@ func NewApp(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.NetworkRuleSets != nil {
-		args.NetworkRuleSets = args.NetworkRuleSets.ToNetworkRuleSetsPtrOutput().ApplyT(func(v *NetworkRuleSets) *NetworkRuleSets { return v.Defaults() }).(NetworkRuleSetsPtrOutput)
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:iotcentral:App"),

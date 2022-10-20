@@ -123,7 +123,6 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:CloudEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:CloudEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:CloudEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20220601:CloudEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

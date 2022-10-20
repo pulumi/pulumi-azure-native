@@ -37,12 +37,6 @@ func NewSchedule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	args.ScheduleProperties = args.ScheduleProperties.ToScheduleTypeOutput().ApplyT(func(v ScheduleType) ScheduleType { return *v.Defaults() }).(ScheduleTypeOutput)
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:machinelearningservices/v20221001:Schedule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Schedule
 	err := ctx.RegisterResource("azure-native:machinelearningservices/v20220601preview:Schedule", name, args, &resource, opts...)
 	if err != nil {

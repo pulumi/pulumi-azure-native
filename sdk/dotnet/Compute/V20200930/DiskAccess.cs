@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.Compute.V20200930
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccess"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccess"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:DiskAccess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -26,7 +26,7 @@ class SecretArgs:
         :param pulumi.Input['SecretPropertiesArgs'] properties: Properties of the secret
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the vault belongs.
         :param pulumi.Input[str] vault_name: Name of the vault
-        :param pulumi.Input[str] secret_name: Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
+        :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the secret. 
         """
         pulumi.set(__self__, "properties", properties)
@@ -77,7 +77,7 @@ class SecretArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
+        Name of the secret
         """
         return pulumi.get(self, "secret_name")
 
@@ -116,7 +116,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SecretPropertiesArgs']] properties: Properties of the secret
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the vault belongs.
-        :param pulumi.Input[str] secret_name: Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
+        :param pulumi.Input[str] secret_name: Name of the secret
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the secret. 
         :param pulumi.Input[str] vault_name: Name of the vault
         """

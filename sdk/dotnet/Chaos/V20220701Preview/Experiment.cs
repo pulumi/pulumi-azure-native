@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:chaos:Experiment"},
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Experiment"},
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20221001preview:Experiment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

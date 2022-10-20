@@ -20,7 +20,6 @@ class EnterprisePolicyKind(str, Enum):
     PRIVATE_ENDPOINT = "PrivateEndpoint"
     ENCRYPTION = "Encryption"
     NETWORK_INJECTION = "NetworkInjection"
-    IDENTITY = "Identity"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

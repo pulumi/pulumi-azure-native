@@ -34,15 +34,6 @@ func NewProject(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:devcenter:Project"),
-		},
-		{
-			Type: pulumi.String("azure-native:devcenter/v20220901preview:Project"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Project
 	err := ctx.RegisterResource("azure-native:devcenter/v20220801preview:Project", name, args, &resource, opts...)
 	if err != nil {

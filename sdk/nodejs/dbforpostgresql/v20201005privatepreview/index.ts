@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
 
 export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
 export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
 export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
 
 export { GetServerGroupArgs, GetServerGroupResult, GetServerGroupOutputArgs } from "./getServerGroup";
 export const getServerGroup: typeof import("./getServerGroup").getServerGroup = null as any;
 export const getServerGroupOutput: typeof import("./getServerGroup").getServerGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getServerGroup","getServerGroupOutput"], () => require("./getServerGroup"));
 
 export { ServerGroupArgs } from "./serverGroup";
 export type ServerGroup = import("./serverGroup").ServerGroup;
 export const ServerGroup: typeof import("./serverGroup").ServerGroup = null as any;
-
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
-utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
-utilities.lazyLoad(exports, ["getServerGroup","getServerGroupOutput"], () => require("./getServerGroup"));
 utilities.lazyLoad(exports, ["ServerGroup"], () => require("./serverGroup"));
+
 
 // Export enums:
 export * from "../../types/enums/dbforpostgresql/v20201005privatepreview";

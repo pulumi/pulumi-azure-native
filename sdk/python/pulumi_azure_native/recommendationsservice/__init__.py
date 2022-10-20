@@ -19,9 +19,6 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.recommendationsservice.v20220201 as __v20220201
     v20220201 = __v20220201
-    import pulumi_azure_native.recommendationsservice.v20220301preview as __v20220301preview
-    v20220301preview = __v20220301preview
 else:
     v20220201 = _utilities.lazy_import('pulumi_azure_native.recommendationsservice.v20220201')
-    v20220301preview = _utilities.lazy_import('pulumi_azure_native.recommendationsservice.v20220301preview')
 

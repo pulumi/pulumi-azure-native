@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class ListDaprComponentSecretsResult:
     """
-    Dapr component Secrets Collection for ListSecrets Action
+    Dapr component Secrets Collection ARM resource.
     """
     def __init__(__self__, value=None):
         if value and not isinstance(value, list):
@@ -29,9 +29,9 @@ class ListDaprComponentSecretsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.DaprSecretResponse']:
+    def value(self) -> Sequence['outputs.SecretResponse']:
         """
-        Collection of secrets for ListSecrets Action
+        Collection of secrets used by a Dapr component
         """
         return pulumi.get(self, "value")
 
@@ -50,7 +50,7 @@ def list_dapr_component_secrets(component_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDaprComponentSecretsResult:
     """
-    Dapr component Secrets Collection for ListSecrets Action
+    Dapr component Secrets Collection ARM resource.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -74,7 +74,7 @@ def list_dapr_component_secrets_output(component_name: Optional[pulumi.Input[str
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDaprComponentSecretsResult]:
     """
-    Dapr component Secrets Collection for ListSecrets Action
+    Dapr component Secrets Collection ARM resource.
 
 
     :param str component_name: Name of the Dapr Component.

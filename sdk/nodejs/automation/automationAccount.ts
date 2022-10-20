@@ -166,7 +166,7 @@ export class AutomationAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:AutomationAccount" }, { type: "azure-native:automation/v20190601:AutomationAccount" }, { type: "azure-native:automation/v20200113preview:AutomationAccount" }, { type: "azure-native:automation/v20210622:AutomationAccount" }, { type: "azure-native:automation/v20220808:AutomationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:AutomationAccount" }, { type: "azure-native:automation/v20190601:AutomationAccount" }, { type: "azure-native:automation/v20200113preview:AutomationAccount" }, { type: "azure-native:automation/v20210622:AutomationAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutomationAccount.__pulumiType, name, resourceInputs, opts);
     }

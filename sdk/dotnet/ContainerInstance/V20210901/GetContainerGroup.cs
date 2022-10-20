@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901
         /// <summary>
         /// The instance view of the container group. Only valid in response.
         /// </summary>
-        public readonly Outputs.ContainerGroupPropertiesResponseInstanceView InstanceView;
+        public readonly Outputs.ContainerGroupResponseInstanceView InstanceView;
         /// <summary>
         /// The IP address type of the container group.
         /// </summary>
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210901
 
             ImmutableArray<Outputs.InitContainerDefinitionResponse> initContainers,
 
-            Outputs.ContainerGroupPropertiesResponseInstanceView instanceView,
+            Outputs.ContainerGroupResponseInstanceView instanceView,
 
             Outputs.IpAddressResponse? ipAddress,
 

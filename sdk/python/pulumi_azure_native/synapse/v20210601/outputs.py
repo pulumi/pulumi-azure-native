@@ -518,14 +518,41 @@ class DynamicExecutorAllocationResponse(dict):
     """
     Dynamic Executor Allocation Properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxExecutors":
+            suggest = "max_executors"
+        elif key == "minExecutors":
+            suggest = "min_executors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicExecutorAllocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicExecutorAllocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicExecutorAllocationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 max_executors: Optional[int] = None,
+                 min_executors: Optional[int] = None):
         """
         Dynamic Executor Allocation Properties
         :param bool enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        :param int max_executors: The maximum number of executors alloted
+        :param int min_executors: The minimum number of executors alloted
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if max_executors is not None:
+            pulumi.set(__self__, "max_executors", max_executors)
+        if min_executors is not None:
+            pulumi.set(__self__, "min_executors", min_executors)
 
     @property
     @pulumi.getter
@@ -534,6 +561,22 @@ class DynamicExecutorAllocationResponse(dict):
         Indicates whether Dynamic Executor Allocation is enabled or not.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> Optional[int]:
+        """
+        The maximum number of executors alloted
+        """
+        return pulumi.get(self, "max_executors")
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> Optional[int]:
+        """
+        The minimum number of executors alloted
+        """
+        return pulumi.get(self, "min_executors")
 
 
 @pulumi.output_type
@@ -1376,10 +1419,10 @@ class LibraryInfoResponse(dict):
             suggest = "creator_id"
         elif key == "provisioningStatus":
             suggest = "provisioning_status"
-        elif key == "containerName":
-            suggest = "container_name"
         elif key == "uploadedTimestamp":
             suggest = "uploaded_timestamp"
+        elif key == "containerName":
+            suggest = "container_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LibraryInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1395,23 +1438,24 @@ class LibraryInfoResponse(dict):
     def __init__(__self__, *,
                  creator_id: str,
                  provisioning_status: str,
+                 uploaded_timestamp: str,
                  container_name: Optional[str] = None,
                  name: Optional[str] = None,
                  path: Optional[str] = None,
-                 type: Optional[str] = None,
-                 uploaded_timestamp: Optional[str] = None):
+                 type: Optional[str] = None):
         """
         Library/package information of a Big Data pool powered by Apache Spark
         :param str creator_id: Creator Id of the library/package.
         :param str provisioning_status: Provisioning status of the library/package.
+        :param str uploaded_timestamp: The last update time of the library.
         :param str container_name: Storage blob container name.
         :param str name: Name of the library.
         :param str path: Storage blob path of library.
         :param str type: Type of the library.
-        :param str uploaded_timestamp: The last update time of the library.
         """
         pulumi.set(__self__, "creator_id", creator_id)
         pulumi.set(__self__, "provisioning_status", provisioning_status)
+        pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
         if name is not None:
@@ -1420,8 +1464,6 @@ class LibraryInfoResponse(dict):
             pulumi.set(__self__, "path", path)
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if uploaded_timestamp is not None:
-            pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
 
     @property
     @pulumi.getter(name="creatorId")
@@ -1438,6 +1480,14 @@ class LibraryInfoResponse(dict):
         Provisioning status of the library/package.
         """
         return pulumi.get(self, "provisioning_status")
+
+    @property
+    @pulumi.getter(name="uploadedTimestamp")
+    def uploaded_timestamp(self) -> str:
+        """
+        The last update time of the library.
+        """
+        return pulumi.get(self, "uploaded_timestamp")
 
     @property
     @pulumi.getter(name="containerName")
@@ -1470,14 +1520,6 @@ class LibraryInfoResponse(dict):
         Type of the library.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uploadedTimestamp")
-    def uploaded_timestamp(self) -> Optional[str]:
-        """
-        The last update time of the library.
-        """
-        return pulumi.get(self, "uploaded_timestamp")
 
 
 @pulumi.output_type

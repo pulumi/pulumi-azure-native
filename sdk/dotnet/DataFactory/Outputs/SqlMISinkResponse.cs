@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// SQL stored procedure parameters.
         /// </summary>
-        public readonly object? StoredProcedureParameters;
+        public readonly ImmutableDictionary<string, Outputs.StoredProcedureParameterResponse>? StoredProcedureParameters;
         /// <summary>
         /// The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? sqlWriterUseTableLock,
 
-            object? storedProcedureParameters,
+            ImmutableDictionary<string, Outputs.StoredProcedureParameterResponse>? storedProcedureParameters,
 
             object? storedProcedureTableTypeParameterName,
 

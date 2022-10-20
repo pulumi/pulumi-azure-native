@@ -89,12 +89,6 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20220501:ReplicationvCenter"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20220801:ReplicationvCenter"),
-		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20220910:ReplicationvCenter"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationvCenter

@@ -91,7 +91,7 @@ export class ComponentVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ComponentVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:ComponentVersion" }, { type: "azure-native:machinelearningservices/v20220501:ComponentVersion" }, { type: "azure-native:machinelearningservices/v20221001:ComponentVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ComponentVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:ComponentVersion" }, { type: "azure-native:machinelearningservices/v20220501:ComponentVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ComponentVersion.__pulumiType, name, resourceInputs, opts);
     }

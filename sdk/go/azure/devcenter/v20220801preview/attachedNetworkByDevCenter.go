@@ -40,15 +40,6 @@ func NewAttachedNetworkByDevCenter(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:devcenter:AttachedNetworkByDevCenter"),
-		},
-		{
-			Type: pulumi.String("azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource AttachedNetworkByDevCenter
 	err := ctx.RegisterResource("azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter", name, args, &resource, opts...)
 	if err != nil {

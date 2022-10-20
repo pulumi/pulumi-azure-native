@@ -300,7 +300,6 @@ __all__ = [
     'StaticRouteResponse',
     'SubResourceResponse',
     'SubnetResponse',
-    'SubscriptionIdResponse',
     'SystemDataResponse',
     'TargetDnsServerResponse',
     'TrafficAnalyticsConfigurationPropertiesResponse',
@@ -27929,25 +27928,6 @@ class SubnetResponse(dict):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class SubscriptionIdResponse(dict):
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        :param str id: Subscription id in the ARM id format.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Subscription id in the ARM id format.
-        """
-        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

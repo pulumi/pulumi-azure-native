@@ -21,13 +21,10 @@ class GetNspProfileResult:
     """
     The network security perimeter profile resource
     """
-    def __init__(__self__, access_rules_version=None, diagnostic_settings_version=None, id=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, access_rules_version=None, id=None, location=None, name=None, tags=None, type=None):
         if access_rules_version and not isinstance(access_rules_version, str):
             raise TypeError("Expected argument 'access_rules_version' to be a str")
         pulumi.set(__self__, "access_rules_version", access_rules_version)
-        if diagnostic_settings_version and not isinstance(diagnostic_settings_version, str):
-            raise TypeError("Expected argument 'diagnostic_settings_version' to be a str")
-        pulumi.set(__self__, "diagnostic_settings_version", diagnostic_settings_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -51,14 +48,6 @@ class GetNspProfileResult:
         Version number that increases with every update to access rules within the profile.
         """
         return pulumi.get(self, "access_rules_version")
-
-    @property
-    @pulumi.getter(name="diagnosticSettingsVersion")
-    def diagnostic_settings_version(self) -> str:
-        """
-        Version number that increases with every update to diagnostic settings within the profile.
-        """
-        return pulumi.get(self, "diagnostic_settings_version")
 
     @property
     @pulumi.getter
@@ -108,7 +97,6 @@ class AwaitableGetNspProfileResult(GetNspProfileResult):
             yield self
         return GetNspProfileResult(
             access_rules_version=self.access_rules_version,
-            diagnostic_settings_version=self.diagnostic_settings_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -137,7 +125,6 @@ def get_nsp_profile(network_security_perimeter_name: Optional[str] = None,
 
     return AwaitableGetNspProfileResult(
         access_rules_version=__ret__.access_rules_version,
-        diagnostic_settings_version=__ret__.diagnostic_settings_version,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

@@ -10,40 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ConditionOperator string
-
-const (
-	ConditionOperatorEquals             = ConditionOperator("Equals")
-	ConditionOperatorGreaterThan        = ConditionOperator("GreaterThan")
-	ConditionOperatorGreaterThanOrEqual = ConditionOperator("GreaterThanOrEqual")
-	ConditionOperatorLessThan           = ConditionOperator("LessThan")
-	ConditionOperatorLessThanOrEqual    = ConditionOperator("LessThanOrEqual")
-)
-
-type DimensionOperator string
-
-const (
-	DimensionOperatorInclude = DimensionOperator("Include")
-	DimensionOperatorExclude = DimensionOperator("Exclude")
-)
-
-type Kind string
-
-const (
-	KindLogAlert    = Kind("LogAlert")
-	KindLogToMetric = Kind("LogToMetric")
-)
-
-type TimeAggregation string
-
-const (
-	TimeAggregationCount   = TimeAggregation("Count")
-	TimeAggregationAverage = TimeAggregation("Average")
-	TimeAggregationMinimum = TimeAggregation("Minimum")
-	TimeAggregationMaximum = TimeAggregation("Maximum")
-	TimeAggregationTotal   = TimeAggregation("Total")
-)
-
 type WebTestKind string
 
 const (

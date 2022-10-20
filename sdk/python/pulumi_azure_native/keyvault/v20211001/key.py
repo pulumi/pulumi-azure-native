@@ -27,7 +27,7 @@ class KeyArgs:
         :param pulumi.Input['KeyPropertiesArgs'] properties: The properties of the key to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group which contains the specified key vault.
         :param pulumi.Input[str] vault_name: The name of the key vault which contains the key to be created.
-        :param pulumi.Input[str] key_name: The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
+        :param pulumi.Input[str] key_name: The name of the key to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the key.
         """
         pulumi.set(__self__, "properties", properties)
@@ -78,7 +78,7 @@ class KeyArgs:
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
+        The name of the key to be created.
         """
         return pulumi.get(self, "key_name")
 
@@ -115,7 +115,7 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_name: The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
+        :param pulumi.Input[str] key_name: The name of the key to be created.
         :param pulumi.Input[pulumi.InputType['KeyPropertiesArgs']] properties: The properties of the key to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group which contains the specified key vault.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the key.

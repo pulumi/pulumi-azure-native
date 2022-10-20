@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { CloudServiceArgs } from "./cloudService";
 export type CloudService = import("./cloudService").CloudService;
 export const CloudService: typeof import("./cloudService").CloudService = null as any;
+utilities.lazyLoad(exports, ["CloudService"], () => require("./cloudService"));
 
 export { GetCloudServiceArgs, GetCloudServiceResult, GetCloudServiceOutputArgs } from "./getCloudService";
 export const getCloudService: typeof import("./getCloudService").getCloudService = null as any;
 export const getCloudServiceOutput: typeof import("./getCloudService").getCloudServiceOutput = null as any;
-
-utilities.lazyLoad(exports, ["CloudService"], () => require("./cloudService"));
 utilities.lazyLoad(exports, ["getCloudService","getCloudServiceOutput"], () => require("./getCloudService"));
+
 
 // Export enums:
 export * from "../../types/enums/compute/v20201001preview";

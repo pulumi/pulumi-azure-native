@@ -53,9 +53,6 @@ func NewCodeVersion(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20220501:CodeVersion"),
 		},
-		{
-			Type: pulumi.String("azure-native:machinelearningservices/v20221001:CodeVersion"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource CodeVersion

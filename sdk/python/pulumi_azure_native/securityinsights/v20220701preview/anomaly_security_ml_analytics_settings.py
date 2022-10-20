@@ -424,7 +424,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AnomalySecurityMLAnalyticsSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AnomalySecurityMLAnalyticsSettings, __self__).__init__(
             'azure-native:securityinsights/v20220701preview:AnomalySecurityMLAnalyticsSettings',

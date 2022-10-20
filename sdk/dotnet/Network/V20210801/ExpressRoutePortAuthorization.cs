@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.Network.V20210801
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:ExpressRoutePortAuthorization"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRoutePortAuthorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetScheduledActionArgs, GetScheduledActionResult, GetScheduledActionOutputArgs } from "./getScheduledAction";
 export const getScheduledAction: typeof import("./getScheduledAction").getScheduledAction = null as any;
 export const getScheduledActionOutput: typeof import("./getScheduledAction").getScheduledActionOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
 
 export { GetScheduledActionByScopeArgs, GetScheduledActionByScopeResult, GetScheduledActionByScopeOutputArgs } from "./getScheduledActionByScope";
 export const getScheduledActionByScope: typeof import("./getScheduledActionByScope").getScheduledActionByScope = null as any;
 export const getScheduledActionByScopeOutput: typeof import("./getScheduledActionByScope").getScheduledActionByScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledActionByScope","getScheduledActionByScopeOutput"], () => require("./getScheduledActionByScope"));
 
 export { ScheduledActionArgs } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
+utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 
 export { ScheduledActionByScopeArgs } from "./scheduledActionByScope";
 export type ScheduledActionByScope = import("./scheduledActionByScope").ScheduledActionByScope;
 export const ScheduledActionByScope: typeof import("./scheduledActionByScope").ScheduledActionByScope = null as any;
-
-utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
-utilities.lazyLoad(exports, ["getScheduledActionByScope","getScheduledActionByScopeOutput"], () => require("./getScheduledActionByScope"));
-utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 utilities.lazyLoad(exports, ["ScheduledActionByScope"], () => require("./scheduledActionByScope"));
+
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20220401preview";

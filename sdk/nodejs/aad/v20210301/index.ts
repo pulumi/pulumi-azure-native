@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { DomainServiceArgs } from "./domainService";
 export type DomainService = import("./domainService").DomainService;
 export const DomainService: typeof import("./domainService").DomainService = null as any;
+utilities.lazyLoad(exports, ["DomainService"], () => require("./domainService"));
 
 export { GetDomainServiceArgs, GetDomainServiceResult, GetDomainServiceOutputArgs } from "./getDomainService";
 export const getDomainService: typeof import("./getDomainService").getDomainService = null as any;
 export const getDomainServiceOutput: typeof import("./getDomainService").getDomainServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainService","getDomainServiceOutput"], () => require("./getDomainService"));
 
 export { GetOuContainerArgs, GetOuContainerResult, GetOuContainerOutputArgs } from "./getOuContainer";
 export const getOuContainer: typeof import("./getOuContainer").getOuContainer = null as any;
 export const getOuContainerOutput: typeof import("./getOuContainer").getOuContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getOuContainer","getOuContainerOutput"], () => require("./getOuContainer"));
 
 export { OuContainerArgs } from "./ouContainer";
 export type OuContainer = import("./ouContainer").OuContainer;
 export const OuContainer: typeof import("./ouContainer").OuContainer = null as any;
-
-utilities.lazyLoad(exports, ["DomainService"], () => require("./domainService"));
-utilities.lazyLoad(exports, ["getDomainService","getDomainServiceOutput"], () => require("./getDomainService"));
-utilities.lazyLoad(exports, ["getOuContainer","getOuContainerOutput"], () => require("./getOuContainer"));
 utilities.lazyLoad(exports, ["OuContainer"], () => require("./ouContainer"));
+
 
 // Export enums:
 export * from "../../types/enums/aad/v20210301";

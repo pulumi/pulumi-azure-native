@@ -43,9 +43,6 @@ func NewContainerAppsSourceControl(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:app/v20220101preview:ContainerAppsSourceControl"),
 		},
-		{
-			Type: pulumi.String("azure-native:app/v20220601preview:ContainerAppsSourceControl"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ContainerAppsSourceControl

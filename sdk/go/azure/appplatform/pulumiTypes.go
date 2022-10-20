@@ -5234,8 +5234,6 @@ func (val *GatewayProperties) Defaults() *GatewayProperties {
 		public_ := false
 		tmp.Public = &public_
 	}
-	tmp.ResourceRequests = tmp.ResourceRequests.Defaults()
-
 	return &tmp
 }
 
@@ -5271,7 +5269,6 @@ func (val *GatewayPropertiesArgs) Defaults() *GatewayPropertiesArgs {
 	if isZero(tmp.Public) {
 		tmp.Public = pulumi.BoolPtr(false)
 	}
-
 	return &tmp
 }
 func (GatewayPropertiesArgs) ElementType() reflect.Type {
@@ -5480,8 +5477,6 @@ func (val *GatewayPropertiesResponse) Defaults() *GatewayPropertiesResponse {
 		public_ := false
 		tmp.Public = &public_
 	}
-	tmp.ResourceRequests = tmp.ResourceRequests.Defaults()
-
 	return &tmp
 }
 
@@ -5547,23 +5542,6 @@ type GatewayResourceRequests struct {
 }
 
 
-func (val *GatewayResourceRequests) Defaults() *GatewayResourceRequests {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Cpu) {
-		cpu_ := "1"
-		tmp.Cpu = &cpu_
-	}
-	if isZero(tmp.Memory) {
-		memory_ := "2Gi"
-		tmp.Memory = &memory_
-	}
-	return &tmp
-}
-
-
 
 
 
@@ -5579,20 +5557,6 @@ type GatewayResourceRequestsArgs struct {
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 }
 
-
-func (val *GatewayResourceRequestsArgs) Defaults() *GatewayResourceRequestsArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Cpu) {
-		tmp.Cpu = pulumi.StringPtr("1")
-	}
-	if isZero(tmp.Memory) {
-		tmp.Memory = pulumi.StringPtr("2Gi")
-	}
-	return &tmp
-}
 func (GatewayResourceRequestsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayResourceRequests)(nil)).Elem()
 }
@@ -5723,23 +5687,6 @@ func (o GatewayResourceRequestsPtrOutput) Memory() pulumi.StringPtrOutput {
 type GatewayResourceRequestsResponse struct {
 	Cpu    *string `pulumi:"cpu"`
 	Memory *string `pulumi:"memory"`
-}
-
-
-func (val *GatewayResourceRequestsResponse) Defaults() *GatewayResourceRequestsResponse {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.Cpu) {
-		cpu_ := "1"
-		tmp.Cpu = &cpu_
-	}
-	if isZero(tmp.Memory) {
-		memory_ := "2Gi"
-		tmp.Memory = &memory_
-	}
-	return &tmp
 }
 
 type GatewayResourceRequestsResponseOutput struct{ *pulumi.OutputState }

@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { CloudConnectorArgs } from "./cloudConnector";
 export type CloudConnector = import("./cloudConnector").CloudConnector;
 export const CloudConnector: typeof import("./cloudConnector").CloudConnector = null as any;
+utilities.lazyLoad(exports, ["CloudConnector"], () => require("./cloudConnector"));
 
 export { GetCloudConnectorArgs, GetCloudConnectorResult, GetCloudConnectorOutputArgs } from "./getCloudConnector";
 export const getCloudConnector: typeof import("./getCloudConnector").getCloudConnector = null as any;
 export const getCloudConnectorOutput: typeof import("./getCloudConnector").getCloudConnectorOutput = null as any;
-
-utilities.lazyLoad(exports, ["CloudConnector"], () => require("./cloudConnector"));
 utilities.lazyLoad(exports, ["getCloudConnector","getCloudConnectorOutput"], () => require("./getCloudConnector"));
+
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20190301preview";

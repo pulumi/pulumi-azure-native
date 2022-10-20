@@ -547,7 +547,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> pulumi.Output['outputs.ContainerGroupPropertiesResponseInstanceView']:
+    def instance_view(self) -> pulumi.Output['outputs.ContainerGroupResponseInstanceView']:
         """
         The instance view of the container group. Only valid in response.
         """

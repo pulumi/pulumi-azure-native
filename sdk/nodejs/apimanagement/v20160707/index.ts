@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { ApiManagementServiceArgs } from "./apiManagementService";
 export type ApiManagementService = import("./apiManagementService").ApiManagementService;
 export const ApiManagementService: typeof import("./apiManagementService").ApiManagementService = null as any;
+utilities.lazyLoad(exports, ["ApiManagementService"], () => require("./apiManagementService"));
 
 export { GetApiManagementServiceArgs, GetApiManagementServiceResult, GetApiManagementServiceOutputArgs } from "./getApiManagementService";
 export const getApiManagementService: typeof import("./getApiManagementService").getApiManagementService = null as any;
 export const getApiManagementServiceOutput: typeof import("./getApiManagementService").getApiManagementServiceOutput = null as any;
-
-utilities.lazyLoad(exports, ["ApiManagementService"], () => require("./apiManagementService"));
 utilities.lazyLoad(exports, ["getApiManagementService","getApiManagementServiceOutput"], () => require("./getApiManagementService"));
+
 
 // Export enums:
 export * from "../../types/enums/apimanagement/v20160707";

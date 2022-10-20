@@ -74,9 +74,6 @@ func NewOrigin(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:cdn/v20200901:Origin"),
 		},
-		{
-			Type: pulumi.String("azure-native:cdn/v20220501preview:Origin"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Origin

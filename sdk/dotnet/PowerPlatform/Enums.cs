@@ -24,7 +24,6 @@ namespace Pulumi.AzureNative.PowerPlatform
         public static EnterprisePolicyKind PrivateEndpoint { get; } = new EnterprisePolicyKind("PrivateEndpoint");
         public static EnterprisePolicyKind Encryption { get; } = new EnterprisePolicyKind("Encryption");
         public static EnterprisePolicyKind NetworkInjection { get; } = new EnterprisePolicyKind("NetworkInjection");
-        public static EnterprisePolicyKind Identity { get; } = new EnterprisePolicyKind("Identity");
 
         public static bool operator ==(EnterprisePolicyKind left, EnterprisePolicyKind right) => left.Equals(right);
         public static bool operator !=(EnterprisePolicyKind left, EnterprisePolicyKind right) => !left.Equals(right);

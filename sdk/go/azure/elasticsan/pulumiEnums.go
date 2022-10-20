@@ -180,20 +180,13 @@ const (
 	EncryptionTypeEncryptionAtRestWithPlatformKey = EncryptionType("EncryptionAtRestWithPlatformKey")
 )
 
-type SkuName string
+type Name string
 
 const (
 	// Premium locally redundant storage
-	SkuName_Premium_LRS = SkuName("Premium_LRS")
+	Name_Premium_LRS = Name("Premium_LRS")
 	// Premium zone redundant storage
-	SkuName_Premium_ZRS = SkuName("Premium_ZRS")
-)
-
-type SkuTier string
-
-const (
-	// Premium Tier
-	SkuTierPremium = SkuTier("Premium")
+	Name_Premium_ZRS = Name("Premium_ZRS")
 )
 
 type StorageTargetType string
@@ -201,6 +194,13 @@ type StorageTargetType string
 const (
 	StorageTargetTypeIscsi = StorageTargetType("Iscsi")
 	StorageTargetTypeNone  = StorageTargetType("None")
+)
+
+type Tier string
+
+const (
+	// Premium Tier
+	TierPremium = Tier("Premium")
 )
 
 type VolumeCreateOption string

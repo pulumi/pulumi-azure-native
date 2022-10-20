@@ -19,6 +19,7 @@ class NetworkSecurityPerimeterArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
+                 perimeter_guid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeter resource.
@@ -27,6 +28,7 @@ class NetworkSecurityPerimeterArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] network_security_perimeter_name: The name of the network security perimeter.
+        :param pulumi.Input[str] perimeter_guid: perimeter guid of the network security perimeter.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -38,6 +40,8 @@ class NetworkSecurityPerimeterArgs:
             pulumi.set(__self__, "name", name)
         if network_security_perimeter_name is not None:
             pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
+        if perimeter_guid is not None:
+            pulumi.set(__self__, "perimeter_guid", perimeter_guid)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -102,6 +106,18 @@ class NetworkSecurityPerimeterArgs:
         pulumi.set(self, "network_security_perimeter_name", value)
 
     @property
+    @pulumi.getter(name="perimeterGuid")
+    def perimeter_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        perimeter guid of the network security perimeter.
+        """
+        return pulumi.get(self, "perimeter_guid")
+
+    @perimeter_guid.setter
+    def perimeter_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "perimeter_guid", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -123,6 +139,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
+                 perimeter_guid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -136,6 +153,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] network_security_perimeter_name: The name of the network security perimeter.
+        :param pulumi.Input[str] perimeter_guid: perimeter guid of the network security perimeter.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -168,6 +186,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
+                 perimeter_guid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -183,11 +202,11 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["network_security_perimeter_name"] = network_security_perimeter_name
+            __props__.__dict__["perimeter_guid"] = perimeter_guid
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["perimeter_guid"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20210301preview:NetworkSecurityPerimeter")])
@@ -224,7 +243,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -240,7 +259,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="perimeterGuid")
-    def perimeter_guid(self) -> pulumi.Output[str]:
+    def perimeter_guid(self) -> pulumi.Output[Optional[str]]:
         """
         perimeter guid of the network security perimeter.
         """

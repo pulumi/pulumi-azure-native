@@ -4,12 +4,10 @@
 // Export sub-modules:
 import * as v20211201preview from "./v20211201preview";
 import * as v20220415preview from "./v20220415preview";
-import * as v20221201 from "./v20221201";
 
 export {
     v20211201preview,
     v20220415preview,
-    v20221201,
 };
 
 export const SystemAssignedServiceIdentityType = {

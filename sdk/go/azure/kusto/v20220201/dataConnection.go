@@ -71,9 +71,6 @@ func NewDataConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:kusto/v20210827:DataConnection"),
 		},
-		{
-			Type: pulumi.String("azure-native:kusto/v20220707:DataConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DataConnection

@@ -213,7 +213,7 @@ class LoadTest(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:loadtestservice:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20211201preview:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20221201:LoadTest")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:loadtestservice:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20211201preview:LoadTest")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadTest, __self__).__init__(
             'azure-native:loadtestservice/v20220415preview:LoadTest',

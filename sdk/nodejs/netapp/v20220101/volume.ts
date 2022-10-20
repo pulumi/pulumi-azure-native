@@ -42,6 +42,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly avsDataStore!: pulumi.Output<string | undefined>;
     /**
+     * UUID v4 or resource identifier used to identify the Backup.
+     */
+    public readonly backupId!: pulumi.Output<string | undefined>;
+    /**
      * Unique Baremetal Tenant Identifier.
      */
     public /*out*/ readonly baremetalTenantId!: pulumi.Output<string>;
@@ -178,6 +182,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
     /**
+     * UUID v4 or resource identifier used to identify the Snapshot.
+     */
+    public readonly snapshotId!: pulumi.Output<string | undefined>;
+    /**
      * Provides storage to network proximity information for the volume.
      */
     public /*out*/ readonly storageToNetworkProximity!: pulumi.Output<string>;
@@ -207,7 +215,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly unixPermissions!: pulumi.Output<string | undefined>;
     /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
      */
     public readonly usageThreshold!: pulumi.Output<number>;
     /**
@@ -312,6 +320,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["avsDataStore"] = undefined /*out*/;
+            resourceInputs["backupId"] = undefined /*out*/;
             resourceInputs["baremetalTenantId"] = undefined /*out*/;
             resourceInputs["capacityPoolResourceId"] = undefined /*out*/;
             resourceInputs["cloneProgress"] = undefined /*out*/;
@@ -346,6 +355,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["smbContinuouslyAvailable"] = undefined /*out*/;
             resourceInputs["smbEncryption"] = undefined /*out*/;
             resourceInputs["snapshotDirectoryVisible"] = undefined /*out*/;
+            resourceInputs["snapshotId"] = undefined /*out*/;
             resourceInputs["storageToNetworkProximity"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -361,7 +371,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }, { type: "azure-native:netapp/v20211001:Volume" }, { type: "azure-native:netapp/v20220301:Volume" }, { type: "azure-native:netapp/v20220501:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }, { type: "azure-native:netapp/v20211001:Volume" }, { type: "azure-native:netapp/v20220301:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }
@@ -505,7 +515,7 @@ export interface VolumeArgs {
      */
     unixPermissions?: pulumi.Input<string>;
     /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
      */
     usageThreshold: pulumi.Input<number>;
     /**

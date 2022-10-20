@@ -8,13 +8,13 @@ import * as utilities from "../../utilities";
 export { AliasArgs } from "./alias";
 export type Alias = import("./alias").Alias;
 export const Alias: typeof import("./alias").Alias = null as any;
+utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
 
 export { GetAliasArgs, GetAliasResult, GetAliasOutputArgs } from "./getAlias";
 export const getAlias: typeof import("./getAlias").getAlias = null as any;
 export const getAliasOutput: typeof import("./getAlias").getAliasOutput = null as any;
-
-utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
 utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
+
 
 // Export enums:
 export * from "../../types/enums/subscription/v20200901";

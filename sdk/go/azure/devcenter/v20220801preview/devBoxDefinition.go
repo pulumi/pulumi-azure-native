@@ -50,15 +50,6 @@ func NewDevBoxDefinition(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:devcenter:DevBoxDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-native:devcenter/v20220901preview:DevBoxDefinition"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource DevBoxDefinition
 	err := ctx.RegisterResource("azure-native:devcenter/v20220801preview:DevBoxDefinition", name, args, &resource, opts...)
 	if err != nil {

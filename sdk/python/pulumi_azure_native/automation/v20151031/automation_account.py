@@ -195,7 +195,7 @@ class AutomationAccount(pulumi.CustomResource):
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20190601:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20200113preview:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20210622:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20220808:AutomationAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20190601:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20200113preview:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20210622:AutomationAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutomationAccount, __self__).__init__(
             'azure-native:automation/v20151031:AutomationAccount',

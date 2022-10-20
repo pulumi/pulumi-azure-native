@@ -27,7 +27,6 @@ class BigDataPoolArgs:
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input['DynamicExecutorAllocationArgs']] = None,
                  force: Optional[pulumi.Input[bool]] = None,
-                 is_autotune_enabled: Optional[pulumi.Input[bool]] = None,
                  is_compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirements: Optional[pulumi.Input['LibraryRequirementsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -52,7 +51,6 @@ class BigDataPoolArgs:
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input['DynamicExecutorAllocationArgs'] dynamic_executor_allocation: Dynamic Executor Allocation
         :param pulumi.Input[bool] force: Whether to stop any running jobs in the Big Data pool
-        :param pulumi.Input[bool] is_autotune_enabled: Whether autotune is required or not.
         :param pulumi.Input[bool] is_compute_isolation_enabled: Whether compute isolation is required or not.
         :param pulumi.Input['LibraryRequirementsArgs'] library_requirements: Library version requirements
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -84,8 +82,6 @@ class BigDataPoolArgs:
             pulumi.set(__self__, "dynamic_executor_allocation", dynamic_executor_allocation)
         if force is not None:
             pulumi.set(__self__, "force", force)
-        if is_autotune_enabled is not None:
-            pulumi.set(__self__, "is_autotune_enabled", is_autotune_enabled)
         if is_compute_isolation_enabled is not None:
             pulumi.set(__self__, "is_compute_isolation_enabled", is_compute_isolation_enabled)
         if library_requirements is not None:
@@ -230,18 +226,6 @@ class BigDataPoolArgs:
     @force.setter
     def force(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force", value)
-
-    @property
-    @pulumi.getter(name="isAutotuneEnabled")
-    def is_autotune_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether autotune is required or not.
-        """
-        return pulumi.get(self, "is_autotune_enabled")
-
-    @is_autotune_enabled.setter
-    def is_autotune_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_autotune_enabled", value)
 
     @property
     @pulumi.getter(name="isComputeIsolationEnabled")
@@ -401,7 +385,6 @@ class BigDataPool(pulumi.CustomResource):
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']]] = None,
                  force: Optional[pulumi.Input[bool]] = None,
-                 is_autotune_enabled: Optional[pulumi.Input[bool]] = None,
                  is_compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirements: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -430,7 +413,6 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']] dynamic_executor_allocation: Dynamic Executor Allocation
         :param pulumi.Input[bool] force: Whether to stop any running jobs in the Big Data pool
-        :param pulumi.Input[bool] is_autotune_enabled: Whether autotune is required or not.
         :param pulumi.Input[bool] is_compute_isolation_enabled: Whether compute isolation is required or not.
         :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] library_requirements: Library version requirements
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -478,7 +460,6 @@ class BigDataPool(pulumi.CustomResource):
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']]] = None,
                  force: Optional[pulumi.Input[bool]] = None,
-                 is_autotune_enabled: Optional[pulumi.Input[bool]] = None,
                  is_compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirements: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -510,7 +491,6 @@ class BigDataPool(pulumi.CustomResource):
             __props__.__dict__["default_spark_log_folder"] = default_spark_log_folder
             __props__.__dict__["dynamic_executor_allocation"] = dynamic_executor_allocation
             __props__.__dict__["force"] = force
-            __props__.__dict__["is_autotune_enabled"] = is_autotune_enabled
             __props__.__dict__["is_compute_isolation_enabled"] = is_compute_isolation_enabled
             __props__.__dict__["library_requirements"] = library_requirements
             __props__.__dict__["location"] = location
@@ -564,7 +544,6 @@ class BigDataPool(pulumi.CustomResource):
         __props__.__dict__["custom_libraries"] = None
         __props__.__dict__["default_spark_log_folder"] = None
         __props__.__dict__["dynamic_executor_allocation"] = None
-        __props__.__dict__["is_autotune_enabled"] = None
         __props__.__dict__["is_compute_isolation_enabled"] = None
         __props__.__dict__["last_succeeded_timestamp"] = None
         __props__.__dict__["library_requirements"] = None
@@ -637,14 +616,6 @@ class BigDataPool(pulumi.CustomResource):
         Dynamic Executor Allocation
         """
         return pulumi.get(self, "dynamic_executor_allocation")
-
-    @property
-    @pulumi.getter(name="isAutotuneEnabled")
-    def is_autotune_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether autotune is required or not.
-        """
-        return pulumi.get(self, "is_autotune_enabled")
 
     @property
     @pulumi.getter(name="isComputeIsolationEnabled")

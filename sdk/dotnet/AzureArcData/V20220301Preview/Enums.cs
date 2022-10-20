@@ -83,13 +83,10 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ArcSqlServerLicenseType Undefined { get; } = new ArcSqlServerLicenseType("Undefined");
+        public static ArcSqlServerLicenseType Paid { get; } = new ArcSqlServerLicenseType("Paid");
         public static ArcSqlServerLicenseType Free { get; } = new ArcSqlServerLicenseType("Free");
         public static ArcSqlServerLicenseType HADR { get; } = new ArcSqlServerLicenseType("HADR");
-        public static ArcSqlServerLicenseType ServerCAL { get; } = new ArcSqlServerLicenseType("ServerCAL");
-        public static ArcSqlServerLicenseType LicenseOnly { get; } = new ArcSqlServerLicenseType("LicenseOnly");
-        public static ArcSqlServerLicenseType PAYG { get; } = new ArcSqlServerLicenseType("PAYG");
-        public static ArcSqlServerLicenseType Paid { get; } = new ArcSqlServerLicenseType("Paid");
+        public static ArcSqlServerLicenseType Undefined { get; } = new ArcSqlServerLicenseType("Undefined");
 
         public static bool operator ==(ArcSqlServerLicenseType left, ArcSqlServerLicenseType right) => left.Equals(right);
         public static bool operator !=(ArcSqlServerLicenseType left, ArcSqlServerLicenseType right) => !left.Equals(right);

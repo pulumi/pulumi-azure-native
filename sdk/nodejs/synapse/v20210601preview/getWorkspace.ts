@@ -48,7 +48,7 @@ export interface GetWorkspaceResult {
     /**
      * Connectivity endpoints
      */
-    readonly connectivityEndpoints: {[key: string]: string};
+    readonly connectivityEndpoints?: {[key: string]: string};
     /**
      * Initial workspace AAD admin properties for a CSP subscription
      */

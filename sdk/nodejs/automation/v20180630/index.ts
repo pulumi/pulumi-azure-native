@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { GetPython2PackageArgs, GetPython2PackageResult, GetPython2PackageOutputArgs } from "./getPython2Package";
 export const getPython2Package: typeof import("./getPython2Package").getPython2Package = null as any;
 export const getPython2PackageOutput: typeof import("./getPython2Package").getPython2PackageOutput = null as any;
+utilities.lazyLoad(exports, ["getPython2Package","getPython2PackageOutput"], () => require("./getPython2Package"));
 
 export { GetRunbookArgs, GetRunbookResult, GetRunbookOutputArgs } from "./getRunbook";
 export const getRunbook: typeof import("./getRunbook").getRunbook = null as any;
 export const getRunbookOutput: typeof import("./getRunbook").getRunbookOutput = null as any;
+utilities.lazyLoad(exports, ["getRunbook","getRunbookOutput"], () => require("./getRunbook"));
 
 export { Python2PackageArgs } from "./python2Package";
 export type Python2Package = import("./python2Package").Python2Package;
 export const Python2Package: typeof import("./python2Package").Python2Package = null as any;
+utilities.lazyLoad(exports, ["Python2Package"], () => require("./python2Package"));
 
 export { RunbookArgs } from "./runbook";
 export type Runbook = import("./runbook").Runbook;
 export const Runbook: typeof import("./runbook").Runbook = null as any;
-
-utilities.lazyLoad(exports, ["getPython2Package","getPython2PackageOutput"], () => require("./getPython2Package"));
-utilities.lazyLoad(exports, ["getRunbook","getRunbookOutput"], () => require("./getRunbook"));
-utilities.lazyLoad(exports, ["Python2Package"], () => require("./python2Package"));
 utilities.lazyLoad(exports, ["Runbook"], () => require("./runbook"));
+
 
 // Export enums:
 export * from "../../types/enums/automation/v20180630";

@@ -28,13 +28,10 @@ const (
 type ArcSqlServerLicenseType string
 
 const (
-	ArcSqlServerLicenseTypeUndefined   = ArcSqlServerLicenseType("Undefined")
-	ArcSqlServerLicenseTypeFree        = ArcSqlServerLicenseType("Free")
-	ArcSqlServerLicenseTypeHADR        = ArcSqlServerLicenseType("HADR")
-	ArcSqlServerLicenseTypeServerCAL   = ArcSqlServerLicenseType("ServerCAL")
-	ArcSqlServerLicenseTypeLicenseOnly = ArcSqlServerLicenseType("LicenseOnly")
-	ArcSqlServerLicenseTypePAYG        = ArcSqlServerLicenseType("PAYG")
-	ArcSqlServerLicenseTypePaid        = ArcSqlServerLicenseType("Paid")
+	ArcSqlServerLicenseTypePaid      = ArcSqlServerLicenseType("Paid")
+	ArcSqlServerLicenseTypeFree      = ArcSqlServerLicenseType("Free")
+	ArcSqlServerLicenseTypeHADR      = ArcSqlServerLicenseType("HADR")
+	ArcSqlServerLicenseTypeUndefined = ArcSqlServerLicenseType("Undefined")
 )
 
 type ConnectionStatus string

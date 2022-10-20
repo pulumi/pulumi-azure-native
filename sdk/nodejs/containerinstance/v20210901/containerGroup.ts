@@ -68,7 +68,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The instance view of the container group. Only valid in response.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.v20210901.ContainerGroupPropertiesResponseInstanceView>;
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.v20210901.ContainerGroupResponseInstanceView>;
     /**
      * The IP address type of the container group.
      */

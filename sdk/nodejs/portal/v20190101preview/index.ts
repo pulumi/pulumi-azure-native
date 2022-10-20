@@ -8,23 +8,23 @@ import * as utilities from "../../utilities";
 export { DashboardArgs } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
 export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
 export { GetTenantConfigurationArgs, GetTenantConfigurationResult, GetTenantConfigurationOutputArgs } from "./getTenantConfiguration";
 export const getTenantConfiguration: typeof import("./getTenantConfiguration").getTenantConfiguration = null as any;
 export const getTenantConfigurationOutput: typeof import("./getTenantConfiguration").getTenantConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getTenantConfiguration","getTenantConfigurationOutput"], () => require("./getTenantConfiguration"));
 
 export { TenantConfigurationArgs } from "./tenantConfiguration";
 export type TenantConfiguration = import("./tenantConfiguration").TenantConfiguration;
 export const TenantConfiguration: typeof import("./tenantConfiguration").TenantConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
-utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
-utilities.lazyLoad(exports, ["getTenantConfiguration","getTenantConfigurationOutput"], () => require("./getTenantConfiguration"));
 utilities.lazyLoad(exports, ["TenantConfiguration"], () => require("./tenantConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),

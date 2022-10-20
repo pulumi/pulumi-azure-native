@@ -33,6 +33,27 @@ const (
 	ClientPermissionTypeReadWrite = ClientPermissionType("ReadWrite")
 )
 
+type DataBoxEdgeDeviceKind string
+
+const (
+	DataBoxEdgeDeviceKindAzureDataBoxGateway    = DataBoxEdgeDeviceKind("AzureDataBoxGateway")
+	DataBoxEdgeDeviceKindAzureStackEdge         = DataBoxEdgeDeviceKind("AzureStackEdge")
+	DataBoxEdgeDeviceKindAzureStackHub          = DataBoxEdgeDeviceKind("AzureStackHub")
+	DataBoxEdgeDeviceKindAzureModularDataCentre = DataBoxEdgeDeviceKind("AzureModularDataCentre")
+)
+
+type DataBoxEdgeDeviceStatus string
+
+const (
+	DataBoxEdgeDeviceStatusReadyToSetup          = DataBoxEdgeDeviceStatus("ReadyToSetup")
+	DataBoxEdgeDeviceStatusOnline                = DataBoxEdgeDeviceStatus("Online")
+	DataBoxEdgeDeviceStatusOffline               = DataBoxEdgeDeviceStatus("Offline")
+	DataBoxEdgeDeviceStatusNeedsAttention        = DataBoxEdgeDeviceStatus("NeedsAttention")
+	DataBoxEdgeDeviceStatusDisconnected          = DataBoxEdgeDeviceStatus("Disconnected")
+	DataBoxEdgeDeviceStatusPartiallyDisconnected = DataBoxEdgeDeviceStatus("PartiallyDisconnected")
+	DataBoxEdgeDeviceStatusMaintenance           = DataBoxEdgeDeviceStatus("Maintenance")
+)
+
 type DataPolicy string
 
 const (
@@ -72,6 +93,14 @@ type MonitoringStatus string
 const (
 	MonitoringStatusEnabled  = MonitoringStatus("Enabled")
 	MonitoringStatusDisabled = MonitoringStatus("Disabled")
+)
+
+type MsiIdentityType string
+
+const (
+	MsiIdentityTypeNone           = MsiIdentityType("None")
+	MsiIdentityTypeSystemAssigned = MsiIdentityType("SystemAssigned")
+	MsiIdentityTypeUserAssigned   = MsiIdentityType("UserAssigned")
 )
 
 type PlatformType string

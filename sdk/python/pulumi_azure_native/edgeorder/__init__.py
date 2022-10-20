@@ -21,10 +21,7 @@ if typing.TYPE_CHECKING:
     v20201201preview = __v20201201preview
     import pulumi_azure_native.edgeorder.v20211201 as __v20211201
     v20211201 = __v20211201
-    import pulumi_azure_native.edgeorder.v20220501preview as __v20220501preview
-    v20220501preview = __v20220501preview
 else:
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.edgeorder.v20201201preview')
     v20211201 = _utilities.lazy_import('pulumi_azure_native.edgeorder.v20211201')
-    v20220501preview = _utilities.lazy_import('pulumi_azure_native.edgeorder.v20220501preview')
 

@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.Kusto.V20210101
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:ClusterPrincipalAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:ClusterPrincipalAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ClusterPrincipalAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:ClusterPrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
