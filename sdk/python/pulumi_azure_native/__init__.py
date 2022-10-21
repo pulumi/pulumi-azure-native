@@ -23222,6 +23222,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "webpubsub/v20220801preview",
+  "fqn": "pulumi_azure_native.webpubsub.v20220801preview",
+  "classes": {
+   "azure-native:webpubsub/v20220801preview:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate": "WebPubSubCustomCertificate",
+   "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain": "WebPubSubCustomDomain",
+   "azure-native:webpubsub/v20220801preview:WebPubSubHub": "WebPubSubHub",
+   "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
+   "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "windowsesu",
   "fqn": "pulumi_azure_native.windowsesu",
   "classes": {
