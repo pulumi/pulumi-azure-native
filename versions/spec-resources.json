@@ -16371,28 +16371,39 @@
       "2021-04-01-preview",
       "2021-06-01-preview",
       "2021-09-01-preview",
-      "2021-10-01"
+      "2021-10-01",
+      "2022-08-01-preview"
+    ],
+    "WebPubSubCustomCertificate": [
+      "2022-08-01-preview"
+    ],
+    "WebPubSubCustomDomain": [
+      "2022-08-01-preview"
     ],
     "WebPubSubHub": [
-      "2021-10-01"
+      "2021-10-01",
+      "2022-08-01-preview"
     ],
     "WebPubSubPrivateEndpointConnection": [
       "2021-04-01-preview",
       "2021-06-01-preview",
       "2021-09-01-preview",
-      "2021-10-01"
+      "2021-10-01",
+      "2022-08-01-preview"
     ],
     "WebPubSubSharedPrivateLinkResource": [
       "2021-04-01-preview",
       "2021-06-01-preview",
       "2021-09-01-preview",
-      "2021-10-01"
+      "2021-10-01",
+      "2022-08-01-preview"
     ],
     "listWebPubSubKeys": [
       "2021-04-01-preview",
       "2021-06-01-preview",
       "2021-09-01-preview",
-      "2021-10-01"
+      "2021-10-01",
+      "2022-08-01-preview"
     ]
   },
   "WindowsESU": {

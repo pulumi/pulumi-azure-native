@@ -15355,6 +15355,15 @@
       "WebPubSubPrivateEndpointConnection",
       "WebPubSubSharedPrivateLinkResource",
       "listWebPubSubKeys"
+    ],
+    "2022-08-01-preview": [
+      "WebPubSub",
+      "WebPubSubCustomCertificate",
+      "WebPubSubCustomDomain",
+      "WebPubSubHub",
+      "WebPubSubPrivateEndpointConnection",
+      "WebPubSubSharedPrivateLinkResource",
+      "listWebPubSubKeys"
     ]
   },
   "WindowsESU": {
