@@ -1,46 +1,5 @@
 [
   {
-    "namespace": "Dell.Storage",
-    "resourceTypes": [
-      {
-        "resourceType": "checkNameAvailability",
-        "apiVersions": [
-          "2022-06-09-preview"
-        ]
-      },
-      {
-        "resourceType": "locations",
-        "apiVersions": [
-          "2022-06-09-preview"
-        ]
-      },
-      {
-        "resourceType": "locations/operationStatuses",
-        "apiVersions": [
-          "2022-06-09-preview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2022-06-09-preview"
-        ]
-      },
-      {
-        "resourceType": "registeredSubscriptions",
-        "apiVersions": [
-          "2022-06-09-preview"
-        ]
-      },
-      {
-        "resourceType": "storages",
-        "apiVersions": [
-          "2022-06-09-preview"
-        ]
-      }
-    ]
-  },
-  {
     "namespace": "Dynatrace.Observability",
     "resourceTypes": [
       {
@@ -5182,35 +5141,6 @@
           "2018-06-01",
           "2017-11-01-beta",
           "2017-11-01"
-        ]
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.Cascade",
-    "resourceTypes": [
-      {
-        "resourceType": "Locations",
-        "apiVersions": [
-          "2020-11-01-preview"
-        ]
-      },
-      {
-        "resourceType": "Locations/operationStatuses",
-        "apiVersions": [
-          "2020-11-01-preview"
-        ]
-      },
-      {
-        "resourceType": "Operations",
-        "apiVersions": [
-          "2020-11-01-preview"
-        ]
-      },
-      {
-        "resourceType": "sites",
-        "apiVersions": [
-          "2020-11-01-preview"
         ]
       }
     ]
@@ -15788,6 +15718,18 @@
         ]
       },
       {
+        "resourceType": "instances/chambers/fileRequests",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "instances/chambers/files",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
+      },
+      {
         "resourceType": "instances/chambers/workloads",
         "apiVersions": [
           "2021-03-01-preview"
@@ -25787,6 +25729,7 @@
       {
         "resourceType": "accounts",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-03-01-preview",
           "2022-02-01",
           "2021-02-01-preview"
@@ -25795,6 +25738,7 @@
       {
         "resourceType": "accounts/modeling",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-03-01-preview",
           "2022-02-01",
           "2021-02-01-preview"
@@ -25803,6 +25747,7 @@
       {
         "resourceType": "accounts/serviceEndpoints",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-03-01-preview",
           "2022-02-01",
           "2021-02-01-preview"
@@ -25829,6 +25774,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-03-01-preview",
           "2022-02-01",
           "2021-02-01-preview"
@@ -25857,6 +25803,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-09-30-preview",
           "2022-09-10",
           "2022-09-01-preview",
           "2022-08-01",
@@ -25943,6 +25890,7 @@
       {
         "resourceType": "locations/backupPreValidateProtection",
         "apiVersions": [
+          "2022-09-30-preview",
           "2022-09-10",
           "2022-09-01-preview",
           "2022-08-01",
@@ -25964,6 +25912,7 @@
       {
         "resourceType": "locations/backupStatus",
         "apiVersions": [
+          "2022-09-30-preview",
           "2022-09-10",
           "2022-09-01-preview",
           "2022-08-01",
@@ -25986,6 +25935,7 @@
       {
         "resourceType": "locations/backupValidateFeatures",
         "apiVersions": [
+          "2022-09-30-preview",
           "2022-09-10",
           "2022-09-01-preview",
           "2022-08-01",
@@ -26007,6 +25957,7 @@
       {
         "resourceType": "locations/capabilities",
         "apiVersions": [
+          "2022-09-30-preview",
           "2022-01-31-preview"
         ]
       },
@@ -26019,6 +25970,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-09-30-preview",
           "2022-09-10",
           "2022-09-01-preview",
           "2022-08-01",
@@ -26071,6 +26023,7 @@
       {
         "resourceType": "replicationEligibilityResults",
         "apiVersions": [
+          "2022-09-30-preview",
           "2022-09-10",
           "2022-09-01-preview",
           "2022-08-01",
@@ -26092,6 +26045,7 @@
       {
         "resourceType": "vaults",
         "apiVersions": [
+          "2022-09-30-preview",
           "2022-09-10",
           "2022-09-01-preview",
           "2022-08-01",
@@ -37279,6 +37233,12 @@
   {
     "namespace": "NewRelic.Observability",
     "resourceTypes": [
+      {
+        "resourceType": "checkNameAvailability",
+        "apiVersions": [
+          "2022-07-01-preview"
+        ]
+      },
       {
         "resourceType": "locations",
         "apiVersions": [
