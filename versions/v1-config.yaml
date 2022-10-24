@@ -60,6 +60,7 @@ AppPlatform:
     ApiPortalCustomDomain: 2022-01-01-preview
     BuildServiceBuilder: 2022-01-01-preview
     BuildpackBinding: 2022-01-01-preview
+    BuildServiceAgentPool: 2022-01-01-preview
     ConfigurationService: 2022-01-01-preview
     Gateway: 2022-01-01-preview
     GatewayCustomDomain: 2022-01-01-preview

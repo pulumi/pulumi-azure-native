@@ -44,7 +44,7 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/advisors/{advisorName}": {
 		"autoExecuteStatus": "Default",
 	},
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/azureADOnlyAuthentications/{authenticationName}":{
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/azureADOnlyAuthentications/{authenticationName}": {
 		"azureADOnlyAuthentication": false,
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/advisors/{advisorName}": {
@@ -53,11 +53,11 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/auditingSettings/{blobAuditingPolicyName}": {
 		"state": "Disabled",
 	},
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupLongTermRetentionPolicies/{policyName}":  {
-		"weeklyRetention": "PT0S",
-		"monthlyRetention":"PT0S",
-		"yearlyRetention": "PT0S",
-		"weekOfYear":      1,
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupLongTermRetentionPolicies/{policyName}": {
+		"weeklyRetention":  "PT0S",
+		"monthlyRetention": "PT0S",
+		"yearlyRetention":  "PT0S",
+		"weekOfYear":       1,
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupShortTermRetentionPolicies/{policyName}": {
 		"retentionDays": 7,
@@ -121,7 +121,26 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		"subnetResourceId": "*", // This is going to be a resource ID, so we choose accept any value here.
 		"swiftSupported":   true,
 	},
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/sourcecontrols/web":                        {},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/sourcecontrols/web": {},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/monitoringSettings/default": {
+		"properties": map[string]interface{}{
+			"traceEnabled":                  false,
+			"appInsightsInstrumentationKey": "",
+			"appInsightsSamplingRate":       10.0,
+		},
+	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/configServers/default": {
+		"properties": map[string]interface{}{
+			"configServer": map[string]string{},
+		},
+	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/buildServices/{buildServiceName}/agentPools/{agentPoolName}": {
+		"properties": map[string]interface{}{
+			"poolSize": map[string]interface{}{
+				"name": "S1",
+			},
+		},
+	},
 }
 
 // defaultResourcesStateNormalized maps normalized paths of resources to default state of a resource. The default state is

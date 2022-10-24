@@ -20,6 +20,11 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { ConfigServerArgs } from "./configServer";
+export type ConfigServer = import("./configServer").ConfigServer;
+export const ConfigServer: typeof import("./configServer").ConfigServer = null as any;
+utilities.lazyLoad(exports, ["ConfigServer"], () => require("./configServer"));
+
 export { CustomDomainArgs } from "./customDomain";
 export type CustomDomain = import("./customDomain").CustomDomain;
 export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
@@ -50,6 +55,11 @@ export const getCertificate: typeof import("./getCertificate").getCertificate = 
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
+export { GetConfigServerArgs, GetConfigServerResult, GetConfigServerOutputArgs } from "./getConfigServer";
+export const getConfigServer: typeof import("./getConfigServer").getConfigServer = null as any;
+export const getConfigServerOutput: typeof import("./getConfigServer").getConfigServerOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigServer","getConfigServerOutput"], () => require("./getConfigServer"));
+
 export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
 export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
 export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
@@ -65,6 +75,11 @@ export const getDeploymentLogFileUrl: typeof import("./getDeploymentLogFileUrl")
 export const getDeploymentLogFileUrlOutput: typeof import("./getDeploymentLogFileUrl").getDeploymentLogFileUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getDeploymentLogFileUrl","getDeploymentLogFileUrlOutput"], () => require("./getDeploymentLogFileUrl"));
 
+export { GetMonitoringSettingArgs, GetMonitoringSettingResult, GetMonitoringSettingOutputArgs } from "./getMonitoringSetting";
+export const getMonitoringSetting: typeof import("./getMonitoringSetting").getMonitoringSetting = null as any;
+export const getMonitoringSettingOutput: typeof import("./getMonitoringSetting").getMonitoringSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringSetting","getMonitoringSettingOutput"], () => require("./getMonitoringSetting"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
@@ -74,6 +89,11 @@ export { ListServiceTestKeysArgs, ListServiceTestKeysResult, ListServiceTestKeys
 export const listServiceTestKeys: typeof import("./listServiceTestKeys").listServiceTestKeys = null as any;
 export const listServiceTestKeysOutput: typeof import("./listServiceTestKeys").listServiceTestKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listServiceTestKeys","listServiceTestKeysOutput"], () => require("./listServiceTestKeys"));
+
+export { MonitoringSettingArgs } from "./monitoringSetting";
+export type MonitoringSetting = import("./monitoringSetting").MonitoringSetting;
+export const MonitoringSetting: typeof import("./monitoringSetting").MonitoringSetting = null as any;
+utilities.lazyLoad(exports, ["MonitoringSetting"], () => require("./monitoringSetting"));
 
 export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
@@ -94,10 +114,14 @@ const _module = {
                 return new Binding(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20210601preview:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "azure-native:appplatform/v20210601preview:ConfigServer":
+                return new ConfigServer(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20210601preview:CustomDomain":
                 return new CustomDomain(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20210601preview:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
+            case "azure-native:appplatform/v20210601preview:MonitoringSetting":
+                return new MonitoringSetting(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20210601preview:Service":
                 return new Service(name, <any>undefined, { urn })
             default:

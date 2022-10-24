@@ -29,12 +29,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &App{}
 	case "azure-native:appplatform/v20220501preview:Binding":
 		r = &Binding{}
+	case "azure-native:appplatform/v20220501preview:BuildServiceAgentPool":
+		r = &BuildServiceAgentPool{}
 	case "azure-native:appplatform/v20220501preview:BuildServiceBuilder":
 		r = &BuildServiceBuilder{}
 	case "azure-native:appplatform/v20220501preview:BuildpackBinding":
 		r = &BuildpackBinding{}
 	case "azure-native:appplatform/v20220501preview:Certificate":
 		r = &Certificate{}
+	case "azure-native:appplatform/v20220501preview:ConfigServer":
+		r = &ConfigServer{}
 	case "azure-native:appplatform/v20220501preview:ConfigurationService":
 		r = &ConfigurationService{}
 	case "azure-native:appplatform/v20220501preview:CustomDomain":
@@ -47,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayCustomDomain{}
 	case "azure-native:appplatform/v20220501preview:GatewayRouteConfig":
 		r = &GatewayRouteConfig{}
+	case "azure-native:appplatform/v20220501preview:MonitoringSetting":
+		r = &MonitoringSetting{}
 	case "azure-native:appplatform/v20220501preview:Service":
 		r = &Service{}
 	case "azure-native:appplatform/v20220501preview:ServiceRegistry":

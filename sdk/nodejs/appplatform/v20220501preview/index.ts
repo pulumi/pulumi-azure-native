@@ -25,6 +25,11 @@ export type Binding = import("./binding").Binding;
 export const Binding: typeof import("./binding").Binding = null as any;
 utilities.lazyLoad(exports, ["Binding"], () => require("./binding"));
 
+export { BuildServiceAgentPoolArgs } from "./buildServiceAgentPool";
+export type BuildServiceAgentPool = import("./buildServiceAgentPool").BuildServiceAgentPool;
+export const BuildServiceAgentPool: typeof import("./buildServiceAgentPool").BuildServiceAgentPool = null as any;
+utilities.lazyLoad(exports, ["BuildServiceAgentPool"], () => require("./buildServiceAgentPool"));
+
 export { BuildServiceBuilderArgs } from "./buildServiceBuilder";
 export type BuildServiceBuilder = import("./buildServiceBuilder").BuildServiceBuilder;
 export const BuildServiceBuilder: typeof import("./buildServiceBuilder").BuildServiceBuilder = null as any;
@@ -39,6 +44,11 @@ export { CertificateArgs } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { ConfigServerArgs } from "./configServer";
+export type ConfigServer = import("./configServer").ConfigServer;
+export const ConfigServer: typeof import("./configServer").ConfigServer = null as any;
+utilities.lazyLoad(exports, ["ConfigServer"], () => require("./configServer"));
 
 export { ConfigurationServiceArgs } from "./configurationService";
 export type ConfigurationService = import("./configurationService").ConfigurationService;
@@ -95,6 +105,11 @@ export const getBinding: typeof import("./getBinding").getBinding = null as any;
 export const getBindingOutput: typeof import("./getBinding").getBindingOutput = null as any;
 utilities.lazyLoad(exports, ["getBinding","getBindingOutput"], () => require("./getBinding"));
 
+export { GetBuildServiceAgentPoolArgs, GetBuildServiceAgentPoolResult, GetBuildServiceAgentPoolOutputArgs } from "./getBuildServiceAgentPool";
+export const getBuildServiceAgentPool: typeof import("./getBuildServiceAgentPool").getBuildServiceAgentPool = null as any;
+export const getBuildServiceAgentPoolOutput: typeof import("./getBuildServiceAgentPool").getBuildServiceAgentPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getBuildServiceAgentPool","getBuildServiceAgentPoolOutput"], () => require("./getBuildServiceAgentPool"));
+
 export { GetBuildServiceBuildResultLogArgs, GetBuildServiceBuildResultLogResult, GetBuildServiceBuildResultLogOutputArgs } from "./getBuildServiceBuildResultLog";
 export const getBuildServiceBuildResultLog: typeof import("./getBuildServiceBuildResultLog").getBuildServiceBuildResultLog = null as any;
 export const getBuildServiceBuildResultLogOutput: typeof import("./getBuildServiceBuildResultLog").getBuildServiceBuildResultLogOutput = null as any;
@@ -119,6 +134,11 @@ export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } fr
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetConfigServerArgs, GetConfigServerResult, GetConfigServerOutputArgs } from "./getConfigServer";
+export const getConfigServer: typeof import("./getConfigServer").getConfigServer = null as any;
+export const getConfigServerOutput: typeof import("./getConfigServer").getConfigServerOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigServer","getConfigServerOutput"], () => require("./getConfigServer"));
 
 export { GetConfigurationServiceArgs, GetConfigurationServiceResult, GetConfigurationServiceOutputArgs } from "./getConfigurationService";
 export const getConfigurationService: typeof import("./getConfigurationService").getConfigurationService = null as any;
@@ -155,6 +175,11 @@ export const getGatewayRouteConfig: typeof import("./getGatewayRouteConfig").get
 export const getGatewayRouteConfigOutput: typeof import("./getGatewayRouteConfig").getGatewayRouteConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getGatewayRouteConfig","getGatewayRouteConfigOutput"], () => require("./getGatewayRouteConfig"));
 
+export { GetMonitoringSettingArgs, GetMonitoringSettingResult, GetMonitoringSettingOutputArgs } from "./getMonitoringSetting";
+export const getMonitoringSetting: typeof import("./getMonitoringSetting").getMonitoringSetting = null as any;
+export const getMonitoringSettingOutput: typeof import("./getMonitoringSetting").getMonitoringSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringSetting","getMonitoringSettingOutput"], () => require("./getMonitoringSetting"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
@@ -174,6 +199,11 @@ export { ListServiceTestKeysArgs, ListServiceTestKeysResult, ListServiceTestKeys
 export const listServiceTestKeys: typeof import("./listServiceTestKeys").listServiceTestKeys = null as any;
 export const listServiceTestKeysOutput: typeof import("./listServiceTestKeys").listServiceTestKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listServiceTestKeys","listServiceTestKeysOutput"], () => require("./listServiceTestKeys"));
+
+export { MonitoringSettingArgs } from "./monitoringSetting";
+export type MonitoringSetting = import("./monitoringSetting").MonitoringSetting;
+export const MonitoringSetting: typeof import("./monitoringSetting").MonitoringSetting = null as any;
+utilities.lazyLoad(exports, ["MonitoringSetting"], () => require("./monitoringSetting"));
 
 export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
@@ -206,12 +236,16 @@ const _module = {
                 return new App(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:Binding":
                 return new Binding(name, <any>undefined, { urn })
+            case "azure-native:appplatform/v20220501preview:BuildServiceAgentPool":
+                return new BuildServiceAgentPool(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:BuildServiceBuilder":
                 return new BuildServiceBuilder(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:BuildpackBinding":
                 return new BuildpackBinding(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "azure-native:appplatform/v20220501preview:ConfigServer":
+                return new ConfigServer(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:ConfigurationService":
                 return new ConfigurationService(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:CustomDomain":
@@ -224,6 +258,8 @@ const _module = {
                 return new GatewayCustomDomain(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:GatewayRouteConfig":
                 return new GatewayRouteConfig(name, <any>undefined, { urn })
+            case "azure-native:appplatform/v20220501preview:MonitoringSetting":
+                return new MonitoringSetting(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:Service":
                 return new Service(name, <any>undefined, { urn })
             case "azure-native:appplatform/v20220501preview:ServiceRegistry":
