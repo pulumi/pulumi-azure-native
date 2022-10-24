@@ -2,6 +2,15 @@
 
 ## HEAD (Unreleased)
 
+## 1.83.0 (2022-10-24)
+
+- Upgrade to latest version of Azure Rest API Specs.
+- Upgrade to Pulumi SDK v3.43.1
+
+## 1.82.0 (2022-10-19)
+
+- Upgrade to latest version of Azure Rest API Specs.
+
 ## 1.81.0 (2022-10-13)
 
 - Upgrade to latest version of Azure Rest API Specs.
