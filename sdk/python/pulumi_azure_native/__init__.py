@@ -7578,6 +7578,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20220308preview",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20220308preview",
+  "classes": {
+   "azure-native:dbforpostgresql/v20220308preview:Administrator": "Administrator",
+   "azure-native:dbforpostgresql/v20220308preview:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20220308preview:Database": "Database",
+   "azure-native:dbforpostgresql/v20220308preview:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20220308preview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "delegatednetwork",
   "fqn": "pulumi_azure_native.delegatednetwork",
   "classes": {

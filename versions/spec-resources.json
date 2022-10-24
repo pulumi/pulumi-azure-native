@@ -3681,6 +3681,9 @@
     ]
   },
   "DBforPostgreSQL": {
+    "Administrator": [
+      "2022-03-08-preview"
+    ],
     "Configuration": [
       "2017-12-01",
       "2017-12-01-preview",
@@ -3690,7 +3693,8 @@
       "2021-06-01",
       "2021-06-01-preview",
       "2021-06-15-privatepreview",
-      "2022-01-20-preview"
+      "2022-01-20-preview",
+      "2022-03-08-preview"
     ],
     "Database": [
       "2017-12-01",
@@ -3698,7 +3702,8 @@
       "2020-11-05-preview",
       "2021-06-01",
       "2021-06-01-preview",
-      "2022-01-20-preview"
+      "2022-01-20-preview",
+      "2022-03-08-preview"
     ],
     "FirewallRule": [
       "2017-12-01",
@@ -3710,7 +3715,8 @@
       "2021-06-01",
       "2021-06-01-preview",
       "2021-06-15-privatepreview",
-      "2022-01-20-preview"
+      "2022-01-20-preview",
+      "2022-03-08-preview"
     ],
     "Migration": [
       "2021-06-15-privatepreview"
@@ -3728,7 +3734,8 @@
       "2021-06-01",
       "2021-06-01-preview",
       "2021-06-15-privatepreview",
-      "2022-01-20-preview"
+      "2022-01-20-preview",
+      "2022-03-08-preview"
     ],
     "ServerAdministrator": [
       "2017-12-01",
@@ -3756,7 +3763,8 @@
     "getGetPrivateDnsZoneSuffixExecute": [
       "2021-03-31-privatepreview",
       "2021-06-01",
-      "2022-01-20-preview"
+      "2022-01-20-preview",
+      "2022-03-08-preview"
     ]
   },
   "Dashboard": {

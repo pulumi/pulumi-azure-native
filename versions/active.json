@@ -3810,23 +3810,6 @@
       "2020-10-01-preview"
     ]
   },
-  "cascade": {
-    "": [
-      "2020-11-01-preview"
-    ],
-    "locations": [
-      "2020-11-01-preview"
-    ],
-    "locations/operationstatuses": [
-      "2020-11-01-preview"
-    ],
-    "operations": [
-      "2020-11-01-preview"
-    ],
-    "sites": [
-      "2020-11-01-preview"
-    ]
-  },
   "cdn": {
     "": [
       "2015-06-01",
@@ -12230,6 +12213,12 @@
       "2021-03-01-preview"
     ],
     "instances/chambers/accessprofiles": [
+      "2021-03-01-preview"
+    ],
+    "instances/chambers/filerequests": [
+      "2021-03-01-preview"
+    ],
+    "instances/chambers/files": [
       "2021-03-01-preview"
     ],
     "instances/chambers/workloads": [
@@ -21168,17 +21157,20 @@
     "accounts": [
       "2021-02-01-preview",
       "2022-02-01",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-09-01-preview"
     ],
     "accounts/modeling": [
       "2021-02-01-preview",
       "2022-02-01",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-09-01-preview"
     ],
     "accounts/serviceendpoints": [
       "2021-02-01-preview",
       "2022-02-01",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-09-01-preview"
     ],
     "checknameavailability": [
       "2021-02-01-preview",
@@ -21195,7 +21187,8 @@
     "locations/operationstatuses": [
       "2021-02-01-preview",
       "2022-02-01",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-09-01-preview"
     ],
     "operations": [
       "2021-02-01-preview",
@@ -21257,7 +21250,8 @@
       "2022-06-01-preview",
       "2022-08-01",
       "2022-09-01-preview",
-      "2022-09-10"
+      "2022-09-10",
+      "2022-09-30-preview"
     ],
     "backupprotecteditems": [
       "2017-07-01-preview"
@@ -21281,7 +21275,8 @@
       "2022-06-01-preview",
       "2022-08-01",
       "2022-09-01-preview",
-      "2022-09-10"
+      "2022-09-10",
+      "2022-09-30-preview"
     ],
     "locations/allocatedstamp": [
       "2015-08-15",
@@ -21337,7 +21332,8 @@
       "2022-06-01-preview",
       "2022-08-01",
       "2022-09-01-preview",
-      "2022-09-10"
+      "2022-09-10",
+      "2022-09-30-preview"
     ],
     "locations/backupstatus": [
       "2016-06-01",
@@ -21356,7 +21352,8 @@
       "2022-06-01-preview",
       "2022-08-01",
       "2022-09-01-preview",
-      "2022-09-10"
+      "2022-09-10",
+      "2022-09-30-preview"
     ],
     "locations/backupvalidatefeatures": [
       "2017-07-01",
@@ -21374,10 +21371,12 @@
       "2022-06-01-preview",
       "2022-08-01",
       "2022-09-01-preview",
-      "2022-09-10"
+      "2022-09-10",
+      "2022-09-30-preview"
     ],
     "locations/capabilities": [
-      "2022-01-31-preview"
+      "2022-01-31-preview",
+      "2022-09-30-preview"
     ],
     "locations/checknameavailability": [
       "2018-01-10"
@@ -21429,7 +21428,8 @@
       "2022-06-01-preview",
       "2022-08-01",
       "2022-09-01-preview",
-      "2022-09-10"
+      "2022-09-10",
+      "2022-09-30-preview"
     ],
     "replicationeligibilityresults": [
       "2018-07-10",
@@ -21447,7 +21447,8 @@
       "2022-06-01-preview",
       "2022-08-01",
       "2022-09-01-preview",
-      "2022-09-10"
+      "2022-09-10",
+      "2022-09-30-preview"
     ],
     "vaults": [
       "2015-03-15",
@@ -21496,7 +21497,8 @@
       "2022-06-01-preview",
       "2022-08-01",
       "2022-09-01-preview",
-      "2022-09-10"
+      "2022-09-10",
+      "2022-09-30-preview"
     ]
   },
   "redhatopenshift": {

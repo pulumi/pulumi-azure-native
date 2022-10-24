@@ -3694,6 +3694,14 @@
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
     ],
+    "2022-03-08-preview": [
+      "Administrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
+    ],
     "2022-03-08-privatepreview": [
       "getGetCachedServerNameExecute"
     ]
