@@ -2,6 +2,10 @@
 
 ## HEAD (Unreleased)
 
+## 1.83.1 (2022-10-25)
+
+- Fix panic when validating `az` CLI version [#2049](https://github.com/pulumi/pulumi-azure-native/pull/2049)
+
 ## 1.83.0 (2022-10-24)
 
 - Upgrade to latest version of Azure Rest API Specs.
