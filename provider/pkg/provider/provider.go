@@ -1741,7 +1741,7 @@ func getAzVersion() (*goversion.Version, error) {
 	var azVersion struct {
 		Cli string `json:"azure-cli"`
 	}
-	err = runAzCmd(&azVersion, "version")
+	err = runAzCmd(&azVersion, "version", "--output", "json")
 	if err != nil {
 		return nil, fmt.Errorf("could not determine az version: %w", err)
 	}
