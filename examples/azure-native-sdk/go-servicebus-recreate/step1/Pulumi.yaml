@@ -1,0 +1,3 @@
+name: go-servicebus-recreate
+runtime: go
+description: Check servicebus auto-recreates on duplicate detection change
