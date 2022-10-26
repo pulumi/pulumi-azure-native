@@ -151,7 +151,7 @@ jobs:
       github.event.pull_request.head.repo.full_name == github.repository
   build_sdks:
     needs: prerequisites
-    runs-on: ${{ matrix.language == 'dotnet' && 'macos-latest' || 'ubuntu-latest' }}
+    runs-on: ${{ matrix.language == 'dotnet' && 'macos-11' || 'ubuntu-latest' }}
     strategy:
       fail-fast: true
       matrix:
