@@ -131,7 +131,7 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/configServers/default": {
 		"properties": map[string]interface{}{
-			"configServer": map[string]string{},
+			"configServer": nil,
 		},
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/buildServices/{buildServiceName}/agentPools/{agentPoolName}": {
