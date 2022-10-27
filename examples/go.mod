@@ -10,7 +10,10 @@ require (
 	github.com/stretchr/testify v1.8.0
 )
 
-require github.com/pulumi/pulumi-azure-native-sdk v1.83.1 // indirect
+require (
+	github.com/kr/pretty v0.3.1 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk v1.83.1 // indirect
+)
 
 require (
 	cloud.google.com/go v0.103.0 // indirect
@@ -131,7 +134,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus v1.83.1
 	github.com/rivo/uniseg v0.2.0 // indirect
-	github.com/rogpeppe/go-internal v1.8.1 // indirect
+	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
