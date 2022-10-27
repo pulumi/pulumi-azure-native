@@ -78,6 +78,8 @@ func getGoBaseOptionsSdk(t *testing.T) integration.ProgramTestOptions {
 		dependencies[i] = genReplace(t, pkg)
 	}
 
+	dependencies = append(dependencies, "github.com/pulumi/pulumi-azure-native-sdk="+sdkPath)
+
 	baseGo := base.With(integration.ProgramTestOptions{
 		Dependencies: dependencies,
 	})
