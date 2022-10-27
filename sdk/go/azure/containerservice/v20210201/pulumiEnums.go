@@ -215,8 +215,8 @@ const (
 type Expander string
 
 const (
-	Expander_Least_waste = Expander("least-waste")
-	Expander_Most_pods   = Expander("most-pods")
+	Expander_Least_Waste = Expander("least-waste")
+	Expander_Most_Pods   = Expander("most-pods")
 	ExpanderPriority     = Expander("priority")
 	ExpanderRandom       = Expander("random")
 )

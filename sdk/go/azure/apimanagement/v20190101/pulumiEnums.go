@@ -301,25 +301,25 @@ type ContentFormat string
 
 const (
 	// The contents are inline and Content type is a WADL document.
-	ContentFormat_Wadl_xml = ContentFormat("wadl-xml")
+	ContentFormat_Wadl_Xml = ContentFormat("wadl-xml")
 	// The WADL document is hosted on a publicly accessible internet address.
-	ContentFormat_Wadl_link_json = ContentFormat("wadl-link-json")
+	ContentFormat_Wadl_Link_Json = ContentFormat("wadl-link-json")
 	// The contents are inline and Content Type is a OpenApi 2.0 Document.
-	ContentFormat_Swagger_json = ContentFormat("swagger-json")
+	ContentFormat_Swagger_Json = ContentFormat("swagger-json")
 	// The Open Api 2.0 document is hosted on a publicly accessible internet address.
-	ContentFormat_Swagger_link_json = ContentFormat("swagger-link-json")
+	ContentFormat_Swagger_Link_Json = ContentFormat("swagger-link-json")
 	// The contents are inline and the document is a WSDL/Soap document.
 	ContentFormatWsdl = ContentFormat("wsdl")
 	// The WSDL document is hosted on a publicly accessible internet address.
-	ContentFormat_Wsdl_link = ContentFormat("wsdl-link")
+	ContentFormat_Wsdl_Link = ContentFormat("wsdl-link")
 	// The contents are inline and Content Type is a OpenApi 3.0 Document in YAML format.
 	ContentFormatOpenapi = ContentFormat("openapi")
 	// The contents are inline and Content Type is a OpenApi 3.0 Document in JSON format.
 	ContentFormat_Openapi_json = ContentFormat("openapi+json")
 	// The Open Api 3.0 document is hosted on a publicly accessible internet address.
-	ContentFormat_Openapi_link = ContentFormat("openapi-link")
+	ContentFormat_Openapi_Link = ContentFormat("openapi-link")
 	// The Open Api 3.0 Json document is hosted on a publicly accessible internet address.
-	ContentFormat_Openapi_json_link = ContentFormat("openapi+json-link")
+	ContentFormat_Openapi_json_Link = ContentFormat("openapi+json-link")
 )
 
 type GrantType string
@@ -717,11 +717,11 @@ const (
 	// The contents are inline and Content type is an XML document.
 	PolicyContentFormatXml = PolicyContentFormat("xml")
 	// The policy XML document is hosted on a http endpoint accessible from the API Management service.
-	PolicyContentFormat_Xml_link = PolicyContentFormat("xml-link")
+	PolicyContentFormat_Xml_Link = PolicyContentFormat("xml-link")
 	// The contents are inline and Content type is a non XML encoded policy document.
 	PolicyContentFormatRawxml = PolicyContentFormat("rawxml")
 	// The policy document is not Xml encoded and is hosted on a http endpoint accessible from the API Management service.
-	PolicyContentFormat_Rawxml_link = PolicyContentFormat("rawxml-link")
+	PolicyContentFormat_Rawxml_Link = PolicyContentFormat("rawxml-link")
 )
 
 type ProductStateEnum string

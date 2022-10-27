@@ -60,7 +60,7 @@ const (
 	KnownLogFileTextSettingsRecordStartTimestampFormat_DdMMyy_HH_mm_ss          = KnownLogFileTextSettingsRecordStartTimestampFormat("ddMMyy HH:mm:ss")
 	KnownLogFileTextSettingsRecordStartTimestampFormat_MMM_d_hh_mm_ss           = KnownLogFileTextSettingsRecordStartTimestampFormat("MMM d hh:mm:ss")
 	KnownLogFileTextSettingsRecordStartTimestampFormat_Dd_MMM_yyyy_HH_mm_ss_zzz = KnownLogFileTextSettingsRecordStartTimestampFormat("dd/MMM/yyyy:HH:mm:ss zzz")
-	KnownLogFileTextSettingsRecordStartTimestampFormat_Yyyy_MM_ddTHH_mm_ssK     = KnownLogFileTextSettingsRecordStartTimestampFormat("yyyy-MM-ddTHH:mm:ssK")
+	KnownLogFileTextSettingsRecordStartTimestampFormat_Yyyy_MM_DdTHH_mm_ssK     = KnownLogFileTextSettingsRecordStartTimestampFormat("yyyy-MM-ddTHH:mm:ssK")
 )
 
 type KnownLogFilesDataSourceFormat string

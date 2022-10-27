@@ -287,8 +287,8 @@ const (
 type ExpressRouteLinkMacSecCipher string
 
 const (
-	ExpressRouteLinkMacSecCipher_Gcm_aes_128 = ExpressRouteLinkMacSecCipher("gcm-aes-128")
-	ExpressRouteLinkMacSecCipher_Gcm_aes_256 = ExpressRouteLinkMacSecCipher("gcm-aes-256")
+	ExpressRouteLinkMacSecCipher_Gcm_Aes_128 = ExpressRouteLinkMacSecCipher("gcm-aes-128")
+	ExpressRouteLinkMacSecCipher_Gcm_Aes_256 = ExpressRouteLinkMacSecCipher("gcm-aes-256")
 )
 
 type ExpressRoutePeeringState string

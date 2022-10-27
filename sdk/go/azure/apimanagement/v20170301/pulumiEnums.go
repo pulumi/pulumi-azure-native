@@ -276,17 +276,17 @@ type ContentFormat string
 
 const (
 	// The contents are inline and Content type is a WADL document.
-	ContentFormat_Wadl_xml = ContentFormat("wadl-xml")
+	ContentFormat_Wadl_Xml = ContentFormat("wadl-xml")
 	// The WADL document is hosted on a publicly accessible internet address.
-	ContentFormat_Wadl_link_json = ContentFormat("wadl-link-json")
+	ContentFormat_Wadl_Link_Json = ContentFormat("wadl-link-json")
 	// The contents are inline and Content Type is a OpenApi 2.0 Document.
-	ContentFormat_Swagger_json = ContentFormat("swagger-json")
+	ContentFormat_Swagger_Json = ContentFormat("swagger-json")
 	// The Open Api 2.0 document is hosted on a publicly accessible internet address.
-	ContentFormat_Swagger_link_json = ContentFormat("swagger-link-json")
+	ContentFormat_Swagger_Link_Json = ContentFormat("swagger-link-json")
 	// The contents are inline and the document is a WSDL/Soap document.
 	ContentFormatWsdl = ContentFormat("wsdl")
 	// The WSDL document is hosted on a publicly accessible internet address.
-	ContentFormat_Wsdl_link = ContentFormat("wsdl-link")
+	ContentFormat_Wsdl_Link = ContentFormat("wsdl-link")
 )
 
 type GrantType string
