@@ -125,7 +125,7 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/monitoringSettings/default": {
 		"properties": map[string]interface{}{
 			"traceEnabled":                  false,
-			"appInsightsInstrumentationKey": "",
+			"appInsightsInstrumentationKey": nil,
 			"appInsightsSamplingRate":       10.0,
 		},
 	},
