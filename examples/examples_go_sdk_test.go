@@ -16,14 +16,16 @@ import (
 
 const sdkPath = "../sdk/pulumi-azure-native-sdk"
 
-func dir(t *testing.T, testCaseDir string) string {
-	return filepath.Join(getCwd(t), "azure-native-sdk", testCaseDir)
+func testDir(t *testing.T, testCaseDirs ...string) string {
+	segments := []string{getCwd(t), "azure-native-sdk"}
+	segments = append(segments, testCaseDirs...)
+	return filepath.Join(segments...)
 }
 
 func TestAccSimpleGoSdk(t *testing.T) {
 	test := getGoBaseOptionsSdk(t).
 		With(integration.ProgramTestOptions{
-			Dir: dir(t, "go-simple"),
+			Dir: testDir(t, "go-simple"),
 		})
 
 	integration.ProgramTest(t, &test)
@@ -32,7 +34,7 @@ func TestAccSimpleGoSdk(t *testing.T) {
 func TestAccClientConfigGoSdk(t *testing.T) {
 	test := getGoBaseOptionsSdk(t).
 		With(integration.ProgramTestOptions{
-			Dir: dir(t, "go-clientconfig"),
+			Dir: testDir(t, "go-clientconfig"),
 		})
 
 	integration.ProgramTest(t, &test)
@@ -42,7 +44,7 @@ func TestAccAksGoSdk(t *testing.T) {
 	t.Skip("Disabled due to https://github.com/pulumi/pulumi-azure-native/issues/304")
 	test := getGoBaseOptionsSdk(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "go-aks"),
+			Dir: testDir(t, "go-aks"),
 		})
 
 	integration.ProgramTest(t, &test)
@@ -51,10 +53,10 @@ func TestAccAksGoSdk(t *testing.T) {
 func TestServicebusRecreateSdk(t *testing.T) {
 	test := getGoBaseOptionsSdk(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "go-servicebus-recreate", "step1"),
+			Dir: testDir(t, "go-servicebus-recreate", "step1"),
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      filepath.Join(getCwd(t), "go-servicebus-recreate", "step2"),
+					Dir:      testDir(t, "go-servicebus-recreate", "step2"),
 					Additive: true,
 				},
 			},
