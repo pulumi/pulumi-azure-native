@@ -2,6 +2,9 @@
 
 ## HEAD (Unreleased)
 
+
+## 1.84.0 (2022-10-27)
+
 - Adds default values to defaultResourcesState.go for Azure Spring Apps sub-resources
   - New resources:
     - azure-native:appplatform:BuildServiceAgentPool
