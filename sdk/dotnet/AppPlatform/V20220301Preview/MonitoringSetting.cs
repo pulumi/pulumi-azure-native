@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:MonitoringSetting"},

@@ -1787,15 +1787,18 @@ _utilities.register(
    "azure-native:appplatform:ApiPortalCustomDomain": "ApiPortalCustomDomain",
    "azure-native:appplatform:App": "App",
    "azure-native:appplatform:Binding": "Binding",
+   "azure-native:appplatform:BuildServiceAgentPool": "BuildServiceAgentPool",
    "azure-native:appplatform:BuildServiceBuilder": "BuildServiceBuilder",
    "azure-native:appplatform:BuildpackBinding": "BuildpackBinding",
    "azure-native:appplatform:Certificate": "Certificate",
+   "azure-native:appplatform:ConfigServer": "ConfigServer",
    "azure-native:appplatform:ConfigurationService": "ConfigurationService",
    "azure-native:appplatform:CustomDomain": "CustomDomain",
    "azure-native:appplatform:Deployment": "Deployment",
    "azure-native:appplatform:Gateway": "Gateway",
    "azure-native:appplatform:GatewayCustomDomain": "GatewayCustomDomain",
    "azure-native:appplatform:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform:Service": "Service",
    "azure-native:appplatform:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform:Storage": "Storage"
@@ -7597,18 +7600,6 @@ _utilities.register(
    "azure-native:dbforpostgresql/v20220120preview:Database": "Database",
    "azure-native:dbforpostgresql/v20220120preview:FirewallRule": "FirewallRule",
    "azure-native:dbforpostgresql/v20220120preview:Server": "Server"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "dbforpostgresql/v20220308preview",
-  "fqn": "pulumi_azure_native.dbforpostgresql.v20220308preview",
-  "classes": {
-   "azure-native:dbforpostgresql/v20220308preview:Administrator": "Administrator",
-   "azure-native:dbforpostgresql/v20220308preview:Configuration": "Configuration",
-   "azure-native:dbforpostgresql/v20220308preview:Database": "Database",
-   "azure-native:dbforpostgresql/v20220308preview:FirewallRule": "FirewallRule",
-   "azure-native:dbforpostgresql/v20220308preview:Server": "Server"
   }
  },
  {
@@ -23253,19 +23244,6 @@ _utilities.register(
    "azure-native:webpubsub/v20211001:WebPubSubHub": "WebPubSubHub",
    "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "webpubsub/v20220801preview",
-  "fqn": "pulumi_azure_native.webpubsub.v20220801preview",
-  "classes": {
-   "azure-native:webpubsub/v20220801preview:WebPubSub": "WebPubSub",
-   "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate": "WebPubSubCustomCertificate",
-   "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain": "WebPubSubCustomDomain",
-   "azure-native:webpubsub/v20220801preview:WebPubSubHub": "WebPubSubHub",
-   "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
-   "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

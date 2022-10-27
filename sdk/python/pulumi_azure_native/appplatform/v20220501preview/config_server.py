@@ -131,7 +131,7 @@ class ConfigServer(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220401:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:ConfigServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20200701:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220401:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:ConfigServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigServer, __self__).__init__(
             'azure-native:appplatform/v20220501preview:ConfigServer',

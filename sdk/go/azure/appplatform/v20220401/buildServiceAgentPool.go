@@ -38,6 +38,9 @@ func NewBuildServiceAgentPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appplatform:BuildServiceAgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-native:appplatform/v20220101preview:BuildServiceAgentPool"),
 		},
 		{

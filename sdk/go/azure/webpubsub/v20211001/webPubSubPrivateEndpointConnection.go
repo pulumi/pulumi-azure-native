@@ -49,9 +49,6 @@ func NewWebPubSubPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"),
 		},
-		{
-			Type: pulumi.String("azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource WebPubSubPrivateEndpointConnection
