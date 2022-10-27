@@ -13,9 +13,9 @@ import (
 type FhirResourceVersionPolicy string
 
 const (
-	FhirResourceVersionPolicy_No_version       = FhirResourceVersionPolicy("no-version")
+	FhirResourceVersionPolicy_No_Version       = FhirResourceVersionPolicy("no-version")
 	FhirResourceVersionPolicyVersioned         = FhirResourceVersionPolicy("versioned")
-	FhirResourceVersionPolicy_Versioned_update = FhirResourceVersionPolicy("versioned-update")
+	FhirResourceVersionPolicy_Versioned_Update = FhirResourceVersionPolicy("versioned-update")
 )
 
 type FhirServiceKind string

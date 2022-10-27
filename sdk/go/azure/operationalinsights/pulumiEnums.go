@@ -265,10 +265,10 @@ type MachineGroupType string
 
 const (
 	MachineGroupTypeUnknown      = MachineGroupType("unknown")
-	MachineGroupType_Azure_cs    = MachineGroupType("azure-cs")
-	MachineGroupType_Azure_sf    = MachineGroupType("azure-sf")
-	MachineGroupType_Azure_vmss  = MachineGroupType("azure-vmss")
-	MachineGroupType_User_static = MachineGroupType("user-static")
+	MachineGroupType_Azure_Cs    = MachineGroupType("azure-cs")
+	MachineGroupType_Azure_Sf    = MachineGroupType("azure-sf")
+	MachineGroupType_Azure_Vmss  = MachineGroupType("azure-vmss")
+	MachineGroupType_User_Static = MachineGroupType("user-static")
 )
 
 type PublicNetworkAccessType string

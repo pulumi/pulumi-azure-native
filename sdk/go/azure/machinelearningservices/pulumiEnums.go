@@ -98,7 +98,7 @@ type DatastoreTypeArm string
 const (
 	DatastoreTypeArmBlob       = DatastoreTypeArm("blob")
 	DatastoreTypeArmAdls       = DatastoreTypeArm("adls")
-	DatastoreTypeArm_Adls_gen2 = DatastoreTypeArm("adls-gen2")
+	DatastoreTypeArm_Adls_Gen2 = DatastoreTypeArm("adls-gen2")
 	DatastoreTypeArmDbfs       = DatastoreTypeArm("dbfs")
 	DatastoreTypeArmFile       = DatastoreTypeArm("file")
 	DatastoreTypeArmMysqldb    = DatastoreTypeArm("mysqldb")

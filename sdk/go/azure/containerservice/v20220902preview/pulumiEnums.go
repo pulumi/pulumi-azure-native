@@ -75,9 +75,9 @@ type Expander string
 
 const (
 	// Selects the node group that will have the least idle CPU (if tied, unused memory) after scale-up. This is useful when you have different classes of nodes, for example, high CPU or high memory nodes, and only want to expand those when there are pending pods that need a lot of those resources.
-	Expander_Least_waste = Expander("least-waste")
+	Expander_Least_Waste = Expander("least-waste")
 	// Selects the node group that would be able to schedule the most pods when scaling up. This is useful when you are using nodeSelector to make sure certain pods land on certain nodes. Note that this won't cause the autoscaler to select bigger nodes vs. smaller, as it can add multiple smaller nodes at once.
-	Expander_Most_pods = Expander("most-pods")
+	Expander_Most_Pods = Expander("most-pods")
 	// Selects the node group that has the highest priority assigned by the user. It's configuration is described in more details [here](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/expander/priority/readme.md).
 	ExpanderPriority = Expander("priority")
 	// Used when you don't have a particular need for the node groups to scale differently.
@@ -506,7 +506,7 @@ const (
 	// Automatically upgrade the cluster to the latest supported patch version when it becomes available while keeping the minor version the same. For example, if a cluster is running version 1.17.7 and versions 1.17.9, 1.18.4, 1.18.6, and 1.19.1 are available, your cluster is upgraded to 1.17.9.
 	UpgradeChannelPatch = UpgradeChannel("patch")
 	// Automatically upgrade the node image to the latest version available. Microsoft provides patches and new images for image nodes frequently (usually weekly), but your running nodes won't get the new images unless you do a node image upgrade. Turning on the node-image channel will automatically update your node images whenever a new version is available.
-	UpgradeChannel_Node_image = UpgradeChannel("node-image")
+	UpgradeChannel_Node_Image = UpgradeChannel("node-image")
 	// Disables auto-upgrades and keeps the cluster at its current version of Kubernetes.
 	UpgradeChannelNone = UpgradeChannel("none")
 )

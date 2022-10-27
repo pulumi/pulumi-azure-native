@@ -27,9 +27,9 @@ const (
 type LoadBalancerSku string
 
 const (
-	LoadBalancerSku_Unstacked_haproxy = LoadBalancerSku("unstacked-haproxy")
-	LoadBalancerSku_Stacked_kube_vip  = LoadBalancerSku("stacked-kube-vip")
-	LoadBalancerSku_Stacked_metallb   = LoadBalancerSku("stacked-metallb")
+	LoadBalancerSku_Unstacked_Haproxy = LoadBalancerSku("unstacked-haproxy")
+	LoadBalancerSku_Stacked_Kube_Vip  = LoadBalancerSku("stacked-kube-vip")
+	LoadBalancerSku_Stacked_Metallb   = LoadBalancerSku("stacked-metallb")
 	LoadBalancerSkuUnmanaged          = LoadBalancerSku("unmanaged")
 )
 

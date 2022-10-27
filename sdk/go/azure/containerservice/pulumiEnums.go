@@ -36,8 +36,8 @@ const (
 type Expander string
 
 const (
-	Expander_Least_waste = Expander("least-waste")
-	Expander_Most_pods   = Expander("most-pods")
+	Expander_Least_Waste = Expander("least-waste")
+	Expander_Most_Pods   = Expander("most-pods")
 	ExpanderPriority     = Expander("priority")
 	ExpanderRandom       = Expander("random")
 )
@@ -378,7 +378,7 @@ const (
 	UpgradeChannelRapid       = UpgradeChannel("rapid")
 	UpgradeChannelStable      = UpgradeChannel("stable")
 	UpgradeChannelPatch       = UpgradeChannel("patch")
-	UpgradeChannel_Node_image = UpgradeChannel("node-image")
+	UpgradeChannel_Node_Image = UpgradeChannel("node-image")
 	UpgradeChannelNone        = UpgradeChannel("none")
 )
 
