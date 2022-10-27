@@ -2,6 +2,12 @@
 
 ## HEAD (Unreleased)
 
+- Adds default values to defaultResourcesState.go for Azure Spring Apps sub-resources
+  - New resources:
+    - azure-native:appplatform:BuildServiceAgentPool
+    - azure-native:appplatform:ConfigServer
+    - azure-native:appplatform:MonitoringSetting
+
 ## 1.83.1 (2022-10-25)
 
 - Fix panic when validating `az` CLI version [#2049](https://github.com/pulumi/pulumi-azure-native/pull/2049)

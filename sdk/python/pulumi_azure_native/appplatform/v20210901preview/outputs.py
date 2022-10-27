@@ -13,9 +13,13 @@ from ._enums import *
 
 __all__ = [
     'AppResourcePropertiesResponse',
+    'ApplicationInsightsAgentVersionsResponse',
     'AzureFileVolumeResponse',
     'BindingResourcePropertiesResponse',
     'ClusterResourcePropertiesResponse',
+    'ConfigServerGitPropertyResponse',
+    'ConfigServerPropertiesResponse',
+    'ConfigServerSettingsResponse',
     'ContentCertificatePropertiesResponse',
     'CustomContainerResponse',
     'CustomDomainPropertiesResponse',
@@ -24,10 +28,13 @@ __all__ = [
     'DeploymentResourcePropertiesResponse',
     'DeploymentSettingsResponse',
     'DeploymentSettingsResponseContainerProbeSettings',
+    'ErrorResponse',
+    'GitPatternRepositoryResponse',
     'ImageRegistryCredentialResponse',
     'KeyVaultCertificatePropertiesResponse',
     'LoadedCertificateResponse',
     'ManagedIdentityPropertiesResponse',
+    'MonitoringSettingPropertiesResponse',
     'NetworkProfileResponse',
     'NetworkProfileResponseOutboundIPs',
     'PersistentDiskResponse',
@@ -227,6 +234,28 @@ class AppResourcePropertiesResponse(dict):
         Temporary disk settings
         """
         return pulumi.get(self, "temporary_disk")
+
+
+@pulumi.output_type
+class ApplicationInsightsAgentVersionsResponse(dict):
+    """
+    Application Insights agent versions properties payload
+    """
+    def __init__(__self__, *,
+                 java: str):
+        """
+        Application Insights agent versions properties payload
+        :param str java: Indicates the version of application insight java agent
+        """
+        pulumi.set(__self__, "java", java)
+
+    @property
+    @pulumi.getter
+    def java(self) -> str:
+        """
+        Indicates the version of application insight java agent
+        """
+        return pulumi.get(self, "java")
 
 
 @pulumi.output_type
@@ -541,6 +570,266 @@ class ClusterResourcePropertiesResponse(dict):
         Network profile of the Service
         """
         return pulumi.get(self, "network_profile")
+
+
+@pulumi.output_type
+class ConfigServerGitPropertyResponse(dict):
+    """
+    Property of git.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostKey":
+            suggest = "host_key"
+        elif key == "hostKeyAlgorithm":
+            suggest = "host_key_algorithm"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "searchPaths":
+            suggest = "search_paths"
+        elif key == "strictHostKeyChecking":
+            suggest = "strict_host_key_checking"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigServerGitPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigServerGitPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigServerGitPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 host_key: Optional[str] = None,
+                 host_key_algorithm: Optional[str] = None,
+                 label: Optional[str] = None,
+                 password: Optional[str] = None,
+                 private_key: Optional[str] = None,
+                 repositories: Optional[Sequence['outputs.GitPatternRepositoryResponse']] = None,
+                 search_paths: Optional[Sequence[str]] = None,
+                 strict_host_key_checking: Optional[bool] = None,
+                 username: Optional[str] = None):
+        """
+        Property of git.
+        :param str uri: URI of the repository
+        :param str host_key: Public sshKey of git repository.
+        :param str host_key_algorithm: SshKey algorithm of git repository.
+        :param str label: Label of the repository
+        :param str password: Password of git repository basic auth.
+        :param str private_key: Private sshKey algorithm of git repository.
+        :param Sequence['GitPatternRepositoryResponse'] repositories: Repositories of git.
+        :param Sequence[str] search_paths: Searching path of the repository
+        :param bool strict_host_key_checking: Strict host key checking or not.
+        :param str username: Username of git repository basic auth.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if host_key is not None:
+            pulumi.set(__self__, "host_key", host_key)
+        if host_key_algorithm is not None:
+            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if repositories is not None:
+            pulumi.set(__self__, "repositories", repositories)
+        if search_paths is not None:
+            pulumi.set(__self__, "search_paths", search_paths)
+        if strict_host_key_checking is not None:
+            pulumi.set(__self__, "strict_host_key_checking", strict_host_key_checking)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        URI of the repository
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="hostKey")
+    def host_key(self) -> Optional[str]:
+        """
+        Public sshKey of git repository.
+        """
+        return pulumi.get(self, "host_key")
+
+    @property
+    @pulumi.getter(name="hostKeyAlgorithm")
+    def host_key_algorithm(self) -> Optional[str]:
+        """
+        SshKey algorithm of git repository.
+        """
+        return pulumi.get(self, "host_key_algorithm")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Label of the repository
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Password of git repository basic auth.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[str]:
+        """
+        Private sshKey algorithm of git repository.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Optional[Sequence['outputs.GitPatternRepositoryResponse']]:
+        """
+        Repositories of git.
+        """
+        return pulumi.get(self, "repositories")
+
+    @property
+    @pulumi.getter(name="searchPaths")
+    def search_paths(self) -> Optional[Sequence[str]]:
+        """
+        Searching path of the repository
+        """
+        return pulumi.get(self, "search_paths")
+
+    @property
+    @pulumi.getter(name="strictHostKeyChecking")
+    def strict_host_key_checking(self) -> Optional[bool]:
+        """
+        Strict host key checking or not.
+        """
+        return pulumi.get(self, "strict_host_key_checking")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username of git repository basic auth.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ConfigServerPropertiesResponse(dict):
+    """
+    Config server git properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "configServer":
+            suggest = "config_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigServerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigServerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigServerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 config_server: Optional['outputs.ConfigServerSettingsResponse'] = None,
+                 error: Optional['outputs.ErrorResponse'] = None):
+        """
+        Config server git properties payload
+        :param str provisioning_state: State of the config server.
+        :param 'ConfigServerSettingsResponse' config_server: Settings of config server.
+        :param 'ErrorResponse' error: Error when apply config server settings.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if config_server is not None:
+            pulumi.set(__self__, "config_server", config_server)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the config server.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="configServer")
+    def config_server(self) -> Optional['outputs.ConfigServerSettingsResponse']:
+        """
+        Settings of config server.
+        """
+        return pulumi.get(self, "config_server")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorResponse']:
+        """
+        Error when apply config server settings.
+        """
+        return pulumi.get(self, "error")
+
+
+@pulumi.output_type
+class ConfigServerSettingsResponse(dict):
+    """
+    The settings of config server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitProperty":
+            suggest = "git_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigServerSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigServerSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigServerSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 git_property: Optional['outputs.ConfigServerGitPropertyResponse'] = None):
+        """
+        The settings of config server.
+        :param 'ConfigServerGitPropertyResponse' git_property: Property of git environment.
+        """
+        if git_property is not None:
+            pulumi.set(__self__, "git_property", git_property)
+
+    @property
+    @pulumi.getter(name="gitProperty")
+    def git_property(self) -> Optional['outputs.ConfigServerGitPropertyResponse']:
+        """
+        Property of git environment.
+        """
+        return pulumi.get(self, "git_property")
 
 
 @pulumi.output_type
@@ -1269,6 +1558,207 @@ class DeploymentSettingsResponseContainerProbeSettings(dict):
 
 
 @pulumi.output_type
+class ErrorResponse(dict):
+    """
+    The error code compose of code and message.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        The error code compose of code and message.
+        :param str code: The code of error.
+        :param str message: The message of error.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The code of error.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The message of error.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class GitPatternRepositoryResponse(dict):
+    """
+    Git repository property payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostKey":
+            suggest = "host_key"
+        elif key == "hostKeyAlgorithm":
+            suggest = "host_key_algorithm"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "searchPaths":
+            suggest = "search_paths"
+        elif key == "strictHostKeyChecking":
+            suggest = "strict_host_key_checking"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitPatternRepositoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitPatternRepositoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitPatternRepositoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 uri: str,
+                 host_key: Optional[str] = None,
+                 host_key_algorithm: Optional[str] = None,
+                 label: Optional[str] = None,
+                 password: Optional[str] = None,
+                 pattern: Optional[Sequence[str]] = None,
+                 private_key: Optional[str] = None,
+                 search_paths: Optional[Sequence[str]] = None,
+                 strict_host_key_checking: Optional[bool] = None,
+                 username: Optional[str] = None):
+        """
+        Git repository property payload
+        :param str name: Name of the repository
+        :param str uri: URI of the repository
+        :param str host_key: Public sshKey of git repository.
+        :param str host_key_algorithm: SshKey algorithm of git repository.
+        :param str label: Label of the repository
+        :param str password: Password of git repository basic auth.
+        :param Sequence[str] pattern: Collection of pattern of the repository
+        :param str private_key: Private sshKey algorithm of git repository.
+        :param Sequence[str] search_paths: Searching path of the repository
+        :param bool strict_host_key_checking: Strict host key checking or not.
+        :param str username: Username of git repository basic auth.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if host_key is not None:
+            pulumi.set(__self__, "host_key", host_key)
+        if host_key_algorithm is not None:
+            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if search_paths is not None:
+            pulumi.set(__self__, "search_paths", search_paths)
+        if strict_host_key_checking is not None:
+            pulumi.set(__self__, "strict_host_key_checking", strict_host_key_checking)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the repository
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        URI of the repository
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="hostKey")
+    def host_key(self) -> Optional[str]:
+        """
+        Public sshKey of git repository.
+        """
+        return pulumi.get(self, "host_key")
+
+    @property
+    @pulumi.getter(name="hostKeyAlgorithm")
+    def host_key_algorithm(self) -> Optional[str]:
+        """
+        SshKey algorithm of git repository.
+        """
+        return pulumi.get(self, "host_key_algorithm")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Label of the repository
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Password of git repository basic auth.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[Sequence[str]]:
+        """
+        Collection of pattern of the repository
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[str]:
+        """
+        Private sshKey algorithm of git repository.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="searchPaths")
+    def search_paths(self) -> Optional[Sequence[str]]:
+        """
+        Searching path of the repository
+        """
+        return pulumi.get(self, "search_paths")
+
+    @property
+    @pulumi.getter(name="strictHostKeyChecking")
+    def strict_host_key_checking(self) -> Optional[bool]:
+        """
+        Strict host key checking or not.
+        """
+        return pulumi.get(self, "strict_host_key_checking")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username of git repository basic auth.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class ImageRegistryCredentialResponse(dict):
     """
     Credential of the image registry
@@ -1604,6 +2094,113 @@ class ManagedIdentityPropertiesResponse(dict):
         Type of the managed identity
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MonitoringSettingPropertiesResponse(dict):
+    """
+    Monitoring Setting properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "appInsightsAgentVersions":
+            suggest = "app_insights_agent_versions"
+        elif key == "appInsightsInstrumentationKey":
+            suggest = "app_insights_instrumentation_key"
+        elif key == "appInsightsSamplingRate":
+            suggest = "app_insights_sampling_rate"
+        elif key == "traceEnabled":
+            suggest = "trace_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringSettingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringSettingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringSettingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 app_insights_agent_versions: Optional['outputs.ApplicationInsightsAgentVersionsResponse'] = None,
+                 app_insights_instrumentation_key: Optional[str] = None,
+                 app_insights_sampling_rate: Optional[float] = None,
+                 error: Optional['outputs.ErrorResponse'] = None,
+                 trace_enabled: Optional[bool] = None):
+        """
+        Monitoring Setting properties payload
+        :param str provisioning_state: State of the Monitoring Setting.
+        :param 'ApplicationInsightsAgentVersionsResponse' app_insights_agent_versions: Indicates the versions of application insight agent
+        :param str app_insights_instrumentation_key: Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
+        :param float app_insights_sampling_rate: Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
+        :param 'ErrorResponse' error: Error when apply Monitoring Setting changes.
+        :param bool trace_enabled: Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if app_insights_agent_versions is not None:
+            pulumi.set(__self__, "app_insights_agent_versions", app_insights_agent_versions)
+        if app_insights_instrumentation_key is not None:
+            pulumi.set(__self__, "app_insights_instrumentation_key", app_insights_instrumentation_key)
+        if app_insights_sampling_rate is not None:
+            pulumi.set(__self__, "app_insights_sampling_rate", app_insights_sampling_rate)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if trace_enabled is not None:
+            pulumi.set(__self__, "trace_enabled", trace_enabled)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the Monitoring Setting.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="appInsightsAgentVersions")
+    def app_insights_agent_versions(self) -> Optional['outputs.ApplicationInsightsAgentVersionsResponse']:
+        """
+        Indicates the versions of application insight agent
+        """
+        return pulumi.get(self, "app_insights_agent_versions")
+
+    @property
+    @pulumi.getter(name="appInsightsInstrumentationKey")
+    def app_insights_instrumentation_key(self) -> Optional[str]:
+        """
+        Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
+        """
+        return pulumi.get(self, "app_insights_instrumentation_key")
+
+    @property
+    @pulumi.getter(name="appInsightsSamplingRate")
+    def app_insights_sampling_rate(self) -> Optional[float]:
+        """
+        Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
+        """
+        return pulumi.get(self, "app_insights_sampling_rate")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorResponse']:
+        """
+        Error when apply Monitoring Setting changes.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="traceEnabled")
+    def trace_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not
+        """
+        return pulumi.get(self, "trace_enabled")
 
 
 @pulumi.output_type

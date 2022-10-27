@@ -1787,15 +1787,18 @@ _utilities.register(
    "azure-native:appplatform:ApiPortalCustomDomain": "ApiPortalCustomDomain",
    "azure-native:appplatform:App": "App",
    "azure-native:appplatform:Binding": "Binding",
+   "azure-native:appplatform:BuildServiceAgentPool": "BuildServiceAgentPool",
    "azure-native:appplatform:BuildServiceBuilder": "BuildServiceBuilder",
    "azure-native:appplatform:BuildpackBinding": "BuildpackBinding",
    "azure-native:appplatform:Certificate": "Certificate",
+   "azure-native:appplatform:ConfigServer": "ConfigServer",
    "azure-native:appplatform:ConfigurationService": "ConfigurationService",
    "azure-native:appplatform:CustomDomain": "CustomDomain",
    "azure-native:appplatform:Deployment": "Deployment",
    "azure-native:appplatform:Gateway": "Gateway",
    "azure-native:appplatform:GatewayCustomDomain": "GatewayCustomDomain",
    "azure-native:appplatform:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform:Service": "Service",
    "azure-native:appplatform:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform:Storage": "Storage"
@@ -1809,8 +1812,10 @@ _utilities.register(
    "azure-native:appplatform/v20200701:App": "App",
    "azure-native:appplatform/v20200701:Binding": "Binding",
    "azure-native:appplatform/v20200701:Certificate": "Certificate",
+   "azure-native:appplatform/v20200701:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20200701:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20200701:Deployment": "Deployment",
+   "azure-native:appplatform/v20200701:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20200701:Service": "Service"
   }
  },
@@ -1822,8 +1827,10 @@ _utilities.register(
    "azure-native:appplatform/v20201101preview:App": "App",
    "azure-native:appplatform/v20201101preview:Binding": "Binding",
    "azure-native:appplatform/v20201101preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20201101preview:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20201101preview:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20201101preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20201101preview:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20201101preview:Service": "Service"
   }
  },
@@ -1835,8 +1842,10 @@ _utilities.register(
    "azure-native:appplatform/v20210601preview:App": "App",
    "azure-native:appplatform/v20210601preview:Binding": "Binding",
    "azure-native:appplatform/v20210601preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20210601preview:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20210601preview:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20210601preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20210601preview:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20210601preview:Service": "Service"
   }
  },
@@ -1848,8 +1857,10 @@ _utilities.register(
    "azure-native:appplatform/v20210901preview:App": "App",
    "azure-native:appplatform/v20210901preview:Binding": "Binding",
    "azure-native:appplatform/v20210901preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20210901preview:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20210901preview:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20210901preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20210901preview:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20210901preview:Service": "Service",
    "azure-native:appplatform/v20210901preview:Storage": "Storage"
   }
@@ -1863,15 +1874,18 @@ _utilities.register(
    "azure-native:appplatform/v20220101preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
    "azure-native:appplatform/v20220101preview:App": "App",
    "azure-native:appplatform/v20220101preview:Binding": "Binding",
+   "azure-native:appplatform/v20220101preview:BuildServiceAgentPool": "BuildServiceAgentPool",
    "azure-native:appplatform/v20220101preview:BuildServiceBuilder": "BuildServiceBuilder",
    "azure-native:appplatform/v20220101preview:BuildpackBinding": "BuildpackBinding",
    "azure-native:appplatform/v20220101preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20220101preview:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20220101preview:ConfigurationService": "ConfigurationService",
    "azure-native:appplatform/v20220101preview:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20220101preview:Deployment": "Deployment",
    "azure-native:appplatform/v20220101preview:Gateway": "Gateway",
    "azure-native:appplatform/v20220101preview:GatewayCustomDomain": "GatewayCustomDomain",
    "azure-native:appplatform/v20220101preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20220101preview:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20220101preview:Service": "Service",
    "azure-native:appplatform/v20220101preview:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform/v20220101preview:Storage": "Storage"
@@ -1886,15 +1900,18 @@ _utilities.register(
    "azure-native:appplatform/v20220301preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
    "azure-native:appplatform/v20220301preview:App": "App",
    "azure-native:appplatform/v20220301preview:Binding": "Binding",
+   "azure-native:appplatform/v20220301preview:BuildServiceAgentPool": "BuildServiceAgentPool",
    "azure-native:appplatform/v20220301preview:BuildServiceBuilder": "BuildServiceBuilder",
    "azure-native:appplatform/v20220301preview:BuildpackBinding": "BuildpackBinding",
    "azure-native:appplatform/v20220301preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20220301preview:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20220301preview:ConfigurationService": "ConfigurationService",
    "azure-native:appplatform/v20220301preview:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20220301preview:Deployment": "Deployment",
    "azure-native:appplatform/v20220301preview:Gateway": "Gateway",
    "azure-native:appplatform/v20220301preview:GatewayCustomDomain": "GatewayCustomDomain",
    "azure-native:appplatform/v20220301preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20220301preview:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20220301preview:Service": "Service",
    "azure-native:appplatform/v20220301preview:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform/v20220301preview:Storage": "Storage"
@@ -1907,12 +1924,15 @@ _utilities.register(
   "classes": {
    "azure-native:appplatform/v20220401:App": "App",
    "azure-native:appplatform/v20220401:Binding": "Binding",
+   "azure-native:appplatform/v20220401:BuildServiceAgentPool": "BuildServiceAgentPool",
    "azure-native:appplatform/v20220401:BuildServiceBuilder": "BuildServiceBuilder",
    "azure-native:appplatform/v20220401:BuildpackBinding": "BuildpackBinding",
    "azure-native:appplatform/v20220401:Certificate": "Certificate",
+   "azure-native:appplatform/v20220401:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20220401:ConfigurationService": "ConfigurationService",
    "azure-native:appplatform/v20220401:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20220401:Deployment": "Deployment",
+   "azure-native:appplatform/v20220401:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20220401:Service": "Service",
    "azure-native:appplatform/v20220401:ServiceRegistry": "ServiceRegistry"
   }
@@ -1926,15 +1946,18 @@ _utilities.register(
    "azure-native:appplatform/v20220501preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
    "azure-native:appplatform/v20220501preview:App": "App",
    "azure-native:appplatform/v20220501preview:Binding": "Binding",
+   "azure-native:appplatform/v20220501preview:BuildServiceAgentPool": "BuildServiceAgentPool",
    "azure-native:appplatform/v20220501preview:BuildServiceBuilder": "BuildServiceBuilder",
    "azure-native:appplatform/v20220501preview:BuildpackBinding": "BuildpackBinding",
    "azure-native:appplatform/v20220501preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20220501preview:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20220501preview:ConfigurationService": "ConfigurationService",
    "azure-native:appplatform/v20220501preview:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20220501preview:Deployment": "Deployment",
    "azure-native:appplatform/v20220501preview:Gateway": "Gateway",
    "azure-native:appplatform/v20220501preview:GatewayCustomDomain": "GatewayCustomDomain",
    "azure-native:appplatform/v20220501preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20220501preview:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20220501preview:Service": "Service",
    "azure-native:appplatform/v20220501preview:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform/v20220501preview:Storage": "Storage"
@@ -1949,15 +1972,18 @@ _utilities.register(
    "azure-native:appplatform/v20220901preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
    "azure-native:appplatform/v20220901preview:App": "App",
    "azure-native:appplatform/v20220901preview:Binding": "Binding",
+   "azure-native:appplatform/v20220901preview:BuildServiceAgentPool": "BuildServiceAgentPool",
    "azure-native:appplatform/v20220901preview:BuildServiceBuilder": "BuildServiceBuilder",
    "azure-native:appplatform/v20220901preview:BuildpackBinding": "BuildpackBinding",
    "azure-native:appplatform/v20220901preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20220901preview:ConfigServer": "ConfigServer",
    "azure-native:appplatform/v20220901preview:ConfigurationService": "ConfigurationService",
    "azure-native:appplatform/v20220901preview:CustomDomain": "CustomDomain",
    "azure-native:appplatform/v20220901preview:Deployment": "Deployment",
    "azure-native:appplatform/v20220901preview:Gateway": "Gateway",
    "azure-native:appplatform/v20220901preview:GatewayCustomDomain": "GatewayCustomDomain",
    "azure-native:appplatform/v20220901preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20220901preview:MonitoringSetting": "MonitoringSetting",
    "azure-native:appplatform/v20220901preview:Service": "Service",
    "azure-native:appplatform/v20220901preview:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform/v20220901preview:Storage": "Storage"
@@ -7574,18 +7600,6 @@ _utilities.register(
    "azure-native:dbforpostgresql/v20220120preview:Database": "Database",
    "azure-native:dbforpostgresql/v20220120preview:FirewallRule": "FirewallRule",
    "azure-native:dbforpostgresql/v20220120preview:Server": "Server"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "dbforpostgresql/v20220308preview",
-  "fqn": "pulumi_azure_native.dbforpostgresql.v20220308preview",
-  "classes": {
-   "azure-native:dbforpostgresql/v20220308preview:Administrator": "Administrator",
-   "azure-native:dbforpostgresql/v20220308preview:Configuration": "Configuration",
-   "azure-native:dbforpostgresql/v20220308preview:Database": "Database",
-   "azure-native:dbforpostgresql/v20220308preview:FirewallRule": "FirewallRule",
-   "azure-native:dbforpostgresql/v20220308preview:Server": "Server"
   }
  },
  {
@@ -23230,19 +23244,6 @@ _utilities.register(
    "azure-native:webpubsub/v20211001:WebPubSubHub": "WebPubSubHub",
    "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "webpubsub/v20220801preview",
-  "fqn": "pulumi_azure_native.webpubsub.v20220801preview",
-  "classes": {
-   "azure-native:webpubsub/v20220801preview:WebPubSub": "WebPubSub",
-   "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate": "WebPubSubCustomCertificate",
-   "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain": "WebPubSubCustomDomain",
-   "azure-native:webpubsub/v20220801preview:WebPubSubHub": "WebPubSubHub",
-   "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
-   "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

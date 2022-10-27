@@ -369,7 +369,7 @@ class WebPubSub(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSub, __self__).__init__(
             'azure-native:webpubsub/v20210601preview:WebPubSub',

@@ -25,18 +25,24 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &App{}
 	case "azure-native:appplatform/v20220401:Binding":
 		r = &Binding{}
+	case "azure-native:appplatform/v20220401:BuildServiceAgentPool":
+		r = &BuildServiceAgentPool{}
 	case "azure-native:appplatform/v20220401:BuildServiceBuilder":
 		r = &BuildServiceBuilder{}
 	case "azure-native:appplatform/v20220401:BuildpackBinding":
 		r = &BuildpackBinding{}
 	case "azure-native:appplatform/v20220401:Certificate":
 		r = &Certificate{}
+	case "azure-native:appplatform/v20220401:ConfigServer":
+		r = &ConfigServer{}
 	case "azure-native:appplatform/v20220401:ConfigurationService":
 		r = &ConfigurationService{}
 	case "azure-native:appplatform/v20220401:CustomDomain":
 		r = &CustomDomain{}
 	case "azure-native:appplatform/v20220401:Deployment":
 		r = &Deployment{}
+	case "azure-native:appplatform/v20220401:MonitoringSetting":
+		r = &MonitoringSetting{}
 	case "azure-native:appplatform/v20220401:Service":
 		r = &Service{}
 	case "azure-native:appplatform/v20220401:ServiceRegistry":

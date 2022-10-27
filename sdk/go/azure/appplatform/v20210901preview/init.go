@@ -27,10 +27,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Binding{}
 	case "azure-native:appplatform/v20210901preview:Certificate":
 		r = &Certificate{}
+	case "azure-native:appplatform/v20210901preview:ConfigServer":
+		r = &ConfigServer{}
 	case "azure-native:appplatform/v20210901preview:CustomDomain":
 		r = &CustomDomain{}
 	case "azure-native:appplatform/v20210901preview:Deployment":
 		r = &Deployment{}
+	case "azure-native:appplatform/v20210901preview:MonitoringSetting":
+		r = &MonitoringSetting{}
 	case "azure-native:appplatform/v20210901preview:Service":
 		r = &Service{}
 	case "azure-native:appplatform/v20210901preview:Storage":

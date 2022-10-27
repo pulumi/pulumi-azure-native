@@ -195,7 +195,7 @@ export class WebPubSub extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSub" }, { type: "azure-native:webpubsub/v20210401preview:WebPubSub" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSub" }, { type: "azure-native:webpubsub/v20211001:WebPubSub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSub" }, { type: "azure-native:webpubsub/v20210401preview:WebPubSub" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSub" }, { type: "azure-native:webpubsub/v20211001:WebPubSub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSub.__pulumiType, name, resourceInputs, opts);
     }
