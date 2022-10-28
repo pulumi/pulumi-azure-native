@@ -73,12 +73,15 @@ func getGoBaseOptionsSdk(t *testing.T) integration.ProgramTestOptions {
 		t.Fatal(err)
 	}
 
+	rootSdkPath, err := filepath.Abs(sdkPath)
+	require.NoError(t, err)
+
 	dependencies := make([]string, len(required))
 	for i, pkg := range required {
-		dependencies[i] = genReplace(t, pkg)
+		dependencies[i] = genReplace(t, rootSdkPath, pkg)
 	}
 
-	dependencies = append(dependencies, "github.com/pulumi/pulumi-azure-native-sdk="+sdkPath)
+	dependencies = append(dependencies, "github.com/pulumi/pulumi-azure-native-sdk="+rootSdkPath)
 
 	baseGo := base.With(integration.ProgramTestOptions{
 		Dependencies: dependencies,
@@ -105,8 +108,7 @@ func getRequiredGoPackages() ([]string, error) {
 }
 
 // For context: https://github.com/pulumi/pulumi/pull/11055
-func genReplace(t *testing.T, subPkg string) string {
-	moduleDir, err := filepath.Abs(fmt.Sprintf("%s/%s", sdkPath, subPkg))
-	require.NoError(t, err)
+func genReplace(t *testing.T, sdkPath string, subPkg string) string {
+	moduleDir := fmt.Sprintf("%s/%s", sdkPath, subPkg)
 	return fmt.Sprintf("github.com/pulumi/pulumi-azure-native-sdk/%s=%s", subPkg, moduleDir)
 }
