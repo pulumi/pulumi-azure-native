@@ -12,8 +12,6 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 	},
 	"ContainerService": {
 		"ManagedCluster": codegen.NewStringSet(
-			// aadProfile
-			"enableAzureRBAC",
 			// agentPoolProfiles
 			"availabilityZones",
 			"enableEncryptionAtHost",
