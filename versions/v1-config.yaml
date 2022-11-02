@@ -49,6 +49,8 @@ ApiManagement:
     listTenantAccessGitSecrets: "2019-12-01"
 App:
   tracking: "2022-03-01"
+AppComplianceAutomation:
+  tracking: "2022-11-16-preview"
 AppConfiguration:
   tracking: "2020-06-01"
   additions:
@@ -383,6 +385,8 @@ DomainRegistration:
 Dynamics365Fraudprotection:
   tracking: 2021-02-01-preview
 DynamicsTelemetry: {}
+Easm:
+  tracking: 2022-04-01-preview
 EdgeOrder:
   tracking: "2021-12-01"
 EdgeOrderPartner: {}
@@ -657,6 +661,8 @@ MixedReality:
     listObjectAnchorsAccountKeys: 2021-03-01-preview
 MobileNetwork:
   tracking: 2022-04-01-preview
+Monitor:
+  tracking: 2021-06-03-preview
 NetApp:
   tracking: "2020-12-01"
   additions:
