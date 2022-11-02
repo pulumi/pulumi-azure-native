@@ -2,6 +2,7 @@
 
 ## HEAD (Unreleased)
 
+- Disable force new for container service enableAzureRBAC [#2064](https://github.com/pulumi/pulumi-azure-native/pull/2064)
 
 ## 1.84.0 (2022-10-27)
 
