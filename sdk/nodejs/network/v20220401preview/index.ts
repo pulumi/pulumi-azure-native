@@ -30,6 +30,11 @@ export type DefaultUserRule = import("./defaultUserRule").DefaultUserRule;
 export const DefaultUserRule: typeof import("./defaultUserRule").DefaultUserRule = null as any;
 utilities.lazyLoad(exports, ["DefaultUserRule"], () => require("./defaultUserRule"));
 
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+
 export { GetAdminRuleArgs, GetAdminRuleResult, GetAdminRuleOutputArgs } from "./getAdminRule";
 export const getAdminRule: typeof import("./getAdminRule").getAdminRule = null as any;
 export const getAdminRuleOutput: typeof import("./getAdminRule").getAdminRuleOutput = null as any;
@@ -55,6 +60,11 @@ export const getDefaultUserRule: typeof import("./getDefaultUserRule").getDefaul
 export const getDefaultUserRuleOutput: typeof import("./getDefaultUserRule").getDefaultUserRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultUserRule","getDefaultUserRuleOutput"], () => require("./getDefaultUserRule"));
 
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+
 export { GetManagementGroupNetworkManagerConnectionArgs, GetManagementGroupNetworkManagerConnectionResult, GetManagementGroupNetworkManagerConnectionOutputArgs } from "./getManagementGroupNetworkManagerConnection";
 export const getManagementGroupNetworkManagerConnection: typeof import("./getManagementGroupNetworkManagerConnection").getManagementGroupNetworkManagerConnection = null as any;
 export const getManagementGroupNetworkManagerConnectionOutput: typeof import("./getManagementGroupNetworkManagerConnection").getManagementGroupNetworkManagerConnectionOutput = null as any;
@@ -69,6 +79,11 @@ export { GetNetworkManagerArgs, GetNetworkManagerResult, GetNetworkManagerOutput
 export const getNetworkManager: typeof import("./getNetworkManager").getNetworkManager = null as any;
 export const getNetworkManagerOutput: typeof import("./getNetworkManager").getNetworkManagerOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkManager","getNetworkManagerOutput"], () => require("./getNetworkManager"));
+
+export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
+export const getProfile: typeof import("./getProfile").getProfile = null as any;
+export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
 
 export { GetScopeConnectionArgs, GetScopeConnectionResult, GetScopeConnectionOutputArgs } from "./getScopeConnection";
 export const getScopeConnection: typeof import("./getScopeConnection").getScopeConnection = null as any;
@@ -94,6 +109,10 @@ export { GetSubscriptionNetworkManagerConnectionArgs, GetSubscriptionNetworkMana
 export const getSubscriptionNetworkManagerConnection: typeof import("./getSubscriptionNetworkManagerConnection").getSubscriptionNetworkManagerConnection = null as any;
 export const getSubscriptionNetworkManagerConnectionOutput: typeof import("./getSubscriptionNetworkManagerConnection").getSubscriptionNetworkManagerConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriptionNetworkManagerConnection","getSubscriptionNetworkManagerConnectionOutput"], () => require("./getSubscriptionNetworkManagerConnection"));
+
+export { GetTrafficManagerUserMetricsKeyArgs, GetTrafficManagerUserMetricsKeyResult } from "./getTrafficManagerUserMetricsKey";
+export const getTrafficManagerUserMetricsKey: typeof import("./getTrafficManagerUserMetricsKey").getTrafficManagerUserMetricsKey = null as any;
+utilities.lazyLoad(exports, ["getTrafficManagerUserMetricsKey"], () => require("./getTrafficManagerUserMetricsKey"));
 
 export { GetUserRuleArgs, GetUserRuleResult, GetUserRuleOutputArgs } from "./getUserRule";
 export const getUserRule: typeof import("./getUserRule").getUserRule = null as any;
@@ -160,6 +179,11 @@ export type NetworkManager = import("./networkManager").NetworkManager;
 export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
 utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
 
+export { ProfileArgs } from "./profile";
+export type Profile = import("./profile").Profile;
+export const Profile: typeof import("./profile").Profile = null as any;
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
+
 export { ScopeConnectionArgs } from "./scopeConnection";
 export type ScopeConnection = import("./scopeConnection").ScopeConnection;
 export const ScopeConnection: typeof import("./scopeConnection").ScopeConnection = null as any;
@@ -184,6 +208,11 @@ export { SubscriptionNetworkManagerConnectionArgs } from "./subscriptionNetworkM
 export type SubscriptionNetworkManagerConnection = import("./subscriptionNetworkManagerConnection").SubscriptionNetworkManagerConnection;
 export const SubscriptionNetworkManagerConnection: typeof import("./subscriptionNetworkManagerConnection").SubscriptionNetworkManagerConnection = null as any;
 utilities.lazyLoad(exports, ["SubscriptionNetworkManagerConnection"], () => require("./subscriptionNetworkManagerConnection"));
+
+export { TrafficManagerUserMetricsKeyArgs } from "./trafficManagerUserMetricsKey";
+export type TrafficManagerUserMetricsKey = import("./trafficManagerUserMetricsKey").TrafficManagerUserMetricsKey;
+export const TrafficManagerUserMetricsKey: typeof import("./trafficManagerUserMetricsKey").TrafficManagerUserMetricsKey = null as any;
+utilities.lazyLoad(exports, ["TrafficManagerUserMetricsKey"], () => require("./trafficManagerUserMetricsKey"));
 
 export { UserRuleArgs } from "./userRule";
 export type UserRule = import("./userRule").UserRule;
@@ -213,12 +242,16 @@ const _module = {
                 return new DefaultAdminRule(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:DefaultUserRule":
                 return new DefaultUserRule(name, <any>undefined, { urn })
+            case "azure-native:network/v20220401preview:Endpoint":
+                return new Endpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection":
                 return new ManagementGroupNetworkManagerConnection(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:NetworkGroup":
                 return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
+            case "azure-native:network/v20220401preview:Profile":
+                return new Profile(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:ScopeConnection":
                 return new ScopeConnection(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:SecurityAdminConfiguration":
@@ -229,6 +262,8 @@ const _module = {
                 return new StaticMember(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection":
                 return new SubscriptionNetworkManagerConnection(name, <any>undefined, { urn })
+            case "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey":
+                return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:UserRule":
                 return new UserRule(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:UserRuleCollection":

@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataProtection.V20221001Preview.Outputs
         /// </summary>
         public readonly string ResourceMoveState;
         /// <summary>
+        /// Security Settings
+        /// </summary>
+        public readonly Outputs.SecuritySettingsResponse? SecuritySettings;
+        /// <summary>
         /// Storage Settings
         /// </summary>
         public readonly ImmutableArray<Outputs.StorageSettingResponse> StorageSettings;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.DataProtection.V20221001Preview.Outputs
 
             string resourceMoveState,
 
+            Outputs.SecuritySettingsResponse? securitySettings,
+
             ImmutableArray<Outputs.StorageSettingResponse> storageSettings)
         {
             IsVaultProtectedByResourceGuard = isVaultProtectedByResourceGuard;
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.DataProtection.V20221001Preview.Outputs
             ProvisioningState = provisioningState;
             ResourceMoveDetails = resourceMoveDetails;
             ResourceMoveState = resourceMoveState;
+            SecuritySettings = securitySettings;
             StorageSettings = storageSettings;
         }
     }

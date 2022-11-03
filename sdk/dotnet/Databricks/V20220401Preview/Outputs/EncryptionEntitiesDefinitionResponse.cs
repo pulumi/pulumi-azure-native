@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Outputs
     public sealed class EncryptionEntitiesDefinitionResponse
     {
         /// <summary>
+        /// Encryption properties for the databricks managed disks.
+        /// </summary>
+        public readonly Outputs.ManagedDiskEncryptionResponse? ManagedDisk;
+        /// <summary>
         /// Encryption properties for the databricks managed services.
         /// </summary>
         public readonly Outputs.EncryptionV2Response? ManagedServices;
 
         [OutputConstructor]
-        private EncryptionEntitiesDefinitionResponse(Outputs.EncryptionV2Response? managedServices)
+        private EncryptionEntitiesDefinitionResponse(
+            Outputs.ManagedDiskEncryptionResponse? managedDisk,
+
+            Outputs.EncryptionV2Response? managedServices)
         {
+            ManagedDisk = managedDisk;
             ManagedServices = managedServices;
         }
     }

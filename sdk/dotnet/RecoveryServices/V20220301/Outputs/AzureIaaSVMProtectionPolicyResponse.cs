@@ -26,6 +26,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Outputs
         /// Instant RP retention policy range in days
         /// </summary>
         public readonly int? InstantRpRetentionRangeInDays;
+        /// <summary>
+        /// Type of backup policy type
+        /// </summary>
         public readonly string? PolicyType;
         /// <summary>
         /// Number of items associated with this policy.

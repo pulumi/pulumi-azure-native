@@ -20,6 +20,7 @@ class WorkspaceArgs:
                  managed_resource_group_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]] = None,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
@@ -34,6 +35,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]] authorizations: The workspace provider authorizations.
+        :param pulumi.Input[str] disk_encryption_set_id: The resource Id of the managed disk encryption set.
         :param pulumi.Input['WorkspacePropertiesEncryptionArgs'] encryption: Encryption properties for databricks workspace
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['WorkspaceCustomParametersArgs'] parameters: The workspace's custom parameters.
@@ -48,6 +50,8 @@ class WorkspaceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if location is not None:
@@ -102,6 +106,18 @@ class WorkspaceArgs:
     @authorizations.setter
     def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]]):
         pulumi.set(self, "authorizations", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id of the managed disk encryption set.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
 
     @property
     @pulumi.getter
@@ -218,6 +234,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['WorkspacePropertiesEncryptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
@@ -236,6 +253,7 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]] authorizations: The workspace provider authorizations.
+        :param pulumi.Input[str] disk_encryption_set_id: The resource Id of the managed disk encryption set.
         :param pulumi.Input[pulumi.InputType['WorkspacePropertiesEncryptionArgs']] encryption: Encryption properties for databricks workspace
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
@@ -273,6 +291,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['WorkspacePropertiesEncryptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
@@ -294,6 +313,7 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["authorizations"] = authorizations
+            __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["location"] = location
             if managed_resource_group_id is None and not opts.urn:
@@ -311,6 +331,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_date_time"] = None
+            __props__.__dict__["managed_disk_identity"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -347,8 +368,10 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["authorizations"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_date_time"] = None
+        __props__.__dict__["disk_encryption_set_id"] = None
         __props__.__dict__["encryption"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_disk_identity"] = None
         __props__.__dict__["managed_resource_group_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
@@ -392,6 +415,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "created_date_time")
 
     @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource Id of the managed disk encryption set.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
     @pulumi.getter
     def encryption(self) -> pulumi.Output[Optional['outputs.WorkspacePropertiesResponseEncryption']]:
         """
@@ -406,6 +437,14 @@ class Workspace(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedDiskIdentity")
+    def managed_disk_identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityConfigurationResponse']]:
+        """
+        The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        """
+        return pulumi.get(self, "managed_disk_identity")
 
     @property
     @pulumi.getter(name="managedResourceGroupId")

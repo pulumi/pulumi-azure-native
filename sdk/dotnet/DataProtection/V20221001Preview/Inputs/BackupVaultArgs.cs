@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.DataProtection.V20221001Preview.Inputs
         [Input("monitoringSettings")]
         public Input<Inputs.MonitoringSettingsArgs>? MonitoringSettings { get; set; }
 
+        /// <summary>
+        /// Security Settings
+        /// </summary>
+        [Input("securitySettings")]
+        public Input<Inputs.SecuritySettingsArgs>? SecuritySettings { get; set; }
+
         [Input("storageSettings", required: true)]
         private InputList<Inputs.StorageSettingArgs>? _storageSettings;
 

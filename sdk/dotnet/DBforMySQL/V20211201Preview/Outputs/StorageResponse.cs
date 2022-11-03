@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Outputs
         /// </summary>
         public readonly string? AutoGrow;
         /// <summary>
+        /// Enable IO Auto Scaling or not.
+        /// </summary>
+        public readonly string? AutoIoScaling;
+        /// <summary>
         /// Storage IOPS for a server.
         /// </summary>
         public readonly int? Iops;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Outputs
         private StorageResponse(
             string? autoGrow,
 
+            string? autoIoScaling,
+
             int? iops,
 
             int? storageSizeGB,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Outputs
             string storageSku)
         {
             AutoGrow = autoGrow;
+            AutoIoScaling = autoIoScaling;
             Iops = iops;
             StorageSizeGB = storageSizeGB;
             StorageSku = storageSku;

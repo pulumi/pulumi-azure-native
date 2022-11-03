@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// <summary>
         /// The software configuration.
         /// </summary>
-        public readonly Union<Outputs.SAPInstallWithoutOSConfigSoftwareConfigurationResponse, Outputs.ServiceInitiatedSoftwareConfigurationResponse>? SoftwareConfiguration;
+        public readonly object? SoftwareConfiguration;
 
         [OutputConstructor]
         private DeploymentWithOSConfigurationResponse(
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             Outputs.OsSapConfigurationResponse? osSapConfiguration,
 
-            Union<Outputs.SAPInstallWithoutOSConfigSoftwareConfigurationResponse, Outputs.ServiceInitiatedSoftwareConfigurationResponse>? softwareConfiguration)
+            object? softwareConfiguration)
         {
             AppLocation = appLocation;
             ConfigurationType = configurationType;

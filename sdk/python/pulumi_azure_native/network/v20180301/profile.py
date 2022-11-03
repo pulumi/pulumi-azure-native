@@ -334,7 +334,7 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["traffic_routing_method"] = traffic_routing_method
             __props__.__dict__["traffic_view_enrollment_status"] = traffic_view_enrollment_status
             __props__.__dict__["type"] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Profile"), pulumi.Alias(type_="azure-native:network/v20151101:Profile"), pulumi.Alias(type_="azure-native:network/v20170301:Profile"), pulumi.Alias(type_="azure-native:network/v20170501:Profile"), pulumi.Alias(type_="azure-native:network/v20180201:Profile"), pulumi.Alias(type_="azure-native:network/v20180401:Profile"), pulumi.Alias(type_="azure-native:network/v20180801:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Profile"), pulumi.Alias(type_="azure-native:network/v20151101:Profile"), pulumi.Alias(type_="azure-native:network/v20170301:Profile"), pulumi.Alias(type_="azure-native:network/v20170501:Profile"), pulumi.Alias(type_="azure-native:network/v20180201:Profile"), pulumi.Alias(type_="azure-native:network/v20180401:Profile"), pulumi.Alias(type_="azure-native:network/v20180801:Profile"), pulumi.Alias(type_="azure-native:network/v20220401preview:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-native:network/v20180301:Profile',

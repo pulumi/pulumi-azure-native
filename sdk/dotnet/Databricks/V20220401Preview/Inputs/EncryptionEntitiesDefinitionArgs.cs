@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Inputs
     public sealed class EncryptionEntitiesDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Encryption properties for the databricks managed disks.
+        /// </summary>
+        [Input("managedDisk")]
+        public Input<Inputs.ManagedDiskEncryptionArgs>? ManagedDisk { get; set; }
+
+        /// <summary>
         /// Encryption properties for the databricks managed services.
         /// </summary>
         [Input("managedServices")]

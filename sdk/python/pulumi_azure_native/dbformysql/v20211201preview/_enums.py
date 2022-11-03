@@ -44,7 +44,7 @@ class DataEncryptionType(str, Enum):
 
 class EnableStatusEnum(str, Enum):
     """
-    Enable Storage Auto Grow or not.
+    Enable IO Auto Scaling or not.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

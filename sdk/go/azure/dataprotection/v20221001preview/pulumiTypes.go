@@ -929,6 +929,7 @@ type BackupScheduleResponse struct {
 type BackupVaultType struct {
 	IsVaultProtectedByResourceGuard *bool               `pulumi:"isVaultProtectedByResourceGuard"`
 	MonitoringSettings              *MonitoringSettings `pulumi:"monitoringSettings"`
+	SecuritySettings                *SecuritySettings   `pulumi:"securitySettings"`
 	StorageSettings                 []StorageSetting    `pulumi:"storageSettings"`
 }
 
@@ -946,6 +947,7 @@ type BackupVaultTypeInput interface {
 type BackupVaultTypeArgs struct {
 	IsVaultProtectedByResourceGuard pulumi.BoolPtrInput        `pulumi:"isVaultProtectedByResourceGuard"`
 	MonitoringSettings              MonitoringSettingsPtrInput `pulumi:"monitoringSettings"`
+	SecuritySettings                SecuritySettingsPtrInput   `pulumi:"securitySettings"`
 	StorageSettings                 StorageSettingArrayInput   `pulumi:"storageSettings"`
 }
 
@@ -983,6 +985,10 @@ func (o BackupVaultTypeOutput) MonitoringSettings() MonitoringSettingsPtrOutput 
 	return o.ApplyT(func(v BackupVaultType) *MonitoringSettings { return v.MonitoringSettings }).(MonitoringSettingsPtrOutput)
 }
 
+func (o BackupVaultTypeOutput) SecuritySettings() SecuritySettingsPtrOutput {
+	return o.ApplyT(func(v BackupVaultType) *SecuritySettings { return v.SecuritySettings }).(SecuritySettingsPtrOutput)
+}
+
 func (o BackupVaultTypeOutput) StorageSettings() StorageSettingArrayOutput {
 	return o.ApplyT(func(v BackupVaultType) []StorageSetting { return v.StorageSettings }).(StorageSettingArrayOutput)
 }
@@ -993,6 +999,7 @@ type BackupVaultResponse struct {
 	ProvisioningState               string                      `pulumi:"provisioningState"`
 	ResourceMoveDetails             ResourceMoveDetailsResponse `pulumi:"resourceMoveDetails"`
 	ResourceMoveState               string                      `pulumi:"resourceMoveState"`
+	SecuritySettings                *SecuritySettingsResponse   `pulumi:"securitySettings"`
 	StorageSettings                 []StorageSettingResponse    `pulumi:"storageSettings"`
 }
 
@@ -1028,6 +1035,10 @@ func (o BackupVaultResponseOutput) ResourceMoveDetails() ResourceMoveDetailsResp
 
 func (o BackupVaultResponseOutput) ResourceMoveState() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupVaultResponse) string { return v.ResourceMoveState }).(pulumi.StringOutput)
+}
+
+func (o BackupVaultResponseOutput) SecuritySettings() SecuritySettingsResponsePtrOutput {
+	return o.ApplyT(func(v BackupVaultResponse) *SecuritySettingsResponse { return v.SecuritySettings }).(SecuritySettingsResponsePtrOutput)
 }
 
 func (o BackupVaultResponseOutput) StorageSettings() StorageSettingResponseArrayOutput {
@@ -1931,6 +1942,194 @@ type ImmediateCopyOption struct {
 
 type ImmediateCopyOptionResponse struct {
 	ObjectType string `pulumi:"objectType"`
+}
+
+type ImmutabilitySettings struct {
+	State *string `pulumi:"state"`
+}
+
+
+
+
+
+type ImmutabilitySettingsInput interface {
+	pulumi.Input
+
+	ToImmutabilitySettingsOutput() ImmutabilitySettingsOutput
+	ToImmutabilitySettingsOutputWithContext(context.Context) ImmutabilitySettingsOutput
+}
+
+type ImmutabilitySettingsArgs struct {
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (ImmutabilitySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutabilitySettings)(nil)).Elem()
+}
+
+func (i ImmutabilitySettingsArgs) ToImmutabilitySettingsOutput() ImmutabilitySettingsOutput {
+	return i.ToImmutabilitySettingsOutputWithContext(context.Background())
+}
+
+func (i ImmutabilitySettingsArgs) ToImmutabilitySettingsOutputWithContext(ctx context.Context) ImmutabilitySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilitySettingsOutput)
+}
+
+func (i ImmutabilitySettingsArgs) ToImmutabilitySettingsPtrOutput() ImmutabilitySettingsPtrOutput {
+	return i.ToImmutabilitySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ImmutabilitySettingsArgs) ToImmutabilitySettingsPtrOutputWithContext(ctx context.Context) ImmutabilitySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilitySettingsOutput).ToImmutabilitySettingsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ImmutabilitySettingsPtrInput interface {
+	pulumi.Input
+
+	ToImmutabilitySettingsPtrOutput() ImmutabilitySettingsPtrOutput
+	ToImmutabilitySettingsPtrOutputWithContext(context.Context) ImmutabilitySettingsPtrOutput
+}
+
+type immutabilitySettingsPtrType ImmutabilitySettingsArgs
+
+func ImmutabilitySettingsPtr(v *ImmutabilitySettingsArgs) ImmutabilitySettingsPtrInput {
+	return (*immutabilitySettingsPtrType)(v)
+}
+
+func (*immutabilitySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutabilitySettings)(nil)).Elem()
+}
+
+func (i *immutabilitySettingsPtrType) ToImmutabilitySettingsPtrOutput() ImmutabilitySettingsPtrOutput {
+	return i.ToImmutabilitySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *immutabilitySettingsPtrType) ToImmutabilitySettingsPtrOutputWithContext(ctx context.Context) ImmutabilitySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilitySettingsPtrOutput)
+}
+
+type ImmutabilitySettingsOutput struct{ *pulumi.OutputState }
+
+func (ImmutabilitySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutabilitySettings)(nil)).Elem()
+}
+
+func (o ImmutabilitySettingsOutput) ToImmutabilitySettingsOutput() ImmutabilitySettingsOutput {
+	return o
+}
+
+func (o ImmutabilitySettingsOutput) ToImmutabilitySettingsOutputWithContext(ctx context.Context) ImmutabilitySettingsOutput {
+	return o
+}
+
+func (o ImmutabilitySettingsOutput) ToImmutabilitySettingsPtrOutput() ImmutabilitySettingsPtrOutput {
+	return o.ToImmutabilitySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ImmutabilitySettingsOutput) ToImmutabilitySettingsPtrOutputWithContext(ctx context.Context) ImmutabilitySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImmutabilitySettings) *ImmutabilitySettings {
+		return &v
+	}).(ImmutabilitySettingsPtrOutput)
+}
+
+func (o ImmutabilitySettingsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImmutabilitySettings) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ImmutabilitySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ImmutabilitySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutabilitySettings)(nil)).Elem()
+}
+
+func (o ImmutabilitySettingsPtrOutput) ToImmutabilitySettingsPtrOutput() ImmutabilitySettingsPtrOutput {
+	return o
+}
+
+func (o ImmutabilitySettingsPtrOutput) ToImmutabilitySettingsPtrOutputWithContext(ctx context.Context) ImmutabilitySettingsPtrOutput {
+	return o
+}
+
+func (o ImmutabilitySettingsPtrOutput) Elem() ImmutabilitySettingsOutput {
+	return o.ApplyT(func(v *ImmutabilitySettings) ImmutabilitySettings {
+		if v != nil {
+			return *v
+		}
+		var ret ImmutabilitySettings
+		return ret
+	}).(ImmutabilitySettingsOutput)
+}
+
+func (o ImmutabilitySettingsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImmutabilitySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImmutabilitySettingsResponse struct {
+	State *string `pulumi:"state"`
+}
+
+type ImmutabilitySettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ImmutabilitySettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmutabilitySettingsResponse)(nil)).Elem()
+}
+
+func (o ImmutabilitySettingsResponseOutput) ToImmutabilitySettingsResponseOutput() ImmutabilitySettingsResponseOutput {
+	return o
+}
+
+func (o ImmutabilitySettingsResponseOutput) ToImmutabilitySettingsResponseOutputWithContext(ctx context.Context) ImmutabilitySettingsResponseOutput {
+	return o
+}
+
+func (o ImmutabilitySettingsResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImmutabilitySettingsResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ImmutabilitySettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImmutabilitySettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImmutabilitySettingsResponse)(nil)).Elem()
+}
+
+func (o ImmutabilitySettingsResponsePtrOutput) ToImmutabilitySettingsResponsePtrOutput() ImmutabilitySettingsResponsePtrOutput {
+	return o
+}
+
+func (o ImmutabilitySettingsResponsePtrOutput) ToImmutabilitySettingsResponsePtrOutputWithContext(ctx context.Context) ImmutabilitySettingsResponsePtrOutput {
+	return o
+}
+
+func (o ImmutabilitySettingsResponsePtrOutput) Elem() ImmutabilitySettingsResponseOutput {
+	return o.ApplyT(func(v *ImmutabilitySettingsResponse) ImmutabilitySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImmutabilitySettingsResponse
+		return ret
+	}).(ImmutabilitySettingsResponseOutput)
+}
+
+func (o ImmutabilitySettingsResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImmutabilitySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 type InnerErrorResponse struct {
@@ -2984,6 +3183,153 @@ func (o ResourceGuardTypePtrOutput) VaultCriticalOperationExclusionList() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
+type ResourceGuardOperationDetail struct {
+	DefaultResourceRequest *string `pulumi:"defaultResourceRequest"`
+	VaultCriticalOperation *string `pulumi:"vaultCriticalOperation"`
+}
+
+
+
+
+
+type ResourceGuardOperationDetailInput interface {
+	pulumi.Input
+
+	ToResourceGuardOperationDetailOutput() ResourceGuardOperationDetailOutput
+	ToResourceGuardOperationDetailOutputWithContext(context.Context) ResourceGuardOperationDetailOutput
+}
+
+type ResourceGuardOperationDetailArgs struct {
+	DefaultResourceRequest pulumi.StringPtrInput `pulumi:"defaultResourceRequest"`
+	VaultCriticalOperation pulumi.StringPtrInput `pulumi:"vaultCriticalOperation"`
+}
+
+func (ResourceGuardOperationDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardOperationDetail)(nil)).Elem()
+}
+
+func (i ResourceGuardOperationDetailArgs) ToResourceGuardOperationDetailOutput() ResourceGuardOperationDetailOutput {
+	return i.ToResourceGuardOperationDetailOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardOperationDetailArgs) ToResourceGuardOperationDetailOutputWithContext(ctx context.Context) ResourceGuardOperationDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardOperationDetailOutput)
+}
+
+
+
+
+
+type ResourceGuardOperationDetailArrayInput interface {
+	pulumi.Input
+
+	ToResourceGuardOperationDetailArrayOutput() ResourceGuardOperationDetailArrayOutput
+	ToResourceGuardOperationDetailArrayOutputWithContext(context.Context) ResourceGuardOperationDetailArrayOutput
+}
+
+type ResourceGuardOperationDetailArray []ResourceGuardOperationDetailInput
+
+func (ResourceGuardOperationDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGuardOperationDetail)(nil)).Elem()
+}
+
+func (i ResourceGuardOperationDetailArray) ToResourceGuardOperationDetailArrayOutput() ResourceGuardOperationDetailArrayOutput {
+	return i.ToResourceGuardOperationDetailArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardOperationDetailArray) ToResourceGuardOperationDetailArrayOutputWithContext(ctx context.Context) ResourceGuardOperationDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardOperationDetailArrayOutput)
+}
+
+type ResourceGuardOperationDetailOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardOperationDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardOperationDetail)(nil)).Elem()
+}
+
+func (o ResourceGuardOperationDetailOutput) ToResourceGuardOperationDetailOutput() ResourceGuardOperationDetailOutput {
+	return o
+}
+
+func (o ResourceGuardOperationDetailOutput) ToResourceGuardOperationDetailOutputWithContext(ctx context.Context) ResourceGuardOperationDetailOutput {
+	return o
+}
+
+func (o ResourceGuardOperationDetailOutput) DefaultResourceRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardOperationDetail) *string { return v.DefaultResourceRequest }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGuardOperationDetailOutput) VaultCriticalOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardOperationDetail) *string { return v.VaultCriticalOperation }).(pulumi.StringPtrOutput)
+}
+
+type ResourceGuardOperationDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardOperationDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGuardOperationDetail)(nil)).Elem()
+}
+
+func (o ResourceGuardOperationDetailArrayOutput) ToResourceGuardOperationDetailArrayOutput() ResourceGuardOperationDetailArrayOutput {
+	return o
+}
+
+func (o ResourceGuardOperationDetailArrayOutput) ToResourceGuardOperationDetailArrayOutputWithContext(ctx context.Context) ResourceGuardOperationDetailArrayOutput {
+	return o
+}
+
+func (o ResourceGuardOperationDetailArrayOutput) Index(i pulumi.IntInput) ResourceGuardOperationDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGuardOperationDetail {
+		return vs[0].([]ResourceGuardOperationDetail)[vs[1].(int)]
+	}).(ResourceGuardOperationDetailOutput)
+}
+
+type ResourceGuardOperationDetailResponse struct {
+	DefaultResourceRequest *string `pulumi:"defaultResourceRequest"`
+	VaultCriticalOperation *string `pulumi:"vaultCriticalOperation"`
+}
+
+type ResourceGuardOperationDetailResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardOperationDetailResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardOperationDetailResponse)(nil)).Elem()
+}
+
+func (o ResourceGuardOperationDetailResponseOutput) ToResourceGuardOperationDetailResponseOutput() ResourceGuardOperationDetailResponseOutput {
+	return o
+}
+
+func (o ResourceGuardOperationDetailResponseOutput) ToResourceGuardOperationDetailResponseOutputWithContext(ctx context.Context) ResourceGuardOperationDetailResponseOutput {
+	return o
+}
+
+func (o ResourceGuardOperationDetailResponseOutput) DefaultResourceRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardOperationDetailResponse) *string { return v.DefaultResourceRequest }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGuardOperationDetailResponseOutput) VaultCriticalOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardOperationDetailResponse) *string { return v.VaultCriticalOperation }).(pulumi.StringPtrOutput)
+}
+
+type ResourceGuardOperationDetailResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardOperationDetailResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGuardOperationDetailResponse)(nil)).Elem()
+}
+
+func (o ResourceGuardOperationDetailResponseArrayOutput) ToResourceGuardOperationDetailResponseArrayOutput() ResourceGuardOperationDetailResponseArrayOutput {
+	return o
+}
+
+func (o ResourceGuardOperationDetailResponseArrayOutput) ToResourceGuardOperationDetailResponseArrayOutputWithContext(ctx context.Context) ResourceGuardOperationDetailResponseArrayOutput {
+	return o
+}
+
+func (o ResourceGuardOperationDetailResponseArrayOutput) Index(i pulumi.IntInput) ResourceGuardOperationDetailResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGuardOperationDetailResponse {
+		return vs[0].([]ResourceGuardOperationDetailResponse)[vs[1].(int)]
+	}).(ResourceGuardOperationDetailResponseOutput)
+}
+
 type ResourceGuardOperationResponse struct {
 	RequestResourceType    string `pulumi:"requestResourceType"`
 	VaultCriticalOperation string `pulumi:"vaultCriticalOperation"`
@@ -3029,6 +3375,223 @@ func (o ResourceGuardOperationResponseArrayOutput) Index(i pulumi.IntInput) Reso
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGuardOperationResponse {
 		return vs[0].([]ResourceGuardOperationResponse)[vs[1].(int)]
 	}).(ResourceGuardOperationResponseOutput)
+}
+
+type ResourceGuardProxyBase struct {
+	Description                   *string                        `pulumi:"description"`
+	LastUpdatedTime               *string                        `pulumi:"lastUpdatedTime"`
+	ResourceGuardOperationDetails []ResourceGuardOperationDetail `pulumi:"resourceGuardOperationDetails"`
+	ResourceGuardResourceId       *string                        `pulumi:"resourceGuardResourceId"`
+}
+
+
+
+
+
+type ResourceGuardProxyBaseInput interface {
+	pulumi.Input
+
+	ToResourceGuardProxyBaseOutput() ResourceGuardProxyBaseOutput
+	ToResourceGuardProxyBaseOutputWithContext(context.Context) ResourceGuardProxyBaseOutput
+}
+
+type ResourceGuardProxyBaseArgs struct {
+	Description                   pulumi.StringPtrInput                  `pulumi:"description"`
+	LastUpdatedTime               pulumi.StringPtrInput                  `pulumi:"lastUpdatedTime"`
+	ResourceGuardOperationDetails ResourceGuardOperationDetailArrayInput `pulumi:"resourceGuardOperationDetails"`
+	ResourceGuardResourceId       pulumi.StringPtrInput                  `pulumi:"resourceGuardResourceId"`
+}
+
+func (ResourceGuardProxyBaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardProxyBase)(nil)).Elem()
+}
+
+func (i ResourceGuardProxyBaseArgs) ToResourceGuardProxyBaseOutput() ResourceGuardProxyBaseOutput {
+	return i.ToResourceGuardProxyBaseOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardProxyBaseArgs) ToResourceGuardProxyBaseOutputWithContext(ctx context.Context) ResourceGuardProxyBaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardProxyBaseOutput)
+}
+
+func (i ResourceGuardProxyBaseArgs) ToResourceGuardProxyBasePtrOutput() ResourceGuardProxyBasePtrOutput {
+	return i.ToResourceGuardProxyBasePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardProxyBaseArgs) ToResourceGuardProxyBasePtrOutputWithContext(ctx context.Context) ResourceGuardProxyBasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardProxyBaseOutput).ToResourceGuardProxyBasePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ResourceGuardProxyBasePtrInput interface {
+	pulumi.Input
+
+	ToResourceGuardProxyBasePtrOutput() ResourceGuardProxyBasePtrOutput
+	ToResourceGuardProxyBasePtrOutputWithContext(context.Context) ResourceGuardProxyBasePtrOutput
+}
+
+type resourceGuardProxyBasePtrType ResourceGuardProxyBaseArgs
+
+func ResourceGuardProxyBasePtr(v *ResourceGuardProxyBaseArgs) ResourceGuardProxyBasePtrInput {
+	return (*resourceGuardProxyBasePtrType)(v)
+}
+
+func (*resourceGuardProxyBasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGuardProxyBase)(nil)).Elem()
+}
+
+func (i *resourceGuardProxyBasePtrType) ToResourceGuardProxyBasePtrOutput() ResourceGuardProxyBasePtrOutput {
+	return i.ToResourceGuardProxyBasePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGuardProxyBasePtrType) ToResourceGuardProxyBasePtrOutputWithContext(ctx context.Context) ResourceGuardProxyBasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardProxyBasePtrOutput)
+}
+
+type ResourceGuardProxyBaseOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardProxyBaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardProxyBase)(nil)).Elem()
+}
+
+func (o ResourceGuardProxyBaseOutput) ToResourceGuardProxyBaseOutput() ResourceGuardProxyBaseOutput {
+	return o
+}
+
+func (o ResourceGuardProxyBaseOutput) ToResourceGuardProxyBaseOutputWithContext(ctx context.Context) ResourceGuardProxyBaseOutput {
+	return o
+}
+
+func (o ResourceGuardProxyBaseOutput) ToResourceGuardProxyBasePtrOutput() ResourceGuardProxyBasePtrOutput {
+	return o.ToResourceGuardProxyBasePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGuardProxyBaseOutput) ToResourceGuardProxyBasePtrOutputWithContext(ctx context.Context) ResourceGuardProxyBasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGuardProxyBase) *ResourceGuardProxyBase {
+		return &v
+	}).(ResourceGuardProxyBasePtrOutput)
+}
+
+func (o ResourceGuardProxyBaseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBase) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGuardProxyBaseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBase) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGuardProxyBaseOutput) ResourceGuardOperationDetails() ResourceGuardOperationDetailArrayOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBase) []ResourceGuardOperationDetail { return v.ResourceGuardOperationDetails }).(ResourceGuardOperationDetailArrayOutput)
+}
+
+func (o ResourceGuardProxyBaseOutput) ResourceGuardResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBase) *string { return v.ResourceGuardResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ResourceGuardProxyBasePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardProxyBasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGuardProxyBase)(nil)).Elem()
+}
+
+func (o ResourceGuardProxyBasePtrOutput) ToResourceGuardProxyBasePtrOutput() ResourceGuardProxyBasePtrOutput {
+	return o
+}
+
+func (o ResourceGuardProxyBasePtrOutput) ToResourceGuardProxyBasePtrOutputWithContext(ctx context.Context) ResourceGuardProxyBasePtrOutput {
+	return o
+}
+
+func (o ResourceGuardProxyBasePtrOutput) Elem() ResourceGuardProxyBaseOutput {
+	return o.ApplyT(func(v *ResourceGuardProxyBase) ResourceGuardProxyBase {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGuardProxyBase
+		return ret
+	}).(ResourceGuardProxyBaseOutput)
+}
+
+func (o ResourceGuardProxyBasePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuardProxyBase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGuardProxyBasePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuardProxyBase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastUpdatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGuardProxyBasePtrOutput) ResourceGuardOperationDetails() ResourceGuardOperationDetailArrayOutput {
+	return o.ApplyT(func(v *ResourceGuardProxyBase) []ResourceGuardOperationDetail {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGuardOperationDetails
+	}).(ResourceGuardOperationDetailArrayOutput)
+}
+
+func (o ResourceGuardProxyBasePtrOutput) ResourceGuardResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuardProxyBase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGuardResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceGuardProxyBaseResponse struct {
+	Description                   *string                                `pulumi:"description"`
+	LastUpdatedTime               *string                                `pulumi:"lastUpdatedTime"`
+	ResourceGuardOperationDetails []ResourceGuardOperationDetailResponse `pulumi:"resourceGuardOperationDetails"`
+	ResourceGuardResourceId       *string                                `pulumi:"resourceGuardResourceId"`
+}
+
+type ResourceGuardProxyBaseResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardProxyBaseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardProxyBaseResponse)(nil)).Elem()
+}
+
+func (o ResourceGuardProxyBaseResponseOutput) ToResourceGuardProxyBaseResponseOutput() ResourceGuardProxyBaseResponseOutput {
+	return o
+}
+
+func (o ResourceGuardProxyBaseResponseOutput) ToResourceGuardProxyBaseResponseOutputWithContext(ctx context.Context) ResourceGuardProxyBaseResponseOutput {
+	return o
+}
+
+func (o ResourceGuardProxyBaseResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBaseResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGuardProxyBaseResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBaseResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGuardProxyBaseResponseOutput) ResourceGuardOperationDetails() ResourceGuardOperationDetailResponseArrayOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBaseResponse) []ResourceGuardOperationDetailResponse {
+		return v.ResourceGuardOperationDetails
+	}).(ResourceGuardOperationDetailResponseArrayOutput)
+}
+
+func (o ResourceGuardProxyBaseResponseOutput) ResourceGuardResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGuardProxyBaseResponse) *string { return v.ResourceGuardResourceId }).(pulumi.StringPtrOutput)
 }
 
 type ResourceGuardResponse struct {
@@ -3622,6 +4185,440 @@ func (o SecretStoreResourceResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SecuritySettings struct {
+	ImmutabilitySettings *ImmutabilitySettings `pulumi:"immutabilitySettings"`
+	SoftDeleteSettings   *SoftDeleteSettings   `pulumi:"softDeleteSettings"`
+}
+
+
+
+
+
+type SecuritySettingsInput interface {
+	pulumi.Input
+
+	ToSecuritySettingsOutput() SecuritySettingsOutput
+	ToSecuritySettingsOutputWithContext(context.Context) SecuritySettingsOutput
+}
+
+type SecuritySettingsArgs struct {
+	ImmutabilitySettings ImmutabilitySettingsPtrInput `pulumi:"immutabilitySettings"`
+	SoftDeleteSettings   SoftDeleteSettingsPtrInput   `pulumi:"softDeleteSettings"`
+}
+
+func (SecuritySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySettings)(nil)).Elem()
+}
+
+func (i SecuritySettingsArgs) ToSecuritySettingsOutput() SecuritySettingsOutput {
+	return i.ToSecuritySettingsOutputWithContext(context.Background())
+}
+
+func (i SecuritySettingsArgs) ToSecuritySettingsOutputWithContext(ctx context.Context) SecuritySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySettingsOutput)
+}
+
+func (i SecuritySettingsArgs) ToSecuritySettingsPtrOutput() SecuritySettingsPtrOutput {
+	return i.ToSecuritySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SecuritySettingsArgs) ToSecuritySettingsPtrOutputWithContext(ctx context.Context) SecuritySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySettingsOutput).ToSecuritySettingsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SecuritySettingsPtrInput interface {
+	pulumi.Input
+
+	ToSecuritySettingsPtrOutput() SecuritySettingsPtrOutput
+	ToSecuritySettingsPtrOutputWithContext(context.Context) SecuritySettingsPtrOutput
+}
+
+type securitySettingsPtrType SecuritySettingsArgs
+
+func SecuritySettingsPtr(v *SecuritySettingsArgs) SecuritySettingsPtrInput {
+	return (*securitySettingsPtrType)(v)
+}
+
+func (*securitySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecuritySettings)(nil)).Elem()
+}
+
+func (i *securitySettingsPtrType) ToSecuritySettingsPtrOutput() SecuritySettingsPtrOutput {
+	return i.ToSecuritySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *securitySettingsPtrType) ToSecuritySettingsPtrOutputWithContext(ctx context.Context) SecuritySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySettingsPtrOutput)
+}
+
+type SecuritySettingsOutput struct{ *pulumi.OutputState }
+
+func (SecuritySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySettings)(nil)).Elem()
+}
+
+func (o SecuritySettingsOutput) ToSecuritySettingsOutput() SecuritySettingsOutput {
+	return o
+}
+
+func (o SecuritySettingsOutput) ToSecuritySettingsOutputWithContext(ctx context.Context) SecuritySettingsOutput {
+	return o
+}
+
+func (o SecuritySettingsOutput) ToSecuritySettingsPtrOutput() SecuritySettingsPtrOutput {
+	return o.ToSecuritySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SecuritySettingsOutput) ToSecuritySettingsPtrOutputWithContext(ctx context.Context) SecuritySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecuritySettings) *SecuritySettings {
+		return &v
+	}).(SecuritySettingsPtrOutput)
+}
+
+func (o SecuritySettingsOutput) ImmutabilitySettings() ImmutabilitySettingsPtrOutput {
+	return o.ApplyT(func(v SecuritySettings) *ImmutabilitySettings { return v.ImmutabilitySettings }).(ImmutabilitySettingsPtrOutput)
+}
+
+func (o SecuritySettingsOutput) SoftDeleteSettings() SoftDeleteSettingsPtrOutput {
+	return o.ApplyT(func(v SecuritySettings) *SoftDeleteSettings { return v.SoftDeleteSettings }).(SoftDeleteSettingsPtrOutput)
+}
+
+type SecuritySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecuritySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecuritySettings)(nil)).Elem()
+}
+
+func (o SecuritySettingsPtrOutput) ToSecuritySettingsPtrOutput() SecuritySettingsPtrOutput {
+	return o
+}
+
+func (o SecuritySettingsPtrOutput) ToSecuritySettingsPtrOutputWithContext(ctx context.Context) SecuritySettingsPtrOutput {
+	return o
+}
+
+func (o SecuritySettingsPtrOutput) Elem() SecuritySettingsOutput {
+	return o.ApplyT(func(v *SecuritySettings) SecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret SecuritySettings
+		return ret
+	}).(SecuritySettingsOutput)
+}
+
+func (o SecuritySettingsPtrOutput) ImmutabilitySettings() ImmutabilitySettingsPtrOutput {
+	return o.ApplyT(func(v *SecuritySettings) *ImmutabilitySettings {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutabilitySettings
+	}).(ImmutabilitySettingsPtrOutput)
+}
+
+func (o SecuritySettingsPtrOutput) SoftDeleteSettings() SoftDeleteSettingsPtrOutput {
+	return o.ApplyT(func(v *SecuritySettings) *SoftDeleteSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SoftDeleteSettings
+	}).(SoftDeleteSettingsPtrOutput)
+}
+
+type SecuritySettingsResponse struct {
+	ImmutabilitySettings *ImmutabilitySettingsResponse `pulumi:"immutabilitySettings"`
+	SoftDeleteSettings   *SoftDeleteSettingsResponse   `pulumi:"softDeleteSettings"`
+}
+
+type SecuritySettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (SecuritySettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySettingsResponse)(nil)).Elem()
+}
+
+func (o SecuritySettingsResponseOutput) ToSecuritySettingsResponseOutput() SecuritySettingsResponseOutput {
+	return o
+}
+
+func (o SecuritySettingsResponseOutput) ToSecuritySettingsResponseOutputWithContext(ctx context.Context) SecuritySettingsResponseOutput {
+	return o
+}
+
+func (o SecuritySettingsResponseOutput) ImmutabilitySettings() ImmutabilitySettingsResponsePtrOutput {
+	return o.ApplyT(func(v SecuritySettingsResponse) *ImmutabilitySettingsResponse { return v.ImmutabilitySettings }).(ImmutabilitySettingsResponsePtrOutput)
+}
+
+func (o SecuritySettingsResponseOutput) SoftDeleteSettings() SoftDeleteSettingsResponsePtrOutput {
+	return o.ApplyT(func(v SecuritySettingsResponse) *SoftDeleteSettingsResponse { return v.SoftDeleteSettings }).(SoftDeleteSettingsResponsePtrOutput)
+}
+
+type SecuritySettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecuritySettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecuritySettingsResponse)(nil)).Elem()
+}
+
+func (o SecuritySettingsResponsePtrOutput) ToSecuritySettingsResponsePtrOutput() SecuritySettingsResponsePtrOutput {
+	return o
+}
+
+func (o SecuritySettingsResponsePtrOutput) ToSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) SecuritySettingsResponsePtrOutput {
+	return o
+}
+
+func (o SecuritySettingsResponsePtrOutput) Elem() SecuritySettingsResponseOutput {
+	return o.ApplyT(func(v *SecuritySettingsResponse) SecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecuritySettingsResponse
+		return ret
+	}).(SecuritySettingsResponseOutput)
+}
+
+func (o SecuritySettingsResponsePtrOutput) ImmutabilitySettings() ImmutabilitySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SecuritySettingsResponse) *ImmutabilitySettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutabilitySettings
+	}).(ImmutabilitySettingsResponsePtrOutput)
+}
+
+func (o SecuritySettingsResponsePtrOutput) SoftDeleteSettings() SoftDeleteSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SecuritySettingsResponse) *SoftDeleteSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SoftDeleteSettings
+	}).(SoftDeleteSettingsResponsePtrOutput)
+}
+
+type SoftDeleteSettings struct {
+	RetentionDurationInDays *float64 `pulumi:"retentionDurationInDays"`
+	State                   *string  `pulumi:"state"`
+}
+
+
+
+
+
+type SoftDeleteSettingsInput interface {
+	pulumi.Input
+
+	ToSoftDeleteSettingsOutput() SoftDeleteSettingsOutput
+	ToSoftDeleteSettingsOutputWithContext(context.Context) SoftDeleteSettingsOutput
+}
+
+type SoftDeleteSettingsArgs struct {
+	RetentionDurationInDays pulumi.Float64PtrInput `pulumi:"retentionDurationInDays"`
+	State                   pulumi.StringPtrInput  `pulumi:"state"`
+}
+
+func (SoftDeleteSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftDeleteSettings)(nil)).Elem()
+}
+
+func (i SoftDeleteSettingsArgs) ToSoftDeleteSettingsOutput() SoftDeleteSettingsOutput {
+	return i.ToSoftDeleteSettingsOutputWithContext(context.Background())
+}
+
+func (i SoftDeleteSettingsArgs) ToSoftDeleteSettingsOutputWithContext(ctx context.Context) SoftDeleteSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftDeleteSettingsOutput)
+}
+
+func (i SoftDeleteSettingsArgs) ToSoftDeleteSettingsPtrOutput() SoftDeleteSettingsPtrOutput {
+	return i.ToSoftDeleteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SoftDeleteSettingsArgs) ToSoftDeleteSettingsPtrOutputWithContext(ctx context.Context) SoftDeleteSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftDeleteSettingsOutput).ToSoftDeleteSettingsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SoftDeleteSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSoftDeleteSettingsPtrOutput() SoftDeleteSettingsPtrOutput
+	ToSoftDeleteSettingsPtrOutputWithContext(context.Context) SoftDeleteSettingsPtrOutput
+}
+
+type softDeleteSettingsPtrType SoftDeleteSettingsArgs
+
+func SoftDeleteSettingsPtr(v *SoftDeleteSettingsArgs) SoftDeleteSettingsPtrInput {
+	return (*softDeleteSettingsPtrType)(v)
+}
+
+func (*softDeleteSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftDeleteSettings)(nil)).Elem()
+}
+
+func (i *softDeleteSettingsPtrType) ToSoftDeleteSettingsPtrOutput() SoftDeleteSettingsPtrOutput {
+	return i.ToSoftDeleteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *softDeleteSettingsPtrType) ToSoftDeleteSettingsPtrOutputWithContext(ctx context.Context) SoftDeleteSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftDeleteSettingsPtrOutput)
+}
+
+type SoftDeleteSettingsOutput struct{ *pulumi.OutputState }
+
+func (SoftDeleteSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftDeleteSettings)(nil)).Elem()
+}
+
+func (o SoftDeleteSettingsOutput) ToSoftDeleteSettingsOutput() SoftDeleteSettingsOutput {
+	return o
+}
+
+func (o SoftDeleteSettingsOutput) ToSoftDeleteSettingsOutputWithContext(ctx context.Context) SoftDeleteSettingsOutput {
+	return o
+}
+
+func (o SoftDeleteSettingsOutput) ToSoftDeleteSettingsPtrOutput() SoftDeleteSettingsPtrOutput {
+	return o.ToSoftDeleteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SoftDeleteSettingsOutput) ToSoftDeleteSettingsPtrOutputWithContext(ctx context.Context) SoftDeleteSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftDeleteSettings) *SoftDeleteSettings {
+		return &v
+	}).(SoftDeleteSettingsPtrOutput)
+}
+
+func (o SoftDeleteSettingsOutput) RetentionDurationInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoftDeleteSettings) *float64 { return v.RetentionDurationInDays }).(pulumi.Float64PtrOutput)
+}
+
+func (o SoftDeleteSettingsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SoftDeleteSettings) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type SoftDeleteSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SoftDeleteSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftDeleteSettings)(nil)).Elem()
+}
+
+func (o SoftDeleteSettingsPtrOutput) ToSoftDeleteSettingsPtrOutput() SoftDeleteSettingsPtrOutput {
+	return o
+}
+
+func (o SoftDeleteSettingsPtrOutput) ToSoftDeleteSettingsPtrOutputWithContext(ctx context.Context) SoftDeleteSettingsPtrOutput {
+	return o
+}
+
+func (o SoftDeleteSettingsPtrOutput) Elem() SoftDeleteSettingsOutput {
+	return o.ApplyT(func(v *SoftDeleteSettings) SoftDeleteSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SoftDeleteSettings
+		return ret
+	}).(SoftDeleteSettingsOutput)
+}
+
+func (o SoftDeleteSettingsPtrOutput) RetentionDurationInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoftDeleteSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDurationInDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o SoftDeleteSettingsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftDeleteSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+type SoftDeleteSettingsResponse struct {
+	RetentionDurationInDays *float64 `pulumi:"retentionDurationInDays"`
+	State                   *string  `pulumi:"state"`
+}
+
+type SoftDeleteSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (SoftDeleteSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftDeleteSettingsResponse)(nil)).Elem()
+}
+
+func (o SoftDeleteSettingsResponseOutput) ToSoftDeleteSettingsResponseOutput() SoftDeleteSettingsResponseOutput {
+	return o
+}
+
+func (o SoftDeleteSettingsResponseOutput) ToSoftDeleteSettingsResponseOutputWithContext(ctx context.Context) SoftDeleteSettingsResponseOutput {
+	return o
+}
+
+func (o SoftDeleteSettingsResponseOutput) RetentionDurationInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoftDeleteSettingsResponse) *float64 { return v.RetentionDurationInDays }).(pulumi.Float64PtrOutput)
+}
+
+func (o SoftDeleteSettingsResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SoftDeleteSettingsResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type SoftDeleteSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SoftDeleteSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftDeleteSettingsResponse)(nil)).Elem()
+}
+
+func (o SoftDeleteSettingsResponsePtrOutput) ToSoftDeleteSettingsResponsePtrOutput() SoftDeleteSettingsResponsePtrOutput {
+	return o
+}
+
+func (o SoftDeleteSettingsResponsePtrOutput) ToSoftDeleteSettingsResponsePtrOutputWithContext(ctx context.Context) SoftDeleteSettingsResponsePtrOutput {
+	return o
+}
+
+func (o SoftDeleteSettingsResponsePtrOutput) Elem() SoftDeleteSettingsResponseOutput {
+	return o.ApplyT(func(v *SoftDeleteSettingsResponse) SoftDeleteSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SoftDeleteSettingsResponse
+		return ret
+	}).(SoftDeleteSettingsResponseOutput)
+}
+
+func (o SoftDeleteSettingsResponsePtrOutput) RetentionDurationInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoftDeleteSettingsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDurationInDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o SoftDeleteSettingsResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftDeleteSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
 type SourceLifeCycle struct {
 	DeleteAfter                 AbsoluteDeleteOption `pulumi:"deleteAfter"`
 	SourceDataStore             DataStoreInfoBase    `pulumi:"sourceDataStore"`
@@ -4067,6 +5064,10 @@ func init() {
 	pulumi.RegisterOutputType(DppIdentityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DppIdentityDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DppIdentityDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImmutabilitySettingsOutput{})
+	pulumi.RegisterOutputType(ImmutabilitySettingsPtrOutput{})
+	pulumi.RegisterOutputType(ImmutabilitySettingsResponseOutput{})
+	pulumi.RegisterOutputType(ImmutabilitySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(InnerErrorResponseOutput{})
 	pulumi.RegisterOutputType(InnerErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterBackupDatasourceParametersOutput{})
@@ -4087,8 +5088,15 @@ func init() {
 	pulumi.RegisterOutputType(ProtectionStatusDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGuardTypeOutput{})
 	pulumi.RegisterOutputType(ResourceGuardTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceGuardOperationDetailOutput{})
+	pulumi.RegisterOutputType(ResourceGuardOperationDetailArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGuardOperationDetailResponseOutput{})
+	pulumi.RegisterOutputType(ResourceGuardOperationDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceGuardOperationResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGuardOperationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGuardProxyBaseOutput{})
+	pulumi.RegisterOutputType(ResourceGuardProxyBasePtrOutput{})
+	pulumi.RegisterOutputType(ResourceGuardProxyBaseResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGuardResponseOutput{})
 	pulumi.RegisterOutputType(ResourceMoveDetailsResponseOutput{})
 	pulumi.RegisterOutputType(SecretStoreBasedAuthCredentialsOutput{})
@@ -4099,6 +5107,14 @@ func init() {
 	pulumi.RegisterOutputType(SecretStoreResourcePtrOutput{})
 	pulumi.RegisterOutputType(SecretStoreResourceResponseOutput{})
 	pulumi.RegisterOutputType(SecretStoreResourceResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecuritySettingsOutput{})
+	pulumi.RegisterOutputType(SecuritySettingsPtrOutput{})
+	pulumi.RegisterOutputType(SecuritySettingsResponseOutput{})
+	pulumi.RegisterOutputType(SecuritySettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SoftDeleteSettingsOutput{})
+	pulumi.RegisterOutputType(SoftDeleteSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SoftDeleteSettingsResponseOutput{})
+	pulumi.RegisterOutputType(SoftDeleteSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageSettingOutput{})
 	pulumi.RegisterOutputType(StorageSettingArrayOutput{})
 	pulumi.RegisterOutputType(StorageSettingResponseOutput{})

@@ -97,7 +97,7 @@ export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

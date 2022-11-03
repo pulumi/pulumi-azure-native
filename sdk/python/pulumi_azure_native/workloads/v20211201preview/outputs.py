@@ -31,6 +31,7 @@ __all__ = [
     'ErrorDefinitionResponse',
     'ErrorResponse',
     'ErrorResponseInnerError',
+    'ExternalInstallationSoftwareConfigurationResponse',
     'FileshareProfileResponse',
     'GatewayServerPropertiesResponse',
     'HanaDbProviderInstancePropertiesResponse',
@@ -926,7 +927,7 @@ class DeploymentConfigurationResponse(dict):
                Expected value is 'Deployment'.
         :param str app_location: The geo-location where the SAP system is to be created.
         :param Union['SingleServerConfigurationResponse', 'ThreeTierConfigurationResponse'] infrastructure_configuration: The infrastructure configuration.
-        :param Union['SAPInstallWithoutOSConfigSoftwareConfigurationResponse', 'ServiceInitiatedSoftwareConfigurationResponse'] software_configuration: The software configuration.
+        :param Union['ExternalInstallationSoftwareConfigurationResponse', 'SAPInstallWithoutOSConfigSoftwareConfigurationResponse', 'ServiceInitiatedSoftwareConfigurationResponse'] software_configuration: The software configuration.
         """
         pulumi.set(__self__, "configuration_type", 'Deployment')
         if app_location is not None:
@@ -1013,7 +1014,7 @@ class DeploymentWithOSConfigurationResponse(dict):
         :param str app_location: The geo-location where the SAP system is to be created.
         :param Union['SingleServerConfigurationResponse', 'ThreeTierConfigurationResponse'] infrastructure_configuration: The infrastructure configuration.
         :param 'OsSapConfigurationResponse' os_sap_configuration: The OS and SAP configuration.
-        :param Union['SAPInstallWithoutOSConfigSoftwareConfigurationResponse', 'ServiceInitiatedSoftwareConfigurationResponse'] software_configuration: The software configuration.
+        :param Union['ExternalInstallationSoftwareConfigurationResponse', 'SAPInstallWithoutOSConfigSoftwareConfigurationResponse', 'ServiceInitiatedSoftwareConfigurationResponse'] software_configuration: The software configuration.
         """
         pulumi.set(__self__, "configuration_type", 'DeploymentWithOSConfig')
         if app_location is not None:
@@ -1538,6 +1539,61 @@ class ErrorResponseInnerError(dict):
         Standard error object.
         """
         return pulumi.get(self, "inner_error")
+
+
+@pulumi.output_type
+class ExternalInstallationSoftwareConfigurationResponse(dict):
+    """
+    The SAP Software configuration Input when the software is installed externally outside the service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "softwareInstallationType":
+            suggest = "software_installation_type"
+        elif key == "centralServerVmId":
+            suggest = "central_server_vm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExternalInstallationSoftwareConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExternalInstallationSoftwareConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExternalInstallationSoftwareConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 software_installation_type: str,
+                 central_server_vm_id: Optional[str] = None):
+        """
+        The SAP Software configuration Input when the software is installed externally outside the service.
+        :param str software_installation_type: The SAP software installation Type.
+               Expected value is 'External'.
+        :param str central_server_vm_id: The resource ID of the virtual machine containing the central server instance.
+        """
+        pulumi.set(__self__, "software_installation_type", 'External')
+        if central_server_vm_id is not None:
+            pulumi.set(__self__, "central_server_vm_id", central_server_vm_id)
+
+    @property
+    @pulumi.getter(name="softwareInstallationType")
+    def software_installation_type(self) -> str:
+        """
+        The SAP software installation Type.
+        Expected value is 'External'.
+        """
+        return pulumi.get(self, "software_installation_type")
+
+    @property
+    @pulumi.getter(name="centralServerVmId")
+    def central_server_vm_id(self) -> Optional[str]:
+        """
+        The resource ID of the virtual machine containing the central server instance.
+        """
+        return pulumi.get(self, "central_server_vm_id")
 
 
 @pulumi.output_type

@@ -74,6 +74,14 @@ namespace Pulumi.AzureNative.Authorization.V20220401
         /// </summary>
         public readonly ImmutableArray<string> AssignableScopes;
         /// <summary>
+        /// Id of the user who created the assignment
+        /// </summary>
+        public readonly string CreatedBy;
+        /// <summary>
+        /// Time it was created
+        /// </summary>
+        public readonly string CreatedOn;
+        /// <summary>
         /// The role definition description.
         /// </summary>
         public readonly string? Description;
@@ -101,10 +109,22 @@ namespace Pulumi.AzureNative.Authorization.V20220401
         /// The role definition type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Id of the user who updated the assignment
+        /// </summary>
+        public readonly string UpdatedBy;
+        /// <summary>
+        /// Time it was updated
+        /// </summary>
+        public readonly string UpdatedOn;
 
         [OutputConstructor]
         private GetRoleDefinitionResult(
             ImmutableArray<string> assignableScopes,
+
+            string createdBy,
+
+            string createdOn,
 
             string? description,
 
@@ -118,9 +138,15 @@ namespace Pulumi.AzureNative.Authorization.V20220401
 
             string? roleType,
 
-            string type)
+            string type,
+
+            string updatedBy,
+
+            string updatedOn)
         {
             AssignableScopes = assignableScopes;
+            CreatedBy = createdBy;
+            CreatedOn = createdOn;
             Description = description;
             Id = id;
             Name = name;
@@ -128,6 +154,8 @@ namespace Pulumi.AzureNative.Authorization.V20220401
             RoleName = roleName;
             RoleType = roleType;
             Type = type;
+            UpdatedBy = updatedBy;
+            UpdatedOn = updatedOn;
         }
     }
 }

@@ -33,6 +33,12 @@ func NewDppResourceGuardProxy(ctx *pulumi.Context,
 	if args.VaultName == nil {
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:dataprotection/v20221001preview:DppResourceGuardProxy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DppResourceGuardProxy
 	err := ctx.RegisterResource("azure-native:dataprotection/v20220901preview:DppResourceGuardProxy", name, args, &resource, opts...)
 	if err != nil {

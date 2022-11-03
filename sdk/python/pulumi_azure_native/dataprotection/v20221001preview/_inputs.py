@@ -31,16 +31,21 @@ __all__ = [
     'DayArgs',
     'DppIdentityDetailsArgs',
     'ImmediateCopyOptionArgs',
+    'ImmutabilitySettingsArgs',
     'KubernetesClusterBackupDatasourceParametersArgs',
     'MonitoringSettingsArgs',
     'PolicyInfoArgs',
     'PolicyParametersArgs',
+    'ResourceGuardOperationDetailArgs',
+    'ResourceGuardProxyBaseArgs',
     'ResourceGuardArgs',
     'RetentionTagArgs',
     'ScheduleBasedBackupCriteriaArgs',
     'ScheduleBasedTriggerContextArgs',
     'SecretStoreBasedAuthCredentialsArgs',
     'SecretStoreResourceArgs',
+    'SecuritySettingsArgs',
+    'SoftDeleteSettingsArgs',
     'SourceLifeCycleArgs',
     'StorageSettingArgs',
     'TaggingCriteriaArgs',
@@ -620,18 +625,22 @@ class BackupVaultArgs:
     def __init__(__self__, *,
                  storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]],
                  is_vault_protected_by_resource_guard: Optional[pulumi.Input[bool]] = None,
-                 monitoring_settings: Optional[pulumi.Input['MonitoringSettingsArgs']] = None):
+                 monitoring_settings: Optional[pulumi.Input['MonitoringSettingsArgs']] = None,
+                 security_settings: Optional[pulumi.Input['SecuritySettingsArgs']] = None):
         """
         Backup Vault
         :param pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]] storage_settings: Storage Settings
         :param pulumi.Input[bool] is_vault_protected_by_resource_guard: Is vault protected by resource guard
         :param pulumi.Input['MonitoringSettingsArgs'] monitoring_settings: Monitoring Settings
+        :param pulumi.Input['SecuritySettingsArgs'] security_settings: Security Settings
         """
         pulumi.set(__self__, "storage_settings", storage_settings)
         if is_vault_protected_by_resource_guard is not None:
             pulumi.set(__self__, "is_vault_protected_by_resource_guard", is_vault_protected_by_resource_guard)
         if monitoring_settings is not None:
             pulumi.set(__self__, "monitoring_settings", monitoring_settings)
+        if security_settings is not None:
+            pulumi.set(__self__, "security_settings", security_settings)
 
     @property
     @pulumi.getter(name="storageSettings")
@@ -668,6 +677,18 @@ class BackupVaultArgs:
     @monitoring_settings.setter
     def monitoring_settings(self, value: Optional[pulumi.Input['MonitoringSettingsArgs']]):
         pulumi.set(self, "monitoring_settings", value)
+
+    @property
+    @pulumi.getter(name="securitySettings")
+    def security_settings(self) -> Optional[pulumi.Input['SecuritySettingsArgs']]:
+        """
+        Security Settings
+        """
+        return pulumi.get(self, "security_settings")
+
+    @security_settings.setter
+    def security_settings(self, value: Optional[pulumi.Input['SecuritySettingsArgs']]):
+        pulumi.set(self, "security_settings", value)
 
 
 @pulumi.input_type
@@ -1102,6 +1123,30 @@ class ImmediateCopyOptionArgs:
 
 
 @pulumi.input_type
+class ImmutabilitySettingsArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input[Union[str, 'ImmutabilityState']]] = None):
+        """
+        Immutability Settings at vault level
+        :param pulumi.Input[Union[str, 'ImmutabilityState']] state: Immutability state
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'ImmutabilityState']]]:
+        """
+        Immutability state
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'ImmutabilityState']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
 class KubernetesClusterBackupDatasourceParametersArgs:
     def __init__(__self__, *,
                  include_cluster_scope_resources: pulumi.Input[bool],
@@ -1333,6 +1378,88 @@ class PolicyParametersArgs:
     @data_store_parameters_list.setter
     def data_store_parameters_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureOperationalStoreParametersArgs']]]]):
         pulumi.set(self, "data_store_parameters_list", value)
+
+
+@pulumi.input_type
+class ResourceGuardOperationDetailArgs:
+    def __init__(__self__, *,
+                 default_resource_request: Optional[pulumi.Input[str]] = None,
+                 vault_critical_operation: Optional[pulumi.Input[str]] = None):
+        if default_resource_request is not None:
+            pulumi.set(__self__, "default_resource_request", default_resource_request)
+        if vault_critical_operation is not None:
+            pulumi.set(__self__, "vault_critical_operation", vault_critical_operation)
+
+    @property
+    @pulumi.getter(name="defaultResourceRequest")
+    def default_resource_request(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_resource_request")
+
+    @default_resource_request.setter
+    def default_resource_request(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_resource_request", value)
+
+    @property
+    @pulumi.getter(name="vaultCriticalOperation")
+    def vault_critical_operation(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vault_critical_operation")
+
+    @vault_critical_operation.setter
+    def vault_critical_operation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vault_critical_operation", value)
+
+
+@pulumi.input_type
+class ResourceGuardProxyBaseArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 last_updated_time: Optional[pulumi.Input[str]] = None,
+                 resource_guard_operation_details: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]] = None,
+                 resource_guard_resource_id: Optional[pulumi.Input[str]] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if resource_guard_operation_details is not None:
+            pulumi.set(__self__, "resource_guard_operation_details", resource_guard_operation_details)
+        if resource_guard_resource_id is not None:
+            pulumi.set(__self__, "resource_guard_resource_id", resource_guard_resource_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_updated_time")
+
+    @last_updated_time.setter
+    def last_updated_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_updated_time", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationDetails")
+    def resource_guard_operation_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]]:
+        return pulumi.get(self, "resource_guard_operation_details")
+
+    @resource_guard_operation_details.setter
+    def resource_guard_operation_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]]):
+        pulumi.set(self, "resource_guard_operation_details", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardResourceId")
+    def resource_guard_resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_guard_resource_id")
+
+    @resource_guard_resource_id.setter
+    def resource_guard_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_guard_resource_id", value)
 
 
 @pulumi.input_type
@@ -1653,6 +1780,86 @@ class SecretStoreResourceArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SecuritySettingsArgs:
+    def __init__(__self__, *,
+                 immutability_settings: Optional[pulumi.Input['ImmutabilitySettingsArgs']] = None,
+                 soft_delete_settings: Optional[pulumi.Input['SoftDeleteSettingsArgs']] = None):
+        """
+        Class containing security settings of vault
+        :param pulumi.Input['ImmutabilitySettingsArgs'] immutability_settings: Immutability Settings at vault level
+        :param pulumi.Input['SoftDeleteSettingsArgs'] soft_delete_settings: Soft delete related settings
+        """
+        if immutability_settings is not None:
+            pulumi.set(__self__, "immutability_settings", immutability_settings)
+        if soft_delete_settings is not None:
+            pulumi.set(__self__, "soft_delete_settings", soft_delete_settings)
+
+    @property
+    @pulumi.getter(name="immutabilitySettings")
+    def immutability_settings(self) -> Optional[pulumi.Input['ImmutabilitySettingsArgs']]:
+        """
+        Immutability Settings at vault level
+        """
+        return pulumi.get(self, "immutability_settings")
+
+    @immutability_settings.setter
+    def immutability_settings(self, value: Optional[pulumi.Input['ImmutabilitySettingsArgs']]):
+        pulumi.set(self, "immutability_settings", value)
+
+    @property
+    @pulumi.getter(name="softDeleteSettings")
+    def soft_delete_settings(self) -> Optional[pulumi.Input['SoftDeleteSettingsArgs']]:
+        """
+        Soft delete related settings
+        """
+        return pulumi.get(self, "soft_delete_settings")
+
+    @soft_delete_settings.setter
+    def soft_delete_settings(self, value: Optional[pulumi.Input['SoftDeleteSettingsArgs']]):
+        pulumi.set(self, "soft_delete_settings", value)
+
+
+@pulumi.input_type
+class SoftDeleteSettingsArgs:
+    def __init__(__self__, *,
+                 retention_duration_in_days: Optional[pulumi.Input[float]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'SoftDeleteState']]] = None):
+        """
+        Soft delete related settings
+        :param pulumi.Input[float] retention_duration_in_days: Soft delete retention duration
+        :param pulumi.Input[Union[str, 'SoftDeleteState']] state: State of soft delete
+        """
+        if retention_duration_in_days is not None:
+            pulumi.set(__self__, "retention_duration_in_days", retention_duration_in_days)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="retentionDurationInDays")
+    def retention_duration_in_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        Soft delete retention duration
+        """
+        return pulumi.get(self, "retention_duration_in_days")
+
+    @retention_duration_in_days.setter
+    def retention_duration_in_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "retention_duration_in_days", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'SoftDeleteState']]]:
+        """
+        State of soft delete
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'SoftDeleteState']]]):
+        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type

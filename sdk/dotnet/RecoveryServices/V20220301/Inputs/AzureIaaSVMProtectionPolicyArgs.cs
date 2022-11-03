@@ -31,6 +31,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301.Inputs
         [Input("instantRpRetentionRangeInDays")]
         public Input<int>? InstantRpRetentionRangeInDays { get; set; }
 
+        /// <summary>
+        /// Type of backup policy type
+        /// </summary>
         [Input("policyType")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20220301.IAASVMPolicyType>? PolicyType { get; set; }
 

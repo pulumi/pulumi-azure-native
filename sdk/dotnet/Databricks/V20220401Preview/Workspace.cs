@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         public Output<string> CreatedDateTime { get; private set; } = null!;
 
         /// <summary>
+        /// The resource Id of the managed disk encryption set.
+        /// </summary>
+        [Output("diskEncryptionSetId")]
+        public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
+
+        /// <summary>
         /// Encryption properties for databricks workspace
         /// </summary>
         [Output("encryption")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        /// </summary>
+        [Output("managedDiskIdentity")]
+        public Output<Outputs.ManagedIdentityConfigurationResponse?> ManagedDiskIdentity { get; private set; } = null!;
 
         /// <summary>
         /// The managed resource group Id.
@@ -203,6 +215,12 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
             get => _authorizations ?? (_authorizations = new InputList<Inputs.WorkspaceProviderAuthorizationArgs>());
             set => _authorizations = value;
         }
+
+        /// <summary>
+        /// The resource Id of the managed disk encryption set.
+        /// </summary>
+        [Input("diskEncryptionSetId")]
+        public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
         /// Encryption properties for databricks workspace

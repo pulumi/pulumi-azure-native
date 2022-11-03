@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         /// </summary>
         public readonly string CreatedDateTime;
         /// <summary>
+        /// The resource Id of the managed disk encryption set.
+        /// </summary>
+        public readonly string? DiskEncryptionSetId;
+        /// <summary>
         /// Encryption properties for databricks workspace
         /// </summary>
         public readonly Outputs.WorkspacePropertiesResponseEncryption? Encryption;
@@ -93,6 +97,10 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        /// </summary>
+        public readonly Outputs.ManagedIdentityConfigurationResponse? ManagedDiskIdentity;
         /// <summary>
         /// The managed resource group Id.
         /// </summary>
@@ -166,11 +174,15 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
 
             string createdDateTime,
 
+            string? diskEncryptionSetId,
+
             Outputs.WorkspacePropertiesResponseEncryption? encryption,
 
             string id,
 
             string location,
+
+            Outputs.ManagedIdentityConfigurationResponse? managedDiskIdentity,
 
             string managedResourceGroupId,
 
@@ -207,9 +219,11 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
             Authorizations = authorizations;
             CreatedBy = createdBy;
             CreatedDateTime = createdDateTime;
+            DiskEncryptionSetId = diskEncryptionSetId;
             Encryption = encryption;
             Id = id;
             Location = location;
+            ManagedDiskIdentity = managedDiskIdentity;
             ManagedResourceGroupId = managedResourceGroupId;
             Name = name;
             Parameters = parameters;

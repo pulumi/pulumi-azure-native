@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
+        /// <summary>
+        /// ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        /// </summary>
+        [Input("scriptBlockExecutionTimeout")]
+        public Input<object>? ScriptBlockExecutionTimeout { get; set; }
+
         [Input("scripts")]
         private InputList<Inputs.ScriptActivityScriptBlockArgs>? _scripts;
 

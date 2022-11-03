@@ -383,16 +383,20 @@ class SkuArgs:
 class StorageArgs:
     def __init__(__self__, *,
                  auto_grow: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]] = None,
+                 auto_io_scaling: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  storage_size_gb: Optional[pulumi.Input[int]] = None):
         """
         Storage Profile properties of a server
         :param pulumi.Input[Union[str, 'EnableStatusEnum']] auto_grow: Enable Storage Auto Grow or not.
+        :param pulumi.Input[Union[str, 'EnableStatusEnum']] auto_io_scaling: Enable IO Auto Scaling or not.
         :param pulumi.Input[int] iops: Storage IOPS for a server.
         :param pulumi.Input[int] storage_size_gb: Max storage size allowed for a server.
         """
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
+        if auto_io_scaling is not None:
+            pulumi.set(__self__, "auto_io_scaling", auto_io_scaling)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if storage_size_gb is not None:
@@ -409,6 +413,18 @@ class StorageArgs:
     @auto_grow.setter
     def auto_grow(self, value: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]]):
         pulumi.set(self, "auto_grow", value)
+
+    @property
+    @pulumi.getter(name="autoIoScaling")
+    def auto_io_scaling(self) -> Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]]:
+        """
+        Enable IO Auto Scaling or not.
+        """
+        return pulumi.get(self, "auto_io_scaling")
+
+    @auto_io_scaling.setter
+    def auto_io_scaling(self, value: Optional[pulumi.Input[Union[str, 'EnableStatusEnum']]]):
+        pulumi.set(self, "auto_io_scaling", value)
 
     @property
     @pulumi.getter

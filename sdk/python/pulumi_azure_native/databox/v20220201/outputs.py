@@ -1748,8 +1748,8 @@ class DataBoxDiskGranularCopyLogDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "accountName":
-            suggest = "account_name"
+        if key == "accountId":
+            suggest = "account_id"
         elif key == "copyLogDetailsType":
             suggest = "copy_log_details_type"
         elif key == "errorLogLink":
@@ -1771,33 +1771,33 @@ class DataBoxDiskGranularCopyLogDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 account_name: str,
+                 account_id: str,
                  copy_log_details_type: str,
                  error_log_link: str,
                  serial_number: str,
                  verbose_log_link: str):
         """
         Granular Copy Log Details for customer disk
-        :param str account_name: Account name.
+        :param str account_id: Account id.
         :param str copy_log_details_type: Indicates the type of job details.
                Expected value is 'DataBoxCustomerDisk'.
         :param str error_log_link: Link for copy error logs.
         :param str serial_number: Disk Serial Number.
         :param str verbose_log_link: Link for copy verbose logs.
         """
-        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "copy_log_details_type", 'DataBoxCustomerDisk')
         pulumi.set(__self__, "error_log_link", error_log_link)
         pulumi.set(__self__, "serial_number", serial_number)
         pulumi.set(__self__, "verbose_log_link", verbose_log_link)
 
     @property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
         """
-        Account name.
+        Account id.
         """
-        return pulumi.get(self, "account_name")
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="copyLogDetailsType")

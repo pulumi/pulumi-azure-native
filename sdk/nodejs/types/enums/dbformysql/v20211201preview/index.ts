@@ -39,7 +39,7 @@ export const EnableStatusEnum = {
 } as const;
 
 /**
- * Enable Storage Auto Grow or not.
+ * Enable IO Auto Scaling or not.
  */
 export type EnableStatusEnum = (typeof EnableStatusEnum)[keyof typeof EnableStatusEnum];
 

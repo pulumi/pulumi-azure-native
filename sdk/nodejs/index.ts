@@ -21,6 +21,7 @@ import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
 import * as app from "./app";
+import * as appcomplianceautomation from "./appcomplianceautomation";
 import * as appconfiguration from "./appconfiguration";
 import * as appplatform from "./appplatform";
 import * as attestation from "./attestation";
@@ -87,6 +88,7 @@ import * as digitaltwins from "./digitaltwins";
 import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
+import * as easm from "./easm";
 import * as edgeorder from "./edgeorder";
 import * as education from "./education";
 import * as elastic from "./elastic";
@@ -139,6 +141,7 @@ import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
+import * as monitor from "./monitor";
 import * as netapp from "./netapp";
 import * as network from "./network";
 import * as networkfunction from "./networkfunction";
@@ -216,6 +219,7 @@ export {
     analysisservices,
     apimanagement,
     app,
+    appcomplianceautomation,
     appconfiguration,
     appplatform,
     attestation,
@@ -282,6 +286,7 @@ export {
     documentdb,
     domainregistration,
     dynamics365fraudprotection,
+    easm,
     edgeorder,
     education,
     elastic,
@@ -334,6 +339,7 @@ export {
     migrate,
     mixedreality,
     mobilenetwork,
+    monitor,
     netapp,
     network,
     networkfunction,

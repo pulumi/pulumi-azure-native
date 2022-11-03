@@ -830,6 +830,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 
         public static SAPSoftwareInstallationType ServiceInitiated { get; } = new SAPSoftwareInstallationType("ServiceInitiated");
         public static SAPSoftwareInstallationType SAPInstallWithoutOSConfig { get; } = new SAPSoftwareInstallationType("SAPInstallWithoutOSConfig");
+        public static SAPSoftwareInstallationType External { get; } = new SAPSoftwareInstallationType("External");
 
         public static bool operator ==(SAPSoftwareInstallationType left, SAPSoftwareInstallationType right) => left.Equals(right);
         public static bool operator !=(SAPSoftwareInstallationType left, SAPSoftwareInstallationType right) => !left.Equals(right);

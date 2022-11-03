@@ -328,7 +328,7 @@ type DataBoxDiskCopyProgressResponse struct {
 }
 
 type DataBoxDiskGranularCopyLogDetailsResponse struct {
-	AccountName        string `pulumi:"accountName"`
+	AccountId          string `pulumi:"accountId"`
 	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
 	ErrorLogLink       string `pulumi:"errorLogLink"`
 	SerialNumber       string `pulumi:"serialNumber"`

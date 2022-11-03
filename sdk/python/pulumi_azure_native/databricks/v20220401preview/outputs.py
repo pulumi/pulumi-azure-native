@@ -20,6 +20,8 @@ __all__ = [
     'EncryptionV2Response',
     'EncryptionV2ResponseKeyVaultProperties',
     'IdentityDataResponse',
+    'ManagedDiskEncryptionResponse',
+    'ManagedDiskEncryptionResponseKeyVaultProperties',
     'ManagedIdentityConfigurationResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
@@ -182,7 +184,9 @@ class EncryptionEntitiesDefinitionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "managedServices":
+        if key == "managedDisk":
+            suggest = "managed_disk"
+        elif key == "managedServices":
             suggest = "managed_services"
 
         if suggest:
@@ -197,13 +201,25 @@ class EncryptionEntitiesDefinitionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 managed_disk: Optional['outputs.ManagedDiskEncryptionResponse'] = None,
                  managed_services: Optional['outputs.EncryptionV2Response'] = None):
         """
         Encryption entities for databricks workspace resource.
+        :param 'ManagedDiskEncryptionResponse' managed_disk: Encryption properties for the databricks managed disks.
         :param 'EncryptionV2Response' managed_services: Encryption properties for the databricks managed services.
         """
+        if managed_disk is not None:
+            pulumi.set(__self__, "managed_disk", managed_disk)
         if managed_services is not None:
             pulumi.set(__self__, "managed_services", managed_services)
+
+    @property
+    @pulumi.getter(name="managedDisk")
+    def managed_disk(self) -> Optional['outputs.ManagedDiskEncryptionResponse']:
+        """
+        Encryption properties for the databricks managed disks.
+        """
+        return pulumi.get(self, "managed_disk")
 
     @property
     @pulumi.getter(name="managedServices")
@@ -477,6 +493,137 @@ class IdentityDataResponse(dict):
         The identity type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ManagedDiskEncryptionResponse(dict):
+    """
+    The object that contains details of encryption used on the workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+        elif key == "rotationToLatestKeyVersionEnabled":
+            suggest = "rotation_to_latest_key_version_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedDiskEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedDiskEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_source: str,
+                 key_vault_properties: 'outputs.ManagedDiskEncryptionResponseKeyVaultProperties',
+                 rotation_to_latest_key_version_enabled: Optional[bool] = None):
+        """
+        The object that contains details of encryption used on the workspace.
+        :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        :param 'ManagedDiskEncryptionResponseKeyVaultProperties' key_vault_properties: Key Vault input properties for encryption.
+        :param bool rotation_to_latest_key_version_enabled: Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
+        """
+        pulumi.set(__self__, "key_source", key_source)
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if rotation_to_latest_key_version_enabled is not None:
+            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> str:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        """
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> 'outputs.ManagedDiskEncryptionResponseKeyVaultProperties':
+        """
+        Key Vault input properties for encryption.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[bool]:
+        """
+        Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
+
+
+@pulumi.output_type
+class ManagedDiskEncryptionResponseKeyVaultProperties(dict):
+    """
+    Key Vault input properties for encryption.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+        elif key == "keyVersion":
+            suggest = "key_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionResponseKeyVaultProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedDiskEncryptionResponseKeyVaultProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedDiskEncryptionResponseKeyVaultProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_name: str,
+                 key_vault_uri: str,
+                 key_version: str):
+        """
+        Key Vault input properties for encryption.
+        :param str key_name: The name of KeyVault key.
+        :param str key_vault_uri: The URI of KeyVault.
+        :param str key_version: The version of KeyVault key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> str:
+        """
+        The URI of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> str:
+        """
+        The version of KeyVault key.
+        """
+        return pulumi.get(self, "key_version")
 
 
 @pulumi.output_type

@@ -50,6 +50,10 @@ export interface GetWorkspaceResult {
      */
     readonly createdDateTime: string;
     /**
+     * The resource Id of the managed disk encryption set.
+     */
+    readonly diskEncryptionSetId?: string;
+    /**
      * Encryption properties for databricks workspace
      */
     readonly encryption?: outputs.databricks.v20220401preview.WorkspacePropertiesResponseEncryption;
@@ -61,6 +65,10 @@ export interface GetWorkspaceResult {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+     */
+    readonly managedDiskIdentity?: outputs.databricks.v20220401preview.ManagedIdentityConfigurationResponse;
     /**
      * The managed resource group Id.
      */

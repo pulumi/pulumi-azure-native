@@ -20,6 +20,11 @@ export type BackupVault = import("./backupVault").BackupVault;
 export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
 utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
 
+export { DppResourceGuardProxyArgs } from "./dppResourceGuardProxy";
+export type DppResourceGuardProxy = import("./dppResourceGuardProxy").DppResourceGuardProxy;
+export const DppResourceGuardProxy: typeof import("./dppResourceGuardProxy").DppResourceGuardProxy = null as any;
+utilities.lazyLoad(exports, ["DppResourceGuardProxy"], () => require("./dppResourceGuardProxy"));
+
 export { GetBackupInstanceArgs, GetBackupInstanceResult, GetBackupInstanceOutputArgs } from "./getBackupInstance";
 export const getBackupInstance: typeof import("./getBackupInstance").getBackupInstance = null as any;
 export const getBackupInstanceOutput: typeof import("./getBackupInstance").getBackupInstanceOutput = null as any;
@@ -34,6 +39,11 @@ export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } fr
 export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
 export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
 utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
+
+export { GetDppResourceGuardProxyArgs, GetDppResourceGuardProxyResult, GetDppResourceGuardProxyOutputArgs } from "./getDppResourceGuardProxy";
+export const getDppResourceGuardProxy: typeof import("./getDppResourceGuardProxy").getDppResourceGuardProxy = null as any;
+export const getDppResourceGuardProxyOutput: typeof import("./getDppResourceGuardProxy").getDppResourceGuardProxyOutput = null as any;
+utilities.lazyLoad(exports, ["getDppResourceGuardProxy","getDppResourceGuardProxyOutput"], () => require("./getDppResourceGuardProxy"));
 
 export { GetResourceGuardArgs, GetResourceGuardResult, GetResourceGuardOutputArgs } from "./getResourceGuard";
 export const getResourceGuard: typeof import("./getResourceGuard").getResourceGuard = null as any;
@@ -59,6 +69,8 @@ const _module = {
                 return new BackupPolicy(name, <any>undefined, { urn })
             case "azure-native:dataprotection/v20221001preview:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
+            case "azure-native:dataprotection/v20221001preview:DppResourceGuardProxy":
+                return new DppResourceGuardProxy(name, <any>undefined, { urn })
             case "azure-native:dataprotection/v20221001preview:ResourceGuard":
                 return new ResourceGuard(name, <any>undefined, { urn })
             default:

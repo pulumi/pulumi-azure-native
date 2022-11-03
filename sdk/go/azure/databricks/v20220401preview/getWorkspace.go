@@ -29,9 +29,11 @@ type LookupWorkspaceResult struct {
 	Authorizations             []WorkspaceProviderAuthorizationResponse `pulumi:"authorizations"`
 	CreatedBy                  *CreatedByResponse                       `pulumi:"createdBy"`
 	CreatedDateTime            string                                   `pulumi:"createdDateTime"`
+	DiskEncryptionSetId        *string                                  `pulumi:"diskEncryptionSetId"`
 	Encryption                 *WorkspacePropertiesResponseEncryption   `pulumi:"encryption"`
 	Id                         string                                   `pulumi:"id"`
 	Location                   string                                   `pulumi:"location"`
+	ManagedDiskIdentity        *ManagedIdentityConfigurationResponse    `pulumi:"managedDiskIdentity"`
 	ManagedResourceGroupId     string                                   `pulumi:"managedResourceGroupId"`
 	Name                       string                                   `pulumi:"name"`
 	Parameters                 *WorkspaceCustomParametersResponse       `pulumi:"parameters"`
@@ -110,6 +112,10 @@ func (o LookupWorkspaceResultOutput) CreatedDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreatedDateTime }).(pulumi.StringOutput)
 }
 
+func (o LookupWorkspaceResultOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupWorkspaceResultOutput) Encryption() WorkspacePropertiesResponseEncryptionPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspacePropertiesResponseEncryption { return v.Encryption }).(WorkspacePropertiesResponseEncryptionPtrOutput)
 }
@@ -120,6 +126,10 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) ManagedDiskIdentity() ManagedIdentityConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *ManagedIdentityConfigurationResponse { return v.ManagedDiskIdentity }).(ManagedIdentityConfigurationResponsePtrOutput)
 }
 
 func (o LookupWorkspaceResultOutput) ManagedResourceGroupId() pulumi.StringOutput {

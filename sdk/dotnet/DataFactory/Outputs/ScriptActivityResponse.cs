@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
+        /// ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        /// </summary>
+        public readonly object? ScriptBlockExecutionTimeout;
+        /// <summary>
         /// Array of script blocks. Type: array.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScriptActivityScriptBlockResponse> Scripts;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
+            object? scriptBlockExecutionTimeout,
+
             ImmutableArray<Outputs.ScriptActivityScriptBlockResponse> scripts,
 
             string type,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             LogSettings = logSettings;
             Name = name;
             Policy = policy;
+            ScriptBlockExecutionTimeout = scriptBlockExecutionTimeout;
             Scripts = scripts;
             Type = type;
             UserProperties = userProperties;

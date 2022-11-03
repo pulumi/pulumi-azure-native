@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         /// The software configuration.
         /// </summary>
         [Input("softwareConfiguration")]
-        public InputUnion<Inputs.SAPInstallWithoutOSConfigSoftwareConfigurationArgs, Inputs.ServiceInitiatedSoftwareConfigurationArgs>? SoftwareConfiguration { get; set; }
+        public object? SoftwareConfiguration { get; set; }
 
         public DeploymentWithOSConfigurationArgs()
         {
