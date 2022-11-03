@@ -520,6 +520,8 @@ class StorageResponse(dict):
             suggest = "storage_sku"
         elif key == "autoGrow":
             suggest = "auto_grow"
+        elif key == "autoIoScaling":
+            suggest = "auto_io_scaling"
         elif key == "storageSizeGB":
             suggest = "storage_size_gb"
 
@@ -537,18 +539,22 @@ class StorageResponse(dict):
     def __init__(__self__, *,
                  storage_sku: str,
                  auto_grow: Optional[str] = None,
+                 auto_io_scaling: Optional[str] = None,
                  iops: Optional[int] = None,
                  storage_size_gb: Optional[int] = None):
         """
         Storage Profile properties of a server
         :param str storage_sku: The sku name of the server storage.
         :param str auto_grow: Enable Storage Auto Grow or not.
+        :param str auto_io_scaling: Enable IO Auto Scaling or not.
         :param int iops: Storage IOPS for a server.
         :param int storage_size_gb: Max storage size allowed for a server.
         """
         pulumi.set(__self__, "storage_sku", storage_sku)
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
+        if auto_io_scaling is not None:
+            pulumi.set(__self__, "auto_io_scaling", auto_io_scaling)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if storage_size_gb is not None:
@@ -569,6 +575,14 @@ class StorageResponse(dict):
         Enable Storage Auto Grow or not.
         """
         return pulumi.get(self, "auto_grow")
+
+    @property
+    @pulumi.getter(name="autoIoScaling")
+    def auto_io_scaling(self) -> Optional[str]:
+        """
+        Enable IO Auto Scaling or not.
+        """
+        return pulumi.get(self, "auto_io_scaling")
 
     @property
     @pulumi.getter

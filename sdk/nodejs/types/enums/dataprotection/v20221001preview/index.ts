@@ -42,6 +42,17 @@ export const DayOfWeek = {
 
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
+export const ImmutabilityState = {
+    Disabled: "Disabled",
+    Unlocked: "Unlocked",
+    Locked: "Locked",
+} as const;
+
+/**
+ * Immutability state
+ */
+export type ImmutabilityState = (typeof ImmutabilityState)[keyof typeof ImmutabilityState];
+
 export const Month = {
     April: "April",
     August: "August",
@@ -68,6 +79,26 @@ export const SecretStoreType = {
  * Gets or sets the type of secret store
  */
 export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
+
+export const SoftDeleteState = {
+    /**
+     * Soft Delete is turned off for the BackupVault
+     */
+    Off: "Off",
+    /**
+     * Soft Delete is enabled for the BackupVault but can be turned off
+     */
+    On: "On",
+    /**
+     * Soft Delete is permanently enabled for the BackupVault and the setting cannot be changed
+     */
+    AlwaysOn: "AlwaysOn",
+} as const;
+
+/**
+ * State of soft delete
+ */
+export type SoftDeleteState = (typeof SoftDeleteState)[keyof typeof SoftDeleteState];
 
 export const StorageSettingStoreTypes = {
     ArchiveStore: "ArchiveStore",

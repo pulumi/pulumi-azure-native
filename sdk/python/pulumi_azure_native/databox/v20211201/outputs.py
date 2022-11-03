@@ -2417,7 +2417,7 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
                  copy_verbose_log_link: Sequence[str]):
         """
         Copy log details for a storage account for Databox heavy
-        :param str account_name: Account name.
+        :param str account_name: Account id.
         :param str copy_log_details_type: Indicates the type of job details.
                Expected value is 'DataBoxHeavy'.
         :param Sequence[str] copy_log_link: Link for copy logs.
@@ -2432,7 +2432,7 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
         """
-        Account name.
+        Account id.
         """
         return pulumi.get(self, "account_name")
 

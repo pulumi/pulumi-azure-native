@@ -23,6 +23,7 @@ __all__ = [
     'DeploymentWithOSConfigurationArgs',
     'DiscoveryConfigurationArgs',
     'DiskInfoArgs',
+    'ExternalInstallationSoftwareConfigurationArgs',
     'FileshareProfileArgs',
     'HanaDbProviderInstancePropertiesArgs',
     'HighAvailabilityConfigurationArgs',
@@ -690,14 +691,14 @@ class DeploymentConfigurationArgs:
                  configuration_type: pulumi.Input[str],
                  app_location: Optional[pulumi.Input[str]] = None,
                  infrastructure_configuration: Optional[pulumi.Input[Union['SingleServerConfigurationArgs', 'ThreeTierConfigurationArgs']]] = None,
-                 software_configuration: Optional[pulumi.Input[Union['SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]] = None):
+                 software_configuration: Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]] = None):
         """
         Deployment Configuration.
         :param pulumi.Input[str] configuration_type: The configuration Type.
                Expected value is 'Deployment'.
         :param pulumi.Input[str] app_location: The geo-location where the SAP system is to be created.
         :param pulumi.Input[Union['SingleServerConfigurationArgs', 'ThreeTierConfigurationArgs']] infrastructure_configuration: The infrastructure configuration.
-        :param pulumi.Input[Union['SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']] software_configuration: The software configuration.
+        :param pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']] software_configuration: The software configuration.
         """
         pulumi.set(__self__, "configuration_type", 'Deployment')
         if app_location is not None:
@@ -746,14 +747,14 @@ class DeploymentConfigurationArgs:
 
     @property
     @pulumi.getter(name="softwareConfiguration")
-    def software_configuration(self) -> Optional[pulumi.Input[Union['SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]:
+    def software_configuration(self) -> Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]:
         """
         The software configuration.
         """
         return pulumi.get(self, "software_configuration")
 
     @software_configuration.setter
-    def software_configuration(self, value: Optional[pulumi.Input[Union['SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]):
+    def software_configuration(self, value: Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]):
         pulumi.set(self, "software_configuration", value)
 
 
@@ -764,7 +765,7 @@ class DeploymentWithOSConfigurationArgs:
                  app_location: Optional[pulumi.Input[str]] = None,
                  infrastructure_configuration: Optional[pulumi.Input[Union['SingleServerConfigurationArgs', 'ThreeTierConfigurationArgs']]] = None,
                  os_sap_configuration: Optional[pulumi.Input['OsSapConfigurationArgs']] = None,
-                 software_configuration: Optional[pulumi.Input[Union['SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]] = None):
+                 software_configuration: Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]] = None):
         """
         Deployment along with OS Configuration.
         :param pulumi.Input[str] configuration_type: The configuration Type.
@@ -772,7 +773,7 @@ class DeploymentWithOSConfigurationArgs:
         :param pulumi.Input[str] app_location: The geo-location where the SAP system is to be created.
         :param pulumi.Input[Union['SingleServerConfigurationArgs', 'ThreeTierConfigurationArgs']] infrastructure_configuration: The infrastructure configuration.
         :param pulumi.Input['OsSapConfigurationArgs'] os_sap_configuration: The OS and SAP configuration.
-        :param pulumi.Input[Union['SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']] software_configuration: The software configuration.
+        :param pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']] software_configuration: The software configuration.
         """
         pulumi.set(__self__, "configuration_type", 'DeploymentWithOSConfig')
         if app_location is not None:
@@ -835,14 +836,14 @@ class DeploymentWithOSConfigurationArgs:
 
     @property
     @pulumi.getter(name="softwareConfiguration")
-    def software_configuration(self) -> Optional[pulumi.Input[Union['SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]:
+    def software_configuration(self) -> Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]:
         """
         The software configuration.
         """
         return pulumi.get(self, "software_configuration")
 
     @software_configuration.setter
-    def software_configuration(self, value: Optional[pulumi.Input[Union['SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]):
+    def software_configuration(self, value: Optional[pulumi.Input[Union['ExternalInstallationSoftwareConfigurationArgs', 'SAPInstallWithoutOSConfigSoftwareConfigurationArgs', 'ServiceInitiatedSoftwareConfigurationArgs']]]):
         pulumi.set(self, "software_configuration", value)
 
 
@@ -924,6 +925,47 @@ class DiskInfoArgs:
     @size_in_gb.setter
     def size_in_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "size_in_gb", value)
+
+
+@pulumi.input_type
+class ExternalInstallationSoftwareConfigurationArgs:
+    def __init__(__self__, *,
+                 software_installation_type: pulumi.Input[str],
+                 central_server_vm_id: Optional[pulumi.Input[str]] = None):
+        """
+        The SAP Software configuration Input when the software is installed externally outside the service.
+        :param pulumi.Input[str] software_installation_type: The SAP software installation Type.
+               Expected value is 'External'.
+        :param pulumi.Input[str] central_server_vm_id: The resource ID of the virtual machine containing the central server instance.
+        """
+        pulumi.set(__self__, "software_installation_type", 'External')
+        if central_server_vm_id is not None:
+            pulumi.set(__self__, "central_server_vm_id", central_server_vm_id)
+
+    @property
+    @pulumi.getter(name="softwareInstallationType")
+    def software_installation_type(self) -> pulumi.Input[str]:
+        """
+        The SAP software installation Type.
+        Expected value is 'External'.
+        """
+        return pulumi.get(self, "software_installation_type")
+
+    @software_installation_type.setter
+    def software_installation_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "software_installation_type", value)
+
+    @property
+    @pulumi.getter(name="centralServerVmId")
+    def central_server_vm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the virtual machine containing the central server instance.
+        """
+        return pulumi.get(self, "central_server_vm_id")
+
+    @central_server_vm_id.setter
+    def central_server_vm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "central_server_vm_id", value)
 
 
 @pulumi.input_type

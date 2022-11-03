@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataBox.V20211201.Outputs
     public sealed class DataBoxHeavyAccountCopyLogDetailsResponse
     {
         /// <summary>
-        /// Account name.
+        /// Account id.
         /// </summary>
         public readonly string AccountName;
         /// <summary>

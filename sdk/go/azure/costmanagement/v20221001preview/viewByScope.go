@@ -70,6 +70,9 @@ func NewViewByScope(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:costmanagement/v20220801preview:ViewByScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20221001:ViewByScope"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement/v20221005preview:ViewByScope"),
 		},
 	})

@@ -273,6 +273,7 @@ export type SAPProductType = (typeof SAPProductType)[keyof typeof SAPProductType
 export const SAPSoftwareInstallationType = {
     ServiceInitiated: "ServiceInitiated",
     SAPInstallWithoutOSConfig: "SAPInstallWithoutOSConfig",
+    External: "External",
 } as const;
 
 /**

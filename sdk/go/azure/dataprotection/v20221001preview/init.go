@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupPolicy{}
 	case "azure-native:dataprotection/v20221001preview:BackupVault":
 		r = &BackupVault{}
+	case "azure-native:dataprotection/v20221001preview:DppResourceGuardProxy":
+		r = &DppResourceGuardProxy{}
 	case "azure-native:dataprotection/v20221001preview:ResourceGuard":
 		r = &ResourceGuard{}
 	default:

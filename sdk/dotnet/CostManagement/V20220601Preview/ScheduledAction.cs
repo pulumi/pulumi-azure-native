@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.CostManagement.V20220601Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement:ScheduledAction"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220401preview:ScheduledAction"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:ScheduledAction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

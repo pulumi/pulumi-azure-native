@@ -9,8 +9,10 @@ __all__ = [
     'AlertsState',
     'DataStoreTypes',
     'DayOfWeek',
+    'ImmutabilityState',
     'Month',
     'SecretStoreType',
+    'SoftDeleteState',
     'StorageSettingStoreTypes',
     'StorageSettingTypes',
     'ValidationType',
@@ -50,6 +52,15 @@ class DayOfWeek(str, Enum):
     WEDNESDAY = "Wednesday"
 
 
+class ImmutabilityState(str, Enum):
+    """
+    Immutability state
+    """
+    DISABLED = "Disabled"
+    UNLOCKED = "Unlocked"
+    LOCKED = "Locked"
+
+
 class Month(str, Enum):
     APRIL = "April"
     AUGUST = "August"
@@ -71,6 +82,24 @@ class SecretStoreType(str, Enum):
     """
     INVALID = "Invalid"
     AZURE_KEY_VAULT = "AzureKeyVault"
+
+
+class SoftDeleteState(str, Enum):
+    """
+    State of soft delete
+    """
+    OFF = "Off"
+    """
+    Soft Delete is turned off for the BackupVault
+    """
+    ON = "On"
+    """
+    Soft Delete is enabled for the BackupVault but can be turned off
+    """
+    ALWAYS_ON = "AlwaysOn"
+    """
+    Soft Delete is permanently enabled for the BackupVault and the setting cannot be changed
+    """
 
 
 class StorageSettingStoreTypes(str, Enum):

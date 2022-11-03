@@ -1746,6 +1746,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 
 type Storage struct {
 	AutoGrow      *string `pulumi:"autoGrow"`
+	AutoIoScaling *string `pulumi:"autoIoScaling"`
 	Iops          *int    `pulumi:"iops"`
 	StorageSizeGB *int    `pulumi:"storageSizeGB"`
 }
@@ -1763,6 +1764,7 @@ type StorageInput interface {
 
 type StorageArgs struct {
 	AutoGrow      pulumi.StringPtrInput `pulumi:"autoGrow"`
+	AutoIoScaling pulumi.StringPtrInput `pulumi:"autoIoScaling"`
 	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
 	StorageSizeGB pulumi.IntPtrInput    `pulumi:"storageSizeGB"`
 }
@@ -1848,6 +1850,10 @@ func (o StorageOutput) AutoGrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Storage) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
 }
 
+func (o StorageOutput) AutoIoScaling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Storage) *string { return v.AutoIoScaling }).(pulumi.StringPtrOutput)
+}
+
 func (o StorageOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Storage) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -1889,6 +1895,15 @@ func (o StoragePtrOutput) AutoGrow() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o StoragePtrOutput) AutoIoScaling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Storage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoIoScaling
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o StoragePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Storage) *int {
 		if v == nil {
@@ -1909,6 +1924,7 @@ func (o StoragePtrOutput) StorageSizeGB() pulumi.IntPtrOutput {
 
 type StorageResponse struct {
 	AutoGrow      *string `pulumi:"autoGrow"`
+	AutoIoScaling *string `pulumi:"autoIoScaling"`
 	Iops          *int    `pulumi:"iops"`
 	StorageSizeGB *int    `pulumi:"storageSizeGB"`
 	StorageSku    string  `pulumi:"storageSku"`
@@ -1930,6 +1946,10 @@ func (o StorageResponseOutput) ToStorageResponseOutputWithContext(ctx context.Co
 
 func (o StorageResponseOutput) AutoGrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageResponse) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageResponseOutput) AutoIoScaling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageResponse) *string { return v.AutoIoScaling }).(pulumi.StringPtrOutput)
 }
 
 func (o StorageResponseOutput) Iops() pulumi.IntPtrOutput {
@@ -1974,6 +1994,15 @@ func (o StorageResponsePtrOutput) AutoGrow() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.AutoGrow
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageResponsePtrOutput) AutoIoScaling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoIoScaling
 	}).(pulumi.StringPtrOutput)
 }
 

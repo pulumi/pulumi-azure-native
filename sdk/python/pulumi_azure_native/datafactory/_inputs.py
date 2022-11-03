@@ -67411,6 +67411,7 @@ class ScriptActivityArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  log_settings: Optional[pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgs']] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 script_block_execution_timeout: Optional[Any] = None,
                  scripts: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActivityScriptBlockArgs']]]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
@@ -67423,6 +67424,7 @@ class ScriptActivityArgs:
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgs'] log_settings: Log settings of script activity.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param Any script_block_execution_timeout: ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param pulumi.Input[Sequence[pulumi.Input['ScriptActivityScriptBlockArgs']]] scripts: Array of script blocks. Type: array.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
@@ -67437,6 +67439,8 @@ class ScriptActivityArgs:
             pulumi.set(__self__, "log_settings", log_settings)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if script_block_execution_timeout is not None:
+            pulumi.set(__self__, "script_block_execution_timeout", script_block_execution_timeout)
         if scripts is not None:
             pulumi.set(__self__, "scripts", scripts)
         if user_properties is not None:
@@ -67526,6 +67530,18 @@ class ScriptActivityArgs:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
         pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="scriptBlockExecutionTimeout")
+    def script_block_execution_timeout(self) -> Optional[Any]:
+        """
+        ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "script_block_execution_timeout")
+
+    @script_block_execution_timeout.setter
+    def script_block_execution_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "script_block_execution_timeout", value)
 
     @property
     @pulumi.getter

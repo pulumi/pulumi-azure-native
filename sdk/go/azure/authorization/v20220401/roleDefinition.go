@@ -15,12 +15,16 @@ type RoleDefinition struct {
 	pulumi.CustomResourceState
 
 	AssignableScopes pulumi.StringArrayOutput      `pulumi:"assignableScopes"`
+	CreatedBy        pulumi.StringOutput           `pulumi:"createdBy"`
+	CreatedOn        pulumi.StringOutput           `pulumi:"createdOn"`
 	Description      pulumi.StringPtrOutput        `pulumi:"description"`
 	Name             pulumi.StringOutput           `pulumi:"name"`
 	Permissions      PermissionResponseArrayOutput `pulumi:"permissions"`
 	RoleName         pulumi.StringPtrOutput        `pulumi:"roleName"`
 	RoleType         pulumi.StringPtrOutput        `pulumi:"roleType"`
 	Type             pulumi.StringOutput           `pulumi:"type"`
+	UpdatedBy        pulumi.StringOutput           `pulumi:"updatedBy"`
+	UpdatedOn        pulumi.StringOutput           `pulumi:"updatedOn"`
 }
 
 
@@ -138,6 +142,14 @@ func (o RoleDefinitionOutput) AssignableScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleDefinition) pulumi.StringArrayOutput { return v.AssignableScopes }).(pulumi.StringArrayOutput)
 }
 
+func (o RoleDefinitionOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+func (o RoleDefinitionOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
 func (o RoleDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -160,6 +172,14 @@ func (o RoleDefinitionOutput) RoleType() pulumi.StringPtrOutput {
 
 func (o RoleDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o RoleDefinitionOutput) UpdatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringOutput { return v.UpdatedBy }).(pulumi.StringOutput)
+}
+
+func (o RoleDefinitionOutput) UpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringOutput { return v.UpdatedOn }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -17,9 +17,9 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Outputs
     public sealed class DataBoxDiskGranularCopyLogDetailsResponse
     {
         /// <summary>
-        /// Account name.
+        /// Account id.
         /// </summary>
-        public readonly string AccountName;
+        public readonly string AccountId;
         /// <summary>
         /// Indicates the type of job details.
         /// Expected value is 'DataBoxCustomerDisk'.
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Outputs
 
         [OutputConstructor]
         private DataBoxDiskGranularCopyLogDetailsResponse(
-            string accountName,
+            string accountId,
 
             string copyLogDetailsType,
 
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.DataBox.V20220201.Outputs
 
             string verboseLogLink)
         {
-            AccountName = accountName;
+            AccountId = accountId;
             CopyLogDetailsType = copyLogDetailsType;
             ErrorLogLink = errorLogLink;
             SerialNumber = serialNumber;

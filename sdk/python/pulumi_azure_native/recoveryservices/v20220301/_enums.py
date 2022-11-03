@@ -219,6 +219,9 @@ class HealthStatus(str, Enum):
 
 
 class IAASVMPolicyType(str, Enum):
+    """
+    Type of backup policy type
+    """
     INVALID = "Invalid"
     V1 = "V1"
     V2 = "V2"

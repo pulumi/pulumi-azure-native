@@ -131,6 +131,38 @@ namespace Pulumi.AzureNative.DataProtection.V20221001Preview
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Immutability state
+    /// </summary>
+    [EnumType]
+    public readonly struct ImmutabilityState : IEquatable<ImmutabilityState>
+    {
+        private readonly string _value;
+
+        private ImmutabilityState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImmutabilityState Disabled { get; } = new ImmutabilityState("Disabled");
+        public static ImmutabilityState Unlocked { get; } = new ImmutabilityState("Unlocked");
+        public static ImmutabilityState Locked { get; } = new ImmutabilityState("Locked");
+
+        public static bool operator ==(ImmutabilityState left, ImmutabilityState right) => left.Equals(right);
+        public static bool operator !=(ImmutabilityState left, ImmutabilityState right) => !left.Equals(right);
+
+        public static explicit operator string(ImmutabilityState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImmutabilityState other && Equals(other);
+        public bool Equals(ImmutabilityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct Month : IEquatable<Month>
     {
@@ -193,6 +225,47 @@ namespace Pulumi.AzureNative.DataProtection.V20221001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SecretStoreType other && Equals(other);
         public bool Equals(SecretStoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// State of soft delete
+    /// </summary>
+    [EnumType]
+    public readonly struct SoftDeleteState : IEquatable<SoftDeleteState>
+    {
+        private readonly string _value;
+
+        private SoftDeleteState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Soft Delete is turned off for the BackupVault
+        /// </summary>
+        public static SoftDeleteState Off { get; } = new SoftDeleteState("Off");
+        /// <summary>
+        /// Soft Delete is enabled for the BackupVault but can be turned off
+        /// </summary>
+        public static SoftDeleteState On { get; } = new SoftDeleteState("On");
+        /// <summary>
+        /// Soft Delete is permanently enabled for the BackupVault and the setting cannot be changed
+        /// </summary>
+        public static SoftDeleteState AlwaysOn { get; } = new SoftDeleteState("AlwaysOn");
+
+        public static bool operator ==(SoftDeleteState left, SoftDeleteState right) => left.Equals(right);
+        public static bool operator !=(SoftDeleteState left, SoftDeleteState right) => !left.Equals(right);
+
+        public static explicit operator string(SoftDeleteState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SoftDeleteState other && Equals(other);
+        public bool Equals(SoftDeleteState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

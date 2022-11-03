@@ -27,6 +27,8 @@ type LookupRoleDefinitionArgs struct {
 
 type LookupRoleDefinitionResult struct {
 	AssignableScopes []string             `pulumi:"assignableScopes"`
+	CreatedBy        string               `pulumi:"createdBy"`
+	CreatedOn        string               `pulumi:"createdOn"`
 	Description      *string              `pulumi:"description"`
 	Id               string               `pulumi:"id"`
 	Name             string               `pulumi:"name"`
@@ -34,6 +36,8 @@ type LookupRoleDefinitionResult struct {
 	RoleName         *string              `pulumi:"roleName"`
 	RoleType         *string              `pulumi:"roleType"`
 	Type             string               `pulumi:"type"`
+	UpdatedBy        string               `pulumi:"updatedBy"`
+	UpdatedOn        string               `pulumi:"updatedOn"`
 }
 
 func LookupRoleDefinitionOutput(ctx *pulumi.Context, args LookupRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupRoleDefinitionResultOutput {
@@ -77,6 +81,14 @@ func (o LookupRoleDefinitionResultOutput) AssignableScopes() pulumi.StringArrayO
 	return o.ApplyT(func(v LookupRoleDefinitionResult) []string { return v.AssignableScopes }).(pulumi.StringArrayOutput)
 }
 
+func (o LookupRoleDefinitionResultOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+func (o LookupRoleDefinitionResultOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
 func (o LookupRoleDefinitionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRoleDefinitionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -103,6 +115,14 @@ func (o LookupRoleDefinitionResultOutput) RoleType() pulumi.StringPtrOutput {
 
 func (o LookupRoleDefinitionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o LookupRoleDefinitionResultOutput) UpdatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.UpdatedBy }).(pulumi.StringOutput)
+}
+
+func (o LookupRoleDefinitionResultOutput) UpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.UpdatedOn }).(pulumi.StringOutput)
 }
 
 func init() {

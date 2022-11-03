@@ -1000,6 +1000,11 @@
       "listDaprComponentSecrets"
     ]
   },
+  "AppComplianceAutomation": {
+    "2022-11-16-preview": [
+      "Report"
+    ]
+  },
   "AppConfiguration": {
     "2019-02-01-preview": [
       "ConfigurationStore",
@@ -1651,6 +1656,13 @@
       "Cluster",
       "Extension"
     ],
+    "2021-07-01-preview": [
+      "galleryimageRetrieve",
+      "networkinterfaceRetrieve",
+      "virtualharddiskRetrieve",
+      "virtualmachineRetrieve",
+      "virtualnetworkRetrieve"
+    ],
     "2021-09-01": [
       "ArcSetting",
       "Cluster",
@@ -1789,6 +1801,13 @@
       "ApplicationPackage",
       "BatchAccount",
       "Certificate",
+      "Pool",
+      "listBatchAccountKeys"
+    ],
+    "2022-10-01": [
+      "Application",
+      "ApplicationPackage",
+      "BatchAccount",
       "Pool",
       "listBatchAccountKeys"
     ]
@@ -2696,6 +2715,10 @@
     ],
     "2022-05-13": [
       "Ledger"
+    ],
+    "2022-09-08-preview": [
+      "Ledger",
+      "ManagedCCF"
     ]
   },
   "Confluent": {
@@ -3410,6 +3433,16 @@
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
     ],
+    "2022-09-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
     "2022-09-02-preview": [
       "AgentPool",
       "Fleet",
@@ -3490,6 +3523,13 @@
       "ScheduledActionByScope"
     ],
     "2022-08-01-preview": [
+      "View",
+      "ViewByScope"
+    ],
+    "2022-10-01": [
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
       "View",
       "ViewByScope"
     ],
@@ -4196,6 +4236,7 @@
       "BackupInstance",
       "BackupPolicy",
       "BackupVault",
+      "DppResourceGuardProxy",
       "ResourceGuard"
     ]
   },
@@ -5552,6 +5593,12 @@
   "DynamicsTelemetry": {
     "": []
   },
+  "Easm": {
+    "2022-04-01-preview": [
+      "LabelByWorkspace",
+      "Workspace"
+    ]
+  },
   "EdgeOrder": {
     "2020-12-01-preview": [
       "AddressByName",
@@ -5610,6 +5657,26 @@
       "listMonitoredResource",
       "listUpgradableVersionDetails",
       "listVMHost"
+    ],
+    "2022-05-05-preview": [
+      "Monitor",
+      "TagRule",
+      "listAllTrafficFilter",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
+    ],
+    "2022-07-01-preview": [
+      "Monitor",
+      "TagRule",
+      "listAllTrafficFilter",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
     ]
   },
   "ElasticSan": {
@@ -7891,6 +7958,11 @@
       "Site",
       "Slice",
       "listMobileNetworkSimIds"
+    ]
+  },
+  "Monitor": {
+    "2021-06-03-preview": [
+      "MonitoringAccount"
     ]
   },
   "NetApp": {
@@ -10535,14 +10607,17 @@
       "AdminRule",
       "AdminRuleCollection",
       "ConnectivityConfiguration",
+      "Endpoint",
       "ManagementGroupNetworkManagerConnection",
       "NetworkGroup",
       "NetworkManager",
+      "Profile",
       "ScopeConnection",
       "SecurityAdminConfiguration",
       "SecurityUserConfiguration",
       "StaticMember",
       "SubscriptionNetworkManagerConnection",
+      "TrafficManagerUserMetricsKey",
       "UserRule",
       "UserRuleCollection",
       "listActiveConnectivityConfigurations",
@@ -10894,6 +10969,15 @@
       "RegisteredPrefix"
     ],
     "2022-06-01": [
+      "ConnectionMonitorTest",
+      "PeerAsn",
+      "Peering",
+      "PeeringService",
+      "Prefix",
+      "RegisteredAsn",
+      "RegisteredPrefix"
+    ],
+    "2022-10-01": [
       "ConnectionMonitorTest",
       "PeerAsn",
       "Peering",
@@ -11462,6 +11546,9 @@
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
+      "Vault"
+    ],
+    "2022-09-30-preview": [
       "Vault"
     ]
   },

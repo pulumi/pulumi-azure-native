@@ -110,7 +110,7 @@ export class PeeringService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:peering:PeeringService" }, { type: "azure-native:peering/v20190801preview:PeeringService" }, { type: "azure-native:peering/v20190901preview:PeeringService" }, { type: "azure-native:peering/v20200101preview:PeeringService" }, { type: "azure-native:peering/v20201001:PeeringService" }, { type: "azure-native:peering/v20210101:PeeringService" }, { type: "azure-native:peering/v20210601:PeeringService" }, { type: "azure-native:peering/v20220101:PeeringService" }, { type: "azure-native:peering/v20220601:PeeringService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:PeeringService" }, { type: "azure-native:peering/v20190801preview:PeeringService" }, { type: "azure-native:peering/v20190901preview:PeeringService" }, { type: "azure-native:peering/v20200101preview:PeeringService" }, { type: "azure-native:peering/v20201001:PeeringService" }, { type: "azure-native:peering/v20210101:PeeringService" }, { type: "azure-native:peering/v20210601:PeeringService" }, { type: "azure-native:peering/v20220101:PeeringService" }, { type: "azure-native:peering/v20220601:PeeringService" }, { type: "azure-native:peering/v20221001:PeeringService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeeringService.__pulumiType, name, resourceInputs, opts);
     }

@@ -6189,15 +6189,16 @@ type ScriptActionResponse struct {
 }
 
 type ScriptActivity struct {
-	DependsOn         []ActivityDependency                     `pulumi:"dependsOn"`
-	Description       *string                                  `pulumi:"description"`
-	LinkedServiceName LinkedServiceReference                   `pulumi:"linkedServiceName"`
-	LogSettings       *ScriptActivityTypePropertiesLogSettings `pulumi:"logSettings"`
-	Name              string                                   `pulumi:"name"`
-	Policy            *ActivityPolicy                          `pulumi:"policy"`
-	Scripts           []ScriptActivityScriptBlock              `pulumi:"scripts"`
-	Type              string                                   `pulumi:"type"`
-	UserProperties    []UserProperty                           `pulumi:"userProperties"`
+	DependsOn                   []ActivityDependency                     `pulumi:"dependsOn"`
+	Description                 *string                                  `pulumi:"description"`
+	LinkedServiceName           LinkedServiceReference                   `pulumi:"linkedServiceName"`
+	LogSettings                 *ScriptActivityTypePropertiesLogSettings `pulumi:"logSettings"`
+	Name                        string                                   `pulumi:"name"`
+	Policy                      *ActivityPolicy                          `pulumi:"policy"`
+	ScriptBlockExecutionTimeout interface{}                              `pulumi:"scriptBlockExecutionTimeout"`
+	Scripts                     []ScriptActivityScriptBlock              `pulumi:"scripts"`
+	Type                        string                                   `pulumi:"type"`
+	UserProperties              []UserProperty                           `pulumi:"userProperties"`
 }
 
 type ScriptActivityParameter struct {
@@ -6217,15 +6218,16 @@ type ScriptActivityParameterResponse struct {
 }
 
 type ScriptActivityResponse struct {
-	DependsOn         []ActivityDependencyResponse                     `pulumi:"dependsOn"`
-	Description       *string                                          `pulumi:"description"`
-	LinkedServiceName LinkedServiceReferenceResponse                   `pulumi:"linkedServiceName"`
-	LogSettings       *ScriptActivityTypePropertiesResponseLogSettings `pulumi:"logSettings"`
-	Name              string                                           `pulumi:"name"`
-	Policy            *ActivityPolicyResponse                          `pulumi:"policy"`
-	Scripts           []ScriptActivityScriptBlockResponse              `pulumi:"scripts"`
-	Type              string                                           `pulumi:"type"`
-	UserProperties    []UserPropertyResponse                           `pulumi:"userProperties"`
+	DependsOn                   []ActivityDependencyResponse                     `pulumi:"dependsOn"`
+	Description                 *string                                          `pulumi:"description"`
+	LinkedServiceName           LinkedServiceReferenceResponse                   `pulumi:"linkedServiceName"`
+	LogSettings                 *ScriptActivityTypePropertiesResponseLogSettings `pulumi:"logSettings"`
+	Name                        string                                           `pulumi:"name"`
+	Policy                      *ActivityPolicyResponse                          `pulumi:"policy"`
+	ScriptBlockExecutionTimeout interface{}                                      `pulumi:"scriptBlockExecutionTimeout"`
+	Scripts                     []ScriptActivityScriptBlockResponse              `pulumi:"scripts"`
+	Type                        string                                           `pulumi:"type"`
+	UserProperties              []UserPropertyResponse                           `pulumi:"userProperties"`
 }
 
 type ScriptActivityScriptBlock struct {

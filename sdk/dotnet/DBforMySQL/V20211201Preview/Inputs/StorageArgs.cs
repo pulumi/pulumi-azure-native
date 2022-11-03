@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20211201Preview.EnableStatusEnum>? AutoGrow { get; set; }
 
         /// <summary>
+        /// Enable IO Auto Scaling or not.
+        /// </summary>
+        [Input("autoIoScaling")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20211201Preview.EnableStatusEnum>? AutoIoScaling { get; set; }
+
+        /// <summary>
         /// Storage IOPS for a server.
         /// </summary>
         [Input("iops")]

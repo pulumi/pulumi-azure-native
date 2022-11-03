@@ -22,7 +22,7 @@ class GetWorkspaceResult:
     """
     Information about workspace.
     """
-    def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, encryption=None, id=None, location=None, managed_resource_group_id=None, name=None, parameters=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, required_nsg_rules=None, sku=None, storage_account_identity=None, system_data=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, disk_encryption_set_id=None, encryption=None, id=None, location=None, managed_disk_identity=None, managed_resource_group_id=None, name=None, parameters=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, required_nsg_rules=None, sku=None, storage_account_identity=None, system_data=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
@@ -32,6 +32,9 @@ class GetWorkspaceResult:
         if created_date_time and not isinstance(created_date_time, str):
             raise TypeError("Expected argument 'created_date_time' to be a str")
         pulumi.set(__self__, "created_date_time", created_date_time)
+        if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
+            raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
+        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -41,6 +44,9 @@ class GetWorkspaceResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_disk_identity and not isinstance(managed_disk_identity, dict):
+            raise TypeError("Expected argument 'managed_disk_identity' to be a dict")
+        pulumi.set(__self__, "managed_disk_identity", managed_disk_identity)
         if managed_resource_group_id and not isinstance(managed_resource_group_id, str):
             raise TypeError("Expected argument 'managed_resource_group_id' to be a str")
         pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
@@ -115,6 +121,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "created_date_time")
 
     @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        """
+        The resource Id of the managed disk encryption set.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.WorkspacePropertiesResponseEncryption']:
         """
@@ -137,6 +151,14 @@ class GetWorkspaceResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedDiskIdentity")
+    def managed_disk_identity(self) -> Optional['outputs.ManagedIdentityConfigurationResponse']:
+        """
+        The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        """
+        return pulumi.get(self, "managed_disk_identity")
 
     @property
     @pulumi.getter(name="managedResourceGroupId")
@@ -276,9 +298,11 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             authorizations=self.authorizations,
             created_by=self.created_by,
             created_date_time=self.created_date_time,
+            disk_encryption_set_id=self.disk_encryption_set_id,
             encryption=self.encryption,
             id=self.id,
             location=self.location,
+            managed_disk_identity=self.managed_disk_identity,
             managed_resource_group_id=self.managed_resource_group_id,
             name=self.name,
             parameters=self.parameters,
@@ -317,9 +341,11 @@ def get_workspace(resource_group_name: Optional[str] = None,
         authorizations=__ret__.authorizations,
         created_by=__ret__.created_by,
         created_date_time=__ret__.created_date_time,
+        disk_encryption_set_id=__ret__.disk_encryption_set_id,
         encryption=__ret__.encryption,
         id=__ret__.id,
         location=__ret__.location,
+        managed_disk_identity=__ret__.managed_disk_identity,
         managed_resource_group_id=__ret__.managed_resource_group_id,
         name=__ret__.name,
         parameters=__ret__.parameters,

@@ -1699,6 +1699,16 @@ func (o ErrorResponseInnerErrorPtrOutput) InnerError() ErrorResponsePtrOutput {
 	}).(ErrorResponsePtrOutput)
 }
 
+type ExternalInstallationSoftwareConfiguration struct {
+	CentralServerVmId        *string `pulumi:"centralServerVmId"`
+	SoftwareInstallationType string  `pulumi:"softwareInstallationType"`
+}
+
+type ExternalInstallationSoftwareConfigurationResponse struct {
+	CentralServerVmId        *string `pulumi:"centralServerVmId"`
+	SoftwareInstallationType string  `pulumi:"softwareInstallationType"`
+}
+
 type FileshareProfile struct {
 	ShareSizeInGB *float64 `pulumi:"shareSizeInGB"`
 	ShareType     string   `pulumi:"shareType"`

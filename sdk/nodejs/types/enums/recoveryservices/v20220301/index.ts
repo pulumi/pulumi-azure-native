@@ -203,6 +203,9 @@ export const IAASVMPolicyType = {
     V2: "V2",
 } as const;
 
+/**
+ * Type of backup policy type
+ */
 export type IAASVMPolicyType = (typeof IAASVMPolicyType)[keyof typeof IAASVMPolicyType];
 
 export const InfrastructureEncryptionState = {

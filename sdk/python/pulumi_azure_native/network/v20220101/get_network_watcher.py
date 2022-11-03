@@ -21,7 +21,7 @@ class GetNetworkWatcherResult:
     """
     Network watcher in a resource group.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, provisioning_state=None, running_operation_ids=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -37,6 +37,9 @@ class GetNetworkWatcherResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if running_operation_ids and not isinstance(running_operation_ids, list):
+            raise TypeError("Expected argument 'running_operation_ids' to be a list")
+        pulumi.set(__self__, "running_operation_ids", running_operation_ids)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -85,6 +88,14 @@ class GetNetworkWatcherResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="runningOperationIds")
+    def running_operation_ids(self) -> Optional[Sequence[int]]:
+        """
+        List of running operation IDs.
+        """
+        return pulumi.get(self, "running_operation_ids")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -112,6 +123,7 @@ class AwaitableGetNetworkWatcherResult(GetNetworkWatcherResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            running_operation_ids=self.running_operation_ids,
             tags=self.tags,
             type=self.type)
 
@@ -138,6 +150,7 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        running_operation_ids=__ret__.running_operation_ids,
         tags=__ret__.tags,
         type=__ret__.type)
 

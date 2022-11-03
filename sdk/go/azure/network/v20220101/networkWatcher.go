@@ -14,12 +14,13 @@ import (
 type NetworkWatcher struct {
 	pulumi.CustomResourceState
 
-	Etag              pulumi.StringOutput    `pulumi:"etag"`
-	Location          pulumi.StringPtrOutput `pulumi:"location"`
-	Name              pulumi.StringOutput    `pulumi:"name"`
-	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	Type              pulumi.StringOutput    `pulumi:"type"`
+	Etag                pulumi.StringOutput    `pulumi:"etag"`
+	Location            pulumi.StringPtrOutput `pulumi:"location"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput    `pulumi:"provisioningState"`
+	RunningOperationIds pulumi.IntArrayOutput  `pulumi:"runningOperationIds"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	Type                pulumi.StringOutput    `pulumi:"type"`
 }
 
 
@@ -181,20 +182,22 @@ func (NetworkWatcherState) ElementType() reflect.Type {
 }
 
 type networkWatcherArgs struct {
-	Id                 *string           `pulumi:"id"`
-	Location           *string           `pulumi:"location"`
-	NetworkWatcherName *string           `pulumi:"networkWatcherName"`
-	ResourceGroupName  string            `pulumi:"resourceGroupName"`
-	Tags               map[string]string `pulumi:"tags"`
+	Id                  *string           `pulumi:"id"`
+	Location            *string           `pulumi:"location"`
+	NetworkWatcherName  *string           `pulumi:"networkWatcherName"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	RunningOperationIds []int             `pulumi:"runningOperationIds"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 
 type NetworkWatcherArgs struct {
-	Id                 pulumi.StringPtrInput
-	Location           pulumi.StringPtrInput
-	NetworkWatcherName pulumi.StringPtrInput
-	ResourceGroupName  pulumi.StringInput
-	Tags               pulumi.StringMapInput
+	Id                  pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	NetworkWatcherName  pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	RunningOperationIds pulumi.IntArrayInput
+	Tags                pulumi.StringMapInput
 }
 
 func (NetworkWatcherArgs) ElementType() reflect.Type {
@@ -248,6 +251,10 @@ func (o NetworkWatcherOutput) Name() pulumi.StringOutput {
 
 func (o NetworkWatcherOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkWatcher) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o NetworkWatcherOutput) RunningOperationIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *NetworkWatcher) pulumi.IntArrayOutput { return v.RunningOperationIds }).(pulumi.IntArrayOutput)
 }
 
 func (o NetworkWatcherOutput) Tags() pulumi.StringMapOutput {

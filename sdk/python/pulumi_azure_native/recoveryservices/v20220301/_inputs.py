@@ -3684,6 +3684,7 @@ class AzureIaaSVMProtectionPolicyArgs:
         :param pulumi.Input[str] backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureIaasVM'.
         :param pulumi.Input[int] instant_rp_retention_range_in_days: Instant RP retention policy range in days
+        :param pulumi.Input[Union[str, 'IAASVMPolicyType']] policy_type: Type of backup policy type
         :param pulumi.Input[int] protected_items_count: Number of items associated with this policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuard Operation Requests
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy with the details on backup copy retention ranges.
@@ -3745,6 +3746,9 @@ class AzureIaaSVMProtectionPolicyArgs:
     @property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[pulumi.Input[Union[str, 'IAASVMPolicyType']]]:
+        """
+        Type of backup policy type
+        """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter

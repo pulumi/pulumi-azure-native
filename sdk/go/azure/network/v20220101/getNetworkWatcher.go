@@ -26,13 +26,14 @@ type LookupNetworkWatcherArgs struct {
 
 
 type LookupNetworkWatcherResult struct {
-	Etag              string            `pulumi:"etag"`
-	Id                *string           `pulumi:"id"`
-	Location          *string           `pulumi:"location"`
-	Name              string            `pulumi:"name"`
-	ProvisioningState string            `pulumi:"provisioningState"`
-	Tags              map[string]string `pulumi:"tags"`
-	Type              string            `pulumi:"type"`
+	Etag                string            `pulumi:"etag"`
+	Id                  *string           `pulumi:"id"`
+	Location            *string           `pulumi:"location"`
+	Name                string            `pulumi:"name"`
+	ProvisioningState   string            `pulumi:"provisioningState"`
+	RunningOperationIds []int             `pulumi:"runningOperationIds"`
+	Tags                map[string]string `pulumi:"tags"`
+	Type                string            `pulumi:"type"`
 }
 
 func LookupNetworkWatcherOutput(ctx *pulumi.Context, args LookupNetworkWatcherOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkWatcherResultOutput {
@@ -90,6 +91,10 @@ func (o LookupNetworkWatcherResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupNetworkWatcherResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkWatcherResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupNetworkWatcherResultOutput) RunningOperationIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v LookupNetworkWatcherResult) []int { return v.RunningOperationIds }).(pulumi.IntArrayOutput)
 }
 
 func (o LookupNetworkWatcherResultOutput) Tags() pulumi.StringMapOutput {

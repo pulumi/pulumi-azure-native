@@ -255,6 +255,7 @@ class SAPSoftwareInstallationType(str, Enum):
     """
     SERVICE_INITIATED = "ServiceInitiated"
     SAP_INSTALL_WITHOUT_OS_CONFIG = "SAPInstallWithoutOSConfig"
+    EXTERNAL = "External"
 
 
 class SearchType(str, Enum):

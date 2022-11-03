@@ -43,6 +43,7 @@ export * from "../types/enums/azurestackhci";
 import * as v20200301preview from "./v20200301preview";
 import * as v20201001 from "./v20201001";
 import * as v20210101preview from "./v20210101preview";
+import * as v20210701preview from "./v20210701preview";
 import * as v20210901 from "./v20210901";
 import * as v20220101 from "./v20220101";
 import * as v20220301 from "./v20220301";
@@ -54,6 +55,7 @@ export {
     v20200301preview,
     v20201001,
     v20210101preview,
+    v20210701preview,
     v20210901,
     v20220101,
     v20220301,

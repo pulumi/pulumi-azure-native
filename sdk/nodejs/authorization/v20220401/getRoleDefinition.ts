@@ -42,6 +42,14 @@ export interface GetRoleDefinitionResult {
      */
     readonly assignableScopes?: string[];
     /**
+     * Id of the user who created the assignment
+     */
+    readonly createdBy: string;
+    /**
+     * Time it was created
+     */
+    readonly createdOn: string;
+    /**
      * The role definition description.
      */
     readonly description?: string;
@@ -69,6 +77,14 @@ export interface GetRoleDefinitionResult {
      * The role definition type.
      */
     readonly type: string;
+    /**
+     * Id of the user who updated the assignment
+     */
+    readonly updatedBy: string;
+    /**
+     * Time it was updated
+     */
+    readonly updatedOn: string;
 }
 
 export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {

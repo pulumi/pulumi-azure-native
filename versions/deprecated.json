@@ -28,6 +28,7 @@
     "2016-07-07"
   ],
   "App": [],
+  "AppComplianceAutomation": [],
   "AppConfiguration": [
     "2019-02-01-preview",
     "2019-10-01",
@@ -292,6 +293,7 @@
   ],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
+  "Easm": [],
   "EdgeOrder": [
     "2020-12-01-preview"
   ],
@@ -432,6 +434,7 @@
     "2020-05-01"
   ],
   "MobileNetwork": [],
+  "Monitor": [],
   "NetApp": [
     "2017-08-15",
     "2019-05-01",

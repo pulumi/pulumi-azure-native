@@ -22,10 +22,16 @@ class GetRoleDefinitionResult:
     """
     Role definition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, id=None, name=None, permissions=None, role_name=None, role_type=None, type=None):
+    def __init__(__self__, assignable_scopes=None, created_by=None, created_on=None, description=None, id=None, name=None, permissions=None, role_name=None, role_type=None, type=None, updated_by=None, updated_on=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
         pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+        if created_by and not isinstance(created_by, str):
+            raise TypeError("Expected argument 'created_by' to be a str")
+        pulumi.set(__self__, "created_by", created_by)
+        if created_on and not isinstance(created_on, str):
+            raise TypeError("Expected argument 'created_on' to be a str")
+        pulumi.set(__self__, "created_on", created_on)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -47,6 +53,12 @@ class GetRoleDefinitionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if updated_by and not isinstance(updated_by, str):
+            raise TypeError("Expected argument 'updated_by' to be a str")
+        pulumi.set(__self__, "updated_by", updated_by)
+        if updated_on and not isinstance(updated_on, str):
+            raise TypeError("Expected argument 'updated_on' to be a str")
+        pulumi.set(__self__, "updated_on", updated_on)
 
     @property
     @pulumi.getter(name="assignableScopes")
@@ -55,6 +67,22 @@ class GetRoleDefinitionResult:
         Role definition assignable scopes.
         """
         return pulumi.get(self, "assignable_scopes")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        Id of the user who created the assignment
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        Time it was created
+        """
+        return pulumi.get(self, "created_on")
 
     @property
     @pulumi.getter
@@ -112,6 +140,22 @@ class GetRoleDefinitionResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> str:
+        """
+        Id of the user who updated the assignment
+        """
+        return pulumi.get(self, "updated_by")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> str:
+        """
+        Time it was updated
+        """
+        return pulumi.get(self, "updated_on")
+
 
 class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
     # pylint: disable=using-constant-test
@@ -120,13 +164,17 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
             yield self
         return GetRoleDefinitionResult(
             assignable_scopes=self.assignable_scopes,
+            created_by=self.created_by,
+            created_on=self.created_on,
             description=self.description,
             id=self.id,
             name=self.name,
             permissions=self.permissions,
             role_name=self.role_name,
             role_type=self.role_type,
-            type=self.type)
+            type=self.type,
+            updated_by=self.updated_by,
+            updated_on=self.updated_on)
 
 
 def get_role_definition(role_definition_id: Optional[str] = None,
@@ -147,13 +195,17 @@ def get_role_definition(role_definition_id: Optional[str] = None,
 
     return AwaitableGetRoleDefinitionResult(
         assignable_scopes=__ret__.assignable_scopes,
+        created_by=__ret__.created_by,
+        created_on=__ret__.created_on,
         description=__ret__.description,
         id=__ret__.id,
         name=__ret__.name,
         permissions=__ret__.permissions,
         role_name=__ret__.role_name,
         role_type=__ret__.role_type,
-        type=__ret__.type)
+        type=__ret__.type,
+        updated_by=__ret__.updated_by,
+        updated_on=__ret__.updated_on)
 
 
 @_utilities.lift_output_func(get_role_definition)

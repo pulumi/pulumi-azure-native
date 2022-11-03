@@ -42,6 +42,14 @@ export class RoleDefinition extends pulumi.CustomResource {
      */
     public readonly assignableScopes!: pulumi.Output<string[] | undefined>;
     /**
+     * Id of the user who created the assignment
+     */
+    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    /**
+     * Time it was created
+     */
+    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    /**
      * The role definition description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -65,6 +73,14 @@ export class RoleDefinition extends pulumi.CustomResource {
      * The role definition type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Id of the user who updated the assignment
+     */
+    public /*out*/ readonly updatedBy!: pulumi.Output<string>;
+    /**
+     * Time it was updated
+     */
+    public /*out*/ readonly updatedOn!: pulumi.Output<string>;
 
     /**
      * Create a RoleDefinition resource with the given unique name, arguments, and options.
@@ -87,16 +103,24 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["roleType"] = args ? args.roleType : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["updatedOn"] = undefined /*out*/;
         } else {
             resourceInputs["assignableScopes"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["permissions"] = undefined /*out*/;
             resourceInputs["roleName"] = undefined /*out*/;
             resourceInputs["roleType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["updatedOn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:RoleDefinition" }, { type: "azure-native:authorization/v20150701:RoleDefinition" }, { type: "azure-native:authorization/v20180101preview:RoleDefinition" }] };

@@ -51,6 +51,10 @@ export class NetworkWatcher extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * List of running operation IDs.
+     */
+    public readonly runningOperationIds!: pulumi.Output<number[] | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -77,6 +81,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runningOperationIds"] = args ? args.runningOperationIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -87,6 +92,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["runningOperationIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -117,6 +123,10 @@ export interface NetworkWatcherArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * List of running operation IDs.
+     */
+    runningOperationIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Resource tags.
      */

@@ -496,6 +496,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Type of backup policy type
+    /// </summary>
     [EnumType]
     public readonly struct IAASVMPolicyType : IEquatable<IAASVMPolicyType>
     {
