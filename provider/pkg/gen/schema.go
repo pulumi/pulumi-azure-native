@@ -1538,6 +1538,13 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				return nil, nil
 			}
 
+			// https://github.com/Azure/azure-rest-api-specs/issues/21431
+			if tok == "azure-native:network/v20220701:SubResource" {
+				log.Printf("Removing required 'id' from %s of %s", propertyName, tok)
+				props.requiredProperties.Delete("id")
+				props.requiredSpecs.Delete("id")
+			}
+
 			spec := pschema.ComplexTypeSpec{
 				ObjectTypeSpec: pschema.ObjectTypeSpec{
 					Description: resolvedSchema.Description,
