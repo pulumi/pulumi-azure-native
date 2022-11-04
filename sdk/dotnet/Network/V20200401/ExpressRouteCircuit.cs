@@ -202,6 +202,7 @@ namespace Pulumi.AzureNative.Network.V20200401
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRouteCircuit"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRouteCircuit"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRouteCircuit"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ExpressRouteCircuit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -161,6 +161,9 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20220101:LocalNetworkGateway"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220701:LocalNetworkGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LocalNetworkGateway

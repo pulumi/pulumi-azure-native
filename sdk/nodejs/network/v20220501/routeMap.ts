@@ -104,6 +104,8 @@ export class RouteMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220701:RouteMap" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RouteMap.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -36,6 +36,12 @@ func NewRouteMap(ctx *pulumi.Context,
 	if args.VirtualHubName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:network/v20220701:RouteMap"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RouteMap
 	err := ctx.RegisterResource("azure-native:network/v20220501:RouteMap", name, args, &resource, opts...)
 	if err != nil {

@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ProtectedItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ProtectedItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ProtectedItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220401:ProtectedItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220601preview:ProtectedItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20220901preview:ProtectedItem"},
                 },

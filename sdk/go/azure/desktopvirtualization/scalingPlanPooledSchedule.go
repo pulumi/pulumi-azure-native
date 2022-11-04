@@ -53,6 +53,9 @@ func NewScalingPlanPooledSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"),
 		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ScalingPlanPooledSchedule

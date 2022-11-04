@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.Network.V20220701.Inputs
 {
 
     /// <summary>
-    /// Reference to another ARM resource.
+    /// Reference to another subresource.
     /// </summary>
     public sealed class SubResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         public SubResourceArgs()
         {

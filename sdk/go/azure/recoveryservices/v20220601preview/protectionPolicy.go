@@ -91,6 +91,9 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:recoveryservices/v20220301:ProtectionPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20220401:ProtectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:recoveryservices/v20220901preview:ProtectionPolicy"),
 		},
 	})
