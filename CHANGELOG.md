@@ -2,7 +2,20 @@
 
 ## HEAD (Unreleased)
 
+## 1.85.0 (2022-11-07)
+
 - Disable force new for container service enableAzureRBAC [#2064](https://github.com/pulumi/pulumi-azure-native/pull/2064)
+- Updated to Pulumi SDK v3.46.0
+- Upgrade to latest version of Azure Rest API Specs
+  - New Resource Providers:
+    - AppComplianceAutomation
+    - Easm
+    - Monitor
+  - New resources:
+    - `azure-native:appcomplianceautomation:Report`
+    - `azure-native:easm:LabelByWorkspace`
+    - `azure-native:easm:Workspace`
+    - `azure-native:monitor:MonitoringAccount`
 
 ## 1.84.0 (2022-10-27)
 
