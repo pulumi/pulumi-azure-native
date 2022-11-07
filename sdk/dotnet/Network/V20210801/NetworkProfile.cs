@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.Network.V20210801
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkProfile"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkProfile"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkProfile"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -5,6 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetProtectedItemArgs, GetProtectedItemResult, GetProtectedItemOutputArgs } from "./getProtectedItem";
+export const getProtectedItem: typeof import("./getProtectedItem").getProtectedItem = null as any;
+export const getProtectedItemOutput: typeof import("./getProtectedItem").getProtectedItemOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectedItem","getProtectedItemOutput"], () => require("./getProtectedItem"));
+
+export { GetProtectionContainerArgs, GetProtectionContainerResult, GetProtectionContainerOutputArgs } from "./getProtectionContainer";
+export const getProtectionContainer: typeof import("./getProtectionContainer").getProtectionContainer = null as any;
+export const getProtectionContainerOutput: typeof import("./getProtectionContainer").getProtectionContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionContainer","getProtectionContainerOutput"], () => require("./getProtectionContainer"));
+
+export { GetProtectionIntentArgs, GetProtectionIntentResult, GetProtectionIntentOutputArgs } from "./getProtectionIntent";
+export const getProtectionIntent: typeof import("./getProtectionIntent").getProtectionIntent = null as any;
+export const getProtectionIntentOutput: typeof import("./getProtectionIntent").getProtectionIntentOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionIntent","getProtectionIntentOutput"], () => require("./getProtectionIntent"));
+
+export { GetProtectionPolicyArgs, GetProtectionPolicyResult, GetProtectionPolicyOutputArgs } from "./getProtectionPolicy";
+export const getProtectionPolicy: typeof import("./getProtectionPolicy").getProtectionPolicy = null as any;
+export const getProtectionPolicyOutput: typeof import("./getProtectionPolicy").getProtectionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
+
 export { GetReplicationFabricArgs, GetReplicationFabricResult, GetReplicationFabricOutputArgs } from "./getReplicationFabric";
 export const getReplicationFabric: typeof import("./getReplicationFabric").getReplicationFabric = null as any;
 export const getReplicationFabricOutput: typeof import("./getReplicationFabric").getReplicationFabricOutput = null as any;
@@ -55,10 +80,40 @@ export const getReplicationvCenter: typeof import("./getReplicationvCenter").get
 export const getReplicationvCenterOutput: typeof import("./getReplicationvCenter").getReplicationvCenterOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationvCenter","getReplicationvCenterOutput"], () => require("./getReplicationvCenter"));
 
+export { GetResourceGuardProxyArgs, GetResourceGuardProxyResult, GetResourceGuardProxyOutputArgs } from "./getResourceGuardProxy";
+export const getResourceGuardProxy: typeof import("./getResourceGuardProxy").getResourceGuardProxy = null as any;
+export const getResourceGuardProxyOutput: typeof import("./getResourceGuardProxy").getResourceGuardProxyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceGuardProxy","getResourceGuardProxyOutput"], () => require("./getResourceGuardProxy"));
+
 export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
 export const getVault: typeof import("./getVault").getVault = null as any;
 export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
 utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { ProtectedItemArgs } from "./protectedItem";
+export type ProtectedItem = import("./protectedItem").ProtectedItem;
+export const ProtectedItem: typeof import("./protectedItem").ProtectedItem = null as any;
+utilities.lazyLoad(exports, ["ProtectedItem"], () => require("./protectedItem"));
+
+export { ProtectionContainerArgs } from "./protectionContainer";
+export type ProtectionContainer = import("./protectionContainer").ProtectionContainer;
+export const ProtectionContainer: typeof import("./protectionContainer").ProtectionContainer = null as any;
+utilities.lazyLoad(exports, ["ProtectionContainer"], () => require("./protectionContainer"));
+
+export { ProtectionIntentArgs } from "./protectionIntent";
+export type ProtectionIntent = import("./protectionIntent").ProtectionIntent;
+export const ProtectionIntent: typeof import("./protectionIntent").ProtectionIntent = null as any;
+utilities.lazyLoad(exports, ["ProtectionIntent"], () => require("./protectionIntent"));
+
+export { ProtectionPolicyArgs } from "./protectionPolicy";
+export type ProtectionPolicy = import("./protectionPolicy").ProtectionPolicy;
+export const ProtectionPolicy: typeof import("./protectionPolicy").ProtectionPolicy = null as any;
+utilities.lazyLoad(exports, ["ProtectionPolicy"], () => require("./protectionPolicy"));
 
 export { ReplicationFabricArgs } from "./replicationFabric";
 export type ReplicationFabric = import("./replicationFabric").ReplicationFabric;
@@ -110,6 +165,11 @@ export type ReplicationvCenter = import("./replicationvCenter").ReplicationvCent
 export const ReplicationvCenter: typeof import("./replicationvCenter").ReplicationvCenter = null as any;
 utilities.lazyLoad(exports, ["ReplicationvCenter"], () => require("./replicationvCenter"));
 
+export { ResourceGuardProxyArgs } from "./resourceGuardProxy";
+export type ResourceGuardProxy = import("./resourceGuardProxy").ResourceGuardProxy;
+export const ResourceGuardProxy: typeof import("./resourceGuardProxy").ResourceGuardProxy = null as any;
+utilities.lazyLoad(exports, ["ResourceGuardProxy"], () => require("./resourceGuardProxy"));
+
 export { VaultArgs } from "./vault";
 export type Vault = import("./vault").Vault;
 export const Vault: typeof import("./vault").Vault = null as any;
@@ -123,6 +183,16 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:recoveryservices/v20220401:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20220401:ProtectedItem":
+                return new ProtectedItem(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20220401:ProtectionContainer":
+                return new ProtectionContainer(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20220401:ProtectionIntent":
+                return new ProtectionIntent(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20220401:ProtectionPolicy":
+                return new ProtectionPolicy(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20220401:ReplicationFabric":
                 return new ReplicationFabric(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20220401:ReplicationMigrationItem":
@@ -143,6 +213,8 @@ const _module = {
                 return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20220401:ReplicationvCenter":
                 return new ReplicationvCenter(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20220401:ResourceGuardProxy":
+                return new ResourceGuardProxy(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20220401:Vault":
                 return new Vault(name, <any>undefined, { urn })
             default:

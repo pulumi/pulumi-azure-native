@@ -11481,6 +11481,11 @@
       "Vault"
     ],
     "2022-04-01": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
       "ReplicationFabric",
       "ReplicationMigrationItem",
       "ReplicationNetworkMapping",
@@ -11491,6 +11496,7 @@
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
+      "ResourceGuardProxy",
       "Vault"
     ],
     "2022-05-01": [

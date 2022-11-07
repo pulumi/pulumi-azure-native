@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:MSIXPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:MSIXPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:MSIXPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

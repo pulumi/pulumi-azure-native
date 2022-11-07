@@ -89,6 +89,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20220401preview:Workspace"),
 		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20220909:Workspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace

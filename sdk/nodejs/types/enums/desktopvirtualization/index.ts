@@ -17,6 +17,7 @@ import * as v20210712 from "./v20210712";
 import * as v20210903preview from "./v20210903preview";
 import * as v20220210preview from "./v20220210preview";
 import * as v20220401preview from "./v20220401preview";
+import * as v20220909 from "./v20220909";
 
 export {
     v20190123preview,
@@ -34,6 +35,7 @@ export {
     v20210903preview,
     v20220210preview,
     v20220401preview,
+    v20220909,
 };
 
 export const ApplicationGroupType = {

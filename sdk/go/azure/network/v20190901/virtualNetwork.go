@@ -174,6 +174,9 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20220501:VirtualNetwork"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220701:VirtualNetwork"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetwork

@@ -113,6 +113,9 @@ func NewHostPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20220401preview:HostPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20220909:HostPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HostPool

@@ -113,6 +113,9 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20220501:InterfaceEndpoint"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220701:InterfaceEndpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource InterfaceEndpoint

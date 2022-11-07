@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Network.V20220101
                     new global::Pulumi.Alias { Type = "azure-native:network:ConfigurationPolicyGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ConfigurationPolicyGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ConfigurationPolicyGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ConfigurationPolicyGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
