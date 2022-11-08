@@ -138,7 +138,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["validationProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDCustomDomain" }, { type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-native:cdn/v20210601:AFDCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDCustomDomain" }, { type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-native:cdn/v20210601:AFDCustomDomain" }, { type: "azure-native:cdn/v20221101preview:AFDCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDCustomDomain.__pulumiType, name, resourceInputs, opts);
     }

@@ -7980,6 +7980,8 @@ class BackendAddressPoolResponse(dict):
             suggest = "load_balancer_backend_addresses"
         elif key == "tunnelInterfaces":
             suggest = "tunnel_interfaces"
+        elif key == "virtualNetwork":
+            suggest = "virtual_network"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackendAddressPoolResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8006,7 +8008,8 @@ class BackendAddressPoolResponse(dict):
                  load_balancer_backend_addresses: Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']] = None,
                  location: Optional[str] = None,
                  name: Optional[str] = None,
-                 tunnel_interfaces: Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']] = None):
+                 tunnel_interfaces: Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']] = None,
+                 virtual_network: Optional['outputs.SubResourceResponse'] = None):
         """
         Pool of backend IP addresses.
         :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: An array of references to IP addresses defined in network interfaces.
@@ -8023,6 +8026,7 @@ class BackendAddressPoolResponse(dict):
         :param str location: The location of the backend address pool.
         :param str name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param Sequence['GatewayLoadBalancerTunnelInterfaceResponse'] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
+        :param 'SubResourceResponse' virtual_network: A reference to a virtual network.
         """
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
         pulumi.set(__self__, "etag", etag)
@@ -8044,6 +8048,8 @@ class BackendAddressPoolResponse(dict):
             pulumi.set(__self__, "name", name)
         if tunnel_interfaces is not None:
             pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
@@ -8156,6 +8162,14 @@ class BackendAddressPoolResponse(dict):
         An array of gateway load balancer tunnel interfaces.
         """
         return pulumi.get(self, "tunnel_interfaces")
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to a virtual network.
+        """
+        return pulumi.get(self, "virtual_network")
 
 
 @pulumi.output_type

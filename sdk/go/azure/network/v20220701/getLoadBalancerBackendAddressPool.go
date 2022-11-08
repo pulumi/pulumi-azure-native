@@ -41,6 +41,7 @@ type LookupLoadBalancerBackendAddressPoolResult struct {
 	ProvisioningState            string                                       `pulumi:"provisioningState"`
 	TunnelInterfaces             []GatewayLoadBalancerTunnelInterfaceResponse `pulumi:"tunnelInterfaces"`
 	Type                         string                                       `pulumi:"type"`
+	VirtualNetwork               *SubResourceResponse                         `pulumi:"virtualNetwork"`
 }
 
 func LookupLoadBalancerBackendAddressPoolOutput(ctx *pulumi.Context, args LookupLoadBalancerBackendAddressPoolOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerBackendAddressPoolResultOutput {
@@ -141,6 +142,10 @@ func (o LookupLoadBalancerBackendAddressPoolResultOutput) TunnelInterfaces() Gat
 
 func (o LookupLoadBalancerBackendAddressPoolResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerBackendAddressPoolResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerBackendAddressPoolResultOutput) VirtualNetwork() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerBackendAddressPoolResult) *SubResourceResponse { return v.VirtualNetwork }).(SubResourceResponsePtrOutput)
 }
 
 func init() {

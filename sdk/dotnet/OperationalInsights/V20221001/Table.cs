@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20221001
         /// True - Value originates from workspace retention in days, False - Customer specific.
         /// </summary>
         [Output("retentionInDaysAsDefault")]
-        public Output<string> RetentionInDaysAsDefault { get; private set; } = null!;
+        public Output<bool> RetentionInDaysAsDefault { get; private set; } = null!;
 
         /// <summary>
         /// Table schema.
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20221001
         /// True - Value originates from retention in days, False - Customer specific.
         /// </summary>
         [Output("totalRetentionInDaysAsDefault")]
-        public Output<string> TotalRetentionInDaysAsDefault { get; private set; } = null!;
+        public Output<bool> TotalRetentionInDaysAsDefault { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

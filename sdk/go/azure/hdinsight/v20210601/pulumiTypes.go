@@ -6645,6 +6645,7 @@ func (o RuntimeScriptActionArrayOutput) Index(i pulumi.IntInput) RuntimeScriptAc
 type RuntimeScriptActionResponse struct {
 	ApplicationName string   `pulumi:"applicationName"`
 	Name            string   `pulumi:"name"`
+	Parameters      *string  `pulumi:"parameters"`
 	Roles           []string `pulumi:"roles"`
 	Uri             string   `pulumi:"uri"`
 }
@@ -6669,6 +6670,10 @@ func (o RuntimeScriptActionResponseOutput) ApplicationName() pulumi.StringOutput
 
 func (o RuntimeScriptActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeScriptActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RuntimeScriptActionResponseOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeScriptActionResponse) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
 
 func (o RuntimeScriptActionResponseOutput) Roles() pulumi.StringArrayOutput {

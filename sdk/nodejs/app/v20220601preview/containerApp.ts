@@ -133,7 +133,7 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["managedEnvironmentId"] = args ? args.managedEnvironmentId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["template"] = args ? (args.template ? pulumi.output(args.template).apply(inputs.app.v20220601preview.templateArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["workloadProfileType"] = args ? args.workloadProfileType : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["eventStreamEndpoint"] = undefined /*out*/;

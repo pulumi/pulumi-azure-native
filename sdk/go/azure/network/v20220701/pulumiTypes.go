@@ -13192,6 +13192,7 @@ type BackendAddressPool struct {
 	Location                     *string                              `pulumi:"location"`
 	Name                         *string                              `pulumi:"name"`
 	TunnelInterfaces             []GatewayLoadBalancerTunnelInterface `pulumi:"tunnelInterfaces"`
+	VirtualNetwork               *SubResource                         `pulumi:"virtualNetwork"`
 }
 
 
@@ -13212,6 +13213,7 @@ type BackendAddressPoolArgs struct {
 	Location                     pulumi.StringPtrInput                        `pulumi:"location"`
 	Name                         pulumi.StringPtrInput                        `pulumi:"name"`
 	TunnelInterfaces             GatewayLoadBalancerTunnelInterfaceArrayInput `pulumi:"tunnelInterfaces"`
+	VirtualNetwork               SubResourcePtrInput                          `pulumi:"virtualNetwork"`
 }
 
 func (BackendAddressPoolArgs) ElementType() reflect.Type {
@@ -13289,6 +13291,10 @@ func (o BackendAddressPoolOutput) TunnelInterfaces() GatewayLoadBalancerTunnelIn
 	return o.ApplyT(func(v BackendAddressPool) []GatewayLoadBalancerTunnelInterface { return v.TunnelInterfaces }).(GatewayLoadBalancerTunnelInterfaceArrayOutput)
 }
 
+func (o BackendAddressPoolOutput) VirtualNetwork() SubResourcePtrOutput {
+	return o.ApplyT(func(v BackendAddressPool) *SubResource { return v.VirtualNetwork }).(SubResourcePtrOutput)
+}
+
 type BackendAddressPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (BackendAddressPoolArrayOutput) ElementType() reflect.Type {
@@ -13324,6 +13330,7 @@ type BackendAddressPoolResponse struct {
 	ProvisioningState            string                                       `pulumi:"provisioningState"`
 	TunnelInterfaces             []GatewayLoadBalancerTunnelInterfaceResponse `pulumi:"tunnelInterfaces"`
 	Type                         string                                       `pulumi:"type"`
+	VirtualNetwork               *SubResourceResponse                         `pulumi:"virtualNetwork"`
 }
 
 type BackendAddressPoolResponseOutput struct{ *pulumi.OutputState }
@@ -13400,6 +13407,10 @@ func (o BackendAddressPoolResponseOutput) TunnelInterfaces() GatewayLoadBalancer
 
 func (o BackendAddressPoolResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o BackendAddressPoolResponseOutput) VirtualNetwork() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v BackendAddressPoolResponse) *SubResourceResponse { return v.VirtualNetwork }).(SubResourceResponsePtrOutput)
 }
 
 type BackendAddressPoolResponseArrayOutput struct{ *pulumi.OutputState }

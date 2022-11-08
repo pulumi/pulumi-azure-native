@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Anomalies"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:Anomalies"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:Anomalies"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:Anomalies"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

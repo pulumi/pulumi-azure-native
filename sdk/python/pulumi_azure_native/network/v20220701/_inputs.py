@@ -5294,7 +5294,8 @@ class BackendAddressPoolArgs:
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]] = None):
+                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]] = None,
+                 virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         Pool of backend IP addresses.
         :param pulumi.Input[int] drain_period_in_seconds: Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
@@ -5303,6 +5304,7 @@ class BackendAddressPoolArgs:
         :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
+        :param pulumi.Input['SubResourceArgs'] virtual_network: A reference to a virtual network.
         """
         if drain_period_in_seconds is not None:
             pulumi.set(__self__, "drain_period_in_seconds", drain_period_in_seconds)
@@ -5316,6 +5318,8 @@ class BackendAddressPoolArgs:
             pulumi.set(__self__, "name", name)
         if tunnel_interfaces is not None:
             pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
 
     @property
     @pulumi.getter(name="drainPeriodInSeconds")
@@ -5388,6 +5392,18 @@ class BackendAddressPoolArgs:
     @tunnel_interfaces.setter
     def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]]):
         pulumi.set(self, "tunnel_interfaces", value)
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        A reference to a virtual network.
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @virtual_network.setter
+    def virtual_network(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "virtual_network", value)
 
 
 @pulumi.input_type

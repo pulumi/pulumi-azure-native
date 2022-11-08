@@ -72,7 +72,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * True - Value originates from workspace retention in days, False - Customer specific.
      */
-    public /*out*/ readonly retentionInDaysAsDefault!: pulumi.Output<string>;
+    public /*out*/ readonly retentionInDaysAsDefault!: pulumi.Output<boolean>;
     /**
      * Table schema.
      */
@@ -92,7 +92,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * True - Value originates from retention in days, False - Customer specific.
      */
-    public /*out*/ readonly totalRetentionInDaysAsDefault!: pulumi.Output<string>;
+    public /*out*/ readonly totalRetentionInDaysAsDefault!: pulumi.Output<boolean>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

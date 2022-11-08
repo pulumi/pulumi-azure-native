@@ -855,6 +855,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "alertsmanagement/v20210722preview",
+  "fqn": "pulumi_azure_native.alertsmanagement.v20210722preview",
+  "classes": {
+   "azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup": "PrometheusRuleGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "alertsmanagement/v20210808",
   "fqn": "pulumi_azure_native.alertsmanagement.v20210808",
   "classes": {
@@ -3816,6 +3824,28 @@ _utilities.register(
    "azure-native:cdn/v20220501preview:RuleSet": "RuleSet",
    "azure-native:cdn/v20220501preview:Secret": "Secret",
    "azure-native:cdn/v20220501preview:SecurityPolicy": "SecurityPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cdn/v20221101preview",
+  "fqn": "pulumi_azure_native.cdn.v20221101preview",
+  "classes": {
+   "azure-native:cdn/v20221101preview:AFDCustomDomain": "AFDCustomDomain",
+   "azure-native:cdn/v20221101preview:AFDEndpoint": "AFDEndpoint",
+   "azure-native:cdn/v20221101preview:AFDOrigin": "AFDOrigin",
+   "azure-native:cdn/v20221101preview:AFDOriginGroup": "AFDOriginGroup",
+   "azure-native:cdn/v20221101preview:CustomDomain": "CustomDomain",
+   "azure-native:cdn/v20221101preview:Endpoint": "Endpoint",
+   "azure-native:cdn/v20221101preview:Origin": "Origin",
+   "azure-native:cdn/v20221101preview:OriginGroup": "OriginGroup",
+   "azure-native:cdn/v20221101preview:Policy": "Policy",
+   "azure-native:cdn/v20221101preview:Profile": "Profile",
+   "azure-native:cdn/v20221101preview:Route": "Route",
+   "azure-native:cdn/v20221101preview:Rule": "Rule",
+   "azure-native:cdn/v20221101preview:RuleSet": "RuleSet",
+   "azure-native:cdn/v20221101preview:Secret": "Secret",
+   "azure-native:cdn/v20221101preview:SecurityPolicy": "SecurityPolicy"
   }
  },
  {
@@ -19608,6 +19638,64 @@ _utilities.register(
    "azure-native:securityinsights/v20221001preview:Ueba": "Ueba",
    "azure-native:securityinsights/v20221001preview:Watchlist": "Watchlist",
    "azure-native:securityinsights/v20221001preview:WatchlistItem": "WatchlistItem"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "securityinsights/v20221101preview",
+  "fqn": "pulumi_azure_native.securityinsights.v20221101preview",
+  "classes": {
+   "azure-native:securityinsights/v20221101preview:AADDataConnector": "AADDataConnector",
+   "azure-native:securityinsights/v20221101preview:AATPDataConnector": "AATPDataConnector",
+   "azure-native:securityinsights/v20221101preview:ASCDataConnector": "ASCDataConnector",
+   "azure-native:securityinsights/v20221101preview:Action": "Action",
+   "azure-native:securityinsights/v20221101preview:ActivityCustomEntityQuery": "ActivityCustomEntityQuery",
+   "azure-native:securityinsights/v20221101preview:AlertRule": "AlertRule",
+   "azure-native:securityinsights/v20221101preview:Anomalies": "Anomalies",
+   "azure-native:securityinsights/v20221101preview:AnomalySecurityMLAnalyticsSettings": "AnomalySecurityMLAnalyticsSettings",
+   "azure-native:securityinsights/v20221101preview:AutomationRule": "AutomationRule",
+   "azure-native:securityinsights/v20221101preview:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
+   "azure-native:securityinsights/v20221101preview:AwsS3DataConnector": "AwsS3DataConnector",
+   "azure-native:securityinsights/v20221101preview:Bookmark": "Bookmark",
+   "azure-native:securityinsights/v20221101preview:BookmarkRelation": "BookmarkRelation",
+   "azure-native:securityinsights/v20221101preview:CodelessApiPollingDataConnector": "CodelessApiPollingDataConnector",
+   "azure-native:securityinsights/v20221101preview:CodelessUiDataConnector": "CodelessUiDataConnector",
+   "azure-native:securityinsights/v20221101preview:DataConnector": "DataConnector",
+   "azure-native:securityinsights/v20221101preview:Dynamics365DataConnector": "Dynamics365DataConnector",
+   "azure-native:securityinsights/v20221101preview:EntityAnalytics": "EntityAnalytics",
+   "azure-native:securityinsights/v20221101preview:EntityQuery": "EntityQuery",
+   "azure-native:securityinsights/v20221101preview:EyesOn": "EyesOn",
+   "azure-native:securityinsights/v20221101preview:FileImport": "FileImport",
+   "azure-native:securityinsights/v20221101preview:FusionAlertRule": "FusionAlertRule",
+   "azure-native:securityinsights/v20221101preview:Incident": "Incident",
+   "azure-native:securityinsights/v20221101preview:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20221101preview:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20221101preview:IoTDataConnector": "IoTDataConnector",
+   "azure-native:securityinsights/v20221101preview:MCASDataConnector": "MCASDataConnector",
+   "azure-native:securityinsights/v20221101preview:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20221101preview:MLBehaviorAnalyticsAlertRule": "MLBehaviorAnalyticsAlertRule",
+   "azure-native:securityinsights/v20221101preview:MSTIDataConnector": "MSTIDataConnector",
+   "azure-native:securityinsights/v20221101preview:MTPDataConnector": "MTPDataConnector",
+   "azure-native:securityinsights/v20221101preview:Metadata": "Metadata",
+   "azure-native:securityinsights/v20221101preview:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
+   "azure-native:securityinsights/v20221101preview:NrtAlertRule": "NrtAlertRule",
+   "azure-native:securityinsights/v20221101preview:Office365ProjectDataConnector": "Office365ProjectDataConnector",
+   "azure-native:securityinsights/v20221101preview:OfficeATPDataConnector": "OfficeATPDataConnector",
+   "azure-native:securityinsights/v20221101preview:OfficeDataConnector": "OfficeDataConnector",
+   "azure-native:securityinsights/v20221101preview:OfficeIRMDataConnector": "OfficeIRMDataConnector",
+   "azure-native:securityinsights/v20221101preview:OfficePowerBIDataConnector": "OfficePowerBIDataConnector",
+   "azure-native:securityinsights/v20221101preview:ProductSetting": "ProductSetting",
+   "azure-native:securityinsights/v20221101preview:ScheduledAlertRule": "ScheduledAlertRule",
+   "azure-native:securityinsights/v20221101preview:SecurityMLAnalyticsSetting": "SecurityMLAnalyticsSetting",
+   "azure-native:securityinsights/v20221101preview:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights/v20221101preview:SourceControl": "SourceControl",
+   "azure-native:securityinsights/v20221101preview:TIDataConnector": "TIDataConnector",
+   "azure-native:securityinsights/v20221101preview:ThreatIntelligenceAlertRule": "ThreatIntelligenceAlertRule",
+   "azure-native:securityinsights/v20221101preview:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
+   "azure-native:securityinsights/v20221101preview:TiTaxiiDataConnector": "TiTaxiiDataConnector",
+   "azure-native:securityinsights/v20221101preview:Ueba": "Ueba",
+   "azure-native:securityinsights/v20221101preview:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20221101preview:WatchlistItem": "WatchlistItem"
   }
  },
  {

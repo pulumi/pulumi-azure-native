@@ -92,6 +92,9 @@ func NewOfficePowerBIDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20221001preview:OfficePowerBIDataConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20221101preview:OfficePowerBIDataConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource OfficePowerBIDataConnector

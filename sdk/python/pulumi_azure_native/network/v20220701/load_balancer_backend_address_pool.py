@@ -25,7 +25,8 @@ class LoadBalancerBackendAddressPoolArgs:
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]] = None):
+                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]] = None,
+                 virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         The set of arguments for constructing a LoadBalancerBackendAddressPool resource.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
@@ -37,6 +38,7 @@ class LoadBalancerBackendAddressPoolArgs:
         :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
+        :param pulumi.Input['SubResourceArgs'] virtual_network: A reference to a virtual network.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -54,6 +56,8 @@ class LoadBalancerBackendAddressPoolArgs:
             pulumi.set(__self__, "name", name)
         if tunnel_interfaces is not None:
             pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -163,6 +167,18 @@ class LoadBalancerBackendAddressPoolArgs:
     def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]]):
         pulumi.set(self, "tunnel_interfaces", value)
 
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        A reference to a virtual network.
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @virtual_network.setter
+    def virtual_network(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "virtual_network", value)
+
 
 class LoadBalancerBackendAddressPool(pulumi.CustomResource):
     @overload
@@ -178,6 +194,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]]] = None,
+                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
         """
         Pool of backend IP addresses.
@@ -193,6 +210,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_network: A reference to a virtual network.
         """
         ...
     @overload
@@ -227,6 +245,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]]] = None,
+                 virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,6 +268,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tunnel_interfaces"] = tunnel_interfaces
+            __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["backend_ip_configurations"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["inbound_nat_rules"] = None
@@ -294,6 +314,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["tunnel_interfaces"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_network"] = None
         return LoadBalancerBackendAddressPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -399,4 +420,12 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         Type of the resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
+        """
+        A reference to a virtual network.
+        """
+        return pulumi.get(self, "virtual_network")
 

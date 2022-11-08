@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:OriginGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:OriginGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:OriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:OriginGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

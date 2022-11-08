@@ -16,6 +16,7 @@ import * as v20200415 from "./v20200415";
 import * as v20200901 from "./v20200901";
 import * as v20210601 from "./v20210601";
 import * as v20220501preview from "./v20220501preview";
+import * as v20221101preview from "./v20221101preview";
 
 export {
     v20150601,
@@ -32,6 +33,7 @@ export {
     v20200901,
     v20210601,
     v20220501preview,
+    v20221101preview,
 };
 
 export const AFDEndpointProtocols = {

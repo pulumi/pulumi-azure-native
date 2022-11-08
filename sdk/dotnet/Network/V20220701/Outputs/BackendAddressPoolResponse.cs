@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Network.V20220701.Outputs
         /// Type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A reference to a virtual network.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? VirtualNetwork;
 
         [OutputConstructor]
         private BackendAddressPoolResponse(
@@ -101,7 +105,9 @@ namespace Pulumi.AzureNative.Network.V20220701.Outputs
 
             ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse> tunnelInterfaces,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponse? virtualNetwork)
         {
             BackendIPConfigurations = backendIPConfigurations;
             DrainPeriodInSeconds = drainPeriodInSeconds;
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.Network.V20220701.Outputs
             ProvisioningState = provisioningState;
             TunnelInterfaces = tunnelInterfaces;
             Type = type;
+            VirtualNetwork = virtualNetwork;
         }
     }
 }

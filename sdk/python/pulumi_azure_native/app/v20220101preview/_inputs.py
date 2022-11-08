@@ -3617,6 +3617,8 @@ class ScaleArgs:
         :param pulumi.Input[int] min_replicas: Optional. Minimum number of container replicas.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: Scaling rules.
         """
+        if max_replicas is None:
+            max_replicas = 10
         if max_replicas is not None:
             pulumi.set(__self__, "max_replicas", max_replicas)
         if min_replicas is not None:

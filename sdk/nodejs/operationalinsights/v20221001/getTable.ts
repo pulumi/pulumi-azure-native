@@ -81,7 +81,7 @@ export interface GetTableResult {
     /**
      * True - Value originates from workspace retention in days, False - Customer specific.
      */
-    readonly retentionInDaysAsDefault: string;
+    readonly retentionInDaysAsDefault: boolean;
     /**
      * Table schema.
      */
@@ -101,7 +101,7 @@ export interface GetTableResult {
     /**
      * True - Value originates from retention in days, False - Customer specific.
      */
-    readonly totalRetentionInDaysAsDefault: string;
+    readonly totalRetentionInDaysAsDefault: boolean;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

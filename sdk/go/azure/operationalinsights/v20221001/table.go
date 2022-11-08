@@ -22,12 +22,12 @@ type Table struct {
 	RestoredLogs                  RestoredLogsResponsePtrOutput  `pulumi:"restoredLogs"`
 	ResultStatistics              ResultStatisticsResponseOutput `pulumi:"resultStatistics"`
 	RetentionInDays               pulumi.IntPtrOutput            `pulumi:"retentionInDays"`
-	RetentionInDaysAsDefault      pulumi.StringOutput            `pulumi:"retentionInDaysAsDefault"`
+	RetentionInDaysAsDefault      pulumi.BoolOutput              `pulumi:"retentionInDaysAsDefault"`
 	Schema                        SchemaResponsePtrOutput        `pulumi:"schema"`
 	SearchResults                 SearchResultsResponsePtrOutput `pulumi:"searchResults"`
 	SystemData                    SystemDataResponseOutput       `pulumi:"systemData"`
 	TotalRetentionInDays          pulumi.IntPtrOutput            `pulumi:"totalRetentionInDays"`
-	TotalRetentionInDaysAsDefault pulumi.StringOutput            `pulumi:"totalRetentionInDaysAsDefault"`
+	TotalRetentionInDaysAsDefault pulumi.BoolOutput              `pulumi:"totalRetentionInDaysAsDefault"`
 	Type                          pulumi.StringOutput            `pulumi:"type"`
 }
 
@@ -178,8 +178,8 @@ func (o TableOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-func (o TableOutput) RetentionInDaysAsDefault() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.RetentionInDaysAsDefault }).(pulumi.StringOutput)
+func (o TableOutput) RetentionInDaysAsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Table) pulumi.BoolOutput { return v.RetentionInDaysAsDefault }).(pulumi.BoolOutput)
 }
 
 func (o TableOutput) Schema() SchemaResponsePtrOutput {
@@ -198,8 +198,8 @@ func (o TableOutput) TotalRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.TotalRetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-func (o TableOutput) TotalRetentionInDaysAsDefault() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TotalRetentionInDaysAsDefault }).(pulumi.StringOutput)
+func (o TableOutput) TotalRetentionInDaysAsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Table) pulumi.BoolOutput { return v.TotalRetentionInDaysAsDefault }).(pulumi.BoolOutput)
 }
 
 func (o TableOutput) Type() pulumi.StringOutput {

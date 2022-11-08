@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                     new global::Pulumi.Alias { Type = "azure-native:cdn:AFDOrigin"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOrigin"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDOrigin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDOrigin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

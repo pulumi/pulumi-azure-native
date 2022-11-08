@@ -99,7 +99,7 @@ export class SecurityMLAnalyticsSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20220701preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20220901preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20221001preview:SecurityMLAnalyticsSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20220701preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20220901preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20221001preview:SecurityMLAnalyticsSetting" }, { type: "azure-native:securityinsights/v20221101preview:SecurityMLAnalyticsSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityMLAnalyticsSetting.__pulumiType, name, resourceInputs, opts);
     }

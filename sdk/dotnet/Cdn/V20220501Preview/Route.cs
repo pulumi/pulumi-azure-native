@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn:Route"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Route"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

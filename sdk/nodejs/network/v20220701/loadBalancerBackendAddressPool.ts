@@ -89,6 +89,10 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A reference to a virtual network.
+     */
+    public readonly virtualNetwork!: pulumi.Output<outputs.network.v20220701.SubResourceResponse | undefined>;
 
     /**
      * Create a LoadBalancerBackendAddressPool resource with the given unique name, arguments, and options.
@@ -116,6 +120,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
+            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
             resourceInputs["backendIPConfigurations"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["inboundNatRules"] = undefined /*out*/;
@@ -138,6 +143,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["tunnelInterfaces"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200801:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20201101:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210201:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210301:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210801:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220101:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220501:LoadBalancerBackendAddressPool" }] };
@@ -186,4 +192,8 @@ export interface LoadBalancerBackendAddressPoolArgs {
      * An array of gateway load balancer tunnel interfaces.
      */
     tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20220701.GatewayLoadBalancerTunnelInterfaceArgs>[]>;
+    /**
+     * A reference to a virtual network.
+     */
+    virtualNetwork?: pulumi.Input<inputs.network.v20220701.SubResourceArgs>;
 }

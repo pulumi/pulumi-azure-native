@@ -2683,18 +2683,22 @@ class RuntimeScriptActionResponse(dict):
                  application_name: str,
                  name: str,
                  roles: Sequence[str],
-                 uri: str):
+                 uri: str,
+                 parameters: Optional[str] = None):
         """
         Describes a script action on a running cluster.
         :param str application_name: The application name of the script action, if any.
         :param str name: The name of the script action.
         :param Sequence[str] roles: The list of roles where script will be executed.
         :param str uri: The URI to the script.
+        :param str parameters: The parameters for the script
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -2727,6 +2731,14 @@ class RuntimeScriptActionResponse(dict):
         The URI to the script.
         """
         return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        The parameters for the script
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

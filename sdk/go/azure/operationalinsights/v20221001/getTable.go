@@ -16,7 +16,7 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 	if err != nil {
 		return nil, err
 	}
-	return rv.Defaults(), nil
+	return &rv, nil
 }
 
 type LookupTableArgs struct {
@@ -36,28 +36,13 @@ type LookupTableResult struct {
 	RestoredLogs                  *RestoredLogsResponse    `pulumi:"restoredLogs"`
 	ResultStatistics              ResultStatisticsResponse `pulumi:"resultStatistics"`
 	RetentionInDays               *int                     `pulumi:"retentionInDays"`
-	RetentionInDaysAsDefault      string                   `pulumi:"retentionInDaysAsDefault"`
+	RetentionInDaysAsDefault      bool                     `pulumi:"retentionInDaysAsDefault"`
 	Schema                        *SchemaResponse          `pulumi:"schema"`
 	SearchResults                 *SearchResultsResponse   `pulumi:"searchResults"`
 	SystemData                    SystemDataResponse       `pulumi:"systemData"`
 	TotalRetentionInDays          *int                     `pulumi:"totalRetentionInDays"`
-	TotalRetentionInDaysAsDefault string                   `pulumi:"totalRetentionInDaysAsDefault"`
+	TotalRetentionInDaysAsDefault bool                     `pulumi:"totalRetentionInDaysAsDefault"`
 	Type                          string                   `pulumi:"type"`
-}
-
-
-func (val *LookupTableResult) Defaults() *LookupTableResult {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if isZero(tmp.RetentionInDaysAsDefault) {
-		tmp.RetentionInDaysAsDefault = "True"
-	}
-	if isZero(tmp.TotalRetentionInDaysAsDefault) {
-		tmp.TotalRetentionInDaysAsDefault = "True"
-	}
-	return &tmp
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
@@ -134,8 +119,8 @@ func (o LookupTableResultOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupTableResultOutput) RetentionInDaysAsDefault() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTableResult) string { return v.RetentionInDaysAsDefault }).(pulumi.StringOutput)
+func (o LookupTableResultOutput) RetentionInDaysAsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTableResult) bool { return v.RetentionInDaysAsDefault }).(pulumi.BoolOutput)
 }
 
 func (o LookupTableResultOutput) Schema() SchemaResponsePtrOutput {
@@ -154,8 +139,8 @@ func (o LookupTableResultOutput) TotalRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *int { return v.TotalRetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupTableResultOutput) TotalRetentionInDaysAsDefault() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTableResult) string { return v.TotalRetentionInDaysAsDefault }).(pulumi.StringOutput)
+func (o LookupTableResultOutput) TotalRetentionInDaysAsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTableResult) bool { return v.TotalRetentionInDaysAsDefault }).(pulumi.BoolOutput)
 }
 
 func (o LookupTableResultOutput) Type() pulumi.StringOutput {

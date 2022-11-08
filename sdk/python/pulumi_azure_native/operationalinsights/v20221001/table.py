@@ -365,7 +365,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDaysAsDefault")
-    def retention_in_days_as_default(self) -> pulumi.Output[str]:
+    def retention_in_days_as_default(self) -> pulumi.Output[bool]:
         """
         True - Value originates from workspace retention in days, False - Customer specific.
         """
@@ -405,7 +405,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalRetentionInDaysAsDefault")
-    def total_retention_in_days_as_default(self) -> pulumi.Output[str]:
+    def total_retention_in_days_as_default(self) -> pulumi.Output[bool]:
         """
         True - Value originates from retention in days, False - Customer specific.
         """

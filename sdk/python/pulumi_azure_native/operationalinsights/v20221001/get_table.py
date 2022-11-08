@@ -50,8 +50,8 @@ class GetTableResult:
         if retention_in_days and not isinstance(retention_in_days, int):
             raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if retention_in_days_as_default and not isinstance(retention_in_days_as_default, str):
-            raise TypeError("Expected argument 'retention_in_days_as_default' to be a str")
+        if retention_in_days_as_default and not isinstance(retention_in_days_as_default, bool):
+            raise TypeError("Expected argument 'retention_in_days_as_default' to be a bool")
         pulumi.set(__self__, "retention_in_days_as_default", retention_in_days_as_default)
         if schema and not isinstance(schema, dict):
             raise TypeError("Expected argument 'schema' to be a dict")
@@ -65,8 +65,8 @@ class GetTableResult:
         if total_retention_in_days and not isinstance(total_retention_in_days, int):
             raise TypeError("Expected argument 'total_retention_in_days' to be a int")
         pulumi.set(__self__, "total_retention_in_days", total_retention_in_days)
-        if total_retention_in_days_as_default and not isinstance(total_retention_in_days_as_default, str):
-            raise TypeError("Expected argument 'total_retention_in_days_as_default' to be a str")
+        if total_retention_in_days_as_default and not isinstance(total_retention_in_days_as_default, bool):
+            raise TypeError("Expected argument 'total_retention_in_days_as_default' to be a bool")
         pulumi.set(__self__, "total_retention_in_days_as_default", total_retention_in_days_as_default)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -146,7 +146,7 @@ class GetTableResult:
 
     @property
     @pulumi.getter(name="retentionInDaysAsDefault")
-    def retention_in_days_as_default(self) -> str:
+    def retention_in_days_as_default(self) -> bool:
         """
         True - Value originates from workspace retention in days, False - Customer specific.
         """
@@ -186,7 +186,7 @@ class GetTableResult:
 
     @property
     @pulumi.getter(name="totalRetentionInDaysAsDefault")
-    def total_retention_in_days_as_default(self) -> str:
+    def total_retention_in_days_as_default(self) -> bool:
         """
         True - Value originates from retention in days, False - Customer specific.
         """

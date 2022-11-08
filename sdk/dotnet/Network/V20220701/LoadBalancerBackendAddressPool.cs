@@ -93,6 +93,12 @@ namespace Pulumi.AzureNative.Network.V20220701
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// A reference to a virtual network.
+        /// </summary>
+        [Output("virtualNetwork")]
+        public Output<Outputs.SubResourceResponse?> VirtualNetwork { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LoadBalancerBackendAddressPool resource with the given unique name, arguments, and options.
@@ -219,6 +225,12 @@ namespace Pulumi.AzureNative.Network.V20220701
             get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>());
             set => _tunnelInterfaces = value;
         }
+
+        /// <summary>
+        /// A reference to a virtual network.
+        /// </summary>
+        [Input("virtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? VirtualNetwork { get; set; }
 
         public LoadBalancerBackendAddressPoolArgs()
         {

@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.Network.V20220701.Inputs
             set => _tunnelInterfaces = value;
         }
 
+        /// <summary>
+        /// A reference to a virtual network.
+        /// </summary>
+        [Input("virtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? VirtualNetwork { get; set; }
+
         public BackendAddressPoolArgs()
         {
         }

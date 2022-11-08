@@ -98,6 +98,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      * Type of the resource.
      */
     readonly type: string;
+    /**
+     * A reference to a virtual network.
+     */
+    readonly virtualNetwork?: outputs.network.v20220701.SubResourceResponse;
 }
 
 export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {

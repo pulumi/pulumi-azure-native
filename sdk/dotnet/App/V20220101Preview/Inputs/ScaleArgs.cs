@@ -41,6 +41,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
 
         public ScaleArgs()
         {
+            MaxReplicas = 10;
         }
         public static new ScaleArgs Empty => new ScaleArgs();
     }

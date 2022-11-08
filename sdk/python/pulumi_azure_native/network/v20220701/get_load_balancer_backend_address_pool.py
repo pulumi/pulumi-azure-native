@@ -22,7 +22,7 @@ class GetLoadBalancerBackendAddressPoolResult:
     """
     Pool of backend IP addresses.
     """
-    def __init__(__self__, backend_ip_configurations=None, drain_period_in_seconds=None, etag=None, id=None, inbound_nat_rules=None, load_balancer_backend_addresses=None, load_balancing_rules=None, location=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, tunnel_interfaces=None, type=None):
+    def __init__(__self__, backend_ip_configurations=None, drain_period_in_seconds=None, etag=None, id=None, inbound_nat_rules=None, load_balancer_backend_addresses=None, load_balancing_rules=None, location=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, tunnel_interfaces=None, type=None, virtual_network=None):
         if backend_ip_configurations and not isinstance(backend_ip_configurations, list):
             raise TypeError("Expected argument 'backend_ip_configurations' to be a list")
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
@@ -65,6 +65,9 @@ class GetLoadBalancerBackendAddressPoolResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_network and not isinstance(virtual_network, dict):
+            raise TypeError("Expected argument 'virtual_network' to be a dict")
+        pulumi.set(__self__, "virtual_network", virtual_network)
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
@@ -178,6 +181,14 @@ class GetLoadBalancerBackendAddressPoolResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to a virtual network.
+        """
+        return pulumi.get(self, "virtual_network")
+
 
 class AwaitableGetLoadBalancerBackendAddressPoolResult(GetLoadBalancerBackendAddressPoolResult):
     # pylint: disable=using-constant-test
@@ -198,7 +209,8 @@ class AwaitableGetLoadBalancerBackendAddressPoolResult(GetLoadBalancerBackendAdd
             outbound_rules=self.outbound_rules,
             provisioning_state=self.provisioning_state,
             tunnel_interfaces=self.tunnel_interfaces,
-            type=self.type)
+            type=self.type,
+            virtual_network=self.virtual_network)
 
 
 def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[str] = None,
@@ -234,7 +246,8 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
         outbound_rules=__ret__.outbound_rules,
         provisioning_state=__ret__.provisioning_state,
         tunnel_interfaces=__ret__.tunnel_interfaces,
-        type=__ret__.type)
+        type=__ret__.type,
+        virtual_network=__ret__.virtual_network)
 
 
 @_utilities.lift_output_func(get_load_balancer_backend_address_pool)

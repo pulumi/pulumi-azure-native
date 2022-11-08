@@ -55,6 +55,8 @@ func (val *LookupContainerAppResult) Defaults() *LookupContainerAppResult {
 	tmp := *val
 	tmp.Configuration = tmp.Configuration.Defaults()
 
+	tmp.Template = tmp.Template.Defaults()
+
 	return &tmp
 }
 
