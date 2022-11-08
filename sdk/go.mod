@@ -1,3 +1,4 @@
+// Deprecated: Use github.com/pulumi/pulumi-azure-native-sdk instead. See https://github.com/pulumi/pulumi-azure-native/discussions/000 for more information
 module github.com/pulumi/pulumi-azure-native/sdk
 
 go 1.17
