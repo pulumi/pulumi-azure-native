@@ -67,7 +67,8 @@
     "2022-03-01-preview",
     "2022-04-01",
     "2022-05-01-preview",
-    "2022-09-01-preview"
+    "2022-09-01-preview",
+    "2022-11-01-preview"
   ],
   "Attestation": [
     "2021-06-01-preview"
@@ -933,7 +934,8 @@
     "2021-11-01"
   ],
   "ResourceConnector": [
-    "2022-04-15-preview"
+    "2022-04-15-preview",
+    "2022-10-27"
   ],
   "ResourceGraph": [
     "2020-04-01-preview"

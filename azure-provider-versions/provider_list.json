@@ -19629,6 +19629,35 @@
     ]
   },
   {
+    "namespace": "Microsoft.Mission",
+    "resourceTypes": [
+      {
+        "resourceType": "Locations",
+        "apiVersions": [
+          "2022-08-02-preview"
+        ]
+      },
+      {
+        "resourceType": "Locations/OperationStatuses",
+        "apiVersions": [
+          "2022-08-02-preview"
+        ]
+      },
+      {
+        "resourceType": "Operations",
+        "apiVersions": [
+          "2022-08-02-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualEnclaves",
+        "apiVersions": [
+          "2022-08-02-preview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.MixedReality",
     "resourceTypes": [
       {

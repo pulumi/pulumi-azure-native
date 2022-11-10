@@ -15858,6 +15858,23 @@
       "2018-02-02"
     ]
   },
+  "mission": {
+    "": [
+      "2022-08-02-preview"
+    ],
+    "locations": [
+      "2022-08-02-preview"
+    ],
+    "locations/operationstatuses": [
+      "2022-08-02-preview"
+    ],
+    "operations": [
+      "2022-08-02-preview"
+    ],
+    "virtualenclaves": [
+      "2022-08-02-preview"
+    ]
+  },
   "mixedreality": {
     "": [
       "2019-02-28-preview",
