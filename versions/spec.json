@@ -124,6 +124,10 @@
     "2021-05-01": [
       "DomainService",
       "OuContainer"
+    ],
+    "2022-09-01": [
+      "DomainService",
+      "OuContainer"
     ]
   },
   "AadIam": {
@@ -1241,6 +1245,39 @@
       "getDeploymentLogFileUrl",
       "getDeploymentRemoteDebuggingConfig",
       "listBuildServiceBuilderDeployments",
+      "listServiceTestKeys"
+    ],
+    "2022-11-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
       "listServiceTestKeys"
     ]
   },
@@ -4056,6 +4093,7 @@
       "listIntegrationRuntimeAuthKeys"
     ],
     "2018-06-01": [
+      "CredentialOperation",
       "DataFlow",
       "Dataset",
       "Factory",
@@ -4593,12 +4631,7 @@
     ]
   },
   "DevOps": {
-    "2019-07-01-preview": [
-      "Pipeline"
-    ],
-    "2020-07-13-preview": [
-      "Pipeline"
-    ]
+    "": []
   },
   "DevSpaces": {
     "2019-04-01": [
@@ -11763,6 +11796,11 @@
       "Appliance",
       "listApplianceClusterCustomerUserCredential",
       "listApplianceClusterUserCredential"
+    ],
+    "2022-10-27": [
+      "Appliance",
+      "listApplianceClusterUserCredential",
+      "listApplianceKeys"
     ]
   },
   "ResourceGraph": {
