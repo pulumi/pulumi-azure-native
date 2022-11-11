@@ -1,6 +1,3 @@
-
-
-
 package azure
 
 import (
@@ -36,5 +33,5 @@ func init() {
 	)
 	fmt.Println("\033[33m" + "warning:" + "\033[0m" + " module github.com/pulumi/pulumi-azure-native/sdk is deprecated; " +
 		"update references to github.com/pulumi/pulumi-azure-native-sdk. " +
-		"Go to https://github.com/pulumi/pulumi-azure-native/discussions/000 for more information.")
+		"See https://github.com/pulumi/pulumi-azure-native/discussions/2078.")
 }
