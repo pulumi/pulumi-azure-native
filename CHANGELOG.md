@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Add warning to Go SDK to begin migration (see https://github.com/pulumi/pulumi-azure-native/discussions/2078)
+
 ## 1.85.0 (2022-11-07)
 
 - Disable force new for container service enableAzureRBAC [#2064](https://github.com/pulumi/pulumi-azure-native/pull/2064)
