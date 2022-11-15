@@ -228,12 +228,14 @@ sdk/dotnet/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/s
 	@touch sdk/dotnet/gen.sentinel
 
 sdk/go/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
-	# Disable Go generation now it's deprecated
-	# mkdir -p sdk/go
-	# rm -rf sdk/go/azure
-	# bin/$(CODEGEN) go $(VERSION)
-	# @# HACK: Strip all comments to make SDK smaller
-	# find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
+	mkdir -p sdk/go
+	# Temporary hack: maintain init.go manual changes
+	[ -f "sdk/go/azure/init.go" ] && mv -f "sdk/go/azure/init.go" /tmp/
+	rm -rf sdk/go/azure
+	bin/$(CODEGEN) go $(VERSION)
+	@# HACK: Strip all comments to make SDK smaller
+	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
+	[ -f "/tmp/init.go" ] && mv -f "/tmp/init.go" sdk/go/azure/
 	@touch sdk/go/gen.sentinel
 
 sdk/pulumi-azure-native-sdk/local.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
