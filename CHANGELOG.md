@@ -2,7 +2,15 @@
 
 ## HEAD (Unreleased)
 
+## 1.86.0 (2022-11-16)
+
 - Add warning to Go SDK to begin migration (see https://github.com/pulumi/pulumi-azure-native/discussions/2078)
+- Updated to Pulumi SDK v3.46.1
+- Upgrade to latest version of Azure Rest API Specs
+  - New resources:
+    - `azure-native:datafactory:CredentialOperation`
+  - Removed resources:
+    - `azure-native:devops:Pipeline` [is removed in favor of using the CLI](https://azure.microsoft.com/en-in/updates/retirement-notice-devops-starter-is-being-retired/)
 
 ## 1.85.0 (2022-11-07)
 
