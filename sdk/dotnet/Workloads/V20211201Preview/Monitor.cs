@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public Output<string?> RoutingPreference { get; private set; } = null!;
 
         /// <summary>
+        /// The ARM ID of the Storage account used for SAP monitoring.
+        /// </summary>
+        [Output("storageAccountArmId")]
+        public Output<string> StorageAccountArmId { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]

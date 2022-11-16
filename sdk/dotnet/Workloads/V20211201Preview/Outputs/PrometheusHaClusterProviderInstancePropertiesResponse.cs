@@ -37,6 +37,14 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
         /// Gets or sets the cluster sid.
         /// </summary>
         public readonly string? Sid;
+        /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
+        /// </summary>
+        public readonly string? SslCertificateUri;
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        public readonly string? SslPreference;
 
         [OutputConstructor]
         private PrometheusHaClusterProviderInstancePropertiesResponse(
@@ -48,13 +56,19 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
 
             string providerType,
 
-            string? sid)
+            string? sid,
+
+            string? sslCertificateUri,
+
+            string? sslPreference)
         {
             ClusterName = clusterName;
             Hostname = hostname;
             PrometheusUrl = prometheusUrl;
             ProviderType = providerType;
             Sid = sid;
+            SslCertificateUri = sslCertificateUri;
+            SslPreference = sslPreference;
         }
     }
 }

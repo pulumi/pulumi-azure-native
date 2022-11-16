@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
 
             string provisioningState,
 
+            Outputs.SkuResponse? sku,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -54,6 +54,10 @@ export class FarmBeatsModel extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The resource model definition representing SKU
+     */
+    public readonly sku!: pulumi.Output<outputs.agfoodplatform.v20200512preview.SkuResponse | undefined>;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.agfoodplatform.v20200512preview.SystemDataResponse>;
@@ -83,6 +87,7 @@ export class FarmBeatsModel extends pulumi.CustomResource {
             resourceInputs["farmBeatsResourceName"] = args ? args.farmBeatsResourceName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["instanceUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -94,6 +99,7 @@ export class FarmBeatsModel extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -121,6 +127,10 @@ export interface FarmBeatsModelArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource model definition representing SKU
+     */
+    sku?: pulumi.Input<inputs.agfoodplatform.v20200512preview.SkuArgs>;
     /**
      * Resource tags.
      */

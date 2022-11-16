@@ -77,6 +77,7 @@ class ReplicationRole(str, Enum):
     """
     Replication role of the server
     """
+    NONE = "None"
     PRIMARY = "Primary"
     SECONDARY = "Secondary"
     WAL_REPLICA = "WalReplica"

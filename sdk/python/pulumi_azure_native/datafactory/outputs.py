@@ -317,6 +317,7 @@ __all__ = [
     'MagentoLinkedServiceResponse',
     'MagentoObjectDatasetResponse',
     'MagentoSourceResponse',
+    'ManagedIdentityCredentialResponse',
     'ManagedIntegrationRuntimeErrorResponse',
     'ManagedIntegrationRuntimeNodeResponse',
     'ManagedIntegrationRuntimeOperationResultResponse',
@@ -43481,6 +43482,83 @@ class MagentoSourceResponse(dict):
         Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         return pulumi.get(self, "source_retry_wait")
+
+
+@pulumi.output_type
+class ManagedIdentityCredentialResponse(dict):
+    """
+    Managed identity credential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityCredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityCredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Managed identity credential.
+        :param str type: Type of credential.
+               Expected value is 'ManagedIdentity'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Credential.
+        :param str description: Credential description.
+        :param str resource_id: The resource id of user assigned managed identity
+        """
+        pulumi.set(__self__, "type", 'ManagedIdentity')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of credential.
+        Expected value is 'ManagedIdentity'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Credential.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Credential description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The resource id of user assigned managed identity
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type

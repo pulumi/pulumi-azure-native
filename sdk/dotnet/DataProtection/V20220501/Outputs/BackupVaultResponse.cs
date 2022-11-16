@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Outputs
         /// <summary>
         /// Is vault protected by resource guard
         /// </summary>
-        public readonly bool? IsVaultProtectedByResourceGuard;
+        public readonly bool IsVaultProtectedByResourceGuard;
         /// <summary>
         /// Monitoring Settings
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220501.Outputs
 
         [OutputConstructor]
         private BackupVaultResponse(
-            bool? isVaultProtectedByResourceGuard,
+            bool isVaultProtectedByResourceGuard,
 
             Outputs.MonitoringSettingsResponse? monitoringSettings,
 

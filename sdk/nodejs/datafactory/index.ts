@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CredentialOperationArgs } from "./credentialOperation";
+export type CredentialOperation = import("./credentialOperation").CredentialOperation;
+export const CredentialOperation: typeof import("./credentialOperation").CredentialOperation = null as any;
+utilities.lazyLoad(exports, ["CredentialOperation"], () => require("./credentialOperation"));
+
 export { DataFlowArgs } from "./dataFlow";
 export type DataFlow = import("./dataFlow").DataFlow;
 export const DataFlow: typeof import("./dataFlow").DataFlow = null as any;
@@ -19,6 +24,11 @@ export { FactoryArgs } from "./factory";
 export type Factory = import("./factory").Factory;
 export const Factory: typeof import("./factory").Factory = null as any;
 utilities.lazyLoad(exports, ["Factory"], () => require("./factory"));
+
+export { GetCredentialOperationArgs, GetCredentialOperationResult, GetCredentialOperationOutputArgs } from "./getCredentialOperation";
+export const getCredentialOperation: typeof import("./getCredentialOperation").getCredentialOperation = null as any;
+export const getCredentialOperationOutput: typeof import("./getCredentialOperation").getCredentialOperationOutput = null as any;
+utilities.lazyLoad(exports, ["getCredentialOperation","getCredentialOperationOutput"], () => require("./getCredentialOperation"));
 
 export { GetDataFlowArgs, GetDataFlowResult, GetDataFlowOutputArgs } from "./getDataFlow";
 export const getDataFlow: typeof import("./getDataFlow").getDataFlow = null as any;
@@ -167,6 +177,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:datafactory:CredentialOperation":
+                return new CredentialOperation(name, <any>undefined, { urn })
             case "azure-native:datafactory:DataFlow":
                 return new DataFlow(name, <any>undefined, { urn })
             case "azure-native:datafactory:Dataset":

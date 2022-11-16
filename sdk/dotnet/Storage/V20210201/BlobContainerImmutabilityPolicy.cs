@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Storage.V20210201
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobContainerImmutabilityPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobContainerImmutabilityPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobContainerImmutabilityPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:BlobContainerImmutabilityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

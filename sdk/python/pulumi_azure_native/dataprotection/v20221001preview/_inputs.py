@@ -624,19 +624,15 @@ class BackupScheduleArgs:
 class BackupVaultArgs:
     def __init__(__self__, *,
                  storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]],
-                 is_vault_protected_by_resource_guard: Optional[pulumi.Input[bool]] = None,
                  monitoring_settings: Optional[pulumi.Input['MonitoringSettingsArgs']] = None,
                  security_settings: Optional[pulumi.Input['SecuritySettingsArgs']] = None):
         """
         Backup Vault
         :param pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]] storage_settings: Storage Settings
-        :param pulumi.Input[bool] is_vault_protected_by_resource_guard: Is vault protected by resource guard
         :param pulumi.Input['MonitoringSettingsArgs'] monitoring_settings: Monitoring Settings
         :param pulumi.Input['SecuritySettingsArgs'] security_settings: Security Settings
         """
         pulumi.set(__self__, "storage_settings", storage_settings)
-        if is_vault_protected_by_resource_guard is not None:
-            pulumi.set(__self__, "is_vault_protected_by_resource_guard", is_vault_protected_by_resource_guard)
         if monitoring_settings is not None:
             pulumi.set(__self__, "monitoring_settings", monitoring_settings)
         if security_settings is not None:
@@ -653,18 +649,6 @@ class BackupVaultArgs:
     @storage_settings.setter
     def storage_settings(self, value: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]]):
         pulumi.set(self, "storage_settings", value)
-
-    @property
-    @pulumi.getter(name="isVaultProtectedByResourceGuard")
-    def is_vault_protected_by_resource_guard(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is vault protected by resource guard
-        """
-        return pulumi.get(self, "is_vault_protected_by_resource_guard")
-
-    @is_vault_protected_by_resource_guard.setter
-    def is_vault_protected_by_resource_guard(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_vault_protected_by_resource_guard", value)
 
     @property
     @pulumi.getter(name="monitoringSettings")

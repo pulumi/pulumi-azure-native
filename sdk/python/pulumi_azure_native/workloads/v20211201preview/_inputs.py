@@ -268,7 +268,9 @@ class DB2ProviderInstancePropertiesArgs:
                  db_port: Optional[pulumi.Input[str]] = None,
                  db_username: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
-                 sap_sid: Optional[pulumi.Input[str]] = None):
+                 sap_sid: Optional[pulumi.Input[str]] = None,
+                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
+                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
         """
         Gets or sets the DB2 provider properties.
         :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
@@ -280,6 +282,8 @@ class DB2ProviderInstancePropertiesArgs:
         :param pulumi.Input[str] db_username: Gets or sets the db2 database user name.
         :param pulumi.Input[str] hostname: Gets or sets the target virtual machine name.
         :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier
+        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
         pulumi.set(__self__, "provider_type", 'Db2')
         if db_name is not None:
@@ -296,6 +300,10 @@ class DB2ProviderInstancePropertiesArgs:
             pulumi.set(__self__, "hostname", hostname)
         if sap_sid is not None:
             pulumi.set(__self__, "sap_sid", sap_sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -393,6 +401,30 @@ class DB2ProviderInstancePropertiesArgs:
     @sap_sid.setter
     def sap_sid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sap_sid", value)
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @ssl_certificate_uri.setter
+    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_uri", value)
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+    @ssl_preference.setter
+    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
+        pulumi.set(self, "ssl_preference", value)
 
 
 @pulumi.input_type
@@ -1034,7 +1066,9 @@ class HanaDbProviderInstancePropertiesArgs:
                  hostname: Optional[pulumi.Input[str]] = None,
                  instance_number: Optional[pulumi.Input[str]] = None,
                  sql_port: Optional[pulumi.Input[str]] = None,
-                 ssl_host_name_in_certificate: Optional[pulumi.Input[str]] = None):
+                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
+                 ssl_host_name_in_certificate: Optional[pulumi.Input[str]] = None,
+                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
         """
         Gets or sets the provider properties.
         :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
@@ -1047,7 +1081,9 @@ class HanaDbProviderInstancePropertiesArgs:
         :param pulumi.Input[str] hostname: Gets or sets the target virtual machine size.
         :param pulumi.Input[str] instance_number: Gets or sets the database instance number.
         :param pulumi.Input[str] sql_port: Gets or sets the database sql port.
+        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB.
         :param pulumi.Input[str] ssl_host_name_in_certificate: Gets or sets the hostname(s) in the SSL certificate.
+        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
         pulumi.set(__self__, "provider_type", 'SapHana')
         if db_name is not None:
@@ -1066,8 +1102,12 @@ class HanaDbProviderInstancePropertiesArgs:
             pulumi.set(__self__, "instance_number", instance_number)
         if sql_port is not None:
             pulumi.set(__self__, "sql_port", sql_port)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
         if ssl_host_name_in_certificate is not None:
             pulumi.set(__self__, "ssl_host_name_in_certificate", ssl_host_name_in_certificate)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -1179,6 +1219,18 @@ class HanaDbProviderInstancePropertiesArgs:
         pulumi.set(self, "sql_port", value)
 
     @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the blob URI to SSL certificate for the DB.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @ssl_certificate_uri.setter
+    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_uri", value)
+
+    @property
     @pulumi.getter(name="sslHostNameInCertificate")
     def ssl_host_name_in_certificate(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1189,6 +1241,18 @@ class HanaDbProviderInstancePropertiesArgs:
     @ssl_host_name_in_certificate.setter
     def ssl_host_name_in_certificate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssl_host_name_in_certificate", value)
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+    @ssl_preference.setter
+    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
+        pulumi.set(self, "ssl_preference", value)
 
 
 @pulumi.input_type
@@ -1446,7 +1510,9 @@ class MsSqlServerProviderInstancePropertiesArgs:
                  db_port: Optional[pulumi.Input[str]] = None,
                  db_username: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
-                 sap_sid: Optional[pulumi.Input[str]] = None):
+                 sap_sid: Optional[pulumi.Input[str]] = None,
+                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
+                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
         """
         Gets or sets the SQL server provider properties.
         :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
@@ -1457,6 +1523,8 @@ class MsSqlServerProviderInstancePropertiesArgs:
         :param pulumi.Input[str] db_username: Gets or sets the database user name.
         :param pulumi.Input[str] hostname: Gets or sets the SQL server host name.
         :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier
+        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SQL Database.
+        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
         pulumi.set(__self__, "provider_type", 'MsSqlServer')
         if db_password is not None:
@@ -1471,6 +1539,10 @@ class MsSqlServerProviderInstancePropertiesArgs:
             pulumi.set(__self__, "hostname", hostname)
         if sap_sid is not None:
             pulumi.set(__self__, "sap_sid", sap_sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -1556,6 +1628,30 @@ class MsSqlServerProviderInstancePropertiesArgs:
     @sap_sid.setter
     def sap_sid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sap_sid", value)
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the blob URI to SSL certificate for the SQL Database.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @ssl_certificate_uri.setter
+    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_uri", value)
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+    @ssl_preference.setter
+    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
+        pulumi.set(self, "ssl_preference", value)
 
 
 @pulumi.input_type
@@ -1993,7 +2089,9 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  prometheus_url: Optional[pulumi.Input[str]] = None,
-                 sid: Optional[pulumi.Input[str]] = None):
+                 sid: Optional[pulumi.Input[str]] = None,
+                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
+                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
         """
         Gets or sets the PrometheusHaCluster provider properties.
         :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
@@ -2002,6 +2100,8 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
         :param pulumi.Input[str] hostname: Gets or sets the target machine name.
         :param pulumi.Input[str] prometheus_url: URL of the Node Exporter endpoint.
         :param pulumi.Input[str] sid: Gets or sets the cluster sid.
+        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
+        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
         pulumi.set(__self__, "provider_type", 'PrometheusHaCluster')
         if cluster_name is not None:
@@ -2012,6 +2112,10 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
             pulumi.set(__self__, "prometheus_url", prometheus_url)
         if sid is not None:
             pulumi.set(__self__, "sid", sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -2074,21 +2178,53 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
     def sid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sid", value)
 
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @ssl_certificate_uri.setter
+    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_uri", value)
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+    @ssl_preference.setter
+    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
+        pulumi.set(self, "ssl_preference", value)
+
 
 @pulumi.input_type
 class PrometheusOSProviderInstancePropertiesArgs:
     def __init__(__self__, *,
                  provider_type: pulumi.Input[str],
-                 prometheus_url: Optional[pulumi.Input[str]] = None):
+                 prometheus_url: Optional[pulumi.Input[str]] = None,
+                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
+                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
         """
         Gets or sets the PrometheusOS provider properties.
         :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'PrometheusOS'.
         :param pulumi.Input[str] prometheus_url: URL of the Node Exporter endpoint
+        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
         pulumi.set(__self__, "provider_type", 'PrometheusOS')
         if prometheus_url is not None:
             pulumi.set(__self__, "prometheus_url", prometheus_url)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -2114,6 +2250,30 @@ class PrometheusOSProviderInstancePropertiesArgs:
     @prometheus_url.setter
     def prometheus_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prometheus_url", value)
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @ssl_certificate_uri.setter
+    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_uri", value)
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+    @ssl_preference.setter
+    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
+        pulumi.set(self, "ssl_preference", value)
 
 
 @pulumi.input_type
@@ -2215,7 +2375,9 @@ class SapNetWeaverProviderInstancePropertiesArgs:
                  sap_port_number: Optional[pulumi.Input[str]] = None,
                  sap_sid: Optional[pulumi.Input[str]] = None,
                  sap_ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
-                 sap_username: Optional[pulumi.Input[str]] = None):
+                 sap_username: Optional[pulumi.Input[str]] = None,
+                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
+                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
         """
         Gets or sets the provider properties.
         :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
@@ -2230,6 +2392,8 @@ class SapNetWeaverProviderInstancePropertiesArgs:
         :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier
         :param pulumi.Input[str] sap_ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SAP system.
         :param pulumi.Input[str] sap_username: Gets or sets the SAP user name.
+        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SAP system.
+        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
         pulumi.set(__self__, "provider_type", 'SapNetWeaver')
         if sap_client_id is not None:
@@ -2252,6 +2416,10 @@ class SapNetWeaverProviderInstancePropertiesArgs:
             pulumi.set(__self__, "sap_ssl_certificate_uri", sap_ssl_certificate_uri)
         if sap_username is not None:
             pulumi.set(__self__, "sap_username", sap_username)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
 
     @property
     @pulumi.getter(name="providerType")
@@ -2385,6 +2553,30 @@ class SapNetWeaverProviderInstancePropertiesArgs:
     @sap_username.setter
     def sap_username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sap_username", value)
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the blob URI to SSL certificate for the SAP system.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @ssl_certificate_uri.setter
+    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_uri", value)
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+    @ssl_preference.setter
+    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
+        pulumi.set(self, "ssl_preference", value)
 
 
 @pulumi.input_type

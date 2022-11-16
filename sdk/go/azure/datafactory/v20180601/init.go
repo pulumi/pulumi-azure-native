@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:datafactory/v20180601:CredentialOperation":
+		r = &CredentialOperation{}
 	case "azure-native:datafactory/v20180601:DataFlow":
 		r = &DataFlow{}
 	case "azure-native:datafactory/v20180601:Dataset":

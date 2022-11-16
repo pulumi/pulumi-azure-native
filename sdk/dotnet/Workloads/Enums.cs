@@ -911,6 +911,38 @@ namespace Pulumi.AzureNative.Workloads
     }
 
     /// <summary>
+    /// Gets or sets certificate preference if secure communication is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct SslPreference : IEquatable<SslPreference>
+    {
+        private readonly string _value;
+
+        private SslPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SslPreference Disabled { get; } = new SslPreference("Disabled");
+        public static SslPreference RootCertificate { get; } = new SslPreference("RootCertificate");
+        public static SslPreference ServerCertificate { get; } = new SslPreference("ServerCertificate");
+
+        public static bool operator ==(SslPreference left, SslPreference right) => left.Equals(right);
+        public static bool operator !=(SslPreference left, SslPreference right) => !left.Equals(right);
+
+        public static explicit operator string(SslPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SslPreference other && Equals(other);
+        public bool Equals(SslPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Application version
     /// </summary>
     [EnumType]

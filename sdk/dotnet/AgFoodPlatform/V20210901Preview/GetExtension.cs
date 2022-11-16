@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
     public sealed class GetExtensionResult
     {
         /// <summary>
+        /// Additional api properties.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.ApiPropertiesResponse> AdditionalApiProperties;
+        /// <summary>
         /// The ETag value to implement optimistic concurrency.
         /// </summary>
         public readonly string ETag;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
 
         [OutputConstructor]
         private GetExtensionResult(
+            ImmutableDictionary<string, Outputs.ApiPropertiesResponse> additionalApiProperties,
+
             string eTag,
 
             string extensionApiDocsLink,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
 
             string type)
         {
+            AdditionalApiProperties = additionalApiProperties;
             ETag = eTag;
             ExtensionApiDocsLink = extensionApiDocsLink;
             ExtensionAuthLink = extensionAuthLink;

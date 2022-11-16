@@ -47,6 +47,7 @@ __all__ = [
     'CustomScaleRuleResponse',
     'DaprMetadataResponse',
     'DaprResponse',
+    'DaprSecretResponse',
     'DefaultAuthorizationPolicyResponse',
     'EnvironmentSkuPropertiesResponse',
     'EnvironmentVarResponse',
@@ -2467,6 +2468,39 @@ class DaprResponse(dict):
         Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
         """
         return pulumi.get(self, "log_level")
+
+
+@pulumi.output_type
+class DaprSecretResponse(dict):
+    """
+    Dapr component Secret for ListSecrets Action
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        Dapr component Secret for ListSecrets Action
+        :param str name: Secret Name.
+        :param str value: Secret Value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Secret Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Secret Value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

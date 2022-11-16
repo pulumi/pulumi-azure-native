@@ -26,6 +26,9 @@ export const getFarmBeatsModelOutput: typeof import("./getFarmBeatsModel").getFa
 utilities.lazyLoad(exports, ["getFarmBeatsModel","getFarmBeatsModelOutput"], () => require("./getFarmBeatsModel"));
 
 
+// Export enums:
+export * from "../types/enums/agfoodplatform";
+
 // Export sub-modules:
 import * as v20200512preview from "./v20200512preview";
 import * as v20210901preview from "./v20210901preview";

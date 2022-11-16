@@ -302,6 +302,17 @@ export const SkuTier = {
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
+export const SslPreference = {
+    Disabled: "Disabled",
+    RootCertificate: "RootCertificate",
+    ServerCertificate: "ServerCertificate",
+} as const;
+
+/**
+ * Gets or sets certificate preference if secure communication is enabled.
+ */
+export type SslPreference = (typeof SslPreference)[keyof typeof SslPreference];
+
 export const WordpressVersions = {
     WordpressVersions_5_4_3: "5.4.3",
     WordpressVersions_5_4_2: "5.4.2",

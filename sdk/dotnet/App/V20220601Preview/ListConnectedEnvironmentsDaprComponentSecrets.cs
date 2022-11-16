@@ -84,10 +84,10 @@ namespace Pulumi.AzureNative.App.V20220601Preview
         /// <summary>
         /// Collection of secrets used by a Dapr component
         /// </summary>
-        public readonly ImmutableArray<Outputs.SecretResponse> Value;
+        public readonly ImmutableArray<Outputs.DaprSecretResponse> Value;
 
         [OutputConstructor]
-        private ListConnectedEnvironmentsDaprComponentSecretsResult(ImmutableArray<Outputs.SecretResponse> value)
+        private ListConnectedEnvironmentsDaprComponentSecretsResult(ImmutableArray<Outputs.DaprSecretResponse> value)
         {
             Value = value;
         }

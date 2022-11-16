@@ -292,6 +292,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["msi_arm_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["storage_account_arm_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads:monitor")])
@@ -329,6 +330,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["routing_preference"] = None
+        __props__.__dict__["storage_account_arm_id"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -422,6 +424,14 @@ class Monitor(pulumi.CustomResource):
         Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
         """
         return pulumi.get(self, "routing_preference")
+
+    @property
+    @pulumi.getter(name="storageAccountArmId")
+    def storage_account_arm_id(self) -> pulumi.Output[str]:
+        """
+        The ARM ID of the Storage account used for SAP monitoring.
+        """
+        return pulumi.get(self, "storage_account_arm_id")
 
     @property
     @pulumi.getter(name="systemData")

@@ -13976,6 +13976,19 @@ type Scale struct {
 }
 
 
+func (val *Scale) Defaults() *Scale {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxReplicas) {
+		maxReplicas_ := 10
+		tmp.MaxReplicas = &maxReplicas_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -13992,6 +14005,17 @@ type ScaleArgs struct {
 	Rules       ScaleRuleArrayInput `pulumi:"rules"`
 }
 
+
+func (val *ScaleArgs) Defaults() *ScaleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxReplicas) {
+		tmp.MaxReplicas = pulumi.IntPtr(10)
+	}
+	return &tmp
+}
 func (ScaleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Scale)(nil)).Elem()
 }
@@ -14136,6 +14160,19 @@ type ScaleResponse struct {
 	MaxReplicas *int                `pulumi:"maxReplicas"`
 	MinReplicas *int                `pulumi:"minReplicas"`
 	Rules       []ScaleRuleResponse `pulumi:"rules"`
+}
+
+
+func (val *ScaleResponse) Defaults() *ScaleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxReplicas) {
+		maxReplicas_ := 10
+		tmp.MaxReplicas = &maxReplicas_
+	}
+	return &tmp
 }
 
 type ScaleResponseOutput struct{ *pulumi.OutputState }
@@ -14728,6 +14765,17 @@ type Template struct {
 }
 
 
+func (val *Template) Defaults() *Template {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Scale = tmp.Scale.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -14745,6 +14793,15 @@ type TemplateArgs struct {
 	Volumes        VolumeArrayInput      `pulumi:"volumes"`
 }
 
+
+func (val *TemplateArgs) Defaults() *TemplateArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (TemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Template)(nil)).Elem()
 }
@@ -14903,6 +14960,17 @@ type TemplateResponse struct {
 	RevisionSuffix *string             `pulumi:"revisionSuffix"`
 	Scale          *ScaleResponse      `pulumi:"scale"`
 	Volumes        []VolumeResponse    `pulumi:"volumes"`
+}
+
+
+func (val *TemplateResponse) Defaults() *TemplateResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Scale = tmp.Scale.Defaults()
+
+	return &tmp
 }
 
 type TemplateResponseOutput struct{ *pulumi.OutputState }

@@ -27,16 +27,17 @@ type LookupExtensionArgs struct {
 
 
 type LookupExtensionResult struct {
-	ETag                      string             `pulumi:"eTag"`
-	ExtensionApiDocsLink      string             `pulumi:"extensionApiDocsLink"`
-	ExtensionAuthLink         string             `pulumi:"extensionAuthLink"`
-	ExtensionCategory         string             `pulumi:"extensionCategory"`
-	ExtensionId               string             `pulumi:"extensionId"`
-	Id                        string             `pulumi:"id"`
-	InstalledExtensionVersion string             `pulumi:"installedExtensionVersion"`
-	Name                      string             `pulumi:"name"`
-	SystemData                SystemDataResponse `pulumi:"systemData"`
-	Type                      string             `pulumi:"type"`
+	AdditionalApiProperties   map[string]ApiPropertiesResponse `pulumi:"additionalApiProperties"`
+	ETag                      string                           `pulumi:"eTag"`
+	ExtensionApiDocsLink      string                           `pulumi:"extensionApiDocsLink"`
+	ExtensionAuthLink         string                           `pulumi:"extensionAuthLink"`
+	ExtensionCategory         string                           `pulumi:"extensionCategory"`
+	ExtensionId               string                           `pulumi:"extensionId"`
+	Id                        string                           `pulumi:"id"`
+	InstalledExtensionVersion string                           `pulumi:"installedExtensionVersion"`
+	Name                      string                           `pulumi:"name"`
+	SystemData                SystemDataResponse               `pulumi:"systemData"`
+	Type                      string                           `pulumi:"type"`
 }
 
 func LookupExtensionOutput(ctx *pulumi.Context, args LookupExtensionOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionResultOutput {
@@ -75,6 +76,10 @@ func (o LookupExtensionResultOutput) ToLookupExtensionResultOutput() LookupExten
 
 func (o LookupExtensionResultOutput) ToLookupExtensionResultOutputWithContext(ctx context.Context) LookupExtensionResultOutput {
 	return o
+}
+
+func (o LookupExtensionResultOutput) AdditionalApiProperties() ApiPropertiesResponseMapOutput {
+	return o.ApplyT(func(v LookupExtensionResult) map[string]ApiPropertiesResponse { return v.AdditionalApiProperties }).(ApiPropertiesResponseMapOutput)
 }
 
 func (o LookupExtensionResultOutput) ETag() pulumi.StringOutput {

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
     public partial class Extension : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Additional api properties.
+        /// </summary>
+        [Output("additionalApiProperties")]
+        public Output<ImmutableDictionary<string, Outputs.ApiPropertiesResponse>> AdditionalApiProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The ETag value to implement optimistic concurrency.
         /// </summary>
         [Output("eTag")]
@@ -119,11 +125,29 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
 
     public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalApiProperties")]
+        private InputMap<Inputs.ApiPropertiesArgs>? _additionalApiProperties;
+
+        /// <summary>
+        /// Additional Api Properties.
+        /// </summary>
+        public InputMap<Inputs.ApiPropertiesArgs> AdditionalApiProperties
+        {
+            get => _additionalApiProperties ?? (_additionalApiProperties = new InputMap<Inputs.ApiPropertiesArgs>());
+            set => _additionalApiProperties = value;
+        }
+
         /// <summary>
         /// Id of extension resource.
         /// </summary>
         [Input("extensionId")]
         public Input<string>? ExtensionId { get; set; }
+
+        /// <summary>
+        /// Extension Version.
+        /// </summary>
+        [Input("extensionVersion")]
+        public Input<string>? ExtensionVersion { get; set; }
 
         /// <summary>
         /// FarmBeats resource name.

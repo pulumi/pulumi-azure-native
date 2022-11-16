@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// </summary>
         public readonly string? RoutingPreference;
         /// <summary>
+        /// The ARM ID of the Storage account used for SAP monitoring.
+        /// </summary>
+        public readonly string StorageAccountArmId;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 
             string? routingPreference,
 
+            string storageAccountArmId,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
             Name = name;
             ProvisioningState = provisioningState;
             RoutingPreference = routingPreference;
+            StorageAccountArmId = storageAccountArmId;
             SystemData = systemData;
             Tags = tags;
             Type = type;

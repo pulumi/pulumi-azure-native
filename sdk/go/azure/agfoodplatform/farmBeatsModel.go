@@ -18,6 +18,7 @@ type FarmBeatsModel struct {
 	Location          pulumi.StringOutput      `pulumi:"location"`
 	Name              pulumi.StringOutput      `pulumi:"name"`
 	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Sku               SkuResponsePtrOutput     `pulumi:"sku"`
 	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
 	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
 	Type              pulumi.StringOutput      `pulumi:"type"`
@@ -77,6 +78,7 @@ type farmBeatsModelArgs struct {
 	FarmBeatsResourceName *string           `pulumi:"farmBeatsResourceName"`
 	Location              *string           `pulumi:"location"`
 	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	Sku                   *Sku              `pulumi:"sku"`
 	Tags                  map[string]string `pulumi:"tags"`
 }
 
@@ -85,6 +87,7 @@ type FarmBeatsModelArgs struct {
 	FarmBeatsResourceName pulumi.StringPtrInput
 	Location              pulumi.StringPtrInput
 	ResourceGroupName     pulumi.StringInput
+	Sku                   SkuPtrInput
 	Tags                  pulumi.StringMapInput
 }
 
@@ -139,6 +142,10 @@ func (o FarmBeatsModelOutput) Name() pulumi.StringOutput {
 
 func (o FarmBeatsModelOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *FarmBeatsModel) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o FarmBeatsModelOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *FarmBeatsModel) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
 }
 
 func (o FarmBeatsModelOutput) SystemData() SystemDataResponseOutput {

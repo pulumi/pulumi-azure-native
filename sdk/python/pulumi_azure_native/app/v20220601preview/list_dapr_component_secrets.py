@@ -29,7 +29,7 @@ class ListDaprComponentSecretsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.SecretResponse']:
+    def value(self) -> Sequence['outputs.DaprSecretResponse']:
         """
         Collection of secrets used by a Dapr component
         """

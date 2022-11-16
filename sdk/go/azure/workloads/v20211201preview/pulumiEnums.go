@@ -688,6 +688,14 @@ func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTier
 	return pulumi.ToOutputWithContext(ctx, in).(SkuTierPtrOutput)
 }
 
+type SslPreference string
+
+const (
+	SslPreferenceDisabled          = SslPreference("Disabled")
+	SslPreferenceRootCertificate   = SslPreference("RootCertificate")
+	SslPreferenceServerCertificate = SslPreference("ServerCertificate")
+)
+
 type WordpressVersions string
 
 const (

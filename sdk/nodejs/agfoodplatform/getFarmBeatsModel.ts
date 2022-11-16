@@ -59,6 +59,10 @@ export interface GetFarmBeatsModelResult {
      */
     readonly provisioningState: string;
     /**
+     * The resource model definition representing SKU
+     */
+    readonly sku?: outputs.agfoodplatform.SkuResponse;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     readonly systemData: outputs.agfoodplatform.SystemDataResponse;

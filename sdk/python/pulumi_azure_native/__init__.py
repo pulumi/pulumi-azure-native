@@ -147,8 +147,6 @@ if typing.TYPE_CHECKING:
     devices = __devices
     import pulumi_azure_native.deviceupdate as __deviceupdate
     deviceupdate = __deviceupdate
-    import pulumi_azure_native.devops as __devops
-    devops = __devops
     import pulumi_azure_native.devspaces as __devspaces
     devspaces = __devspaces
     import pulumi_azure_native.devtestlab as __devtestlab
@@ -469,7 +467,6 @@ else:
     devhub = _utilities.lazy_import('pulumi_azure_native.devhub')
     devices = _utilities.lazy_import('pulumi_azure_native.devices')
     deviceupdate = _utilities.lazy_import('pulumi_azure_native.deviceupdate')
-    devops = _utilities.lazy_import('pulumi_azure_native.devops')
     devspaces = _utilities.lazy_import('pulumi_azure_native.devspaces')
     devtestlab = _utilities.lazy_import('pulumi_azure_native.devtestlab')
     digitaltwins = _utilities.lazy_import('pulumi_azure_native.digitaltwins')
@@ -650,6 +647,15 @@ _utilities.register(
   "classes": {
    "azure-native:aad/v20210501:DomainService": "DomainService",
    "azure-native:aad/v20210501:OuContainer": "OuContainer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "aad/v20220901",
+  "fqn": "pulumi_azure_native.aad.v20220901",
+  "classes": {
+   "azure-native:aad/v20220901:DomainService": "DomainService",
+   "azure-native:aad/v20220901:OuContainer": "OuContainer"
   }
  },
  {
@@ -2020,6 +2026,36 @@ _utilities.register(
    "azure-native:appplatform/v20220901preview:Service": "Service",
    "azure-native:appplatform/v20220901preview:ServiceRegistry": "ServiceRegistry",
    "azure-native:appplatform/v20220901preview:Storage": "Storage"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "appplatform/v20221101preview",
+  "fqn": "pulumi_azure_native.appplatform.v20221101preview",
+  "classes": {
+   "azure-native:appplatform/v20221101preview:ApiPortal": "ApiPortal",
+   "azure-native:appplatform/v20221101preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
+   "azure-native:appplatform/v20221101preview:App": "App",
+   "azure-native:appplatform/v20221101preview:ApplicationAccelerator": "ApplicationAccelerator",
+   "azure-native:appplatform/v20221101preview:ApplicationLiveView": "ApplicationLiveView",
+   "azure-native:appplatform/v20221101preview:Binding": "Binding",
+   "azure-native:appplatform/v20221101preview:BuildServiceAgentPool": "BuildServiceAgentPool",
+   "azure-native:appplatform/v20221101preview:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform/v20221101preview:BuildpackBinding": "BuildpackBinding",
+   "azure-native:appplatform/v20221101preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20221101preview:ConfigServer": "ConfigServer",
+   "azure-native:appplatform/v20221101preview:ConfigurationService": "ConfigurationService",
+   "azure-native:appplatform/v20221101preview:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20221101preview:CustomizedAccelerator": "CustomizedAccelerator",
+   "azure-native:appplatform/v20221101preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20221101preview:DevToolPortal": "DevToolPortal",
+   "azure-native:appplatform/v20221101preview:Gateway": "Gateway",
+   "azure-native:appplatform/v20221101preview:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform/v20221101preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20221101preview:MonitoringSetting": "MonitoringSetting",
+   "azure-native:appplatform/v20221101preview:Service": "Service",
+   "azure-native:appplatform/v20221101preview:ServiceRegistry": "ServiceRegistry",
+   "azure-native:appplatform/v20221101preview:Storage": "Storage"
   }
  },
  {
@@ -6741,6 +6777,7 @@ _utilities.register(
   "mod": "datafactory",
   "fqn": "pulumi_azure_native.datafactory",
   "classes": {
+   "azure-native:datafactory:CredentialOperation": "CredentialOperation",
    "azure-native:datafactory:DataFlow": "DataFlow",
    "azure-native:datafactory:Dataset": "Dataset",
    "azure-native:datafactory:Factory": "Factory",
@@ -6771,6 +6808,7 @@ _utilities.register(
   "mod": "datafactory/v20180601",
   "fqn": "pulumi_azure_native.datafactory.v20180601",
   "classes": {
+   "azure-native:datafactory/v20180601:CredentialOperation": "CredentialOperation",
    "azure-native:datafactory/v20180601:DataFlow": "DataFlow",
    "azure-native:datafactory/v20180601:Dataset": "Dataset",
    "azure-native:datafactory/v20180601:Factory": "Factory",
@@ -8497,30 +8535,6 @@ _utilities.register(
    "azure-native:deviceupdate/v20221001:Instance": "Instance",
    "azure-native:deviceupdate/v20221001:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devops",
-  "fqn": "pulumi_azure_native.devops",
-  "classes": {
-   "azure-native:devops:Pipeline": "Pipeline"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devops/v20190701preview",
-  "fqn": "pulumi_azure_native.devops.v20190701preview",
-  "classes": {
-   "azure-native:devops/v20190701preview:Pipeline": "Pipeline"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devops/v20200713preview",
-  "fqn": "pulumi_azure_native.devops.v20200713preview",
-  "classes": {
-   "azure-native:devops/v20200713preview:Pipeline": "Pipeline"
   }
  },
  {
@@ -11637,6 +11651,16 @@ _utilities.register(
    "azure-native:kubernetesconfiguration/v20220701:Extension": "Extension",
    "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration": "FluxConfiguration",
    "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration": "SourceControlConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesconfiguration/v20221101",
+  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20221101",
+  "classes": {
+   "azure-native:kubernetesconfiguration/v20221101:Extension": "Extension",
+   "azure-native:kubernetesconfiguration/v20221101:FluxConfiguration": "FluxConfiguration",
+   "azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration": "SourceControlConfiguration"
   }
  },
  {
@@ -18134,6 +18158,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "resourceconnector/v20221027",
+  "fqn": "pulumi_azure_native.resourceconnector.v20221027",
+  "classes": {
+   "azure-native:resourceconnector/v20221027:Appliance": "Appliance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "resourcegraph",
   "fqn": "pulumi_azure_native.resourcegraph",
   "classes": {
@@ -21634,6 +21666,29 @@ _utilities.register(
    "azure-native:storage/v20220501:StorageAccount": "StorageAccount",
    "azure-native:storage/v20220501:Table": "Table",
    "azure-native:storage/v20220501:TableServiceProperties": "TableServiceProperties"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storage/v20220901",
+  "fqn": "pulumi_azure_native.storage.v20220901",
+  "classes": {
+   "azure-native:storage/v20220901:BlobContainer": "BlobContainer",
+   "azure-native:storage/v20220901:BlobContainerImmutabilityPolicy": "BlobContainerImmutabilityPolicy",
+   "azure-native:storage/v20220901:BlobInventoryPolicy": "BlobInventoryPolicy",
+   "azure-native:storage/v20220901:BlobServiceProperties": "BlobServiceProperties",
+   "azure-native:storage/v20220901:EncryptionScope": "EncryptionScope",
+   "azure-native:storage/v20220901:FileServiceProperties": "FileServiceProperties",
+   "azure-native:storage/v20220901:FileShare": "FileShare",
+   "azure-native:storage/v20220901:LocalUser": "LocalUser",
+   "azure-native:storage/v20220901:ManagementPolicy": "ManagementPolicy",
+   "azure-native:storage/v20220901:ObjectReplicationPolicy": "ObjectReplicationPolicy",
+   "azure-native:storage/v20220901:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:storage/v20220901:Queue": "Queue",
+   "azure-native:storage/v20220901:QueueServiceProperties": "QueueServiceProperties",
+   "azure-native:storage/v20220901:StorageAccount": "StorageAccount",
+   "azure-native:storage/v20220901:Table": "Table",
+   "azure-native:storage/v20220901:TableServiceProperties": "TableServiceProperties"
   }
  },
  {

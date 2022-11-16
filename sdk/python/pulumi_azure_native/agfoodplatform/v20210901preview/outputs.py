@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiPropertiesResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
@@ -22,6 +23,46 @@ __all__ = [
     'SensorIntegrationResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class ApiPropertiesResponse(dict):
+    """
+    Api properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiFreshnessWindowInMinutes":
+            suggest = "api_freshness_window_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_freshness_window_in_minutes: Optional[int] = None):
+        """
+        Api properties.
+        :param int api_freshness_window_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
+        """
+        if api_freshness_window_in_minutes is not None:
+            pulumi.set(__self__, "api_freshness_window_in_minutes", api_freshness_window_in_minutes)
+
+    @property
+    @pulumi.getter(name="apiFreshnessWindowInMinutes")
+    def api_freshness_window_in_minutes(self) -> Optional[int]:
+        """
+        Interval in minutes for which the weather data for the api needs to be refreshed.
+        """
+        return pulumi.get(self, "api_freshness_window_in_minutes")
+
 
 @pulumi.output_type
 class ErrorAdditionalInfoResponse(dict):

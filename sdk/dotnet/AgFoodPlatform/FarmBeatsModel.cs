@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
@@ -125,6 +131,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.Storage.V20220501
                     new global::Pulumi.Alias { Type = "azure-native:storage:LocalUser"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:LocalUser"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:LocalUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:LocalUser"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,6 +88,18 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         [Input("sapUsername")]
         public Input<string>? SapUsername { get; set; }
 
+        /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the SAP system.
+        /// </summary>
+        [Input("sslCertificateUri")]
+        public Input<string>? SslCertificateUri { get; set; }
+
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        [Input("sslPreference")]
+        public InputUnion<string, Pulumi.AzureNative.Workloads.V20211201Preview.SslPreference>? SslPreference { get; set; }
+
         public SapNetWeaverProviderInstancePropertiesArgs()
         {
         }

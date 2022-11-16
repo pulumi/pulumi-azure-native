@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['FarmBeatsModelArgs', 'FarmBeatsModel']
 
@@ -18,12 +20,14 @@ class FarmBeatsModelArgs:
                  resource_group_name: pulumi.Input[str],
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FarmBeatsModel resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -31,6 +35,8 @@ class FarmBeatsModelArgs:
             pulumi.set(__self__, "farm_beats_resource_name", farm_beats_resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -72,6 +78,18 @@ class FarmBeatsModelArgs:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The resource model definition representing SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -91,6 +109,7 @@ class FarmBeatsModel(pulumi.CustomResource):
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -101,6 +120,7 @@ class FarmBeatsModel(pulumi.CustomResource):
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The resource model definition representing SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -130,6 +150,7 @@ class FarmBeatsModel(pulumi.CustomResource):
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -145,6 +166,7 @@ class FarmBeatsModel(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["instance_uri"] = None
             __props__.__dict__["name"] = None
@@ -179,6 +201,7 @@ class FarmBeatsModel(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -215,6 +238,14 @@ class FarmBeatsModel(pulumi.CustomResource):
         FarmBeats instance provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The resource model definition representing SKU
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")

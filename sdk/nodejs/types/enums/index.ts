@@ -64,7 +64,6 @@ import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
 import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
-import * as devops from "./devops";
 import * as devspaces from "./devspaces";
 import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
@@ -237,7 +236,6 @@ export {
     devhub,
     devices,
     deviceupdate,
-    devops,
     devspaces,
     devtestlab,
     digitaltwins,

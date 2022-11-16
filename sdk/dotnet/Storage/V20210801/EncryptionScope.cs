@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.Storage.V20210801
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:EncryptionScope"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:EncryptionScope"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:EncryptionScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:EncryptionScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -147,7 +147,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["approximate_message_count"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:Queue"), pulumi.Alias(type_="azure-native:storage/v20190601:Queue"), pulumi.Alias(type_="azure-native:storage/v20200801preview:Queue"), pulumi.Alias(type_="azure-native:storage/v20210101:Queue"), pulumi.Alias(type_="azure-native:storage/v20210201:Queue"), pulumi.Alias(type_="azure-native:storage/v20210401:Queue"), pulumi.Alias(type_="azure-native:storage/v20210601:Queue"), pulumi.Alias(type_="azure-native:storage/v20210801:Queue"), pulumi.Alias(type_="azure-native:storage/v20220501:Queue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:Queue"), pulumi.Alias(type_="azure-native:storage/v20190601:Queue"), pulumi.Alias(type_="azure-native:storage/v20200801preview:Queue"), pulumi.Alias(type_="azure-native:storage/v20210101:Queue"), pulumi.Alias(type_="azure-native:storage/v20210201:Queue"), pulumi.Alias(type_="azure-native:storage/v20210401:Queue"), pulumi.Alias(type_="azure-native:storage/v20210601:Queue"), pulumi.Alias(type_="azure-native:storage/v20210801:Queue"), pulumi.Alias(type_="azure-native:storage/v20220501:Queue"), pulumi.Alias(type_="azure-native:storage/v20220901:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
             'azure-native:storage/v20210901:Queue',

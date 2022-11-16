@@ -43,6 +43,9 @@ func NewContainerApp(ctx *pulumi.Context,
 	if args.Configuration != nil {
 		args.Configuration = args.Configuration.ToConfigurationPtrOutput().ApplyT(func(v *Configuration) *Configuration { return v.Defaults() }).(ConfigurationPtrOutput)
 	}
+	if args.Template != nil {
+		args.Template = args.Template.ToTemplatePtrOutput().ApplyT(func(v *Template) *Template { return v.Defaults() }).(TemplatePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:app/v20220101preview:ContainerApp"),

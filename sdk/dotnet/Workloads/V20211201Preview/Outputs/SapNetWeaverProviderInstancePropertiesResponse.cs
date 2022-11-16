@@ -61,6 +61,14 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
         /// Gets or sets the SAP user name.
         /// </summary>
         public readonly string? SapUsername;
+        /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the SAP system.
+        /// </summary>
+        public readonly string? SslCertificateUri;
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        public readonly string? SslPreference;
 
         [OutputConstructor]
         private SapNetWeaverProviderInstancePropertiesResponse(
@@ -84,7 +92,11 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
 
             string? sapSslCertificateUri,
 
-            string? sapUsername)
+            string? sapUsername,
+
+            string? sslCertificateUri,
+
+            string? sslPreference)
         {
             ProviderType = providerType;
             SapClientId = sapClientId;
@@ -97,6 +109,8 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
             SapSid = sapSid;
             SapSslCertificateUri = sapSslCertificateUri;
             SapUsername = sapUsername;
+            SslCertificateUri = sslCertificateUri;
+            SslPreference = sslPreference;
         }
     }
 }

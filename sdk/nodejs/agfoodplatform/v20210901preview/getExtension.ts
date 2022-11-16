@@ -43,6 +43,10 @@ export interface GetExtensionArgs {
  */
 export interface GetExtensionResult {
     /**
+     * Additional api properties.
+     */
+    readonly additionalApiProperties: {[key: string]: outputs.agfoodplatform.v20210901preview.ApiPropertiesResponse};
+    /**
      * The ETag value to implement optimistic concurrency.
      */
     readonly eTag: string;

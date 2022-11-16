@@ -238,7 +238,7 @@ class Appliance(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourceconnector:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20220415preview:Appliance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourceconnector:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20220415preview:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20221027:Appliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Appliance, __self__).__init__(
             'azure-native:resourceconnector/v20211031preview:Appliance',

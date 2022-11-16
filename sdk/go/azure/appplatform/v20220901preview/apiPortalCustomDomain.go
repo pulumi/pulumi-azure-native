@@ -49,6 +49,9 @@ func NewApiPortalCustomDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:appplatform/v20220501preview:ApiPortalCustomDomain"),
 		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20221101preview:ApiPortalCustomDomain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApiPortalCustomDomain

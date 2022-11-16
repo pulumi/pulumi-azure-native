@@ -252,7 +252,7 @@ class LocalUser(pulumi.CustomResource):
             __props__.__dict__["sid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20210801:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20210901:LocalUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20210801:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20210901:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20220901:LocalUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LocalUser, __self__).__init__(
             'azure-native:storage/v20220501:LocalUser',

@@ -71,6 +71,7 @@ export const PrincipalType = {
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 export const ReplicationRole = {
+    None: "None",
     Primary: "Primary",
     Secondary: "Secondary",
     WalReplica: "WalReplica",

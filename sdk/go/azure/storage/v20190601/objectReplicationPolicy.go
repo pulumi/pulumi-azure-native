@@ -71,6 +71,9 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storage/v20220501:ObjectReplicationPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20220901:ObjectReplicationPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ObjectReplicationPolicy

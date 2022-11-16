@@ -38,6 +38,10 @@ export class Extension extends pulumi.CustomResource {
     }
 
     /**
+     * Additional api properties.
+     */
+    public readonly additionalApiProperties!: pulumi.Output<{[key: string]: outputs.agfoodplatform.v20210901preview.ApiPropertiesResponse}>;
+    /**
      * The ETag value to implement optimistic concurrency.
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
@@ -91,7 +95,9 @@ export class Extension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["additionalApiProperties"] = args ? args.additionalApiProperties : undefined;
             resourceInputs["extensionId"] = args ? args.extensionId : undefined;
+            resourceInputs["extensionVersion"] = args ? args.extensionVersion : undefined;
             resourceInputs["farmBeatsResourceName"] = args ? args.farmBeatsResourceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["eTag"] = undefined /*out*/;
@@ -103,6 +109,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalApiProperties"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["extensionApiDocsLink"] = undefined /*out*/;
             resourceInputs["extensionAuthLink"] = undefined /*out*/;
@@ -125,9 +132,17 @@ export class Extension extends pulumi.CustomResource {
  */
 export interface ExtensionArgs {
     /**
+     * Additional Api Properties.
+     */
+    additionalApiProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.agfoodplatform.v20210901preview.ApiPropertiesArgs>}>;
+    /**
      * Id of extension resource.
      */
     extensionId?: pulumi.Input<string>;
+    /**
+     * Extension Version.
+     */
+    extensionVersion?: pulumi.Input<string>;
     /**
      * FarmBeats resource name.
      */

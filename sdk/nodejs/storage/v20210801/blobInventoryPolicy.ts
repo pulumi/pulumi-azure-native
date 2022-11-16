@@ -94,7 +94,7 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobInventoryPolicy" }, { type: "azure-native:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210101:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210201:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210401:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210901:BlobInventoryPolicy" }, { type: "azure-native:storage/v20220501:BlobInventoryPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobInventoryPolicy" }, { type: "azure-native:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210101:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210201:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210401:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210901:BlobInventoryPolicy" }, { type: "azure-native:storage/v20220501:BlobInventoryPolicy" }, { type: "azure-native:storage/v20220901:BlobInventoryPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobInventoryPolicy.__pulumiType, name, resourceInputs, opts);
     }

@@ -54,9 +54,17 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// </summary>
         public readonly string? SqlPort;
         /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the DB.
+        /// </summary>
+        public readonly string? SslCertificateUri;
+        /// <summary>
         /// Gets or sets the hostname(s) in the SSL certificate.
         /// </summary>
         public readonly string? SslHostNameInCertificate;
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        public readonly string? SslPreference;
 
         [OutputConstructor]
         private HanaDbProviderInstancePropertiesResponse(
@@ -78,7 +86,11 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             string? sqlPort,
 
-            string? sslHostNameInCertificate)
+            string? sslCertificateUri,
+
+            string? sslHostNameInCertificate,
+
+            string? sslPreference)
         {
             DbName = dbName;
             DbPassword = dbPassword;
@@ -89,7 +101,9 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             InstanceNumber = instanceNumber;
             ProviderType = providerType;
             SqlPort = sqlPort;
+            SslCertificateUri = sslCertificateUri;
             SslHostNameInCertificate = sslHostNameInCertificate;
+            SslPreference = sslPreference;
         }
     }
 }

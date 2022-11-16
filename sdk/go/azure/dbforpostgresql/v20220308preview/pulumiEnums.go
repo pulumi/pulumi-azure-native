@@ -56,6 +56,7 @@ const (
 type ReplicationRole string
 
 const (
+	ReplicationRoleNone            = ReplicationRole("None")
 	ReplicationRolePrimary         = ReplicationRole("Primary")
 	ReplicationRoleSecondary       = ReplicationRole("Secondary")
 	ReplicationRoleWalReplica      = ReplicationRole("WalReplica")

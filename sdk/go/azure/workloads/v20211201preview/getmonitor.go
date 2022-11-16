@@ -38,6 +38,7 @@ type GetmonitorResult struct {
 	Name                              string                               `pulumi:"name"`
 	ProvisioningState                 string                               `pulumi:"provisioningState"`
 	RoutingPreference                 *string                              `pulumi:"routingPreference"`
+	StorageAccountArmId               string                               `pulumi:"storageAccountArmId"`
 	SystemData                        SystemDataResponse                   `pulumi:"systemData"`
 	Tags                              map[string]string                    `pulumi:"tags"`
 	Type                              string                               `pulumi:"type"`
@@ -127,6 +128,10 @@ func (o GetmonitorResultOutput) ProvisioningState() pulumi.StringOutput {
 
 func (o GetmonitorResultOutput) RoutingPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetmonitorResult) *string { return v.RoutingPreference }).(pulumi.StringPtrOutput)
+}
+
+func (o GetmonitorResultOutput) StorageAccountArmId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetmonitorResult) string { return v.StorageAccountArmId }).(pulumi.StringOutput)
 }
 
 func (o GetmonitorResultOutput) SystemData() SystemDataResponseOutput {

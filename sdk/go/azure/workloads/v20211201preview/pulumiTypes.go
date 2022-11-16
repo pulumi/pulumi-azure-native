@@ -573,25 +573,29 @@ func (o CentralServerVmDetailsResponseArrayOutput) Index(i pulumi.IntInput) Cent
 }
 
 type DB2ProviderInstanceProperties struct {
-	DbName        *string `pulumi:"dbName"`
-	DbPassword    *string `pulumi:"dbPassword"`
-	DbPasswordUri *string `pulumi:"dbPasswordUri"`
-	DbPort        *string `pulumi:"dbPort"`
-	DbUsername    *string `pulumi:"dbUsername"`
-	Hostname      *string `pulumi:"hostname"`
-	ProviderType  string  `pulumi:"providerType"`
-	SapSid        *string `pulumi:"sapSid"`
+	DbName            *string `pulumi:"dbName"`
+	DbPassword        *string `pulumi:"dbPassword"`
+	DbPasswordUri     *string `pulumi:"dbPasswordUri"`
+	DbPort            *string `pulumi:"dbPort"`
+	DbUsername        *string `pulumi:"dbUsername"`
+	Hostname          *string `pulumi:"hostname"`
+	ProviderType      string  `pulumi:"providerType"`
+	SapSid            *string `pulumi:"sapSid"`
+	SslCertificateUri *string `pulumi:"sslCertificateUri"`
+	SslPreference     *string `pulumi:"sslPreference"`
 }
 
 type DB2ProviderInstancePropertiesResponse struct {
-	DbName        *string `pulumi:"dbName"`
-	DbPassword    *string `pulumi:"dbPassword"`
-	DbPasswordUri *string `pulumi:"dbPasswordUri"`
-	DbPort        *string `pulumi:"dbPort"`
-	DbUsername    *string `pulumi:"dbUsername"`
-	Hostname      *string `pulumi:"hostname"`
-	ProviderType  string  `pulumi:"providerType"`
-	SapSid        *string `pulumi:"sapSid"`
+	DbName            *string `pulumi:"dbName"`
+	DbPassword        *string `pulumi:"dbPassword"`
+	DbPasswordUri     *string `pulumi:"dbPasswordUri"`
+	DbPort            *string `pulumi:"dbPort"`
+	DbUsername        *string `pulumi:"dbUsername"`
+	Hostname          *string `pulumi:"hostname"`
+	ProviderType      string  `pulumi:"providerType"`
+	SapSid            *string `pulumi:"sapSid"`
+	SslCertificateUri *string `pulumi:"sslCertificateUri"`
+	SslPreference     *string `pulumi:"sslPreference"`
 }
 
 type DatabaseConfiguration struct {
@@ -2062,7 +2066,9 @@ type HanaDbProviderInstanceProperties struct {
 	InstanceNumber           *string `pulumi:"instanceNumber"`
 	ProviderType             string  `pulumi:"providerType"`
 	SqlPort                  *string `pulumi:"sqlPort"`
+	SslCertificateUri        *string `pulumi:"sslCertificateUri"`
 	SslHostNameInCertificate *string `pulumi:"sslHostNameInCertificate"`
+	SslPreference            *string `pulumi:"sslPreference"`
 }
 
 type HanaDbProviderInstancePropertiesResponse struct {
@@ -2075,7 +2081,9 @@ type HanaDbProviderInstancePropertiesResponse struct {
 	InstanceNumber           *string `pulumi:"instanceNumber"`
 	ProviderType             string  `pulumi:"providerType"`
 	SqlPort                  *string `pulumi:"sqlPort"`
+	SslCertificateUri        *string `pulumi:"sslCertificateUri"`
 	SslHostNameInCertificate *string `pulumi:"sslHostNameInCertificate"`
+	SslPreference            *string `pulumi:"sslPreference"`
 }
 
 type HighAvailabilityConfiguration struct {
@@ -2497,23 +2505,27 @@ func (o MonitorPropertiesResponseErrorsOutput) Target() pulumi.StringOutput {
 }
 
 type MsSqlServerProviderInstanceProperties struct {
-	DbPassword    *string `pulumi:"dbPassword"`
-	DbPasswordUri *string `pulumi:"dbPasswordUri"`
-	DbPort        *string `pulumi:"dbPort"`
-	DbUsername    *string `pulumi:"dbUsername"`
-	Hostname      *string `pulumi:"hostname"`
-	ProviderType  string  `pulumi:"providerType"`
-	SapSid        *string `pulumi:"sapSid"`
+	DbPassword        *string `pulumi:"dbPassword"`
+	DbPasswordUri     *string `pulumi:"dbPasswordUri"`
+	DbPort            *string `pulumi:"dbPort"`
+	DbUsername        *string `pulumi:"dbUsername"`
+	Hostname          *string `pulumi:"hostname"`
+	ProviderType      string  `pulumi:"providerType"`
+	SapSid            *string `pulumi:"sapSid"`
+	SslCertificateUri *string `pulumi:"sslCertificateUri"`
+	SslPreference     *string `pulumi:"sslPreference"`
 }
 
 type MsSqlServerProviderInstancePropertiesResponse struct {
-	DbPassword    *string `pulumi:"dbPassword"`
-	DbPasswordUri *string `pulumi:"dbPasswordUri"`
-	DbPort        *string `pulumi:"dbPort"`
-	DbUsername    *string `pulumi:"dbUsername"`
-	Hostname      *string `pulumi:"hostname"`
-	ProviderType  string  `pulumi:"providerType"`
-	SapSid        *string `pulumi:"sapSid"`
+	DbPassword        *string `pulumi:"dbPassword"`
+	DbPasswordUri     *string `pulumi:"dbPasswordUri"`
+	DbPort            *string `pulumi:"dbPort"`
+	DbUsername        *string `pulumi:"dbUsername"`
+	Hostname          *string `pulumi:"hostname"`
+	ProviderType      string  `pulumi:"providerType"`
+	SapSid            *string `pulumi:"sapSid"`
+	SslCertificateUri *string `pulumi:"sslCertificateUri"`
+	SslPreference     *string `pulumi:"sslPreference"`
 }
 
 type NetworkConfiguration struct {
@@ -3749,29 +3761,37 @@ func (o PhpWorkloadResourceResponseIdentityPtrOutput) UserAssignedIdentities() U
 }
 
 type PrometheusHaClusterProviderInstanceProperties struct {
-	ClusterName   *string `pulumi:"clusterName"`
-	Hostname      *string `pulumi:"hostname"`
-	PrometheusUrl *string `pulumi:"prometheusUrl"`
-	ProviderType  string  `pulumi:"providerType"`
-	Sid           *string `pulumi:"sid"`
+	ClusterName       *string `pulumi:"clusterName"`
+	Hostname          *string `pulumi:"hostname"`
+	PrometheusUrl     *string `pulumi:"prometheusUrl"`
+	ProviderType      string  `pulumi:"providerType"`
+	Sid               *string `pulumi:"sid"`
+	SslCertificateUri *string `pulumi:"sslCertificateUri"`
+	SslPreference     *string `pulumi:"sslPreference"`
 }
 
 type PrometheusHaClusterProviderInstancePropertiesResponse struct {
-	ClusterName   *string `pulumi:"clusterName"`
-	Hostname      *string `pulumi:"hostname"`
-	PrometheusUrl *string `pulumi:"prometheusUrl"`
-	ProviderType  string  `pulumi:"providerType"`
-	Sid           *string `pulumi:"sid"`
+	ClusterName       *string `pulumi:"clusterName"`
+	Hostname          *string `pulumi:"hostname"`
+	PrometheusUrl     *string `pulumi:"prometheusUrl"`
+	ProviderType      string  `pulumi:"providerType"`
+	Sid               *string `pulumi:"sid"`
+	SslCertificateUri *string `pulumi:"sslCertificateUri"`
+	SslPreference     *string `pulumi:"sslPreference"`
 }
 
 type PrometheusOSProviderInstanceProperties struct {
-	PrometheusUrl *string `pulumi:"prometheusUrl"`
-	ProviderType  string  `pulumi:"providerType"`
+	PrometheusUrl     *string `pulumi:"prometheusUrl"`
+	ProviderType      string  `pulumi:"providerType"`
+	SslCertificateUri *string `pulumi:"sslCertificateUri"`
+	SslPreference     *string `pulumi:"sslPreference"`
 }
 
 type PrometheusOSProviderInstancePropertiesResponse struct {
-	PrometheusUrl *string `pulumi:"prometheusUrl"`
-	ProviderType  string  `pulumi:"providerType"`
+	PrometheusUrl     *string `pulumi:"prometheusUrl"`
+	ProviderType      string  `pulumi:"providerType"`
+	SslCertificateUri *string `pulumi:"sslCertificateUri"`
+	SslPreference     *string `pulumi:"sslPreference"`
 }
 
 type ProviderInstancePropertiesResponseErrors struct {
@@ -4037,6 +4057,8 @@ type SapNetWeaverProviderInstanceProperties struct {
 	SapSid               *string  `pulumi:"sapSid"`
 	SapSslCertificateUri *string  `pulumi:"sapSslCertificateUri"`
 	SapUsername          *string  `pulumi:"sapUsername"`
+	SslCertificateUri    *string  `pulumi:"sslCertificateUri"`
+	SslPreference        *string  `pulumi:"sslPreference"`
 }
 
 type SapNetWeaverProviderInstancePropertiesResponse struct {
@@ -4051,6 +4073,8 @@ type SapNetWeaverProviderInstancePropertiesResponse struct {
 	SapSid               *string  `pulumi:"sapSid"`
 	SapSslCertificateUri *string  `pulumi:"sapSslCertificateUri"`
 	SapUsername          *string  `pulumi:"sapUsername"`
+	SslCertificateUri    *string  `pulumi:"sslCertificateUri"`
+	SslPreference        *string  `pulumi:"sslPreference"`
 }
 
 type SearchProfile struct {

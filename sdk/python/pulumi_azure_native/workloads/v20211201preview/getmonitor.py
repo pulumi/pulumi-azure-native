@@ -22,7 +22,7 @@ class GetmonitorResult:
     """
     SAP monitor info on Azure (ARM properties and SAP monitor properties)
     """
-    def __init__(__self__, app_location=None, errors=None, id=None, identity=None, location=None, log_analytics_workspace_arm_id=None, managed_resource_group_configuration=None, monitor_subnet=None, msi_arm_id=None, name=None, provisioning_state=None, routing_preference=None, system_data=None, tags=None, type=None, zone_redundancy_preference=None):
+    def __init__(__self__, app_location=None, errors=None, id=None, identity=None, location=None, log_analytics_workspace_arm_id=None, managed_resource_group_configuration=None, monitor_subnet=None, msi_arm_id=None, name=None, provisioning_state=None, routing_preference=None, storage_account_arm_id=None, system_data=None, tags=None, type=None, zone_redundancy_preference=None):
         if app_location and not isinstance(app_location, str):
             raise TypeError("Expected argument 'app_location' to be a str")
         pulumi.set(__self__, "app_location", app_location)
@@ -59,6 +59,9 @@ class GetmonitorResult:
         if routing_preference and not isinstance(routing_preference, str):
             raise TypeError("Expected argument 'routing_preference' to be a str")
         pulumi.set(__self__, "routing_preference", routing_preference)
+        if storage_account_arm_id and not isinstance(storage_account_arm_id, str):
+            raise TypeError("Expected argument 'storage_account_arm_id' to be a str")
+        pulumi.set(__self__, "storage_account_arm_id", storage_account_arm_id)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -169,6 +172,14 @@ class GetmonitorResult:
         return pulumi.get(self, "routing_preference")
 
     @property
+    @pulumi.getter(name="storageAccountArmId")
+    def storage_account_arm_id(self) -> str:
+        """
+        The ARM ID of the Storage account used for SAP monitoring.
+        """
+        return pulumi.get(self, "storage_account_arm_id")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -219,6 +230,7 @@ class AwaitableGetmonitorResult(GetmonitorResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             routing_preference=self.routing_preference,
+            storage_account_arm_id=self.storage_account_arm_id,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
@@ -254,6 +266,7 @@ def getmonitor(monitor_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         routing_preference=__ret__.routing_preference,
+        storage_account_arm_id=__ret__.storage_account_arm_id,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,

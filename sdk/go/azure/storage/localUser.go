@@ -49,6 +49,9 @@ func NewLocalUser(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:storage/v20220501:LocalUser"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20220901:LocalUser"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LocalUser

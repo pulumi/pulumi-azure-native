@@ -145,6 +145,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

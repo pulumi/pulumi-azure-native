@@ -28,6 +28,18 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;
 
+        /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+        /// </summary>
+        [Input("sslCertificateUri")]
+        public Input<string>? SslCertificateUri { get; set; }
+
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        [Input("sslPreference")]
+        public InputUnion<string, Pulumi.AzureNative.Workloads.SslPreference>? SslPreference { get; set; }
+
         public PrometheusOSProviderInstancePropertiesArgs()
         {
         }

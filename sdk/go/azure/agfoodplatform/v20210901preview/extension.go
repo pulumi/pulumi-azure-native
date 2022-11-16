@@ -14,15 +14,16 @@ import (
 type Extension struct {
 	pulumi.CustomResourceState
 
-	ETag                      pulumi.StringOutput      `pulumi:"eTag"`
-	ExtensionApiDocsLink      pulumi.StringOutput      `pulumi:"extensionApiDocsLink"`
-	ExtensionAuthLink         pulumi.StringOutput      `pulumi:"extensionAuthLink"`
-	ExtensionCategory         pulumi.StringOutput      `pulumi:"extensionCategory"`
-	ExtensionId               pulumi.StringOutput      `pulumi:"extensionId"`
-	InstalledExtensionVersion pulumi.StringOutput      `pulumi:"installedExtensionVersion"`
-	Name                      pulumi.StringOutput      `pulumi:"name"`
-	SystemData                SystemDataResponseOutput `pulumi:"systemData"`
-	Type                      pulumi.StringOutput      `pulumi:"type"`
+	AdditionalApiProperties   ApiPropertiesResponseMapOutput `pulumi:"additionalApiProperties"`
+	ETag                      pulumi.StringOutput            `pulumi:"eTag"`
+	ExtensionApiDocsLink      pulumi.StringOutput            `pulumi:"extensionApiDocsLink"`
+	ExtensionAuthLink         pulumi.StringOutput            `pulumi:"extensionAuthLink"`
+	ExtensionCategory         pulumi.StringOutput            `pulumi:"extensionCategory"`
+	ExtensionId               pulumi.StringOutput            `pulumi:"extensionId"`
+	InstalledExtensionVersion pulumi.StringOutput            `pulumi:"installedExtensionVersion"`
+	Name                      pulumi.StringOutput            `pulumi:"name"`
+	SystemData                SystemDataResponseOutput       `pulumi:"systemData"`
+	Type                      pulumi.StringOutput            `pulumi:"type"`
 }
 
 
@@ -79,16 +80,20 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
-	ExtensionId           *string `pulumi:"extensionId"`
-	FarmBeatsResourceName string  `pulumi:"farmBeatsResourceName"`
-	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	AdditionalApiProperties map[string]ApiProperties `pulumi:"additionalApiProperties"`
+	ExtensionId             *string                  `pulumi:"extensionId"`
+	ExtensionVersion        *string                  `pulumi:"extensionVersion"`
+	FarmBeatsResourceName   string                   `pulumi:"farmBeatsResourceName"`
+	ResourceGroupName       string                   `pulumi:"resourceGroupName"`
 }
 
 
 type ExtensionArgs struct {
-	ExtensionId           pulumi.StringPtrInput
-	FarmBeatsResourceName pulumi.StringInput
-	ResourceGroupName     pulumi.StringInput
+	AdditionalApiProperties ApiPropertiesMapInput
+	ExtensionId             pulumi.StringPtrInput
+	ExtensionVersion        pulumi.StringPtrInput
+	FarmBeatsResourceName   pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {
@@ -126,6 +131,10 @@ func (o ExtensionOutput) ToExtensionOutput() ExtensionOutput {
 
 func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
 	return o
+}
+
+func (o ExtensionOutput) AdditionalApiProperties() ApiPropertiesResponseMapOutput {
+	return o.ApplyT(func(v *Extension) ApiPropertiesResponseMapOutput { return v.AdditionalApiProperties }).(ApiPropertiesResponseMapOutput)
 }
 
 func (o ExtensionOutput) ETag() pulumi.StringOutput {

@@ -87,6 +87,10 @@ export interface GetmonitorResult {
      */
     readonly routingPreference?: string;
     /**
+     * The ARM ID of the Storage account used for SAP monitoring.
+     */
+    readonly storageAccountArmId: string;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.workloads.SystemDataResponse;

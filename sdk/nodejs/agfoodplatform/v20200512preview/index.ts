@@ -26,6 +26,9 @@ export const getFarmBeatsModelOutput: typeof import("./getFarmBeatsModel").getFa
 utilities.lazyLoad(exports, ["getFarmBeatsModel","getFarmBeatsModelOutput"], () => require("./getFarmBeatsModel"));
 
 
+// Export enums:
+export * from "../../types/enums/agfoodplatform/v20200512preview";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

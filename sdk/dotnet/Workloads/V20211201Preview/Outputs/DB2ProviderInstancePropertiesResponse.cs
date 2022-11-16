@@ -49,6 +49,14 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
         /// Gets or sets the SAP System Identifier
         /// </summary>
         public readonly string? SapSid;
+        /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        /// </summary>
+        public readonly string? SslCertificateUri;
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        public readonly string? SslPreference;
 
         [OutputConstructor]
         private DB2ProviderInstancePropertiesResponse(
@@ -66,7 +74,11 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
 
             string providerType,
 
-            string? sapSid)
+            string? sapSid,
+
+            string? sslCertificateUri,
+
+            string? sslPreference)
         {
             DbName = dbName;
             DbPassword = dbPassword;
@@ -76,6 +88,8 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
             Hostname = hostname;
             ProviderType = providerType;
             SapSid = sapSid;
+            SslCertificateUri = sslCertificateUri;
+            SslPreference = sslPreference;
         }
     }
 }

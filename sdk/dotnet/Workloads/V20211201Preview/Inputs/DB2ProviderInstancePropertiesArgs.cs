@@ -64,6 +64,18 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         [Input("sapSid")]
         public Input<string>? SapSid { get; set; }
 
+        /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        /// </summary>
+        [Input("sslCertificateUri")]
+        public Input<string>? SslCertificateUri { get; set; }
+
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        [Input("sslPreference")]
+        public InputUnion<string, Pulumi.AzureNative.Workloads.V20211201Preview.SslPreference>? SslPreference { get; set; }
+
         public DB2ProviderInstancePropertiesArgs()
         {
         }

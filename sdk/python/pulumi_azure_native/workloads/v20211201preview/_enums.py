@@ -34,6 +34,7 @@ __all__ = [
     'SAPSoftwareInstallationType',
     'SearchType',
     'SkuTier',
+    'SslPreference',
     'WordpressVersions',
     'WorkloadKind',
 ]
@@ -273,6 +274,15 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class SslPreference(str, Enum):
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
+    DISABLED = "Disabled"
+    ROOT_CERTIFICATE = "RootCertificate"
+    SERVER_CERTIFICATE = "ServerCertificate"
 
 
 class WordpressVersions(str, Enum):

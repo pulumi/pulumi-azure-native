@@ -25,6 +25,7 @@ type Monitor struct {
 	Name                              pulumi.StringOutput                          `pulumi:"name"`
 	ProvisioningState                 pulumi.StringOutput                          `pulumi:"provisioningState"`
 	RoutingPreference                 pulumi.StringPtrOutput                       `pulumi:"routingPreference"`
+	StorageAccountArmId               pulumi.StringOutput                          `pulumi:"storageAccountArmId"`
 	SystemData                        SystemDataResponseOutput                     `pulumi:"systemData"`
 	Tags                              pulumi.StringMapOutput                       `pulumi:"tags"`
 	Type                              pulumi.StringOutput                          `pulumi:"type"`
@@ -186,6 +187,10 @@ func (o MonitorOutput) ProvisioningState() pulumi.StringOutput {
 
 func (o MonitorOutput) RoutingPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.RoutingPreference }).(pulumi.StringPtrOutput)
+}
+
+func (o MonitorOutput) StorageAccountArmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.StorageAccountArmId }).(pulumi.StringOutput)
 }
 
 func (o MonitorOutput) SystemData() SystemDataResponseOutput {

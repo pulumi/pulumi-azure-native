@@ -22,7 +22,7 @@ class GetFarmBeatsModelResult:
     """
     FarmBeats ARM Resource.
     """
-    def __init__(__self__, id=None, instance_uri=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, instance_uri=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +38,9 @@ class GetFarmBeatsModelResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -89,6 +92,14 @@ class GetFarmBeatsModelResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The resource model definition representing SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -124,6 +135,7 @@ class AwaitableGetFarmBeatsModelResult(GetFarmBeatsModelResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -152,6 +164,7 @@ def get_farm_beats_model(farm_beats_resource_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

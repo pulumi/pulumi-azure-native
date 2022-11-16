@@ -82,6 +82,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly routingPreference!: pulumi.Output<string | undefined>;
     /**
+     * The ARM ID of the Storage account used for SAP monitoring.
+     */
+    public /*out*/ readonly storageAccountArmId!: pulumi.Output<string>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.v20211201preview.SystemDataResponse>;
@@ -127,6 +131,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["msiArmId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageAccountArmId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -141,6 +146,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["routingPreference"] = undefined /*out*/;
+            resourceInputs["storageAccountArmId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -22,7 +22,10 @@ class GetExtensionResult:
     """
     Extension resource.
     """
-    def __init__(__self__, e_tag=None, extension_api_docs_link=None, extension_auth_link=None, extension_category=None, extension_id=None, id=None, installed_extension_version=None, name=None, system_data=None, type=None):
+    def __init__(__self__, additional_api_properties=None, e_tag=None, extension_api_docs_link=None, extension_auth_link=None, extension_category=None, extension_id=None, id=None, installed_extension_version=None, name=None, system_data=None, type=None):
+        if additional_api_properties and not isinstance(additional_api_properties, dict):
+            raise TypeError("Expected argument 'additional_api_properties' to be a dict")
+        pulumi.set(__self__, "additional_api_properties", additional_api_properties)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -53,6 +56,14 @@ class GetExtensionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="additionalApiProperties")
+    def additional_api_properties(self) -> Mapping[str, 'outputs.ApiPropertiesResponse']:
+        """
+        Additional api properties.
+        """
+        return pulumi.get(self, "additional_api_properties")
 
     @property
     @pulumi.getter(name="eTag")
@@ -141,6 +152,7 @@ class AwaitableGetExtensionResult(GetExtensionResult):
         if False:
             yield self
         return GetExtensionResult(
+            additional_api_properties=self.additional_api_properties,
             e_tag=self.e_tag,
             extension_api_docs_link=self.extension_api_docs_link,
             extension_auth_link=self.extension_auth_link,
@@ -173,6 +185,7 @@ def get_extension(extension_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform/v20210901preview:getExtension', __args__, opts=opts, typ=GetExtensionResult).value
 
     return AwaitableGetExtensionResult(
+        additional_api_properties=__ret__.additional_api_properties,
         e_tag=__ret__.e_tag,
         extension_api_docs_link=__ret__.extension_api_docs_link,
         extension_auth_link=__ret__.extension_auth_link,

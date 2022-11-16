@@ -214,6 +214,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ReplicationRole None { get; } = new ReplicationRole("None");
         public static ReplicationRole Primary { get; } = new ReplicationRole("Primary");
         public static ReplicationRole Secondary { get; } = new ReplicationRole("Secondary");
         public static ReplicationRole WalReplica { get; } = new ReplicationRole("WalReplica");

@@ -45,7 +45,7 @@ export interface ListConnectedEnvironmentsDaprComponentSecretsResult {
     /**
      * Collection of secrets used by a Dapr component
      */
-    readonly value: outputs.app.v20220601preview.SecretResponse[];
+    readonly value: outputs.app.v20220601preview.DaprSecretResponse[];
 }
 
 export function listConnectedEnvironmentsDaprComponentSecretsOutput(args: ListConnectedEnvironmentsDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedEnvironmentsDaprComponentSecretsResult> {

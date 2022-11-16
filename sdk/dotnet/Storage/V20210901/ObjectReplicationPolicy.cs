@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Storage.V20210901
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:ObjectReplicationPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:ObjectReplicationPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:ObjectReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

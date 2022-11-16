@@ -45,6 +45,14 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// Gets or sets the SAP System Identifier
         /// </summary>
         public readonly string? SapSid;
+        /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the SQL Database.
+        /// </summary>
+        public readonly string? SslCertificateUri;
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        public readonly string? SslPreference;
 
         [OutputConstructor]
         private MsSqlServerProviderInstancePropertiesResponse(
@@ -60,7 +68,11 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             string providerType,
 
-            string? sapSid)
+            string? sapSid,
+
+            string? sslCertificateUri,
+
+            string? sslPreference)
         {
             DbPassword = dbPassword;
             DbPasswordUri = dbPasswordUri;
@@ -69,6 +81,8 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             Hostname = hostname;
             ProviderType = providerType;
             SapSid = sapSid;
+            SslCertificateUri = sslCertificateUri;
+            SslPreference = sslPreference;
         }
     }
 }

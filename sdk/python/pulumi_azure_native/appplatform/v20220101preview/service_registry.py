@@ -131,7 +131,7 @@ class ServiceRegistry(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20220401:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:ServiceRegistry")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20220401:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:ServiceRegistry"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:ServiceRegistry")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceRegistry, __self__).__init__(
             'azure-native:appplatform/v20220101preview:ServiceRegistry',

@@ -1182,6 +1182,110 @@ type MagentoSourceResponse struct {
 	Type                     string      `pulumi:"type"`
 }
 
+type ManagedIdentityCredential struct {
+	Annotations []interface{} `pulumi:"annotations"`
+	Description *string       `pulumi:"description"`
+	ResourceId  *string       `pulumi:"resourceId"`
+	Type        string        `pulumi:"type"`
+}
+
+
+
+
+
+type ManagedIdentityCredentialInput interface {
+	pulumi.Input
+
+	ToManagedIdentityCredentialOutput() ManagedIdentityCredentialOutput
+	ToManagedIdentityCredentialOutputWithContext(context.Context) ManagedIdentityCredentialOutput
+}
+
+type ManagedIdentityCredentialArgs struct {
+	Annotations pulumi.ArrayInput     `pulumi:"annotations"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	ResourceId  pulumi.StringPtrInput `pulumi:"resourceId"`
+	Type        pulumi.StringInput    `pulumi:"type"`
+}
+
+func (ManagedIdentityCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityCredential)(nil)).Elem()
+}
+
+func (i ManagedIdentityCredentialArgs) ToManagedIdentityCredentialOutput() ManagedIdentityCredentialOutput {
+	return i.ToManagedIdentityCredentialOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityCredentialArgs) ToManagedIdentityCredentialOutputWithContext(ctx context.Context) ManagedIdentityCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityCredentialOutput)
+}
+
+type ManagedIdentityCredentialOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityCredential)(nil)).Elem()
+}
+
+func (o ManagedIdentityCredentialOutput) ToManagedIdentityCredentialOutput() ManagedIdentityCredentialOutput {
+	return o
+}
+
+func (o ManagedIdentityCredentialOutput) ToManagedIdentityCredentialOutputWithContext(ctx context.Context) ManagedIdentityCredentialOutput {
+	return o
+}
+
+func (o ManagedIdentityCredentialOutput) Annotations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ManagedIdentityCredential) []interface{} { return v.Annotations }).(pulumi.ArrayOutput)
+}
+
+func (o ManagedIdentityCredentialOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityCredential) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedIdentityCredentialOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityCredential) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedIdentityCredentialOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIdentityCredential) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ManagedIdentityCredentialResponse struct {
+	Annotations []interface{} `pulumi:"annotations"`
+	Description *string       `pulumi:"description"`
+	ResourceId  *string       `pulumi:"resourceId"`
+	Type        string        `pulumi:"type"`
+}
+
+type ManagedIdentityCredentialResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityCredentialResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityCredentialResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityCredentialResponseOutput) ToManagedIdentityCredentialResponseOutput() ManagedIdentityCredentialResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityCredentialResponseOutput) ToManagedIdentityCredentialResponseOutputWithContext(ctx context.Context) ManagedIdentityCredentialResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityCredentialResponseOutput) Annotations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ManagedIdentityCredentialResponse) []interface{} { return v.Annotations }).(pulumi.ArrayOutput)
+}
+
+func (o ManagedIdentityCredentialResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityCredentialResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedIdentityCredentialResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityCredentialResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedIdentityCredentialResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIdentityCredentialResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type ManagedIntegrationRuntime struct {
 	ComputeProperties      *IntegrationRuntimeComputeProperties      `pulumi:"computeProperties"`
 	CustomerVirtualNetwork *IntegrationRuntimeCustomerVirtualNetwork `pulumi:"customerVirtualNetwork"`
@@ -7003,45 +7107,9 @@ type SqlDWUpsertSettingsResponse struct {
 	Keys              interface{} `pulumi:"keys"`
 }
 
-type SqlMISink struct {
-	DisableMetricsCollection              interface{}        `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections              interface{}        `pulumi:"maxConcurrentConnections"`
-	PreCopyScript                         interface{}        `pulumi:"preCopyScript"`
-	SinkRetryCount                        interface{}        `pulumi:"sinkRetryCount"`
-	SinkRetryWait                         interface{}        `pulumi:"sinkRetryWait"`
-	SqlWriterStoredProcedureName          interface{}        `pulumi:"sqlWriterStoredProcedureName"`
-	SqlWriterTableType                    interface{}        `pulumi:"sqlWriterTableType"`
-	SqlWriterUseTableLock                 interface{}        `pulumi:"sqlWriterUseTableLock"`
-	StoredProcedureParameters             interface{}        `pulumi:"storedProcedureParameters"`
-	StoredProcedureTableTypeParameterName interface{}        `pulumi:"storedProcedureTableTypeParameterName"`
-	TableOption                           interface{}        `pulumi:"tableOption"`
-	Type                                  string             `pulumi:"type"`
-	UpsertSettings                        *SqlUpsertSettings `pulumi:"upsertSettings"`
-	WriteBatchSize                        interface{}        `pulumi:"writeBatchSize"`
-	WriteBatchTimeout                     interface{}        `pulumi:"writeBatchTimeout"`
-	WriteBehavior                         interface{}        `pulumi:"writeBehavior"`
-}
-
-type SqlMISinkResponse struct {
-	DisableMetricsCollection              interface{}                `pulumi:"disableMetricsCollection"`
-	MaxConcurrentConnections              interface{}                `pulumi:"maxConcurrentConnections"`
-	PreCopyScript                         interface{}                `pulumi:"preCopyScript"`
-	SinkRetryCount                        interface{}                `pulumi:"sinkRetryCount"`
-	SinkRetryWait                         interface{}                `pulumi:"sinkRetryWait"`
-	SqlWriterStoredProcedureName          interface{}                `pulumi:"sqlWriterStoredProcedureName"`
-	SqlWriterTableType                    interface{}                `pulumi:"sqlWriterTableType"`
-	SqlWriterUseTableLock                 interface{}                `pulumi:"sqlWriterUseTableLock"`
-	StoredProcedureParameters             interface{}                `pulumi:"storedProcedureParameters"`
-	StoredProcedureTableTypeParameterName interface{}                `pulumi:"storedProcedureTableTypeParameterName"`
-	TableOption                           interface{}                `pulumi:"tableOption"`
-	Type                                  string                     `pulumi:"type"`
-	UpsertSettings                        *SqlUpsertSettingsResponse `pulumi:"upsertSettings"`
-	WriteBatchSize                        interface{}                `pulumi:"writeBatchSize"`
-	WriteBatchTimeout                     interface{}                `pulumi:"writeBatchTimeout"`
-	WriteBehavior                         interface{}                `pulumi:"writeBehavior"`
-}
-
 func init() {
+	pulumi.RegisterOutputType(ManagedIdentityCredentialOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityCredentialResponseOutput{})
 	pulumi.RegisterOutputType(ManagedPrivateEndpointTypeOutput{})
 	pulumi.RegisterOutputType(ManagedPrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(ParameterSpecificationOutput{})

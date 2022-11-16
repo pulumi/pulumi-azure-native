@@ -31,6 +31,7 @@ type LookupFarmBeatsModelResult struct {
 	Location          string             `pulumi:"location"`
 	Name              string             `pulumi:"name"`
 	ProvisioningState string             `pulumi:"provisioningState"`
+	Sku               *SkuResponse       `pulumi:"sku"`
 	SystemData        SystemDataResponse `pulumi:"systemData"`
 	Tags              map[string]string  `pulumi:"tags"`
 	Type              string             `pulumi:"type"`
@@ -91,6 +92,10 @@ func (o LookupFarmBeatsModelResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupFarmBeatsModelResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFarmBeatsModelResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o LookupFarmBeatsModelResultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v LookupFarmBeatsModelResult) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
 func (o LookupFarmBeatsModelResultOutput) SystemData() SystemDataResponseOutput {

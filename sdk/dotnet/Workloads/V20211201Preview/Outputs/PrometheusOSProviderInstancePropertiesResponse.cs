@@ -25,15 +25,29 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
         /// Expected value is 'PrometheusOS'.
         /// </summary>
         public readonly string ProviderType;
+        /// <summary>
+        /// Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+        /// </summary>
+        public readonly string? SslCertificateUri;
+        /// <summary>
+        /// Gets or sets certificate preference if secure communication is enabled.
+        /// </summary>
+        public readonly string? SslPreference;
 
         [OutputConstructor]
         private PrometheusOSProviderInstancePropertiesResponse(
             string? prometheusUrl,
 
-            string providerType)
+            string providerType,
+
+            string? sslCertificateUri,
+
+            string? sslPreference)
         {
             PrometheusUrl = prometheusUrl;
             ProviderType = providerType;
+            SslCertificateUri = sslCertificateUri;
+            SslPreference = sslPreference;
         }
     }
 }

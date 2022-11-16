@@ -90,7 +90,7 @@ export class ApiPortalCustomDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ApiPortalCustomDomain" }, { type: "azure-native:appplatform/v20220301preview:ApiPortalCustomDomain" }, { type: "azure-native:appplatform/v20220501preview:ApiPortalCustomDomain" }, { type: "azure-native:appplatform/v20220901preview:ApiPortalCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ApiPortalCustomDomain" }, { type: "azure-native:appplatform/v20220301preview:ApiPortalCustomDomain" }, { type: "azure-native:appplatform/v20220501preview:ApiPortalCustomDomain" }, { type: "azure-native:appplatform/v20220901preview:ApiPortalCustomDomain" }, { type: "azure-native:appplatform/v20221101preview:ApiPortalCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiPortalCustomDomain.__pulumiType, name, resourceInputs, opts);
     }

@@ -927,10 +927,9 @@ type BackupScheduleResponse struct {
 }
 
 type BackupVaultType struct {
-	IsVaultProtectedByResourceGuard *bool               `pulumi:"isVaultProtectedByResourceGuard"`
-	MonitoringSettings              *MonitoringSettings `pulumi:"monitoringSettings"`
-	SecuritySettings                *SecuritySettings   `pulumi:"securitySettings"`
-	StorageSettings                 []StorageSetting    `pulumi:"storageSettings"`
+	MonitoringSettings *MonitoringSettings `pulumi:"monitoringSettings"`
+	SecuritySettings   *SecuritySettings   `pulumi:"securitySettings"`
+	StorageSettings    []StorageSetting    `pulumi:"storageSettings"`
 }
 
 
@@ -945,10 +944,9 @@ type BackupVaultTypeInput interface {
 }
 
 type BackupVaultTypeArgs struct {
-	IsVaultProtectedByResourceGuard pulumi.BoolPtrInput        `pulumi:"isVaultProtectedByResourceGuard"`
-	MonitoringSettings              MonitoringSettingsPtrInput `pulumi:"monitoringSettings"`
-	SecuritySettings                SecuritySettingsPtrInput   `pulumi:"securitySettings"`
-	StorageSettings                 StorageSettingArrayInput   `pulumi:"storageSettings"`
+	MonitoringSettings MonitoringSettingsPtrInput `pulumi:"monitoringSettings"`
+	SecuritySettings   SecuritySettingsPtrInput   `pulumi:"securitySettings"`
+	StorageSettings    StorageSettingArrayInput   `pulumi:"storageSettings"`
 }
 
 func (BackupVaultTypeArgs) ElementType() reflect.Type {
@@ -977,10 +975,6 @@ func (o BackupVaultTypeOutput) ToBackupVaultTypeOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o BackupVaultTypeOutput) IsVaultProtectedByResourceGuard() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BackupVaultType) *bool { return v.IsVaultProtectedByResourceGuard }).(pulumi.BoolPtrOutput)
-}
-
 func (o BackupVaultTypeOutput) MonitoringSettings() MonitoringSettingsPtrOutput {
 	return o.ApplyT(func(v BackupVaultType) *MonitoringSettings { return v.MonitoringSettings }).(MonitoringSettingsPtrOutput)
 }
@@ -994,7 +988,7 @@ func (o BackupVaultTypeOutput) StorageSettings() StorageSettingArrayOutput {
 }
 
 type BackupVaultResponse struct {
-	IsVaultProtectedByResourceGuard *bool                       `pulumi:"isVaultProtectedByResourceGuard"`
+	IsVaultProtectedByResourceGuard bool                        `pulumi:"isVaultProtectedByResourceGuard"`
 	MonitoringSettings              *MonitoringSettingsResponse `pulumi:"monitoringSettings"`
 	ProvisioningState               string                      `pulumi:"provisioningState"`
 	ResourceMoveDetails             ResourceMoveDetailsResponse `pulumi:"resourceMoveDetails"`
@@ -1017,8 +1011,8 @@ func (o BackupVaultResponseOutput) ToBackupVaultResponseOutputWithContext(ctx co
 	return o
 }
 
-func (o BackupVaultResponseOutput) IsVaultProtectedByResourceGuard() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BackupVaultResponse) *bool { return v.IsVaultProtectedByResourceGuard }).(pulumi.BoolPtrOutput)
+func (o BackupVaultResponseOutput) IsVaultProtectedByResourceGuard() pulumi.BoolOutput {
+	return o.ApplyT(func(v BackupVaultResponse) bool { return v.IsVaultProtectedByResourceGuard }).(pulumi.BoolOutput)
 }
 
 func (o BackupVaultResponseOutput) MonitoringSettings() MonitoringSettingsResponsePtrOutput {

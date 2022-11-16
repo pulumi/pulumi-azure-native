@@ -10,6 +10,142 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ApiProperties struct {
+	ApiFreshnessWindowInMinutes *int `pulumi:"apiFreshnessWindowInMinutes"`
+}
+
+
+
+
+
+type ApiPropertiesInput interface {
+	pulumi.Input
+
+	ToApiPropertiesOutput() ApiPropertiesOutput
+	ToApiPropertiesOutputWithContext(context.Context) ApiPropertiesOutput
+}
+
+type ApiPropertiesArgs struct {
+	ApiFreshnessWindowInMinutes pulumi.IntPtrInput `pulumi:"apiFreshnessWindowInMinutes"`
+}
+
+func (ApiPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiProperties)(nil)).Elem()
+}
+
+func (i ApiPropertiesArgs) ToApiPropertiesOutput() ApiPropertiesOutput {
+	return i.ToApiPropertiesOutputWithContext(context.Background())
+}
+
+func (i ApiPropertiesArgs) ToApiPropertiesOutputWithContext(ctx context.Context) ApiPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiPropertiesOutput)
+}
+
+
+
+
+
+type ApiPropertiesMapInput interface {
+	pulumi.Input
+
+	ToApiPropertiesMapOutput() ApiPropertiesMapOutput
+	ToApiPropertiesMapOutputWithContext(context.Context) ApiPropertiesMapOutput
+}
+
+type ApiPropertiesMap map[string]ApiPropertiesInput
+
+func (ApiPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiProperties)(nil)).Elem()
+}
+
+func (i ApiPropertiesMap) ToApiPropertiesMapOutput() ApiPropertiesMapOutput {
+	return i.ToApiPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i ApiPropertiesMap) ToApiPropertiesMapOutputWithContext(ctx context.Context) ApiPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiPropertiesMapOutput)
+}
+
+type ApiPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ApiPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiProperties)(nil)).Elem()
+}
+
+func (o ApiPropertiesOutput) ToApiPropertiesOutput() ApiPropertiesOutput {
+	return o
+}
+
+func (o ApiPropertiesOutput) ToApiPropertiesOutputWithContext(ctx context.Context) ApiPropertiesOutput {
+	return o
+}
+
+func (o ApiPropertiesOutput) ApiFreshnessWindowInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiProperties) *int { return v.ApiFreshnessWindowInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ApiPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (ApiPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiProperties)(nil)).Elem()
+}
+
+func (o ApiPropertiesMapOutput) ToApiPropertiesMapOutput() ApiPropertiesMapOutput {
+	return o
+}
+
+func (o ApiPropertiesMapOutput) ToApiPropertiesMapOutputWithContext(ctx context.Context) ApiPropertiesMapOutput {
+	return o
+}
+
+func (o ApiPropertiesMapOutput) MapIndex(k pulumi.StringInput) ApiPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiProperties {
+		return vs[0].(map[string]ApiProperties)[vs[1].(string)]
+	}).(ApiPropertiesOutput)
+}
+
+type ApiPropertiesResponse struct {
+	ApiFreshnessWindowInMinutes *int `pulumi:"apiFreshnessWindowInMinutes"`
+}
+
+type ApiPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiPropertiesResponse)(nil)).Elem()
+}
+
+func (o ApiPropertiesResponseOutput) ToApiPropertiesResponseOutput() ApiPropertiesResponseOutput {
+	return o
+}
+
+func (o ApiPropertiesResponseOutput) ToApiPropertiesResponseOutputWithContext(ctx context.Context) ApiPropertiesResponseOutput {
+	return o
+}
+
+func (o ApiPropertiesResponseOutput) ApiFreshnessWindowInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiPropertiesResponse) *int { return v.ApiFreshnessWindowInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ApiPropertiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ApiPropertiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiPropertiesResponse)(nil)).Elem()
+}
+
+func (o ApiPropertiesResponseMapOutput) ToApiPropertiesResponseMapOutput() ApiPropertiesResponseMapOutput {
+	return o
+}
+
+func (o ApiPropertiesResponseMapOutput) ToApiPropertiesResponseMapOutputWithContext(ctx context.Context) ApiPropertiesResponseMapOutput {
+	return o
+}
+
+func (o ApiPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) ApiPropertiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiPropertiesResponse {
+		return vs[0].(map[string]ApiPropertiesResponse)[vs[1].(string)]
+	}).(ApiPropertiesResponseOutput)
+}
+
 type ErrorAdditionalInfoResponse struct {
 	Info interface{} `pulumi:"info"`
 	Type string      `pulumi:"type"`
@@ -925,6 +1061,10 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApiPropertiesOutput{})
+	pulumi.RegisterOutputType(ApiPropertiesMapOutput{})
+	pulumi.RegisterOutputType(ApiPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ApiPropertiesResponseMapOutput{})
 	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseOutput{})
 	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
