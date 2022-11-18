@@ -146,6 +146,8 @@ Billing: # Overlapping resources between 2020-05-01 and 2019-10-01-preview
     BillingRoleAssignmentByDepartment: 2019-10-01-preview
     BillingRoleAssignmentByEnrollmentAccount: 2019-10-01-preview
     listBillingAccountInvoiceSectionsByCreateSubscriptionPermission: "2020-05-01"
+BillingBenefits:
+  tracking: "2022-11-01"
 Blockchain:
   tracking: 2018-06-01-preview
 Blueprint:

@@ -266,6 +266,7 @@
     "BillingRoleAssignmentByEnrollmentAccount": "2019-10-01-preview",
     "listBillingAccountInvoiceSectionsByCreateSubscriptionPermission": "2020-05-01"
   },
+  "BillingBenefits": {},
   "Blockchain": {
     "BlockchainMember": "2018-06-01-preview",
     "TransactionNode": "2018-06-01-preview",

@@ -1872,6 +1872,7 @@
     "ArcSetting": [
       "2021-01-01-preview",
       "2021-09-01",
+      "2021-09-01-preview",
       "2022-01-01",
       "2022-03-01",
       "2022-05-01",
@@ -1883,6 +1884,7 @@
       "2020-10-01",
       "2021-01-01-preview",
       "2021-09-01",
+      "2021-09-01-preview",
       "2022-01-01",
       "2022-03-01",
       "2022-05-01",
@@ -1892,26 +1894,47 @@
     "Extension": [
       "2021-01-01-preview",
       "2021-09-01",
+      "2021-09-01-preview",
       "2022-01-01",
       "2022-03-01",
       "2022-05-01",
       "2022-09-01",
       "2022-10-01"
     ],
+    "GuestAgent": [
+      "2021-09-01-preview"
+    ],
+    "HybridIdentityMetadatum": [
+      "2021-09-01-preview"
+    ],
+    "MachineExtension": [
+      "2021-09-01-preview"
+    ],
     "galleryimageRetrieve": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
+    ],
+    "marketplacegalleryimage": [
+      "2021-09-01-preview"
     ],
     "networkinterfaceRetrieve": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
+    ],
+    "storagecontainerRetrieve": [
+      "2021-09-01-preview"
     ],
     "virtualharddiskRetrieve": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
     ],
     "virtualmachineRetrieve": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
     ],
     "virtualnetworkRetrieve": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
     ]
   },
   "BareMetalInfrastructure": {},
@@ -2027,6 +2050,7 @@
       "2020-05-01"
     ]
   },
+  "BillingBenefits": {},
   "Blockchain": {
     "BlockchainMember": [
       "2018-06-01-preview"
@@ -3922,7 +3946,8 @@
       "2021-05-01",
       "2021-08-01-preview",
       "2021-12-01",
-      "2022-02-01"
+      "2022-02-01",
+      "2022-09-01"
     ],
     "listJobCredentials": [
       "2018-01-01",
@@ -3933,7 +3958,8 @@
       "2021-05-01",
       "2021-08-01-preview",
       "2021-12-01",
-      "2022-02-01"
+      "2022-02-01",
+      "2022-09-01"
     ]
   },
   "DataBoxEdge": {
@@ -4699,57 +4725,68 @@
     "AttachedNetworkByDevCenter": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "Catalog": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "DevBoxDefinition": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "DevCenter": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "EnvironmentType": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "Gallery": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "NetworkConnection": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "Pool": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "Project": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "ProjectEnvironmentType": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ],
     "Schedule": [
       "2022-08-01-preview",
       "2022-09-01-preview",
-      "2022-10-12-preview"
+      "2022-10-12-preview",
+      "2022-11-11-preview"
     ]
   },
   "DevHub": {
@@ -12384,7 +12421,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-01-01",
-      "2021-04-01"
+      "2021-04-01",
+      "2022-09-01"
     ],
     "DeploymentAtManagementGroupScope": [
       "2019-05-01",
@@ -12396,7 +12434,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-01-01",
-      "2021-04-01"
+      "2021-04-01",
+      "2022-09-01"
     ],
     "DeploymentAtScope": [
       "2019-07-01",
@@ -12406,7 +12445,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-01-01",
-      "2021-04-01"
+      "2021-04-01",
+      "2022-09-01"
     ],
     "DeploymentAtSubscriptionScope": [
       "2018-05-01",
@@ -12420,7 +12460,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-01-01",
-      "2021-04-01"
+      "2021-04-01",
+      "2022-09-01"
     ],
     "DeploymentAtTenantScope": [
       "2019-07-01",
@@ -12430,7 +12471,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-01-01",
-      "2021-04-01"
+      "2021-04-01",
+      "2022-09-01"
     ],
     "DeploymentScript": [
       "2019-10-01-preview",
@@ -12454,7 +12496,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-01-01",
-      "2021-04-01"
+      "2021-04-01",
+      "2022-09-01"
     ],
     "ResourceGroup": [
       "2015-11-01",
@@ -12474,7 +12517,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-01-01",
-      "2021-04-01"
+      "2021-04-01",
+      "2022-09-01"
     ],
     "TagAtScope": [
       "2019-10-01",
@@ -12482,7 +12526,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-01-01",
-      "2021-04-01"
+      "2021-04-01",
+      "2022-09-01"
     ],
     "TemplateSpec": [
       "2019-06-01-preview",
@@ -12583,6 +12628,9 @@
     ]
   },
   "Security": {
+    "APICollection": [
+      "2022-11-20-preview"
+    ],
     "AdaptiveApplicationControl": [
       "2015-06-01-preview",
       "2020-01-01"

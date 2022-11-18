@@ -1708,6 +1708,21 @@
       "Cluster",
       "Extension"
     ],
+    "2021-09-01-preview": [
+      "ArcSetting",
+      "Cluster",
+      "Extension",
+      "GuestAgent",
+      "HybridIdentityMetadatum",
+      "MachineExtension",
+      "galleryimageRetrieve",
+      "marketplacegalleryimage",
+      "networkinterfaceRetrieve",
+      "storagecontainerRetrieve",
+      "virtualharddiskRetrieve",
+      "virtualmachineRetrieve",
+      "virtualnetworkRetrieve"
+    ],
     "2022-01-01": [
       "ArcSetting",
       "Cluster",
@@ -1863,6 +1878,9 @@
     "2020-05-01": [
       "listBillingAccountInvoiceSectionsByCreateSubscriptionPermission"
     ]
+  },
+  "BillingBenefits": {
+    "": []
   },
   "Blockchain": {
     "2018-06-01-preview": [
@@ -3879,6 +3897,10 @@
     "2022-02-01": [
       "Job",
       "listJobCredentials"
+    ],
+    "2022-09-01": [
+      "Job",
+      "listJobCredentials"
     ]
   },
   "DataBoxEdge": {
@@ -4611,6 +4633,19 @@
       "Schedule"
     ],
     "2022-10-12-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
+    ],
+    "2022-11-11-preview": [
       "AttachedNetworkByDevCenter",
       "Catalog",
       "DevBoxDefinition",
@@ -11975,6 +12010,16 @@
     "2022-02-01": [
       "TemplateSpec",
       "TemplateSpecVersion"
+    ],
+    "2022-09-01": [
+      "Deployment",
+      "DeploymentAtManagementGroupScope",
+      "DeploymentAtScope",
+      "DeploymentAtSubscriptionScope",
+      "DeploymentAtTenantScope",
+      "Resource",
+      "ResourceGroup",
+      "TagAtScope"
     ]
   },
   "SaaS": {
@@ -12127,6 +12172,9 @@
     ],
     "2022-08-01-preview": [
       "SecurityConnector"
+    ],
+    "2022-11-20-preview": [
+      "APICollection"
     ]
   },
   "SecurityAndCompliance": {
