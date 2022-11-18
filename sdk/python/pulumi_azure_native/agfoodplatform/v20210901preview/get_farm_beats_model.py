@@ -64,7 +64,7 @@ class GetFarmBeatsModelResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -104,7 +104,7 @@ class GetFarmBeatsModelResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> 'outputs.PrivateEndpointConnectionResponse':
         """
-        The Private Endpoint Connection resource.
+        The private endpoint connection resource.
         """
         return pulumi.get(self, "private_endpoint_connections")
 

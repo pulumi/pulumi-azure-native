@@ -111,7 +111,7 @@ export class Linker extends pulumi.CustomResource {
             resourceInputs["vNetSolution"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker:Linker" }, { type: "azure-native:servicelinker/v20220101preview:Linker" }, { type: "azure-native:servicelinker/v20220501:Linker" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker:Linker" }, { type: "azure-native:servicelinker/v20220101preview:Linker" }, { type: "azure-native:servicelinker/v20220501:Linker" }, { type: "azure-native:servicelinker/v20221101preview:Linker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Linker.__pulumiType, name, resourceInputs, opts);
     }

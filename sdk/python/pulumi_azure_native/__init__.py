@@ -3078,6 +3078,26 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurestackhci/v20210901preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20210901preview",
+  "classes": {
+   "azure-native:azurestackhci/v20210901preview:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20210901preview:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20210901preview:Extension": "Extension",
+   "azure-native:azurestackhci/v20210901preview:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:azurestackhci/v20210901preview:MachineExtension": "MachineExtension",
+   "azure-native:azurestackhci/v20210901preview:galleryimageRetrieve": "GalleryimageRetrieve",
+   "azure-native:azurestackhci/v20210901preview:marketplacegalleryimage": "Marketplacegalleryimage",
+   "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve": "NetworkinterfaceRetrieve",
+   "azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve": "StoragecontainerRetrieve",
+   "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve": "VirtualharddiskRetrieve",
+   "azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve": "VirtualmachineRetrieve",
+   "azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve": "VirtualnetworkRetrieve"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azurestackhci/v20220101",
   "fqn": "pulumi_azure_native.azurestackhci.v20220101",
   "classes": {
@@ -6340,6 +6360,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databox/v20220901",
+  "fqn": "pulumi_azure_native.databox.v20220901",
+  "classes": {
+   "azure-native:databox/v20220901:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databoxedge",
   "fqn": "pulumi_azure_native.databoxedge",
   "classes": {
@@ -8136,6 +8164,24 @@ _utilities.register(
    "azure-native:devcenter/v20221012preview:Project": "Project",
    "azure-native:devcenter/v20221012preview:ProjectEnvironmentType": "ProjectEnvironmentType",
    "azure-native:devcenter/v20221012preview:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devcenter/v20221111preview",
+  "fqn": "pulumi_azure_native.devcenter.v20221111preview",
+  "classes": {
+   "azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter/v20221111preview:Catalog": "Catalog",
+   "azure-native:devcenter/v20221111preview:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter/v20221111preview:DevCenter": "DevCenter",
+   "azure-native:devcenter/v20221111preview:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter/v20221111preview:Gallery": "Gallery",
+   "azure-native:devcenter/v20221111preview:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter/v20221111preview:Pool": "Pool",
+   "azure-native:devcenter/v20221111preview:Project": "Project",
+   "azure-native:devcenter/v20221111preview:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter/v20221111preview:Schedule": "Schedule"
   }
  },
  {
@@ -18483,6 +18529,21 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "resources/v20220901",
+  "fqn": "pulumi_azure_native.resources.v20220901",
+  "classes": {
+   "azure-native:resources/v20220901:Deployment": "Deployment",
+   "azure-native:resources/v20220901:DeploymentAtManagementGroupScope": "DeploymentAtManagementGroupScope",
+   "azure-native:resources/v20220901:DeploymentAtScope": "DeploymentAtScope",
+   "azure-native:resources/v20220901:DeploymentAtSubscriptionScope": "DeploymentAtSubscriptionScope",
+   "azure-native:resources/v20220901:DeploymentAtTenantScope": "DeploymentAtTenantScope",
+   "azure-native:resources/v20220901:Resource": "Resource",
+   "azure-native:resources/v20220901:ResourceGroup": "ResourceGroup",
+   "azure-native:resources/v20220901:TagAtScope": "TagAtScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "saas",
   "fqn": "pulumi_azure_native.saas",
   "classes": {
@@ -18811,6 +18872,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20220801preview",
   "classes": {
    "azure-native:security/v20220801preview:SecurityConnector": "SecurityConnector"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20221120preview",
+  "fqn": "pulumi_azure_native.security.v20221120preview",
+  "classes": {
+   "azure-native:security/v20221120preview:APICollection": "APICollection"
   }
  },
  {
@@ -20228,6 +20297,17 @@ _utilities.register(
   "fqn": "pulumi_azure_native.servicelinker.v20220501",
   "classes": {
    "azure-native:servicelinker/v20220501:Linker": "Linker"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicelinker/v20221101preview",
+  "fqn": "pulumi_azure_native.servicelinker.v20221101preview",
+  "classes": {
+   "azure-native:servicelinker/v20221101preview:Connector": "Connector",
+   "azure-native:servicelinker/v20221101preview:ConnectorDryrun": "ConnectorDryrun",
+   "azure-native:servicelinker/v20221101preview:Linker": "Linker",
+   "azure-native:servicelinker/v20221101preview:LinkerDryrun": "LinkerDryrun"
   }
  },
  {

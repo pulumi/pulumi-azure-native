@@ -45,6 +45,9 @@ func NewLinker(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicelinker/v20220501:Linker"),
 		},
+		{
+			Type: pulumi.String("azure-native:servicelinker/v20221101preview:Linker"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Linker

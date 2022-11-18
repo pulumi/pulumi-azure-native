@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// The private endpoint connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:agfoodplatform/v20210901preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// The private endpoint connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:agfoodplatform/v20210901preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -82,7 +82,11 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -90,7 +94,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
 
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

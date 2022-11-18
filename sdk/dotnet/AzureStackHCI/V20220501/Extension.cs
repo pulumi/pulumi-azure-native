@@ -145,6 +145,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220501
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220901:Extension"},

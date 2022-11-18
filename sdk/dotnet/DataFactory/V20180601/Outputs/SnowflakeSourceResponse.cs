@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// Snowflake export settings.
         /// </summary>
-        public readonly Outputs.SnowflakeExportCopyCommandResponse? ExportSettings;
+        public readonly Outputs.SnowflakeExportCopyCommandResponse ExportSettings;
         /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private SnowflakeSourceResponse(
             object? disableMetricsCollection,
 
-            Outputs.SnowflakeExportCopyCommandResponse? exportSettings,
+            Outputs.SnowflakeExportCopyCommandResponse exportSettings,
 
             object? maxConcurrentConnections,
 

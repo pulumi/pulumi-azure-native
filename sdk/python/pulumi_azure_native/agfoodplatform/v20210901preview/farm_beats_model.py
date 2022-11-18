@@ -287,7 +287,7 @@ class FarmBeatsModel(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output['outputs.PrivateEndpointConnectionResponse']:
         """
-        The Private Endpoint Connection resource.
+        The private endpoint connection resource.
         """
         return pulumi.get(self, "private_endpoint_connections")
 

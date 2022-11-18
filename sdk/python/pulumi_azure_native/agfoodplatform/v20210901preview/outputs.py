@@ -233,8 +233,8 @@ class IdentityResponse(dict):
                  type: Optional[str] = None):
         """
         Identity for the resource.
-        :param str principal_id: The principal ID of resource identity.
-        :param str tenant_id: The tenant ID of resource.
+        :param str principal_id: The principal ID of resource identity. The value must be an UUID.
+        :param str tenant_id: The tenant ID of resource. The value must be an UUID.
         :param str type: The identity type.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -246,7 +246,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal ID of resource identity.
+        The principal ID of resource identity. The value must be an UUID.
         """
         return pulumi.get(self, "principal_id")
 
@@ -254,7 +254,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant ID of resource.
+        The tenant ID of resource. The value must be an UUID.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -270,12 +270,14 @@ class IdentityResponse(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
-    The Private Endpoint Connection resource.
+    The private endpoint connection resource.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateLinkServiceConnectionState":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
@@ -296,6 +298,7 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Sequence[str],
                  id: str,
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
@@ -304,15 +307,17 @@ class PrivateEndpointConnectionResponse(dict):
                  type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
-        The Private Endpoint Connection resource.
-        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        The private endpoint connection resource.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
         """
+        pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -323,10 +328,18 @@ class PrivateEndpointConnectionResponse(dict):
             pulumi.set(__self__, "private_endpoint", private_endpoint)
 
     @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -374,7 +387,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        The resource of private end point.
+        The private endpoint resource.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -382,13 +395,13 @@ class PrivateEndpointConnectionResponse(dict):
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
-    The Private Endpoint resource.
+    The private endpoint resource.
     """
     def __init__(__self__, *,
                  id: str):
         """
-        The Private Endpoint resource.
-        :param str id: The ARM identifier for Private Endpoint
+        The private endpoint resource.
+        :param str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
 
@@ -396,7 +409,7 @@ class PrivateEndpointResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ARM identifier for Private Endpoint
+        The ARM identifier for private endpoint.
         """
         return pulumi.get(self, "id")
 

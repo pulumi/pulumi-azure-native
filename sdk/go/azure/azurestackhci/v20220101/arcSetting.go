@@ -52,6 +52,9 @@ func NewArcSetting(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:azurestackhci/v20210901:ArcSetting"),
 		},
 		{
+			Type: pulumi.String("azure-native:azurestackhci/v20210901preview:ArcSetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:azurestackhci/v20220301:ArcSetting"),
 		},
 		{

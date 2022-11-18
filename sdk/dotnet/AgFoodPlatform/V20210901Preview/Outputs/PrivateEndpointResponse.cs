@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview.Outputs
 {
 
     /// <summary>
-    /// The Private Endpoint resource.
+    /// The private endpoint resource.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointResponse
     {
         /// <summary>
-        /// The ARM identifier for Private Endpoint
+        /// The ARM identifier for private endpoint.
         /// </summary>
         public readonly string Id;
 

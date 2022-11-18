@@ -249,6 +249,14 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static HostType Azure_Virtual_Machine { get; } = new HostType("Azure Virtual Machine");
+        public static HostType Azure_VMWare_Virtual_Machine { get; } = new HostType("Azure VMWare Virtual Machine");
+        public static HostType Azure_Kubernetes_Service { get; } = new HostType("Azure Kubernetes Service");
+        public static HostType AWS_VMWare_Virtual_Machine { get; } = new HostType("AWS VMWare Virtual Machine");
+        public static HostType AWS_Kubernetes_Service { get; } = new HostType("AWS Kubernetes Service");
+        public static HostType GCP_VMWare_Virtual_Machine { get; } = new HostType("GCP VMWare Virtual Machine");
+        public static HostType GCP_Kubernetes_Service { get; } = new HostType("GCP Kubernetes Service");
+        public static HostType Container { get; } = new HostType("Container");
         public static HostType Virtual_Machine { get; } = new HostType("Virtual Machine");
         public static HostType Physical_Server { get; } = new HostType("Physical Server");
         public static HostType AWS_Virtual_Machine { get; } = new HostType("AWS Virtual Machine");

@@ -68145,10 +68145,10 @@ class SnowflakeSourceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "disableMetricsCollection":
-            suggest = "disable_metrics_collection"
-        elif key == "exportSettings":
+        if key == "exportSettings":
             suggest = "export_settings"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
         elif key == "sourceRetryCount":
@@ -68168,29 +68168,28 @@ class SnowflakeSourceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 export_settings: 'outputs.SnowflakeExportCopyCommandResponse',
                  type: str,
                  disable_metrics_collection: Optional[Any] = None,
-                 export_settings: Optional['outputs.SnowflakeExportCopyCommandResponse'] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity snowflake source.
+        :param 'SnowflakeExportCopyCommandResponse' export_settings: Snowflake export settings.
         :param str type: Copy source type.
                Expected value is 'SnowflakeSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param 'SnowflakeExportCopyCommandResponse' export_settings: Snowflake export settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Snowflake Sql query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
+        pulumi.set(__self__, "export_settings", export_settings)
         pulumi.set(__self__, "type", 'SnowflakeSource')
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
-        if export_settings is not None:
-            pulumi.set(__self__, "export_settings", export_settings)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -68199,6 +68198,14 @@ class SnowflakeSourceResponse(dict):
             pulumi.set(__self__, "source_retry_count", source_retry_count)
         if source_retry_wait is not None:
             pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter(name="exportSettings")
+    def export_settings(self) -> 'outputs.SnowflakeExportCopyCommandResponse':
+        """
+        Snowflake export settings.
+        """
+        return pulumi.get(self, "export_settings")
 
     @property
     @pulumi.getter
@@ -68216,14 +68223,6 @@ class SnowflakeSourceResponse(dict):
         If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "disable_metrics_collection")
-
-    @property
-    @pulumi.getter(name="exportSettings")
-    def export_settings(self) -> Optional['outputs.SnowflakeExportCopyCommandResponse']:
-        """
-        Snowflake export settings.
-        """
-        return pulumi.get(self, "export_settings")
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")

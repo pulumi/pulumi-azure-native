@@ -94,7 +94,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        The Private Endpoint Connection resource.
+        The private endpoint connection resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  args: PrivateEndpointConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The Private Endpoint Connection resource.
+        The private endpoint connection resource.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -150,6 +150,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["group_ids"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -177,6 +178,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
+        __props__.__dict__["group_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
@@ -184,6 +186,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
@@ -197,7 +207,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
-        The resource of private end point.
+        The private endpoint resource.
         """
         return pulumi.get(self, "private_endpoint")
 

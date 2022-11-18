@@ -85,6 +85,14 @@ export const ExtendedLocationTypes = {
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
 export const HostType = {
+    Azure_Virtual_Machine: "Azure Virtual Machine",
+    Azure_VMWare_Virtual_Machine: "Azure VMWare Virtual Machine",
+    Azure_Kubernetes_Service: "Azure Kubernetes Service",
+    AWS_VMWare_Virtual_Machine: "AWS VMWare Virtual Machine",
+    AWS_Kubernetes_Service: "AWS Kubernetes Service",
+    GCP_VMWare_Virtual_Machine: "GCP VMWare Virtual Machine",
+    GCP_Kubernetes_Service: "GCP Kubernetes Service",
+    Container: "Container",
     Virtual_Machine: "Virtual Machine",
     Physical_Server: "Physical Server",
     AWS_Virtual_Machine: "AWS Virtual Machine",

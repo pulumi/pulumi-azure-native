@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Resources.V20160901
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:ResourceGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:ResourceGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:ResourceGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20220901:ResourceGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

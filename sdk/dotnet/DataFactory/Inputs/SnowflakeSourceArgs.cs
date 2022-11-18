@@ -24,8 +24,8 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// <summary>
         /// Snowflake export settings.
         /// </summary>
-        [Input("exportSettings")]
-        public Input<Inputs.SnowflakeExportCopyCommandArgs>? ExportSettings { get; set; }
+        [Input("exportSettings", required: true)]
+        public Input<Inputs.SnowflakeExportCopyCommandArgs> ExportSettings { get; set; } = null!;
 
         /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).

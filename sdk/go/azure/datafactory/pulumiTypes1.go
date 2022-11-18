@@ -6904,23 +6904,23 @@ type SnowflakeSinkResponse struct {
 }
 
 type SnowflakeSource struct {
-	DisableMetricsCollection interface{}                 `pulumi:"disableMetricsCollection"`
-	ExportSettings           *SnowflakeExportCopyCommand `pulumi:"exportSettings"`
-	MaxConcurrentConnections interface{}                 `pulumi:"maxConcurrentConnections"`
-	Query                    interface{}                 `pulumi:"query"`
-	SourceRetryCount         interface{}                 `pulumi:"sourceRetryCount"`
-	SourceRetryWait          interface{}                 `pulumi:"sourceRetryWait"`
-	Type                     string                      `pulumi:"type"`
+	DisableMetricsCollection interface{}                `pulumi:"disableMetricsCollection"`
+	ExportSettings           SnowflakeExportCopyCommand `pulumi:"exportSettings"`
+	MaxConcurrentConnections interface{}                `pulumi:"maxConcurrentConnections"`
+	Query                    interface{}                `pulumi:"query"`
+	SourceRetryCount         interface{}                `pulumi:"sourceRetryCount"`
+	SourceRetryWait          interface{}                `pulumi:"sourceRetryWait"`
+	Type                     string                     `pulumi:"type"`
 }
 
 type SnowflakeSourceResponse struct {
-	DisableMetricsCollection interface{}                         `pulumi:"disableMetricsCollection"`
-	ExportSettings           *SnowflakeExportCopyCommandResponse `pulumi:"exportSettings"`
-	MaxConcurrentConnections interface{}                         `pulumi:"maxConcurrentConnections"`
-	Query                    interface{}                         `pulumi:"query"`
-	SourceRetryCount         interface{}                         `pulumi:"sourceRetryCount"`
-	SourceRetryWait          interface{}                         `pulumi:"sourceRetryWait"`
-	Type                     string                              `pulumi:"type"`
+	DisableMetricsCollection interface{}                        `pulumi:"disableMetricsCollection"`
+	ExportSettings           SnowflakeExportCopyCommandResponse `pulumi:"exportSettings"`
+	MaxConcurrentConnections interface{}                        `pulumi:"maxConcurrentConnections"`
+	Query                    interface{}                        `pulumi:"query"`
+	SourceRetryCount         interface{}                        `pulumi:"sourceRetryCount"`
+	SourceRetryWait          interface{}                        `pulumi:"sourceRetryWait"`
+	Type                     string                             `pulumi:"type"`
 }
 
 type SparkLinkedService struct {

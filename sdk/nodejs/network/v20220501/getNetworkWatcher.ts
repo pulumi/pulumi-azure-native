@@ -55,6 +55,10 @@ export interface GetNetworkWatcherResult {
      */
     readonly provisioningState: string;
     /**
+     * List of running operation IDs.
+     */
+    readonly runningOperationIds?: number[];
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

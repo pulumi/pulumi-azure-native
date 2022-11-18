@@ -596,6 +596,7 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointConnectionResponse struct {
+	GroupIds                          []string                                  `pulumi:"groupIds"`
 	Id                                string                                    `pulumi:"id"`
 	Name                              string                                    `pulumi:"name"`
 	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
@@ -617,6 +618,10 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 
 func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
 	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {

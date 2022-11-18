@@ -70723,29 +70723,28 @@ class SnowflakeSinkArgs:
 @pulumi.input_type
 class SnowflakeSourceArgs:
     def __init__(__self__, *,
+                 export_settings: pulumi.Input['SnowflakeExportCopyCommandArgs'],
                  type: pulumi.Input[str],
                  disable_metrics_collection: Optional[Any] = None,
-                 export_settings: Optional[pulumi.Input['SnowflakeExportCopyCommandArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity snowflake source.
+        :param pulumi.Input['SnowflakeExportCopyCommandArgs'] export_settings: Snowflake export settings.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SnowflakeSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input['SnowflakeExportCopyCommandArgs'] export_settings: Snowflake export settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Snowflake Sql query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
+        pulumi.set(__self__, "export_settings", export_settings)
         pulumi.set(__self__, "type", 'SnowflakeSource')
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
-        if export_settings is not None:
-            pulumi.set(__self__, "export_settings", export_settings)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -70754,6 +70753,18 @@ class SnowflakeSourceArgs:
             pulumi.set(__self__, "source_retry_count", source_retry_count)
         if source_retry_wait is not None:
             pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter(name="exportSettings")
+    def export_settings(self) -> pulumi.Input['SnowflakeExportCopyCommandArgs']:
+        """
+        Snowflake export settings.
+        """
+        return pulumi.get(self, "export_settings")
+
+    @export_settings.setter
+    def export_settings(self, value: pulumi.Input['SnowflakeExportCopyCommandArgs']):
+        pulumi.set(self, "export_settings", value)
 
     @property
     @pulumi.getter
@@ -70779,18 +70790,6 @@ class SnowflakeSourceArgs:
     @disable_metrics_collection.setter
     def disable_metrics_collection(self, value: Optional[Any]):
         pulumi.set(self, "disable_metrics_collection", value)
-
-    @property
-    @pulumi.getter(name="exportSettings")
-    def export_settings(self) -> Optional[pulumi.Input['SnowflakeExportCopyCommandArgs']]:
-        """
-        Snowflake export settings.
-        """
-        return pulumi.get(self, "export_settings")
-
-    @export_settings.setter
-    def export_settings(self, value: Optional[pulumi.Input['SnowflakeExportCopyCommandArgs']]):
-        pulumi.set(self, "export_settings", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
