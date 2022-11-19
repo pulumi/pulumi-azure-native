@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview.Outputs
 {
 
     /// <summary>
-    /// The Private Endpoint Connection resource.
+    /// The private endpoint connection resource.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -25,7 +29,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview.Outputs
 
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

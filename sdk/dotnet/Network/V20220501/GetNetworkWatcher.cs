@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.Network.V20220501
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// List of running operation IDs.
+        /// </summary>
+        public readonly ImmutableArray<int> RunningOperationIds;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.Network.V20220501
 
             string provisioningState,
 
+            ImmutableArray<int> runningOperationIds,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNative.Network.V20220501
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            RunningOperationIds = runningOperationIds;
             Tags = tags;
             Type = type;
         }

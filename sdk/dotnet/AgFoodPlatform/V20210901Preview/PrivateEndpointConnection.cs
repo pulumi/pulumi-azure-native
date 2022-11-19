@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
 {
     /// <summary>
-    /// The Private Endpoint Connection resource.
+    /// The private endpoint connection resource.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -22,7 +28,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;

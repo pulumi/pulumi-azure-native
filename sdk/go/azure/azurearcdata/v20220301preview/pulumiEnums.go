@@ -74,11 +74,19 @@ const (
 type HostType string
 
 const (
-	HostType_Virtual_Machine     = HostType("Virtual Machine")
-	HostType_Physical_Server     = HostType("Physical Server")
-	HostType_AWS_Virtual_Machine = HostType("AWS Virtual Machine")
-	HostType_GCP_Virtual_Machine = HostType("GCP Virtual Machine")
-	HostTypeOther                = HostType("Other")
+	HostType_Azure_Virtual_Machine        = HostType("Azure Virtual Machine")
+	HostType_Azure_VMWare_Virtual_Machine = HostType("Azure VMWare Virtual Machine")
+	HostType_Azure_Kubernetes_Service     = HostType("Azure Kubernetes Service")
+	HostType_AWS_VMWare_Virtual_Machine   = HostType("AWS VMWare Virtual Machine")
+	HostType_AWS_Kubernetes_Service       = HostType("AWS Kubernetes Service")
+	HostType_GCP_VMWare_Virtual_Machine   = HostType("GCP VMWare Virtual Machine")
+	HostType_GCP_Kubernetes_Service       = HostType("GCP Kubernetes Service")
+	HostTypeContainer                     = HostType("Container")
+	HostType_Virtual_Machine              = HostType("Virtual Machine")
+	HostType_Physical_Server              = HostType("Physical Server")
+	HostType_AWS_Virtual_Machine          = HostType("AWS Virtual Machine")
+	HostType_GCP_Virtual_Machine          = HostType("GCP Virtual Machine")
+	HostTypeOther                         = HostType("Other")
 )
 
 type Infrastructure string

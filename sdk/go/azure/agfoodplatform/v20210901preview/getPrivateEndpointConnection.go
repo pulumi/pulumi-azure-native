@@ -27,6 +27,7 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 
 type LookupPrivateEndpointConnectionResult struct {
+	GroupIds                          []string                                  `pulumi:"groupIds"`
 	Id                                string                                    `pulumi:"id"`
 	Name                              string                                    `pulumi:"name"`
 	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
@@ -72,6 +73,10 @@ func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConn
 
 func (o LookupPrivateEndpointConnectionResultOutput) ToLookupPrivateEndpointConnectionResultOutputWithContext(ctx context.Context) LookupPrivateEndpointConnectionResultOutput {
 	return o
+}
+
+func (o LookupPrivateEndpointConnectionResultOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupPrivateEndpointConnectionResultOutput) Id() pulumi.StringOutput {

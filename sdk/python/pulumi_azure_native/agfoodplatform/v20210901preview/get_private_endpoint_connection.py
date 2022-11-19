@@ -20,9 +20,12 @@ __all__ = [
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
-    The Private Endpoint Connection resource.
+    The private endpoint connection resource.
     """
-    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if group_ids and not isinstance(group_ids, list):
+            raise TypeError("Expected argument 'group_ids' to be a list")
+        pulumi.set(__self__, "group_ids", group_ids)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,10 +49,18 @@ class GetPrivateEndpointConnectionResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -65,7 +76,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        The resource of private end point.
+        The private endpoint resource.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -108,6 +119,7 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            group_ids=self.group_ids,
             id=self.id,
             name=self.name,
             private_endpoint=self.private_endpoint,
@@ -122,7 +134,7 @@ def get_private_endpoint_connection(farm_beats_resource_name: Optional[str] = No
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The Private Endpoint Connection resource.
+    The private endpoint connection resource.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.
@@ -137,6 +149,7 @@ def get_private_endpoint_connection(farm_beats_resource_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform/v20210901preview:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        group_ids=__ret__.group_ids,
         id=__ret__.id,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,
@@ -152,7 +165,7 @@ def get_private_endpoint_connection_output(farm_beats_resource_name: Optional[pu
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The Private Endpoint Connection resource.
+    The private endpoint connection resource.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.

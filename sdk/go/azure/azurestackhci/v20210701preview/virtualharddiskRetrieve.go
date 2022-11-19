@@ -40,6 +40,12 @@ func NewVirtualharddiskRetrieve(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualharddiskRetrieve
 	err := ctx.RegisterResource("azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve", name, args, &resource, opts...)
 	if err != nil {

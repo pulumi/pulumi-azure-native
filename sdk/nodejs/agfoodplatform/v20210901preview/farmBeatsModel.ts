@@ -54,7 +54,7 @@ export class FarmBeatsModel extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The Private Endpoint Connection resource.
+     * The private endpoint connection resource.
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.agfoodplatform.v20210901preview.PrivateEndpointConnectionResponse>;
     /**

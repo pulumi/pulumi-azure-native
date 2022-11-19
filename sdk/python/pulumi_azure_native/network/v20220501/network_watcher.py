@@ -18,6 +18,7 @@ class NetworkWatcherArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkWatcher resource.
@@ -25,6 +26,7 @@ class NetworkWatcherArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] running_operation_ids: List of running operation IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -34,6 +36,8 @@ class NetworkWatcherArgs:
             pulumi.set(__self__, "location", location)
         if network_watcher_name is not None:
             pulumi.set(__self__, "network_watcher_name", network_watcher_name)
+        if running_operation_ids is not None:
+            pulumi.set(__self__, "running_operation_ids", running_operation_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -86,6 +90,18 @@ class NetworkWatcherArgs:
         pulumi.set(self, "network_watcher_name", value)
 
     @property
+    @pulumi.getter(name="runningOperationIds")
+    def running_operation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of running operation IDs.
+        """
+        return pulumi.get(self, "running_operation_ids")
+
+    @running_operation_ids.setter
+    def running_operation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "running_operation_ids", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -107,6 +123,7 @@ class NetworkWatcher(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -118,6 +135,7 @@ class NetworkWatcher(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] running_operation_ids: List of running operation IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -148,6 +166,7 @@ class NetworkWatcher(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -164,6 +183,7 @@ class NetworkWatcher(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["running_operation_ids"] = running_operation_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -197,6 +217,7 @@ class NetworkWatcher(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["running_operation_ids"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return NetworkWatcher(resource_name, opts=opts, __props__=__props__)
@@ -232,6 +253,14 @@ class NetworkWatcher(pulumi.CustomResource):
         The provisioning state of the network watcher resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="runningOperationIds")
+    def running_operation_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        List of running operation IDs.
+        """
+        return pulumi.get(self, "running_operation_ids")
 
     @property
     @pulumi.getter

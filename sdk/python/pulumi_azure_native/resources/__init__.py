@@ -83,6 +83,8 @@ if typing.TYPE_CHECKING:
     v20210501 = __v20210501
     import pulumi_azure_native.resources.v20220201 as __v20220201
     v20220201 = __v20220201
+    import pulumi_azure_native.resources.v20220901 as __v20220901
+    v20220901 = __v20220901
 else:
     v20151101 = _utilities.lazy_import('pulumi_azure_native.resources.v20151101')
     v20160201 = _utilities.lazy_import('pulumi_azure_native.resources.v20160201')
@@ -107,4 +109,5 @@ else:
     v20210401 = _utilities.lazy_import('pulumi_azure_native.resources.v20210401')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.resources.v20210501')
     v20220201 = _utilities.lazy_import('pulumi_azure_native.resources.v20220201')
+    v20220901 = _utilities.lazy_import('pulumi_azure_native.resources.v20220901')
 

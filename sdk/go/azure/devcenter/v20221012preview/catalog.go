@@ -47,6 +47,9 @@ func NewCatalog(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devcenter/v20220901preview:Catalog"),
 		},
+		{
+			Type: pulumi.String("azure-native:devcenter/v20221111preview:Catalog"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Catalog

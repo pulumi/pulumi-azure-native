@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// The private endpoint connection resource.
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections { get; private set; } = null!;
