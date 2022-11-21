@@ -235,7 +235,7 @@ sdk/go/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schem
 	bin/$(CODEGEN) go $(VERSION)
 	@# HACK: Strip all comments to make SDK smaller
 	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
-	[ -f "/tmp/init.go" ] && mv -f "/tmp/init.go" sdk/go/azure/
+	-[ -f "/tmp/init.go" ] && mv -f "/tmp/init.go" sdk/go/azure/
 	@touch sdk/go/gen.sentinel
 
 sdk/pulumi-azure-native-sdk/local.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
