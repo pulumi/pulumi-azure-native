@@ -229,8 +229,8 @@ sdk/dotnet/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/s
 
 sdk/go/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/go
-	# Temporary hack: maintain init.go manual changes
-	[ -f "sdk/go/azure/init.go" ] && mv -f "sdk/go/azure/init.go" /tmp/
+	# Temporary hack: maintain init.go manual changes. Leading '-' ignores exit code.
+	-[ -f "sdk/go/azure/init.go" ] && mv -f "sdk/go/azure/init.go" /tmp/
 	rm -rf sdk/go/azure
 	bin/$(CODEGEN) go $(VERSION)
 	@# HACK: Strip all comments to make SDK smaller
