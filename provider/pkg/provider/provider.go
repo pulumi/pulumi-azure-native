@@ -1692,6 +1692,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		envName = "public"
 	}
 
+	useOIDC := k.getConfig("useOidc", "ARM_USE_OIDC") == "true"
 	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
 	clientSecret := k.getConfig("clientSecret", "ARM_CLIENT_SECRET")
 	clientCertPath := k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH")
@@ -1719,11 +1720,17 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 			"ARM_CLIENT_CERTIFICATE_PASSWORD"),
 		MsiEndpoint:          k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
 		AuxiliaryTenantIDs:   auxTenants,
+		IDTokenRequestToken:  k.getConfig("oidcRequestToken", "ARM_OIDC_REQUEST_TOKEN"),
+		IDTokenRequestURL:    k.getConfig("oidcRequestUrl", "ARM_OIDC_REQUEST_URL"),
+		IDToken:              k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
+		IDTokenFilePath:      k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
+		MetadataHost:         k.getConfig("metadataHost", "ARM_METADATA_HOSTNAME"),
 		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
 
 		// Feature Toggles
 		SupportsClientCertAuth:         true,
 		SupportsClientSecretAuth:       true,
+		SupportsOIDCAuth:               useOidc,
 		SupportsManagedServiceIdentity: useMsi,
 		SupportsAzureCliToken:          true,
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
