@@ -1007,6 +1007,7 @@
     "2022-08-01-preview",
     "2022-09-01-preview",
     "2022-10-01-preview",
+    "2022-11-01",
     "2022-11-01-preview"
   ],
   "SerialConsole": [],
@@ -1034,7 +1035,8 @@
   "ServiceFabricMesh": [],
   "ServiceLinker": [
     "2022-01-01-preview",
-    "2022-05-01"
+    "2022-05-01",
+    "2022-11-01-preview"
   ],
   "SignalRService": [
     "2020-07-01-preview",
