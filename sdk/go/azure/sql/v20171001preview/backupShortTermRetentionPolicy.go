@@ -1,0 +1,173 @@
+
+
+
+package v20171001preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type BackupShortTermRetentionPolicy struct {
+	pulumi.CustomResourceState
+
+	Name          pulumi.StringOutput `pulumi:"name"`
+	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
+	Type          pulumi.StringOutput `pulumi:"type"`
+}
+
+
+func NewBackupShortTermRetentionPolicy(ctx *pulumi.Context,
+	name string, args *BackupShortTermRetentionPolicyArgs, opts ...pulumi.ResourceOption) (*BackupShortTermRetentionPolicy, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:sql:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20211101:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource BackupShortTermRetentionPolicy
+	err := ctx.RegisterResource("azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetBackupShortTermRetentionPolicy(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *BackupShortTermRetentionPolicyState, opts ...pulumi.ResourceOption) (*BackupShortTermRetentionPolicy, error) {
+	var resource BackupShortTermRetentionPolicy
+	err := ctx.ReadResource("azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type backupShortTermRetentionPolicyState struct {
+}
+
+type BackupShortTermRetentionPolicyState struct {
+}
+
+func (BackupShortTermRetentionPolicyState) ElementType() reflect.Type {
+	return reflect.TypeOf((*backupShortTermRetentionPolicyState)(nil)).Elem()
+}
+
+type backupShortTermRetentionPolicyArgs struct {
+	DatabaseName      string  `pulumi:"databaseName"`
+	PolicyName        *string `pulumi:"policyName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RetentionDays     *int    `pulumi:"retentionDays"`
+	ServerName        string  `pulumi:"serverName"`
+}
+
+
+type BackupShortTermRetentionPolicyArgs struct {
+	DatabaseName      pulumi.StringInput
+	PolicyName        pulumi.StringPtrInput
+	ResourceGroupName pulumi.StringInput
+	RetentionDays     pulumi.IntPtrInput
+	ServerName        pulumi.StringInput
+}
+
+func (BackupShortTermRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*backupShortTermRetentionPolicyArgs)(nil)).Elem()
+}
+
+type BackupShortTermRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToBackupShortTermRetentionPolicyOutput() BackupShortTermRetentionPolicyOutput
+	ToBackupShortTermRetentionPolicyOutputWithContext(ctx context.Context) BackupShortTermRetentionPolicyOutput
+}
+
+func (*BackupShortTermRetentionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupShortTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i *BackupShortTermRetentionPolicy) ToBackupShortTermRetentionPolicyOutput() BackupShortTermRetentionPolicyOutput {
+	return i.ToBackupShortTermRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i *BackupShortTermRetentionPolicy) ToBackupShortTermRetentionPolicyOutputWithContext(ctx context.Context) BackupShortTermRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupShortTermRetentionPolicyOutput)
+}
+
+type BackupShortTermRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (BackupShortTermRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupShortTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o BackupShortTermRetentionPolicyOutput) ToBackupShortTermRetentionPolicyOutput() BackupShortTermRetentionPolicyOutput {
+	return o
+}
+
+func (o BackupShortTermRetentionPolicyOutput) ToBackupShortTermRetentionPolicyOutputWithContext(ctx context.Context) BackupShortTermRetentionPolicyOutput {
+	return o
+}
+
+func (o BackupShortTermRetentionPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o BackupShortTermRetentionPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+func (o BackupShortTermRetentionPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(BackupShortTermRetentionPolicyOutput{})
+}
