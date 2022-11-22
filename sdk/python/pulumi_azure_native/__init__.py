@@ -19743,6 +19743,38 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "securityinsights/v20221101",
+  "fqn": "pulumi_azure_native.securityinsights.v20221101",
+  "classes": {
+   "azure-native:securityinsights/v20221101:AADDataConnector": "AADDataConnector",
+   "azure-native:securityinsights/v20221101:AATPDataConnector": "AATPDataConnector",
+   "azure-native:securityinsights/v20221101:ASCDataConnector": "ASCDataConnector",
+   "azure-native:securityinsights/v20221101:Action": "Action",
+   "azure-native:securityinsights/v20221101:AlertRule": "AlertRule",
+   "azure-native:securityinsights/v20221101:AnomalySecurityMLAnalyticsSettings": "AnomalySecurityMLAnalyticsSettings",
+   "azure-native:securityinsights/v20221101:AutomationRule": "AutomationRule",
+   "azure-native:securityinsights/v20221101:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
+   "azure-native:securityinsights/v20221101:Bookmark": "Bookmark",
+   "azure-native:securityinsights/v20221101:DataConnector": "DataConnector",
+   "azure-native:securityinsights/v20221101:FusionAlertRule": "FusionAlertRule",
+   "azure-native:securityinsights/v20221101:Incident": "Incident",
+   "azure-native:securityinsights/v20221101:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20221101:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20221101:MCASDataConnector": "MCASDataConnector",
+   "azure-native:securityinsights/v20221101:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20221101:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
+   "azure-native:securityinsights/v20221101:OfficeDataConnector": "OfficeDataConnector",
+   "azure-native:securityinsights/v20221101:ScheduledAlertRule": "ScheduledAlertRule",
+   "azure-native:securityinsights/v20221101:SecurityMLAnalyticsSetting": "SecurityMLAnalyticsSetting",
+   "azure-native:securityinsights/v20221101:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights/v20221101:TIDataConnector": "TIDataConnector",
+   "azure-native:securityinsights/v20221101:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
+   "azure-native:securityinsights/v20221101:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20221101:WatchlistItem": "WatchlistItem"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "securityinsights/v20221101preview",
   "fqn": "pulumi_azure_native.securityinsights.v20221101preview",
   "classes": {

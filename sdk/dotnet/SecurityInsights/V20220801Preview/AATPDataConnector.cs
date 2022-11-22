@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801:AATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:AATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221001preview:AATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101:AATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:AATPDataConnector"},
                 },
             };

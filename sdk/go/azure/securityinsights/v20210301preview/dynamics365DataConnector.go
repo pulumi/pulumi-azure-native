@@ -96,6 +96,9 @@ func NewDynamics365DataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:securityinsights/v20221001preview:Dynamics365DataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20221101:Dynamics365DataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20221101preview:Dynamics365DataConnector"),
 		},
 	})

@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:SecurityMLAnalyticsSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:SecurityMLAnalyticsSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221001preview:SecurityMLAnalyticsSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101:SecurityMLAnalyticsSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:SecurityMLAnalyticsSetting"},
                 },
             };

@@ -90,6 +90,9 @@ func NewAwsCloudTrailDataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:securityinsights/v20220901preview:AwsCloudTrailDataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20221101:AwsCloudTrailDataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20221101preview:AwsCloudTrailDataConnector"),
 		},
 	})

@@ -93,6 +93,9 @@ func NewOfficeDataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:securityinsights/v20220901preview:OfficeDataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20221101:OfficeDataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20221101preview:OfficeDataConnector"),
 		},
 	})

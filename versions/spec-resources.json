@@ -12801,6 +12801,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "AlertRule": [
@@ -12819,6 +12820,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "AutomationRule": [
@@ -12835,6 +12837,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "Bookmark": [
@@ -12852,6 +12855,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "BookmarkRelation": [
@@ -12884,6 +12888,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "EntityQuery": [
@@ -12923,6 +12928,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "IncidentComment": [
@@ -12941,6 +12947,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "IncidentRelation": [
@@ -12959,6 +12966,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "Metadata": [
@@ -12997,6 +13005,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "SentinelOnboardingState": [
@@ -13013,6 +13022,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "SourceControl": [
@@ -13044,6 +13054,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "Watchlist": [
@@ -13062,6 +13073,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "WatchlistItem": [
@@ -13080,6 +13092,7 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
+      "2022-11-01",
       "2022-11-01-preview"
     ],
     "getEntitiesGetTimeline": [
@@ -13434,15 +13447,26 @@
     ]
   },
   "ServiceLinker": {
+    "Connector": [
+      "2022-11-01-preview"
+    ],
+    "ConnectorDryrun": [
+      "2022-11-01-preview"
+    ],
     "Linker": [
       "2021-11-01-preview",
       "2022-01-01-preview",
-      "2022-05-01"
+      "2022-05-01",
+      "2022-11-01-preview"
+    ],
+    "LinkerDryrun": [
+      "2022-11-01-preview"
     ],
     "listLinkerConfigurations": [
       "2021-11-01-preview",
       "2022-01-01-preview",
-      "2022-05-01"
+      "2022-05-01",
+      "2022-11-01-preview"
     ]
   },
   "SignalRService": {

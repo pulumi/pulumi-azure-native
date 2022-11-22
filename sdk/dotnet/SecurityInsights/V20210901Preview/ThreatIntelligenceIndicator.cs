@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221001preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:ThreatIntelligenceIndicator"},
                 },
             };

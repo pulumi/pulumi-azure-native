@@ -12517,6 +12517,21 @@
       "getEntityInsights",
       "listSourceControlRepositories"
     ],
+    "2022-11-01": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "DataConnector",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem"
+    ],
     "2022-11-01-preview": [
       "Action",
       "AlertRule",
@@ -12851,6 +12866,13 @@
     ],
     "2022-05-01": [
       "Linker",
+      "listLinkerConfigurations"
+    ],
+    "2022-11-01-preview": [
+      "Connector",
+      "ConnectorDryrun",
+      "Linker",
+      "LinkerDryrun",
       "listLinkerConfigurations"
     ]
   },

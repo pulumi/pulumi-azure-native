@@ -93,6 +93,9 @@ func NewOfficeATPDataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:securityinsights/v20221001preview:OfficeATPDataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20221101:OfficeATPDataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20221101preview:OfficeATPDataConnector"),
 		},
 	})

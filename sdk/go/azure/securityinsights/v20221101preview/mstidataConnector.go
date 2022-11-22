@@ -95,6 +95,9 @@ func NewMSTIDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20221001preview:MSTIDataConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20221101:MSTIDataConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MSTIDataConnector
