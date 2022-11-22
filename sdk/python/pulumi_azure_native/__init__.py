@@ -8750,6 +8750,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "digitaltwins/v20221031",
+  "fqn": "pulumi_azure_native.digitaltwins.v20221031",
+  "classes": {
+   "azure-native:digitaltwins/v20221031:DigitalTwin": "DigitalTwin",
+   "azure-native:digitaltwins/v20221031:DigitalTwinsEndpoint": "DigitalTwinsEndpoint",
+   "azure-native:digitaltwins/v20221031:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:digitaltwins/v20221031:TimeSeriesDatabaseConnection": "TimeSeriesDatabaseConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "documentdb",
   "fqn": "pulumi_azure_native.documentdb",
   "classes": {

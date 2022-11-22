@@ -5016,6 +5016,12 @@
       "DigitalTwinsEndpoint",
       "PrivateEndpointConnection",
       "TimeSeriesDatabaseConnection"
+    ],
+    "2022-10-31": [
+      "DigitalTwin",
+      "DigitalTwinsEndpoint",
+      "PrivateEndpointConnection",
+      "TimeSeriesDatabaseConnection"
     ]
   },
   "DocumentDB": {
