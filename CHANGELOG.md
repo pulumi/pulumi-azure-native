@@ -2,6 +2,12 @@
 
 ## HEAD (Unreleased)
 
+## 1.87.0 (2022-11-22)
+
+- Upgrade to latest version of Azure Rest API Specs
+  - New resource provider: `BillingBenefits`
+  - New API versions
+
 ## 1.86.0 (2022-11-16)
 
 - Add warning to Go SDK to begin migration (see https://github.com/pulumi/pulumi-azure-native/discussions/2078)
