@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview.Inputs
 {
 
     /// <summary>
-    /// Input properties for patching a Windows machine.
+    /// Input properties for patching a Windows machine. This property only applies to Guest (InGuestPatch) scope.
     /// </summary>
     public sealed class InputWindowsParametersArgs : global::Pulumi.ResourceArgs
     {

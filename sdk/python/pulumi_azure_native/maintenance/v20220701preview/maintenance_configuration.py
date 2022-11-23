@@ -37,7 +37,7 @@ class MaintenanceConfigurationArgs:
         :param pulumi.Input[str] duration: Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
         :param pulumi.Input[str] expiration_date_time: Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration
-        :param pulumi.Input['InputPatchConfigurationArgs'] install_patches: The input parameters to be passed to the patch run operation.
+        :param pulumi.Input['InputPatchConfigurationArgs'] install_patches: The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
         :param pulumi.Input[str] location: Gets or sets location of the resource
         :param pulumi.Input[Union[str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource
@@ -128,7 +128,7 @@ class MaintenanceConfigurationArgs:
     @pulumi.getter(name="installPatches")
     def install_patches(self) -> Optional[pulumi.Input['InputPatchConfigurationArgs']]:
         """
-        The input parameters to be passed to the patch run operation.
+        The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
         """
         return pulumi.get(self, "install_patches")
 
@@ -273,7 +273,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] duration: Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
         :param pulumi.Input[str] expiration_date_time: Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration
-        :param pulumi.Input[pulumi.InputType['InputPatchConfigurationArgs']] install_patches: The input parameters to be passed to the patch run operation.
+        :param pulumi.Input[pulumi.InputType['InputPatchConfigurationArgs']] install_patches: The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
         :param pulumi.Input[str] location: Gets or sets location of the resource
         :param pulumi.Input[Union[str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource
@@ -420,7 +420,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="installPatches")
     def install_patches(self) -> pulumi.Output[Optional['outputs.InputPatchConfigurationResponse']]:
         """
-        The input parameters to be passed to the patch run operation.
+        The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
         """
         return pulumi.get(self, "install_patches")
 

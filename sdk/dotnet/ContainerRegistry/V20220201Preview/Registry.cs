@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
         public Output<bool?> AdminUserEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enables registry-wide pull from unauthenticated clients.
+        /// Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
         /// </summary>
         [Output("anonymousPullEnabled")]
         public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
         public Input<bool>? AdminUserEnabled { get; set; }
 
         /// <summary>
-        /// Enables registry-wide pull from unauthenticated clients.
+        /// Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
         /// </summary>
         [Input("anonymousPullEnabled")]
         public Input<bool>? AnonymousPullEnabled { get; set; }

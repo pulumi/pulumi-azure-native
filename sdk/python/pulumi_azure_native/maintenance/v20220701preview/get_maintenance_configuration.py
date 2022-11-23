@@ -108,7 +108,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter(name="installPatches")
     def install_patches(self) -> Optional['outputs.InputPatchConfigurationResponse']:
         """
-        The input parameters to be passed to the patch run operation.
+        The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
         """
         return pulumi.get(self, "install_patches")
 

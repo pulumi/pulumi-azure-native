@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Outputs
 {
 
     /// <summary>
-    /// Task properties of the software update configuration.
+    /// [Not supported] Task properties of the software update configuration.
     /// </summary>
     [OutputType]
     public sealed class TaskPropertiesResponse
     {
         /// <summary>
-        /// Gets or sets the parameters of the task.
+        /// [Not supported] Gets or sets the parameters of the task.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
-        /// Gets or sets the name of the runbook.
+        /// [Not supported] Gets or sets the name of the runbook.
         /// </summary>
         public readonly string? Source;
         /// <summary>
-        /// Global Task execute once when schedule trigger. Resource task execute for each VM.
+        /// [Not supported] Global Task execute once when schedule trigger. Resource task execute for each VM.
         /// </summary>
         public readonly string? TaskScope;
 

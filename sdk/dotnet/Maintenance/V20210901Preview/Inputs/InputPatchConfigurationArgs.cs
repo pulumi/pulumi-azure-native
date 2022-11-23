@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Inputs
     public sealed class InputPatchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
+        /// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         [Input("linuxParameters")]
         public Input<Inputs.InputLinuxParametersArgs>? LinuxParameters { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Inputs
         private InputList<Inputs.TaskPropertiesArgs>? _postTasks;
 
         /// <summary>
-        /// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
+        /// [Not supported] List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
         /// </summary>
         public InputList<Inputs.TaskPropertiesArgs> PostTasks
         {
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Inputs
         private InputList<Inputs.TaskPropertiesArgs>? _preTasks;
 
         /// <summary>
-        /// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
+        /// [Not supported] List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
         /// </summary>
         public InputList<Inputs.TaskPropertiesArgs> PreTasks
         {
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Inputs
         }
 
         /// <summary>
-        /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+        /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         [Input("rebootSetting")]
         public InputUnion<string, Pulumi.AzureNative.Maintenance.V20210901Preview.RebootOptions>? RebootSetting { get; set; }
 
         /// <summary>
-        /// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+        /// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         [Input("windowsParameters")]
         public Input<Inputs.InputWindowsParametersArgs>? WindowsParameters { get; set; }

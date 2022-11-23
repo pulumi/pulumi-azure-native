@@ -37,7 +37,7 @@ class RegistryArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the container registry.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
-        :param pulumi.Input[bool] anonymous_pull_enabled: Enables registry-wide pull from unauthenticated clients.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
         :param pulumi.Input[bool] data_endpoint_enabled: Enable a single data endpoint per region for serving data.
         :param pulumi.Input['EncryptionPropertyArgs'] encryption: The encryption settings of container registry.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: The identity of the container registry.
@@ -129,7 +129,7 @@ class RegistryArgs:
     @pulumi.getter(name="anonymousPullEnabled")
     def anonymous_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables registry-wide pull from unauthenticated clients.
+        Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 
@@ -297,7 +297,7 @@ class Registry(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
-        :param pulumi.Input[bool] anonymous_pull_enabled: Enables registry-wide pull from unauthenticated clients.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
         :param pulumi.Input[bool] data_endpoint_enabled: Enable a single data endpoint per region for serving data.
         :param pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']] encryption: The encryption settings of container registry.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: The identity of the container registry.
@@ -458,7 +458,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter(name="anonymousPullEnabled")
     def anonymous_pull_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enables registry-wide pull from unauthenticated clients.
+        Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 

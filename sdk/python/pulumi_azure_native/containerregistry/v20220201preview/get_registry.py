@@ -105,7 +105,7 @@ class GetRegistryResult:
     @pulumi.getter(name="anonymousPullEnabled")
     def anonymous_pull_enabled(self) -> Optional[bool]:
         """
-        Enables registry-wide pull from unauthenticated clients.
+        Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 

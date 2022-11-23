@@ -48,7 +48,7 @@ class MaintenanceScope(str, Enum):
 
 class RebootOptions(str, Enum):
     """
-    Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+    Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. This property only applies to Guest (InGuestPatch) scope.
     """
     IF_REQUIRED = "IfRequired"
     NEVER = "Never"
@@ -57,7 +57,7 @@ class RebootOptions(str, Enum):
 
 class TaskScope(str, Enum):
     """
-    Global Task execute once when schedule trigger. Resource task execute for each VM.
+    [Not supported] Global Task execute once when schedule trigger. Resource task execute for each VM.
     """
     GLOBAL_ = "Global"
     RESOURCE = "Resource"

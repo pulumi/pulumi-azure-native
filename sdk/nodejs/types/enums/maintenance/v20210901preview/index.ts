@@ -41,7 +41,7 @@ export const RebootOptions = {
 } as const;
 
 /**
- * Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+ * Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. This property only applies to Guest (InGuestPatch) scope.
  */
 export type RebootOptions = (typeof RebootOptions)[keyof typeof RebootOptions];
 
@@ -51,7 +51,7 @@ export const TaskScope = {
 } as const;
 
 /**
- * Global Task execute once when schedule trigger. Resource task execute for each VM.
+ * [Not supported] Global Task execute once when schedule trigger. Resource task execute for each VM.
  */
 export type TaskScope = (typeof TaskScope)[keyof typeof TaskScope];
 

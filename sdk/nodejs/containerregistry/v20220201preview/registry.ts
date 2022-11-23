@@ -42,7 +42,7 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly adminUserEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Enables registry-wide pull from unauthenticated clients.
+     * Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
      */
     public readonly anonymousPullEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface RegistryArgs {
      */
     adminUserEnabled?: pulumi.Input<boolean>;
     /**
-     * Enables registry-wide pull from unauthenticated clients.
+     * Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
      */
     anonymousPullEnabled?: pulumi.Input<boolean>;
     /**

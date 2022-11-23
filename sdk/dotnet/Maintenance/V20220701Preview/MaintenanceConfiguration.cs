@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
         public Output<ImmutableDictionary<string, string>?> ExtensionProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The input parameters to be passed to the patch run operation.
+        /// The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         [Output("installPatches")]
         public Output<Outputs.InputPatchConfigurationResponse?> InstallPatches { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
         }
 
         /// <summary>
-        /// The input parameters to be passed to the patch run operation.
+        /// The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         [Input("installPatches")]
         public Input<Inputs.InputPatchConfigurationArgs>? InstallPatches { get; set; }

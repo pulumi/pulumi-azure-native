@@ -42,7 +42,7 @@ export interface GetRegistryResult {
      */
     readonly adminUserEnabled?: boolean;
     /**
-     * Enables registry-wide pull from unauthenticated clients.
+     * Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
      */
     readonly anonymousPullEnabled?: boolean;
     /**

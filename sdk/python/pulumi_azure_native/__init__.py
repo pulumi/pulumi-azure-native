@@ -18096,6 +18096,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20221001",
+  "fqn": "pulumi_azure_native.recoveryservices.v20221001",
+  "classes": {
+   "azure-native:recoveryservices/v20221001:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20221001:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20221001:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20221001:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20221001:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20221001:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20221001:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20221001:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20221001:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20221001:ReplicationvCenter": "ReplicationvCenter"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "redhatopenshift",
   "fqn": "pulumi_azure_native.redhatopenshift",
   "classes": {

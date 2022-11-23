@@ -54,7 +54,7 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly id: string;
     /**
-     * The input parameters to be passed to the patch run operation.
+     * The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
      */
     readonly installPatches?: outputs.maintenance.v20210901preview.InputPatchConfigurationResponse;
     /**

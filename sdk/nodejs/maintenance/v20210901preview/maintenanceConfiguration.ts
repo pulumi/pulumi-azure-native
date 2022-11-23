@@ -50,7 +50,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     public readonly extensionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The input parameters to be passed to the patch run operation.
+     * The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
      */
     public readonly installPatches!: pulumi.Output<outputs.maintenance.v20210901preview.InputPatchConfigurationResponse | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface MaintenanceConfigurationArgs {
      */
     extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The input parameters to be passed to the patch run operation.
+     * The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
      */
     installPatches?: pulumi.Input<inputs.maintenance.v20210901preview.InputPatchConfigurationArgs>;
     /**

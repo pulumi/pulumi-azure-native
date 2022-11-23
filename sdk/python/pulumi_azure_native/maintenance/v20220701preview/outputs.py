@@ -22,7 +22,7 @@ __all__ = [
 @pulumi.output_type
 class InputLinuxParametersResponse(dict):
     """
-    Input properties for patching a Linux machine.
+    Input properties for patching a Linux machine. This property only applies to Guest (InGuestPatch) scope.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -50,7 +50,7 @@ class InputLinuxParametersResponse(dict):
                  package_name_masks_to_exclude: Optional[Sequence[str]] = None,
                  package_name_masks_to_include: Optional[Sequence[str]] = None):
         """
-        Input properties for patching a Linux machine.
+        Input properties for patching a Linux machine. This property only applies to Guest (InGuestPatch) scope.
         :param Sequence[str] classifications_to_include: Classification category of patches to be patched
         :param Sequence[str] package_name_masks_to_exclude: Package names to be excluded for patching.
         :param Sequence[str] package_name_masks_to_include: Package names to be included for patching.
@@ -125,11 +125,11 @@ class InputPatchConfigurationResponse(dict):
                  windows_parameters: Optional['outputs.InputWindowsParametersResponse'] = None):
         """
         Input configuration for a patch run
-        :param 'InputLinuxParametersResponse' linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-        :param Sequence['TaskPropertiesResponse'] post_tasks: List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-        :param Sequence['TaskPropertiesResponse'] pre_tasks: List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
-        :param str reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-        :param 'InputWindowsParametersResponse' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+        :param 'InputLinuxParametersResponse' linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property. This property only applies to Guest (InGuestPatch) scope.
+        :param Sequence['TaskPropertiesResponse'] post_tasks: [Not supported] List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
+        :param Sequence['TaskPropertiesResponse'] pre_tasks: [Not supported] List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
+        :param str reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. This property only applies to Guest (InGuestPatch) scope.
+        :param 'InputWindowsParametersResponse' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property. This property only applies to Guest (InGuestPatch) scope.
         """
         if linux_parameters is not None:
             pulumi.set(__self__, "linux_parameters", linux_parameters)
@@ -148,7 +148,7 @@ class InputPatchConfigurationResponse(dict):
     @pulumi.getter(name="linuxParameters")
     def linux_parameters(self) -> Optional['outputs.InputLinuxParametersResponse']:
         """
-        Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
+        Input parameters specific to patching Linux machine. For Windows machines, do not pass this property. This property only applies to Guest (InGuestPatch) scope.
         """
         return pulumi.get(self, "linux_parameters")
 
@@ -156,7 +156,7 @@ class InputPatchConfigurationResponse(dict):
     @pulumi.getter(name="postTasks")
     def post_tasks(self) -> Optional[Sequence['outputs.TaskPropertiesResponse']]:
         """
-        List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
+        [Not supported] List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
         """
         return pulumi.get(self, "post_tasks")
 
@@ -164,7 +164,7 @@ class InputPatchConfigurationResponse(dict):
     @pulumi.getter(name="preTasks")
     def pre_tasks(self) -> Optional[Sequence['outputs.TaskPropertiesResponse']]:
         """
-        List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
+        [Not supported] List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
         """
         return pulumi.get(self, "pre_tasks")
 
@@ -172,7 +172,7 @@ class InputPatchConfigurationResponse(dict):
     @pulumi.getter(name="rebootSetting")
     def reboot_setting(self) -> Optional[str]:
         """
-        Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+        Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. This property only applies to Guest (InGuestPatch) scope.
         """
         return pulumi.get(self, "reboot_setting")
 
@@ -180,7 +180,7 @@ class InputPatchConfigurationResponse(dict):
     @pulumi.getter(name="windowsParameters")
     def windows_parameters(self) -> Optional['outputs.InputWindowsParametersResponse']:
         """
-        Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+        Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property. This property only applies to Guest (InGuestPatch) scope.
         """
         return pulumi.get(self, "windows_parameters")
 
@@ -188,7 +188,7 @@ class InputPatchConfigurationResponse(dict):
 @pulumi.output_type
 class InputWindowsParametersResponse(dict):
     """
-    Input properties for patching a Windows machine.
+    Input properties for patching a Windows machine. This property only applies to Guest (InGuestPatch) scope.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -219,7 +219,7 @@ class InputWindowsParametersResponse(dict):
                  kb_numbers_to_exclude: Optional[Sequence[str]] = None,
                  kb_numbers_to_include: Optional[Sequence[str]] = None):
         """
-        Input properties for patching a Windows machine.
+        Input properties for patching a Windows machine. This property only applies to Guest (InGuestPatch) scope.
         :param Sequence[str] classifications_to_include: Classification category of patches to be patched
         :param bool exclude_kbs_requiring_reboot: Exclude patches which need reboot
         :param Sequence[str] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
@@ -380,7 +380,7 @@ class SystemDataResponse(dict):
 @pulumi.output_type
 class TaskPropertiesResponse(dict):
     """
-    Task properties of the software update configuration.
+    [Not supported] Task properties of the software update configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -404,10 +404,10 @@ class TaskPropertiesResponse(dict):
                  source: Optional[str] = None,
                  task_scope: Optional[str] = None):
         """
-        Task properties of the software update configuration.
-        :param Mapping[str, str] parameters: Gets or sets the parameters of the task.
-        :param str source: Gets or sets the name of the runbook.
-        :param str task_scope: Global Task execute once when schedule trigger. Resource task execute for each VM.
+        [Not supported] Task properties of the software update configuration.
+        :param Mapping[str, str] parameters: [Not supported] Gets or sets the parameters of the task.
+        :param str source: [Not supported] Gets or sets the name of the runbook.
+        :param str task_scope: [Not supported] Global Task execute once when schedule trigger. Resource task execute for each VM.
         """
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -422,7 +422,7 @@ class TaskPropertiesResponse(dict):
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
         """
-        Gets or sets the parameters of the task.
+        [Not supported] Gets or sets the parameters of the task.
         """
         return pulumi.get(self, "parameters")
 
@@ -430,7 +430,7 @@ class TaskPropertiesResponse(dict):
     @pulumi.getter
     def source(self) -> Optional[str]:
         """
-        Gets or sets the name of the runbook.
+        [Not supported] Gets or sets the name of the runbook.
         """
         return pulumi.get(self, "source")
 
@@ -438,7 +438,7 @@ class TaskPropertiesResponse(dict):
     @pulumi.getter(name="taskScope")
     def task_scope(self) -> Optional[str]:
         """
-        Global Task execute once when schedule trigger. Resource task execute for each VM.
+        [Not supported] Global Task execute once when schedule trigger. Resource task execute for each VM.
         """
         return pulumi.get(self, "task_scope")
 

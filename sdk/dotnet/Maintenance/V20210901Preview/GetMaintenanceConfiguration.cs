@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The input parameters to be passed to the patch run operation.
+        /// The input parameters to be passed to the patch run operation. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         public readonly Outputs.InputPatchConfigurationResponse? InstallPatches;
         /// <summary>

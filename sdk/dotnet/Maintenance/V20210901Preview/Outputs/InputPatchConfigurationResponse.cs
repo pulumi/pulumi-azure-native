@@ -17,23 +17,23 @@ namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Outputs
     public sealed class InputPatchConfigurationResponse
     {
         /// <summary>
-        /// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
+        /// Input parameters specific to patching Linux machine. For Windows machines, do not pass this property. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         public readonly Outputs.InputLinuxParametersResponse? LinuxParameters;
         /// <summary>
-        /// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
+        /// [Not supported] List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
         /// </summary>
         public readonly ImmutableArray<Outputs.TaskPropertiesResponse> PostTasks;
         /// <summary>
-        /// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
+        /// [Not supported] List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
         /// </summary>
         public readonly ImmutableArray<Outputs.TaskPropertiesResponse> PreTasks;
         /// <summary>
-        /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+        /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         public readonly string? RebootSetting;
         /// <summary>
-        /// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+        /// Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property. This property only applies to Guest (InGuestPatch) scope.
         /// </summary>
         public readonly Outputs.InputWindowsParametersResponse? WindowsParameters;
 

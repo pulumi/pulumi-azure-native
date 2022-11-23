@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
         /// </summary>
         public readonly bool? AdminUserEnabled;
         /// <summary>
-        /// Enables registry-wide pull from unauthenticated clients.
+        /// Enables registry-wide pull from unauthenticated clients. It's in preview and available in the Standard and Premium service tiers.
         /// </summary>
         public readonly bool? AnonymousPullEnabled;
         /// <summary>

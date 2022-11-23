@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview.Inputs
 {
 
     /// <summary>
-    /// Task properties of the software update configuration.
+    /// [Not supported] Task properties of the software update configuration.
     /// </summary>
     public sealed class TaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview.Inputs
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Gets or sets the parameters of the task.
+        /// [Not supported] Gets or sets the parameters of the task.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview.Inputs
         }
 
         /// <summary>
-        /// Gets or sets the name of the runbook.
+        /// [Not supported] Gets or sets the name of the runbook.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Global Task execute once when schedule trigger. Resource task execute for each VM.
+        /// [Not supported] Global Task execute once when schedule trigger. Resource task execute for each VM.
         /// </summary>
         [Input("taskScope")]
         public InputUnion<string, Pulumi.AzureNative.Maintenance.V20220701Preview.TaskScope>? TaskScope { get; set; }
