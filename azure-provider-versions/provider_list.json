@@ -2326,6 +2326,7 @@
       {
         "resourceType": "DataControllers",
         "apiVersions": [
+          "2022-06-15-preview",
           "2022-03-01-preview",
           "2021-11-01",
           "2021-08-01",
@@ -2335,6 +2336,7 @@
       {
         "resourceType": "DataControllers/ActiveDirectoryConnectors",
         "apiVersions": [
+          "2022-06-15-preview",
           "2022-03-01-preview"
         ]
       },
@@ -2371,6 +2373,7 @@
       {
         "resourceType": "PostgresInstances",
         "apiVersions": [
+          "2022-06-15-preview",
           "2022-03-01-preview",
           "2021-07-01-preview"
         ]
@@ -2378,6 +2381,7 @@
       {
         "resourceType": "SqlManagedInstances",
         "apiVersions": [
+          "2022-06-15-preview",
           "2022-03-01-preview",
           "2021-11-01",
           "2021-08-01",
@@ -2387,9 +2391,17 @@
       {
         "resourceType": "SqlServerInstances",
         "apiVersions": [
+          "2022-06-15-preview",
           "2022-03-01-preview",
           "2021-11-01",
-          "2021-08-01"
+          "2021-08-01",
+          "2021-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "SqlServerInstances/Databases",
+        "apiVersions": [
+          "2022-06-15-preview"
         ]
       }
     ]
@@ -8539,6 +8551,7 @@
       {
         "resourceType": "Balances",
         "apiVersions": [
+          "2022-09-01",
           "2021-10-01",
           "2019-10-01",
           "2019-05-01",
@@ -8646,6 +8659,7 @@
       {
         "resourceType": "OperationStatus",
         "apiVersions": [
+          "2022-09-01",
           "2022-06-01",
           "2021-10-01",
           "2021-01-01",
@@ -12193,6 +12207,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-12-01",
           "2022-10-01-preview",
           "2022-09-01-preview",
           "2022-05-01",

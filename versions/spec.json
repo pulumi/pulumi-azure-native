@@ -11775,6 +11775,18 @@
     ],
     "2022-09-30-preview": [
       "Vault"
+    ],
+    "2022-10-01": [
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter"
     ]
   },
   "RedHatOpenShift": {
