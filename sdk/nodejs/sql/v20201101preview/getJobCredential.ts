@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A stored credential that can be used by a job to connect to target databases.
  */
 export function getJobCredential(args: GetJobCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCredentialResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20201101preview:getJobCredential", {
         "credentialName": args.credentialName,
         "jobAgentName": args.jobAgentName,

@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule. */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
     pulumi.log.warn("getAlertRule is deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221101:getAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

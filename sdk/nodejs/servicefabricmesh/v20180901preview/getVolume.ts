@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * This type describes a volume resource.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getVolume", {
         "resourceGroupName": args.resourceGroupName,
         "volumeResourceName": args.volumeResourceName,

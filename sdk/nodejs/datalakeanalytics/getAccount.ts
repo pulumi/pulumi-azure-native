@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2016-11-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

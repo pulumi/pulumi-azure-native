@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicyDefinition", {
         "policyDefinitionName": args.policyDefinitionName,
     }, opts);

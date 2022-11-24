@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-01-preview.
  */
 export function listConnectedClusterUserCredentials(args: ListConnectedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedClusterUserCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetes:listConnectedClusterUserCredentials", {
         "authenticationMethod": args.authenticationMethod,
         "clientProxy": args.clientProxy,

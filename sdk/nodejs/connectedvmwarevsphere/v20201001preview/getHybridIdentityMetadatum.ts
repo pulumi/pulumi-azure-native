@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Defines the HybridIdentityMetadata.
  */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20201001preview:getHybridIdentityMetadatum", {
         "metadataName": args.metadataName,
         "resourceGroupName": args.resourceGroupName,

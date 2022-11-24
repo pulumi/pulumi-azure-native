@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a Schedule to execute a task.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20220901preview:getSchedule", {
         "poolName": args.poolName,
         "projectName": args.projectName,

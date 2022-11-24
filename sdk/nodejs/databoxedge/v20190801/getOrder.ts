@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
     pulumi.log.warn("getOrder is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20190801:getOrder", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

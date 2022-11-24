@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A managed Cassandra data center.
  */
 export function getCassandraDataCenter(args: GetCassandraDataCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraDataCenterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20211115preview:getCassandraDataCenter", {
         "clusterName": args.clusterName,
         "dataCenterName": args.dataCenterName,

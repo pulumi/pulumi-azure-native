@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Function information.
  */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210101:getWebAppInstanceFunctionSlot", {
         "functionName": args.functionName,
         "name": args.name,

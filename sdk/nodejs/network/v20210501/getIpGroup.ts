@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The IpGroups resource information.
  */
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210501:getIpGroup", {
         "expand": args.expand,
         "ipGroupsName": args.ipGroupsName,

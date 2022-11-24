@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Configuration of App Service site logs.
  */
 export function getWebAppDiagnosticLogsConfiguration(args: GetWebAppDiagnosticLogsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDiagnosticLogsConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20200601:getWebAppDiagnosticLogsConfiguration", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

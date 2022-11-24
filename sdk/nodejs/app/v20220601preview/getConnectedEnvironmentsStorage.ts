@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Storage resource for connectedEnvironment.
  */
 export function getConnectedEnvironmentsStorage(args: GetConnectedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsStorageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getConnectedEnvironmentsStorage", {
         "connectedEnvironmentName": args.connectedEnvironmentName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The properties of the source code repository.
  */
 export function listBuildTaskSourceRepositoryProperties(args: ListBuildTaskSourceRepositoryPropertiesArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildTaskSourceRepositoryPropertiesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,

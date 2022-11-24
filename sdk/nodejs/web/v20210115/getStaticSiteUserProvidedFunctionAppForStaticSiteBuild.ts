@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Static Site User Provided Function App ARM resource.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", {
         "environmentName": args.environmentName,
         "functionAppName": args.functionAppName,

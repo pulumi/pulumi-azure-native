@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * disk access resource.
  */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20201201:getDiskAccess", {
         "diskAccessName": args.diskAccessName,
         "resourceGroupName": args.resourceGroupName,

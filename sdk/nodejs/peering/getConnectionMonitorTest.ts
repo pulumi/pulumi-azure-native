@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-01.
  */
 export function getConnectionMonitorTest(args: GetConnectionMonitorTestArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorTestResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering:getConnectionMonitorTest", {
         "connectionMonitorTestName": args.connectionMonitorTestName,
         "peeringServiceName": args.peeringServiceName,

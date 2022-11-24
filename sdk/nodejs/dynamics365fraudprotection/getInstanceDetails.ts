@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01-preview.
  */
 export function getInstanceDetails(args: GetInstanceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceDetailsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dynamics365fraudprotection:getInstanceDetails", {
         "instanceName": args.instanceName,
         "resourceGroupName": args.resourceGroupName,

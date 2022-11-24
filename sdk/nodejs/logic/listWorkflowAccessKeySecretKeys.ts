@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * API Version: 2015-02-01-preview.
  */
 export function listWorkflowAccessKeySecretKeys(args: ListWorkflowAccessKeySecretKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowAccessKeySecretKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic:listWorkflowAccessKeySecretKeys", {
         "accessKeyName": args.accessKeyName,
         "resourceGroupName": args.resourceGroupName,

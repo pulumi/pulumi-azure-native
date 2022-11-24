@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01-preview.
  */
 export function getMachineLearningDatastore(args: GetMachineLearningDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatastoreResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getMachineLearningDatastore", {
         "datastoreName": args.datastoreName,
         "resourceGroupName": args.resourceGroupName,

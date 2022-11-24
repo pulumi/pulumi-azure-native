@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A managed instance key.
  */
 export function getManagedInstanceKey(args: GetManagedInstanceKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200801preview:getManagedInstanceKey", {
         "keyName": args.keyName,
         "managedInstanceName": args.managedInstanceName,

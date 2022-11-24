@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Virtual Appliance Site resource.
  */
 export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualApplianceSiteResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200601:getVirtualApplianceSite", {
         "networkVirtualApplianceName": args.networkVirtualApplianceName,
         "resourceGroupName": args.resourceGroupName,

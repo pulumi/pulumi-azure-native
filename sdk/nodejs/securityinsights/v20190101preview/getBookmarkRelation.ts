@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Represents a relation between two resources
  */
 export function getBookmarkRelation(args: GetBookmarkRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkRelationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getBookmarkRelation", {
         "bookmarkId": args.bookmarkId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

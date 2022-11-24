@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
     pulumi.log.warn("getPrefix is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20200101preview:getPrefix", {
         "expand": args.expand,
         "peeringServiceName": args.peeringServiceName,

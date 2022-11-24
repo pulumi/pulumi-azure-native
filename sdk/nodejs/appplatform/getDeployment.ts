@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-07-01.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform:getDeployment", {
         "appName": args.appName,
         "deploymentName": args.deploymentName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2017-06-01.
  */
 export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeContainerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple:getVolumeContainer", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,

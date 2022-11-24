@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-03-20.
  */
 export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHcxEnterpriseSiteResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getHcxEnterpriseSite", {
         "hcxEnterpriseSiteName": args.hcxEnterpriseSiteName,
         "privateCloudName": args.privateCloudName,

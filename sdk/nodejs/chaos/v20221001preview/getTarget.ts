@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Model that represents a Target resource.
  */
 export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos/v20221001preview:getTarget", {
         "parentProviderNamespace": args.parentProviderNamespace,
         "parentResourceName": args.parentResourceName,

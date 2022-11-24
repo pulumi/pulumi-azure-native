@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents AAD (Azure Active Directory) data connector.
  */
 export function getAADDataConnector(args: GetAADDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAADDataConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221101:getAADDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

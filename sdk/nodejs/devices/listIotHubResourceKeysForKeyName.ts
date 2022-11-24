@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-08-31.
  */
 export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysForKeyNameResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices:listIotHubResourceKeysForKeyName", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

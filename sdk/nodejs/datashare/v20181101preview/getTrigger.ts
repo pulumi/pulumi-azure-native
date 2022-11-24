@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
     pulumi.log.warn("getTrigger is deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getTrigger", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

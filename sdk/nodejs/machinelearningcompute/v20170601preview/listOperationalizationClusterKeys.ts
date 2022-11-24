@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Credentials to resources in the cluster.
  */
 export function listOperationalizationClusterKeys(args: ListOperationalizationClusterKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListOperationalizationClusterKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningcompute/v20170601preview:listOperationalizationClusterKeys", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

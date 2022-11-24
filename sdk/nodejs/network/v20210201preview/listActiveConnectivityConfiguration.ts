@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
  */
 export function listActiveConnectivityConfiguration(args: ListActiveConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveConnectivityConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:listActiveConnectivityConfiguration", {
         "networkManagerName": args.networkManagerName,
         "regions": args.regions,

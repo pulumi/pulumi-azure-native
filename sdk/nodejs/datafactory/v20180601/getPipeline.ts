@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Pipeline resource type.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getPipeline", {
         "factoryName": args.factoryName,
         "pipelineName": args.pipelineName,

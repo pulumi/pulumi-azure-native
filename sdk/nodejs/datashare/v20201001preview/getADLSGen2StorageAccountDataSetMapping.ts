@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * ADLSGen2 storage account data set mapping.
  */
 export function getADLSGen2StorageAccountDataSetMapping(args: GetADLSGen2StorageAccountDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2StorageAccountDataSetMappingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a SourceControl in Azure Security Insights.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20211001preview:getSourceControl", {
         "resourceGroupName": args.resourceGroupName,
         "sourceControlId": args.sourceControlId,

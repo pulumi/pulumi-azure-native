@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Identity Provider details.
  */
 export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20170301:getIdentityProvider", {
         "identityProviderName": args.identityProviderName,
         "resourceGroupName": args.resourceGroupName,

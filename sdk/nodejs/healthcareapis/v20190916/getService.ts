@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-09-16 will be removed in v2 of the provider. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     pulumi.log.warn("getService is deprecated: Version 2019-09-16 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20190916:getService", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-15-preview.
  */
 export function getChannelFullUrl(args: GetChannelFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelFullUrlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid:getChannelFullUrl", {
         "channelName": args.channelName,
         "partnerNamespaceName": args.partnerNamespaceName,

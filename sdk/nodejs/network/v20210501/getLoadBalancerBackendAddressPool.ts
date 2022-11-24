@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Pool of backend IP addresses.
  */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210501:getLoadBalancerBackendAddressPool", {
         "backendAddressPoolName": args.backendAddressPoolName,
         "loadBalancerName": args.loadBalancerName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Define the Database resource.
  */
 export function getSAPDatabaseInstance(args: GetSAPDatabaseInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDatabaseInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPDatabaseInstance", {
         "databaseInstanceName": args.databaseInstanceName,
         "resourceGroupName": args.resourceGroupName,

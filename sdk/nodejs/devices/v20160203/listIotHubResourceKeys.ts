@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of shared access policies with a next link.
  */
 export function listIotHubResourceKeys(args: ListIotHubResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20160203:listIotHubResourceKeys", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

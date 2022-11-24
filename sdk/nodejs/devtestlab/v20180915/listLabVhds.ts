@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The response of a list operation.
  */
 export function listLabVhds(args: ListLabVhdsArgs, opts?: pulumi.InvokeOptions): Promise<ListLabVhdsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:listLabVhds", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01.
  */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getApplicationSecurityGroup", {
         "applicationSecurityGroupName": args.applicationSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,

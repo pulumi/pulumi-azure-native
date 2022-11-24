@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-07-17-preview.
  */
 export function getWorkloadNetworkVMGroup(args: GetWorkloadNetworkVMGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkVMGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getWorkloadNetworkVMGroup", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Describes an Azure Cognitive Search service and its current state.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search/v20200801:getService", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,

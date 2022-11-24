@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
     pulumi.log.warn("getVirtualNetwork is deprecated: Version 2016-06-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160601:getVirtualNetwork", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

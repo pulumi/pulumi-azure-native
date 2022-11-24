@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2017-12-01.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql:getVirtualNetworkRule", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

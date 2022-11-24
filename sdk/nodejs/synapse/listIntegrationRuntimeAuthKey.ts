@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function listIntegrationRuntimeAuthKey(args: ListIntegrationRuntimeAuthKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationRuntimeAuthKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:listIntegrationRuntimeAuthKey", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,

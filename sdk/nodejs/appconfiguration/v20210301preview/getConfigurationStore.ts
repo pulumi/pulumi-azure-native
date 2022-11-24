@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20210301preview:getConfigurationStore", {
         "configStoreName": args.configStoreName,
         "resourceGroupName": args.resourceGroupName,

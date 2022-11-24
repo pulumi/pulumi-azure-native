@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a catalog.
  */
 export function getCatalog(args: GetCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20220801preview:getCatalog", {
         "catalogName": args.catalogName,
         "devCenterName": args.devCenterName,

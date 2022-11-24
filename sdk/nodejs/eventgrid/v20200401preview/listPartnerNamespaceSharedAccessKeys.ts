@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Shared access keys of the partner namespace.
  */
 export function listPartnerNamespaceSharedAccessKeys(args: ListPartnerNamespaceSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListPartnerNamespaceSharedAccessKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200401preview:listPartnerNamespaceSharedAccessKeys", {
         "partnerNamespaceName": args.partnerNamespaceName,
         "resourceGroupName": args.resourceGroupName,

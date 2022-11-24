@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
  */
 export function listListEffectiveVirtualNetworkByNetworkGroup(args: ListListEffectiveVirtualNetworkByNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListListEffectiveVirtualNetworkByNetworkGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:listListEffectiveVirtualNetworkByNetworkGroup", {
         "networkGroupName": args.networkGroupName,
         "networkManagerName": args.networkManagerName,

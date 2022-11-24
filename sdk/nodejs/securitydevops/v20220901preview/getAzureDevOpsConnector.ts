@@ -8,11 +8,8 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getAzureDevOpsConnector(args: GetAzureDevOpsConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureDevOpsConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securitydevops/v20220901preview:getAzureDevOpsConnector", {
         "azureDevOpsConnectorName": args.azureDevOpsConnectorName,
         "resourceGroupName": args.resourceGroupName,

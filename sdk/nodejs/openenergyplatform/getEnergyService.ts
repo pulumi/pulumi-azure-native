@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-04-preview.
  */
 export function getEnergyService(args: GetEnergyServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEnergyServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:openenergyplatform:getEnergyService", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

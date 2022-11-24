@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Single item in a List or Get AuthorizationRule operation
  */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20170401:getEventHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "eventHubName": args.eventHubName,

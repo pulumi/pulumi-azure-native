@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Virtual Network Tap resource.
  */
 export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkTapResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200701:getVirtualNetworkTap", {
         "resourceGroupName": args.resourceGroupName,
         "tapName": args.tapName,

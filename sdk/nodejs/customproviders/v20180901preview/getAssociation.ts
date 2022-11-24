@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The resource definition of this association.
  */
 export function getAssociation(args: GetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customproviders/v20180901preview:getAssociation", {
         "associationName": args.associationName,
         "scope": args.scope,

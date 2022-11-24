@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Gateway authentication keys.
  */
 export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListGatewayKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20201201:listGatewayKeys", {
         "gatewayId": args.gatewayId,
         "resourceGroupName": args.resourceGroupName,

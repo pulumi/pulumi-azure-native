@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Config Server resource
  */
 export function getConfigServer(args: GetConfigServerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20200701:getConfigServer", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

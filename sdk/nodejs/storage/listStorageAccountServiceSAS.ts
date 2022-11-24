@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01.
  */
 export function listStorageAccountServiceSAS(args: ListStorageAccountServiceSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountServiceSASResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:listStorageAccountServiceSAS", {
         "accountName": args.accountName,
         "cacheControl": args.cacheControl,

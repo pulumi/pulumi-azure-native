@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * API portal resource
  */
 export function getApiPortal(args: GetApiPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPortalResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getApiPortal", {
         "apiPortalName": args.apiPortalName,
         "resourceGroupName": args.resourceGroupName,

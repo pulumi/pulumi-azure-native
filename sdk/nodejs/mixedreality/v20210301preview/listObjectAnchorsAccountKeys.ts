@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Developer Keys of account
  */
 export function listObjectAnchorsAccountKeys(args: ListObjectAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListObjectAnchorsAccountKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

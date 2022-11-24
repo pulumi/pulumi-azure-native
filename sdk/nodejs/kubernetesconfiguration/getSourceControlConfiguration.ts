@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration:getSourceControlConfiguration", {
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,

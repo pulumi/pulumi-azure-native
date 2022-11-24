@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The NSP resource association resource
  */
 export function getNspAssociation(args: GetNspAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetNspAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:getNspAssociation", {
         "associationName": args.associationName,
         "networkSecurityPerimeterName": args.networkSecurityPerimeterName,

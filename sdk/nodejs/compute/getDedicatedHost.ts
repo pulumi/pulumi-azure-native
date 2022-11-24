@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getDedicatedHost", {
         "expand": args.expand,
         "hostGroupName": args.hostGroupName,

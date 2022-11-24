@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Student details.
  */
 export function getStudent(args: GetStudentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:education/v20211201preview:getStudent", {
         "billingAccountName": args.billingAccountName,
         "billingProfileName": args.billingProfileName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The properties of a storage account’s Blob service.
  */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210901:getBlobServiceProperties", {
         "accountName": args.accountName,
         "blobServicesName": args.blobServicesName,

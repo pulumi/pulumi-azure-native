@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-09-15-preview.
  */
 export function getDocumentProcessor(args: GetDocumentProcessorArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentProcessorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:syntex:getDocumentProcessor", {
         "processorName": args.processorName,
         "resourceGroupName": args.resourceGroupName,

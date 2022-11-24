@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * String dictionary resource
  */
 export function listSiteAppSettings(args: ListSiteAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteAppSettingsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteAppSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Source control configuration for an app.
  */
 export function getWebAppSourceControl(args: GetWebAppSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebAppSourceControl", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

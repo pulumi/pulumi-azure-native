@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Properties of the file share, including Id, resource name, resource type, Etag.
  */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210201:getFileShare", {
         "accountName": args.accountName,
         "expand": args.expand,

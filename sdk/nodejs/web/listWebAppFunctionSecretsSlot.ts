@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsSlotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listWebAppFunctionSecretsSlot", {
         "functionName": args.functionName,
         "name": args.name,

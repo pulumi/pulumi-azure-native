@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-01-01 will be removed in v2 of the provider. */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
     pulumi.log.warn("getRegistration is deprecated: Version 2016-01-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20160101:getRegistration", {
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

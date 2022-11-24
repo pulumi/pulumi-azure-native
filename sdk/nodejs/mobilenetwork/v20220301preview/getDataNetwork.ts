@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Data network resource.
  */
 export function getDataNetwork(args: GetDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetDataNetworkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getDataNetwork", {
         "dataNetworkName": args.dataNetworkName,
         "mobileNetworkName": args.mobileNetworkName,

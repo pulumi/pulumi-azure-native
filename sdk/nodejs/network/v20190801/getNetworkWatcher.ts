@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Network watcher in a resource group.
  */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190801:getNetworkWatcher", {
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,

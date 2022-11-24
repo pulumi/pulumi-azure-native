@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
     pulumi.log.warn("getConnectionMonitor is deprecated: Version 2018-01-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180101:getConnectionMonitor", {
         "connectionMonitorName": args.connectionMonitorName,
         "networkWatcherName": args.networkWatcherName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Activity Log Alert rule resource.
  */
 export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityLogAlertResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20201001:getActivityLogAlert", {
         "activityLogAlertName": args.activityLogAlertName,
         "resourceGroupName": args.resourceGroupName,

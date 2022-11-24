@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn:getAFDCustomDomain", {
         "customDomainName": args.customDomainName,
         "profileName": args.profileName,

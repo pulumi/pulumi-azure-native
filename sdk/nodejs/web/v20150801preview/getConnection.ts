@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * API Connection
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801preview:getConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

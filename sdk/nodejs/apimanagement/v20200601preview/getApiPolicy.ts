@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Policy Contract details.
  */
 export function getApiPolicy(args: GetApiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getApiPolicy", {
         "apiId": args.apiId,
         "format": args.format,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-09-15.
  */
 export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): Promise<GetFormulaResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:getFormula", {
         "expand": args.expand,
         "labName": args.labName,

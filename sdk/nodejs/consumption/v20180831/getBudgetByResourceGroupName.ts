@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-08-31 will be removed in v2 of the provider. */
 export function getBudgetByResourceGroupName(args: GetBudgetByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetByResourceGroupNameResult> {
     pulumi.log.warn("getBudgetByResourceGroupName is deprecated: Version 2018-08-31 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:consumption/v20180831:getBudgetByResourceGroupName", {
         "budgetName": args.budgetName,
         "resourceGroupName": args.resourceGroupName,

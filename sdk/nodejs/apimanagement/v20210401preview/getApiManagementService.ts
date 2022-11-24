@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A single API Management service resource in List or Get response.
  */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210401preview:getApiManagementService", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

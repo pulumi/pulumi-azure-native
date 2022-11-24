@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Workspace data table definition.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20211201preview:getTable", {
         "resourceGroupName": args.resourceGroupName,
         "tableName": args.tableName,

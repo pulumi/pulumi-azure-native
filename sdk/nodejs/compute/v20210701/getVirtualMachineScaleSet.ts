@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine Scale Set.
  */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210701:getVirtualMachineScaleSet", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

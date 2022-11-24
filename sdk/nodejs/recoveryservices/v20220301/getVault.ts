@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Resource information, as returned by the resource provider.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220301:getVault", {
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

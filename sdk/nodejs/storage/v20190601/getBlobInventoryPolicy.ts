@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
     pulumi.log.warn("getBlobInventoryPolicy is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20190601:getBlobInventoryPolicy", {
         "accountName": args.accountName,
         "blobInventoryPolicyName": args.blobInventoryPolicyName,

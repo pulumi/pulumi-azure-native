@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-11-01-preview.
  */
 export function getManagedServerDnsAlias(args: GetManagedServerDnsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedServerDnsAliasResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql:getManagedServerDnsAlias", {
         "dnsAliasName": args.dnsAliasName,
         "managedInstanceName": args.managedInstanceName,

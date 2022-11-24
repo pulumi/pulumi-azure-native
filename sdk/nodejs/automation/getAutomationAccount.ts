@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-22.
  */
 export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation:getAutomationAccount", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,

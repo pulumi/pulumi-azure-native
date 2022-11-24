@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Data store.
  */
 export function getDataStore(args: GetDataStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDataStoreResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybriddata/v20190601:getDataStore", {
         "dataManagerName": args.dataManagerName,
         "dataStoreName": args.dataStoreName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Machine Learning compute object wrapped into ARM resource envelope.
  */
 export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningComputeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200401:getMachineLearningCompute", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,

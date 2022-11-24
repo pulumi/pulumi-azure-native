@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Issue Attachment Contract details.
  */
 export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201preview:getApiIssueAttachment", {
         "apiId": args.apiId,
         "attachmentId": args.attachmentId,

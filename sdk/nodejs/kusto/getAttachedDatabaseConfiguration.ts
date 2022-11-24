@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:getAttachedDatabaseConfiguration", {
         "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
         "clusterName": args.clusterName,

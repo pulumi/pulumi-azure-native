@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Backend details.
  */
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20201201:getBackend", {
         "backendId": args.backendId,
         "resourceGroupName": args.resourceGroupName,

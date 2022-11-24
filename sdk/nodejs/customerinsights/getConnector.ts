@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-26.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getConnector", {
         "connectorName": args.connectorName,
         "hubName": args.hubName,

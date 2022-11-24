@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
     pulumi.log.warn("getGalleryApplication is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20190701:getGalleryApplication", {
         "galleryApplicationName": args.galleryApplicationName,
         "galleryName": args.galleryName,

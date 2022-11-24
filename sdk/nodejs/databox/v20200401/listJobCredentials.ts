@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * List of unencrypted credentials for accessing device.
  */
 export function listJobCredentials(args: ListJobCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databox/v20200401:listJobCredentials", {
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

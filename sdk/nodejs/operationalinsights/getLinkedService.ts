@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-08-01.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getLinkedService", {
         "linkedServiceName": args.linkedServiceName,
         "resourceGroupName": args.resourceGroupName,

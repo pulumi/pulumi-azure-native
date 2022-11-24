@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Settings with single toggle.
  */
 export function getEyesOn(args: GetEyesOnArgs, opts?: pulumi.InvokeOptions): Promise<GetEyesOnResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220601preview:getEyesOn", {
         "resourceGroupName": args.resourceGroupName,
         "settingsName": args.settingsName,

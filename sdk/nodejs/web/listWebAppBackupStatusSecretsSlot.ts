@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsSlotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listWebAppBackupStatusSecretsSlot", {
         "backupId": args.backupId,
         "backupName": args.backupName,

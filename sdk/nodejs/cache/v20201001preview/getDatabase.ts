@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Describes a database on the RedisEnterprise cluster
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20201001preview:getDatabase", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

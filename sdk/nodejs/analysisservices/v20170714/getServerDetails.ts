@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-07-14 will be removed in v2 of the provider. */
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
     pulumi.log.warn("getServerDetails is deprecated: Version 2017-07-14 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:analysisservices/v20170714:getServerDetails", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

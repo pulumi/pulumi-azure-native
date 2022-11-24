@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Get GitHub access token response definition.
  */
 export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryGitHubAccessTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", {
         "factoryName": args.factoryName,
         "gitHubAccessCode": args.gitHubAccessCode,

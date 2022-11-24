@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-08-01-preview will be removed in v2 of the provider. */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
     pulumi.log.warn("getDashboard is deprecated: Version 2015-08-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal/v20150801preview:getDashboard", {
         "dashboardName": args.dashboardName,
         "resourceGroupName": args.resourceGroupName,

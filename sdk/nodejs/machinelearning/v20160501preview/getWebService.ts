@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Instance of an Azure ML web service resource.
  */
 export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearning/v20160501preview:getWebService", {
         "resourceGroupName": args.resourceGroupName,
         "webServiceName": args.webServiceName,

@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteHostNameBinding(args: GetSiteHostNameBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteHostNameBindingResult> {
     pulumi.log.warn("getSiteHostNameBinding is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteHostNameBinding", {
         "hostName": args.hostName,
         "name": args.name,

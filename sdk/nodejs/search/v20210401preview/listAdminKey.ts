@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
  */
 export function listAdminKey(args: ListAdminKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListAdminKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search/v20210401preview:listAdminKey", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,

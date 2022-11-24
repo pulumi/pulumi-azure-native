@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getStorageAccount", {
         "accountName": args.accountName,
         "expand": args.expand,

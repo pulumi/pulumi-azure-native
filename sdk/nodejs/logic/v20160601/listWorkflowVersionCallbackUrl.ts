@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The workflow trigger callback URL.
  */
 export function listWorkflowVersionCallbackUrl(args: ListWorkflowVersionCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowVersionCallbackUrlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20160601:listWorkflowVersionCallbackUrl", {
         "keyType": args.keyType,
         "notAfter": args.notAfter,

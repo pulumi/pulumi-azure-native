@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * StaticMember Item.
  */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getStaticMember", {
         "networkGroupName": args.networkGroupName,
         "networkManagerName": args.networkManagerName,

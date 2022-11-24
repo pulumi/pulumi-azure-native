@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Backup description
  */
 export function listSiteBackupStatusSecrets(args: ListSiteBackupStatusSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteBackupStatusSecretsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteBackupStatusSecrets", {
         "backupId": args.backupId,
         "backupSchedule": args.backupSchedule,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-20.
  */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub:getDefaultRollout", {
         "providerNamespace": args.providerNamespace,
         "rolloutName": args.rolloutName,

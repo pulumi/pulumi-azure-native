@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The connection strings for the given database account.
  */
 export function listDatabaseAccountConnectionStrings(args: ListDatabaseAccountConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountConnectionStringsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20151106:listDatabaseAccountConnectionStrings", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

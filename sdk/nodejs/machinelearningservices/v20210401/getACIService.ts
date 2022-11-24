@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Machine Learning service object wrapped into ARM resource envelope.
  */
 export function getACIService(args: GetACIServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetACIServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210401:getACIService", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

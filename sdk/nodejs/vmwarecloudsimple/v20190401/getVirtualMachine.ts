@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Virtual machine model
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:vmwarecloudsimple/v20190401:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,
         "virtualMachineName": args.virtualMachineName,

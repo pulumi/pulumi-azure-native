@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Description of queue Resource.
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20170401:getQueue", {
         "namespaceName": args.namespaceName,
         "queueName": args.queueName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An attestation resource.
  */
 export function getAttestationAtSubscription(args: GetAttestationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtSubscriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20210101:getAttestationAtSubscription", {
         "attestationName": args.attestationName,
     }, opts);

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of supported availability zone pairs which are part of SAP HA deployment.
  */
 export function getSAPAvailabilityZoneDetails(args: GetSAPAvailabilityZoneDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPAvailabilityZoneDetailsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPAvailabilityZoneDetails", {
         "appLocation": args.appLocation,
         "databaseType": args.databaseType,

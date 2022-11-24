@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2017-06-01.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack:getProduct", {
         "productName": args.productName,
         "registrationName": args.registrationName,

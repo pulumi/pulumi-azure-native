@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Stack Versions that this version can upgrade to
  */
 export function listUpgradableVersionDetails(args: ListUpgradableVersionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListUpgradableVersionDetailsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20220505preview:listUpgradableVersionDetails", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

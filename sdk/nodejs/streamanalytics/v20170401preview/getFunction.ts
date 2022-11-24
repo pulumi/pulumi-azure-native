@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20170401preview:getFunction", {
         "functionName": args.functionName,
         "jobName": args.jobName,

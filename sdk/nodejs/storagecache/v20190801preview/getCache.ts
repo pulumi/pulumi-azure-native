@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     pulumi.log.warn("getCache is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20190801preview:getCache", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,

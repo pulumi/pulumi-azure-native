@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-09-15.
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:getDisk", {
         "expand": args.expand,
         "labName": args.labName,

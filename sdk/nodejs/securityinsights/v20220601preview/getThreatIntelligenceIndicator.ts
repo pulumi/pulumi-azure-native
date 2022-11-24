@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Threat intelligence information object.
  */
 export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndicatorArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceIndicatorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220601preview:getThreatIntelligenceIndicator", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

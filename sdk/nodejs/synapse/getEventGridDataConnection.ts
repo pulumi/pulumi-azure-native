@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-01-preview.
  */
 export function getEventGridDataConnection(args: GetEventGridDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventGridDataConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getEventGridDataConnection", {
         "dataConnectionName": args.dataConnectionName,
         "databaseName": args.databaseName,

@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     pulumi.log.warn("getDedicatedHost is deprecated: Version 2019-03-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20190301:getDedicatedHost", {
         "expand": args.expand,
         "hostGroupName": args.hostGroupName,

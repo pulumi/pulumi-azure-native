@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Trigger details.
  */
 export function getPeriodicTimerEventTrigger(args: GetPeriodicTimerEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetPeriodicTimerEventTriggerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220301:getPeriodicTimerEventTrigger", {
         "deviceName": args.deviceName,
         "name": args.name,
