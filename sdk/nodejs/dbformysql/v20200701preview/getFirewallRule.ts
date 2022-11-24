@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Represents a server firewall rule.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20200701preview:getFirewallRule", {
         "firewallRuleName": args.firewallRuleName,
         "resourceGroupName": args.resourceGroupName,

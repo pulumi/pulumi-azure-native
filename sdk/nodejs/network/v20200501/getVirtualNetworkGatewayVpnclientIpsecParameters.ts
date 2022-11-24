@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * An IPSec parameters for a virtual network gateway P2S connection.
  */
 export function getVirtualNetworkGatewayVpnclientIpsecParameters(args: GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200501:getVirtualNetworkGatewayVpnclientIpsecParameters", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,

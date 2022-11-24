@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The Asset Storage encryption key.
  */
 export function getAssetEncryptionKey(args: GetAssetEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEncryptionKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20180330preview:getAssetEncryptionKey", {
         "accountName": args.accountName,
         "assetName": args.assetName,

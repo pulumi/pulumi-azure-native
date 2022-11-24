@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * PrivateLink Policy configuration object.
  */
 export function getprivateLinkForAzureAd(args: GetprivateLinkForAzureAdArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkForAzureAdResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aadiam/v20200301preview:getprivateLinkForAzureAd", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,

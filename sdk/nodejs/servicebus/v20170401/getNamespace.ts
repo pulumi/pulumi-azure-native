@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Description of a namespace resource.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20170401:getNamespace", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

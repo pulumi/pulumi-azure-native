@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
     pulumi.log.warn("getProtectionContainer is deprecated: Version 2016-12-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20161201:getProtectionContainer", {
         "containerName": args.containerName,
         "fabricName": args.fabricName,

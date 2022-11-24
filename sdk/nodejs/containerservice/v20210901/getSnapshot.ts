@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A node pool snapshot resource.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20210901:getSnapshot", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

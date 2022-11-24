@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-03-19 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinDatabase(args: GetDatabaseAccountGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountGremlinDatabaseResult> {
     pulumi.log.warn("getDatabaseAccountGremlinDatabase is deprecated: Version 2016-03-19 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20160319:getDatabaseAccountGremlinDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,

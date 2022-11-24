@@ -8,11 +8,8 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getEnergyService(args: GetEnergyServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEnergyServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:openenergyplatform/v20220404preview:getEnergyService", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

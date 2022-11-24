@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Registration information.
  */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20200601preview:getRegistration", {
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Event Hub operation
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20220101preview:getEventHub", {
         "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,

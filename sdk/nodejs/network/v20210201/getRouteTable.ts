@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Route table resource.
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201:getRouteTable", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
  */
 export function getStorageMover(args: GetStorageMoverArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageMoverResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover/v20220701preview:getStorageMover", {
         "resourceGroupName": args.resourceGroupName,
         "storageMoverName": args.storageMoverName,

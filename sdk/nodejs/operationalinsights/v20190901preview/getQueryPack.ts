@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * An Log Analytics QueryPack definition.
  */
 export function getQueryPack(args: GetQueryPackArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryPackResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20190901preview:getQueryPack", {
         "queryPackName": args.queryPackName,
         "resourceGroupName": args.resourceGroupName,

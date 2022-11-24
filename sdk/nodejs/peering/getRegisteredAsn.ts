@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering:getRegisteredAsn", {
         "peeringName": args.peeringName,
         "registeredAsnName": args.registeredAsnName,

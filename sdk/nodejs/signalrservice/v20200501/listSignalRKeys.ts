@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A class represents the access keys of SignalR service.
  */
 export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSignalRKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20200501:listSignalRKeys", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The batch configuration resource definition.
  */
 export function getIntegrationAccountBatchConfiguration(args: GetIntegrationAccountBatchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountBatchConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20190501:getIntegrationAccountBatchConfiguration", {
         "batchConfigurationName": args.batchConfigurationName,
         "integrationAccountName": args.integrationAccountName,

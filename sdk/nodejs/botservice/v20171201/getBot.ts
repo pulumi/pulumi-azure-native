@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
     pulumi.log.warn("getBot is deprecated: Version 2017-12-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20171201:getBot", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

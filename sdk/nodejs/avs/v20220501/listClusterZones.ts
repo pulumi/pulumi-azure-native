@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * List of all zones and associated hosts for a cluster
  */
 export function listClusterZones(args: ListClusterZonesArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterZonesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20220501:listClusterZones", {
         "clusterName": args.clusterName,
         "privateCloudName": args.privateCloudName,

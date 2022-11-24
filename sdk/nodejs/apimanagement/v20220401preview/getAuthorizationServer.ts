@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * External OAuth authorization server settings.
  */
 export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationServerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getAuthorizationServer", {
         "authsid": args.authsid,
         "resourceGroupName": args.resourceGroupName,

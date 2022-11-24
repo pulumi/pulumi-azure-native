@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * IpConfigurations.
  */
 export function getVirtualHubIpConfiguration(args: GetVirtualHubIpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubIpConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200501:getVirtualHubIpConfiguration", {
         "ipConfigName": args.ipConfigName,
         "resourceGroupName": args.resourceGroupName,

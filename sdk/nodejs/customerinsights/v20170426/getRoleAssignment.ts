@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The Role Assignment resource format.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getRoleAssignment", {
         "assignmentName": args.assignmentName,
         "hubName": args.hubName,

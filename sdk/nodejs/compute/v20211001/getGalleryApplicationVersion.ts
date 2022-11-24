@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Specifies information about the gallery Application Version that you want to create or update.
  */
 export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20211001:getGalleryApplicationVersion", {
         "expand": args.expand,
         "galleryApplicationName": args.galleryApplicationName,

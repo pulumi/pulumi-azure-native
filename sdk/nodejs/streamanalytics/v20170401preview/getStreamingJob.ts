@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A streaming job object, containing all information associated with the named streaming job.
  */
 export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20170401preview:getStreamingJob", {
         "expand": args.expand,
         "jobName": args.jobName,

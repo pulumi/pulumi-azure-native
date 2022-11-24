@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Protection container mapping object.
  */
 export function getReplicationProtectionContainerMapping(args: GetReplicationProtectionContainerMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionContainerMappingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220401:getReplicationProtectionContainerMapping", {
         "fabricName": args.fabricName,
         "mappingName": args.mappingName,

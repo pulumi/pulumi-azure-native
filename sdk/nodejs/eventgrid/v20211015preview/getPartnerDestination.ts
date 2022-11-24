@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Event Grid Partner Destination.
  */
 export function getPartnerDestination(args: GetPartnerDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerDestinationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211015preview:getPartnerDestination", {
         "partnerDestinationName": args.partnerDestinationName,
         "resourceGroupName": args.resourceGroupName,

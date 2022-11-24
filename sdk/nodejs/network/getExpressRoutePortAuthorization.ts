@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-01-01.
  */
 export function getExpressRoutePortAuthorization(args: GetExpressRoutePortAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortAuthorizationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getExpressRoutePortAuthorization", {
         "authorizationName": args.authorizationName,
         "expressRoutePortName": args.expressRoutePortName,

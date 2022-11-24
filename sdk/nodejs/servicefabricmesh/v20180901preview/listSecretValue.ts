@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * This type represents the unencrypted value of the secret.
  */
 export function listSecretValue(args: ListSecretValueArgs, opts?: pulumi.InvokeOptions): Promise<ListSecretValueResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:listSecretValue", {
         "resourceGroupName": args.resourceGroupName,
         "secretResourceName": args.secretResourceName,

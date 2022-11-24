@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Agent Pool.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20200901:getAgentPool", {
         "agentPoolName": args.agentPoolName,
         "resourceGroupName": args.resourceGroupName,

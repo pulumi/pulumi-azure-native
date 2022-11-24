@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
     pulumi.log.warn("getComputePolicy is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20151001preview:getComputePolicy", {
         "accountName": args.accountName,
         "computePolicyName": args.computePolicyName,

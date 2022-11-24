@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A Streaming Locator resource
  */
 export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingLocatorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20200501:getStreamingLocator", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

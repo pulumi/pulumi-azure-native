@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01.
  */
 export function getResourceManagementPrivateLink(args: GetResourceManagementPrivateLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceManagementPrivateLinkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getResourceManagementPrivateLink", {
         "resourceGroupName": args.resourceGroupName,
         "rmplName": args.rmplName,

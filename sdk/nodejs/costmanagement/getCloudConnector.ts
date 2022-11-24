@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-03-01-preview.
  */
 export function getCloudConnector(args: GetCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getCloudConnector", {
         "connectorName": args.connectorName,
         "expand": args.expand,

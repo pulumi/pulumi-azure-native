@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-01-preview.
  */
 export function getLabPlan(args: GetLabPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetLabPlanResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:getLabPlan", {
         "labPlanName": args.labPlanName,
         "resourceGroupName": args.resourceGroupName,

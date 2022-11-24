@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Object model for the Azure PowerShell script.
  */
 export function getAzurePowerShellScript(args: GetAzurePowerShellScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetAzurePowerShellScriptResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20191001preview:getAzurePowerShellScript", {
         "resourceGroupName": args.resourceGroupName,
         "scriptName": args.scriptName,

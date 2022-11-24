@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:getScript", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

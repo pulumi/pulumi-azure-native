@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01.
  */
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getInboundNatRule", {
         "expand": args.expand,
         "inboundNatRuleName": args.inboundNatRuleName,

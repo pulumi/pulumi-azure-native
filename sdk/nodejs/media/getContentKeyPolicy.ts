@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01.
  */
 export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getContentKeyPolicy", {
         "accountName": args.accountName,
         "contentKeyPolicyName": args.contentKeyPolicyName,

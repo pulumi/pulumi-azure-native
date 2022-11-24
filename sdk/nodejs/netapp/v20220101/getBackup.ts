@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Backup of a Volume
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20220101:getBackup", {
         "accountName": args.accountName,
         "backupName": args.backupName,

@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Definition of the credential.
  */
 export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20190601:getCredential", {
         "automationAccountName": args.automationAccountName,
         "credentialName": args.credentialName,

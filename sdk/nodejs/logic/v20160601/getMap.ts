@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The integration account map.
  */
 export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMapResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getMap", {
         "integrationAccountName": args.integrationAccountName,
         "mapName": args.mapName,

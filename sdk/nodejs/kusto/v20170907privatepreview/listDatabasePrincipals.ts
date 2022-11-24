@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list Kusto database principals operation response.
  */
 export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasePrincipalsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20170907privatepreview:listDatabasePrincipals", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

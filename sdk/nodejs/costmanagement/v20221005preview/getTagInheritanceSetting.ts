@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Tag Inheritance Setting definition.
  */
 export function getTagInheritanceSetting(args: GetTagInheritanceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagInheritanceSettingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20221005preview:getTagInheritanceSetting", {
         "scope": args.scope,
         "type": args.type,

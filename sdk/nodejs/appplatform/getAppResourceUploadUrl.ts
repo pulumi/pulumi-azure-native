@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-07-01.
  */
 export function getAppResourceUploadUrl(args: GetAppResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResourceUploadUrlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform:getAppResourceUploadUrl", {
         "appName": args.appName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The bandwidth schedule details.
  */
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20201201:getBandwidthSchedule", {
         "deviceName": args.deviceName,
         "name": args.name,

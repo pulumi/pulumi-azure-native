@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Class representing a cluster principal assignment.
  */
 export function getKustoPoolPrincipalAssignment(args: GetKustoPoolPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolPrincipalAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", {
         "kustoPoolName": args.kustoPoolName,
         "principalAssignmentName": args.principalAssignmentName,

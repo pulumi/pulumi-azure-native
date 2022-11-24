@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider. */
 export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeResult> {
     pulumi.log.warn("getApplicationType is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20170701preview:getApplicationType", {
         "applicationTypeName": args.applicationTypeName,
         "clusterName": args.clusterName,

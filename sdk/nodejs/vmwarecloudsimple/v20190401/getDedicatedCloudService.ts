@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Dedicated cloud service model
  */
 export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudService", {
         "dedicatedCloudServiceName": args.dedicatedCloudServiceName,
         "resourceGroupName": args.resourceGroupName,

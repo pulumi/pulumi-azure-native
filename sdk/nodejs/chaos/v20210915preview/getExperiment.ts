@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Model that represents a Experiment resource.
  */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos/v20210915preview:getExperiment", {
         "experimentName": args.experimentName,
         "resourceGroupName": args.resourceGroupName,

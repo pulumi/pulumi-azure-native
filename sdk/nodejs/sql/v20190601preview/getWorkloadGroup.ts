@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Workload group operations for a data warehouse
  */
 export function getWorkloadGroup(args: GetWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20190601preview:getWorkloadGroup", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

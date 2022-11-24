@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Defines the vCenter.
  */
 export function getVCenter(args: GetVCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetVCenterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getVCenter", {
         "resourceGroupName": args.resourceGroupName,
         "vcenterName": args.vcenterName,

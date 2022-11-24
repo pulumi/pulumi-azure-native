@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-03-01.
  */
 export function getContainerAppsAuthConfig(args: GetContainerAppsAuthConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsAuthConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:getContainerAppsAuthConfig", {
         "authConfigName": args.authConfigName,
         "containerAppName": args.containerAppName,

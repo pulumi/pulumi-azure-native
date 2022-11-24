@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The secret access keys used for authenticating connections to redis
  */
 export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20210301:listDatabaseKeys", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

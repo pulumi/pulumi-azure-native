@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: ACIService, AKSService, EndpointVariant. */
 export function getMachineLearningService(args: GetMachineLearningServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningServiceResult> {
     pulumi.log.warn("getMachineLearningService is deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200501preview:getMachineLearningService", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

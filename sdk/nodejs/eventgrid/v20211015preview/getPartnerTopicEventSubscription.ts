@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Event Subscription
  */
 export function getPartnerTopicEventSubscription(args: GetPartnerTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211015preview:getPartnerTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "partnerTopicName": args.partnerTopicName,

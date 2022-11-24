@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-04-01-preview.
  */
 export function getForwardingRule(args: GetForwardingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetForwardingRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getForwardingRule", {
         "dnsForwardingRulesetName": args.dnsForwardingRulesetName,
         "forwardingRuleName": args.forwardingRuleName,

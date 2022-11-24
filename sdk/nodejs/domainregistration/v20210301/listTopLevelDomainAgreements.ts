@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Collection of top-level domain legal agreements.
  */
 export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsArgs, opts?: pulumi.InvokeOptions): Promise<ListTopLevelDomainAgreementsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:domainregistration/v20210301:listTopLevelDomainAgreements", {
         "forTransfer": args.forTransfer,
         "includePrivacy": args.includePrivacy,

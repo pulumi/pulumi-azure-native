@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Definition of the dsc node configuration.
  */
 export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscNodeConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getDscNodeConfiguration", {
         "automationAccountName": args.automationAccountName,
         "nodeConfigurationName": args.nodeConfigurationName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-09-01-preview.
  */
 export function getGitHubConnector(args: GetGitHubConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securitydevops:getGitHubConnector", {
         "gitHubConnectorName": args.gitHubConnectorName,
         "resourceGroupName": args.resourceGroupName,

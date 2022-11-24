@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Table.
  */
 export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResourceTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20210615:getTableResourceTable", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2016-11-01.
  */
 export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedIdProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakestore:getTrustedIdProvider", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

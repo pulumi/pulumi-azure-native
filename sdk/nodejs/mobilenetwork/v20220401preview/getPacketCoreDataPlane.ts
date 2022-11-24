@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Packet core data plane resource.
  */
 export function getPacketCoreDataPlane(args: GetPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreDataPlaneResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220401preview:getPacketCoreDataPlane", {
         "packetCoreControlPlaneName": args.packetCoreControlPlaneName,
         "packetCoreDataPlaneName": args.packetCoreDataPlaneName,

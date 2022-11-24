@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-01.
  */
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getCapacityReservationGroup", {
         "capacityReservationGroupName": args.capacityReservationGroupName,
         "expand": args.expand,

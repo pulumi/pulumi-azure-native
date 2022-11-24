@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Build step resource properties
  */
 export function getBuildStep(args: GetBuildStepArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildStepResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:getBuildStep", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,

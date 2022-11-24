@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * AzureStorageInfo dictionary resource.
  */
 export function listWebAppAzureStorageAccountsSlot(args: ListWebAppAzureStorageAccountsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAzureStorageAccountsSlotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppAzureStorageAccountsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

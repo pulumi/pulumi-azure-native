@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-09-01-preview.
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getDataCollectionEndpoint", {
         "dataCollectionEndpointName": args.dataCollectionEndpointName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An environment for Kubernetes cluster specialized for web workloads by Azure App Service
  */
 export function getConnectedEnvironment(args: GetConnectedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getConnectedEnvironment", {
         "connectedEnvironmentName": args.connectedEnvironmentName,
         "resourceGroupName": args.resourceGroupName,

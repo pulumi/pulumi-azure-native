@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01.
  */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice:getSignalR", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

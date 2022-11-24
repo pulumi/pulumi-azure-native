@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Gremlin graph.
  */
 export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinGraphResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20210401preview:getGremlinResourceGremlinGraph", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,

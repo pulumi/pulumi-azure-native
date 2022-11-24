@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Defines the move resource.
  */
 export function getMoveResource(args: GetMoveResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveResourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20191001preview:getMoveResource", {
         "moveCollectionName": args.moveCollectionName,
         "moveResourceName": args.moveResourceName,

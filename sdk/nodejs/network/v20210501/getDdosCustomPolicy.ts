@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A DDoS custom policy in a resource group.
  */
 export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosCustomPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210501:getDdosCustomPolicy", {
         "ddosCustomPolicyName": args.ddosCustomPolicyName,
         "resourceGroupName": args.resourceGroupName,

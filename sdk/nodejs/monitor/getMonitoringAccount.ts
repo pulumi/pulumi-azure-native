@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-03-preview.
  */
 export function getMonitoringAccount(args: GetMonitoringAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:monitor:getMonitoringAccount", {
         "monitoringAccountName": args.monitoringAccountName,
         "resourceGroupName": args.resourceGroupName,

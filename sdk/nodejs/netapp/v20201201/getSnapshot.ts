@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Snapshot of a Volume
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20201201:getSnapshot", {
         "accountName": args.accountName,
         "poolName": args.poolName,

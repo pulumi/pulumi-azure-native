@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Registration assignment.
  */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedservices/v20190901:getRegistrationAssignment", {
         "expandRegistrationDefinition": args.expandRegistrationDefinition,
         "registrationAssignmentId": args.registrationAssignmentId,

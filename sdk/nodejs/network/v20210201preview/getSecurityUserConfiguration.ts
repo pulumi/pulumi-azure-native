@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Defines the security configuration
  */
 export function getSecurityUserConfiguration(args: GetSecurityUserConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:getSecurityUserConfiguration", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

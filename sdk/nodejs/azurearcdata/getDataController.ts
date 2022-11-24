@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-01-preview.
  */
 export function getDataController(args: GetDataControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataControllerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata:getDataController", {
         "dataControllerName": args.dataControllerName,
         "resourceGroupName": args.resourceGroupName,

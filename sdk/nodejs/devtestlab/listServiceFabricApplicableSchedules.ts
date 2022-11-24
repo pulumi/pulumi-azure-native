@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-09-15.
  */
 export function listServiceFabricApplicableSchedules(args: ListServiceFabricApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceFabricApplicableSchedulesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:listServiceFabricApplicableSchedules", {
         "labName": args.labName,
         "name": args.name,

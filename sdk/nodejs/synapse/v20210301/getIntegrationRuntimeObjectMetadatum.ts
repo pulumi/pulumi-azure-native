@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A list of SSIS object metadata.
  */
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210301:getIntegrationRuntimeObjectMetadatum", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "metadataPath": args.metadataPath,

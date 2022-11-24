@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A server blob auditing policy.
  */
 export function getServerBlobAuditingPolicy(args: GetServerBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerBlobAuditingPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20201101preview:getServerBlobAuditingPolicy", {
         "blobAuditingPolicyName": args.blobAuditingPolicyName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure resource which represents access to a suite of Maps REST APIs.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maps/v20210701preview:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

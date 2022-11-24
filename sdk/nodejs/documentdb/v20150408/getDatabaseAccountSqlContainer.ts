@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccountSqlContainer(args: GetDatabaseAccountSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlContainerResult> {
     pulumi.log.warn("getDatabaseAccountSqlContainer is deprecated: Version 2015-04-08 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20150408:getDatabaseAccountSqlContainer", {
         "accountName": args.accountName,
         "containerName": args.containerName,

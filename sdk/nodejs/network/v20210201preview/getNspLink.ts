@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The network security perimeter link resource
  */
 export function getNspLink(args: GetNspLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetNspLinkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:getNspLink", {
         "linkName": args.linkName,
         "networkSecurityPerimeterName": args.networkSecurityPerimeterName,

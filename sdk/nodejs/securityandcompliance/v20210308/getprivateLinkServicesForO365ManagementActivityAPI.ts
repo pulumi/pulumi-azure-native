@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The description of the service.
  */
 export function getprivateLinkServicesForO365ManagementActivityAPI(args: GetprivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForO365ManagementActivityAPI", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

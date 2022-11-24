@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents an automation rule.
  */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getAutomationRule", {
         "automationRuleId": args.automationRuleId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

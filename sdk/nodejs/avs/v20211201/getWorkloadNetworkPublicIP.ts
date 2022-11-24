@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * NSX Public IP Block
  */
 export function getWorkloadNetworkPublicIP(args: GetWorkloadNetworkPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPublicIPResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getWorkloadNetworkPublicIP", {
         "privateCloudName": args.privateCloudName,
         "publicIPId": args.publicIPId,

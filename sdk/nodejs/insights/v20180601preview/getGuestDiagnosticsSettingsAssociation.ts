@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Virtual machine guest diagnostic settings resource.
  */
 export function getGuestDiagnosticsSettingsAssociation(args: GetGuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingsAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation", {
         "associationName": args.associationName,
         "resourceUri": args.resourceUri,

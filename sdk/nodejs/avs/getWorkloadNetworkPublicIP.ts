@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-01.
  */
 export function getWorkloadNetworkPublicIP(args: GetWorkloadNetworkPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPublicIPResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getWorkloadNetworkPublicIP", {
         "privateCloudName": args.privateCloudName,
         "publicIPId": args.publicIPId,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Attestation service response message.
  */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:attestation/v20210601preview:getAttestationProvider", {
         "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,

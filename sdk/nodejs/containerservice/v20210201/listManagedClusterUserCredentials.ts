@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of credential result response.
  */
 export function listManagedClusterUserCredentials(args: ListManagedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterUserCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20210201:listManagedClusterUserCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A class representing an EmailService resource.
  */
 export function getEmailService(args: GetEmailServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20220701preview:getEmailService", {
         "emailServiceName": args.emailServiceName,
         "resourceGroupName": args.resourceGroupName,

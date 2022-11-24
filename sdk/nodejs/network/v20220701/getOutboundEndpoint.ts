@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Describes an outbound endpoint for a DNS resolver.
  */
 export function getOutboundEndpoint(args: GetOutboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getOutboundEndpoint", {
         "dnsResolverName": args.dnsResolverName,
         "outboundEndpointName": args.outboundEndpointName,

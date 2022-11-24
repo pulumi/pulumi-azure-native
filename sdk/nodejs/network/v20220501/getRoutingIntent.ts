@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The routing intent child resource of a Virtual hub.
  */
 export function getRoutingIntent(args: GetRoutingIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingIntentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getRoutingIntent", {
         "resourceGroupName": args.resourceGroupName,
         "routingIntentName": args.routingIntentName,

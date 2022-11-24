@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba. */
 export function getProductSetting(args: GetProductSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetProductSettingResult> {
     pulumi.log.warn("getProductSetting is deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20211001preview:getProductSetting", {
         "resourceGroupName": args.resourceGroupName,
         "settingsName": args.settingsName,

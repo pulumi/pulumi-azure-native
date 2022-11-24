@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The access control record.
  */
 export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlRecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getAccessControlRecord", {
         "accessControlRecordName": args.accessControlRecordName,
         "managerName": args.managerName,

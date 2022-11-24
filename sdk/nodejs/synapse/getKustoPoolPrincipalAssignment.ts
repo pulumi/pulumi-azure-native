@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-01-preview.
  */
 export function getKustoPoolPrincipalAssignment(args: GetKustoPoolPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolPrincipalAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getKustoPoolPrincipalAssignment", {
         "kustoPoolName": args.kustoPoolName,
         "principalAssignmentName": args.principalAssignmentName,

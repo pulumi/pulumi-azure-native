@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The marketplace gallery image resource definition.
  */
 export function getmarketplacegalleryimage(args: GetmarketplacegalleryimageArgs, opts?: pulumi.InvokeOptions): Promise<GetmarketplacegalleryimageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getmarketplacegalleryimage", {
         "marketplacegalleryimagesName": args.marketplacegalleryimagesName,
         "resourceGroupName": args.resourceGroupName,

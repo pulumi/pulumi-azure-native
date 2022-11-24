@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
  */
 export function getTiTaxiiDataConnector(args: GetTiTaxiiDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetTiTaxiiDataConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221001preview:getTiTaxiiDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

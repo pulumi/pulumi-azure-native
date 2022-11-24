@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The Prometheus rule group resource.
  */
 export function getPrometheusRuleGroup(args: GetPrometheusRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrometheusRuleGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20210722preview:getPrometheusRuleGroup", {
         "resourceGroupName": args.resourceGroupName,
         "ruleGroupName": args.ruleGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * vCenter definition.
  */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220301:getReplicationvCenter", {
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,

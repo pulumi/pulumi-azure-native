@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
     pulumi.log.warn("getDomainService is deprecated: Version 2017-06-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aad/v20170601:getDomainService", {
         "domainServiceName": args.domainServiceName,
         "resourceGroupName": args.resourceGroupName,

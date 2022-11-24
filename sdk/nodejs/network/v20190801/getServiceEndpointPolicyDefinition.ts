@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Service Endpoint policy definitions.
  */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190801:getServiceEndpointPolicyDefinition", {
         "resourceGroupName": args.resourceGroupName,
         "serviceEndpointPolicyDefinitionName": args.serviceEndpointPolicyDefinitionName,

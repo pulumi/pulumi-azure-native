@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01.
  */
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getLiveOutput", {
         "accountName": args.accountName,
         "liveEventName": args.liveEventName,

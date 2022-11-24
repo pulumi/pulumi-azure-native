@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Definition of the certificate.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20220808:getCertificate", {
         "automationAccountName": args.automationAccountName,
         "certificateName": args.certificateName,

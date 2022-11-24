@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-01-01.
  */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getFusionAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
     pulumi.log.warn("getNetworkWatcher is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160901:getNetworkWatcher", {
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,

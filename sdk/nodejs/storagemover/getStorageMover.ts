@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-07-01-preview.
  */
 export function getStorageMover(args: GetStorageMoverArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageMoverResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover:getStorageMover", {
         "resourceGroupName": args.resourceGroupName,
         "storageMoverName": args.storageMoverName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * VpnServerConfigurationPolicyGroup Resource.
  */
 export function getConfigurationPolicyGroup(args: GetConfigurationPolicyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationPolicyGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210801:getConfigurationPolicyGroup", {
         "configurationPolicyGroupName": args.configurationPolicyGroupName,
         "resourceGroupName": args.resourceGroupName,

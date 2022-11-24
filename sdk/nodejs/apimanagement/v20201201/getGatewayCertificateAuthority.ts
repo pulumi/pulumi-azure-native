@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Gateway certificate authority details.
  */
 export function getGatewayCertificateAuthority(args: GetGatewayCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCertificateAuthorityResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20201201:getGatewayCertificateAuthority", {
         "certificateId": args.certificateId,
         "gatewayId": args.gatewayId,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-09-01-preview.
  */
 export function getSolutionConfig(args: GetSolutionConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getSolutionConfig", {
         "migrateProjectName": args.migrateProjectName,
         "resourceGroupName": args.resourceGroupName,

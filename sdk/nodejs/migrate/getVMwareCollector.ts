@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-10-01.
  */
 export function getVMwareCollector(args: GetVMwareCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetVMwareCollectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getVMwareCollector", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

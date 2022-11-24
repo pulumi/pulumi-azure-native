@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
  */
 export function listDeploymentInfo(args: ListDeploymentInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListDeploymentInfoResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20210901preview:listDeploymentInfo", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

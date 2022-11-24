@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of build arguments for a build step.
  */
 export function listBuildStepBuildArguments(args: ListBuildStepBuildArgumentsArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildStepBuildArgumentsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:listBuildStepBuildArguments", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-07-12.
  */
 export function getEnterpriseChannel(args: GetEnterpriseChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice:getEnterpriseChannel", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

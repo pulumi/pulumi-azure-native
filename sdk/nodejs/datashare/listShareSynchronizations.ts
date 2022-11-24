@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function listShareSynchronizations(args: ListShareSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSynchronizationsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:listShareSynchronizations", {
         "accountName": args.accountName,
         "filter": args.filter,

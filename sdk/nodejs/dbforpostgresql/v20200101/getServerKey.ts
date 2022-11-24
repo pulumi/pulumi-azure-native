@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A PostgreSQL Server key.
  */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20200101:getServerKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

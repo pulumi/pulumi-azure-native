@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The details of subscription under management group.
  */
 export function getManagementGroupSubscription(args: GetManagementGroupSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupSubscriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management/v20210401:getManagementGroupSubscription", {
         "groupId": args.groupId,
         "subscriptionId": args.subscriptionId,
