@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationStorageClassificationMapping{}
 	case "azure-native:recoveryservices/v20221001:ReplicationvCenter":
 		r = &ReplicationvCenter{}
+	case "azure-native:recoveryservices/v20221001:Vault":
+		r = &Vault{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

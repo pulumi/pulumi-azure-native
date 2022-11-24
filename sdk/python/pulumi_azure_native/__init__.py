@@ -5975,6 +5975,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20221002preview",
+  "fqn": "pulumi_azure_native.containerservice.v20221002preview",
+  "classes": {
+   "azure-native:containerservice/v20221002preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20221002preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20221002preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20221002preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20221002preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20221002preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20221002preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
@@ -18108,7 +18122,8 @@ _utilities.register(
    "azure-native:recoveryservices/v20221001:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
    "azure-native:recoveryservices/v20221001:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
    "azure-native:recoveryservices/v20221001:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
-   "azure-native:recoveryservices/v20221001:ReplicationvCenter": "ReplicationvCenter"
+   "azure-native:recoveryservices/v20221001:ReplicationvCenter": "ReplicationvCenter",
+   "azure-native:recoveryservices/v20221001:Vault": "Vault"
   }
  },
  {
