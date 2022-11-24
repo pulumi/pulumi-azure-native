@@ -3277,7 +3277,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-01",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "ContainerService": [
       "2015-11-01-preview",
@@ -3321,7 +3322,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-01",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "ManagedCluster": [
       "2017-08-31",
@@ -3366,7 +3368,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-01",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "ManagedClusterSnapshot": [
       "2022-02-02-preview",
@@ -3377,7 +3380,8 @@
       "2022-07-02-preview",
       "2022-08-02-preview",
       "2022-08-03-preview",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "OpenShiftManagedCluster": [
       "2018-09-30-preview",
@@ -3415,7 +3419,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-01",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "Snapshot": [
       "2021-08-01",
@@ -3438,7 +3443,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-01",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "TrustedAccessRoleBinding": [
       "2022-04-02-preview",
@@ -3447,7 +3453,8 @@
       "2022-07-02-preview",
       "2022-08-02-preview",
       "2022-08-03-preview",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "listFleetCredentials": [
       "2022-06-02-preview",
@@ -3510,7 +3517,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-01",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "listManagedClusterMonitoringUserCredentials": [
       "2019-10-01",
@@ -3548,7 +3556,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-01",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ],
     "listManagedClusterUserCredentials": [
       "2018-03-31",
@@ -3592,7 +3601,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-01",
-      "2022-09-02-preview"
+      "2022-09-02-preview",
+      "2022-10-02-preview"
     ]
   },
   "CostManagement": {
@@ -12316,7 +12326,8 @@
       "2022-05-01",
       "2022-08-01",
       "2022-09-10",
-      "2022-09-30-preview"
+      "2022-09-30-preview",
+      "2022-10-01"
     ],
     "getRecoveryPointAccessToken": [
       "2018-12-20",

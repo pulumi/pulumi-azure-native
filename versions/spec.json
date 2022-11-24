@@ -3536,6 +3536,18 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2022-10-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "CostManagement": {
@@ -11786,7 +11798,8 @@
       "ReplicationRecoveryPlan",
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
-      "ReplicationvCenter"
+      "ReplicationvCenter",
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
