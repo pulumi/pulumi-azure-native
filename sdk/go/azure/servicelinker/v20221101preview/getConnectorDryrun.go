@@ -20,9 +20,10 @@ func LookupConnectorDryrun(ctx *pulumi.Context, args *LookupConnectorDryrunArgs,
 }
 
 type LookupConnectorDryrunArgs struct {
-	DryrunName        string `pulumi:"dryrunName"`
-	Location          string `pulumi:"location"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DryrunName        string  `pulumi:"dryrunName"`
+	Location          string  `pulumi:"location"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
 }
 
 
@@ -51,9 +52,10 @@ func LookupConnectorDryrunOutput(ctx *pulumi.Context, args LookupConnectorDryrun
 }
 
 type LookupConnectorDryrunOutputArgs struct {
-	DryrunName        pulumi.StringInput `pulumi:"dryrunName"`
-	Location          pulumi.StringInput `pulumi:"location"`
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	DryrunName        pulumi.StringInput    `pulumi:"dryrunName"`
+	Location          pulumi.StringInput    `pulumi:"location"`
+	ResourceGroupName pulumi.StringInput    `pulumi:"resourceGroupName"`
+	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
 }
 
 func (LookupConnectorDryrunOutputArgs) ElementType() reflect.Type {

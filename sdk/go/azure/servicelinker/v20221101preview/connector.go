@@ -82,6 +82,7 @@ type connectorArgs struct {
 	ResourceGroupName     string                 `pulumi:"resourceGroupName"`
 	Scope                 *string                `pulumi:"scope"`
 	SecretStore           *SecretStore           `pulumi:"secretStore"`
+	SubscriptionId        *string                `pulumi:"subscriptionId"`
 	TargetService         interface{}            `pulumi:"targetService"`
 	VNetSolution          *VNetSolution          `pulumi:"vNetSolution"`
 }
@@ -97,6 +98,7 @@ type ConnectorArgs struct {
 	ResourceGroupName     pulumi.StringInput
 	Scope                 pulumi.StringPtrInput
 	SecretStore           SecretStorePtrInput
+	SubscriptionId        pulumi.StringPtrInput
 	TargetService         pulumi.Input
 	VNetSolution          VNetSolutionPtrInput
 }

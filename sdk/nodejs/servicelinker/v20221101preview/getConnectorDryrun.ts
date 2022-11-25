@@ -17,6 +17,7 @@ export function getConnectorDryrun(args: GetConnectorDryrunArgs, opts?: pulumi.I
         "dryrunName": args.dryrunName,
         "location": args.location,
         "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetConnectorDryrunArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * The ID of the target subscription.
+     */
+    subscriptionId?: string;
 }
 
 /**
@@ -90,4 +95,8 @@ export interface GetConnectorDryrunOutputArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of the target subscription.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }

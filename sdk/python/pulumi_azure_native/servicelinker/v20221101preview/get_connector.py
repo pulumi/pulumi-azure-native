@@ -192,6 +192,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
 def get_connector(connector_name: Optional[str] = None,
                   location: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
+                  subscription_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Linker of source and target resource
@@ -200,11 +201,13 @@ def get_connector(connector_name: Optional[str] = None,
     :param str connector_name: The name of resource.
     :param str location: The name of Azure region.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str subscription_id: The ID of the target subscription.
     """
     __args__ = dict()
     __args__['connectorName'] = connector_name
     __args__['location'] = location
     __args__['resourceGroupName'] = resource_group_name
+    __args__['subscriptionId'] = subscription_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:servicelinker/v20221101preview:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
@@ -228,6 +231,7 @@ def get_connector(connector_name: Optional[str] = None,
 def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          location: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
+                         subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Linker of source and target resource
@@ -236,5 +240,6 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
     :param str connector_name: The name of resource.
     :param str location: The name of Azure region.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str subscription_id: The ID of the target subscription.
     """
     ...

@@ -187,6 +187,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
         public Input<Inputs.SecretStoreArgs>? SecretStore { get; set; }
 
         /// <summary>
+        /// The ID of the target subscription.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        /// <summary>
         /// The target service properties
         /// </summary>
         [Input("targetService")]

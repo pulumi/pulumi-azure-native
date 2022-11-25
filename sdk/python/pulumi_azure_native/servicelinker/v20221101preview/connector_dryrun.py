@@ -20,13 +20,15 @@ class ConnectorDryrunArgs:
                  location: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  dryrun_name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']] = None):
+                 parameters: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectorDryrun resource.
         :param pulumi.Input[str] location: The name of Azure region.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] dryrun_name: The name of dryrun.
         :param pulumi.Input['CreateOrUpdateDryrunParametersArgs'] parameters: The parameters of the dryrun
+        :param pulumi.Input[str] subscription_id: The ID of the target subscription.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -34,6 +36,8 @@ class ConnectorDryrunArgs:
             pulumi.set(__self__, "dryrun_name", dryrun_name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -83,6 +87,18 @@ class ConnectorDryrunArgs:
     def parameters(self, value: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the target subscription.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
 
 class ConnectorDryrun(pulumi.CustomResource):
     @overload
@@ -93,6 +109,7 @@ class ConnectorDryrun(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateDryrunParametersArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         a dryrun job resource
@@ -103,6 +120,7 @@ class ConnectorDryrun(pulumi.CustomResource):
         :param pulumi.Input[str] location: The name of Azure region.
         :param pulumi.Input[pulumi.InputType['CreateOrUpdateDryrunParametersArgs']] parameters: The parameters of the dryrun
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] subscription_id: The ID of the target subscription.
         """
         ...
     @overload
@@ -132,6 +150,7 @@ class ConnectorDryrun(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['CreateOrUpdateDryrunParametersArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -149,6 +168,7 @@ class ConnectorDryrun(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["name"] = None
             __props__.__dict__["operation_previews"] = None
             __props__.__dict__["prerequisite_results"] = None

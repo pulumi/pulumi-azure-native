@@ -72,6 +72,7 @@ type connectorDryrunArgs struct {
 	Location          string                          `pulumi:"location"`
 	Parameters        *CreateOrUpdateDryrunParameters `pulumi:"parameters"`
 	ResourceGroupName string                          `pulumi:"resourceGroupName"`
+	SubscriptionId    *string                         `pulumi:"subscriptionId"`
 }
 
 
@@ -80,6 +81,7 @@ type ConnectorDryrunArgs struct {
 	Location          pulumi.StringInput
 	Parameters        CreateOrUpdateDryrunParametersPtrInput
 	ResourceGroupName pulumi.StringInput
+	SubscriptionId    pulumi.StringPtrInput
 }
 
 func (ConnectorDryrunArgs) ElementType() reflect.Type {

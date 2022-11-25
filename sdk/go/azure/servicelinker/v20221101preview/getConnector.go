@@ -20,9 +20,10 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 }
 
 type LookupConnectorArgs struct {
-	ConnectorName     string `pulumi:"connectorName"`
-	Location          string `pulumi:"location"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ConnectorName     string  `pulumi:"connectorName"`
+	Location          string  `pulumi:"location"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
 }
 
 
@@ -56,9 +57,10 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 }
 
 type LookupConnectorOutputArgs struct {
-	ConnectorName     pulumi.StringInput `pulumi:"connectorName"`
-	Location          pulumi.StringInput `pulumi:"location"`
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	ConnectorName     pulumi.StringInput    `pulumi:"connectorName"`
+	Location          pulumi.StringInput    `pulumi:"location"`
+	ResourceGroupName pulumi.StringInput    `pulumi:"resourceGroupName"`
+	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
 }
 
 func (LookupConnectorOutputArgs) ElementType() reflect.Type {

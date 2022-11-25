@@ -26,6 +26,7 @@ class ConnectorArgs:
                  public_network_solution: Optional[pulumi.Input['PublicNetworkSolutionArgs']] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  target_service: Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']]] = None,
                  v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None):
         """
@@ -39,6 +40,7 @@ class ConnectorArgs:
         :param pulumi.Input['PublicNetworkSolutionArgs'] public_network_solution: The network solution.
         :param pulumi.Input[str] scope: connection scope in source service.
         :param pulumi.Input['SecretStoreArgs'] secret_store: An option to store secret value in secure place
+        :param pulumi.Input[str] subscription_id: The ID of the target subscription.
         :param pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']] target_service: The target service properties
         :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
         """
@@ -58,6 +60,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "scope", scope)
         if secret_store is not None:
             pulumi.set(__self__, "secret_store", secret_store)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if target_service is not None:
             pulumi.set(__self__, "target_service", target_service)
         if v_net_solution is not None:
@@ -172,6 +176,18 @@ class ConnectorArgs:
         pulumi.set(self, "secret_store", value)
 
     @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the target subscription.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
     @pulumi.getter(name="targetService")
     def target_service(self) -> Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']]]:
         """
@@ -210,6 +226,7 @@ class Connector(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]]] = None,
                  v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
@@ -227,6 +244,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope: connection scope in source service.
         :param pulumi.Input[pulumi.InputType['SecretStoreArgs']] secret_store: An option to store secret value in secure place
+        :param pulumi.Input[str] subscription_id: The ID of the target subscription.
         :param pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]] target_service: The target service properties
         :param pulumi.Input[pulumi.InputType['VNetSolutionArgs']] v_net_solution: The VNet solution.
         """
@@ -263,6 +281,7 @@ class Connector(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  secret_store: Optional[pulumi.Input[pulumi.InputType['SecretStoreArgs']]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  target_service: Optional[pulumi.Input[Union[pulumi.InputType['AzureResourceArgs'], pulumi.InputType['ConfluentBootstrapServerArgs'], pulumi.InputType['ConfluentSchemaRegistryArgs'], pulumi.InputType['SelfHostedServerArgs']]]] = None,
                  v_net_solution: Optional[pulumi.Input[pulumi.InputType['VNetSolutionArgs']]] = None,
                  __props__=None):
@@ -287,6 +306,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scope"] = scope
             __props__.__dict__["secret_store"] = secret_store
+            __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["target_service"] = target_service
             __props__.__dict__["v_net_solution"] = v_net_solution
             __props__.__dict__["name"] = None

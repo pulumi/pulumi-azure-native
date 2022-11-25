@@ -126,6 +126,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the target subscription.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         public ConnectorDryrunArgs()
         {
         }

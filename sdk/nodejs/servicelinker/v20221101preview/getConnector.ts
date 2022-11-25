@@ -17,6 +17,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
         "connectorName": args.connectorName,
         "location": args.location,
         "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetConnectorArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * The ID of the target subscription.
+     */
+    subscriptionId?: string;
 }
 
 /**
@@ -110,4 +115,8 @@ export interface GetConnectorOutputArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of the target subscription.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }

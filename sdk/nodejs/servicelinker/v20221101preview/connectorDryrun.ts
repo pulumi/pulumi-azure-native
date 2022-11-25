@@ -87,6 +87,7 @@ export class ConnectorDryrun extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationPreviews"] = undefined /*out*/;
             resourceInputs["prerequisiteResults"] = undefined /*out*/;
@@ -127,4 +128,8 @@ export interface ConnectorDryrunArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of the target subscription.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }

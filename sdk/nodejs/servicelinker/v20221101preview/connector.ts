@@ -112,6 +112,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["secretStore"] = args ? args.secretStore : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["targetService"] = args ? args.targetService : undefined;
             resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -177,6 +178,10 @@ export interface ConnectorArgs {
      * An option to store secret value in secure place
      */
     secretStore?: pulumi.Input<inputs.servicelinker.v20221101preview.SecretStoreArgs>;
+    /**
+     * The ID of the target subscription.
+     */
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The target service properties
      */
