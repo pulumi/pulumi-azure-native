@@ -16028,13 +16028,16 @@
       "2022-10-31-preview"
     ],
     "locations": [
-      "2022-08-02-preview"
+      "2022-08-02-preview",
+      "2022-10-31-preview"
     ],
     "locations/operationstatuses": [
-      "2022-08-02-preview"
+      "2022-08-02-preview",
+      "2022-10-31-preview"
     ],
     "operations": [
-      "2022-08-02-preview"
+      "2022-08-02-preview",
+      "2022-10-31-preview"
     ],
     "virtualenclaves": [
       "2022-08-02-preview"
