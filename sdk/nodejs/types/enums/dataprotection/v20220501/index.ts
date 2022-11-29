@@ -71,7 +71,7 @@ export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreT
 
 export const StorageSettingStoreTypes = {
     ArchiveStore: "ArchiveStore",
-    SnapshotStore: "SnapshotStore",
+    OperationalStore: "OperationalStore",
     VaultStore: "VaultStore",
 } as const;
 

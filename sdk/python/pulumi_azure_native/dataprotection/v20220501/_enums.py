@@ -78,7 +78,7 @@ class StorageSettingStoreTypes(str, Enum):
     Gets or sets the type of the datastore.
     """
     ARCHIVE_STORE = "ArchiveStore"
-    SNAPSHOT_STORE = "SnapshotStore"
+    OPERATIONAL_STORE = "OperationalStore"
     VAULT_STORE = "VaultStore"
 
 

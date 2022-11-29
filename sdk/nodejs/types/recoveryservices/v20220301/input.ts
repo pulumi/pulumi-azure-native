@@ -4332,6 +4332,18 @@ export interface RecoveryPlanScriptActionDetailsArgs {
     timeout?: pulumi.Input<string>;
 }
 
+export interface ResourceGuardOperationDetailArgs {
+    defaultResourceRequest?: pulumi.Input<string>;
+    vaultCriticalOperation?: pulumi.Input<string>;
+}
+
+export interface ResourceGuardProxyBaseArgs {
+    description?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string>;
+    resourceGuardOperationDetails?: pulumi.Input<pulumi.Input<inputs.recoveryservices.v20220301.ResourceGuardOperationDetailArgs>[]>;
+    resourceGuardResourceId?: pulumi.Input<string>;
+}
+
 /**
  * Retention duration.
  */

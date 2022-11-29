@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220501
         }
 
         public static StorageSettingStoreTypes ArchiveStore { get; } = new StorageSettingStoreTypes("ArchiveStore");
-        public static StorageSettingStoreTypes SnapshotStore { get; } = new StorageSettingStoreTypes("SnapshotStore");
+        public static StorageSettingStoreTypes OperationalStore { get; } = new StorageSettingStoreTypes("OperationalStore");
         public static StorageSettingStoreTypes VaultStore { get; } = new StorageSettingStoreTypes("VaultStore");
 
         public static bool operator ==(StorageSettingStoreTypes left, StorageSettingStoreTypes right) => left.Equals(right);

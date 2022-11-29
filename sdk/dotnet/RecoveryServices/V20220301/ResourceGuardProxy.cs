@@ -108,6 +108,24 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301
     public sealed class ResourceGuardProxyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Optional ETag.
+        /// </summary>
+        [Input("eTag")]
+        public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// Resource location.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// ResourceGuardProxyBaseResource properties
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.ResourceGuardProxyBaseArgs>? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -115,6 +133,18 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220301
 
         [Input("resourceGuardProxyName")]
         public Input<string>? ResourceGuardProxyName { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the recovery services vault.

@@ -67,9 +67,9 @@ const (
 type StorageSettingStoreTypes string
 
 const (
-	StorageSettingStoreTypesArchiveStore  = StorageSettingStoreTypes("ArchiveStore")
-	StorageSettingStoreTypesSnapshotStore = StorageSettingStoreTypes("SnapshotStore")
-	StorageSettingStoreTypesVaultStore    = StorageSettingStoreTypes("VaultStore")
+	StorageSettingStoreTypesArchiveStore     = StorageSettingStoreTypes("ArchiveStore")
+	StorageSettingStoreTypesOperationalStore = StorageSettingStoreTypes("OperationalStore")
+	StorageSettingStoreTypesVaultStore       = StorageSettingStoreTypes("VaultStore")
 )
 
 type StorageSettingTypes string

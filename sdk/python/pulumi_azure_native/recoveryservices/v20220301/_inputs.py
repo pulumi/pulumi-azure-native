@@ -132,6 +132,8 @@ __all__ = [
     'RecoveryPlanManualActionDetailsArgs',
     'RecoveryPlanProtectedItemArgs',
     'RecoveryPlanScriptActionDetailsArgs',
+    'ResourceGuardOperationDetailArgs',
+    'ResourceGuardProxyBaseArgs',
     'RetentionDurationArgs',
     'SettingsArgs',
     'SimpleRetentionPolicyArgs',
@@ -15251,6 +15253,88 @@ class RecoveryPlanScriptActionDetailsArgs:
     @timeout.setter
     def timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class ResourceGuardOperationDetailArgs:
+    def __init__(__self__, *,
+                 default_resource_request: Optional[pulumi.Input[str]] = None,
+                 vault_critical_operation: Optional[pulumi.Input[str]] = None):
+        if default_resource_request is not None:
+            pulumi.set(__self__, "default_resource_request", default_resource_request)
+        if vault_critical_operation is not None:
+            pulumi.set(__self__, "vault_critical_operation", vault_critical_operation)
+
+    @property
+    @pulumi.getter(name="defaultResourceRequest")
+    def default_resource_request(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_resource_request")
+
+    @default_resource_request.setter
+    def default_resource_request(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_resource_request", value)
+
+    @property
+    @pulumi.getter(name="vaultCriticalOperation")
+    def vault_critical_operation(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vault_critical_operation")
+
+    @vault_critical_operation.setter
+    def vault_critical_operation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vault_critical_operation", value)
+
+
+@pulumi.input_type
+class ResourceGuardProxyBaseArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 last_updated_time: Optional[pulumi.Input[str]] = None,
+                 resource_guard_operation_details: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]] = None,
+                 resource_guard_resource_id: Optional[pulumi.Input[str]] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if resource_guard_operation_details is not None:
+            pulumi.set(__self__, "resource_guard_operation_details", resource_guard_operation_details)
+        if resource_guard_resource_id is not None:
+            pulumi.set(__self__, "resource_guard_resource_id", resource_guard_resource_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_updated_time")
+
+    @last_updated_time.setter
+    def last_updated_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_updated_time", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationDetails")
+    def resource_guard_operation_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]]:
+        return pulumi.get(self, "resource_guard_operation_details")
+
+    @resource_guard_operation_details.setter
+    def resource_guard_operation_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]]):
+        pulumi.set(self, "resource_guard_operation_details", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardResourceId")
+    def resource_guard_resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_guard_resource_id")
+
+    @resource_guard_resource_id.setter
+    def resource_guard_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_guard_resource_id", value)
 
 
 @pulumi.input_type

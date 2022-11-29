@@ -103,15 +103,23 @@ func (ResourceGuardProxyState) ElementType() reflect.Type {
 }
 
 type resourceGuardProxyArgs struct {
-	ResourceGroupName      string  `pulumi:"resourceGroupName"`
-	ResourceGuardProxyName *string `pulumi:"resourceGuardProxyName"`
-	VaultName              string  `pulumi:"vaultName"`
+	ETag                   *string                 `pulumi:"eTag"`
+	Location               *string                 `pulumi:"location"`
+	Properties             *ResourceGuardProxyBase `pulumi:"properties"`
+	ResourceGroupName      string                  `pulumi:"resourceGroupName"`
+	ResourceGuardProxyName *string                 `pulumi:"resourceGuardProxyName"`
+	Tags                   map[string]string       `pulumi:"tags"`
+	VaultName              string                  `pulumi:"vaultName"`
 }
 
 
 type ResourceGuardProxyArgs struct {
+	ETag                   pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	Properties             ResourceGuardProxyBasePtrInput
 	ResourceGroupName      pulumi.StringInput
 	ResourceGuardProxyName pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
 	VaultName              pulumi.StringInput
 }
 
