@@ -50,7 +50,7 @@ jobs:
         pythonversion:
         - "3.7"
         nodeversion:
-        - 14.x
+        - 18.x
     name: prerequisites
     steps:
     - name: Checkout Repo
@@ -142,7 +142,7 @@ jobs:
         pythonversion:
         - "3.7"
         nodeversion:
-        - 14.x
+        - 18.x
         javaversion:
         - "11"
         language:
@@ -321,7 +321,7 @@ jobs:
         pythonversion:
         - "3.7"
         nodeversion:
-        - 14.x
+        - 18.x
         javaversion:
         - "11"
     name: publish_sdk
