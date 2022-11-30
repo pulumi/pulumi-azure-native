@@ -1702,38 +1702,40 @@ class ResourceIdentityArgs:
 @pulumi.input_type
 class ReverseShippingDetailsArgs:
     def __init__(__self__, *,
-                 contact_details: pulumi.Input['ContactInfoArgs'],
-                 shipping_address: pulumi.Input['ShippingAddressArgs']):
+                 contact_details: Optional[pulumi.Input['ContactInfoArgs']] = None,
+                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Reverse Shipping Address and contact details for a job.
         :param pulumi.Input['ContactInfoArgs'] contact_details: Contact Info.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address where customer wishes to receive the device.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "shipping_address", shipping_address)
+        if contact_details is not None:
+            pulumi.set(__self__, "contact_details", contact_details)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> pulumi.Input['ContactInfoArgs']:
+    def contact_details(self) -> Optional[pulumi.Input['ContactInfoArgs']]:
         """
         Contact Info.
         """
         return pulumi.get(self, "contact_details")
 
     @contact_details.setter
-    def contact_details(self, value: pulumi.Input['ContactInfoArgs']):
+    def contact_details(self, value: Optional[pulumi.Input['ContactInfoArgs']]):
         pulumi.set(self, "contact_details", value)
 
     @property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> pulumi.Input['ShippingAddressArgs']:
+    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
         """
         Shipping address where customer wishes to receive the device.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: pulumi.Input['ShippingAddressArgs']):
+    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 

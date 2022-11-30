@@ -1491,8 +1491,8 @@ func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssigned
 }
 
 type ReverseShippingDetails struct {
-	ContactDetails  ContactInfo     `pulumi:"contactDetails"`
-	ShippingAddress ShippingAddress `pulumi:"shippingAddress"`
+	ContactDetails  *ContactInfo     `pulumi:"contactDetails"`
+	ShippingAddress *ShippingAddress `pulumi:"shippingAddress"`
 }
 
 
@@ -1501,15 +1501,15 @@ func (val *ReverseShippingDetails) Defaults() *ReverseShippingDetails {
 		return nil
 	}
 	tmp := *val
-	tmp.ShippingAddress = *tmp.ShippingAddress.Defaults()
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
 
 	return &tmp
 }
 
 type ReverseShippingDetailsResponse struct {
-	ContactDetails  ContactInfoResponse     `pulumi:"contactDetails"`
-	IsUpdated       bool                    `pulumi:"isUpdated"`
-	ShippingAddress ShippingAddressResponse `pulumi:"shippingAddress"`
+	ContactDetails  *ContactInfoResponse     `pulumi:"contactDetails"`
+	IsUpdated       bool                     `pulumi:"isUpdated"`
+	ShippingAddress *ShippingAddressResponse `pulumi:"shippingAddress"`
 }
 
 
@@ -1518,7 +1518,7 @@ func (val *ReverseShippingDetailsResponse) Defaults() *ReverseShippingDetailsRes
 		return nil
 	}
 	tmp := *val
-	tmp.ShippingAddress = *tmp.ShippingAddress.Defaults()
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
 
 	return &tmp
 }

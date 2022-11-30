@@ -5193,10 +5193,10 @@ class ReverseShippingDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "contactDetails":
-            suggest = "contact_details"
-        elif key == "isUpdated":
+        if key == "isUpdated":
             suggest = "is_updated"
+        elif key == "contactDetails":
+            suggest = "contact_details"
         elif key == "shippingAddress":
             suggest = "shipping_address"
 
@@ -5212,27 +5212,21 @@ class ReverseShippingDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 contact_details: 'outputs.ContactInfoResponse',
                  is_updated: bool,
-                 shipping_address: 'outputs.ShippingAddressResponse'):
+                 contact_details: Optional['outputs.ContactInfoResponse'] = None,
+                 shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Reverse Shipping Address and contact details for a job.
-        :param 'ContactInfoResponse' contact_details: Contact Info.
         :param bool is_updated: A flag to indicate whether Reverse Shipping details are updated or not after device has been prepared.
                Read only field
+        :param 'ContactInfoResponse' contact_details: Contact Info.
         :param 'ShippingAddressResponse' shipping_address: Shipping address where customer wishes to receive the device.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
         pulumi.set(__self__, "is_updated", is_updated)
-        pulumi.set(__self__, "shipping_address", shipping_address)
-
-    @property
-    @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> 'outputs.ContactInfoResponse':
-        """
-        Contact Info.
-        """
-        return pulumi.get(self, "contact_details")
+        if contact_details is not None:
+            pulumi.set(__self__, "contact_details", contact_details)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="isUpdated")
@@ -5244,8 +5238,16 @@ class ReverseShippingDetailsResponse(dict):
         return pulumi.get(self, "is_updated")
 
     @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> Optional['outputs.ContactInfoResponse']:
+        """
+        Contact Info.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> 'outputs.ShippingAddressResponse':
+    def shipping_address(self) -> Optional['outputs.ShippingAddressResponse']:
         """
         Shipping address where customer wishes to receive the device.
         """

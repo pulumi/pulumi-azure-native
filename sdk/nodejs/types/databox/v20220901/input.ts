@@ -639,11 +639,11 @@ export interface ReverseShippingDetailsArgs {
     /**
      * Contact Info.
      */
-    contactDetails: pulumi.Input<inputs.databox.v20220901.ContactInfoArgs>;
+    contactDetails?: pulumi.Input<inputs.databox.v20220901.ContactInfoArgs>;
     /**
      * Shipping address where customer wishes to receive the device.
      */
-    shippingAddress: pulumi.Input<inputs.databox.v20220901.ShippingAddressArgs>;
+    shippingAddress?: pulumi.Input<inputs.databox.v20220901.ShippingAddressArgs>;
 }
 /**
  * reverseShippingDetailsArgsProvideDefaults sets the appropriate defaults for ReverseShippingDetailsArgs
@@ -651,7 +651,7 @@ export interface ReverseShippingDetailsArgs {
 export function reverseShippingDetailsArgsProvideDefaults(val: ReverseShippingDetailsArgs): ReverseShippingDetailsArgs {
     return {
         ...val,
-        shippingAddress: pulumi.output(val.shippingAddress).apply(inputs.databox.v20220901.shippingAddressArgsProvideDefaults),
+        shippingAddress: (val.shippingAddress ? pulumi.output(val.shippingAddress).apply(inputs.databox.v20220901.shippingAddressArgsProvideDefaults) : undefined),
     };
 }
 

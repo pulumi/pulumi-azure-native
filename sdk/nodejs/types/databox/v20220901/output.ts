@@ -1680,7 +1680,7 @@ export interface ReverseShippingDetailsResponse {
     /**
      * Contact Info.
      */
-    contactDetails: outputs.databox.v20220901.ContactInfoResponse;
+    contactDetails?: outputs.databox.v20220901.ContactInfoResponse;
     /**
      * A flag to indicate whether Reverse Shipping details are updated or not after device has been prepared.
      * Read only field
@@ -1689,7 +1689,7 @@ export interface ReverseShippingDetailsResponse {
     /**
      * Shipping address where customer wishes to receive the device.
      */
-    shippingAddress: outputs.databox.v20220901.ShippingAddressResponse;
+    shippingAddress?: outputs.databox.v20220901.ShippingAddressResponse;
 }
 /**
  * reverseShippingDetailsResponseProvideDefaults sets the appropriate defaults for ReverseShippingDetailsResponse
@@ -1697,7 +1697,7 @@ export interface ReverseShippingDetailsResponse {
 export function reverseShippingDetailsResponseProvideDefaults(val: ReverseShippingDetailsResponse): ReverseShippingDetailsResponse {
     return {
         ...val,
-        shippingAddress: outputs.databox.v20220901.shippingAddressResponseProvideDefaults(val.shippingAddress),
+        shippingAddress: (val.shippingAddress ? outputs.databox.v20220901.shippingAddressResponseProvideDefaults(val.shippingAddress) : undefined),
     };
 }
 

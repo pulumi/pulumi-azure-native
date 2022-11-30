@@ -18,14 +18,14 @@ namespace Pulumi.AzureNative.DataBox.V20220901.Inputs
         /// <summary>
         /// Contact Info.
         /// </summary>
-        [Input("contactDetails", required: true)]
-        public Input<Inputs.ContactInfoArgs> ContactDetails { get; set; } = null!;
+        [Input("contactDetails")]
+        public Input<Inputs.ContactInfoArgs>? ContactDetails { get; set; }
 
         /// <summary>
         /// Shipping address where customer wishes to receive the device.
         /// </summary>
-        [Input("shippingAddress", required: true)]
-        public Input<Inputs.ShippingAddressArgs> ShippingAddress { get; set; } = null!;
+        [Input("shippingAddress")]
+        public Input<Inputs.ShippingAddressArgs>? ShippingAddress { get; set; }
 
         public ReverseShippingDetailsArgs()
         {

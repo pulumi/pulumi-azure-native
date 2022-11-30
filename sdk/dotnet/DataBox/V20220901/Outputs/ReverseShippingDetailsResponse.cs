@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataBox.V20220901.Outputs
         /// <summary>
         /// Contact Info.
         /// </summary>
-        public readonly Outputs.ContactInfoResponse ContactDetails;
+        public readonly Outputs.ContactInfoResponse? ContactDetails;
         /// <summary>
         /// A flag to indicate whether Reverse Shipping details are updated or not after device has been prepared.
         /// Read only field
@@ -28,15 +28,15 @@ namespace Pulumi.AzureNative.DataBox.V20220901.Outputs
         /// <summary>
         /// Shipping address where customer wishes to receive the device.
         /// </summary>
-        public readonly Outputs.ShippingAddressResponse ShippingAddress;
+        public readonly Outputs.ShippingAddressResponse? ShippingAddress;
 
         [OutputConstructor]
         private ReverseShippingDetailsResponse(
-            Outputs.ContactInfoResponse contactDetails,
+            Outputs.ContactInfoResponse? contactDetails,
 
             bool isUpdated,
 
-            Outputs.ShippingAddressResponse shippingAddress)
+            Outputs.ShippingAddressResponse? shippingAddress)
         {
             ContactDetails = contactDetails;
             IsUpdated = isUpdated;
