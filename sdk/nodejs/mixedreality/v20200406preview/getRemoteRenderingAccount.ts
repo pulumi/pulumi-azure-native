@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-04-06-preview will be removed in v2 of the provider. */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
     pulumi.log.warn("getRemoteRenderingAccount is deprecated: Version 2020-04-06-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mixedreality/v20200406preview:getRemoteRenderingAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

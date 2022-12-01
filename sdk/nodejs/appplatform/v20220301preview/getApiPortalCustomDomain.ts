@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Custom domain of the API portal
  */
 export function getApiPortalCustomDomain(args: GetApiPortalCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPortalCustomDomainResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220301preview:getApiPortalCustomDomain", {
         "apiPortalName": args.apiPortalName,
         "domainName": args.domainName,

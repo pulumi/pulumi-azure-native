@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-01.
  */
 export function listEventHubKeys(args: ListEventHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEventHubKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventhub:listEventHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "eventHubName": args.eventHubName,

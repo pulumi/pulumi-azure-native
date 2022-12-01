@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-04-19.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datamigration:getService", {
         "groupName": args.groupName,
         "serviceName": args.serviceName,

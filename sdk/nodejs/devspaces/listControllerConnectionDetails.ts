@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-04-01.
  */
 export function listControllerConnectionDetails(args: ListControllerConnectionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListControllerConnectionDetailsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devspaces:listControllerConnectionDetails", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

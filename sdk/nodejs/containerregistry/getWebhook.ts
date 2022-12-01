@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-05-01.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry:getWebhook", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

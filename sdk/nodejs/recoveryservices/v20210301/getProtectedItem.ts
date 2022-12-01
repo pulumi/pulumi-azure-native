@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Base class for backup items.
  */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20210301:getProtectedItem", {
         "containerName": args.containerName,
         "fabricName": args.fabricName,

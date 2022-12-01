@@ -12,8 +12,11 @@ import * as utilities from "../../utilities";
  * The task run will have the information of request and result of a run.
  */
 export function listTaskRunDetails(args: ListTaskRunDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskRunDetailsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190601preview:listTaskRunDetails", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

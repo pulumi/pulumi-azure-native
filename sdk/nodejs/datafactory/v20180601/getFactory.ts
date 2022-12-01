@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Factory resource type.
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getFactory", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,

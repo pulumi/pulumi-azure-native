@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine run command.
  */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20211101:getVirtualMachineRunCommandByVirtualMachine", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

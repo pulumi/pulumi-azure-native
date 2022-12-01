@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: ArcAddon. */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
     pulumi.log.warn("getAddon is deprecated: Please use one of the variants: ArcAddon.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220401preview:getAddon", {
         "addonName": args.addonName,
         "deviceName": args.deviceName,

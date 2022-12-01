@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-07-01-preview will be removed in v2 of the provider. */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
     pulumi.log.warn("getDataPool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:autonomousdevelopmentplatform/v20200701preview:getDataPool", {
         "accountName": args.accountName,
         "dataPoolName": args.dataPoolName,

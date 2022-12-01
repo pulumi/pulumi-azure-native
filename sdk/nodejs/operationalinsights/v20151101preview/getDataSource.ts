@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Datasources under OMS Workspace.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getDataSource", {
         "dataSourceName": args.dataSourceName,
         "resourceGroupName": args.resourceGroupName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Defines an Network Experiment Profile and lists of Experiments
  */
 export function getNetworkExperimentProfile(args: GetNetworkExperimentProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkExperimentProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20191101:getNetworkExperimentProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

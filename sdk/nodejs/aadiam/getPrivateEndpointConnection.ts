@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-03-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:aadiam:getPrivateEndpointConnection", {
         "policyName": args.policyName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

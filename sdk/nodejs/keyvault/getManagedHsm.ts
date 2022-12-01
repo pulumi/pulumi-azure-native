@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-01-preview.
  */
 export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHsmResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:keyvault:getManagedHsm", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

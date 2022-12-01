@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents a definition for a Developer Machine.
  */
 export function getDevBoxDefinition(args: GetDevBoxDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDevBoxDefinitionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devcenter/v20220801preview:getDevBoxDefinition", {
         "devBoxDefinitionName": args.devBoxDefinitionName,
         "devCenterName": args.devCenterName,

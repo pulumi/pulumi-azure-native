@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Custom entity store assignment
  */
 export function getCustomEntityStoreAssignment(args: GetCustomEntityStoreAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomEntityStoreAssignmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20210701preview:getCustomEntityStoreAssignment", {
         "customEntityStoreAssignmentName": args.customEntityStoreAssignmentName,
         "resourceGroupName": args.resourceGroupName,

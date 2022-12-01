@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response for Disk Pool request.
  */
 export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagepool/v20210801:getDiskPool", {
         "diskPoolName": args.diskPoolName,
         "resourceGroupName": args.resourceGroupName,

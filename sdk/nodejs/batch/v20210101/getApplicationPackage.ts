@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An application package which represents a particular version of an application.
  */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:batch/v20210101:getApplicationPackage", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,

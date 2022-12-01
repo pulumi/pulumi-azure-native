@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-15.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,
         "environmentName": args.environmentName,

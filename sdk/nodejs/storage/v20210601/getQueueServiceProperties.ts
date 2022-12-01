@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The properties of a storage account’s Queue service.
  */
 export function getQueueServiceProperties(args: GetQueueServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueServicePropertiesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20210601:getQueueServiceProperties", {
         "accountName": args.accountName,
         "queueServiceName": args.queueServiceName,

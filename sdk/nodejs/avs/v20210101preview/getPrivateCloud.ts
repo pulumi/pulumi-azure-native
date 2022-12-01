@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A private cloud resource
  */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getPrivateCloud", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

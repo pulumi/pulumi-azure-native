@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A DDoS protection plan in a resource group.
  */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20200601:getDdosProtectionPlan", {
         "ddosProtectionPlanName": args.ddosProtectionPlanName,
         "resourceGroupName": args.resourceGroupName,

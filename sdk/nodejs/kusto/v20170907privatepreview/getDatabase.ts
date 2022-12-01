@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     pulumi.log.warn("getDatabase is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20170907privatepreview:getDatabase", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

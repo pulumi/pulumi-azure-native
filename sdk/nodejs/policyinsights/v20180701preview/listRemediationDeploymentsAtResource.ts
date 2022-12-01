@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * List of deployments for a remediation.
  */
 export function listRemediationDeploymentsAtResource(args: ListRemediationDeploymentsAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtResourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:policyinsights/v20180701preview:listRemediationDeploymentsAtResource", {
         "remediationName": args.remediationName,
         "resourceId": args.resourceId,

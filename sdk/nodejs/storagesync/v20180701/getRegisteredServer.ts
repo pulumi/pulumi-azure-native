@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-07-01 will be removed in v2 of the provider. */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
     pulumi.log.warn("getRegisteredServer is deprecated: Version 2018-07-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagesync/v20180701:getRegisteredServer", {
         "resourceGroupName": args.resourceGroupName,
         "serverId": args.serverId,

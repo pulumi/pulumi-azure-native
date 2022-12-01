@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  */
 export function listWebAppFunctionKeys(args: ListWebAppFunctionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20200901:listWebAppFunctionKeys", {
         "functionName": args.functionName,
         "name": args.name,

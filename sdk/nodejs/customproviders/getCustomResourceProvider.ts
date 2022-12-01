@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-09-01-preview.
  */
 export function getCustomResourceProvider(args: GetCustomResourceProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceProviderResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customproviders:getCustomResourceProvider", {
         "resourceGroupName": args.resourceGroupName,
         "resourceProviderName": args.resourceProviderName,

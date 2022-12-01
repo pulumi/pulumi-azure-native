@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, AwsS3DataConnector, CodelessApiPollingDataConnector, CodelessUiDataConnector, Dynamics365DataConnector, IoTDataConnector, MCASDataConnector, MDATPDataConnector, MSTIDataConnector, MTPDataConnector, Office365ProjectDataConnector, OfficeATPDataConnector, OfficeDataConnector, OfficeIRMDataConnector, OfficePowerBIDataConnector, TIDataConnector, TiTaxiiDataConnector. */
 export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectorResult> {
     pulumi.log.warn("getDataConnector is deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, AwsS3DataConnector, CodelessApiPollingDataConnector, CodelessUiDataConnector, Dynamics365DataConnector, IoTDataConnector, MCASDataConnector, MDATPDataConnector, MSTIDataConnector, MTPDataConnector, Office365ProjectDataConnector, OfficeATPDataConnector, OfficeDataConnector, OfficeIRMDataConnector, OfficePowerBIDataConnector, TIDataConnector, TiTaxiiDataConnector.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801preview:getDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

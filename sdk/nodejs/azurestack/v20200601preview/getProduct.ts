@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Product information.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestack/v20200601preview:getProduct", {
         "productName": args.productName,
         "registrationName": args.registrationName,

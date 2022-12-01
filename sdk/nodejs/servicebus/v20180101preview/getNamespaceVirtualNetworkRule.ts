@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Single item in a List or Get VirtualNetworkRules operation
  */
 export function getNamespaceVirtualNetworkRule(args: GetNamespaceVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceVirtualNetworkRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

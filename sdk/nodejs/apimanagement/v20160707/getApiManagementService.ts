@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-07-07 will be removed in v2 of the provider. */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
     pulumi.log.warn("getApiManagementService is deprecated: Version 2016-07-07 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20160707:getApiManagementService", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

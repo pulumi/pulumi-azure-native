@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The gallery image resource definition.
  */
 export function getgalleryimageRetrieve(args: GetgalleryimageRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetgalleryimageRetrieveResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getgalleryimageRetrieve", {
         "galleryimagesName": args.galleryimagesName,
         "resourceGroupName": args.resourceGroupName,

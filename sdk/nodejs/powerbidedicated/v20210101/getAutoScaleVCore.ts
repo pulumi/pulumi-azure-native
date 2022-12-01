@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents an instance of an auto scale v-core resource.
  */
 export function getAutoScaleVCore(args: GetAutoScaleVCoreArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScaleVCoreResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:powerbidedicated/v20210101:getAutoScaleVCore", {
         "resourceGroupName": args.resourceGroupName,
         "vcoreName": args.vcoreName,

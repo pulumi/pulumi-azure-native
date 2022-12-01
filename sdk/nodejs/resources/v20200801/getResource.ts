@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Resource information.
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20200801:getResource", {
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,

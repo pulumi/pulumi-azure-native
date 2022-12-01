@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-01-preview.
  */
 export function getPrivateEndpointConnectionByHostPool(args: GetPrivateEndpointConnectionByHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByHostPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:desktopvirtualization:getPrivateEndpointConnectionByHostPool", {
         "hostPoolName": args.hostPoolName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

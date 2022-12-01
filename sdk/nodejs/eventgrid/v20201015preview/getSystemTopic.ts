@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * EventGrid System Topic.
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getSystemTopic", {
         "resourceGroupName": args.resourceGroupName,
         "systemTopicName": args.systemTopicName,

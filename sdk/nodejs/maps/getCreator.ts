@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-02-01-preview.
  */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:maps:getCreator", {
         "accountName": args.accountName,
         "creatorName": args.creatorName,

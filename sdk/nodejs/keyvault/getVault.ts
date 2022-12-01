@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-09-01.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:keyvault:getVault", {
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

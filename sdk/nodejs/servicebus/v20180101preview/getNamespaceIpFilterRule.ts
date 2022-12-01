@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Single item in a List or Get IpFilterRules operation
  */
 export function getNamespaceIpFilterRule(args: GetNamespaceIpFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceIpFilterRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", {
         "ipFilterRuleName": args.ipFilterRuleName,
         "namespaceName": args.namespaceName,

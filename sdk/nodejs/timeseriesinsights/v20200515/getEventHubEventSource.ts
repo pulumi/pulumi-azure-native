@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An event source that receives its data from an Azure EventHub.
  */
 export function getEventHubEventSource(args: GetEventHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubEventSourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20200515:getEventHubEventSource", {
         "environmentName": args.environmentName,
         "eventSourceName": args.eventSourceName,

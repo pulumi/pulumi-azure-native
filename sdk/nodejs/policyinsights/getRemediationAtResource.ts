@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-07-01.
  */
 export function getRemediationAtResource(args: GetRemediationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:policyinsights:getRemediationAtResource", {
         "remediationName": args.remediationName,
         "resourceId": args.resourceId,

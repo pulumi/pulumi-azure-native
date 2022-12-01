@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Describes a Private DNS zone.
  */
 export function getPrivateZone(args: GetPrivateZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateZoneResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20180901:getPrivateZone", {
         "privateZoneName": args.privateZoneName,
         "resourceGroupName": args.resourceGroupName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An assessment created for a group in the Migration project.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:migrate/v20180202:getAssessment", {
         "assessmentName": args.assessmentName,
         "groupName": args.groupName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Azure Migrate Project.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:migrate/v20180202:getProject", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

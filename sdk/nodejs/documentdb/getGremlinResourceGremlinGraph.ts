@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-15.
  */
 export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinGraphResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getGremlinResourceGremlinGraph", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,

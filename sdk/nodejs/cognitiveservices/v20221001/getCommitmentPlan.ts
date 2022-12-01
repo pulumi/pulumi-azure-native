@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Cognitive Services account commitment plan.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20221001:getCommitmentPlan", {
         "accountName": args.accountName,
         "commitmentPlanName": args.commitmentPlanName,

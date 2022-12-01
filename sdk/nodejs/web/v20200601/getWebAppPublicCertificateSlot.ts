@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Public certificate object
  */
 export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20200601:getWebAppPublicCertificateSlot", {
         "name": args.name,
         "publicCertificateName": args.publicCertificateName,

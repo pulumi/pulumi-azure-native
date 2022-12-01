@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-05-01-preview.
  */
 export function listEdgeModuleProvisioningToken(args: ListEdgeModuleProvisioningTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListEdgeModuleProvisioningTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer:listEdgeModuleProvisioningToken", {
         "accountName": args.accountName,
         "edgeModuleName": args.edgeModuleName,

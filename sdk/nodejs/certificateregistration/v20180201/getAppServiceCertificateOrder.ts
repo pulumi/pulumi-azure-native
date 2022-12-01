@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
     pulumi.log.warn("getAppServiceCertificateOrder is deprecated: Version 2018-02-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:certificateregistration/v20180201:getAppServiceCertificateOrder", {
         "certificateOrderName": args.certificateOrderName,
         "resourceGroupName": args.resourceGroupName,

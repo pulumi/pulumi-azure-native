@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Describes an identity resource.
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:managedidentity/v20210930preview:getUserAssignedIdentity", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

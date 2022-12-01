@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The lock information.
  */
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20200501:getManagementLockAtResourceLevel", {
         "lockName": args.lockName,
         "parentResourcePath": args.parentResourcePath,

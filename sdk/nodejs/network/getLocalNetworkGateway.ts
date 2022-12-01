@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01.
  */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getLocalNetworkGateway", {
         "localNetworkGatewayName": args.localNetworkGatewayName,
         "resourceGroupName": args.resourceGroupName,

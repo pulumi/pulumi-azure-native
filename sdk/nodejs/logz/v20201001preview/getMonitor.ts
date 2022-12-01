@@ -8,8 +8,11 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz/v20201001preview:getMonitor", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

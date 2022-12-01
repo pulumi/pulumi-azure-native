@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-01-01-preview.
  */
 export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityInsightsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getEntityInsights", {
         "addDefaultExtendedTimeRange": args.addDefaultExtendedTimeRange,
         "endTime": args.endTime,

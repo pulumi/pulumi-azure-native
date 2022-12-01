@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-08-01.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerservice:getSnapshot", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

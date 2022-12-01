@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Collector policy resource.
  */
 export function getCollectorPolicy(args: GetCollectorPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectorPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:networkfunction/v20221101:getCollectorPolicy", {
         "azureTrafficCollectorName": args.azureTrafficCollectorName,
         "collectorPolicyName": args.collectorPolicyName,

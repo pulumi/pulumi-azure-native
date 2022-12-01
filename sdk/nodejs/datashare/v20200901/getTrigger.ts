@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: ScheduledTrigger. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
     pulumi.log.warn("getTrigger is deprecated: Please use one of the variants: ScheduledTrigger.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20200901:getTrigger", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

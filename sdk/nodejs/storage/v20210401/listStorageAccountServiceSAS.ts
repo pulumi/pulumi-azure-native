@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The List service SAS credentials operation response.
  */
 export function listStorageAccountServiceSAS(args: ListStorageAccountServiceSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountServiceSASResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20210401:listStorageAccountServiceSAS", {
         "accountName": args.accountName,
         "cacheControl": args.cacheControl,

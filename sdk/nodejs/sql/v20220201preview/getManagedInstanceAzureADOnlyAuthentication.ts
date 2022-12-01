@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Azure Active Directory only authentication.
  */
 export function getManagedInstanceAzureADOnlyAuthentication(args: GetManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceAzureADOnlyAuthenticationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20220201preview:getManagedInstanceAzureADOnlyAuthentication", {
         "authenticationName": args.authenticationName,
         "managedInstanceName": args.managedInstanceName,

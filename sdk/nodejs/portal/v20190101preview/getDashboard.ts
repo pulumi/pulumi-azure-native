@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The shared dashboard resource definition.
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:portal/v20190101preview:getDashboard", {
         "dashboardName": args.dashboardName,
         "resourceGroupName": args.resourceGroupName,

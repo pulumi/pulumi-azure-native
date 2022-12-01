@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The key-value resource along with all resource properties.
  */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20200701preview:getKeyValue", {
         "configStoreName": args.configStoreName,
         "keyValueName": args.keyValueName,

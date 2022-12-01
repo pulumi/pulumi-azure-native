@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
  */
 export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20160801:listWebAppAuthSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

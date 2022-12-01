@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * On-premise IoT sensor
  */
 export function getOnPremiseSensor(args: GetOnPremiseSensorArgs, opts?: pulumi.InvokeOptions): Promise<GetOnPremiseSensorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:iotsecurity/v20210201preview:getOnPremiseSensor", {
         "onPremiseSensorName": args.onPremiseSensorName,
     }, opts);

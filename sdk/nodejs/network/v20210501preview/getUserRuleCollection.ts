@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Defines the rule collection.
  */
 export function getUserRuleCollection(args: GetUserRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleCollectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210501preview:getUserRuleCollection", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB container.
  */
 export function getSqlResourceSqlContainer(args: GetSqlResourceSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlContainerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20210115:getSqlResourceSqlContainer", {
         "accountName": args.accountName,
         "containerName": args.containerName,

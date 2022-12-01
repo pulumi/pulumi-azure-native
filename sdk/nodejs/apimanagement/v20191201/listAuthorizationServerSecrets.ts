@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
  */
 export function listAuthorizationServerSecrets(args: ListAuthorizationServerSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListAuthorizationServerSecretsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:listAuthorizationServerSecrets", {
         "authsid": args.authsid,
         "resourceGroupName": args.resourceGroupName,

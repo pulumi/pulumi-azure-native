@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01.
  */
 export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontDoorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getFrontDoor", {
         "frontDoorName": args.frontDoorName,
         "resourceGroupName": args.resourceGroupName,

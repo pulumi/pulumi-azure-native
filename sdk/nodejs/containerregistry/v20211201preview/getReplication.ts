@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An object that represents a replication for a container registry.
  */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20211201preview:getReplication", {
         "registryName": args.registryName,
         "replicationName": args.replicationName,

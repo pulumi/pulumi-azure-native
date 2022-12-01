@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response of a list VM Host Update Operation.
  */
 export function listMonitorVMHosts(args: ListMonitorVMHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorVMHostsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz/v20220101preview:listMonitorVMHosts", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

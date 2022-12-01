@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Collection of the consortium payload.
  */
 export function listLocationConsortiums(args: ListLocationConsortiumsArgs, opts?: pulumi.InvokeOptions): Promise<ListLocationConsortiumsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blockchain/v20180601preview:listLocationConsortiums", {
         "locationName": args.locationName,
     }, opts);

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents AATP (Azure Advanced Threat Protection) data connector.
  */
 export function getAATPDataConnector(args: GetAATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAATPDataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getAATPDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

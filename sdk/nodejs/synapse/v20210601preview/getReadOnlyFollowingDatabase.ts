@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Class representing a read only following database.
  */
 export function getReadOnlyFollowingDatabase(args: GetReadOnlyFollowingDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadOnlyFollowingDatabaseResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getReadOnlyFollowingDatabase", {
         "databaseName": args.databaseName,
         "kustoPoolName": args.kustoPoolName,

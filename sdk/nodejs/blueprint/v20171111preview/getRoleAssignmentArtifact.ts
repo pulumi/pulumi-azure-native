@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Blueprint artifact applies Azure role assignment.
  */
 export function getRoleAssignmentArtifact(args: GetRoleAssignmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentArtifactResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint/v20171111preview:getRoleAssignmentArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

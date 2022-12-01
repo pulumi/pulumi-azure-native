@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Application Insights private workbook definition.
  */
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20201020:getMyWorkbook", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

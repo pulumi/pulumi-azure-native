@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-10-01 will be removed in v2 of the provider. */
 export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredPrefixResult> {
     pulumi.log.warn("getRegisteredPrefix is deprecated: Version 2020-10-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:peering/v20201001:getRegisteredPrefix", {
         "peeringName": args.peeringName,
         "registeredPrefixName": args.registeredPrefixName,

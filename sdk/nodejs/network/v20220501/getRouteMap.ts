@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The RouteMap child resource of a Virtual hub.
  */
 export function getRouteMap(args: GetRouteMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteMapResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220501:getRouteMap", {
         "resourceGroupName": args.resourceGroupName,
         "routeMapName": args.routeMapName,

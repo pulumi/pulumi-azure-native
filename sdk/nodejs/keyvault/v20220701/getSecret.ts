@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Resource information with extended details.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:keyvault/v20220701:getSecret", {
         "resourceGroupName": args.resourceGroupName,
         "secretName": args.secretName,

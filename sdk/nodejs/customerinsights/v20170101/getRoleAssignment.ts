@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
     pulumi.log.warn("getRoleAssignment is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getRoleAssignment", {
         "assignmentName": args.assignmentName,
         "hubName": args.hubName,

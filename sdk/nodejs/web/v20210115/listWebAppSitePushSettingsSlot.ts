@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Push settings for the App.
  */
 export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210115:listWebAppSitePushSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getArtifactSourceResource(args: GetArtifactSourceResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResourceResult> {
     pulumi.log.warn("getArtifactSourceResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20150521preview:getArtifactSourceResource", {
         "labName": args.labName,
         "name": args.name,

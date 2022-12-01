@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     pulumi.log.warn("getNamespace is deprecated: Version 2016-07-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:relay/v20160701:getNamespace", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

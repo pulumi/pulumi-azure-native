@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The response to an enumeration operation on sub-resources.
  */
 export function listDnsResolverByVirtualNetwork(args: ListDnsResolverByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsResolverByVirtualNetworkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220701:listDnsResolverByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,
         "top": args.top,

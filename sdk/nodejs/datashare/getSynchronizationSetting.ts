@@ -14,8 +14,11 @@ import * as utilities from "../utilities";
 /** @deprecated Please use one of the variants: ScheduledSynchronizationSetting. */
 export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynchronizationSettingResult> {
     pulumi.log.warn("getSynchronizationSetting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare:getSynchronizationSetting", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

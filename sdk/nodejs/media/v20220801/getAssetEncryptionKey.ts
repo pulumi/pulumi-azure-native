@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Data needed to decrypt asset files encrypted with legacy storage encryption.
  */
 export function getAssetEncryptionKey(args: GetAssetEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEncryptionKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20220801:getAssetEncryptionKey", {
         "accountName": args.accountName,
         "assetName": args.assetName,

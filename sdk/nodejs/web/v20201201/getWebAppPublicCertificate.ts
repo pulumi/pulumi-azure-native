@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Public certificate object
  */
 export function getWebAppPublicCertificate(args: GetWebAppPublicCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20201201:getWebAppPublicCertificate", {
         "name": args.name,
         "publicCertificateName": args.publicCertificateName,

@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     pulumi.log.warn("getStorageAccount is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20190801:getStorageAccount", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

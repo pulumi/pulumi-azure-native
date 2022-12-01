@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The QueueStatus of Agent Pool
  */
 export function listAgentPoolQueueStatus(args: ListAgentPoolQueueStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListAgentPoolQueueStatusResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus", {
         "agentPoolName": args.agentPoolName,
         "registryName": args.registryName,

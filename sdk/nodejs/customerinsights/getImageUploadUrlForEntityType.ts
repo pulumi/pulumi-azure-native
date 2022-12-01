@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-26.
  */
 export function getImageUploadUrlForEntityType(args: GetImageUploadUrlForEntityTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForEntityTypeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights:getImageUploadUrlForEntityType", {
         "entityType": args.entityType,
         "entityTypeName": args.entityTypeName,

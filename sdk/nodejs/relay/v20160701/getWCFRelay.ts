@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
     pulumi.log.warn("getWCFRelay is deprecated: Version 2016-07-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:relay/v20160701:getWCFRelay", {
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

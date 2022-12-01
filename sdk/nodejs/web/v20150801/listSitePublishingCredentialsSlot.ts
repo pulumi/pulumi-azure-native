@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Represents user credentials used for publishing activity
  */
 export function listSitePublishingCredentialsSlot(args: ListSitePublishingCredentialsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListSitePublishingCredentialsSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSitePublishingCredentialsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

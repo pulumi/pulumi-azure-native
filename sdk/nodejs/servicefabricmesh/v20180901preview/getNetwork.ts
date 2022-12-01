@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * This type describes a network resource.
  */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getNetwork", {
         "networkResourceName": args.networkResourceName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents Anomaly Security ML Analytics Settings
  */
 export function getAnomalySecurityMLAnalyticsSettings(args: GetAnomalySecurityMLAnalyticsSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalySecurityMLAnalyticsSettingsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801preview:getAnomalySecurityMLAnalyticsSettings", {
         "resourceGroupName": args.resourceGroupName,
         "settingsResourceName": args.settingsResourceName,

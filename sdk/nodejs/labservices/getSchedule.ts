@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-01-preview.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices:getSchedule", {
         "labName": args.labName,
         "resourceGroupName": args.resourceGroupName,

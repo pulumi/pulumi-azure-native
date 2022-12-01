@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Definition of the watcher type.
  */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20190601:getWatcher", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,

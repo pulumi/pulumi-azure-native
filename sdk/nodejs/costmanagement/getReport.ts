@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-08-01-preview.
  */
 export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:costmanagement:getReport", {
         "reportName": args.reportName,
     }, opts);

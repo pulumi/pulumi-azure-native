@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * ExpressRoutePort resource definition.
  */
 export function getExpressRoutePort(args: GetExpressRoutePortArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20190601:getExpressRoutePort", {
         "expressRoutePortName": args.expressRoutePortName,
         "resourceGroupName": args.resourceGroupName,

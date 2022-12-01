@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-08-01.
  */
 export function listServerGatewayStatus(args: ListServerGatewayStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListServerGatewayStatusResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:analysisservices:listServerGatewayStatus", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

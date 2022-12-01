@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents Codeless UI data connector.
  */
 export function getCodelessUiDataConnector(args: GetCodelessUiDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCodelessUiDataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220101preview:getCodelessUiDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

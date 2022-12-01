@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents a Watchlist in Azure Security Insights.
  */
 export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221101preview:getWatchlist", {
         "resourceGroupName": args.resourceGroupName,
         "watchlistAlias": args.watchlistAlias,

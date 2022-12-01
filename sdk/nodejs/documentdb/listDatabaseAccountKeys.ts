@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-15.
  */
 export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:listDatabaseAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

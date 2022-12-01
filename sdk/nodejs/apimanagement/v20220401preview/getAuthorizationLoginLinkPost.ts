@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Authorization login response contract.
  */
 export function getAuthorizationLoginLinkPost(args: GetAuthorizationLoginLinkPostArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationLoginLinkPostResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getAuthorizationLoginLinkPost", {
         "authorizationId": args.authorizationId,
         "authorizationProviderId": args.authorizationProviderId,

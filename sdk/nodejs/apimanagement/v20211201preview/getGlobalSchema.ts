@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Global Schema Contract details.
  */
 export function getGlobalSchema(args: GetGlobalSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalSchemaResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20211201preview:getGlobalSchema", {
         "resourceGroupName": args.resourceGroupName,
         "schemaId": args.schemaId,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Access Review History Definition.
  */
 export function getAccessReviewHistoryDefinitionById(args: GetAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewHistoryDefinitionByIdResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20211201preview:getAccessReviewHistoryDefinitionById", {
         "historyDefinitionId": args.historyDefinitionId,
     }, opts);

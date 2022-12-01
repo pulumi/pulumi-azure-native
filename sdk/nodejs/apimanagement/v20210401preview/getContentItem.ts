@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Content type contract details.
  */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210401preview:getContentItem", {
         "contentItemId": args.contentItemId,
         "contentTypeId": args.contentTypeId,

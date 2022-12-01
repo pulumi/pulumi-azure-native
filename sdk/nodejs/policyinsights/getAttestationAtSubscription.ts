@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function getAttestationAtSubscription(args: GetAttestationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtSubscriptionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:policyinsights:getAttestationAtSubscription", {
         "attestationName": args.attestationName,
     }, opts);

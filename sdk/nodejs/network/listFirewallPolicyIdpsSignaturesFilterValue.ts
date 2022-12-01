@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-01-01.
  */
 export function listFirewallPolicyIdpsSignaturesFilterValue(args: ListFirewallPolicyIdpsSignaturesFilterValueArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", {
         "filterName": args.filterName,
         "firewallPolicyName": args.firewallPolicyName,

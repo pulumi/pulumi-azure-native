@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Describes a federated identity credential.
  */
 export function getFederatedIdentityCredential(args: GetFederatedIdentityCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIdentityCredentialResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:managedidentity/v20220131preview:getFederatedIdentityCredential", {
         "federatedIdentityCredentialResourceName": args.federatedIdentityCredentialResourceName,
         "resourceGroupName": args.resourceGroupName,

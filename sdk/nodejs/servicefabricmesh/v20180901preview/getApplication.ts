@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * This type describes an application resource.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getApplication", {
         "applicationResourceName": args.applicationResourceName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Result of the Get delivery attributes operation.
  */
 export function getEventSubscriptionDeliveryAttributes(args: GetEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionDeliveryAttributesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getEventSubscriptionDeliveryAttributes", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,

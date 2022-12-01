@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01.
  */
 export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceEdgePoliciesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,
         "deviceId": args.deviceId,

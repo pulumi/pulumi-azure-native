@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getBlobContainerDataSet(args: GetBlobContainerDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare:getBlobContainerDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

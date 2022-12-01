@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01-preview.
  */
 export function getEncryptionProtector(args: GetEncryptionProtectorArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionProtectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getEncryptionProtector", {
         "encryptionProtectorName": args.encryptionProtectorName,
         "resourceGroupName": args.resourceGroupName,

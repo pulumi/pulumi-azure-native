@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Class representing an attached database configuration.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20200918:getAttachedDatabaseConfiguration", {
         "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
         "clusterName": args.clusterName,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn:getCustomDomain", {
         "customDomainName": args.customDomainName,
         "endpointName": args.endpointName,

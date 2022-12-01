@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Network default admin rule.
  */
 export function getDefaultAdminRule(args: GetDefaultAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultAdminRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220501:getDefaultAdminRule", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

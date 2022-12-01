@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Action for alert rule.
  */
 export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Promise<GetActionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801:getAction", {
         "actionId": args.actionId,
         "resourceGroupName": args.resourceGroupName,

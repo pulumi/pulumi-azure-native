@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The response of a list operation.
  */
 export function listScheduleApplicable(args: ListScheduleApplicableArgs, opts?: pulumi.InvokeOptions): Promise<ListScheduleApplicableResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:listScheduleApplicable", {
         "labName": args.labName,
         "name": args.name,

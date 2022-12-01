@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Azure storage blob folder data set.
  */
 export function getBlobFolderDataSet(args: GetBlobFolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobFolderDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20200901:getBlobFolderDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

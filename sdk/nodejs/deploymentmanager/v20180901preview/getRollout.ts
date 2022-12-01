@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
 export function getRollout(args: GetRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetRolloutResult> {
     pulumi.log.warn("getRollout is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20180901preview:getRollout", {
         "resourceGroupName": args.resourceGroupName,
         "retryAttempt": args.retryAttempt,

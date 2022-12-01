@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A database data masking policy.
  */
 export function getDataMaskingPolicy(args: GetDataMaskingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDataMaskingPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20220501preview:getDataMaskingPolicy", {
         "dataMaskingPolicyName": args.dataMaskingPolicyName,
         "databaseName": args.databaseName,

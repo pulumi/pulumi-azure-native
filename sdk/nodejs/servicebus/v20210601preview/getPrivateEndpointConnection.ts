@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Properties of the PrivateEndpointConnection.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicebus/v20210601preview:getPrivateEndpointConnection", {
         "namespaceName": args.namespaceName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The privateStore offer data structure.
  */
 export function getPrivateStoreOffer(args: GetPrivateStoreOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreOfferResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:marketplace/v20200101:getPrivateStoreOffer", {
         "offerId": args.offerId,
         "privateStoreId": args.privateStoreId,

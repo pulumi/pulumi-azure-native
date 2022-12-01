@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A server key.
  */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210201preview:getServerKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

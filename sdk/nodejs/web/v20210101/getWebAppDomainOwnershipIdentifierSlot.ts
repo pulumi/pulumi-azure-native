@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A domain specific resource identifier.
  */
 export function getWebAppDomainOwnershipIdentifierSlot(args: GetWebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210101:getWebAppDomainOwnershipIdentifierSlot", {
         "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
         "name": args.name,

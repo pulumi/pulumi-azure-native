@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Event Subscription
  */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200601:getEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,

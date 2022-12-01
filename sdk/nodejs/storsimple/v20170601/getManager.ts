@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The StorSimple Manager.
  */
 export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getManager", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

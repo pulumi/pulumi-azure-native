@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Status Details of the long running operation for an environment
  */
 export function getGlobalUserOperationStatus(args: GetGlobalUserOperationStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationStatusResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getGlobalUserOperationStatus", {
         "operationUrl": args.operationUrl,
         "userName": args.userName,

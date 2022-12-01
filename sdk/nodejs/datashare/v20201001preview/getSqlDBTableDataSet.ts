@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A SQL DB table data set.
  */
 export function getSqlDBTableDataSet(args: GetSqlDBTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDBTableDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getSqlDBTableDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

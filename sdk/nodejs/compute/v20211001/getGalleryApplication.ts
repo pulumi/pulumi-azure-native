@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Specifies information about the gallery Application Definition that you want to create or update.
  */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20211001:getGalleryApplication", {
         "galleryApplicationName": args.galleryApplicationName,
         "galleryName": args.galleryName,

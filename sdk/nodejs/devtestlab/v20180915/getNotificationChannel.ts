@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A notification.
  */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getNotificationChannel", {
         "expand": args.expand,
         "labName": args.labName,

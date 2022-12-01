@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Define the cluster.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

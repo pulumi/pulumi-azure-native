@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-03-01-beta.
  */
 export function listSaasResourceAccessToken(args: ListSaasResourceAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasResourceAccessTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:saas:listSaasResourceAccessToken", {
         "resourceId": args.resourceId,
     }, opts);

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes a DNS zone.
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20180501:getZone", {
         "resourceGroupName": args.resourceGroupName,
         "zoneName": args.zoneName,

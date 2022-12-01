@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Machine Learning dataset object wrapped into ARM resource envelope.
  */
 export function getMachineLearningDataset(args: GetMachineLearningDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatasetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", {
         "datasetName": args.datasetName,
         "resourceGroupName": args.resourceGroupName,

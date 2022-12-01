@@ -8,8 +8,11 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getPrivateLinkAssociation(args: GetPrivateLinkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAssociationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20200501:getPrivateLinkAssociation", {
         "groupId": args.groupId,
         "plaId": args.plaId,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-01-01-preview.
  */
 export function getEntitiesGetTimeline(args: GetEntitiesGetTimelineArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitiesGetTimelineResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getEntitiesGetTimeline", {
         "endTime": args.endTime,
         "entityId": args.entityId,

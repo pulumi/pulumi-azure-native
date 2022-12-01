@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Class representing a Traffic Manager profile.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

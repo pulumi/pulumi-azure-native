@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A Kusto database data set mapping
  */
 export function getKustoTableDataSetMapping(args: GetKustoTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoTableDataSetMappingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getKustoTableDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,

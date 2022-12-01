@@ -9,8 +9,11 @@ import * as utilities from "../../utilities";
  */
 export function listQnAMakerEndpointKey(args?: ListQnAMakerEndpointKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListQnAMakerEndpointKeyResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:botservice/v20220615preview:listQnAMakerEndpointKey", {
         "authkey": args.authkey,
         "hostname": args.hostname,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The result of get log link operation.
  */
 export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRunLogSasUrlResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180901:listRunLogSasUrl", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

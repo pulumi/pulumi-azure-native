@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-08-27.
  */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto:getManagedPrivateEndpoint", {
         "clusterName": args.clusterName,
         "managedPrivateEndpointName": args.managedPrivateEndpointName,

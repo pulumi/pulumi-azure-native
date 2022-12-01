@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-01-preview.
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devhub:getWorkflow", {
         "resourceGroupName": args.resourceGroupName,
         "workflowName": args.workflowName,

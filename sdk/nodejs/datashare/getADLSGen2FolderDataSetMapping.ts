@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getADLSGen2FolderDataSetMapping(args: GetADLSGen2FolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetMappingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare:getADLSGen2FolderDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,

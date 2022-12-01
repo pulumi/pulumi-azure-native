@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The response to a diagnostic services token query.
  */
 export function getDiagnosticServiceTokenReadWrite(args: GetDiagnosticServiceTokenReadWriteArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticServiceTokenReadWriteResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", {
         "resourceUri": args.resourceUri,
     }, opts);

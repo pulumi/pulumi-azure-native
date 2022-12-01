@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * List of virtual network gateway routes
  */
 export function getVirtualNetworkGatewayAdvertisedRoutes(args: GetVirtualNetworkGatewayAdvertisedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20160901:getVirtualNetworkGatewayAdvertisedRoutes", {
         "peer": args.peer,
         "resourceGroupName": args.resourceGroupName,

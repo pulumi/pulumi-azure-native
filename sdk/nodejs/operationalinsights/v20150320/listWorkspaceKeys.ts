@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The shared keys for a workspace.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20150320:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Protection profile details.
  */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220201:getReplicationPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,

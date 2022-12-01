@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Connector model definition
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:costmanagement/v20180801preview:getConnector", {
         "connectorName": args.connectorName,
         "resourceGroupName": args.resourceGroupName,

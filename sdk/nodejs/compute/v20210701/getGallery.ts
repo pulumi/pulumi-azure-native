@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Specifies information about the Shared Image Gallery that you want to create or update.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20210701:getGallery", {
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2014-04-01.
  */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getGeoBackupPolicy", {
         "databaseName": args.databaseName,
         "geoBackupPolicyName": args.geoBackupPolicyName,

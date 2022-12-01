@@ -8,8 +8,11 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getBillingHubServiceFreeHourBalance(args: GetBillingHubServiceFreeHourBalanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingHubServiceFreeHourBalanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getBillingHubServiceFreeHourBalance", {
         "resourceGroupName": args.resourceGroupName,
         "testBaseAccountName": args.testBaseAccountName,

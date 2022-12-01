@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20210601:getBlobContainer", {
         "accountName": args.accountName,
         "containerName": args.containerName,

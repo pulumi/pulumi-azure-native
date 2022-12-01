@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
  */
 export function listVideoStreamingToken(args: ListVideoStreamingTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListVideoStreamingTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

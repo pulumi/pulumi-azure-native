@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A SqlServerInstance.
  */
 export function getSqlServerInstance(args: GetSqlServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20210601preview:getSqlServerInstance", {
         "resourceGroupName": args.resourceGroupName,
         "sqlServerInstanceName": args.sqlServerInstanceName,

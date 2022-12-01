@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The top level storage insight resource container.
  */
 export function getStorageInsightConfig(args: GetStorageInsightConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightConfigResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getStorageInsightConfig", {
         "resourceGroupName": args.resourceGroupName,
         "storageInsightName": args.storageInsightName,

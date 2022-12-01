@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
  */
 export function getPrivateRecordSet(args: GetPrivateRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateRecordSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20200101:getPrivateRecordSet", {
         "privateZoneName": args.privateZoneName,
         "recordType": args.recordType,

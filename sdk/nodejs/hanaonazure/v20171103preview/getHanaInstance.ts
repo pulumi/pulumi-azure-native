@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * HANA instance info on Azure (ARM properties and HANA properties)
  */
 export function getHanaInstance(args: GetHanaInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetHanaInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hanaonazure/v20171103preview:getHanaInstance", {
         "hanaInstanceName": args.hanaInstanceName,
         "resourceGroupName": args.resourceGroupName,

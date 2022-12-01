@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedBlueprintResult> {
     pulumi.log.warn("getPublishedBlueprint is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint/v20171111preview:getPublishedBlueprint", {
         "blueprintName": args.blueprintName,
         "managementGroupName": args.managementGroupName,

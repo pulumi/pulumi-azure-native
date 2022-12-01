@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents the response of a service unit resource.
  */
 export function getServiceUnit(args: GetServiceUnitArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceUnitResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20191101preview:getServiceUnit", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

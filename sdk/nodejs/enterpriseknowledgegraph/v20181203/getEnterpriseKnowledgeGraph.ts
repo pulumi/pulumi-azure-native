@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * EnterpriseKnowledgeGraph resource definition
  */
 export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseKnowledgeGraphResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

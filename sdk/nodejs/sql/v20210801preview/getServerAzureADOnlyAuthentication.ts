@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Azure Active Directory only authentication.
  */
 export function getServerAzureADOnlyAuthentication(args: GetServerAzureADOnlyAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADOnlyAuthenticationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getServerAzureADOnlyAuthentication", {
         "authenticationName": args.authenticationName,
         "resourceGroupName": args.resourceGroupName,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-15-preview.
  */
 export function getPartnerTopic(args: GetPartnerTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid:getPartnerTopic", {
         "partnerTopicName": args.partnerTopicName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Security Standard on a resource
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20210801preview:getStandard", {
         "resourceGroupName": args.resourceGroupName,
         "standardId": args.standardId,

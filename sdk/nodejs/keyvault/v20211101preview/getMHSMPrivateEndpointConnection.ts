@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Private endpoint connection resource.
  */
 export function getMHSMPrivateEndpointConnection(args: GetMHSMPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMHSMPrivateEndpointConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:keyvault/v20211101preview:getMHSMPrivateEndpointConnection", {
         "name": args.name,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

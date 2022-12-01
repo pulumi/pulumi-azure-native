@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * IpAllocation resource.
  */
 export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAllocationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20200701:getIpAllocation", {
         "expand": args.expand,
         "ipAllocationName": args.ipAllocationName,

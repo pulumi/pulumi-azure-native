@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Definition of the Automanage account.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automanage/v20200630preview:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

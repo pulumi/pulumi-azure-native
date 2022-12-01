@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The application resource.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric/v20211101preview:getApplication", {
         "applicationName": args.applicationName,
         "clusterName": args.clusterName,

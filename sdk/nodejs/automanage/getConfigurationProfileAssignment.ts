@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-06-30-preview.
  */
 export function getConfigurationProfileAssignment(args: GetConfigurationProfileAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileAssignmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automanage:getConfigurationProfileAssignment", {
         "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
         "resourceGroupName": args.resourceGroupName,

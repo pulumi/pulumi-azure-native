@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerResult> {
     pulumi.log.warn("getManager is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getManager", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

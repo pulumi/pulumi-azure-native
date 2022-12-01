@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Description of a backup which will be performed
  */
 export function listSiteBackupConfigurationSlot(args: ListSiteBackupConfigurationSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteBackupConfigurationSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteBackupConfigurationSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

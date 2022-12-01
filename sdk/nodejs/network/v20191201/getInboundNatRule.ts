@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Inbound NAT rule of the load balancer.
  */
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20191201:getInboundNatRule", {
         "expand": args.expand,
         "inboundNatRuleName": args.inboundNatRuleName,

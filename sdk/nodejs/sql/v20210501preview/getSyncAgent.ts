@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An Azure SQL Database sync agent.
  */
 export function getSyncAgent(args: GetSyncAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncAgentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210501preview:getSyncAgent", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-03-20 will be removed in v2 of the provider. */
 export function getStorageInsight(args: GetStorageInsightArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightResult> {
     pulumi.log.warn("getStorageInsight is deprecated: Version 2015-03-20 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20150320:getStorageInsight", {
         "resourceGroupName": args.resourceGroupName,
         "storageInsightName": args.storageInsightName,

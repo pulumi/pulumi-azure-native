@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Class of response for listPaths action
  */
 export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorPathsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20180330preview:listStreamingLocatorPaths", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

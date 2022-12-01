@@ -13,8 +13,11 @@ import * as utilities from "../utilities";
  */
 export function getDefenderSetting(args?: GetDefenderSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDefenderSettingResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:iotsecurity:getDefenderSetting", {
     }, opts);
 }

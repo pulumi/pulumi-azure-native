@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-06-01.
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid:getDomainTopic", {
         "domainName": args.domainName,
         "domainTopicName": args.domainTopicName,

@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2014-04-01 will be removed in v2 of the provider. */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
     pulumi.log.warn("getAutoscaleSetting is deprecated: Version 2014-04-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20140401:getAutoscaleSetting", {
         "autoscaleSettingName": args.autoscaleSettingName,
         "resourceGroupName": args.resourceGroupName,

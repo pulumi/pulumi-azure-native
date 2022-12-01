@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-06-05-preview.
  */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:scvmm:getInventoryItem", {
         "inventoryItemName": args.inventoryItemName,
         "resourceGroupName": args.resourceGroupName,

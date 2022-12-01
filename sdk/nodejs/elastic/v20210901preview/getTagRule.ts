@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Capture logs and metrics of Azure resources based on ARM tags.
  */
 export function getTagRule(args: GetTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTagRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:elastic/v20210901preview:getTagRule", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-07-01-preview.
  */
 export function getCassandraResourceCassandraView(args: GetCassandraResourceCassandraViewArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraViewResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getCassandraResourceCassandraView", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,

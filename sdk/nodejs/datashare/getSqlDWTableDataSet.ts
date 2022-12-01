@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getSqlDWTableDataSet(args: GetSqlDWTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDWTableDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare:getSqlDWTableDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

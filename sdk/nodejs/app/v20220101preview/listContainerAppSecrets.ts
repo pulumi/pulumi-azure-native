@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Container App Secrets Collection ARM resource.
  */
 export function listContainerAppSecrets(args: ListContainerAppSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListContainerAppSecretsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app/v20220101preview:listContainerAppSecrets", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

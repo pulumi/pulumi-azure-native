@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
  */
 export function listNamedValue(args: ListNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<ListNamedValueResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201preview:listNamedValue", {
         "namedValueId": args.namedValueId,
         "resourceGroupName": args.resourceGroupName,

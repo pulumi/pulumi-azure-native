@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Migrate project.
  */
 export function getMigrateProjectsControllerMigrateProject(args: GetMigrateProjectsControllerMigrateProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateProjectsControllerMigrateProjectResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", {
         "migrateProjectName": args.migrateProjectName,
         "resourceGroupName": args.resourceGroupName,

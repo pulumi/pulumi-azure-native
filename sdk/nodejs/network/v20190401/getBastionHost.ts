@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Bastion Host resource.
  */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20190401:getBastionHost", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,

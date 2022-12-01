@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function listMonitorMonitoredResources(args: ListMonitorMonitoredResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorMonitoredResourcesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datadog:listMonitorMonitoredResources", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

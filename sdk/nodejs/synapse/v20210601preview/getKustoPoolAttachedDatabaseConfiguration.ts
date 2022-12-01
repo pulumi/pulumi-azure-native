@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Class representing an attached database configuration.
  */
 export function getKustoPoolAttachedDatabaseConfiguration(args: GetKustoPoolAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolAttachedDatabaseConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getKustoPoolAttachedDatabaseConfiguration", {
         "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
         "kustoPoolName": args.kustoPoolName,

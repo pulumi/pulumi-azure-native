@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A database security alert policy.
  */
 export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseSecurityAlertPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20180601preview:getDatabaseSecurityAlertPolicy", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents MicrosoftSecurityIncidentCreation rule.
  */
 export function getMicrosoftSecurityIncidentCreationAlertRule(args: GetMicrosoftSecurityIncidentCreationAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220901preview:getMicrosoftSecurityIncidentCreationAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

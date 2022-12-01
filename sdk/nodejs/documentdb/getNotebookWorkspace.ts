@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-15.
  */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getNotebookWorkspace", {
         "accountName": args.accountName,
         "notebookWorkspaceName": args.notebookWorkspaceName,

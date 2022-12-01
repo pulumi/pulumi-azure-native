@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-10-01.
  */
 export function listMonitorUserRoles(args: ListMonitorUserRolesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorUserRolesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz:listMonitorUserRoles", {
         "emailAddress": args.emailAddress,
         "monitorName": args.monitorName,

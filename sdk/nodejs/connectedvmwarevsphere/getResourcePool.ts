@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-10-01-preview.
  */
 export function getResourcePool(args: GetResourcePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere:getResourcePool", {
         "resourceGroupName": args.resourceGroupName,
         "resourcePoolName": args.resourcePoolName,

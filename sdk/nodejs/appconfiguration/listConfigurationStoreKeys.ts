@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-06-01.
  */
 export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appconfiguration:listConfigurationStoreKeys", {
         "configStoreName": args.configStoreName,
         "resourceGroupName": args.resourceGroupName,

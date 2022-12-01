@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-02-01-preview.
  */
 export function getComponentVersion(args: GetComponentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentVersionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getComponentVersion", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

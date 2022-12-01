@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The device security group resource
  */
 export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceSecurityGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20170801preview:getDeviceSecurityGroup", {
         "deviceSecurityGroupName": args.deviceSecurityGroupName,
         "resourceId": args.resourceId,

@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     pulumi.log.warn("getPool is deprecated: Version 2020-05-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:netapp/v20200501:getPool", {
         "accountName": args.accountName,
         "poolName": args.poolName,

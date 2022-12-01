@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Configures how to correlate scan data and logs with resources associated with the subscription.
  */
 export function listIngestionSettingTokens(args: ListIngestionSettingTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListIngestionSettingTokensResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20210115preview:listIngestionSettingTokens", {
         "ingestionSettingName": args.ingestionSettingName,
     }, opts);

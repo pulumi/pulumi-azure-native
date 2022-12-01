@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Domain ownership Identifier.
  */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:domainregistration/v20220301:getDomainOwnershipIdentifier", {
         "domainName": args.domainName,
         "name": args.name,

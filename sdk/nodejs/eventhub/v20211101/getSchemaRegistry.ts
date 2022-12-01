@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Schema Group operation
  */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventhub/v20211101:getSchemaRegistry", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

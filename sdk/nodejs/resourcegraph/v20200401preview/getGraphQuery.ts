@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Graph Query entity definition.
  */
 export function getGraphQuery(args: GetGraphQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQueryResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resourcegraph/v20200401preview:getGraphQuery", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

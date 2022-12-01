@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Customer creates a contact resource for a spacecraft resource.
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:orbital/v20210404preview:getContact", {
         "contactName": args.contactName,
         "resourceGroupName": args.resourceGroupName,

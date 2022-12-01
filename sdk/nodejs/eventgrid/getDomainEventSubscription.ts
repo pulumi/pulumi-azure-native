@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-15-preview.
  */
 export function getDomainEventSubscription(args: GetDomainEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainEventSubscriptionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid:getDomainEventSubscription", {
         "domainName": args.domainName,
         "eventSubscriptionName": args.eventSubscriptionName,

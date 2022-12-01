@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-12-31 will be removed in v2 of the provider. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     pulumi.log.warn("getEndpoint is deprecated: Version 2019-12-31 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20191231:getEndpoint", {
         "endpointName": args.endpointName,
         "profileName": args.profileName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The result of get log link operation.
  */
 export function getBuildLogLink(args: GetBuildLogLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildLogLinkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:getBuildLogLink", {
         "buildId": args.buildId,
         "registryName": args.registryName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Event Channel.
  */
 export function getEventChannel(args: GetEventChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEventChannelResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200401preview:getEventChannel", {
         "eventChannelName": args.eventChannelName,
         "partnerNamespaceName": args.partnerNamespaceName,

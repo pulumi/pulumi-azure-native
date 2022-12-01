@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Api Version Set Contract details.
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20190101:getApiVersionSet", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

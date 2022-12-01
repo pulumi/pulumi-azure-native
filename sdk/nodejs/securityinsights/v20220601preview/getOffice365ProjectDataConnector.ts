@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents Office Microsoft Project data connector.
  */
 export function getOffice365ProjectDataConnector(args: GetOffice365ProjectDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOffice365ProjectDataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220601preview:getOffice365ProjectDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

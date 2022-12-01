@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
 export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationNetworkMappingResult> {
     pulumi.log.warn("getReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20180110:getReplicationNetworkMapping", {
         "fabricName": args.fabricName,
         "networkMappingName": args.networkMappingName,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getADLSGen1FolderDataSet(args: GetADLSGen1FolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen1FolderDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare:getADLSGen1FolderDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

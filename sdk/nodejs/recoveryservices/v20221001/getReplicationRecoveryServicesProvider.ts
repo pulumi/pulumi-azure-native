@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Provider details.
  */
 export function getReplicationRecoveryServicesProvider(args: GetReplicationRecoveryServicesProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryServicesProviderResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20221001:getReplicationRecoveryServicesProvider", {
         "fabricName": args.fabricName,
         "providerName": args.providerName,

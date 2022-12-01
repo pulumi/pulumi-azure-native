@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
  */
 export function getBuildTask(args: GetBuildTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildTaskResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:getBuildTask", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,

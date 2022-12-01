@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01.
  */
 export function getAccountFilter(args: GetAccountFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountFilterResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media:getAccountFilter", {
         "accountName": args.accountName,
         "filterName": args.filterName,

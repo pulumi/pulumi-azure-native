@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
     pulumi.log.warn("getPolicyDefinition is deprecated: Version 2016-04-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20160401:getPolicyDefinition", {
         "policyDefinitionName": args.policyDefinitionName,
     }, opts);

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response for Volume request.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:elasticsan/v20211120preview:getVolume", {
         "elasticSanName": args.elasticSanName,
         "resourceGroupName": args.resourceGroupName,

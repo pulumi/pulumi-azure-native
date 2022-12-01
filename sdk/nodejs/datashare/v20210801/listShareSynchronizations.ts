@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * List response for get ShareSynchronization.
  */
 export function listShareSynchronizations(args: ListShareSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSynchronizationsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:listShareSynchronizations", {
         "accountName": args.accountName,
         "filter": args.filter,

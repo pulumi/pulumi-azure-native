@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSettingsAssociation(args: GetGuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingsAssociationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights:getGuestDiagnosticsSettingsAssociation", {
         "associationName": args.associationName,
         "resourceUri": args.resourceUri,

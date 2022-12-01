@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-03-20.
  */
 export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateCloudAdminCredentialsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs:listPrivateCloudAdminCredentials", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

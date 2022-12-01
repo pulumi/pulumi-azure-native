@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * App Service plan.
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20201201:getAppServicePlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

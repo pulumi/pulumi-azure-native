@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A manifest file that defines the custom resource provider resources.
  */
 export function getCustomResourceProvider(args: GetCustomResourceProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceProviderResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customproviders/v20180901preview:getCustomResourceProvider", {
         "resourceGroupName": args.resourceGroupName,
         "resourceProviderName": args.resourceProviderName,

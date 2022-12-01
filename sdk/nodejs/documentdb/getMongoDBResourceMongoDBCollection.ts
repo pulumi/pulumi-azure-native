@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-15.
  */
 export function getMongoDBResourceMongoDBCollection(args: GetMongoDBResourceMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBCollectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getMongoDBResourceMongoDBCollection", {
         "accountName": args.accountName,
         "collectionName": args.collectionName,

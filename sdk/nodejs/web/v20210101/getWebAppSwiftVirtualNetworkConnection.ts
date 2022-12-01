@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
  */
 export function getWebAppSwiftVirtualNetworkConnection(args: GetWebAppSwiftVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210101:getWebAppSwiftVirtualNetworkConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

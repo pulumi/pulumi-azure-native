@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The backup policy.
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getBackupPolicy", {
         "backupPolicyName": args.backupPolicyName,
         "deviceName": args.deviceName,

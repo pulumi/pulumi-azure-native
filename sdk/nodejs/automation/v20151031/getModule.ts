@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Definition of the module type.
  */
 export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20151031:getModule", {
         "automationAccountName": args.automationAccountName,
         "moduleName": args.moduleName,

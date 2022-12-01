@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-05-01-preview.
  */
 export function listVideoStreamingToken(args: ListVideoStreamingTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListVideoStreamingTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer:listVideoStreamingToken", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

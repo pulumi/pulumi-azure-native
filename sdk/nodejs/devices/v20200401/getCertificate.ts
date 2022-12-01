@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The X509 Certificate.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devices/v20200401:getCertificate", {
         "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,

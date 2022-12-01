@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A sensitivity label.
  */
 export function getManagedDatabaseSensitivityLabel(args: GetManagedDatabaseSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseSensitivityLabelResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getManagedDatabaseSensitivityLabel", {
         "columnName": args.columnName,
         "databaseName": args.databaseName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents the PersonalPreferences for the user
  */
 export function getGlobalUserPersonalPreferences(args: GetGlobalUserPersonalPreferencesArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserPersonalPreferencesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", {
         "addRemove": args.addRemove,
         "labAccountResourceId": args.labAccountResourceId,

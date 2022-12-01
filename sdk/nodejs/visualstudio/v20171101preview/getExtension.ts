@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The response to an extension resource GET request.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:visualstudio/v20171101preview:getExtension", {
         "accountResourceName": args.accountResourceName,
         "extensionResourceName": args.extensionResourceName,

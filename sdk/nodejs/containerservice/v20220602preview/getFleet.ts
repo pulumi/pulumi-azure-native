@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Fleet resource which contains multiple Kubernetes clusters as its members.
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerservice/v20220602preview:getFleet", {
         "fleetName": args.fleetName,
         "resourceGroupName": args.resourceGroupName,

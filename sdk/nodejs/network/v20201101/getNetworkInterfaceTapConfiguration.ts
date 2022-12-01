@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Tap configuration in a Network Interface.
  */
 export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTapConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceTapConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20201101:getNetworkInterfaceTapConfiguration", {
         "networkInterfaceName": args.networkInterfaceName,
         "resourceGroupName": args.resourceGroupName,

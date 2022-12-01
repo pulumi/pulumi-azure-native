@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01-preview.
  */
 export function getServerDnsAlias(args: GetServerDnsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDnsAliasResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getServerDnsAlias", {
         "dnsAliasName": args.dnsAliasName,
         "resourceGroupName": args.resourceGroupName,

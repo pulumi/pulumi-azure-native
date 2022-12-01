@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-11-01.
  */
 export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:listWebAppHybridConnectionKeys", {
         "name": args.name,
         "namespaceName": args.namespaceName,

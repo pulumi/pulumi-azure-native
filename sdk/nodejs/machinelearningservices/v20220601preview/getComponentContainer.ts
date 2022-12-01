@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getComponentContainer(args: GetComponentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentContainerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220601preview:getComponentContainer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Schedule for automatically turning virtual machines in a lab on and off at specified times.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices/v20211115preview:getSchedule", {
         "labName": args.labName,
         "resourceGroupName": args.resourceGroupName,

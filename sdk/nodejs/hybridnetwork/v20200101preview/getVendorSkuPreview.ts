@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Customer subscription which can use a sku.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20200101preview:getVendorSkuPreview", {
         "previewSubscription": args.previewSubscription,
         "skuName": args.skuName,

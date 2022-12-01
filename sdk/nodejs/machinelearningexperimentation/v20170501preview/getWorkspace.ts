@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An object that represents a machine learning team account workspace.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningexperimentation/v20170501preview:getWorkspace", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

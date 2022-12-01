@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An Application Insights component linked storage accounts
  */
 export function getComponentLinkedStorageAccount(args: GetComponentLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentLinkedStorageAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

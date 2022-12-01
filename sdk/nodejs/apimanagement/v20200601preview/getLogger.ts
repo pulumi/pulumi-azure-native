@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Logger details.
  */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getLogger", {
         "loggerId": args.loggerId,
         "resourceGroupName": args.resourceGroupName,

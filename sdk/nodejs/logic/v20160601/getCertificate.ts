@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The integration account certificate.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getCertificate", {
         "certificateName": args.certificateName,
         "integrationAccountName": args.integrationAccountName,

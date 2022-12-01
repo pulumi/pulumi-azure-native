@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An API collection as represented by Defender for APIs.
  */
 export function getAPICollection(args: GetAPICollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAPICollectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20221120preview:getAPICollection", {
         "apiCollectionId": args.apiCollectionId,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Deployment information.
  */
 export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtScopeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20190801:getDeploymentAtScope", {
         "deploymentName": args.deploymentName,
         "scope": args.scope,

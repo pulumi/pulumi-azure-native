@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Base definition for datastore secrets.
  */
 export function listDatastoreSecrets(args: ListDatastoreSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatastoreSecretsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220601preview:listDatastoreSecrets", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

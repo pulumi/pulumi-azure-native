@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-06-01.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation:getSchedule", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,

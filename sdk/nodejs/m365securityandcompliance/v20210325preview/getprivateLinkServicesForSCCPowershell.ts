@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The description of the service.
  */
 export function getprivateLinkServicesForSCCPowershell(args: GetprivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForSCCPowershellResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForSCCPowershell", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

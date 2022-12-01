@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The resource representation of a rollout step.
  */
 export function getStep(args: GetStepArgs, opts?: pulumi.InvokeOptions): Promise<GetStepResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20191101preview:getStep", {
         "resourceGroupName": args.resourceGroupName,
         "stepName": args.stepName,

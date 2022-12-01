@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The response of the GetSsoToken operation.
  */
 export function getApiManagementServiceSsoToken(args: GetApiManagementServiceSsoTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceSsoTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getApiManagementServiceSsoToken", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

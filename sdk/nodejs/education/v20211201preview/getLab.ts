@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Lab details.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:education/v20211201preview:getLab", {
         "billingAccountName": args.billingAccountName,
         "billingProfileName": args.billingProfileName,

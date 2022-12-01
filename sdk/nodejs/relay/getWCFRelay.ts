@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-01.
  */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:relay:getWCFRelay", {
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

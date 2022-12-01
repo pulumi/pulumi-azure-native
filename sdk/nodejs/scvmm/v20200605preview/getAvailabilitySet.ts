@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The AvailabilitySets resource definition.
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:scvmm/v20200605preview:getAvailabilitySet", {
         "availabilitySetName": args.availabilitySetName,
         "resourceGroupName": args.resourceGroupName,

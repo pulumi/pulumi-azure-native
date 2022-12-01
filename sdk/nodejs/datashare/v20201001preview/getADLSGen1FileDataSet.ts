@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An ADLS Gen 1 file data set.
  */
 export function getADLSGen1FileDataSet(args: GetADLSGen1FileDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen1FileDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getADLSGen1FileDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

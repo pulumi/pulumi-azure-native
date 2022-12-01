@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-09-15.
  */
 export function getCustomImage(args: GetCustomImageArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomImageResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab:getCustomImage", {
         "expand": args.expand,
         "labName": args.labName,

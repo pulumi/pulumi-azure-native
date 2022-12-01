@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
  * By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
  */
 export function getCloudEdgeManagementRole(args: GetCloudEdgeManagementRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEdgeManagementRoleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201:getCloudEdgeManagementRole", {
         "deviceName": args.deviceName,
         "name": args.name,

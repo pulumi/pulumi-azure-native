@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
  */
 export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContactProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:orbital/v20220301:getContactProfile", {
         "contactProfileName": args.contactProfileName,
         "resourceGroupName": args.resourceGroupName,

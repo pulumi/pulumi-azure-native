@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Confidential Ledger. Contains the properties of Confidential Ledger Resource.
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:confidentialledger/v20220908preview:getLedger", {
         "ledgerName": args.ledgerName,
         "resourceGroupName": args.resourceGroupName,
