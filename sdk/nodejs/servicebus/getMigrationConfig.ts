@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-01.
  */
 export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationConfigResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicebus:getMigrationConfig", {
         "configName": args.configName,
         "namespaceName": args.namespaceName,

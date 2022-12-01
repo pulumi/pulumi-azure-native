@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
  */
 export function listDnsForwardingRulesetByVirtualNetwork(args: ListDnsForwardingRulesetByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsForwardingRulesetByVirtualNetworkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220701:listDnsForwardingRulesetByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,
         "top": args.top,

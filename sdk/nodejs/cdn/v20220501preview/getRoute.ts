@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Friendly Routes name mapping to the any Routes or secret related information.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20220501preview:getRoute", {
         "endpointName": args.endpointName,
         "profileName": args.profileName,

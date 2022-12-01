@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Security GovernanceRule over a given scope
  */
 export function getSecurityConnectorGovernanceRule(args: GetSecurityConnectorGovernanceRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorGovernanceRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20220101preview:getSecurityConnectorGovernanceRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

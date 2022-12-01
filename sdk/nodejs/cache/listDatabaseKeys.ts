@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache:listDatabaseKeys", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-05-31 will be removed in v2 of the provider. */
 export function getReportConfigByResourceGroupName(args: GetReportConfigByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetReportConfigByResourceGroupNameResult> {
     pulumi.log.warn("getReportConfigByResourceGroupName is deprecated: Version 2018-05-31 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:costmanagement/v20180531:getReportConfigByResourceGroupName", {
         "reportConfigName": args.reportConfigName,
         "resourceGroupName": args.resourceGroupName,

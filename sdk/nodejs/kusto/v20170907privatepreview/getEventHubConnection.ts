@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
 export function getEventHubConnection(args: GetEventHubConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubConnectionResult> {
     pulumi.log.warn("getEventHubConnection is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20170907privatepreview:getEventHubConnection", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

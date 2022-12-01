@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
  */
 export function getManagerEncryptionKey(args: GetManagerEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerEncryptionKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getManagerEncryptionKey", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

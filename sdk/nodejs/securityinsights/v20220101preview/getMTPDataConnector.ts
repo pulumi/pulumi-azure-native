@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents MTP (Microsoft Threat Protection) data connector.
  */
 export function getMTPDataConnector(args: GetMTPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMTPDataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220101preview:getMTPDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

@@ -12,8 +12,11 @@ import * as utilities from "../../utilities";
  * The task will have all information to schedule a run against it.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190401:getTask", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

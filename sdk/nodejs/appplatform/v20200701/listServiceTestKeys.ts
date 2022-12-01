@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Test keys payload
  */
 export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceTestKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20200701:listServiceTestKeys", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

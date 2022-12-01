@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response for list BGP peer status API service call
  */
 export function getVirtualNetworkGatewayBgpPeerStatus(args: GetVirtualNetworkGatewayBgpPeerStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayBgpPeerStatusResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20180601:getVirtualNetworkGatewayBgpPeerStatus", {
         "peer": args.peer,
         "resourceGroupName": args.resourceGroupName,

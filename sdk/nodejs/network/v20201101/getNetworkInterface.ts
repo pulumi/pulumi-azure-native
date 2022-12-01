@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A network interface in a resource group.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20201101:getNetworkInterface", {
         "expand": args.expand,
         "networkInterfaceName": args.networkInterfaceName,

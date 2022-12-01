@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Result of the post subvolume and action is to get metadata of the subvolume.
  */
 export function getSubvolumeMetadata(args: GetSubvolumeMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeMetadataResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:netapp/v20211001:getSubvolumeMetadata", {
         "accountName": args.accountName,
         "poolName": args.poolName,

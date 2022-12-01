@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Class representing a Kusto database.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20180907preview:getDatabase", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

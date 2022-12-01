@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The peering service prefix class.
  */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:peering/v20220601:getPrefix", {
         "expand": args.expand,
         "peeringServiceName": args.peeringServiceName,

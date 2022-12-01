@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2016-03-01.
  */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights:getAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

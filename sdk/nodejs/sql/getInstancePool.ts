@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01-preview.
  */
 export function getInstancePool(args: GetInstancePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancePoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getInstancePool", {
         "instancePoolName": args.instancePoolName,
         "resourceGroupName": args.resourceGroupName,

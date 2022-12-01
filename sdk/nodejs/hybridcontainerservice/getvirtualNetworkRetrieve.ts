@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-05-01-preview.
  */
 export function getvirtualNetworkRetrieve(args: GetvirtualNetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualNetworkRetrieveResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getvirtualNetworkRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworksName": args.virtualNetworksName,

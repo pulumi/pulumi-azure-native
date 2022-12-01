@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Collection of key vault keys.
  */
 export function listIntegrationAccountKeyVaultKeys(args: ListIntegrationAccountKeyVaultKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountKeyVaultKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic/v20190501:listIntegrationAccountKeyVaultKeys", {
         "integrationAccountName": args.integrationAccountName,
         "keyVault": args.keyVault,

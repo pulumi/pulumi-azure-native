@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Volume group resource for create
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:netapp/v20220101:getVolumeGroup", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

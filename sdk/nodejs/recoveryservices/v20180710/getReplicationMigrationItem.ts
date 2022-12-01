@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Migration item.
  */
 export function getReplicationMigrationItem(args: GetReplicationMigrationItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationMigrationItemResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20180710:getReplicationMigrationItem", {
         "fabricName": args.fabricName,
         "migrationItemName": args.migrationItemName,

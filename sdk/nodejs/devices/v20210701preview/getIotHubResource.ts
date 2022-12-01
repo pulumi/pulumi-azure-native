@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The description of the IoT hub.
  */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devices/v20210701preview:getIotHubResource", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

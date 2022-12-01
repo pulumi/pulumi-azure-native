@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Information about JIT request definition.
  */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:solutions/v20200821preview:getJitRequest", {
         "jitRequestName": args.jitRequestName,
         "resourceGroupName": args.resourceGroupName,

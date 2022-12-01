@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
  */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:advisor/v20200101:getSuppression", {
         "name": args.name,
         "recommendationId": args.recommendationId,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * User details.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210801:getUser", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Arc Addon.
  */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200901preview:getArcAddon", {
         "addonName": args.addonName,
         "deviceName": args.deviceName,

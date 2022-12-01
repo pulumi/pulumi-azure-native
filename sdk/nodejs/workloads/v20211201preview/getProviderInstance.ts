@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A provider instance associated with SAP monitor.
  */
 export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getProviderInstance", {
         "monitorName": args.monitorName,
         "providerInstanceName": args.providerInstanceName,

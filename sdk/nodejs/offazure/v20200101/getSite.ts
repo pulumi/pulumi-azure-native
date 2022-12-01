@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Site REST Resource.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:offazure/v20200101:getSite", {
         "resourceGroupName": args.resourceGroupName,
         "siteName": args.siteName,

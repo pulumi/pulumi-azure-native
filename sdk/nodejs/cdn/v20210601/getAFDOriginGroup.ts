@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getAFDOriginGroup", {
         "originGroupName": args.originGroupName,
         "profileName": args.profileName,

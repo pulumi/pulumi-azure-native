@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Class representing a read write database.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20210101:getReadWriteDatabase", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

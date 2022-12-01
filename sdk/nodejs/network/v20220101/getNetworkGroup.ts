@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The network group resource
  */
 export function getNetworkGroup(args: GetNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220101:getNetworkGroup", {
         "networkGroupName": args.networkGroupName,
         "networkManagerName": args.networkManagerName,

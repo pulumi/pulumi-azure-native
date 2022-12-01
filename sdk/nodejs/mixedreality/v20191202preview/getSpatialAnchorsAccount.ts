@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-12-02-preview will be removed in v2 of the provider. */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
     pulumi.log.warn("getSpatialAnchorsAccount is deprecated: Version 2019-12-02-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mixedreality/v20191202preview:getSpatialAnchorsAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

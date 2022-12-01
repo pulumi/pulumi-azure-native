@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-30-preview.
  */
 export function listSqlMigrationServiceMonitoringData(args: ListSqlMigrationServiceMonitoringDataArgs, opts?: pulumi.InvokeOptions): Promise<ListSqlMigrationServiceMonitoringDataResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datamigration:listSqlMigrationServiceMonitoringData", {
         "resourceGroupName": args.resourceGroupName,
         "sqlMigrationServiceName": args.sqlMigrationServiceName,

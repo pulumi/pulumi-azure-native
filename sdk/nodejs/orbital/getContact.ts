@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-04-preview.
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:orbital:getContact", {
         "contactName": args.contactName,
         "resourceGroupName": args.resourceGroupName,

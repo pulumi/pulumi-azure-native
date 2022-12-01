@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A container group.
  */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerinstance/v20210701:getContainerGroup", {
         "containerGroupName": args.containerGroupName,
         "resourceGroupName": args.resourceGroupName,

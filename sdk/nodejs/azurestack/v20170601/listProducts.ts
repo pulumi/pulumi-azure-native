@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Pageable list of products.
  */
 export function listProducts(args: ListProductsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestack/v20170601:listProducts", {
         "productName": args.productName,
         "registrationName": args.registrationName,

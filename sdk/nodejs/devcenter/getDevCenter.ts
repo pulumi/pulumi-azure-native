@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-09-01-preview.
  */
 export function getDevCenter(args: GetDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDevCenterResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devcenter:getDevCenter", {
         "devCenterName": args.devCenterName,
         "resourceGroupName": args.resourceGroupName,

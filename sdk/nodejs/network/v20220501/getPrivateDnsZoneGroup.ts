@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Private dns zone group resource.
  */
 export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsZoneGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220501:getPrivateDnsZoneGroup", {
         "privateDnsZoneGroupName": args.privateDnsZoneGroupName,
         "privateEndpointName": args.privateEndpointName,

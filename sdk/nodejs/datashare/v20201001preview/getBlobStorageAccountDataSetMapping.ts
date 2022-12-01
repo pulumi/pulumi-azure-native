@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A blob storage account data set mapping.
  */
 export function getBlobStorageAccountDataSetMapping(args: GetBlobStorageAccountDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobStorageAccountDataSetMappingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,

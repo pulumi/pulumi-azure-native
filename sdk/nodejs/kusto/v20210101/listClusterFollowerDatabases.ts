@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The list Kusto database principals operation response.
  */
 export function listClusterFollowerDatabases(args: ListClusterFollowerDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterFollowerDatabasesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20210101:listClusterFollowerDatabases", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

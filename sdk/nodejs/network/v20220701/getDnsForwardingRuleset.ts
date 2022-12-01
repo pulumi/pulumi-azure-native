@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes a DNS forwarding ruleset.
  */
 export function getDnsForwardingRuleset(args: GetDnsForwardingRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsForwardingRulesetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220701:getDnsForwardingRuleset", {
         "dnsForwardingRulesetName": args.dnsForwardingRulesetName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Binding resource payload
  */
 export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBindingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220501preview:getBinding", {
         "appName": args.appName,
         "bindingName": args.bindingName,

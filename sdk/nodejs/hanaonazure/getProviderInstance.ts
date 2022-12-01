@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-02-07-preview.
  */
 export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hanaonazure:getProviderInstance", {
         "providerInstanceName": args.providerInstanceName,
         "resourceGroupName": args.resourceGroupName,

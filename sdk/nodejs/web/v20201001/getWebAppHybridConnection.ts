@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
  */
 export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20201001:getWebAppHybridConnection", {
         "name": args.name,
         "namespaceName": args.namespaceName,

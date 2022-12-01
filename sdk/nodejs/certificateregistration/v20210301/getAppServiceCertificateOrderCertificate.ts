@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
  */
 export function getAppServiceCertificateOrderCertificate(args: GetAppServiceCertificateOrderCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderCertificateResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:certificateregistration/v20210301:getAppServiceCertificateOrderCertificate", {
         "certificateOrderName": args.certificateOrderName,
         "name": args.name,

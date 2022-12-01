@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * ArcSetting details.
  */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210101preview:getArcSetting", {
         "arcSettingName": args.arcSettingName,
         "clusterName": args.clusterName,

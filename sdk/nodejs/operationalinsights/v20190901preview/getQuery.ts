@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A Log Analytics QueryPack-Query definition.
  */
 export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20190901preview:getQuery", {
         "id": args.id,
         "queryPackName": args.queryPackName,

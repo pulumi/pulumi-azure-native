@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-09-01-preview.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabricmesh:getSecret", {
         "resourceGroupName": args.resourceGroupName,
         "secretResourceName": args.secretResourceName,

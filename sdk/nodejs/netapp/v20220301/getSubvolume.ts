@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Subvolume Information properties
  */
 export function getSubvolume(args: GetSubvolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:netapp/v20220301:getSubvolume", {
         "accountName": args.accountName,
         "poolName": args.poolName,

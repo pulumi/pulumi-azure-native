@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Dapr Component.
  */
 export function getDaprComponent(args: GetDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprComponentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app/v20220301:getDaprComponent", {
         "componentName": args.componentName,
         "environmentName": args.environmentName,

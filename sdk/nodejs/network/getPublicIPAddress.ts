@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01.
  */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getPublicIPAddress", {
         "expand": args.expand,
         "publicIpAddressName": args.publicIpAddressName,

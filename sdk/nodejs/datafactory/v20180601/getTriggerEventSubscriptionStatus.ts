@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Defines the response of a trigger subscription operation.
  */
 export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscriptionStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerEventSubscriptionStatusResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,

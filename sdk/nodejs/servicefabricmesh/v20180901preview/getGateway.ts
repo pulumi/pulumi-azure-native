@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * This type describes a gateway resource.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getGateway", {
         "gatewayResourceName": args.gatewayResourceName,
         "resourceGroupName": args.resourceGroupName,

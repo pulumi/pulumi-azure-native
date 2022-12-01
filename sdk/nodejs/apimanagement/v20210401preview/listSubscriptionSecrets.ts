@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Subscription keys.
  */
 export function listSubscriptionSecrets(args: ListSubscriptionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubscriptionSecretsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210401preview:listSubscriptionSecrets", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

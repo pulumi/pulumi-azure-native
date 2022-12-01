@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-06-01.
  */
 export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryGitHubAccessTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory:getFactoryGitHubAccessToken", {
         "factoryName": args.factoryName,
         "gitHubAccessCode": args.gitHubAccessCode,

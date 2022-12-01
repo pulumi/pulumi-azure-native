@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Cloud shell console
  */
 export function getConsoleWithLocation(args: GetConsoleWithLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleWithLocationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:portal/v20181001:getConsoleWithLocation", {
         "consoleName": args.consoleName,
         "location": args.location,

@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     pulumi.log.warn("getTable is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20200801preview:getTable", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

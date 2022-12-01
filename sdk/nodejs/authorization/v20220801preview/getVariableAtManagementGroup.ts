@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The variable.
  */
 export function getVariableAtManagementGroup(args: GetVariableAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableAtManagementGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20220801preview:getVariableAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
         "variableName": args.variableName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Type of the Storage Target.
  */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagecache/v20220101:getStorageTarget", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,

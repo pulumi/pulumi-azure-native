@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Describes the list of all possible values for a specific filter value
  */
 export function listFirewallPolicyIdpsSignaturesFilterValue(args: ListFirewallPolicyIdpsSignaturesFilterValueArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210501:listFirewallPolicyIdpsSignaturesFilterValue", {
         "filterName": args.filterName,
         "firewallPolicyName": args.firewallPolicyName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A class representing a Domains resource.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:communication/v20211001preview:getDomain", {
         "domainName": args.domainName,
         "emailServiceName": args.emailServiceName,

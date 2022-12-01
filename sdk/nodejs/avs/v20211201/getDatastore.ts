@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A datastore resource
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getDatastore", {
         "clusterName": args.clusterName,
         "datastoreName": args.datastoreName,

@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
 /** @deprecated Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     pulumi.log.warn("getDatabase is deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto:getDatabase", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

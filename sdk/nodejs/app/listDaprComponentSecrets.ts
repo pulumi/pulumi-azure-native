@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-03-01.
  */
 export function listDaprComponentSecrets(args: ListDaprComponentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDaprComponentSecretsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app:listDaprComponentSecrets", {
         "componentName": args.componentName,
         "environmentName": args.environmentName,

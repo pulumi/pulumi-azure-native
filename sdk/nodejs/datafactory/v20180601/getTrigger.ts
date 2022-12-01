@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Trigger resource type.
  */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getTrigger", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,

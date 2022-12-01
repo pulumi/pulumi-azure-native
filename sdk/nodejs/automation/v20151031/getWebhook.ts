@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Definition of the webhook type.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20151031:getWebhook", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,

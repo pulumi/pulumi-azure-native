@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function listRemoteRenderingAccountKeys(args: ListRemoteRenderingAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRemoteRenderingAccountKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mixedreality:listRemoteRenderingAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

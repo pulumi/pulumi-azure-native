@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-26.
  */
 export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights:getRelationship", {
         "hubName": args.hubName,
         "relationshipName": args.relationshipName,

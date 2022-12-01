@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents a ScalingPlanPooledSchedule definition.
  */
 export function getScalingPlanPooledSchedule(args: GetScalingPlanPooledScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanPooledScheduleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20220909:getScalingPlanPooledSchedule", {
         "resourceGroupName": args.resourceGroupName,
         "scalingPlanName": args.scalingPlanName,

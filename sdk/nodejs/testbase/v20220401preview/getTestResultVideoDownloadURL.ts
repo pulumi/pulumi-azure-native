@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The response of getting a download URL.
  */
 export function getTestResultVideoDownloadURL(args: GetTestResultVideoDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultVideoDownloadURLResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getTestResultVideoDownloadURL", {
         "packageName": args.packageName,
         "resourceGroupName": args.resourceGroupName,

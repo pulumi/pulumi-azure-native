@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A class represent a resource.
  */
 export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:webpubsub/v20220801preview:getWebPubSub", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

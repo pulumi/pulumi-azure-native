@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A formula for creating a VM, specifying an image base and other parameters
  */
 export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): Promise<GetFormulaResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getFormula", {
         "expand": args.expand,
         "labName": args.labName,

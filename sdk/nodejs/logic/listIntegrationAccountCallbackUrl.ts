@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-05-01.
  */
 export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountCallbackUrlResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic:listIntegrationAccountCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,

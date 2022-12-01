@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Network related settings
  */
 export function getNetworkConnection(args: GetNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devcenter/v20221012preview:getNetworkConnection", {
         "networkConnectionName": args.networkConnectionName,
         "resourceGroupName": args.resourceGroupName,

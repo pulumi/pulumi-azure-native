@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * IoT Connector definition.
  */
 export function getIotConnector(args: GetIotConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20220601:getIotConnector", {
         "iotConnectorName": args.iotConnectorName,
         "resourceGroupName": args.resourceGroupName,

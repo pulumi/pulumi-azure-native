@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The top level data export resource container.
  */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200301preview:getDataExport", {
         "dataExportName": args.dataExportName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Appliances definition.
  */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resourceconnector/v20211031preview:getAppliance", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

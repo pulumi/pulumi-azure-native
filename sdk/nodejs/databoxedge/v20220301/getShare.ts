@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents a share on the  Data Box Edge/Gateway device.
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220301:getShare", {
         "deviceName": args.deviceName,
         "name": args.name,

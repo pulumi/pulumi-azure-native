@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The integration account agreement.
  */
 export function getAgreement(args: GetAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetAgreementResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getAgreement", {
         "agreementName": args.agreementName,
         "integrationAccountName": args.integrationAccountName,

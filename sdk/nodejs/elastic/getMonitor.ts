@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-07-01.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:elastic:getMonitor", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

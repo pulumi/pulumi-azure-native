@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The StreamingEndpoint.
  */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20190501preview:getStreamingEndpoint", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

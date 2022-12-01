@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Schema Contract details.
  */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getApiSchema", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,

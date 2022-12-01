@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Get Data Plane read only token response definition.
  */
 export function getFactoryDataPlaneAccess(args: GetFactoryDataPlaneAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryDataPlaneAccessResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", {
         "accessResourcePath": args.accessResourcePath,
         "expireTime": args.expireTime,

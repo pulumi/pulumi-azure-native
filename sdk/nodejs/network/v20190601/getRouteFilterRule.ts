@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Route Filter Rule Resource.
  */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20190601:getRouteFilterRule", {
         "resourceGroupName": args.resourceGroupName,
         "routeFilterName": args.routeFilterName,

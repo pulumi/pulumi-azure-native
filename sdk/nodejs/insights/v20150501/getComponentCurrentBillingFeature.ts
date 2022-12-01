@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Application Insights component billing features
  */
 export function getComponentCurrentBillingFeature(args: GetComponentCurrentBillingFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentCurrentBillingFeatureResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getComponentCurrentBillingFeature", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

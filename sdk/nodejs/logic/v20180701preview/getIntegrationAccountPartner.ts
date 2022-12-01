@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The integration account partner.
  */
 export function getIntegrationAccountPartner(args: GetIntegrationAccountPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountPartnerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic/v20180701preview:getIntegrationAccountPartner", {
         "integrationAccountName": args.integrationAccountName,
         "partnerName": args.partnerName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A SQL server.
  */
 export function getSqlServer(args: GetSqlServerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azuredata/v20190724preview:getSqlServer", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

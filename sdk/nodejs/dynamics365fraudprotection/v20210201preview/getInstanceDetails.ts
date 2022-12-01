@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents an instance of a DFP instance resource.
  */
 export function getInstanceDetails(args: GetInstanceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceDetailsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", {
         "instanceName": args.instanceName,
         "resourceGroupName": args.resourceGroupName,

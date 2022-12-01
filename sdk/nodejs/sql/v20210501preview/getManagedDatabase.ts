@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A managed database resource.
  */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210501preview:getManagedDatabase", {
         "databaseName": args.databaseName,
         "managedInstanceName": args.managedInstanceName,

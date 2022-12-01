@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Test Base Package resource.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getPackage", {
         "packageName": args.packageName,
         "resourceGroupName": args.resourceGroupName,

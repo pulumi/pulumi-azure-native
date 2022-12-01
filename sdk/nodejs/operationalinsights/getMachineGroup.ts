@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2015-11-01-preview.
  */
 export function getMachineGroup(args: GetMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights:getMachineGroup", {
         "endTime": args.endTime,
         "machineGroupName": args.machineGroupName,

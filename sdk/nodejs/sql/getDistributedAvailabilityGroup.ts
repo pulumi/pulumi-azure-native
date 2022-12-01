@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-05-01-preview.
  */
 export function getDistributedAvailabilityGroup(args: GetDistributedAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributedAvailabilityGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getDistributedAvailabilityGroup", {
         "distributedAvailabilityGroupName": args.distributedAvailabilityGroupName,
         "managedInstanceName": args.managedInstanceName,

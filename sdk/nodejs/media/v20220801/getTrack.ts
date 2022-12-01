@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Asset Track resource.
  */
 export function getTrack(args: GetTrackArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20220801:getTrack", {
         "accountName": args.accountName,
         "assetName": args.assetName,

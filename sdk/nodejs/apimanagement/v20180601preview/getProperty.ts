@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Property details.
  */
 export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions): Promise<GetPropertyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getProperty", {
         "propId": args.propId,
         "resourceGroupName": args.resourceGroupName,

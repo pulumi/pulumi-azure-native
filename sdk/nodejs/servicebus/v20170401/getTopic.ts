@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Description of topic resource.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicebus/v20170401:getTopic", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

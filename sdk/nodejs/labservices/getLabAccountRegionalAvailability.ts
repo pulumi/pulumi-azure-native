@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-10-15.
  */
 export function getLabAccountRegionalAvailability(args: GetLabAccountRegionalAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetLabAccountRegionalAvailabilityResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices:getLabAccountRegionalAvailability", {
         "labAccountName": args.labAccountName,
         "resourceGroupName": args.resourceGroupName,

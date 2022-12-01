@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A privateLinkHub
  */
 export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkHubResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getPrivateLinkHub", {
         "privateLinkHubName": args.privateLinkHubName,
         "resourceGroupName": args.resourceGroupName,

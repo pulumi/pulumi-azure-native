@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
  */
 export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric/v20200101preview:getNodeType", {
         "clusterName": args.clusterName,
         "nodeTypeName": args.nodeTypeName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The array of managed identity tokens.
  */
 export function listApplicationTokens(args: ListApplicationTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationTokensResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:solutions/v20190701:listApplicationTokens", {
         "applicationName": args.applicationName,
         "authorizationAudience": args.authorizationAudience,

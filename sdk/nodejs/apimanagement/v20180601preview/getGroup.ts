@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Contract details.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getGroup", {
         "groupId": args.groupId,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
  */
 export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20221101preview:getRuleSet", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

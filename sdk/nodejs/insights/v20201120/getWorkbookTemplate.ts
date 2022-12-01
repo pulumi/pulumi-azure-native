@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Application Insights workbook template definition.
  */
 export function getWorkbookTemplate(args: GetWorkbookTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookTemplateResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20201120:getWorkbookTemplate", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

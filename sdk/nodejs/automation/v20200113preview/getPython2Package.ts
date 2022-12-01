@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Definition of the module type.
  */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getPython2Package", {
         "automationAccountName": args.automationAccountName,
         "packageName": args.packageName,

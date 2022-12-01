@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Data controller resource
  */
 export function getDataController(args: GetDataControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataControllerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20210701preview:getDataController", {
         "dataControllerName": args.dataControllerName,
         "resourceGroupName": args.resourceGroupName,

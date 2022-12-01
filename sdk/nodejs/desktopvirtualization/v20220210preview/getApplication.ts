@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Schema for Application properties.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20220210preview:getApplication", {
         "applicationGroupName": args.applicationGroupName,
         "applicationName": args.applicationName,

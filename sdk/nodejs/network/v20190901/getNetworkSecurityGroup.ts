@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * NetworkSecurityGroup resource.
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20190901:getNetworkSecurityGroup", {
         "expand": args.expand,
         "networkSecurityGroupName": args.networkSecurityGroupName,

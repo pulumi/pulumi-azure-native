@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The variable value.
  */
 export function getVariableValue(args: GetVariableValueArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableValueResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20220801preview:getVariableValue", {
         "variableName": args.variableName,
         "variableValueName": args.variableValueName,

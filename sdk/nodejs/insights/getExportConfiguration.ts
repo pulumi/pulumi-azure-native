@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2015-05-01.
  */
 export function getExportConfiguration(args: GetExportConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetExportConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights:getExportConfiguration", {
         "exportId": args.exportId,
         "resourceGroupName": args.resourceGroupName,

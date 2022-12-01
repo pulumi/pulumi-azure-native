@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A cluster resource
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getCluster", {
         "clusterName": args.clusterName,
         "privateCloudName": args.privateCloudName,

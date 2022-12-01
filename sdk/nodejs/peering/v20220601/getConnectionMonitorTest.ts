@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The Connection Monitor Test class.
  */
 export function getConnectionMonitorTest(args: GetConnectionMonitorTestArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorTestResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:peering/v20220601:getConnectionMonitorTest", {
         "connectionMonitorTestName": args.connectionMonitorTestName,
         "peeringServiceName": args.peeringServiceName,

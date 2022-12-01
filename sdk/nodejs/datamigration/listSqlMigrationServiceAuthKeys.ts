@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-30-preview.
  */
 export function listSqlMigrationServiceAuthKeys(args: ListSqlMigrationServiceAuthKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSqlMigrationServiceAuthKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datamigration:listSqlMigrationServiceAuthKeys", {
         "resourceGroupName": args.resourceGroupName,
         "sqlMigrationServiceName": args.sqlMigrationServiceName,

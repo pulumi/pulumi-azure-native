@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
  */
 export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityContactResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20200101preview:getSecurityContact", {
         "securityContactName": args.securityContactName,
     }, opts);

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
 export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetricsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerUserMetricsKeyResult> {
     pulumi.log.warn("getTrafficManagerUserMetricsKey is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.")
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20170901preview:getTrafficManagerUserMetricsKey", {
     }, opts);
 }

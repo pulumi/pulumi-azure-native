@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents an image from the Azure Marketplace
  */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getGalleryImage", {
         "expand": args.expand,
         "galleryImageName": args.galleryImageName,

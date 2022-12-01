@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents MLBehaviorAnalytics alert rule.
  */
 export function getMLBehaviorAnalyticsAlertRule(args: GetMLBehaviorAnalyticsAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMLBehaviorAnalyticsAlertRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220101preview:getMLBehaviorAnalyticsAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Define the SAP Application Server Instance resource.
  */
 export function getSAPApplicationServerInstance(args: GetSAPApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPApplicationServerInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPApplicationServerInstance", {
         "applicationInstanceName": args.applicationInstanceName,
         "resourceGroupName": args.resourceGroupName,

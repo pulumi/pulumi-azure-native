@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-11-01-preview.
  */
 export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListLinkerConfigurationsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicelinker:listLinkerConfigurations", {
         "linkerName": args.linkerName,
         "resourceUri": args.resourceUri,

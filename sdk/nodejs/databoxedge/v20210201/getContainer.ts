@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents a container on the  Data Box Edge/Gateway device.
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201:getContainer", {
         "containerName": args.containerName,
         "deviceName": args.deviceName,

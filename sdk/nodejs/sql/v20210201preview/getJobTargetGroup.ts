@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A group of job targets.
  */
 export function getJobTargetGroup(args: GetJobTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTargetGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210201preview:getJobTargetGroup", {
         "jobAgentName": args.jobAgentName,
         "resourceGroupName": args.resourceGroupName,

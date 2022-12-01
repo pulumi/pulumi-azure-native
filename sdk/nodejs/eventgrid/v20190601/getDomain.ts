@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     pulumi.log.warn("getDomain is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20190601:getDomain", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,

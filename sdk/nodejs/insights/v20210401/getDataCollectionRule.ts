@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Definition of ARM tracked top level resource.
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20210401:getDataCollectionRule", {
         "dataCollectionRuleName": args.dataCollectionRuleName,
         "resourceGroupName": args.resourceGroupName,

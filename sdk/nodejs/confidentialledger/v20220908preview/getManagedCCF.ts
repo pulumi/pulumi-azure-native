@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Managed CCF. Contains the properties of Managed CCF Resource.
  */
 export function getManagedCCF(args: GetManagedCCFArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedCCFResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:confidentialledger/v20220908preview:getManagedCCF", {
         "appName": args.appName,
         "resourceGroupName": args.resourceGroupName,

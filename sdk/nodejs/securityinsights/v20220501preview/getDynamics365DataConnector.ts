@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents Dynamics365 data connector.
  */
 export function getDynamics365DataConnector(args: GetDynamics365DataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDynamics365DataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220501preview:getDynamics365DataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

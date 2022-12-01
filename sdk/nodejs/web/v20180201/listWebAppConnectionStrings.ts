@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  */
 export function listWebAppConnectionStrings(args: ListWebAppConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20180201:listWebAppConnectionStrings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

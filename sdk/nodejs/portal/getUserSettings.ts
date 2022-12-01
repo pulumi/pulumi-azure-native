@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-10-01.
  */
 export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:portal:getUserSettings", {
         "userSettingsName": args.userSettingsName,
     }, opts);

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An object that represents a container registry.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20160627preview:getRegistry", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

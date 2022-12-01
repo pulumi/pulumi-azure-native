@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Backup Vault Resource
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dataprotection/v20210201preview:getBackupVault", {
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

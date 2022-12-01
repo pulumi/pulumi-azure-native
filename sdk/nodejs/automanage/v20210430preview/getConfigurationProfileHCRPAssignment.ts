@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Configuration profile assignment is an association between a VM and automanage profile configuration.
  */
 export function getConfigurationProfileHCRPAssignment(args: GetConfigurationProfileHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileHCRPAssignmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automanage/v20210430preview:getConfigurationProfileHCRPAssignment", {
         "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
         "machineName": args.machineName,

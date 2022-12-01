@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Properties that define an Analytics item that is associated to an Application Insights component.
  */
 export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsItemResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getAnalyticsItem", {
         "id": args.id,
         "name": args.name,

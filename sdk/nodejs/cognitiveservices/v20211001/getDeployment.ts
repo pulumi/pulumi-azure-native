@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Cognitive Services account deployment.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20211001:getDeployment", {
         "accountName": args.accountName,
         "deploymentName": args.deploymentName,

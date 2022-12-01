@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A profile is a logical grouping of endpoints that share the same settings.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20220501preview:getProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

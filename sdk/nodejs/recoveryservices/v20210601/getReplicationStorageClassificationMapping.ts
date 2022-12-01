@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Storage mapping object.
  */
 export function getReplicationStorageClassificationMapping(args: GetReplicationStorageClassificationMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationStorageClassificationMappingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20210601:getReplicationStorageClassificationMapping", {
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,

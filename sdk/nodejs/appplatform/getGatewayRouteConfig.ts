@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-01-01-preview.
  */
 export function getGatewayRouteConfig(args: GetGatewayRouteConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteConfigResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform:getGatewayRouteConfig", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,

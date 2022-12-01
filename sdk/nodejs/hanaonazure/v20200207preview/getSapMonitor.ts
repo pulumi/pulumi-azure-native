@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
  */
 export function getSapMonitor(args: GetSapMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetSapMonitorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hanaonazure/v20200207preview:getSapMonitor", {
         "resourceGroupName": args.resourceGroupName,
         "sapMonitorName": args.sapMonitorName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Result of AmlCompute Nodes
  */
 export function listComputeNodes(args: ListComputeNodesArgs, opts?: pulumi.InvokeOptions): Promise<ListComputeNodesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220201preview:listComputeNodes", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,

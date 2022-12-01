@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-11-01-preview.
  */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration:getFluxConfiguration", {
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Bot channel resource definition
  */
 export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionWithSecretsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:botservice/v20171201:listBotConnectionWithSecrets", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

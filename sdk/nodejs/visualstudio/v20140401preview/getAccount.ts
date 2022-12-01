@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The response to an account resource GET request.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:visualstudio/v20140401preview:getAccount", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

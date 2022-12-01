@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Friendly Rules name mapping to the any Rules or secret related information.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getRule", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

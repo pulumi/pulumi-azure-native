@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-07-01-preview.
  */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appconfiguration:getKeyValue", {
         "configStoreName": args.configStoreName,
         "keyValueName": args.keyValueName,

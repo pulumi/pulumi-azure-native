@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-26.
  */
 export function getPredictionModelStatus(args: GetPredictionModelStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionModelStatusResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights:getPredictionModelStatus", {
         "hubName": args.hubName,
         "predictionName": args.predictionName,

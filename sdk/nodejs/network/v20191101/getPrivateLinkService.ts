@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Private link service resource.
  */
 export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServiceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20191101:getPrivateLinkService", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

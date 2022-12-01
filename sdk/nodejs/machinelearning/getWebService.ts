@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-01-01.
  */
 export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebServiceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearning:getWebService", {
         "region": args.region,
         "resourceGroupName": args.resourceGroupName,

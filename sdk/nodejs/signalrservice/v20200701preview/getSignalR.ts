@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A class represent a resource.
  */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:signalrservice/v20200701preview:getSignalR", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

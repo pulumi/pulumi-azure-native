@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Provisioning token properties. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
  */
 export function listEdgeModuleProvisioningToken(args: ListEdgeModuleProvisioningTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListEdgeModuleProvisioningTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:listEdgeModuleProvisioningToken", {
         "accountName": args.accountName,
         "edgeModuleName": args.edgeModuleName,

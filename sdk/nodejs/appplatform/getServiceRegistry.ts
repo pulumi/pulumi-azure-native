@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-01-01-preview.
  */
 export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRegistryResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform:getServiceRegistry", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Authorization contract.
  */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getAuthorization", {
         "authorizationId": args.authorizationId,
         "authorizationProviderId": args.authorizationProviderId,

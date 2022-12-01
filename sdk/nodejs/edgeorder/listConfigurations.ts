@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-12-01.
  */
 export function listConfigurations(args: ListConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:edgeorder:listConfigurations", {
         "configurationFilters": args.configurationFilters,
         "customerSubscriptionDetails": args.customerSubscriptionDetails,

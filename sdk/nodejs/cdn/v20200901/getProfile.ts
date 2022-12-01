@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20200901:getProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

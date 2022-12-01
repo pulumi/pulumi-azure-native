@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An object that represents a token for a container registry.
  */
 export function getToken(args: GetTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20220201preview:getToken", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

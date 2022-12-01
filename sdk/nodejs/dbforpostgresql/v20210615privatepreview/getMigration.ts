@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents a migration resource.
  */
 export function getMigration(args: GetMigrationArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20210615privatepreview:getMigration", {
         "migrationName": args.migrationName,
         "targetDBServerName": args.targetDBServerName,

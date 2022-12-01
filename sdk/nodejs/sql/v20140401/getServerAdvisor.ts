@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Database Advisor.
  */
 export function getServerAdvisor(args: GetServerAdvisorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdvisorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getServerAdvisor", {
         "advisorName": args.advisorName,
         "resourceGroupName": args.resourceGroupName,

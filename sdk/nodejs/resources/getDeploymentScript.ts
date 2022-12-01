@@ -14,8 +14,11 @@ import * as utilities from "../utilities";
 /** @deprecated Please use one of the variants: AzureCliScript, AzurePowerShellScript. */
 export function getDeploymentScript(args: GetDeploymentScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentScriptResult> {
     pulumi.log.warn("getDeploymentScript is deprecated: Please use one of the variants: AzureCliScript, AzurePowerShellScript.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources:getDeploymentScript", {
         "resourceGroupName": args.resourceGroupName,
         "scriptName": args.scriptName,

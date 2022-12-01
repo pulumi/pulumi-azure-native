@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Model that represents a Capability resource.
  */
 export function getCapability(args: GetCapabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetCapabilityResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:chaos/v20210915preview:getCapability", {
         "capabilityName": args.capabilityName,
         "parentProviderNamespace": args.parentProviderNamespace,

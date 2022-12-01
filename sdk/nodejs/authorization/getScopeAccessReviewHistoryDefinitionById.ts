@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-12-01-preview.
  */
 export function getScopeAccessReviewHistoryDefinitionById(args: GetScopeAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeAccessReviewHistoryDefinitionByIdResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization:getScopeAccessReviewHistoryDefinitionById", {
         "historyDefinitionId": args.historyDefinitionId,
         "scope": args.scope,

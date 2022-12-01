@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: EventHubEventSource, IoTHubEventSource. */
 export function getEventSource(args: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
     pulumi.log.warn("getEventSource is deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210630preview:getEventSource", {
         "environmentName": args.environmentName,
         "eventSourceName": args.eventSourceName,
