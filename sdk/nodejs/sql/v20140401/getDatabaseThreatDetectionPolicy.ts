@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Contains information about a database Threat Detection policy.
  */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

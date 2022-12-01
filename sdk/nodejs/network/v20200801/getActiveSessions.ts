@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Response for GetActiveSessions.
  */
 export function getActiveSessions(args: GetActiveSessionsArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveSessionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200801:getActiveSessions", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,

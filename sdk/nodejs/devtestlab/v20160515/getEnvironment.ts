@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     pulumi.log.warn("getEnvironment is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getEnvironment", {
         "expand": args.expand,
         "labName": args.labName,

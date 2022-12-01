@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The Scope Connections resource
  */
 export function getScopeConnection(args: GetScopeConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getScopeConnection", {
         "networkManagerName": args.networkManagerName,
         "resourceGroupName": args.resourceGroupName,

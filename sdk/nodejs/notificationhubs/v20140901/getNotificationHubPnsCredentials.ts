@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Description of a NotificationHub Resource.
  */
 export function getNotificationHubPnsCredentials(args: GetNotificationHubPnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubPnsCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20140901:getNotificationHubPnsCredentials", {
         "namespaceName": args.namespaceName,
         "notificationHubName": args.notificationHubName,

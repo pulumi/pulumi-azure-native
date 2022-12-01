@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents an environment type.
  */
 export function getEnvironmentType(args: GetEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20220901preview:getEnvironmentType", {
         "devCenterName": args.devCenterName,
         "environmentTypeName": args.environmentTypeName,

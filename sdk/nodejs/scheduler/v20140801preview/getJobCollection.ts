@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider. */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
     pulumi.log.warn("getJobCollection is deprecated: Version 2014-08-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scheduler/v20140801preview:getJobCollection", {
         "jobCollectionName": args.jobCollectionName,
         "resourceGroupName": args.resourceGroupName,

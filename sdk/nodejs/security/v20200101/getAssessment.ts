@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Security assessment on a resource
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20200101:getAssessment", {
         "assessmentName": args.assessmentName,
         "expand": args.expand,

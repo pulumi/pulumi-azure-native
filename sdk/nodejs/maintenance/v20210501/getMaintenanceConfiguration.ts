@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Maintenance configuration record type
  */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maintenance/v20210501:getMaintenanceConfiguration", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

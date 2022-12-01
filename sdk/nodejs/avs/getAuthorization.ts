@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-03-20.
  */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getAuthorization", {
         "authorizationName": args.authorizationName,
         "privateCloudName": args.privateCloudName,

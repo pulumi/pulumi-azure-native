@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Class representing a database principal assignment.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20200918:getDatabasePrincipalAssignment", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-01-preview.
  */
 export function getBillingHubServiceUsage(args: GetBillingHubServiceUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingHubServiceUsageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getBillingHubServiceUsage", {
         "endTimeStamp": args.endTimeStamp,
         "pageIndex": args.pageIndex,

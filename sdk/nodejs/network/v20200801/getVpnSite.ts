@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * VpnSite Resource.
  */
 export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnSiteResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200801:getVpnSite", {
         "resourceGroupName": args.resourceGroupName,
         "vpnSiteName": args.vpnSiteName,

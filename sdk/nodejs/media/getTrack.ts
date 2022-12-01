@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-11-01.
  */
 export function getTrack(args: GetTrackArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getTrack", {
         "accountName": args.accountName,
         "assetName": args.assetName,

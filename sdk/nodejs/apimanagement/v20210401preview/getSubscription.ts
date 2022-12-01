@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Subscription details.
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210401preview:getSubscription", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2016-06-27-preview.
  */
 export function getRegistryCredentials(args: GetRegistryCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry:getRegistryCredentials", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

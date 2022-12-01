@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A Streaming Policy resource
  */
 export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20211101:getStreamingPolicy", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

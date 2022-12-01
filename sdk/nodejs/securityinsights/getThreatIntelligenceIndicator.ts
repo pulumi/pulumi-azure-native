@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-01-01-preview.
  */
 export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndicatorArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceIndicatorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getThreatIntelligenceIndicator", {
         "name": args.name,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

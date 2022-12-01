@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  */
 export function listWebAppConnectionStringsSlot(args: ListWebAppConnectionStringsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsSlotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:listWebAppConnectionStringsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

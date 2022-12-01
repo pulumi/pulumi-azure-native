@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20200601:getFirewallRule", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,

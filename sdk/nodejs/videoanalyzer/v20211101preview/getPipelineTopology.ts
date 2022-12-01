@@ -16,11 +16,8 @@ import * as utilities from "../../utilities";
  *   - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
  */
 export function getPipelineTopology(args: GetPipelineTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineTopologyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:getPipelineTopology", {
         "accountName": args.accountName,
         "pipelineTopologyName": args.pipelineTopologyName,

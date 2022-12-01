@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-08-15-preview.
  */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute:getPrivateLinkScopedResource", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

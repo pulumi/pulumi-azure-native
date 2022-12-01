@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The Advanced Threat Protection resource.
  */
 export function getAdvancedThreatProtection(args: GetAdvancedThreatProtectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdvancedThreatProtectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20170801preview:getAdvancedThreatProtection", {
         "resourceId": args.resourceId,
         "settingName": args.settingName,

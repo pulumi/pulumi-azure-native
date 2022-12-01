@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of credential result response.
  */
 export function listConnectedClusterUserCredential(args: ListConnectedClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedClusterUserCredentialResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetes/v20221001preview:listConnectedClusterUserCredential", {
         "authenticationMethod": args.authenticationMethod,
         "clientProxy": args.clientProxy,

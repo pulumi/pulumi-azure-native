@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getDataContainer(args: GetDataContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataContainerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getDataContainer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

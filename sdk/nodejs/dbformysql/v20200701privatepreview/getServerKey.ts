@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A MySQL Server key.
  */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20200701privatepreview:getServerKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-07-01-preview.
  */
 export function getPolicyExemption(args: GetPolicyExemptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyExemptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicyExemption", {
         "policyExemptionName": args.policyExemptionName,
         "scope": args.scope,

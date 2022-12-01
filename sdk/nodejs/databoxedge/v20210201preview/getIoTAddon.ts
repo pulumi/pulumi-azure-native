@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * IoT Addon.
  */
 export function getIoTAddon(args: GetIoTAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTAddonResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210201preview:getIoTAddon", {
         "addonName": args.addonName,
         "deviceName": args.deviceName,

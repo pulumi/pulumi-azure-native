@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Represents an instance of a DNC controller.
  */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20210315:getControllerDetails", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

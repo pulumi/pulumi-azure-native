@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The resource representation of a service topology.
  */
 export function getServiceTopology(args: GetServiceTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTopologyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20191101preview:getServiceTopology", {
         "resourceGroupName": args.resourceGroupName,
         "serviceTopologyName": args.serviceTopologyName,

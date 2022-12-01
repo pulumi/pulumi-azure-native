@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function getMonitorDefaultKey(args: GetMonitorDefaultKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorDefaultKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datadog:getMonitorDefaultKey", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

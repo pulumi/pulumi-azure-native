@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-02-01-preview.
  */
 export function getMediaGraph(args: GetMediaGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaGraphResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getMediaGraph", {
         "accountName": args.accountName,
         "mediaGraphName": args.mediaGraphName,

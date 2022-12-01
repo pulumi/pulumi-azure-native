@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * States and configurations of Cost Analysis.
  */
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20211001:getViewByScope", {
         "scope": args.scope,
         "viewName": args.viewName,

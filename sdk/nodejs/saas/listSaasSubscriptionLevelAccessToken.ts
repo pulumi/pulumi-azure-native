@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-03-01-beta.
  */
 export function listSaasSubscriptionLevelAccessToken(args: ListSaasSubscriptionLevelAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasSubscriptionLevelAccessTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:saas:listSaasSubscriptionLevelAccessToken", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

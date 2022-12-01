@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * ExpressRouteCircuit resource.
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200801:getExpressRouteCircuit", {
         "circuitName": args.circuitName,
         "resourceGroupName": args.resourceGroupName,

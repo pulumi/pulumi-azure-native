@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01-preview.
  */
 export function listListUpgradableVersionPost(args: ListListUpgradableVersionPostArgs, opts?: pulumi.InvokeOptions): Promise<ListListUpgradableVersionPostResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric:listListUpgradableVersionPost", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

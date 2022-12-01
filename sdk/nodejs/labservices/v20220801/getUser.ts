@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * User of a lab that can register for and use virtual machines within the lab.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20220801:getUser", {
         "labName": args.labName,
         "resourceGroupName": args.resourceGroupName,

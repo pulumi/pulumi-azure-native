@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Blueprint artifact that deploys a Resource Manager template.
  */
 export function getTemplateArtifact(args: GetTemplateArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateArtifactResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getTemplateArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

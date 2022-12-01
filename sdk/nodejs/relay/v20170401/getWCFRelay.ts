@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Description of the WCF relay resource.
  */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20170401:getWCFRelay", {
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

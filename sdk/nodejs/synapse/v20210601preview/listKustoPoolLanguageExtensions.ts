@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of language extension objects.
  */
 export function listKustoPoolLanguageExtensions(args: ListKustoPoolLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListKustoPoolLanguageExtensionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:listKustoPoolLanguageExtensions", {
         "kustoPoolName": args.kustoPoolName,
         "resourceGroupName": args.resourceGroupName,

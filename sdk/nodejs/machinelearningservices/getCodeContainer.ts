@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01-preview.
  */
 export function getCodeContainer(args: GetCodeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeContainerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getCodeContainer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

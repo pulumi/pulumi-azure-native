@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01.
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getEncryptionScope", {
         "accountName": args.accountName,
         "encryptionScopeName": args.encryptionScopeName,

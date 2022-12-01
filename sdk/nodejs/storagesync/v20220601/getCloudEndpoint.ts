@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Cloud Endpoint object.
  */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync/v20220601:getCloudEndpoint", {
         "cloudEndpointName": args.cloudEndpointName,
         "resourceGroupName": args.resourceGroupName,

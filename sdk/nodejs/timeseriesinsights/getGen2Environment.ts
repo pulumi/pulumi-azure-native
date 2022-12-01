@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-15.
  */
 export function getGen2Environment(args: GetGen2EnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGen2EnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights:getGen2Environment", {
         "environmentName": args.environmentName,
         "expand": args.expand,

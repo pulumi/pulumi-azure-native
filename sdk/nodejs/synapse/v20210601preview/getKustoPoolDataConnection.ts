@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
 export function getKustoPoolDataConnection(args: GetKustoPoolDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolDataConnectionResult> {
     pulumi.log.warn("getKustoPoolDataConnection is deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getKustoPoolDataConnection", {
         "dataConnectionName": args.dataConnectionName,
         "databaseName": args.databaseName,

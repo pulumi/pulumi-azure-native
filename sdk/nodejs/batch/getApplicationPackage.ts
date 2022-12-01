@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch:getApplicationPackage", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,

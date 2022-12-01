@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Spring Cloud Gateway route config resource
  */
 export function getGatewayRouteConfig(args: GetGatewayRouteConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220501preview:getGatewayRouteConfig", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,

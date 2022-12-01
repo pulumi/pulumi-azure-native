@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-03-30-preview.
  */
 export function getDatabaseMigrationsSqlDb(args: GetDatabaseMigrationsSqlDbArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationsSqlDbResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration:getDatabaseMigrationsSqlDb", {
         "expand": args.expand,
         "migrationOperationId": args.migrationOperationId,

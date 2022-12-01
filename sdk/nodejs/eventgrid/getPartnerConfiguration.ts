@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-15-preview.
  */
 export function getPartnerConfiguration(args: GetPartnerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid:getPartnerConfiguration", {
         "resourceGroupName": args.resourceGroupName,
     }, opts);

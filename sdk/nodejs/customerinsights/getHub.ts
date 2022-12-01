@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-26.
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getHub", {
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,

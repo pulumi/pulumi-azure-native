@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider. */
 export function getSqlServer(args: GetSqlServerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerResult> {
     pulumi.log.warn("getSqlServer is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredata/v20170301preview:getSqlServer", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Integration runtime resource type.
  */
 export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getIntegrationRuntime", {
         "factoryName": args.factoryName,
         "integrationRuntimeName": args.integrationRuntimeName,

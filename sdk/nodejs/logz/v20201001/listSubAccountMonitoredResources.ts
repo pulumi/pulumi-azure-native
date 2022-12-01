@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Response of a list operation.
  */
 export function listSubAccountMonitoredResources(args: ListSubAccountMonitoredResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListSubAccountMonitoredResourcesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20201001:listSubAccountMonitoredResources", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

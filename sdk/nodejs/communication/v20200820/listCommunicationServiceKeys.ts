@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A class representing the access keys of a CommunicationService.
  */
 export function listCommunicationServiceKeys(args: ListCommunicationServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListCommunicationServiceKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20200820:listCommunicationServiceKeys", {
         "communicationServiceName": args.communicationServiceName,
         "resourceGroupName": args.resourceGroupName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-03-01-preview.
  */
 export function getActiveDirectoryConnector(args: GetActiveDirectoryConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveDirectoryConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata:getActiveDirectoryConnector", {
         "activeDirectoryConnectorName": args.activeDirectoryConnectorName,
         "dataControllerName": args.dataControllerName,

@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
  */
 export function listListUpgradableVersionPost(args: ListListUpgradableVersionPostArgs, opts?: pulumi.InvokeOptions): Promise<ListListUpgradableVersionPostResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20201201preview:listListUpgradableVersionPost", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

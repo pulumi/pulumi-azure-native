@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of language extension objects.
  */
 export function listClusterLanguageExtensions(args: ListClusterLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterLanguageExtensionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20200918:listClusterLanguageExtensions", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

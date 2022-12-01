@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-11-01 will be removed in v2 of the provider. */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
     pulumi.log.warn("getDeployment is deprecated: Version 2015-11-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20151101:getDeployment", {
         "deploymentName": args.deploymentName,
         "resourceGroupName": args.resourceGroupName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-10-01.
  */
 export function getSubAccountTagRule(args: GetSubAccountTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountTagRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz:getSubAccountTagRule", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

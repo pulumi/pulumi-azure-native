@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The storageSpaces resource definition.
  */
 export function getstorageSpaceRetrieve(args: GetstorageSpaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetstorageSpaceRetrieveResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20220501preview:getstorageSpaceRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "storageSpacesName": args.storageSpacesName,

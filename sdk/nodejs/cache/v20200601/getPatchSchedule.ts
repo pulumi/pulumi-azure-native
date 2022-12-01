@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Response to put/get patch schedules for Redis cache.
  */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20200601:getPatchSchedule", {
         "default": args.default,
         "name": args.name,

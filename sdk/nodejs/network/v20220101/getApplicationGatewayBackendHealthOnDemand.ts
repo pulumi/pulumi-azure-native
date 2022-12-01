@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Result of on demand test probe.
  */
 export function getApplicationGatewayBackendHealthOnDemand(args: GetApplicationGatewayBackendHealthOnDemandArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayBackendHealthOnDemandResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getApplicationGatewayBackendHealthOnDemand", {
         "applicationGatewayName": args.applicationGatewayName,
         "backendAddressPool": args.backendAddressPool,

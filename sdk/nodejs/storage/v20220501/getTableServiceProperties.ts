@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The properties of a storage account’s Table service.
  */
 export function getTableServiceProperties(args: GetTableServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetTableServicePropertiesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20220501:getTableServiceProperties", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

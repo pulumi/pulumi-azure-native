@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Disk resource.
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210401:getDisk", {
         "diskName": args.diskName,
         "resourceGroupName": args.resourceGroupName,

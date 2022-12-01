@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Container App Auth Token.
  */
 export function getContainerAppAuthToken(args: GetContainerAppAuthTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppAuthTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getContainerAppAuthToken", {
         "containerAppName": args.containerAppName,
         "resourceGroupName": args.resourceGroupName,

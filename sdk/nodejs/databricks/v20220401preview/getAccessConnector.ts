@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Information about azure databricks accessConnector.
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databricks/v20220401preview:getAccessConnector", {
         "connectorName": args.connectorName,
         "resourceGroupName": args.resourceGroupName,

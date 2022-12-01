@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Virtual Network information contract.
  */
 export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getWebAppVnetConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

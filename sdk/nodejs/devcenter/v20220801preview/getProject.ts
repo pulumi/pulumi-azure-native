@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a project resource.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20220801preview:getProject", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

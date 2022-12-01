@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-12-01.
  */
 export function getAddressByName(args: GetAddressByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressByNameResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder:getAddressByName", {
         "addressName": args.addressName,
         "resourceGroupName": args.resourceGroupName,

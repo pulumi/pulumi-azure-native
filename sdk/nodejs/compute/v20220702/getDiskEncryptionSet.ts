@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * disk encryption set resource.
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220702:getDiskEncryptionSet", {
         "diskEncryptionSetName": args.diskEncryptionSetName,
         "resourceGroupName": args.resourceGroupName,

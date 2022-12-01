@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents Activity entity query.
  */
 export function getActivityCustomEntityQuery(args: GetActivityCustomEntityQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityCustomEntityQueryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getActivityCustomEntityQuery", {
         "entityQueryId": args.entityQueryId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

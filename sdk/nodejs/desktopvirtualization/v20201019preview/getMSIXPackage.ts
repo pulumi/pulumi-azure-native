@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-10-19-preview will be removed in v2 of the provider. */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
     pulumi.log.warn("getMSIXPackage is deprecated: Version 2020-10-19-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20201019preview:getMSIXPackage", {
         "hostPoolName": args.hostPoolName,
         "msixPackageFullName": args.msixPackageFullName,

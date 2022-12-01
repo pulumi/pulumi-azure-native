@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * VpnGatewayNatRule Resource.
  */
 export function getNatRule(args: GetNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNatRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getNatRule", {
         "gatewayName": args.gatewayName,
         "natRuleName": args.natRuleName,

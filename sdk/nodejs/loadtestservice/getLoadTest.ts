@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-12-01-preview.
  */
 export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:loadtestservice:getLoadTest", {
         "loadTestName": args.loadTestName,
         "resourceGroupName": args.resourceGroupName,

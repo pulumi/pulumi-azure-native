@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An object that represents an import pipeline for a container registry.
  */
 export function getImportPipeline(args: GetImportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImportPipelineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20211201preview:getImportPipeline", {
         "importPipelineName": args.importPipelineName,
         "registryName": args.registryName,

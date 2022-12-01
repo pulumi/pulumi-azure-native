@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-03-01-preview.
  */
 export function getComponentLinkedStorageAccount(args: GetComponentLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentLinkedStorageAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getComponentLinkedStorageAccount", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

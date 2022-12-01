@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-10-01.
  */
 export function listSubAccountVMHosts(args: ListSubAccountVMHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubAccountVMHostsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz:listSubAccountVMHosts", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

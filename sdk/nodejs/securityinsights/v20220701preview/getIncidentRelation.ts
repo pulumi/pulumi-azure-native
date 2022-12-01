@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a relation between two resources
  */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220701preview:getIncidentRelation", {
         "incidentId": args.incidentId,
         "relationName": args.relationName,

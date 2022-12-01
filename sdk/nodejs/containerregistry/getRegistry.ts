@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-05-01.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry:getRegistry", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

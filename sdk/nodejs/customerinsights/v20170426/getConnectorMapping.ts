@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The connector mapping resource format.
  */
 export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorMappingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getConnectorMapping", {
         "connectorName": args.connectorName,
         "hubName": args.hubName,

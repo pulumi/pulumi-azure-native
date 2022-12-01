@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The array of plan.
  */
 export function listApplicationAllowedUpgradePlans(args: ListApplicationAllowedUpgradePlansArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationAllowedUpgradePlansResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20190701:listApplicationAllowedUpgradePlans", {
         "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,

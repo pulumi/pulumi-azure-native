@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Role Assignment
  */
 export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20210301preview:getSqlResourceSqlRoleAssignment", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

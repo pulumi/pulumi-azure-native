@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * SSL certificate purchase order.
  */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:certificateregistration/v20201001:getAppServiceCertificateOrder", {
         "certificateOrderName": args.certificateOrderName,
         "resourceGroupName": args.resourceGroupName,

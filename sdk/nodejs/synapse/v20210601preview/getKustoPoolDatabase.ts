@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase. */
 export function getKustoPoolDatabase(args: GetKustoPoolDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolDatabaseResult> {
     pulumi.log.warn("getKustoPoolDatabase is deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getKustoPoolDatabase", {
         "databaseName": args.databaseName,
         "kustoPoolName": args.kustoPoolName,

@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolsV3(args: GetSqlPoolsV3Args, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolsV3Result> {
     pulumi.log.warn("getSqlPoolsV3 is deprecated: Version 2020-04-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20200401preview:getSqlPoolsV3", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,

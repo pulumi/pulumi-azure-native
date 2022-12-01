@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A global reach connection resource
  */
 export function getGlobalReachConnection(args: GetGlobalReachConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalReachConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20220501:getGlobalReachConnection", {
         "globalReachConnectionName": args.globalReachConnectionName,
         "privateCloudName": args.privateCloudName,

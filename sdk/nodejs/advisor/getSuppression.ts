@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-01-01.
  */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:advisor:getSuppression", {
         "name": args.name,
         "recommendationId": args.recommendationId,

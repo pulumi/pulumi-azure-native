@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Capture logs and metrics of Azure resources based on ARM tags.
  */
 export function getSubAccountTagRule(args: GetSubAccountTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountTagRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20220101preview:getSubAccountTagRule", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

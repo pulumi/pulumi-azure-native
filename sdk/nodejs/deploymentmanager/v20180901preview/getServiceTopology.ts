@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
 export function getServiceTopology(args: GetServiceTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTopologyResult> {
     pulumi.log.warn("getServiceTopology is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20180901preview:getServiceTopology", {
         "resourceGroupName": args.resourceGroupName,
         "serviceTopologyName": args.serviceTopologyName,

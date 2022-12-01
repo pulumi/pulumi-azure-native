@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Definition of the job schedule.
  */
 export function getJobSchedule(args: GetJobScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetJobScheduleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getJobSchedule", {
         "automationAccountName": args.automationAccountName,
         "jobScheduleId": args.jobScheduleId,

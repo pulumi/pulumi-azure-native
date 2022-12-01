@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * this is the management partner operations response
  */
 export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managementpartner/v20180201:getPartner", {
         "partnerId": args.partnerId,
     }, opts);
