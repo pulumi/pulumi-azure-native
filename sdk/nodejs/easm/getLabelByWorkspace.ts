@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-01-preview.
  */
 export function getLabelByWorkspace(args: GetLabelByWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelByWorkspaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:easm:getLabelByWorkspace", {
         "labelName": args.labelName,
         "resourceGroupName": args.resourceGroupName,

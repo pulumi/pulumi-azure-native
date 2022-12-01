@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  */
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getOrigin", {
         "endpointName": args.endpointName,
         "originName": args.originName,

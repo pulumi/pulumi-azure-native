@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-01-preview.
  */
 export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRSharedPrivateLinkResourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

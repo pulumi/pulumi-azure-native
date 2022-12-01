@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The server encryption protector.
  */
 export function getEncryptionProtector(args: GetEncryptionProtectorArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionProtectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20150501preview:getEncryptionProtector", {
         "encryptionProtectorName": args.encryptionProtectorName,
         "resourceGroupName": args.resourceGroupName,

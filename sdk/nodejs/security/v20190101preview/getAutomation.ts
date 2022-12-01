@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The security automation resource.
  */
 export function getAutomation(args: GetAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20190101preview:getAutomation", {
         "automationName": args.automationName,
         "resourceGroupName": args.resourceGroupName,

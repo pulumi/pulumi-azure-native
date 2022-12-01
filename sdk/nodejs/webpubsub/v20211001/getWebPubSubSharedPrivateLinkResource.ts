@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes a Shared Private Link Resource
  */
 export function getWebPubSubSharedPrivateLinkResource(args: GetWebPubSubSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubSharedPrivateLinkResourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:webpubsub/v20211001:getWebPubSubSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Storage Account Local User keys.
  */
 export function listLocalUserKeys(args: ListLocalUserKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalUserKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20220501:listLocalUserKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

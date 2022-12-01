@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-03-01 will be removed in v2 of the provider. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
     pulumi.log.warn("getFirewallRule is deprecated: Version 2018-03-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache/v20180301:getFirewallRule", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,

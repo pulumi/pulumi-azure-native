@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Static Site Custom Domain Overview ARM resource.
  */
 export function getStaticSiteCustomDomain(args: GetStaticSiteCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteCustomDomainResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210301:getStaticSiteCustomDomain", {
         "domainName": args.domainName,
         "name": args.name,

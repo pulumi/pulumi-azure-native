@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A Synapse Workspace Sql Pool Table data set mapping
  */
 export function getSynapseWorkspaceSqlPoolTableDataSetMapping(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20200901:getSynapseWorkspaceSqlPoolTableDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A report resource.
  */
 export function getReportByBillingAccount(args: GetReportByBillingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByBillingAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", {
         "billingAccountId": args.billingAccountId,
         "reportName": args.reportName,

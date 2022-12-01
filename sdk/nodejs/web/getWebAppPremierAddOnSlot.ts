@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:getWebAppPremierAddOnSlot", {
         "name": args.name,
         "premierAddOnName": args.premierAddOnName,

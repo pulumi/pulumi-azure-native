@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The HDInsight cluster application
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hdinsight/v20180601preview:getApplication", {
         "applicationName": args.applicationName,
         "clusterName": args.clusterName,

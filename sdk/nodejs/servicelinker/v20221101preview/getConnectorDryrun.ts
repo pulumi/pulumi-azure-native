@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * a dryrun job resource
  */
 export function getConnectorDryrun(args: GetConnectorDryrunArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorDryrunResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicelinker/v20221101preview:getConnectorDryrun", {
         "dryrunName": args.dryrunName,
         "location": args.location,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Server communication link.
  */
 export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCommunicationLinkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getServerCommunicationLink", {
         "communicationLinkName": args.communicationLinkName,
         "resourceGroupName": args.resourceGroupName,

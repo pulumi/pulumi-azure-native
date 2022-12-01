@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-01-preview.
  */
 export function getPrivateEndpointConnectionByWorkspace(args: GetPrivateEndpointConnectionByWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByWorkspaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:desktopvirtualization:getPrivateEndpointConnectionByWorkspace", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

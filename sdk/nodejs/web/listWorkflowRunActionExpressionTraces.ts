@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-03-01.
  */
 export function listWorkflowRunActionExpressionTraces(args: ListWorkflowRunActionExpressionTracesArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowRunActionExpressionTracesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:listWorkflowRunActionExpressionTraces", {
         "actionName": args.actionName,
         "name": args.name,

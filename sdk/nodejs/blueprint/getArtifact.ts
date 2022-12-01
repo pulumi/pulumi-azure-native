@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
 /** @deprecated Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact. */
 export function getArtifact(args: GetArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactResult> {
     pulumi.log.warn("getArtifact is deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint:getArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

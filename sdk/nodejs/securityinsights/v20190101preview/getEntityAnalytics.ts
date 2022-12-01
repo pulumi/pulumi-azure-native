@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Settings with single toggle.
  */
 export function getEntityAnalytics(args: GetEntityAnalyticsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityAnalyticsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getEntityAnalytics", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

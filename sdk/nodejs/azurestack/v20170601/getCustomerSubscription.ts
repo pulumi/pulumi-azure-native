@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Customer subscription.
  */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestack/v20170601:getCustomerSubscription", {
         "customerSubscriptionName": args.customerSubscriptionName,
         "registrationName": args.registrationName,

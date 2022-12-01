@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Linked workspace.
  */
 export function getLinkedWorkspace(args: GetLinkedWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedWorkspaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200515preview:getLinkedWorkspace", {
         "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,

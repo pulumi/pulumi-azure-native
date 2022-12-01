@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
  */
 export function getmanagedAzResiliencyStatus(args: GetmanagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedAzResiliencyStatusResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric/v20220801preview:getmanagedAzResiliencyStatus", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

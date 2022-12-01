@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getRegistryComponentContainer(args: GetRegistryComponentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryComponentContainerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getRegistryComponentContainer", {
         "componentName": args.componentName,
         "registryName": args.registryName,

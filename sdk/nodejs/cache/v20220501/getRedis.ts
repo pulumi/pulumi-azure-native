@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A single Redis item in List or Get Operation.
  */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache/v20220501:getRedis", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Private Endpoint Connection resource.
  */
 export function getPrivateEndpointConnectionsForSCCPowershell(args: GetPrivateEndpointConnectionsForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsForSCCPowershellResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * iOS Policy entity for Intune MAM.
  */
 export function getIoMAMPolicyByName(args: GetIoMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetIoMAMPolicyByNameResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:intune/v20150114preview:getIoMAMPolicyByName", {
         "hostName": args.hostName,
         "policyName": args.policyName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
  */
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:peering/v20210101:getPeering", {
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,

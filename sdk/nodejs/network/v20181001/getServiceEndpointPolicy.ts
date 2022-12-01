@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Service End point policy resource.
  */
 export function getServiceEndpointPolicy(args: GetServiceEndpointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20181001:getServiceEndpointPolicy", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

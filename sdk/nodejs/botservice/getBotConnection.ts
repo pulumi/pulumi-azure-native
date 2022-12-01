@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:botservice:getBotConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

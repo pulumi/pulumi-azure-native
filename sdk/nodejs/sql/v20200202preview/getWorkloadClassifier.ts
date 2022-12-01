@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Workload classifier operations for a data warehouse
  */
 export function getWorkloadClassifier(args: GetWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadClassifierResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getWorkloadClassifier", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

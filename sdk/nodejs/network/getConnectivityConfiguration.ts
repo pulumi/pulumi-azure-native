@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01-preview.
  */
 export function getConnectivityConfiguration(args: GetConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectivityConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getConnectivityConfiguration", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

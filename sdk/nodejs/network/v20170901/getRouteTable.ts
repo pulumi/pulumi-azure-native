@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-09-01 will be removed in v2 of the provider. */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     pulumi.log.warn("getRouteTable is deprecated: Version 2017-09-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20170901:getRouteTable", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

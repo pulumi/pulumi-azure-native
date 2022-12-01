@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Fabric definition.
  */
 export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationFabricResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220501:getReplicationFabric", {
         "fabricName": args.fabricName,
         "filter": args.filter,

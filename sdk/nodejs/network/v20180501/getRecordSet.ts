@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes a DNS record set (a collection of DNS records with the same name and type).
  */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20180501:getRecordSet", {
         "recordType": args.recordType,
         "relativeRecordSetName": args.relativeRecordSetName,

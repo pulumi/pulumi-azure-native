@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-06-30 will be removed in v2 of the provider. */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
     pulumi.log.warn("getDiskEncryptionSet is deprecated: Version 2020-06-30 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20200630:getDiskEncryptionSet", {
         "diskEncryptionSetName": args.diskEncryptionSetName,
         "resourceGroupName": args.resourceGroupName,

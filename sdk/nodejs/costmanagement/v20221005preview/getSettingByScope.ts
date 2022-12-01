@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: TagInheritanceSetting. */
 export function getSettingByScope(args: GetSettingByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetSettingByScopeResult> {
     pulumi.log.warn("getSettingByScope is deprecated: Please use one of the variants: TagInheritanceSetting.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:costmanagement/v20221005preview:getSettingByScope", {
         "scope": args.scope,
         "type": args.type,

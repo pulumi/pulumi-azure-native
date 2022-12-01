@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningComputeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getMachineLearningCompute", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,

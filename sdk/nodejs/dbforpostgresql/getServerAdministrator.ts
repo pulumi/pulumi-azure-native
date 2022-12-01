@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-12-01.
  */
 export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdministratorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dbforpostgresql:getServerAdministrator", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

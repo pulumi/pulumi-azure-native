@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-10-01.
  */
 export function getImportCollector(args: GetImportCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetImportCollectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:migrate:getImportCollector", {
         "importCollectorName": args.importCollectorName,
         "projectName": args.projectName,

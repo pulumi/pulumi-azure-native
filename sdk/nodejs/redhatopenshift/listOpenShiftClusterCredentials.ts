@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-04-30.
  */
 export function listOpenShiftClusterCredentials(args: ListOpenShiftClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterCredentialsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:redhatopenshift:listOpenShiftClusterCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

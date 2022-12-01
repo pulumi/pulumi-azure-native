@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Guest configuration assignment is an association between a machine and guest configuration.
  */
 export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20200625:getGuestConfigurationAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "resourceGroupName": args.resourceGroupName,

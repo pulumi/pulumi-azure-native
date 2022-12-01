@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Functions host level keys.
  */
 export function listWebAppHostKeysSlot(args: ListWebAppHostKeysSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHostKeysSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppHostKeysSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

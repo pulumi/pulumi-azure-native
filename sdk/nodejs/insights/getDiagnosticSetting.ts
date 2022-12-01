@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-05-01-preview.
  */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights:getDiagnosticSetting", {
         "name": args.name,
         "resourceUri": args.resourceUri,

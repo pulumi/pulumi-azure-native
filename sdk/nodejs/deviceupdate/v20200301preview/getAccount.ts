@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Device Update account details.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deviceupdate/v20200301preview:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

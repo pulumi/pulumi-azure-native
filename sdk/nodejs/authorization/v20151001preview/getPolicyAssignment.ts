@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
     pulumi.log.warn("getPolicyAssignment is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20151001preview:getPolicyAssignment", {
         "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,

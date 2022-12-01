@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01.
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices:getProtectionContainer", {
         "containerName": args.containerName,
         "fabricName": args.fabricName,

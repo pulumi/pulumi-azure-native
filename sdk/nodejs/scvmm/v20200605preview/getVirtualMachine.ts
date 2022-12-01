@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The VirtualMachines resource definition.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:scvmm/v20200605preview:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,
         "virtualMachineName": args.virtualMachineName,

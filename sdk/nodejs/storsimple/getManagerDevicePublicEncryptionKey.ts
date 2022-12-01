@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-06-01.
  */
 export function getManagerDevicePublicEncryptionKey(args: GetManagerDevicePublicEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerDevicePublicEncryptionKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple:getManagerDevicePublicEncryptionKey", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,

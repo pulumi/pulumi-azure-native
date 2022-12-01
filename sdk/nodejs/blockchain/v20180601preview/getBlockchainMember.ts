@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Payload of the blockchain member which is exposed in the request/response of the resource provider.
  */
 export function getBlockchainMember(args: GetBlockchainMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetBlockchainMemberResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blockchain/v20180601preview:getBlockchainMember", {
         "blockchainMemberName": args.blockchainMemberName,
         "resourceGroupName": args.resourceGroupName,

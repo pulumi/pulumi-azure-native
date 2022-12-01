@@ -14,8 +14,11 @@ import * as utilities from "../utilities";
 /** @deprecated Please use one of the variants: AnomalySecurityMLAnalyticsSettings. */
 export function getSecurityMLAnalyticsSetting(args: GetSecurityMLAnalyticsSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityMLAnalyticsSettingResult> {
     pulumi.log.warn("getSecurityMLAnalyticsSetting is deprecated: Please use one of the variants: AnomalySecurityMLAnalyticsSettings.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getSecurityMLAnalyticsSetting", {
         "resourceGroupName": args.resourceGroupName,
         "settingsResourceName": args.settingsResourceName,

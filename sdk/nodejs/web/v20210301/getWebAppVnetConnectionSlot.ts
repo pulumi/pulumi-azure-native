@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Virtual Network information ARM resource.
  */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210301:getWebAppVnetConnectionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
  */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220401:getOpenShiftCluster", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

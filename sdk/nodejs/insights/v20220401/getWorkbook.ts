@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A workbook definition.
  */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20220401:getWorkbook", {
         "canFetchContent": args.canFetchContent,
         "resourceGroupName": args.resourceGroupName,

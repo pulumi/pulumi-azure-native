@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:powerbidedicated:getCapacityDetails", {
         "dedicatedCapacityName": args.dedicatedCapacityName,
         "resourceGroupName": args.resourceGroupName,

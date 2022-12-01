@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes a hybrid machine.
  */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20220510preview:getMachine", {
         "expand": args.expand,
         "machineName": args.machineName,

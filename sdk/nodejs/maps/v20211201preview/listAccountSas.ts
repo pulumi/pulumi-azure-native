@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A new Sas token which can be used to access the Maps REST APIs and is controlled by the specified Managed identity permissions on Azure (IAM) Role Based Access Control.
  */
 export function listAccountSas(args: ListAccountSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountSasResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:maps/v20211201preview:listAccountSas", {
         "accountName": args.accountName,
         "expiry": args.expiry,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The resource that defines the source location where the artifacts are located.
  */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20191101preview:getArtifactSource", {
         "artifactSourceName": args.artifactSourceName,
         "resourceGroupName": args.resourceGroupName,

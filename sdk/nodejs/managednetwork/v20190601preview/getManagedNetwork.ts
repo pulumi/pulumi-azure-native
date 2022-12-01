@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Managed Network resource
  */
 export function getManagedNetwork(args: GetManagedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:managednetwork/v20190601preview:getManagedNetwork", {
         "managedNetworkName": args.managedNetworkName,
         "resourceGroupName": args.resourceGroupName,

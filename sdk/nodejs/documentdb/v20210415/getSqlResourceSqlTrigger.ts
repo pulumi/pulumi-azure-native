@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB trigger.
  */
 export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlTriggerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20210415:getSqlResourceSqlTrigger", {
         "accountName": args.accountName,
         "containerName": args.containerName,

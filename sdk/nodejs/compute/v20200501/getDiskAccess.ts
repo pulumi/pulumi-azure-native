@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
     pulumi.log.warn("getDiskAccess is deprecated: Version 2020-05-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20200501:getDiskAccess", {
         "diskAccessName": args.diskAccessName,
         "resourceGroupName": args.resourceGroupName,

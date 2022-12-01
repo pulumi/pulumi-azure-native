@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Registered Server resource.
  */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagesync/v20200301:getRegisteredServer", {
         "resourceGroupName": args.resourceGroupName,
         "serverId": args.serverId,

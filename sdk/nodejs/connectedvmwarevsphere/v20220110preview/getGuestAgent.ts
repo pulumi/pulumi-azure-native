@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Defines the GuestAgent.
  */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getGuestAgent", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-01-preview.
  */
 export function getGitHubOAuth(args: GetGitHubOAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubOAuthResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devhub:getGitHubOAuth", {
         "location": args.location,
         "redirectUrl": args.redirectUrl,

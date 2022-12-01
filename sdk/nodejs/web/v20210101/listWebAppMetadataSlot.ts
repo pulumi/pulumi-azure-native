@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  */
 export function listWebAppMetadataSlot(args: ListWebAppMetadataSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppMetadataSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210101:listWebAppMetadataSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

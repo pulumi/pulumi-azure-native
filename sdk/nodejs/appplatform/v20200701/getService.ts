@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Service resource
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20200701:getService", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

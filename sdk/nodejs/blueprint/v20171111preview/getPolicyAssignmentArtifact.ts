@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Blueprint artifact applies Policy assignments.
  */
 export function getPolicyAssignmentArtifact(args: GetPolicyAssignmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentArtifactResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint/v20171111preview:getPolicyAssignmentArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

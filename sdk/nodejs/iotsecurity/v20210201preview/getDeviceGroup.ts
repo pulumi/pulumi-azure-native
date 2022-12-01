@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Device group
  */
 export function getDeviceGroup(args: GetDeviceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:iotsecurity/v20210201preview:getDeviceGroup", {
         "deviceGroupName": args.deviceGroupName,
         "iotDefenderLocation": args.iotDefenderLocation,

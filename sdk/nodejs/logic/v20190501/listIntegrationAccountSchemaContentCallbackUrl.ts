@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The workflow trigger callback URL.
  */
 export function listIntegrationAccountSchemaContentCallbackUrl(args: ListIntegrationAccountSchemaContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountSchemaContentCallbackUrlResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic/v20190501:listIntegrationAccountSchemaContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,

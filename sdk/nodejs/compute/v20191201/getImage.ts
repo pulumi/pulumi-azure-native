@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     pulumi.log.warn("getImage is deprecated: Version 2019-12-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20191201:getImage", {
         "expand": args.expand,
         "imageName": args.imageName,

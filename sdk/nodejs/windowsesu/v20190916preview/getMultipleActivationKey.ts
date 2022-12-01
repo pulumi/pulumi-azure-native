@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * MAK key details.
  */
 export function getMultipleActivationKey(args: GetMultipleActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMultipleActivationKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:windowsesu/v20190916preview:getMultipleActivationKey", {
         "multipleActivationKeyName": args.multipleActivationKeyName,
         "resourceGroupName": args.resourceGroupName,

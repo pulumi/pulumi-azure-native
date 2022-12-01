@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Environment Auth Token.
  */
 export function getManagedEnvironmentAuthToken(args: GetManagedEnvironmentAuthTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentAuthTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getManagedEnvironmentAuthToken", {
         "environmentName": args.environmentName,
         "resourceGroupName": args.resourceGroupName,

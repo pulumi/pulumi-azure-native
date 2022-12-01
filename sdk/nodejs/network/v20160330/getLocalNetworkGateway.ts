@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
     pulumi.log.warn("getLocalNetworkGateway is deprecated: Version 2016-03-30 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20160330:getLocalNetworkGateway", {
         "localNetworkGatewayName": args.localNetworkGatewayName,
         "resourceGroupName": args.resourceGroupName,

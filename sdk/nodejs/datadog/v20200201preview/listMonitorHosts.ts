@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response of a list operation.
  */
 export function listMonitorHosts(args: ListMonitorHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorHostsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datadog/v20200201preview:listMonitorHosts", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
     pulumi.log.warn("getRecordSet is deprecated: Version 2016-04-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20160401:getRecordSet", {
         "recordType": args.recordType,
         "relativeRecordSetName": args.relativeRecordSetName,

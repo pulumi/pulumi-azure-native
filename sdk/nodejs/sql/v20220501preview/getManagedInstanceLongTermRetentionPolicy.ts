@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A long term retention policy.
  */
 export function getManagedInstanceLongTermRetentionPolicy(args: GetManagedInstanceLongTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceLongTermRetentionPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20220501preview:getManagedInstanceLongTermRetentionPolicy", {
         "databaseName": args.databaseName,
         "managedInstanceName": args.managedInstanceName,

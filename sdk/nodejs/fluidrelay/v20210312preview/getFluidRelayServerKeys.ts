@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The set of available keys for this server.
  */
 export function getFluidRelayServerKeys(args: GetFluidRelayServerKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:fluidrelay/v20210312preview:getFluidRelayServerKeys", {
         "name": args.name,
         "resourceGroup": args.resourceGroup,

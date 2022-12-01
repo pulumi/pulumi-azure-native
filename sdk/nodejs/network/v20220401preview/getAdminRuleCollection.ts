@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Defines the admin rule collection.
  */
 export function getAdminRuleCollection(args: GetAdminRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleCollectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getAdminRuleCollection", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

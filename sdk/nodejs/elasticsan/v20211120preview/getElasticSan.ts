@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response for ElasticSan request.
  */
 export function getElasticSan(args: GetElasticSanArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticSanResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:elasticsan/v20211120preview:getElasticSan", {
         "elasticSanName": args.elasticSanName,
         "resourceGroupName": args.resourceGroupName,

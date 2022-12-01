@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-07-12-preview will be removed in v2 of the provider. */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
     pulumi.log.warn("getSuppression is deprecated: Version 2016-07-12-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:advisor/v20160712preview:getSuppression", {
         "name": args.name,
         "recommendationId": args.recommendationId,

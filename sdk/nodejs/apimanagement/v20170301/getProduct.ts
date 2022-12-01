@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Product details.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20170301:getProduct", {
         "productId": args.productId,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A share data transfer object.
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20200901:getShare", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

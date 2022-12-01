@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Contains information about a pool.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:batch/v20220101:getPool", {
         "accountName": args.accountName,
         "poolName": args.poolName,

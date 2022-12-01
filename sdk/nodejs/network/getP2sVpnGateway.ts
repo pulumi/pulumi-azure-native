@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01.
  */
 export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getP2sVpnGateway", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,

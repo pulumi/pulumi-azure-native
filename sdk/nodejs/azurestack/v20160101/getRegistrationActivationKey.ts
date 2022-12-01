@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The resource containing the Azure Stack activation key.
  */
 export function getRegistrationActivationKey(args: GetRegistrationActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationActivationKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestack/v20160101:getRegistrationActivationKey", {
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

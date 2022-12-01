@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-30.
  */
 export function getGalleryImageVersion(args: GetGalleryImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageVersionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute:getGalleryImageVersion", {
         "expand": args.expand,
         "galleryImageName": args.galleryImageName,

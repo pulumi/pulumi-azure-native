@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-08-01.
  */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights:getLinkedStorageAccount", {
         "dataSourceType": args.dataSourceType,
         "resourceGroupName": args.resourceGroupName,

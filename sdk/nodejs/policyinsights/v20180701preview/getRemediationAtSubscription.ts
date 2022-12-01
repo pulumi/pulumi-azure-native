@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getRemediationAtSubscription(args: GetRemediationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtSubscriptionResult> {
     pulumi.log.warn("getRemediationAtSubscription is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:policyinsights/v20180701preview:getRemediationAtSubscription", {
         "remediationName": args.remediationName,
     }, opts);

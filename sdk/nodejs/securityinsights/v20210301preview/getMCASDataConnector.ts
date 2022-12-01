@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents MCAS (Microsoft Cloud App Security) data connector.
  */
 export function getMCASDataConnector(args: GetMCASDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMCASDataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getMCASDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

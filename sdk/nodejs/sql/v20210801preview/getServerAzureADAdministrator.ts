@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Azure Active Directory administrator.
  */
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getServerAzureADAdministrator", {
         "administratorName": args.administratorName,
         "resourceGroupName": args.resourceGroupName,

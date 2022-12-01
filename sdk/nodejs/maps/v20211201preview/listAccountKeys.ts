@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:maps/v20211201preview:listAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

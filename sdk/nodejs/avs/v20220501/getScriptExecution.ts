@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An instance of a script executed by a user - custom or AVS
  */
 export function getScriptExecution(args: GetScriptExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20220501:getScriptExecution", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

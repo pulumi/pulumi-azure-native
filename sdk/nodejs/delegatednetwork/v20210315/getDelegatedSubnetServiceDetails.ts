@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents an instance of a orchestrator.
  */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

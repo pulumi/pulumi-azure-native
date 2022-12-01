@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01-preview.
  */
 export function getDatabaseBlobAuditingPolicy(args: GetDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseBlobAuditingPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getDatabaseBlobAuditingPolicy", {
         "blobAuditingPolicyName": args.blobAuditingPolicyName,
         "databaseName": args.databaseName,

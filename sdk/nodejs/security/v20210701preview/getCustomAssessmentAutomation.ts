@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Custom Assessment Automation
  */
 export function getCustomAssessmentAutomation(args: GetCustomAssessmentAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomAssessmentAutomationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20210701preview:getCustomAssessmentAutomation", {
         "customAssessmentAutomationName": args.customAssessmentAutomationName,
         "resourceGroupName": args.resourceGroupName,

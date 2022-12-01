@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An ADLS Gen2 file data set mapping.
  */
 export function getADLSGen2FileDataSetMapping(args: GetADLSGen2FileDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FileDataSetMappingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getADLSGen2FileDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Project resource.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagemover/v20220701preview:getProject", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

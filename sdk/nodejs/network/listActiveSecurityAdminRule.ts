@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01-preview.
  */
 export function listActiveSecurityAdminRule(args: ListActiveSecurityAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveSecurityAdminRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:listActiveSecurityAdminRule", {
         "networkManagerName": args.networkManagerName,
         "regions": args.regions,

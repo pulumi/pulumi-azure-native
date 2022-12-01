@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Definition of the runbook type.
  */
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20180630:getRunbook", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,

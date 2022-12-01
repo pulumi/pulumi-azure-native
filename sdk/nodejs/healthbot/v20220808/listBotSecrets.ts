@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Health Bot Keys Response.
  */
 export function listBotSecrets(args: ListBotSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotSecretsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:healthbot/v20220808:listBotSecrets", {
         "botName": args.botName,
         "resourceGroupName": args.resourceGroupName,

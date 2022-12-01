@@ -13,8 +13,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-01-01-preview.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric:getManagedCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

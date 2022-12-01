@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-09-01 will be removed in v2 of the provider. */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     pulumi.log.warn("getZone is deprecated: Version 2017-09-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20170901:getZone", {
         "resourceGroupName": args.resourceGroupName,
         "zoneName": args.zoneName,

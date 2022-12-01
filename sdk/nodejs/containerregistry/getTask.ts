@@ -13,8 +13,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-06-01-preview.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry:getTask", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

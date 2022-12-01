@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
  */
 export function listNetworkManagerEffectiveConnectivityConfigurations(args: ListNetworkManagerEffectiveConnectivityConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerEffectiveConnectivityConfigurationsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210501preview:listNetworkManagerEffectiveConnectivityConfigurations", {
         "resourceGroupName": args.resourceGroupName,
         "skipToken": args.skipToken,

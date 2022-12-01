@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The extended Info of the Data Box Edge/Gateway device.
  */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20190801:getDeviceExtendedInformation", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

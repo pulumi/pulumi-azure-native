@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-01-preview.
  */
 export function getPacketCoreControlPlane(args: GetPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreControlPlaneResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mobilenetwork:getPacketCoreControlPlane", {
         "packetCoreControlPlaneName": args.packetCoreControlPlaneName,
         "resourceGroupName": args.resourceGroupName,

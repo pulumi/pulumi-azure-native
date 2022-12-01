@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Connection string for ingesting security data and logs
  */
 export function listIngestionSettingConnectionStrings(args: ListIngestionSettingConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListIngestionSettingConnectionStringsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20210115preview:listIngestionSettingConnectionStrings", {
         "ingestionSettingName": args.ingestionSettingName,
     }, opts);

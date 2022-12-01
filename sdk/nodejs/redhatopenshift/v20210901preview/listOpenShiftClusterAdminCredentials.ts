@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
  */
 export function listOpenShiftClusterAdminCredentials(args: ListOpenShiftClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterAdminCredentialsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

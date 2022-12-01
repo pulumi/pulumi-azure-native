@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-15.
  */
 export function listNotebookWorkspaceConnectionInfo(args: ListNotebookWorkspaceConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListNotebookWorkspaceConnectionInfoResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:listNotebookWorkspaceConnectionInfo", {
         "accountName": args.accountName,
         "notebookWorkspaceName": args.notebookWorkspaceName,

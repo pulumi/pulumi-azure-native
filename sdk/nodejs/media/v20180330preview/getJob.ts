@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20180330preview:getJob", {
         "accountName": args.accountName,
         "jobName": args.jobName,

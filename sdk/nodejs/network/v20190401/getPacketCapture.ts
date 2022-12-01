@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Information about packet capture session.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20190401:getPacketCapture", {
         "networkWatcherName": args.networkWatcherName,
         "packetCaptureName": args.packetCaptureName,

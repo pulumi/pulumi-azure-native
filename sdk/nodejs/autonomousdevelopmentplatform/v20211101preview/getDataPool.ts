@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * ADP Data Pool
  */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:autonomousdevelopmentplatform/v20211101preview:getDataPool", {
         "accountName": args.accountName,
         "dataPoolName": args.dataPoolName,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-15.
  */
 export function getSqlResourceSqlDatabase(args: GetSqlResourceSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlDatabaseResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getSqlResourceSqlDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,

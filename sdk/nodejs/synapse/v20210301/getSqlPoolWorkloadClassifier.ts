@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Workload classifier operations for a data warehouse
  */
 export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadClassifierResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210301:getSqlPoolWorkloadClassifier", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,

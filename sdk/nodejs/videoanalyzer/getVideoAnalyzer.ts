@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-05-01-preview.
  */
 export function getVideoAnalyzer(args: GetVideoAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoAnalyzerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer:getVideoAnalyzer", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

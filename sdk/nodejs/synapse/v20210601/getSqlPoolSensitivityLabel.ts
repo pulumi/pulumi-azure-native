@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A sensitivity label.
  */
 export function getSqlPoolSensitivityLabel(args: GetSqlPoolSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolSensitivityLabelResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getSqlPoolSensitivityLabel", {
         "columnName": args.columnName,
         "resourceGroupName": args.resourceGroupName,

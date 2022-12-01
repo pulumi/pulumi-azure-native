@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The container for solution.
  */
 export function getManagementConfiguration(args: GetManagementConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", {
         "managementConfigurationName": args.managementConfigurationName,
         "resourceGroupName": args.resourceGroupName,

@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
     pulumi.log.warn("getVirtualMachineScaleSetVMExtension is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20190701:getVirtualMachineScaleSetVMExtension", {
         "expand": args.expand,
         "instanceId": args.instanceId,

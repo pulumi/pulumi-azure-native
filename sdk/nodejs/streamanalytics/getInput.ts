@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2016-03-01.
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:streamanalytics:getInput", {
         "inputName": args.inputName,
         "jobName": args.jobName,

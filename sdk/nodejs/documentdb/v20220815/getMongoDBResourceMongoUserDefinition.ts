@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB User Definition
  */
 export function getMongoDBResourceMongoUserDefinition(args: GetMongoDBResourceMongoUserDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoUserDefinitionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20220815:getMongoDBResourceMongoUserDefinition", {
         "accountName": args.accountName,
         "mongoUserDefinitionId": args.mongoUserDefinitionId,

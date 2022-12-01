@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Diagnostic details.
  */
 export function getApiDiagnostic(args: GetApiDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDiagnosticResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:getApiDiagnostic", {
         "apiId": args.apiId,
         "diagnosticId": args.diagnosticId,

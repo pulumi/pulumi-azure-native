@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response for all the Bastion Shareable Link endpoints.
  */
 export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionShareableLinkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20190901:getBastionShareableLink", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,

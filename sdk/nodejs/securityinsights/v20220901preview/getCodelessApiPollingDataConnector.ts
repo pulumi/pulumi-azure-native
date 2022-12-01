@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents Codeless API Polling data connector.
  */
 export function getCodelessApiPollingDataConnector(args: GetCodelessApiPollingDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCodelessApiPollingDataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220901preview:getCodelessApiPollingDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The configuration of service URI and custom headers for the webhook.
  */
 export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookCallbackConfigResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210801preview:getWebhookCallbackConfig", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

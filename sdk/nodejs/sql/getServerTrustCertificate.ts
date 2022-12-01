@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-05-01-preview.
  */
 export function getServerTrustCertificate(args: GetServerTrustCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustCertificateResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getServerTrustCertificate", {
         "certificateName": args.certificateName,
         "managedInstanceName": args.managedInstanceName,

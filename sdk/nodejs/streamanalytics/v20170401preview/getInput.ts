@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20170401preview:getInput", {
         "inputName": args.inputName,
         "jobName": args.jobName,

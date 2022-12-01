@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Network profile resource.
  */
 export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20181201:getNetworkProfile", {
         "expand": args.expand,
         "networkProfileName": args.networkProfileName,

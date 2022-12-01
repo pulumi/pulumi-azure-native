@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-03-31-preview will be removed in v2 of the provider. */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     pulumi.log.warn("getProject is deprecated: Version 2018-03-31-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datamigration/v20180331preview:getProject", {
         "groupName": args.groupName,
         "projectName": args.projectName,

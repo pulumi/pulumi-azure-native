@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Application Configuration Service resource
  */
 export function getConfigurationService(args: GetConfigurationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationServiceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220401:getConfigurationService", {
         "configurationServiceName": args.configurationServiceName,
         "resourceGroupName": args.resourceGroupName,

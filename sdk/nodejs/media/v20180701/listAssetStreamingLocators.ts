@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Streaming Locators associated with this Asset.
  */
 export function listAssetStreamingLocators(args: ListAssetStreamingLocatorsArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetStreamingLocatorsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20180701:listAssetStreamingLocators", {
         "accountName": args.accountName,
         "assetName": args.assetName,

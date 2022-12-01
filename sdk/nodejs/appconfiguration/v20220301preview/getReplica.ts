@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The replica resource.
  */
 export function getReplica(args: GetReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20220301preview:getReplica", {
         "configStoreName": args.configStoreName,
         "replicaName": args.replicaName,

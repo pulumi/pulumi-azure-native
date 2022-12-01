@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:getWebAppFunction", {
         "functionName": args.functionName,
         "name": args.name,

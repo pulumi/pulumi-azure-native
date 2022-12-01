@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20170418:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

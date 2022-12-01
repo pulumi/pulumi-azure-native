@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A kusto table data set.
  */
 export function getKustoTableDataSet(args: GetKustoTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoTableDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getKustoTableDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

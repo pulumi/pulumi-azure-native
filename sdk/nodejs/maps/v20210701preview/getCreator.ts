@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
  */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:maps/v20210701preview:getCreator", {
         "accountName": args.accountName,
         "creatorName": args.creatorName,

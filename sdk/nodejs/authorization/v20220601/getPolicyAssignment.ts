@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The policy assignment.
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20220601:getPolicyAssignment", {
         "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,

@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-01-22 will be removed in v2 of the provider. */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
     pulumi.log.warn("getIotHubResourceEventHubConsumerGroup is deprecated: Version 2018-01-22 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devices/v20180122:getIotHubResourceEventHubConsumerGroup", {
         "eventHubEndpointName": args.eventHubEndpointName,
         "name": args.name,

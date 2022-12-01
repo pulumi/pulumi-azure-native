@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-25-preview.
  */
 export function getprivateLinkServicesForEDMUpload(args: GetprivateLinkServicesForEDMUploadArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForEDMUploadResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getprivateLinkServicesForEDMUpload", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

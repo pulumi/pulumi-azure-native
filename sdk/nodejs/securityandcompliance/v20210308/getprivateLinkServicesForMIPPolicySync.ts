@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The description of the service.
  */
 export function getprivateLinkServicesForMIPPolicySync(args: GetprivateLinkServicesForMIPPolicySyncArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForMIPPolicySyncResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForMIPPolicySync", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

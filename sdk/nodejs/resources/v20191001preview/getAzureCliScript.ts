@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Object model for the Azure CLI script.
  */
 export function getAzureCliScript(args: GetAzureCliScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureCliScriptResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20191001preview:getAzureCliScript", {
         "resourceGroupName": args.resourceGroupName,
         "scriptName": args.scriptName,

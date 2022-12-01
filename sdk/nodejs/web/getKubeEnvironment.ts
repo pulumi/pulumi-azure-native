@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-01.
  */
 export function getKubeEnvironment(args: GetKubeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKubeEnvironmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:getKubeEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

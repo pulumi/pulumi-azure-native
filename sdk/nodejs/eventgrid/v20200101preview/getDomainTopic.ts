@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
     pulumi.log.warn("getDomainTopic is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200101preview:getDomainTopic", {
         "domainName": args.domainName,
         "domainTopicName": args.domainTopicName,

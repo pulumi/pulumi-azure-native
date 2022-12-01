@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * List of stop sell offers and plans notifications.
  */
 export function listPrivateStoreStopSellOffersPlansNotifications(args: ListPrivateStoreStopSellOffersPlansNotificationsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:marketplace/v20220301:listPrivateStoreStopSellOffersPlansNotifications", {
         "privateStoreId": args.privateStoreId,
         "subscriptions": args.subscriptions,

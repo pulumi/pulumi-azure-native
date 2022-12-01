@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents Amazon Web Services CloudTrail data connector.
  */
 export function getAwsCloudTrailDataConnector(args: GetAwsCloudTrailDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsCloudTrailDataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getAwsCloudTrailDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

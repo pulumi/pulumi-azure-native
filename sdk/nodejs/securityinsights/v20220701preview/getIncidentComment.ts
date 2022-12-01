@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents an incident comment
  */
 export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCommentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220701preview:getIncidentComment", {
         "incidentCommentId": args.incidentCommentId,
         "incidentId": args.incidentId,

@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: Gen1Environment, Gen2Environment. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     pulumi.log.warn("getEnvironment is deprecated: Please use one of the variants: Gen1Environment, Gen2Environment.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210331preview:getEnvironment", {
         "environmentName": args.environmentName,
         "expand": args.expand,

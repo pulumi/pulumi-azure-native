@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
     pulumi.log.warn("getBackupPolicy is deprecated: Version 2020-09-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:netapp/v20200901:getBackupPolicy", {
         "accountName": args.accountName,
         "backupPolicyName": args.backupPolicyName,

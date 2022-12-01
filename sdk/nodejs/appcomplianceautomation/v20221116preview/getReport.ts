@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A class represent an AppComplianceAutomation report resource.
  */
 export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation/v20221116preview:getReport", {
         "reportName": args.reportName,
     }, opts);

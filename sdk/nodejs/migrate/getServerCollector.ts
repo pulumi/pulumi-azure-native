@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-10-01.
  */
 export function getServerCollector(args: GetServerCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCollectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:migrate:getServerCollector", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

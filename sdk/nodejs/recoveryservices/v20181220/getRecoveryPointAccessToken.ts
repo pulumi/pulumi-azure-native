@@ -8,8 +8,11 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getRecoveryPointAccessToken(args: GetRecoveryPointAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetRecoveryPointAccessTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20181220:getRecoveryPointAccessToken", {
         "containerName": args.containerName,
         "eTag": args.eTag,

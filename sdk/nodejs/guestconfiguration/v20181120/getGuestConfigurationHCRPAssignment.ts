@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-11-20 will be removed in v2 of the provider. */
 export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationHCRPAssignmentResult> {
     pulumi.log.warn("getGuestConfigurationHCRPAssignment is deprecated: Version 2018-11-20 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20181120:getGuestConfigurationHCRPAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "machineName": args.machineName,

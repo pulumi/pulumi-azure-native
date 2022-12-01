@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-06-01.
  */
 export function listDeviceFailoverTars(args: ListDeviceFailoverTarsArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceFailoverTarsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple:listDeviceFailoverTars", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

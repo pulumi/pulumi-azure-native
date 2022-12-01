@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A SQL server registration.
  */
 export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerRegistrationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azuredata/v20190724preview:getSqlServerRegistration", {
         "resourceGroupName": args.resourceGroupName,
         "sqlServerRegistrationName": args.sqlServerRegistrationName,

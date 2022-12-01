@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An object that represents a pipeline run for a container registry.
  */
 export function getPipelineRun(args: GetPipelineRunArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineRunResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210801preview:getPipelineRun", {
         "pipelineRunName": args.pipelineRunName,
         "registryName": args.registryName,

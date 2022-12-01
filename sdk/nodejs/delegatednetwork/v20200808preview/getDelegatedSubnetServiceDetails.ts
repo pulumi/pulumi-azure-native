@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
     pulumi.log.warn("getDelegatedSubnetServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

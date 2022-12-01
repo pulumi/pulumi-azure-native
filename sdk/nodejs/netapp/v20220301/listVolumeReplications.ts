@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * List Replications
  */
 export function listVolumeReplications(args: ListVolumeReplicationsArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumeReplicationsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:netapp/v20220301:listVolumeReplications", {
         "accountName": args.accountName,
         "poolName": args.poolName,

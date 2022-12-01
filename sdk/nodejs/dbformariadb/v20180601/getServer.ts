@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents a server.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dbformariadb/v20180601:getServer", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

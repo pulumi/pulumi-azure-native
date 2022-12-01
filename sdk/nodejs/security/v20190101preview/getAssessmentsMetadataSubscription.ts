@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Security assessment metadata
  */
 export function getAssessmentsMetadataSubscription(args: GetAssessmentsMetadataSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentsMetadataSubscriptionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,
     }, opts);

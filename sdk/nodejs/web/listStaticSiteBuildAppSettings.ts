@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function listStaticSiteBuildAppSettings(args: ListStaticSiteBuildAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteBuildAppSettingsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:listStaticSiteBuildAppSettings", {
         "environmentName": args.environmentName,
         "name": args.name,

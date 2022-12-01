@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * App resource payload
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220301preview:getApp", {
         "appName": args.appName,
         "resourceGroupName": args.resourceGroupName,

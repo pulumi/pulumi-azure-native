@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-10-01-preview.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization:getRoleAssignment", {
         "roleAssignmentName": args.roleAssignmentName,
         "scope": args.scope,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Action rule object containing target scope, conditions and suppression logic
  */
 export function getActionRuleByName(args: GetActionRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetActionRuleByNameResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20190505preview:getActionRuleByName", {
         "actionRuleName": args.actionRuleName,
         "resourceGroupName": args.resourceGroupName,

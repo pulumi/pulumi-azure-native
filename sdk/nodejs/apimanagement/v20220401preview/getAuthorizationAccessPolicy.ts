@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Authorization access policy contract.
  */
 export function getAuthorizationAccessPolicy(args: GetAuthorizationAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationAccessPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getAuthorizationAccessPolicy", {
         "authorizationAccessPolicyId": args.authorizationAccessPolicyId,
         "authorizationId": args.authorizationId,

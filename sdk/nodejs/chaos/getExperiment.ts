@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-09-15-preview.
  */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:chaos:getExperiment", {
         "experimentName": args.experimentName,
         "resourceGroupName": args.resourceGroupName,

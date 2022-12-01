@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A private endpoint connection class.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:purview/v20210701:getPrivateEndpointConnection", {
         "accountName": args.accountName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

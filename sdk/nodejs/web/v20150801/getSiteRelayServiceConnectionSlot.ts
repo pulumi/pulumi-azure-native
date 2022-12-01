@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteRelayServiceConnectionSlot(args: GetSiteRelayServiceConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteRelayServiceConnectionSlotResult> {
     pulumi.log.warn("getSiteRelayServiceConnectionSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", {
         "entityName": args.entityName,
         "name": args.name,

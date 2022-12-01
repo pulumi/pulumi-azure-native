@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function getMECRole(args: GetMECRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetMECRoleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge:getMECRole", {
         "deviceName": args.deviceName,
         "name": args.name,

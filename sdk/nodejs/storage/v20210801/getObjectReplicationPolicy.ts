@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
  */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20210801:getObjectReplicationPolicy", {
         "accountName": args.accountName,
         "objectReplicationPolicyId": args.objectReplicationPolicyId,

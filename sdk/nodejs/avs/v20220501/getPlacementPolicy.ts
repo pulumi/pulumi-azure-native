@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A vSphere Distributed Resource Scheduler (DRS) placement policy
  */
 export function getPlacementPolicy(args: GetPlacementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20220501:getPlacementPolicy", {
         "clusterName": args.clusterName,
         "placementPolicyName": args.placementPolicyName,

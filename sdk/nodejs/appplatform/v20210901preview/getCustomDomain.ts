@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Custom domain resource payload.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20210901preview:getCustomDomain", {
         "appName": args.appName,
         "domainName": args.domainName,

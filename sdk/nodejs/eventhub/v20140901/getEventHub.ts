@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
     pulumi.log.warn("getEventHub is deprecated: Version 2014-09-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventhub/v20140901:getEventHub", {
         "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,

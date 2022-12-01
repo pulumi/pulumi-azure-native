@@ -12,8 +12,11 @@ import * as utilities from "../../utilities";
  */
 export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:management/v20201001:getEntity", {
         "filter": args.filter,
         "groupName": args.groupName,

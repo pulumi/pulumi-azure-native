@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-07-17-preview.
  */
 export function getWorkloadNetworkDnsZone(args: GetWorkloadNetworkDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsZoneResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs:getWorkloadNetworkDnsZone", {
         "dnsZoneId": args.dnsZoneId,
         "privateCloudName": args.privateCloudName,

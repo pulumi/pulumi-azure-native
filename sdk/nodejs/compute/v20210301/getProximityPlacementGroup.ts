@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Specifies information about the proximity placement group.
  */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20210301:getProximityPlacementGroup", {
         "includeColocationStatus": args.includeColocationStatus,
         "proximityPlacementGroupName": args.proximityPlacementGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The metric setting details for the role
  */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20201201:getMonitoringConfig", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

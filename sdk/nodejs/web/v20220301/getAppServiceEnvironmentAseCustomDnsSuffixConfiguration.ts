@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Full view of the custom domain suffix configuration for ASEv3.
  */
 export function getAppServiceEnvironmentAseCustomDnsSuffixConfiguration(args: GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20220301:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

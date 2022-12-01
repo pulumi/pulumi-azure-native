@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function listWebAppConnectionStrings(args: ListWebAppConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:listWebAppConnectionStrings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

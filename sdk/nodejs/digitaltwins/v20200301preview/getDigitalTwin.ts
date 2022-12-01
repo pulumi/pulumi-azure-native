@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-03-01-preview will be removed in v2 of the provider. */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
     pulumi.log.warn("getDigitalTwin is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20200301preview:getDigitalTwin", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

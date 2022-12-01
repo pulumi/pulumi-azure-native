@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Security Partner Provider resource.
  */
 export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPartnerProviderResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210801:getSecurityPartnerProvider", {
         "resourceGroupName": args.resourceGroupName,
         "securityPartnerProviderName": args.securityPartnerProviderName,

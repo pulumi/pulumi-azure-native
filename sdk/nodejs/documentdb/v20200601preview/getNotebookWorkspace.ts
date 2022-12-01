@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
     pulumi.log.warn("getNotebookWorkspace is deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20200601preview:getNotebookWorkspace", {
         "accountName": args.accountName,
         "notebookWorkspaceName": args.notebookWorkspaceName,

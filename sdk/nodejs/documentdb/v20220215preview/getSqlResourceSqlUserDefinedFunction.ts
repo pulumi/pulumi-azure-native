@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB userDefinedFunction.
  */
 export function getSqlResourceSqlUserDefinedFunction(args: GetSqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlUserDefinedFunctionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20220215preview:getSqlResourceSqlUserDefinedFunction", {
         "accountName": args.accountName,
         "containerName": args.containerName,

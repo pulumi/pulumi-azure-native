@@ -14,8 +14,11 @@ import * as utilities from "../utilities";
 /** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
 export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleResult> {
     pulumi.log.warn("getUserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getUserRule", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

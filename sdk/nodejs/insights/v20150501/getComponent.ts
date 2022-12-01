@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Application Insights component definition.
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getComponent", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

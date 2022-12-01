@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * RouteTable resource in a virtual hub.
  */
 export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetHubRouteTableResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20200401:getHubRouteTable", {
         "resourceGroupName": args.resourceGroupName,
         "routeTableName": args.routeTableName,

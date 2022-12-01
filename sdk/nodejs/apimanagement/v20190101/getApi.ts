@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Api details.
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20190101:getApi", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,

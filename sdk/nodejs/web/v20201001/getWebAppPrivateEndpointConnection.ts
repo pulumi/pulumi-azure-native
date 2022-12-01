@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Private Endpoint Connection ARM resource.
  */
 export function getWebAppPrivateEndpointConnection(args: GetWebAppPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPrivateEndpointConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20201001:getWebAppPrivateEndpointConnection", {
         "name": args.name,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

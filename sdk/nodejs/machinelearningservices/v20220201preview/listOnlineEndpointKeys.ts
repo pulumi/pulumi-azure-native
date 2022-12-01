@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Keys for endpoint authentication.
  */
 export function listOnlineEndpointKeys(args: ListOnlineEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListOnlineEndpointKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220201preview:listOnlineEndpointKeys", {
         "endpointName": args.endpointName,
         "resourceGroupName": args.resourceGroupName,

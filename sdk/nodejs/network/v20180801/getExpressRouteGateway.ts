@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * ExpressRoute gateway resource.
  */
 export function getExpressRouteGateway(args: GetExpressRouteGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteGatewayResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20180801:getExpressRouteGateway", {
         "expressRouteGatewayName": args.expressRouteGatewayName,
         "resourceGroupName": args.resourceGroupName,

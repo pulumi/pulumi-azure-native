@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An Azure storage blob container data set.
  */
 export function getBlobContainerDataSet(args: GetBlobContainerDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getBlobContainerDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

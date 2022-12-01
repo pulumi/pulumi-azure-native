@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Restore Point details.
  */
 export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20210701:getRestorePoint", {
         "resourceGroupName": args.resourceGroupName,
         "restorePointCollectionName": args.restorePointCollectionName,

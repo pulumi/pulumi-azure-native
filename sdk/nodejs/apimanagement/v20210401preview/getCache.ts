@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Cache details.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210401preview:getCache", {
         "cacheId": args.cacheId,
         "resourceGroupName": args.resourceGroupName,

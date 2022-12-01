@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-18-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoindexer:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

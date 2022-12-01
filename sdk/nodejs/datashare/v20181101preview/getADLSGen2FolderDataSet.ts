@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An ADLS Gen 2 folder data set.
  */
 export function getADLSGen2FolderDataSet(args: GetADLSGen2FolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:getADLSGen2FolderDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

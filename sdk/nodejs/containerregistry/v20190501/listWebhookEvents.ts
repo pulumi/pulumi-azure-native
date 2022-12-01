@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The result of a request to list events for a webhook.
  */
 export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebhookEventsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190501:listWebhookEvents", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

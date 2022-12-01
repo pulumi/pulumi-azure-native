@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The result of a request to list API keys.
  */
 export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20211001preview:listConfigurationStoreKeys", {
         "configStoreName": args.configStoreName,
         "resourceGroupName": args.resourceGroupName,

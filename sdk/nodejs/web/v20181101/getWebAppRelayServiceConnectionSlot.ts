@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Hybrid Connection for an App Service app.
  */
 export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20181101:getWebAppRelayServiceConnectionSlot", {
         "entityName": args.entityName,
         "name": args.name,

@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-11-01 will be removed in v2 of the provider. */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
     pulumi.log.warn("getManagementPolicy is deprecated: Version 2018-11-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20181101:getManagementPolicy", {
         "accountName": args.accountName,
         "managementPolicyName": args.managementPolicyName,

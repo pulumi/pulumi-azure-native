@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The representation of a single video in a Video Analyzer account.
  */
 export function getVideo(args: GetVideoArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20210501preview:getVideo", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

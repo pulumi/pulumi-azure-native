@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Settings defined at the Management Group scope.
  */
 export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi.InvokeOptions): Promise<GetHierarchySettingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:management/v20201001:getHierarchySetting", {
         "groupId": args.groupId,
     }, opts);

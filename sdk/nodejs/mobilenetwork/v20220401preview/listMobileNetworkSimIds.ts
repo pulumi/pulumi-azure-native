@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response for list SIM IDs API service call.
  */
 export function listMobileNetworkSimIds(args: ListMobileNetworkSimIdsArgs, opts?: pulumi.InvokeOptions): Promise<ListMobileNetworkSimIdsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220401preview:listMobileNetworkSimIds", {
         "mobileNetworkName": args.mobileNetworkName,
         "resourceGroupName": args.resourceGroupName,

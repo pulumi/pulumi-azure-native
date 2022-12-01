@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Private Endpoint Connection resource.
  */
 export function getPrivateEndpointConnectionsSec(args: GetPrivateEndpointConnectionsSecArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsSecResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsSec", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

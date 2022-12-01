@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Policy fragment contract details.
  */
 export function getPolicyFragment(args: GetPolicyFragmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFragmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20211201preview:getPolicyFragment", {
         "format": args.format,
         "id": args.id,

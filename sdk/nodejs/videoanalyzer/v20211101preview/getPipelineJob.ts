@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
  */
 export function getPipelineJob(args: GetPipelineJobArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineJobResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:getPipelineJob", {
         "accountName": args.accountName,
         "pipelineJobName": args.pipelineJobName,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-04-01-preview.
  */
 export function getSystemTopicEventSubscription(args: GetSystemTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid:getSystemTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "resourceGroupName": args.resourceGroupName,

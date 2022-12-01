@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
  */
 export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListVirtualMachineApplicableSchedulesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:listVirtualMachineApplicableSchedules", {
         "labName": args.labName,
         "name": args.name,

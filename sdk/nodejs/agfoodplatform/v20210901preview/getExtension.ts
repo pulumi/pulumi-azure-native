@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Extension resource.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:agfoodplatform/v20210901preview:getExtension", {
         "extensionId": args.extensionId,
         "farmBeatsResourceName": args.farmBeatsResourceName,

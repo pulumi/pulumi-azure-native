@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An object that represents a machine learning project.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningexperimentation/v20170501preview:getProject", {
         "accountName": args.accountName,
         "projectName": args.projectName,

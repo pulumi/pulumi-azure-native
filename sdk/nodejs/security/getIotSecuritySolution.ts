@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-08-01.
  */
 export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSecuritySolutionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security:getIotSecuritySolution", {
         "resourceGroupName": args.resourceGroupName,
         "solutionName": args.solutionName,

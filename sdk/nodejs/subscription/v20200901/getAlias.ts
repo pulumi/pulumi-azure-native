@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Subscription Information with the alias.
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:subscription/v20200901:getAlias", {
         "aliasName": args.aliasName,
     }, opts);

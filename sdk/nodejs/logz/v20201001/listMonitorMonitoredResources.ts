@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Response of a list operation.
  */
 export function listMonitorMonitoredResources(args: ListMonitorMonitoredResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorMonitoredResourcesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz/v20201001:listMonitorMonitoredResources", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

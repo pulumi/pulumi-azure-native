@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A task resource
  */
 export function getServiceTask(args: GetServiceTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTaskResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datamigration/v20180715preview:getServiceTask", {
         "expand": args.expand,
         "groupName": args.groupName,

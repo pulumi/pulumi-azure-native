@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-02-02.
  */
 export function getProjectKeys(args: GetProjectKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:migrate:getProjectKeys", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

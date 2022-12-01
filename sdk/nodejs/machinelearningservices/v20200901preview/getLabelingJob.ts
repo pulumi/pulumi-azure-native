@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Machine Learning labeling job object wrapped into ARM resource envelope.
  */
 export function getLabelingJob(args: GetLabelingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelingJobResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200901preview:getLabelingJob", {
         "includeJobInstructions": args.includeJobInstructions,
         "includeLabelCategories": args.includeLabelCategories,

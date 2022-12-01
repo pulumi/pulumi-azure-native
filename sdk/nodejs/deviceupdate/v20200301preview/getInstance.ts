@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Device Update instance details.
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deviceupdate/v20200301preview:getInstance", {
         "accountName": args.accountName,
         "instanceName": args.instanceName,

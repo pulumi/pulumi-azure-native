@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-05-01.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media:getAsset", {
         "accountName": args.accountName,
         "assetName": args.assetName,

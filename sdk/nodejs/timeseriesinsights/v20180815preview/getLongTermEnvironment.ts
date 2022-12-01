@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
  */
 export function getLongTermEnvironment(args: GetLongTermEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetLongTermEnvironmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20180815preview:getLongTermEnvironment", {
         "environmentName": args.environmentName,
         "expand": args.expand,

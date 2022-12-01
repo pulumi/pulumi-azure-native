@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The top level Linked service resource container.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getLinkedService", {
         "linkedServiceName": args.linkedServiceName,
         "resourceGroupName": args.resourceGroupName,

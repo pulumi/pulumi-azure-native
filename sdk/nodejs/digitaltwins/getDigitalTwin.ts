@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:digitaltwins:getDigitalTwin", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

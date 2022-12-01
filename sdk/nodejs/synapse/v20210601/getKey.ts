@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A workspace key
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

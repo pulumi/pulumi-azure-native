@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-03-01 will be removed in v2 of the provider. */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
     pulumi.log.warn("getLinkedServer is deprecated: Version 2018-03-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache/v20180301:getLinkedServer", {
         "linkedServerName": args.linkedServerName,
         "name": args.name,

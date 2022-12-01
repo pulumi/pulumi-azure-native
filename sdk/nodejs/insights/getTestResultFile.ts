@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-02-10-preview.
  */
 export function getTestResultFile(args: GetTestResultFileArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultFileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights:getTestResultFile", {
         "continuationToken": args.continuationToken,
         "downloadAs": args.downloadAs,

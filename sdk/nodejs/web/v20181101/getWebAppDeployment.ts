@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * User credentials used for publishing activity.
  */
 export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20181101:getWebAppDeployment", {
         "id": args.id,
         "name": args.name,

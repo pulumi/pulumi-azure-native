@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An elastic pool.
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210201preview:getElasticPool", {
         "elasticPoolName": args.elasticPoolName,
         "resourceGroupName": args.resourceGroupName,

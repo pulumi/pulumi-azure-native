@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The essential information related to the peer's ASN.
  */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:peering/v20220101:getPeerAsn", {
         "peerAsnName": args.peerAsnName,
     }, opts);

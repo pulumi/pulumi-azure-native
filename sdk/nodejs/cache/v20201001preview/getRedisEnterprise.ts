@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Describes the RedisEnterprise cluster
  */
 export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisEnterpriseResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache/v20201001preview:getRedisEnterprise", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

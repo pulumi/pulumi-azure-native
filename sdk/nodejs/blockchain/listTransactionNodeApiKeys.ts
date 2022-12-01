@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-06-01-preview.
  */
 export function listTransactionNodeApiKeys(args: ListTransactionNodeApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTransactionNodeApiKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blockchain:listTransactionNodeApiKeys", {
         "blockchainMemberName": args.blockchainMemberName,
         "resourceGroupName": args.resourceGroupName,

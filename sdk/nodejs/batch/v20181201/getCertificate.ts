@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-12-01 will be removed in v2 of the provider. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     pulumi.log.warn("getCertificate is deprecated: Version 2018-12-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:batch/v20181201:getCertificate", {
         "accountName": args.accountName,
         "certificateName": args.certificateName,

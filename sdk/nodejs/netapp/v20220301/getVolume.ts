@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Volume resource
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:netapp/v20220301:getVolume", {
         "accountName": args.accountName,
         "poolName": args.poolName,

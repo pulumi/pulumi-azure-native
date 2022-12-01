@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Standard environments have data retention limits.
  */
 export function getStandardEnvironment(args: GetStandardEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardEnvironmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20180815preview:getStandardEnvironment", {
         "environmentName": args.environmentName,
         "expand": args.expand,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Namespace/EventHub Connection String
  */
 export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDisasterRecoveryConfigKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventhub/v20210601preview:listDisasterRecoveryConfigKeys", {
         "alias": args.alias,
         "authorizationRuleName": args.authorizationRuleName,

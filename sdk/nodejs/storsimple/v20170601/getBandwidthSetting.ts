@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The bandwidth setting.
  */
 export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthSettingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getBandwidthSetting", {
         "bandwidthSettingName": args.bandwidthSettingName,
         "managerName": args.managerName,

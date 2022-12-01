@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
  */
 export function getGen2Environment(args: GetGen2EnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGen2EnvironmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210630preview:getGen2Environment", {
         "environmentName": args.environmentName,
         "expand": args.expand,

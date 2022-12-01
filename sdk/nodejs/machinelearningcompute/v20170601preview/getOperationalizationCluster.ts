@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-06-01-preview will be removed in v2 of the provider. */
 export function getOperationalizationCluster(args: GetOperationalizationClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOperationalizationClusterResult> {
     pulumi.log.warn("getOperationalizationCluster is deprecated: Version 2017-06-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningcompute/v20170601preview:getOperationalizationCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Properties that define a favorite that is associated to an Application Insights component.
  */
 export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getFavorite", {
         "favoriteId": args.favoriteId,
         "resourceGroupName": args.resourceGroupName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The result of the GetSupportedOptimizationTypes API
  */
 export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOptimizationTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileSupportedOptimizationTypesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getProfileSupportedOptimizationTypes", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Administrative credentials for accessing vCenter and NSX-T
  */
 export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateCloudAdminCredentialsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20210601:listPrivateCloudAdminCredentials", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

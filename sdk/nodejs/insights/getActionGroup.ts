@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2019-06-01.
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights:getActionGroup", {
         "actionGroupName": args.actionGroupName,
         "resourceGroupName": args.resourceGroupName,

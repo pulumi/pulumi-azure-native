@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A pool of Virtual Machines.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devcenter/v20221111preview:getPool", {
         "poolName": args.poolName,
         "projectName": args.projectName,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-01.
  */
 export function getScriptExecutionLogs(args: GetScriptExecutionLogsArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionLogsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs:getScriptExecutionLogs", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

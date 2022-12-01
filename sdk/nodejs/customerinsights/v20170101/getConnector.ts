@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     pulumi.log.warn("getConnector is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getConnector", {
         "connectorName": args.connectorName,
         "hubName": args.hubName,

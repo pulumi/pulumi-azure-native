@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-02-01.
  */
 export function getSignalRCustomCertificate(args: GetSignalRCustomCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRCustomCertificateResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:signalrservice:getSignalRCustomCertificate", {
         "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Data Box Edge/Gateway device.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220401preview:getDevice", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

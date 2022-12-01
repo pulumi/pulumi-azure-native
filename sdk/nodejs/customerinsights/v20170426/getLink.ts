@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The link resource format.
  */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getLink", {
         "hubName": args.hubName,
         "linkName": args.linkName,

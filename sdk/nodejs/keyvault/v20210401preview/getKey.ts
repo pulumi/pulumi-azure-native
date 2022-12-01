@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The key resource.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:keyvault/v20210401preview:getKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
 export function getDatabaseAccountCassandraKeyspace(args: GetDatabaseAccountCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraKeyspaceResult> {
     pulumi.log.warn("getDatabaseAccountCassandraKeyspace is deprecated: Version 2015-11-06 will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20151106:getDatabaseAccountCassandraKeyspace", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,

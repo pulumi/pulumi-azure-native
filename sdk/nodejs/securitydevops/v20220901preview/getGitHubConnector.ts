@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
  */
 export function getGitHubConnector(args: GetGitHubConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securitydevops/v20220901preview:getGitHubConnector", {
         "gitHubConnectorName": args.gitHubConnectorName,
         "resourceGroupName": args.resourceGroupName,

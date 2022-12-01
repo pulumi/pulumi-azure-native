@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Mobile network resource.
  */
 export function getMobileNetwork(args: GetMobileNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetMobileNetworkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220301preview:getMobileNetwork", {
         "mobileNetworkName": args.mobileNetworkName,
         "resourceGroupName": args.resourceGroupName,

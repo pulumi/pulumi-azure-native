@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Azure SQL Database sync group.
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20220201preview:getSyncGroup", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

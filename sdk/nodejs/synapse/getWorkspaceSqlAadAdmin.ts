@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse:getWorkspaceSqlAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

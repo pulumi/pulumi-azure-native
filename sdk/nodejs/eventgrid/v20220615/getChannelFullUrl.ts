@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Full endpoint url of an event subscription
  */
 export function getChannelFullUrl(args: GetChannelFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelFullUrlResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20220615:getChannelFullUrl", {
         "channelName": args.channelName,
         "partnerNamespaceName": args.partnerNamespaceName,

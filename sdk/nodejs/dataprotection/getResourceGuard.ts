@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-01-preview.
  */
 export function getResourceGuard(args: GetResourceGuardArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dataprotection:getResourceGuard", {
         "resourceGroupName": args.resourceGroupName,
         "resourceGuardsName": args.resourceGuardsName,

@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An event source that receives its data from an Azure IoTHub.
  */
 export function getIoTHubEventSource(args: GetIoTHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTHubEventSourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20180815preview:getIoTHubEventSource", {
         "environmentName": args.environmentName,
         "eventSourceName": args.eventSourceName,

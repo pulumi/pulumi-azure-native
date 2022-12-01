@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-01-preview.
  */
 export function getKustoPoolAttachedDatabaseConfiguration(args: GetKustoPoolAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolAttachedDatabaseConfigurationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration", {
         "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
         "kustoPoolName": args.kustoPoolName,

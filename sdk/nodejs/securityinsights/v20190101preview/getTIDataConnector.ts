@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Data connector to pull threat intelligence data from TIP products.
  */
 export function getTIDataConnector(args: GetTIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetTIDataConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getTIDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

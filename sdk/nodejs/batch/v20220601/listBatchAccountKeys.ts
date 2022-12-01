@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * A set of Azure Batch account keys.
  */
 export function listBatchAccountKeys(args: ListBatchAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchAccountKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:batch/v20220601:listBatchAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

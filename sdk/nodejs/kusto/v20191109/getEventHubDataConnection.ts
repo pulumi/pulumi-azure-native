@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Class representing an event hub data connection.
  */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20191109:getEventHubDataConnection", {
         "clusterName": args.clusterName,
         "dataConnectionName": args.dataConnectionName,

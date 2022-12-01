@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  */
 export function getClientToken(args?: GetClientTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetClientTokenResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization:getClientToken", {
         "endpoint": args.endpoint,
     }, opts);

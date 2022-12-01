@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:aad:getDomainService", {
         "domainServiceName": args.domainServiceName,
         "resourceGroupName": args.resourceGroupName,

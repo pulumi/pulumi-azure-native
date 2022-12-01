@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The response from the ListKeys operation.
  */
 export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20160501:listStorageAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

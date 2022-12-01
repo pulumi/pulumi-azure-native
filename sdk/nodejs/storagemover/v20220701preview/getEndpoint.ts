@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The Endpoint resource, which contains information about file sources and targets.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagemover/v20220701preview:getEndpoint", {
         "endpointName": args.endpointName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Device resource.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20220101preview:getDevice", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

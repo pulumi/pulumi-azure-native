@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-06-01.
  */
 export function getManagerExtendedInfo(args: GetManagerExtendedInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerExtendedInfoResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple:getManagerExtendedInfo", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

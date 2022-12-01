@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The registration definition.
  */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:managedservices/v20200201preview:getRegistrationDefinition", {
         "registrationDefinitionId": args.registrationDefinitionId,
         "scope": args.scope,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getBlobDataSetMapping(args: GetBlobDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobDataSetMappingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare:getBlobDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,

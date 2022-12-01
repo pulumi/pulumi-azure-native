@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * FirewallPolicy Resource.
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20220501:getFirewallPolicy", {
         "expand": args.expand,
         "firewallPolicyName": args.firewallPolicyName,

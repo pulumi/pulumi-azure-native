@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-03-preview.
  */
 export function getDiagnosticServiceTokenReadOnly(args: GetDiagnosticServiceTokenReadOnlyArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticServiceTokenReadOnlyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights:getDiagnosticServiceTokenReadOnly", {
         "resourceUri": args.resourceUri,
     }, opts);

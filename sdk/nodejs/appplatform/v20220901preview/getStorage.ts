@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Storage resource payload.
  */
 export function getStorage(args: GetStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220901preview:getStorage", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

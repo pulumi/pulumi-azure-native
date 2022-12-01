@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Specifies information about the SSH public key.
  */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20210401:getSshPublicKey", {
         "resourceGroupName": args.resourceGroupName,
         "sshPublicKeyName": args.sshPublicKeyName,

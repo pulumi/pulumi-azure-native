@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Wrapper resource for tags API requests and responses.
  */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20210101:getTagAtScope", {
         "scope": args.scope,
     }, opts);

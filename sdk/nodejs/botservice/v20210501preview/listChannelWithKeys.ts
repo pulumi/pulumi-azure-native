@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The ARM channel of list channel with keys operation response.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:botservice/v20210501preview:listChannelWithKeys", {
         "channelName": args.channelName,
         "resourceGroupName": args.resourceGroupName,

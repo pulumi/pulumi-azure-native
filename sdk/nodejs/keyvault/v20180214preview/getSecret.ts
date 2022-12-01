@@ -13,8 +13,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-02-14-preview will be removed in v2 of the provider. */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     pulumi.log.warn("getSecret is deprecated: Version 2018-02-14-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:keyvault/v20180214preview:getSecret", {
         "resourceGroupName": args.resourceGroupName,
         "secretName": args.secretName,

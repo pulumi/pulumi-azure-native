@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function getFileEventTrigger(args: GetFileEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileEventTriggerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge:getFileEventTrigger", {
         "deviceName": args.deviceName,
         "name": args.name,

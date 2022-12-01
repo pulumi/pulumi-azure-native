@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Properties of an artifact source.
  */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getArtifactSource", {
         "expand": args.expand,
         "labName": args.labName,

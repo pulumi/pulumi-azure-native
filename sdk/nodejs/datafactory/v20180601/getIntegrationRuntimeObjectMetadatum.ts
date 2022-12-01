@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A list of SSIS object metadata.
  */
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getIntegrationRuntimeObjectMetadatum", {
         "factoryName": args.factoryName,
         "integrationRuntimeName": args.integrationRuntimeName,

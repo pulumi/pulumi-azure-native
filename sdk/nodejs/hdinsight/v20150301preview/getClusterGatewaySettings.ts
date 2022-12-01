@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Gateway settings.
  */
 export function getClusterGatewaySettings(args: GetClusterGatewaySettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterGatewaySettingsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hdinsight/v20150301preview:getClusterGatewaySettings", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

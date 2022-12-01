@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-02-01-preview.
  */
 export function getmanagedAzResiliencyStatus(args: GetmanagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedAzResiliencyStatusResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric:getmanagedAzResiliencyStatus", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

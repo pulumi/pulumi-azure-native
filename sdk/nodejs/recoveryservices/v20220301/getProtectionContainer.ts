@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220301:getProtectionContainer", {
         "containerName": args.containerName,
         "fabricName": args.fabricName,

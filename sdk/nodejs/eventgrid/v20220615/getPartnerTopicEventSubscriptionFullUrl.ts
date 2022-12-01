@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Full endpoint url of an event subscription
  */
 export function getPartnerTopicEventSubscriptionFullUrl(args: GetPartnerTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionFullUrlResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20220615:getPartnerTopicEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "partnerTopicName": args.partnerTopicName,

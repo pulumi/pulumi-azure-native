@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An Azure SQL job agent.
  */
 export function getJobAgent(args: GetJobAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetJobAgentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20220501preview:getJobAgent", {
         "jobAgentName": args.jobAgentName,
         "resourceGroupName": args.resourceGroupName,

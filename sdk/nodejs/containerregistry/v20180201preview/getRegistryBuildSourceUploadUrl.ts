@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The properties of a response to source upload request.
  */
 export function getRegistryBuildSourceUploadUrl(args: GetRegistryBuildSourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryBuildSourceUploadUrlResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:getRegistryBuildSourceUploadUrl", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

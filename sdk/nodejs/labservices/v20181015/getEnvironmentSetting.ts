@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Represents settings of an environment, from which environment instances would be created
  */
 export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSettingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getEnvironmentSetting", {
         "environmentSettingName": args.environmentSettingName,
         "expand": args.expand,

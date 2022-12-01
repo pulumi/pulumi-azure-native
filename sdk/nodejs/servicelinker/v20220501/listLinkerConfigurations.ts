@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Configurations for source resource, include appSettings, connectionString and serviceBindings
  */
 export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListLinkerConfigurationsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicelinker/v20220501:listLinkerConfigurations", {
         "linkerName": args.linkerName,
         "resourceUri": args.resourceUri,

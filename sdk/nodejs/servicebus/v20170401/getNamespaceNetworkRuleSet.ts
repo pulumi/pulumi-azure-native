@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Description of NetworkRuleSet resource.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicebus/v20170401:getNamespaceNetworkRuleSet", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

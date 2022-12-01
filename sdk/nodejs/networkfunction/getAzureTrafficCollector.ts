@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-05-01.
  */
 export function getAzureTrafficCollector(args: GetAzureTrafficCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureTrafficCollectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:networkfunction:getAzureTrafficCollector", {
         "azureTrafficCollectorName": args.azureTrafficCollectorName,
         "resourceGroupName": args.resourceGroupName,

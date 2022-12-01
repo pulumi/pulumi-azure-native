@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * User credentials used for publishing activity.
  */
 export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentSlotResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210201:getWebAppDeploymentSlot", {
         "id": args.id,
         "name": args.name,

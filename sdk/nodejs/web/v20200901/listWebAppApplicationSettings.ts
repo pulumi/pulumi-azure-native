@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  */
 export function listWebAppApplicationSettings(args: ListWebAppApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20200901:listWebAppApplicationSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

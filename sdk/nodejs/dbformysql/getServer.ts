@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-12-01.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dbformysql:getServer", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

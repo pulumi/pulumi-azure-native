@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * SIM policy resource.
  */
 export function getSimPolicy(args: GetSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSimPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220401preview:getSimPolicy", {
         "mobileNetworkName": args.mobileNetworkName,
         "resourceGroupName": args.resourceGroupName,

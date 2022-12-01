@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Role management policy
  */
 export function getRoleManagementPolicyAssignment(args: GetRoleManagementPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleManagementPolicyAssignmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20201001:getRoleManagementPolicyAssignment", {
         "roleManagementPolicyAssignmentName": args.roleManagementPolicyAssignmentName,
         "scope": args.scope,

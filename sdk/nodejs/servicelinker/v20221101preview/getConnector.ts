@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Linker of source and target resource
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicelinker/v20221101preview:getConnector", {
         "connectorName": args.connectorName,
         "location": args.location,

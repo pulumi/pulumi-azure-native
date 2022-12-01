@@ -10,8 +10,11 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     pulumi.log.warn("getRoute is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20150501preview:getRoute", {
         "resourceGroupName": args.resourceGroupName,
         "routeName": args.routeName,

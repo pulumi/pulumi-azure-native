@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A SqlManagedInstance.
  */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20210601preview:getSqlManagedInstance", {
         "resourceGroupName": args.resourceGroupName,
         "sqlManagedInstanceName": args.sqlManagedInstanceName,

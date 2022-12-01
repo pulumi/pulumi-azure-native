@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2016-04-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearning:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

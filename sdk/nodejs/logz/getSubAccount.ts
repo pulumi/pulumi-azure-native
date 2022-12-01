@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
  * API Version: 2020-10-01.
  */
 export function getSubAccount(args: GetSubAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz:getSubAccount", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The VmmServers resource definition.
  */
 export function getVmmServer(args: GetVmmServerArgs, opts?: pulumi.InvokeOptions): Promise<GetVmmServerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:scvmm/v20200605preview:getVmmServer", {
         "resourceGroupName": args.resourceGroupName,
         "vmmServerName": args.vmmServerName,

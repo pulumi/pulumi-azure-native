@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2018-09-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabricmesh:getApplication", {
         "applicationResourceName": args.applicationResourceName,
         "resourceGroupName": args.resourceGroupName,

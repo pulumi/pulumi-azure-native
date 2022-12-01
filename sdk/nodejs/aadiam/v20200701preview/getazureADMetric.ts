@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * AzureADMetrics resource.
  */
 export function getazureADMetric(args: GetazureADMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetazureADMetricResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:aadiam/v20200701preview:getazureADMetric", {
         "azureADMetricsName": args.azureADMetricsName,
         "resourceGroupName": args.resourceGroupName,

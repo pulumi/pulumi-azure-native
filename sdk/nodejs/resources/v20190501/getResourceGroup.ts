@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Resource group information.
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20190501:getResourceGroup", {
         "resourceGroupName": args.resourceGroupName,
     }, opts);

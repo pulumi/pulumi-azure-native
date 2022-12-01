@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * A flow log resource.
  */
 export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210501:getFlowLog", {
         "flowLogName": args.flowLogName,
         "networkWatcherName": args.networkWatcherName,

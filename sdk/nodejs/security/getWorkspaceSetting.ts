@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2017-08-01-preview.
  */
 export function getWorkspaceSetting(args: GetWorkspaceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSettingResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security:getWorkspaceSetting", {
         "workspaceSettingName": args.workspaceSettingName,
     }, opts);

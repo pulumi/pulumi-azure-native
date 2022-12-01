@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-05-15.
  */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:healthcareapis:getFhirService", {
         "fhirServiceName": args.fhirServiceName,
         "resourceGroupName": args.resourceGroupName,

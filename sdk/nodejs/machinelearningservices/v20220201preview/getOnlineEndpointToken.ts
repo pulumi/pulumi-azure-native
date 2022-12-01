@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Service Token
  */
 export function getOnlineEndpointToken(args: GetOnlineEndpointTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointTokenResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220201preview:getOnlineEndpointToken", {
         "endpointName": args.endpointName,
         "resourceGroupName": args.resourceGroupName,

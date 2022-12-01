@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Definition of the configuration profile.
  */
 export function getConfigurationProfilesVersion(args: GetConfigurationProfilesVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesVersionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automanage/v20220504:getConfigurationProfilesVersion", {
         "configurationProfileName": args.configurationProfileName,
         "resourceGroupName": args.resourceGroupName,

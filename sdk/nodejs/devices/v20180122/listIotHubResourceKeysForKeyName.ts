@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * The properties of an IoT hub shared access policy.
  */
 export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysForKeyNameResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devices/v20180122:listIotHubResourceKeysForKeyName", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,8 +9,11 @@ import * as utilities from "../utilities";
  * API Version: 2014-04-01.
  */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getTransparentDataEncryption", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

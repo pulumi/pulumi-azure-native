@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The list of product families.
  */
 export function listProductFamilies(args: ListProductFamiliesArgs, opts?: pulumi.InvokeOptions): Promise<ListProductFamiliesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:edgeorder/v20211201:listProductFamilies", {
         "customerSubscriptionDetails": args.customerSubscriptionDetails,
         "expand": args.expand,

@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  * API Version: 2022-01-31-preview.
  */
 export function listUserAssignedIdentityAssociatedResources(args: ListUserAssignedIdentityAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListUserAssignedIdentityAssociatedResourcesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:managedidentity:listUserAssignedIdentityAssociatedResources", {
         "filter": args.filter,
         "orderby": args.orderby,

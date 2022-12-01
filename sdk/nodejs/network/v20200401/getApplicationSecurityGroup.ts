@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * An application security group in a resource group.
  */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20200401:getApplicationSecurityGroup", {
         "applicationSecurityGroupName": args.applicationSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,

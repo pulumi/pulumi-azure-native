@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Description of a NotificationHub Resource.
  */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20170401:getNotificationHub", {
         "namespaceName": args.namespaceName,
         "notificationHubName": args.notificationHubName,

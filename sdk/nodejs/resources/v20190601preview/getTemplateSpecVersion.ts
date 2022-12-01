@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * Template Spec Version object.
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20190601preview:getTemplateSpecVersion", {
         "resourceGroupName": args.resourceGroupName,
         "templateSpecName": args.templateSpecName,

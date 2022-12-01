@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * An object that represents a webhook for a container registry.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210801preview:getWebhook", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

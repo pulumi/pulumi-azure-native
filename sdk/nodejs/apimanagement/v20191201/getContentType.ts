@@ -8,8 +8,11 @@ import * as utilities from "../../utilities";
  * Content type contract details.
  */
 export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTypeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:getContentType", {
         "contentTypeId": args.contentTypeId,
         "resourceGroupName": args.resourceGroupName,

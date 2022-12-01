@@ -11,8 +11,11 @@ import * as utilities from "../../utilities";
  * The KPI resource format.
  */
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getKpi", {
         "hubName": args.hubName,
         "kpiName": args.kpiName,
