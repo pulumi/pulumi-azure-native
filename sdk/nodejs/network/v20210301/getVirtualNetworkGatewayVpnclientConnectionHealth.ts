@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * List of virtual network gateway vpn client connection health.
  */
 export function getVirtualNetworkGatewayVpnclientConnectionHealth(args: GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210301:getVirtualNetworkGatewayVpnclientConnectionHealth", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,

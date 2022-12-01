@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Dataset resource type.
  */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getDataset", {
         "datasetName": args.datasetName,
         "factoryName": args.factoryName,

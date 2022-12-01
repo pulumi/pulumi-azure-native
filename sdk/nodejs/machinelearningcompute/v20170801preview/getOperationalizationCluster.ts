@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Instance of an Azure ML Operationalization Cluster resource.
  */
 export function getOperationalizationCluster(args: GetOperationalizationClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOperationalizationClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningcompute/v20170801preview:getOperationalizationCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Migration Config operation
  */
 export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20210601preview:getMigrationConfig", {
         "configName": args.configName,
         "namespaceName": args.namespaceName,

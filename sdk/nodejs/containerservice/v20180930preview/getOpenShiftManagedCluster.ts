@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-09-30-preview will be removed in v2 of the provider. */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
     pulumi.log.warn("getOpenShiftManagedCluster is deprecated: Version 2018-09-30-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20180930preview:getOpenShiftManagedCluster", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

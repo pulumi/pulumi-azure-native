@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Dev Tool Portal resource
  */
 export function getDevToolPortal(args: GetDevToolPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetDevToolPortalResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221101preview:getDevToolPortal", {
         "devToolPortalName": args.devToolPortalName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A server trust group.
  */
 export function getServerTrustGroup(args: GetServerTrustGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101preview:getServerTrustGroup", {
         "locationName": args.locationName,
         "resourceGroupName": args.resourceGroupName,

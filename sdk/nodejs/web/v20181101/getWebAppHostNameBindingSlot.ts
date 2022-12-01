@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A hostname binding object.
  */
 export function getWebAppHostNameBindingSlot(args: GetWebAppHostNameBindingSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingSlotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20181101:getWebAppHostNameBindingSlot", {
         "hostName": args.hostName,
         "name": args.name,

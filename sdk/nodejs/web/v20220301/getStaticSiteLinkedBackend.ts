@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Static Site Linked Backend ARM resource.
  */
 export function getStaticSiteLinkedBackend(args: GetStaticSiteLinkedBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteLinkedBackendResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getStaticSiteLinkedBackend", {
         "linkedBackendName": args.linkedBackendName,
         "name": args.name,

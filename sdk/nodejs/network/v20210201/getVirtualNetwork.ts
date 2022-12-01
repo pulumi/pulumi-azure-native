@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Virtual Network resource.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201:getVirtualNetwork", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

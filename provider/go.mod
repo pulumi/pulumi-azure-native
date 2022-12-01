@@ -16,9 +16,9 @@ require (
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-java/pkg v0.6.0
-	github.com/pulumi/pulumi-yaml v1.0.2
-	github.com/pulumi/pulumi/pkg/v3 v3.46.1
-	github.com/pulumi/pulumi/sdk/v3 v3.46.1
+	github.com/pulumi/pulumi-yaml v1.0.3
+	github.com/pulumi/pulumi/pkg/v3 v3.48.0
+	github.com/pulumi/pulumi/sdk/v3 v3.48.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
@@ -128,8 +128,8 @@ require (
 	github.com/hashicorp/go-retryablehttp v0.7.1 // indirect
 	github.com/hashicorp/go-rootcerts v1.0.2 // indirect
 	github.com/hashicorp/go-sockaddr v1.0.2 // indirect
-	github.com/hashicorp/go-uuid v1.0.2 // indirect
-	github.com/hashicorp/go-version v1.4.0
+	github.com/hashicorp/go-uuid v1.0.3 // indirect
+	github.com/hashicorp/go-version v1.6.0
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/hashicorp/vault/api v1.1.1 // indirect
 	github.com/hashicorp/vault/sdk v0.2.1 // indirect
@@ -153,7 +153,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/go-ps v1.0.0 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
-	github.com/mitchellh/mapstructure v1.4.3 // indirect
+	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect

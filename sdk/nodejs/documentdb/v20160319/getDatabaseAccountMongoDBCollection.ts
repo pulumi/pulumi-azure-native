@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-03-19 will be removed in v2 of the provider. */
 export function getDatabaseAccountMongoDBCollection(args: GetDatabaseAccountMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountMongoDBCollectionResult> {
     pulumi.log.warn("getDatabaseAccountMongoDBCollection is deprecated: Version 2016-03-19 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20160319:getDatabaseAccountMongoDBCollection", {
         "accountName": args.accountName,
         "collectionName": args.collectionName,

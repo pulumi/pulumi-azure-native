@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01-preview.
  */
 export function listActiveConnectivityConfiguration(args: ListActiveConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveConnectivityConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listActiveConnectivityConfiguration", {
         "networkManagerName": args.networkManagerName,
         "regions": args.regions,

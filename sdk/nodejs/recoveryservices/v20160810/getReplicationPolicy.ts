@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
     pulumi.log.warn("getReplicationPolicy is deprecated: Version 2016-08-10 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20160810:getReplicationPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,

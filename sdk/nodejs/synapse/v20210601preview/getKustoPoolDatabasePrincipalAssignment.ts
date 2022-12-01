@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Class representing a database principal assignment.
  */
 export function getKustoPoolDatabasePrincipalAssignment(args: GetKustoPoolDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolDatabasePrincipalAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getKustoPoolDatabasePrincipalAssignment", {
         "databaseName": args.databaseName,
         "kustoPoolName": args.kustoPoolName,

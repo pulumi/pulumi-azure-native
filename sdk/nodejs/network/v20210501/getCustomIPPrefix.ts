@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Custom IP prefix resource.
  */
 export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomIPPrefixResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210501:getCustomIPPrefix", {
         "customIpPrefixName": args.customIpPrefixName,
         "expand": args.expand,

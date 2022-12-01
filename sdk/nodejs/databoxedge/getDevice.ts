@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge:getDevice", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

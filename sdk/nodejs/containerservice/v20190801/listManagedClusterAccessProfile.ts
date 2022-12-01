@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Managed cluster Access Profile.
  */
 export function listManagedClusterAccessProfile(args: ListManagedClusterAccessProfileArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAccessProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20190801:listManagedClusterAccessProfile", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-01-01-preview.
  */
 export function listVendorSkusCredential(args: ListVendorSkusCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListVendorSkusCredentialResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:listVendorSkusCredential", {
         "skuName": args.skuName,
         "vendorName": args.vendorName,

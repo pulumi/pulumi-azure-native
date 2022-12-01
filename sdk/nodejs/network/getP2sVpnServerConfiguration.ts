@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-07-01.
  */
 export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnServerConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getP2sVpnServerConfiguration", {
         "p2SVpnServerConfigurationName": args.p2SVpnServerConfigurationName,
         "resourceGroupName": args.resourceGroupName,

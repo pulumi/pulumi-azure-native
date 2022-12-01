@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The Job Definition resource.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover/v20220701preview:getJobDefinition", {
         "jobDefinitionName": args.jobDefinitionName,
         "projectName": args.projectName,

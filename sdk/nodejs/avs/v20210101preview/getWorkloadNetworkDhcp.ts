@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * NSX DHCP
  */
 export function getWorkloadNetworkDhcp(args: GetWorkloadNetworkDhcpArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDhcpResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getWorkloadNetworkDhcp", {
         "dhcpId": args.dhcpId,
         "privateCloudName": args.privateCloudName,

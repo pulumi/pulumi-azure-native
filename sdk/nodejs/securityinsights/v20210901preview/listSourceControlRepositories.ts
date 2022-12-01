@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * List all the source controls.
  */
 export function listSourceControlRepositories(args: ListSourceControlRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<ListSourceControlRepositoriesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210901preview:listSourceControlRepositories", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A job.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getJob", {
         "jobAgentName": args.jobAgentName,
         "jobName": args.jobName,

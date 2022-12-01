@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Resource for OuContainer.
  */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aad/v20220901:getOuContainer", {
         "domainServiceName": args.domainServiceName,
         "ouContainerName": args.ouContainerName,

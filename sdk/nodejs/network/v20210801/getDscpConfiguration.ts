@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Differentiated Services Code Point configuration for any given network interface
  */
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210801:getDscpConfiguration", {
         "dscpConfigurationName": args.dscpConfigurationName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Defines the inventory item.
  */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getInventoryItem", {
         "inventoryItemName": args.inventoryItemName,
         "resourceGroupName": args.resourceGroupName,

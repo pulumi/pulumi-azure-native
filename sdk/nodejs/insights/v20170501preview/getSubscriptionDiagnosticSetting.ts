@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The subscription diagnostic setting resource.
  */
 export function getSubscriptionDiagnosticSetting(args: GetSubscriptionDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDiagnosticSettingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20170501preview:getSubscriptionDiagnosticSetting", {
         "name": args.name,
     }, opts);

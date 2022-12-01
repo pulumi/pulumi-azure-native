@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Properties of the table, including Id, resource name, resource type.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210101:getTable", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

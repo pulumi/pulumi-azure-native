@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Android Policy entity for Intune MAM.
  */
 export function getAndroidMAMPolicyByName(args: GetAndroidMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAndroidMAMPolicyByNameResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:intune/v20150114preview:getAndroidMAMPolicyByName", {
         "hostName": args.hostName,
         "policyName": args.policyName,

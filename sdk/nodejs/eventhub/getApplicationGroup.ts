@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-01-01-preview.
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub:getApplicationGroup", {
         "applicationGroupName": args.applicationGroupName,
         "namespaceName": args.namespaceName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
  */
 export function getOfficeATPDataConnector(args: GetOfficeATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeATPDataConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210901preview:getOfficeATPDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

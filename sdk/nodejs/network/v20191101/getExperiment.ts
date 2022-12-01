@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Defines the properties of an Experiment
  */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20191101:getExperiment", {
         "experimentName": args.experimentName,
         "profileName": args.profileName,

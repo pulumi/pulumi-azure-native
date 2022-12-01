@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Class representing an iot hub data connection.
  */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getIotHubDataConnection", {
         "dataConnectionName": args.dataConnectionName,
         "databaseName": args.databaseName,

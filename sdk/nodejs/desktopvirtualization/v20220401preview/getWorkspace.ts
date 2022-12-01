@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a Workspace definition.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20220401preview:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

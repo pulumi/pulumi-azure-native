@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-11-01-preview.
  */
 export function getLivePipeline(args: GetLivePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetLivePipelineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer:getLivePipeline", {
         "accountName": args.accountName,
         "livePipelineName": args.livePipelineName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
  */
 export function getPrivateEndpointConnectionControllerPrivateEndpointConnection(args: GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20200501:getPrivateEndpointConnectionControllerPrivateEndpointConnection", {
         "migrateProjectName": args.migrateProjectName,
         "peConnectionName": args.peConnectionName,

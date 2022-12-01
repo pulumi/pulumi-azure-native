@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * API Version: 2015-08-01-preview.
  */
 export function listConnectionKeys(args: ListConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listConnectionKeys", {
         "connectionName": args.connectionName,
         "id": args.id,

@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-05-15 will be removed in v2 of the provider. */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
     pulumi.log.warn("getSupportPlanType is deprecated: Version 2017-05-15 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:addons/v20170515:getSupportPlanType", {
         "planTypeName": args.planTypeName,
         "providerName": args.providerName,

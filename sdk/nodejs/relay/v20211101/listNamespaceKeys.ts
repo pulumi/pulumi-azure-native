@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Namespace/Relay Connection String
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20211101:listNamespaceKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,

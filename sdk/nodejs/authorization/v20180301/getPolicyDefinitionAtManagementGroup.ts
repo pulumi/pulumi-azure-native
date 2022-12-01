@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The policy definition.
  */
 export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionAtManagementGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20180301:getPolicyDefinitionAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
         "policyDefinitionName": args.policyDefinitionName,

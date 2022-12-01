@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Cassandra view.
  */
 export function getCassandraResourceCassandraView(args: GetCassandraResourceCassandraViewArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraViewResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220815preview:getCassandraResourceCassandraView", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,

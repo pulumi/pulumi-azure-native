@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
     pulumi.log.warn("getStorageSyncService is deprecated: Version 2018-10-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync/v20181001:getStorageSyncService", {
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,

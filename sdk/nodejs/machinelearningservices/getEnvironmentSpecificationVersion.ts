@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01-preview.
  */
 export function getEnvironmentSpecificationVersion(args: GetEnvironmentSpecificationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSpecificationVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -12,11 +12,8 @@ import * as utilities from "../../utilities";
  * The agentpool will have all information to create an agent pool.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190601preview:getAgentPool", {
         "agentPoolName": args.agentPoolName,
         "registryName": args.registryName,

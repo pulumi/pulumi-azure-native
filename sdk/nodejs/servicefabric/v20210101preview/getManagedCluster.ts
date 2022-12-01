@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The manged cluster resource
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210101preview:getManagedCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

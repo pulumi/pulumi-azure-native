@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2015-01-14-preview.
  */
 export function getIoMAMPolicyByName(args: GetIoMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetIoMAMPolicyByNameResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:intune:getIoMAMPolicyByName", {
         "hostName": args.hostName,
         "policyName": args.policyName,

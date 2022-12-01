@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * IP firewall rule
  */
 export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIpFirewallRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210301:getIpFirewallRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

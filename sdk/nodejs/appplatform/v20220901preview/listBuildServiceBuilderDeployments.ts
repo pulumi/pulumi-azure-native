@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A list of deployments resource ids.
  */
 export function listBuildServiceBuilderDeployments(args: ListBuildServiceBuilderDeploymentsArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildServiceBuilderDeploymentsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220901preview:listBuildServiceBuilderDeployments", {
         "buildServiceName": args.buildServiceName,
         "builderName": args.builderName,

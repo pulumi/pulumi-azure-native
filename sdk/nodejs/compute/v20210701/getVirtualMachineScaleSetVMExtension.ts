@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Describes a VMSS VM Extension.
  */
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210701:getVirtualMachineScaleSetVMExtension", {
         "expand": args.expand,
         "instanceId": args.instanceId,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure resource which represents which will provision the ability to create private location data.
  */
 export function getPrivateAtlase(args: GetPrivateAtlaseArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAtlaseResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maps/v20200201preview:getPrivateAtlase", {
         "accountName": args.accountName,
         "privateAtlasName": args.privateAtlasName,

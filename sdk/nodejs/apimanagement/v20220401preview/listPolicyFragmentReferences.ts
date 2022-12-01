@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A collection of resources.
  */
 export function listPolicyFragmentReferences(args: ListPolicyFragmentReferencesArgs, opts?: pulumi.InvokeOptions): Promise<ListPolicyFragmentReferencesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:listPolicyFragmentReferences", {
         "id": args.id,
         "resourceGroupName": args.resourceGroupName,

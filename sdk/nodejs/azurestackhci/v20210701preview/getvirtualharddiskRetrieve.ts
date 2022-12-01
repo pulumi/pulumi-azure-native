@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The virtualharddisks resource definition.
  */
 export function getvirtualharddiskRetrieve(args: GetvirtualharddiskRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualharddiskRetrieveResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210701preview:getvirtualharddiskRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "virtualharddisksName": args.virtualharddisksName,

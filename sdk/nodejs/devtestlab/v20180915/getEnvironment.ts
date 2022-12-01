@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An environment, which is essentially an ARM template deployment.
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getEnvironment", {
         "expand": args.expand,
         "labName": args.labName,

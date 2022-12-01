@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * An Azure SQL DB Server Outbound Firewall Rule.
  */
 export function getOutboundFirewallRule(args: GetOutboundFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundFirewallRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101preview:getOutboundFirewallRule", {
         "outboundRuleFqdn": args.outboundRuleFqdn,
         "resourceGroupName": args.resourceGroupName,

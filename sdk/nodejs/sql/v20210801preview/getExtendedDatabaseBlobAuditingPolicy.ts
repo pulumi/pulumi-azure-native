@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * An extended database blob auditing policy.
  */
 export function getExtendedDatabaseBlobAuditingPolicy(args: GetExtendedDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetExtendedDatabaseBlobAuditingPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getExtendedDatabaseBlobAuditingPolicy", {
         "blobAuditingPolicyName": args.blobAuditingPolicyName,
         "databaseName": args.databaseName,

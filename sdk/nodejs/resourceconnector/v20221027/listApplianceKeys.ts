@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The List Cluster Keys Results appliance.
  */
 export function listApplianceKeys(args: ListApplianceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourceconnector/v20221027:listApplianceKeys", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

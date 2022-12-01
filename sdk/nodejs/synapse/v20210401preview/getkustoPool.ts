@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Class representing a Kusto kusto pool.
  */
 export function getkustoPool(args: GetkustoPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetkustoPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getkustoPool", {
         "kustoPoolName": args.kustoPoolName,
         "resourceGroupName": args.resourceGroupName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-10-15.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:getUser", {
         "expand": args.expand,
         "labAccountName": args.labAccountName,

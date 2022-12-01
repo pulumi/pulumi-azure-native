@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2016-05-01-preview.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearning:getCommitmentPlan", {
         "commitmentPlanName": args.commitmentPlanName,
         "resourceGroupName": args.resourceGroupName,

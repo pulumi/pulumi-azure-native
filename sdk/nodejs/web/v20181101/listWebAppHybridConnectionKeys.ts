@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
  */
 export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20181101:listWebAppHybridConnectionKeys", {
         "name": args.name,
         "namespaceName": args.namespaceName,

@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-01-19 will be removed in v2 of the provider. */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
     pulumi.log.warn("getIotHubResource is deprecated: Version 2017-01-19 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20170119:getIotHubResource", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

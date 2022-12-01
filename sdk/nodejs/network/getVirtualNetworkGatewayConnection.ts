@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getVirtualNetworkGatewayConnection", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayConnectionName": args.virtualNetworkGatewayConnectionName,

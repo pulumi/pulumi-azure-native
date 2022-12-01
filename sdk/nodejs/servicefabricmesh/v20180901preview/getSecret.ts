@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * This type describes a secret resource.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getSecret", {
         "resourceGroupName": args.resourceGroupName,
         "secretResourceName": args.secretResourceName,

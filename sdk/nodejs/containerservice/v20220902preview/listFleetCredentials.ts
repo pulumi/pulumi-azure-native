@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list credential result response.
  */
 export function listFleetCredentials(args: ListFleetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListFleetCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20220902preview:listFleetCredentials", {
         "fleetName": args.fleetName,
         "resourceGroupName": args.resourceGroupName,

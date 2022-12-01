@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A custom API
  */
 export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomApiResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20160601:getCustomApi", {
         "apiName": args.apiName,
         "resourceGroupName": args.resourceGroupName,

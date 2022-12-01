@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * EventGrid Partner Namespace.
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211015preview:getPartnerNamespace", {
         "partnerNamespaceName": args.partnerNamespaceName,
         "resourceGroupName": args.resourceGroupName,

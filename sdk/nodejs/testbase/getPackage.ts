@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-01-preview.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getPackage", {
         "packageName": args.packageName,
         "resourceGroupName": args.resourceGroupName,

@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * NSX Port Mirroring
  */
 export function getWorkloadNetworkPortMirroring(args: GetWorkloadNetworkPortMirroringArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPortMirroringResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getWorkloadNetworkPortMirroring", {
         "portMirroringId": args.portMirroringId,
         "privateCloudName": args.privateCloudName,

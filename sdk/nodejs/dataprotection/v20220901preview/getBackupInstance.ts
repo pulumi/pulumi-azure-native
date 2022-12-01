@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * BackupInstance Resource
  */
 export function getBackupInstance(args: GetBackupInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20220901preview:getBackupInstance", {
         "backupInstanceName": args.backupInstanceName,
         "resourceGroupName": args.resourceGroupName,

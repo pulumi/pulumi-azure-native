@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getNetworkVirtualAppliance", {
         "expand": args.expand,
         "networkVirtualApplianceName": args.networkVirtualApplianceName,

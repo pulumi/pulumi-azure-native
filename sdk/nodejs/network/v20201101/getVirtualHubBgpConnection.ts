@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Virtual Appliance Site resource.
  */
 export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubBgpConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20201101:getVirtualHubBgpConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

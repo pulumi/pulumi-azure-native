@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Describes the cloud service.
  */
 export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210301:getCloudService", {
         "cloudServiceName": args.cloudServiceName,
         "resourceGroupName": args.resourceGroupName,

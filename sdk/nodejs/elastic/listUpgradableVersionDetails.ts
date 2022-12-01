@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-01-preview.
  */
 export function listUpgradableVersionDetails(args: ListUpgradableVersionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListUpgradableVersionDetailsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic:listUpgradableVersionDetails", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

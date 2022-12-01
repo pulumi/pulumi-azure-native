@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * App Service Environment ARM resource.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210115:getAppServiceEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

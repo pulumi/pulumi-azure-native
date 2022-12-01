@@ -8,11 +8,8 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getOnlineDeploymentLogs(args: GetOnlineDeploymentLogsArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineDeploymentLogsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getOnlineDeploymentLogs", {
         "containerType": args.containerType,
         "deploymentName": args.deploymentName,

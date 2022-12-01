@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Security Assignment on a resource group over a given scope
  */
 export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20210801preview:getAssignment", {
         "assignmentId": args.assignmentId,
         "resourceGroupName": args.resourceGroupName,

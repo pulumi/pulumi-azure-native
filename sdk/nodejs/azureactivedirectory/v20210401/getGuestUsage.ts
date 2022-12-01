@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Guest Usages Resource
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureactivedirectory/v20210401:getGuestUsage", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The result of a request to retrieve a key-value from the specified configuration store.
  */
 export function listConfigurationStoreKeyValue(args: ListConfigurationStoreKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeyValueResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20191001:listConfigurationStoreKeyValue", {
         "configStoreName": args.configStoreName,
         "key": args.key,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The prediction resource format.
  */
 export function getPrediction(args: GetPredictionArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getPrediction", {
         "hubName": args.hubName,
         "predictionName": args.predictionName,

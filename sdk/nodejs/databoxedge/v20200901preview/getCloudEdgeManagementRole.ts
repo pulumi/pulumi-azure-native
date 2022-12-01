@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * CloudEdgeManagementRole role.
  */
 export function getCloudEdgeManagementRole(args: GetCloudEdgeManagementRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEdgeManagementRoleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200901preview:getCloudEdgeManagementRole", {
         "deviceName": args.deviceName,
         "name": args.name,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a server group for create.
  */
 export function getServerGroup(args: GetServerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", {
         "resourceGroupName": args.resourceGroupName,
         "serverGroupName": args.serverGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A schedule.
  */
 export function getServiceFabricSchedule(args: GetServiceFabricScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceFabricScheduleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getServiceFabricSchedule", {
         "expand": args.expand,
         "labName": args.labName,

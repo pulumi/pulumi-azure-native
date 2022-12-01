@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
     pulumi.log.warn("getWorkspaceAadAdmin is deprecated: Version 2020-12-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20201201:getWorkspaceAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

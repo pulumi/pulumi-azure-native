@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
     pulumi.log.warn("getConnectedCluster is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetes/v20200101preview:getConnectedCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

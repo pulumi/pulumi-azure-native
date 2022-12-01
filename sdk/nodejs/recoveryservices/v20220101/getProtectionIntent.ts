@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Base class for backup ProtectionIntent.
  */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220101:getProtectionIntent", {
         "fabricName": args.fabricName,
         "intentObjectName": args.intentObjectName,

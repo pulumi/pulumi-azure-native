@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB SQL Role Definition.
  */
 export function getSqlResourceSqlRoleDefinition(args: GetSqlResourceSqlRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20211115preview:getSqlResourceSqlRoleDefinition", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

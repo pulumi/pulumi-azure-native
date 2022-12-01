@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-11-01.
  */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getSecurityRule", {
         "networkSecurityGroupName": args.networkSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,

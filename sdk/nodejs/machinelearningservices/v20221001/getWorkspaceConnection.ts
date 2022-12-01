@@ -8,11 +8,8 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001:getWorkspaceConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

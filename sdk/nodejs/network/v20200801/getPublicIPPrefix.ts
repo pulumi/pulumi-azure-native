@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Public IP prefix resource.
  */
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200801:getPublicIPPrefix", {
         "expand": args.expand,
         "publicIpPrefixName": args.publicIpPrefixName,

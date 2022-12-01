@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A common class for general resource information.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200701:getVirtualNetworkGatewayConnection", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayConnectionName": args.virtualNetworkGatewayConnectionName,

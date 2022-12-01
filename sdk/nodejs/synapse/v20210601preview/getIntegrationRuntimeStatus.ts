@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Integration runtime status response.
  */
 export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeStatusResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getIntegrationRuntimeStatus", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,

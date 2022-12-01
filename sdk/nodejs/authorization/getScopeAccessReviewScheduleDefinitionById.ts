@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-12-01-preview.
  */
 export function getScopeAccessReviewScheduleDefinitionById(args: GetScopeAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeAccessReviewScheduleDefinitionByIdResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", {
         "scheduleDefinitionId": args.scheduleDefinitionId,
         "scope": args.scope,

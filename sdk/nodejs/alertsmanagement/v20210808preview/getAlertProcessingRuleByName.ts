@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Alert processing rule object containing target scopes, conditions and scheduling logic.
  */
 export function getAlertProcessingRuleByName(args: GetAlertProcessingRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertProcessingRuleByNameResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", {
         "alertProcessingRuleName": args.alertProcessingRuleName,
         "resourceGroupName": args.resourceGroupName,

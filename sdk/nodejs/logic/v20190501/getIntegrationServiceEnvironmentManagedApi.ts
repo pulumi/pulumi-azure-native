@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The integration service environment managed api.
  */
 export function getIntegrationServiceEnvironmentManagedApi(args: GetIntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationServiceEnvironmentManagedApiResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", {
         "apiName": args.apiName,
         "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,

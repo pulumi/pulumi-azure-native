@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01-preview.
  */
 export function getEntityAnalytics(args: GetEntityAnalyticsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityAnalyticsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getEntityAnalytics", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-11-16-preview.
  */
 export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation:getReport", {
         "reportName": args.reportName,
     }, opts);

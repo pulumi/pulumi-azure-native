@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents Threat Intelligence alert rule.
  */
 export function getThreatIntelligenceAlertRule(args: GetThreatIntelligenceAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceAlertRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220101preview:getThreatIntelligenceAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20201201:getUser", {
         "deviceName": args.deviceName,
         "name": args.name,

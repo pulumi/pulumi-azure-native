@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Subnet in a virtual network resource.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201:getSubnet", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

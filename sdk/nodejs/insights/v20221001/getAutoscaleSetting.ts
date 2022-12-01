@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The autoscale setting resource.
  */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20221001:getAutoscaleSetting", {
         "autoscaleSettingName": args.autoscaleSettingName,
         "resourceGroupName": args.resourceGroupName,

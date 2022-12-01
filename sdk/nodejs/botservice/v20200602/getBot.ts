@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Bot resource definition
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20200602:getBot", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

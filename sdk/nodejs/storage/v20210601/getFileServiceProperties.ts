@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The properties of File services in storage account.
  */
 export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServicePropertiesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210601:getFileServiceProperties", {
         "accountName": args.accountName,
         "fileServicesName": args.fileServicesName,

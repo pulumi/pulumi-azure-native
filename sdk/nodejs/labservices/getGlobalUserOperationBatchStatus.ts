@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-10-15.
  */
 export function getGlobalUserOperationBatchStatus(args: GetGlobalUserOperationBatchStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationBatchStatusResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:getGlobalUserOperationBatchStatus", {
         "urls": args.urls,
         "userName": args.userName,

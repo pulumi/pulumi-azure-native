@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-03-01.
  */
 export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric:getApplicationTypeVersion", {
         "applicationTypeName": args.applicationTypeName,
         "clusterName": args.clusterName,

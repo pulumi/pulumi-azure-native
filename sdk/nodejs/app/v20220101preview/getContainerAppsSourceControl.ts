@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Container App SourceControl.
  */
 export function getContainerAppsSourceControl(args: GetContainerAppsSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsSourceControlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220101preview:getContainerAppsSourceControl", {
         "containerAppName": args.containerAppName,
         "name": args.name,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Policy that determines how a video can be accessed.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20210501preview:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,
         "accountName": args.accountName,

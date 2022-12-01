@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The properties of the EventHubConsumerGroupInfo object.
  */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20210331:getIotHubResourceEventHubConsumerGroup", {
         "eventHubEndpointName": args.eventHubEndpointName,
         "name": args.name,

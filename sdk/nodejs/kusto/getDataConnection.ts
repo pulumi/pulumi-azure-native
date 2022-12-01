@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
 export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectionResult> {
     pulumi.log.warn("getDataConnection is deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:getDataConnection", {
         "clusterName": args.clusterName,
         "dataConnectionName": args.dataConnectionName,

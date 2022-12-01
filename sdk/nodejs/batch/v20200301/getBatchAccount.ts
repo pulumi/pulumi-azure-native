@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
     pulumi.log.warn("getBatchAccount is deprecated: Version 2020-03-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20200301:getBatchAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

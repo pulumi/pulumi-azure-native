@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An object that represents a scope map for a container registry.
  */
 export function getScopeMap(args: GetScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeMapResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210801preview:getScopeMap", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

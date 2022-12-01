@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-15.
  */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork:getControllerDetails", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

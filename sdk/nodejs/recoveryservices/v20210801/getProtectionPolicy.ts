@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Base class for backup policy. Workload-specific backup policies are derived from this class.
  */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20210801:getProtectionPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,

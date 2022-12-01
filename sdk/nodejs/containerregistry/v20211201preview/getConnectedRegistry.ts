@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An object that represents a connected registry for a container registry.
  */
 export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedRegistryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20211201preview:getConnectedRegistry", {
         "connectedRegistryName": args.connectedRegistryName,
         "registryName": args.registryName,

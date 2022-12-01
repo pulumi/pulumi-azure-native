@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine Extension.
  */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20210301:getVirtualMachineExtension", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

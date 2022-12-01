@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * URL used to authorize the Developer Hub GitHub App
  */
 export function getGitHubOAuth(args: GetGitHubOAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubOAuthResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devhub/v20220401preview:getGitHubOAuth", {
         "location": args.location,
         "redirectUrl": args.redirectUrl,

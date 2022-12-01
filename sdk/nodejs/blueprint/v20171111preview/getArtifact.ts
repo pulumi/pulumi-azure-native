@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getArtifact(args: GetArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactResult> {
     pulumi.log.warn("getArtifact is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20171111preview:getArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

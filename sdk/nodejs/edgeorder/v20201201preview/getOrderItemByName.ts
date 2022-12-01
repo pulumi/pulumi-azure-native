@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider. */
 export function getOrderItemByName(args: GetOrderItemByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderItemByNameResult> {
     pulumi.log.warn("getOrderItemByName is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder/v20201201preview:getOrderItemByName", {
         "expand": args.expand,
         "orderItemName": args.orderItemName,

@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Tenant access information contract of the API Management service.
  */
 export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessSecretsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:listTenantAccessSecrets", {
         "accessName": args.accessName,
         "resourceGroupName": args.resourceGroupName,

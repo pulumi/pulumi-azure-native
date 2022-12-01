@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Linked service resource type.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getLinkedService", {
         "factoryName": args.factoryName,
         "linkedServiceName": args.linkedServiceName,

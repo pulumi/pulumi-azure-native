@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Define the datastore.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20201001preview:getDatastore", {
         "datastoreName": args.datastoreName,
         "resourceGroupName": args.resourceGroupName,

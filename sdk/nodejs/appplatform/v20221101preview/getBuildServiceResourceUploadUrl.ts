@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Resource upload definition payload
  */
 export function getBuildServiceResourceUploadUrl(args: GetBuildServiceResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceResourceUploadUrlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221101preview:getBuildServiceResourceUploadUrl", {
         "buildServiceName": args.buildServiceName,
         "resourceGroupName": args.resourceGroupName,

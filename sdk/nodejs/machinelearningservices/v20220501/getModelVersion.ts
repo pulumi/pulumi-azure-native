@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getModelVersion(args: GetModelVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220501:getModelVersion", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

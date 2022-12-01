@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Network slice resource.
  */
 export function getSlice(args: GetSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetSliceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220401preview:getSlice", {
         "mobileNetworkName": args.mobileNetworkName,
         "resourceGroupName": args.resourceGroupName,

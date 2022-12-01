@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Workspace resource.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20220131preview:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

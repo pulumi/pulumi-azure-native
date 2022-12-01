@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-11-01-preview.
  */
 export function getTemplateArtifact(args: GetTemplateArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateArtifactResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint:getTemplateArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

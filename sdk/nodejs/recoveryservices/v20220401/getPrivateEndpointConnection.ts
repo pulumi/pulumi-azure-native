@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Private Endpoint Connection Response Properties
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220401:getPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

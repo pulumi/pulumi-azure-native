@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Definition of hybrid runbook worker.
  */
 export function getHybridRunbookWorker(args: GetHybridRunbookWorkerArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridRunbookWorkerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20220808:getHybridRunbookWorker", {
         "automationAccountName": args.automationAccountName,
         "hybridRunbookWorkerGroupName": args.hybridRunbookWorkerGroupName,

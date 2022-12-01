@@ -8,11 +8,8 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getSkus(args: GetSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210601preview:getSkus", {
         "providerNamespace": args.providerNamespace,
         "resourceType": args.resourceType,

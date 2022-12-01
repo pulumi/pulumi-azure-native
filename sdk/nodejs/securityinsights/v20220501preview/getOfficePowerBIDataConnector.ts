@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents Office Microsoft PowerBI data connector.
  */
 export function getOfficePowerBIDataConnector(args: GetOfficePowerBIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficePowerBIDataConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220501preview:getOfficePowerBIDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

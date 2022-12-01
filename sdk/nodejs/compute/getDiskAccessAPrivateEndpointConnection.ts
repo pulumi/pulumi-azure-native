@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-12-01.
  */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getDiskAccessAPrivateEndpointConnection", {
         "diskAccessName": args.diskAccessName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

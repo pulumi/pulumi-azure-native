@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-05-15.
  */
 export function getIotConnectorFhirDestination(args: GetIotConnectorFhirDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorFhirDestinationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis:getIotConnectorFhirDestination", {
         "fhirDestinationName": args.fhirDestinationName,
         "iotConnectorName": args.iotConnectorName,

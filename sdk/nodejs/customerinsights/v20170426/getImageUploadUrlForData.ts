@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The image definition.
  */
 export function getImageUploadUrlForData(args: GetImageUploadUrlForDataArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForDataResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getImageUploadUrlForData", {
         "entityType": args.entityType,
         "entityTypeName": args.entityTypeName,

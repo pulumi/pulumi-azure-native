@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents Amazon Web Services S3 data connector.
  */
 export function getAwsS3DataConnector(args: GetAwsS3DataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsS3DataConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220101preview:getAwsS3DataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

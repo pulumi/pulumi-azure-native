@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Azure Firewall resource.
  */
 export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureFirewallResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210301:getAzureFirewall", {
         "azureFirewallName": args.azureFirewallName,
         "resourceGroupName": args.resourceGroupName,

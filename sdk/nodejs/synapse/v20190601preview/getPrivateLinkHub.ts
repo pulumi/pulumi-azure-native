@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
 export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkHubResult> {
     pulumi.log.warn("getPrivateLinkHub is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getPrivateLinkHub", {
         "privateLinkHubName": args.privateLinkHubName,
         "resourceGroupName": args.resourceGroupName,

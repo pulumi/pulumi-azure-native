@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function getVirtualNetworkGatewayNatRule(args: GetVirtualNetworkGatewayNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayNatRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getVirtualNetworkGatewayNatRule", {
         "natRuleName": args.natRuleName,
         "resourceGroupName": args.resourceGroupName,

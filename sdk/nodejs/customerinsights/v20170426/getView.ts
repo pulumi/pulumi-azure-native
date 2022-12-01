@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The view resource format.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getView", {
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,

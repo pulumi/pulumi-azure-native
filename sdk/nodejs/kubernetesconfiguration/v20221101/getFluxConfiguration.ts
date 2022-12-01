@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The Flux Configuration object returned in Get & Put response.
  */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration/v20221101:getFluxConfiguration", {
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,

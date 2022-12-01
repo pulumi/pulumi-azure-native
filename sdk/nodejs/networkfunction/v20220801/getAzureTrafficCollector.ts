@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Azure Traffic Collector resource.
  */
 export function getAzureTrafficCollector(args: GetAzureTrafficCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureTrafficCollectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkfunction/v20220801:getAzureTrafficCollector", {
         "azureTrafficCollectorName": args.azureTrafficCollectorName,
         "resourceGroupName": args.resourceGroupName,

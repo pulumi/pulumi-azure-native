@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-02-01-preview.
  */
 export function getNspAccessRule(args: GetNspAccessRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNspAccessRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getNspAccessRule", {
         "accessRuleName": args.accessRuleName,
         "networkSecurityPerimeterName": args.networkSecurityPerimeterName,

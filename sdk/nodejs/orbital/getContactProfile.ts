@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-04-04-preview.
  */
 export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContactProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital:getContactProfile", {
         "contactProfileName": args.contactProfileName,
         "resourceGroupName": args.resourceGroupName,

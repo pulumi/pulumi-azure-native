@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
 export function getCassandraResourceCassandraKeyspace(args: GetCassandraResourceCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraKeyspaceResult> {
     pulumi.log.warn("getCassandraResourceCassandraKeyspace is deprecated: Version 2020-03-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20200301:getCassandraResourceCassandraKeyspace", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,

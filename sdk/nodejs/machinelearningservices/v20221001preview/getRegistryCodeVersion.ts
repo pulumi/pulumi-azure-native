@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getRegistryCodeVersion(args: GetRegistryCodeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryCodeVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getRegistryCodeVersion", {
         "codeName": args.codeName,
         "registryName": args.registryName,

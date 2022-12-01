@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The log profile resource.
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20160301:getLogProfile", {
         "logProfileName": args.logProfileName,
     }, opts);
