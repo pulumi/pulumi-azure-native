@@ -76,6 +76,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public Output<string> RemotePerimeterGuid { get; private set; } = null!;
 
         /// <summary>
+        /// Remote NSP location with which the link gets created.
+        /// </summary>
+        [Output("remotePerimeterLocation")]
+        public Output<string> RemotePerimeterLocation { get; private set; } = null!;
+
+        /// <summary>
         /// The NSP link state.
         /// </summary>
         [Output("status")]

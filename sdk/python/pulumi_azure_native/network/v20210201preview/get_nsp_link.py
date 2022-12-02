@@ -21,7 +21,7 @@ class GetNspLinkResult:
     """
     The network security perimeter link resource
     """
-    def __init__(__self__, auto_approved_remote_perimeter_resource_id=None, description=None, etag=None, id=None, local_inbound_profiles=None, local_outbound_profiles=None, name=None, provisioning_state=None, remote_inbound_profiles=None, remote_outbound_profiles=None, remote_perimeter_guid=None, status=None, type=None):
+    def __init__(__self__, auto_approved_remote_perimeter_resource_id=None, description=None, etag=None, id=None, local_inbound_profiles=None, local_outbound_profiles=None, name=None, provisioning_state=None, remote_inbound_profiles=None, remote_outbound_profiles=None, remote_perimeter_guid=None, remote_perimeter_location=None, status=None, type=None):
         if auto_approved_remote_perimeter_resource_id and not isinstance(auto_approved_remote_perimeter_resource_id, str):
             raise TypeError("Expected argument 'auto_approved_remote_perimeter_resource_id' to be a str")
         pulumi.set(__self__, "auto_approved_remote_perimeter_resource_id", auto_approved_remote_perimeter_resource_id)
@@ -55,6 +55,9 @@ class GetNspLinkResult:
         if remote_perimeter_guid and not isinstance(remote_perimeter_guid, str):
             raise TypeError("Expected argument 'remote_perimeter_guid' to be a str")
         pulumi.set(__self__, "remote_perimeter_guid", remote_perimeter_guid)
+        if remote_perimeter_location and not isinstance(remote_perimeter_location, str):
+            raise TypeError("Expected argument 'remote_perimeter_location' to be a str")
+        pulumi.set(__self__, "remote_perimeter_location", remote_perimeter_location)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -151,6 +154,14 @@ class GetNspLinkResult:
         return pulumi.get(self, "remote_perimeter_guid")
 
     @property
+    @pulumi.getter(name="remotePerimeterLocation")
+    def remote_perimeter_location(self) -> str:
+        """
+        Remote NSP location with which the link gets created.
+        """
+        return pulumi.get(self, "remote_perimeter_location")
+
+    @property
     @pulumi.getter
     def status(self) -> str:
         """
@@ -184,6 +195,7 @@ class AwaitableGetNspLinkResult(GetNspLinkResult):
             remote_inbound_profiles=self.remote_inbound_profiles,
             remote_outbound_profiles=self.remote_outbound_profiles,
             remote_perimeter_guid=self.remote_perimeter_guid,
+            remote_perimeter_location=self.remote_perimeter_location,
             status=self.status,
             type=self.type)
 
@@ -219,6 +231,7 @@ def get_nsp_link(link_name: Optional[str] = None,
         remote_inbound_profiles=__ret__.remote_inbound_profiles,
         remote_outbound_profiles=__ret__.remote_outbound_profiles,
         remote_perimeter_guid=__ret__.remote_perimeter_guid,
+        remote_perimeter_location=__ret__.remote_perimeter_location,
         status=__ret__.status,
         type=__ret__.type)
 

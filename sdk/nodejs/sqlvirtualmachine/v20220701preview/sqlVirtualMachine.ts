@@ -147,10 +147,10 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             resourceInputs["assessmentSettings"] = args ? args.assessmentSettings : undefined;
             resourceInputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
             resourceInputs["autoPatchingSettings"] = args ? args.autoPatchingSettings : undefined;
-            resourceInputs["enableAutomaticUpgrade"] = args ? args.enableAutomaticUpgrade : undefined;
+            resourceInputs["enableAutomaticUpgrade"] = (args ? args.enableAutomaticUpgrade : undefined) ?? false;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultCredentialSettings"] = args ? args.keyVaultCredentialSettings : undefined;
-            resourceInputs["leastPrivilegeMode"] = args ? args.leastPrivilegeMode : undefined;
+            resourceInputs["leastPrivilegeMode"] = (args ? args.leastPrivilegeMode : undefined) ?? "NotSet";
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverConfigurationsManagementSettings"] = args ? args.serverConfigurationsManagementSettings : undefined;

@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         /// <summary>
         /// The size window to constrain a Stream Analytics output to.
         /// </summary>
-        public readonly double? SizeWindow;
+        public readonly int? SizeWindow;
         /// <summary>
         /// The time frame for filtering Stream Analytics job outputs.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
 
             object? serialization,
 
-            double? sizeWindow,
+            int? sizeWindow,
 
             string? timeWindow,
 

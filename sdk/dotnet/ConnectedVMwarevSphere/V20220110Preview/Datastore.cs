@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:Datastore"},
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:Datastore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -129,6 +129,7 @@ export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const LeastPrivilegeMode = {
     Enabled: "Enabled",
+    NotSet: "NotSet",
 } as const;
 
 /**

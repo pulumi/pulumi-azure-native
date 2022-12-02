@@ -69,12 +69,16 @@ class SqlVirtualMachineArgs:
             pulumi.set(__self__, "auto_backup_settings", auto_backup_settings)
         if auto_patching_settings is not None:
             pulumi.set(__self__, "auto_patching_settings", auto_patching_settings)
+        if enable_automatic_upgrade is None:
+            enable_automatic_upgrade = False
         if enable_automatic_upgrade is not None:
             pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if key_vault_credential_settings is not None:
             pulumi.set(__self__, "key_vault_credential_settings", key_vault_credential_settings)
+        if least_privilege_mode is None:
+            least_privilege_mode = 'NotSet'
         if least_privilege_mode is not None:
             pulumi.set(__self__, "least_privilege_mode", least_privilege_mode)
         if location is not None:
@@ -468,9 +472,13 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["assessment_settings"] = assessment_settings
             __props__.__dict__["auto_backup_settings"] = auto_backup_settings
             __props__.__dict__["auto_patching_settings"] = auto_patching_settings
+            if enable_automatic_upgrade is None:
+                enable_automatic_upgrade = False
             __props__.__dict__["enable_automatic_upgrade"] = enable_automatic_upgrade
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_credential_settings"] = key_vault_credential_settings
+            if least_privilege_mode is None:
+                least_privilege_mode = 'NotSet'
             __props__.__dict__["least_privilege_mode"] = least_privilege_mode
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

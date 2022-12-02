@@ -340,6 +340,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220701Preview
 
         public SqlVirtualMachineArgs()
         {
+            EnableAutomaticUpgrade = false;
+            LeastPrivilegeMode = "NotSet";
         }
         public static new SqlVirtualMachineArgs Empty => new SqlVirtualMachineArgs();
     }

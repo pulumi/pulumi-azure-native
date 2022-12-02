@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VirtualNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

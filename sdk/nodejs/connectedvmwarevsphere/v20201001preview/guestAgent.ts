@@ -126,7 +126,7 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:GuestAgent" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:GuestAgent" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestAgent.__pulumiType, name, resourceInputs, opts);
     }

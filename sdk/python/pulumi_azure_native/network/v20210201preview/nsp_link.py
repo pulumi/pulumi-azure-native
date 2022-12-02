@@ -212,6 +212,7 @@ class NspLink(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["remote_outbound_profiles"] = None
             __props__.__dict__["remote_perimeter_guid"] = None
+            __props__.__dict__["remote_perimeter_location"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
         super(NspLink, __self__).__init__(
@@ -246,6 +247,7 @@ class NspLink(pulumi.CustomResource):
         __props__.__dict__["remote_inbound_profiles"] = None
         __props__.__dict__["remote_outbound_profiles"] = None
         __props__.__dict__["remote_perimeter_guid"] = None
+        __props__.__dict__["remote_perimeter_location"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["type"] = None
         return NspLink(resource_name, opts=opts, __props__=__props__)
@@ -329,6 +331,14 @@ class NspLink(pulumi.CustomResource):
         Remote NSP Guid with which the link gets created.
         """
         return pulumi.get(self, "remote_perimeter_guid")
+
+    @property
+    @pulumi.getter(name="remotePerimeterLocation")
+    def remote_perimeter_location(self) -> pulumi.Output[str]:
+        """
+        Remote NSP location with which the link gets created.
+        """
+        return pulumi.get(self, "remote_perimeter_location")
 
     @property
     @pulumi.getter

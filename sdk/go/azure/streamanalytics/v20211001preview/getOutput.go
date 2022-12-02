@@ -34,7 +34,7 @@ type LookupOutputResult struct {
 	LastOutputEventTimestamps []LastOutputEventTimestampResponse `pulumi:"lastOutputEventTimestamps"`
 	Name                      *string                            `pulumi:"name"`
 	Serialization             interface{}                        `pulumi:"serialization"`
-	SizeWindow                *float64                           `pulumi:"sizeWindow"`
+	SizeWindow                *int                               `pulumi:"sizeWindow"`
 	TimeWindow                *string                            `pulumi:"timeWindow"`
 	Type                      string                             `pulumi:"type"`
 	WatermarkSettings         *OutputWatermarkPropertiesResponse `pulumi:"watermarkSettings"`
@@ -106,8 +106,8 @@ func (o LookupOutputResultOutput) Serialization() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupOutputResult) interface{} { return v.Serialization }).(pulumi.AnyOutput)
 }
 
-func (o LookupOutputResultOutput) SizeWindow() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupOutputResult) *float64 { return v.SizeWindow }).(pulumi.Float64PtrOutput)
+func (o LookupOutputResultOutput) SizeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupOutputResult) *int { return v.SizeWindow }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupOutputResultOutput) TimeWindow() pulumi.StringPtrOutput {

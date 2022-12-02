@@ -126,6 +126,10 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public readonly string RemotePerimeterGuid;
         /// <summary>
+        /// Remote NSP location with which the link gets created.
+        /// </summary>
+        public readonly string RemotePerimeterLocation;
+        /// <summary>
         /// The NSP link state.
         /// </summary>
         public readonly string Status;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 
             string remotePerimeterGuid,
 
+            string remotePerimeterLocation,
+
             string status,
 
             string type)
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
             RemoteInboundProfiles = remoteInboundProfiles;
             RemoteOutboundProfiles = remoteOutboundProfiles;
             RemotePerimeterGuid = remotePerimeterGuid;
+            RemotePerimeterLocation = remotePerimeterLocation;
             Status = status;
             Type = type;
         }

@@ -19,7 +19,7 @@ type Output struct {
 	Etag          pulumi.StringOutput       `pulumi:"etag"`
 	Name          pulumi.StringPtrOutput    `pulumi:"name"`
 	Serialization pulumi.AnyOutput          `pulumi:"serialization"`
-	SizeWindow    pulumi.Float64PtrOutput   `pulumi:"sizeWindow"`
+	SizeWindow    pulumi.IntPtrOutput       `pulumi:"sizeWindow"`
 	TimeWindow    pulumi.StringPtrOutput    `pulumi:"timeWindow"`
 	Type          pulumi.StringOutput       `pulumi:"type"`
 }
@@ -90,7 +90,7 @@ type outputArgs struct {
 	OutputName        *string     `pulumi:"outputName"`
 	ResourceGroupName string      `pulumi:"resourceGroupName"`
 	Serialization     interface{} `pulumi:"serialization"`
-	SizeWindow        *float64    `pulumi:"sizeWindow"`
+	SizeWindow        *int        `pulumi:"sizeWindow"`
 	TimeWindow        *string     `pulumi:"timeWindow"`
 }
 
@@ -102,7 +102,7 @@ type OutputArgs struct {
 	OutputName        pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 	Serialization     pulumi.Input
-	SizeWindow        pulumi.Float64PtrInput
+	SizeWindow        pulumi.IntPtrInput
 	TimeWindow        pulumi.StringPtrInput
 }
 
@@ -163,8 +163,8 @@ func (o OutputOutput) Serialization() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Output) pulumi.AnyOutput { return v.Serialization }).(pulumi.AnyOutput)
 }
 
-func (o OutputOutput) SizeWindow() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *Output) pulumi.Float64PtrOutput { return v.SizeWindow }).(pulumi.Float64PtrOutput)
+func (o OutputOutput) SizeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Output) pulumi.IntPtrOutput { return v.SizeWindow }).(pulumi.IntPtrOutput)
 }
 
 func (o OutputOutput) TimeWindow() pulumi.StringPtrOutput {

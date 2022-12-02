@@ -24,6 +24,7 @@ type NspLink struct {
 	RemoteInboundProfiles                 pulumi.StringArrayOutput `pulumi:"remoteInboundProfiles"`
 	RemoteOutboundProfiles                pulumi.StringArrayOutput `pulumi:"remoteOutboundProfiles"`
 	RemotePerimeterGuid                   pulumi.StringOutput      `pulumi:"remotePerimeterGuid"`
+	RemotePerimeterLocation               pulumi.StringOutput      `pulumi:"remotePerimeterLocation"`
 	Status                                pulumi.StringOutput      `pulumi:"status"`
 	Type                                  pulumi.StringOutput      `pulumi:"type"`
 }
@@ -168,6 +169,10 @@ func (o NspLinkOutput) RemoteOutboundProfiles() pulumi.StringArrayOutput {
 
 func (o NspLinkOutput) RemotePerimeterGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *NspLink) pulumi.StringOutput { return v.RemotePerimeterGuid }).(pulumi.StringOutput)
+}
+
+func (o NspLinkOutput) RemotePerimeterLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspLink) pulumi.StringOutput { return v.RemotePerimeterLocation }).(pulumi.StringOutput)
 }
 
 func (o NspLinkOutput) Status() pulumi.StringOutput {

@@ -45,8 +45,11 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
         [Output("serialization")]
         public Output<object?> Serialization { get; private set; } = null!;
 
+        /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
         [Output("sizeWindow")]
-        public Output<double?> SizeWindow { get; private set; } = null!;
+        public Output<int?> SizeWindow { get; private set; } = null!;
 
         [Output("timeWindow")]
         public Output<string?> TimeWindow { get; private set; } = null!;
@@ -145,8 +148,11 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
         [Input("serialization")]
         public object? Serialization { get; set; }
 
+        /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
         [Input("sizeWindow")]
-        public Input<double>? SizeWindow { get; set; }
+        public Input<int>? SizeWindow { get; set; }
 
         [Input("timeWindow")]
         public Input<string>? TimeWindow { get; set; }

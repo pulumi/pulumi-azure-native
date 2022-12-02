@@ -3251,13 +3251,14 @@ class OutputArgs:
                  datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
-                 size_window: Optional[pulumi.Input[float]] = None,
+                 size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
         :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[int] size_window: The size window to constrain a Stream Analytics output to.
         """
         if datasource is not None:
             pulumi.set(__self__, "datasource", datasource)
@@ -3308,11 +3309,14 @@ class OutputArgs:
 
     @property
     @pulumi.getter(name="sizeWindow")
-    def size_window(self) -> Optional[pulumi.Input[float]]:
+    def size_window(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size window to constrain a Stream Analytics output to.
+        """
         return pulumi.get(self, "size_window")
 
     @size_window.setter
-    def size_window(self, value: Optional[pulumi.Input[float]]):
+    def size_window(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_window", value)
 
     @property

@@ -84,6 +84,10 @@ export interface GetNspLinkResult {
      */
     readonly remotePerimeterGuid: string;
     /**
+     * Remote NSP location with which the link gets created.
+     */
+    readonly remotePerimeterLocation: string;
+    /**
      * The NSP link state.
      */
     readonly status: string;

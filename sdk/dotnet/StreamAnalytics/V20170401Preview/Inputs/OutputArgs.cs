@@ -33,8 +33,11 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
         [Input("serialization")]
         public object? Serialization { get; set; }
 
+        /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
         [Input("sizeWindow")]
-        public Input<double>? SizeWindow { get; set; }
+        public Input<int>? SizeWindow { get; set; }
 
         [Input("timeWindow")]
         public Input<string>? TimeWindow { get; set; }

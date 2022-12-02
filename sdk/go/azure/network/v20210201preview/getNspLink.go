@@ -38,6 +38,7 @@ type LookupNspLinkResult struct {
 	RemoteInboundProfiles                 []string `pulumi:"remoteInboundProfiles"`
 	RemoteOutboundProfiles                []string `pulumi:"remoteOutboundProfiles"`
 	RemotePerimeterGuid                   string   `pulumi:"remotePerimeterGuid"`
+	RemotePerimeterLocation               string   `pulumi:"remotePerimeterLocation"`
 	Status                                string   `pulumi:"status"`
 	Type                                  string   `pulumi:"type"`
 }
@@ -122,6 +123,10 @@ func (o LookupNspLinkResultOutput) RemoteOutboundProfiles() pulumi.StringArrayOu
 
 func (o LookupNspLinkResultOutput) RemotePerimeterGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNspLinkResult) string { return v.RemotePerimeterGuid }).(pulumi.StringOutput)
+}
+
+func (o LookupNspLinkResultOutput) RemotePerimeterLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNspLinkResult) string { return v.RemotePerimeterLocation }).(pulumi.StringOutput)
 }
 
 func (o LookupNspLinkResultOutput) Status() pulumi.StringOutput {
