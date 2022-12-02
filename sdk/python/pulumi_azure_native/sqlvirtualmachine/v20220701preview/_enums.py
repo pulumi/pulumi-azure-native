@@ -136,6 +136,7 @@ class LeastPrivilegeMode(str, Enum):
     SQL IaaS Agent least privilege mode.
     """
     ENABLED = "Enabled"
+    NOT_SET = "NotSet"
 
 
 class ReadableSecondary(str, Enum):

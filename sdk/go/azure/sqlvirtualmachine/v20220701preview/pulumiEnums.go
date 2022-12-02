@@ -423,6 +423,7 @@ type LeastPrivilegeMode string
 
 const (
 	LeastPrivilegeModeEnabled = LeastPrivilegeMode("Enabled")
+	LeastPrivilegeModeNotSet  = LeastPrivilegeMode("NotSet")
 )
 
 type ReadableSecondary string

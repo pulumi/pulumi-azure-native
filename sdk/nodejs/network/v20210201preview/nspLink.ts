@@ -75,6 +75,10 @@ export class NspLink extends pulumi.CustomResource {
      */
     public /*out*/ readonly remotePerimeterGuid!: pulumi.Output<string>;
     /**
+     * Remote NSP location with which the link gets created.
+     */
+    public /*out*/ readonly remotePerimeterLocation!: pulumi.Output<string>;
+    /**
      * The NSP link state.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class NspLink extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["remoteOutboundProfiles"] = undefined /*out*/;
             resourceInputs["remotePerimeterGuid"] = undefined /*out*/;
+            resourceInputs["remotePerimeterLocation"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -126,6 +131,7 @@ export class NspLink extends pulumi.CustomResource {
             resourceInputs["remoteInboundProfiles"] = undefined /*out*/;
             resourceInputs["remoteOutboundProfiles"] = undefined /*out*/;
             resourceInputs["remotePerimeterGuid"] = undefined /*out*/;
+            resourceInputs["remotePerimeterLocation"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

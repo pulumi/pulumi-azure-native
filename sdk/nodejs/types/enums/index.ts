@@ -148,6 +148,7 @@ import * as servicebus from "./servicebus";
 import * as servicefabric from "./servicefabric";
 import * as servicefabricmesh from "./servicefabricmesh";
 import * as servicelinker from "./servicelinker";
+import * as servicenetworking from "./servicenetworking";
 import * as signalrservice from "./signalrservice";
 import * as solutions from "./solutions";
 import * as sql from "./sql";
@@ -320,6 +321,7 @@ export {
     servicefabric,
     servicefabricmesh,
     servicelinker,
+    servicenetworking,
     signalrservice,
     solutions,
     sql,

@@ -1859,7 +1859,7 @@ type OutputType struct {
 	Datasource    interface{} `pulumi:"datasource"`
 	Name          *string     `pulumi:"name"`
 	Serialization interface{} `pulumi:"serialization"`
-	SizeWindow    *float64    `pulumi:"sizeWindow"`
+	SizeWindow    *int        `pulumi:"sizeWindow"`
 	TimeWindow    *string     `pulumi:"timeWindow"`
 }
 
@@ -1875,11 +1875,11 @@ type OutputTypeInput interface {
 }
 
 type OutputTypeArgs struct {
-	Datasource    pulumi.Input           `pulumi:"datasource"`
-	Name          pulumi.StringPtrInput  `pulumi:"name"`
-	Serialization pulumi.Input           `pulumi:"serialization"`
-	SizeWindow    pulumi.Float64PtrInput `pulumi:"sizeWindow"`
-	TimeWindow    pulumi.StringPtrInput  `pulumi:"timeWindow"`
+	Datasource    pulumi.Input          `pulumi:"datasource"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Serialization pulumi.Input          `pulumi:"serialization"`
+	SizeWindow    pulumi.IntPtrInput    `pulumi:"sizeWindow"`
+	TimeWindow    pulumi.StringPtrInput `pulumi:"timeWindow"`
 }
 
 func (OutputTypeArgs) ElementType() reflect.Type {
@@ -1945,8 +1945,8 @@ func (o OutputTypeOutput) Serialization() pulumi.AnyOutput {
 	return o.ApplyT(func(v OutputType) interface{} { return v.Serialization }).(pulumi.AnyOutput)
 }
 
-func (o OutputTypeOutput) SizeWindow() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OutputType) *float64 { return v.SizeWindow }).(pulumi.Float64PtrOutput)
+func (o OutputTypeOutput) SizeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OutputType) *int { return v.SizeWindow }).(pulumi.IntPtrOutput)
 }
 
 func (o OutputTypeOutput) TimeWindow() pulumi.StringPtrOutput {
@@ -1980,7 +1980,7 @@ type OutputResponse struct {
 	Id            string              `pulumi:"id"`
 	Name          *string             `pulumi:"name"`
 	Serialization interface{}         `pulumi:"serialization"`
-	SizeWindow    *float64            `pulumi:"sizeWindow"`
+	SizeWindow    *int                `pulumi:"sizeWindow"`
 	TimeWindow    *string             `pulumi:"timeWindow"`
 	Type          string              `pulumi:"type"`
 }
@@ -2023,8 +2023,8 @@ func (o OutputResponseOutput) Serialization() pulumi.AnyOutput {
 	return o.ApplyT(func(v OutputResponse) interface{} { return v.Serialization }).(pulumi.AnyOutput)
 }
 
-func (o OutputResponseOutput) SizeWindow() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OutputResponse) *float64 { return v.SizeWindow }).(pulumi.Float64PtrOutput)
+func (o OutputResponseOutput) SizeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OutputResponse) *int { return v.SizeWindow }).(pulumi.IntPtrOutput)
 }
 
 func (o OutputResponseOutput) TimeWindow() pulumi.StringPtrOutput {

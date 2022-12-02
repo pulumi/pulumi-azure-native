@@ -2958,51 +2958,63 @@
   "ConnectedVMwarevSphere": {
     "Cluster": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "Datastore": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "GuestAgent": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "Host": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "HybridIdentityMetadatum": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "InventoryItem": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "MachineExtension": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "ResourcePool": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "VCenter": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "VirtualMachine": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "VirtualMachineTemplate": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "VirtualNetwork": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ]
   },
   "Consumption": {
@@ -13492,6 +13504,17 @@
       "2022-01-01-preview",
       "2022-05-01",
       "2022-11-01-preview"
+    ]
+  },
+  "ServiceNetworking": {
+    "AssociationsInterface": [
+      "2022-10-01-preview"
+    ],
+    "FrontendsInterface": [
+      "2022-10-01-preview"
+    ],
+    "TrafficControllerInterface": [
+      "2022-10-01-preview"
     ]
   },
   "SignalRService": {

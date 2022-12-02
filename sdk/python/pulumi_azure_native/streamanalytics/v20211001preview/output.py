@@ -23,7 +23,7 @@ class OutputInitArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
-                 size_window: Optional[pulumi.Input[float]] = None,
+                 size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
                  watermark_settings: Optional[pulumi.Input['OutputWatermarkPropertiesArgs']] = None):
         """
@@ -34,7 +34,7 @@ class OutputInitArgs:
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] output_name: The name of the output.
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[float] size_window: The size window to constrain a Stream Analytics output to.
+        :param pulumi.Input[int] size_window: The size window to constrain a Stream Analytics output to.
         :param pulumi.Input[str] time_window: The time frame for filtering Stream Analytics job outputs.
         :param pulumi.Input['OutputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to send watermarks to downstream.
         """
@@ -129,14 +129,14 @@ class OutputInitArgs:
 
     @property
     @pulumi.getter(name="sizeWindow")
-    def size_window(self) -> Optional[pulumi.Input[float]]:
+    def size_window(self) -> Optional[pulumi.Input[int]]:
         """
         The size window to constrain a Stream Analytics output to.
         """
         return pulumi.get(self, "size_window")
 
     @size_window.setter
-    def size_window(self, value: Optional[pulumi.Input[float]]):
+    def size_window(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_window", value)
 
     @property
@@ -175,7 +175,7 @@ class Output(pulumi.CustomResource):
                  output_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]]] = None,
-                 size_window: Optional[pulumi.Input[float]] = None,
+                 size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
                  watermark_settings: Optional[pulumi.Input[pulumi.InputType['OutputWatermarkPropertiesArgs']]] = None,
                  __props__=None):
@@ -190,7 +190,7 @@ class Output(pulumi.CustomResource):
         :param pulumi.Input[str] output_name: The name of the output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[float] size_window: The size window to constrain a Stream Analytics output to.
+        :param pulumi.Input[int] size_window: The size window to constrain a Stream Analytics output to.
         :param pulumi.Input[str] time_window: The time frame for filtering Stream Analytics job outputs.
         :param pulumi.Input[pulumi.InputType['OutputWatermarkPropertiesArgs']] watermark_settings: Settings which determine whether to send watermarks to downstream.
         """
@@ -224,7 +224,7 @@ class Output(pulumi.CustomResource):
                  output_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]]] = None,
-                 size_window: Optional[pulumi.Input[float]] = None,
+                 size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
                  watermark_settings: Optional[pulumi.Input[pulumi.InputType['OutputWatermarkPropertiesArgs']]] = None,
                  __props__=None):
@@ -339,7 +339,7 @@ class Output(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeWindow")
-    def size_window(self) -> pulumi.Output[Optional[float]]:
+    def size_window(self) -> pulumi.Output[Optional[int]]:
         """
         The size window to constrain a Stream Analytics output to.
         """

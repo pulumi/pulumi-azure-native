@@ -16,7 +16,7 @@ func LookupSqlVirtualMachine(ctx *pulumi.Context, args *LookupSqlVirtualMachineA
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSqlVirtualMachineArgs struct {
@@ -51,6 +51,23 @@ type LookupSqlVirtualMachineResult struct {
 	VirtualMachineResourceId               *string                                         `pulumi:"virtualMachineResourceId"`
 	WsfcDomainCredentials                  *WsfcDomainCredentialsResponse                  `pulumi:"wsfcDomainCredentials"`
 	WsfcStaticIp                           *string                                         `pulumi:"wsfcStaticIp"`
+}
+
+
+func (val *LookupSqlVirtualMachineResult) Defaults() *LookupSqlVirtualMachineResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableAutomaticUpgrade) {
+		enableAutomaticUpgrade_ := false
+		tmp.EnableAutomaticUpgrade = &enableAutomaticUpgrade_
+	}
+	if isZero(tmp.LeastPrivilegeMode) {
+		leastPrivilegeMode_ := "NotSet"
+		tmp.LeastPrivilegeMode = &leastPrivilegeMode_
+	}
+	return &tmp
 }
 
 func LookupSqlVirtualMachineOutput(ctx *pulumi.Context, args LookupSqlVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupSqlVirtualMachineResultOutput {

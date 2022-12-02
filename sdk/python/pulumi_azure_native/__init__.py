@@ -343,6 +343,8 @@ if typing.TYPE_CHECKING:
     servicefabricmesh = __servicefabricmesh
     import pulumi_azure_native.servicelinker as __servicelinker
     servicelinker = __servicelinker
+    import pulumi_azure_native.servicenetworking as __servicenetworking
+    servicenetworking = __servicenetworking
     import pulumi_azure_native.signalrservice as __signalrservice
     signalrservice = __signalrservice
     import pulumi_azure_native.softwareplan as __softwareplan
@@ -565,6 +567,7 @@ else:
     servicefabric = _utilities.lazy_import('pulumi_azure_native.servicefabric')
     servicefabricmesh = _utilities.lazy_import('pulumi_azure_native.servicefabricmesh')
     servicelinker = _utilities.lazy_import('pulumi_azure_native.servicelinker')
+    servicenetworking = _utilities.lazy_import('pulumi_azure_native.servicenetworking')
     signalrservice = _utilities.lazy_import('pulumi_azure_native.signalrservice')
     softwareplan = _utilities.lazy_import('pulumi_azure_native.softwareplan')
     solutions = _utilities.lazy_import('pulumi_azure_native.solutions')
@@ -4928,6 +4931,25 @@ _utilities.register(
    "azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine": "VirtualMachine",
    "azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate": "VirtualMachineTemplate",
    "azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork": "VirtualNetwork"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "connectedvmwarevsphere/v20220715preview",
+  "fqn": "pulumi_azure_native.connectedvmwarevsphere.v20220715preview",
+  "classes": {
+   "azure-native:connectedvmwarevsphere/v20220715preview:Cluster": "Cluster",
+   "azure-native:connectedvmwarevsphere/v20220715preview:Datastore": "Datastore",
+   "azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent": "GuestAgent",
+   "azure-native:connectedvmwarevsphere/v20220715preview:Host": "Host",
+   "azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem": "InventoryItem",
+   "azure-native:connectedvmwarevsphere/v20220715preview:MachineExtension": "MachineExtension",
+   "azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool": "ResourcePool",
+   "azure-native:connectedvmwarevsphere/v20220715preview:VCenter": "VCenter",
+   "azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine": "VirtualMachine",
+   "azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate": "VirtualMachineTemplate",
+   "azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork": "VirtualNetwork"
   }
  },
  {
@@ -20383,6 +20405,26 @@ _utilities.register(
    "azure-native:servicelinker/v20221101preview:ConnectorDryrun": "ConnectorDryrun",
    "azure-native:servicelinker/v20221101preview:Linker": "Linker",
    "azure-native:servicelinker/v20221101preview:LinkerDryrun": "LinkerDryrun"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicenetworking",
+  "fqn": "pulumi_azure_native.servicenetworking",
+  "classes": {
+   "azure-native:servicenetworking:AssociationsInterface": "AssociationsInterface",
+   "azure-native:servicenetworking:FrontendsInterface": "FrontendsInterface",
+   "azure-native:servicenetworking:TrafficControllerInterface": "TrafficControllerInterface"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicenetworking/v20221001preview",
+  "fqn": "pulumi_azure_native.servicenetworking.v20221001preview",
+  "classes": {
+   "azure-native:servicenetworking/v20221001preview:AssociationsInterface": "AssociationsInterface",
+   "azure-native:servicenetworking/v20221001preview:FrontendsInterface": "FrontendsInterface",
+   "azure-native:servicenetworking/v20221001preview:TrafficControllerInterface": "TrafficControllerInterface"
   }
  },
  {

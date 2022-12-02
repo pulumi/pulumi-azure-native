@@ -2842,6 +2842,20 @@
       "VirtualMachine",
       "VirtualMachineTemplate",
       "VirtualNetwork"
+    ],
+    "2022-07-15-preview": [
+      "Cluster",
+      "Datastore",
+      "GuestAgent",
+      "Host",
+      "HybridIdentityMetadatum",
+      "InventoryItem",
+      "MachineExtension",
+      "ResourcePool",
+      "VCenter",
+      "VirtualMachine",
+      "VirtualMachineTemplate",
+      "VirtualNetwork"
     ]
   },
   "Consumption": {
@@ -12905,6 +12919,13 @@
       "Linker",
       "LinkerDryrun",
       "listLinkerConfigurations"
+    ]
+  },
+  "ServiceNetworking": {
+    "2022-10-01-preview": [
+      "AssociationsInterface",
+      "FrontendsInterface",
+      "TrafficControllerInterface"
     ]
   },
   "SignalRService": {

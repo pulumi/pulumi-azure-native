@@ -3443,7 +3443,7 @@ class OutputResponse(dict):
                  datasource: Optional[Any] = None,
                  name: Optional[str] = None,
                  serialization: Optional[Any] = None,
-                 size_window: Optional[float] = None,
+                 size_window: Optional[int] = None,
                  time_window: Optional[str] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
@@ -3454,6 +3454,7 @@ class OutputResponse(dict):
         :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureFunctionOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'RawOutputDatasourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param str name: Resource name
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param int size_window: The size window to constrain a Stream Analytics output to.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)
@@ -3528,7 +3529,10 @@ class OutputResponse(dict):
 
     @property
     @pulumi.getter(name="sizeWindow")
-    def size_window(self) -> Optional[float]:
+    def size_window(self) -> Optional[int]:
+        """
+        The size window to constrain a Stream Analytics output to.
+        """
         return pulumi.get(self, "size_window")
 
     @property

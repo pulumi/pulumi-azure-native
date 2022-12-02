@@ -50,6 +50,9 @@ func NewCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20201001preview:Cluster"),
 		},
+		{
+			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20220715preview:Cluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cluster

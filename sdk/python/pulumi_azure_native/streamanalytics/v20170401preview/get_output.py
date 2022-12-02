@@ -41,8 +41,8 @@ class GetOutputResult:
         if serialization and not isinstance(serialization, dict):
             raise TypeError("Expected argument 'serialization' to be a dict")
         pulumi.set(__self__, "serialization", serialization)
-        if size_window and not isinstance(size_window, float):
-            raise TypeError("Expected argument 'size_window' to be a float")
+        if size_window and not isinstance(size_window, int):
+            raise TypeError("Expected argument 'size_window' to be a int")
         pulumi.set(__self__, "size_window", size_window)
         if time_window and not isinstance(time_window, str):
             raise TypeError("Expected argument 'time_window' to be a str")
@@ -101,7 +101,10 @@ class GetOutputResult:
 
     @property
     @pulumi.getter(name="sizeWindow")
-    def size_window(self) -> Optional[float]:
+    def size_window(self) -> Optional[int]:
+        """
+        The size window to constrain a Stream Analytics output to.
+        """
         return pulumi.get(self, "size_window")
 
     @property

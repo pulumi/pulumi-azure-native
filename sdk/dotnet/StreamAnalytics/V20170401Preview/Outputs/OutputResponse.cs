@@ -40,7 +40,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly object? Serialization;
-        public readonly double? SizeWindow;
+        /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
+        public readonly int? SizeWindow;
         public readonly string? TimeWindow;
         /// <summary>
         /// Resource type
@@ -61,7 +64,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 
             object? serialization,
 
-            double? sizeWindow,
+            int? sizeWindow,
 
             string? timeWindow,
 

@@ -53,6 +53,9 @@ func NewVCenter(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20220110preview:VCenter"),
 		},
+		{
+			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20220715preview:VCenter"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VCenter

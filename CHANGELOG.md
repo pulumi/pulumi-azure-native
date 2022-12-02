@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Add ServiceNetworking resource provider
+
 ## 1.88.0 (2022-12-01)
 
 - Upgrade to latest version of Azure Rest API Specs

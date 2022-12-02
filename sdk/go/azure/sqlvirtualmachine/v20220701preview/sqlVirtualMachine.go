@@ -49,6 +49,12 @@ func NewSqlVirtualMachine(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if isZero(args.EnableAutomaticUpgrade) {
+		args.EnableAutomaticUpgrade = pulumi.BoolPtr(false)
+	}
+	if isZero(args.LeastPrivilegeMode) {
+		args.LeastPrivilegeMode = pulumi.StringPtr("NotSet")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:sqlvirtualmachine:SqlVirtualMachine"),

@@ -49,6 +49,9 @@ func NewMachineExtension(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20220110preview:MachineExtension"),
 		},
+		{
+			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20220715preview:MachineExtension"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MachineExtension

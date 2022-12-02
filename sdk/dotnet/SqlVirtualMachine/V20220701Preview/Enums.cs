@@ -377,6 +377,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220701Preview
         }
 
         public static LeastPrivilegeMode Enabled { get; } = new LeastPrivilegeMode("Enabled");
+        public static LeastPrivilegeMode NotSet { get; } = new LeastPrivilegeMode("NotSet");
 
         public static bool operator ==(LeastPrivilegeMode left, LeastPrivilegeMode right) => left.Equals(right);
         public static bool operator !=(LeastPrivilegeMode left, LeastPrivilegeMode right) => !left.Equals(right);
