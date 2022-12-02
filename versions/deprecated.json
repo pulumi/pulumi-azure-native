@@ -570,6 +570,7 @@
     "2018-07-01-preview"
   ],
   "ServiceLinker": [],
+  "ServiceNetworking": [],
   "SignalRService": [
     "2018-03-01-preview",
     "2018-10-01"

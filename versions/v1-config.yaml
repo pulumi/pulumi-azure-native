@@ -990,6 +990,8 @@ ServiceFabricMesh:
   tracking: 2018-09-01-preview
 ServiceLinker:
   tracking: 2021-11-01-preview
+ServiceNetworking:
+  tracking: 2022-10-01-preview
 SignalRService:
   tracking: "2020-05-01"
   additions:

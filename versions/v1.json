@@ -1738,6 +1738,11 @@
     "Linker": "2021-11-01-preview",
     "listLinkerConfigurations": "2021-11-01-preview"
   },
+  "ServiceNetworking": {
+    "AssociationsInterface": "2022-10-01-preview",
+    "FrontendsInterface": "2022-10-01-preview",
+    "TrafficControllerInterface": "2022-10-01-preview"
+  },
   "SignalRService": {
     "SignalR": "2020-05-01",
     "SignalRCustomCertificate": "2022-02-01",
