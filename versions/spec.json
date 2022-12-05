@@ -2956,6 +2956,9 @@
     ],
     "2022-09-01": [
       "ContainerGroup"
+    ],
+    "2022-10-01-preview": [
+      "ContainerGroup"
     ]
   },
   "ContainerRegistry": {
@@ -6371,6 +6374,17 @@
       "WorkspacePrivateEndpointConnection"
     ],
     "2022-06-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
+    ],
+    "2022-10-01-preview": [
+      "AnalyticsConnector",
       "DicomService",
       "FhirService",
       "IotConnector",
