@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         [Input("networkConfiguration")]
         public Input<Inputs.NetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
+        /// <summary>
+        /// The storage configuration.
+        /// </summary>
+        [Input("storageConfiguration")]
+        public Input<Inputs.StorageConfigurationArgs>? StorageConfiguration { get; set; }
+
         public ThreeTierConfigurationArgs()
         {
         }

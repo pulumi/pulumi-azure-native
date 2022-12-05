@@ -142,6 +142,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageInformationResponse> StorageDetails;
+        /// <summary>
         /// Application server Subnet.
         /// </summary>
         public readonly string Subnet;
@@ -194,6 +198,8 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 
             string status,
 
+            ImmutableArray<Outputs.StorageInformationResponse> storageDetails,
+
             string subnet,
 
             Outputs.SystemDataResponse systemData,
@@ -219,6 +225,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
             Name = name;
             ProvisioningState = provisioningState;
             Status = status;
+            StorageDetails = storageDetails;
             Subnet = subnet;
             SystemData = systemData;
             Tags = tags;

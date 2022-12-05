@@ -70,6 +70,10 @@ export class SAPCentralInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly kernelVersion!: pulumi.Output<string>;
     /**
+     * The Load Balancer details such as LoadBalancer ID attached to ASCS Virtual Machines
+     */
+    public /*out*/ readonly loadBalancerDetails!: pulumi.Output<outputs.workloads.v20211201preview.LoadBalancerDetailsResponse>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -140,6 +144,7 @@ export class SAPCentralInstance extends pulumi.CustomResource {
             resourceInputs["instanceNo"] = undefined /*out*/;
             resourceInputs["kernelPatch"] = undefined /*out*/;
             resourceInputs["kernelVersion"] = undefined /*out*/;
+            resourceInputs["loadBalancerDetails"] = undefined /*out*/;
             resourceInputs["messageServerProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -157,6 +162,7 @@ export class SAPCentralInstance extends pulumi.CustomResource {
             resourceInputs["instanceNo"] = undefined /*out*/;
             resourceInputs["kernelPatch"] = undefined /*out*/;
             resourceInputs["kernelVersion"] = undefined /*out*/;
+            resourceInputs["loadBalancerDetails"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["messageServerProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

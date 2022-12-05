@@ -17,6 +17,7 @@ import * as v20210701 from "./v20210701";
 import * as v20210901 from "./v20210901";
 import * as v20211001 from "./v20211001";
 import * as v20220901 from "./v20220901";
+import * as v20221001preview from "./v20221001preview";
 
 export {
     v20170801preview,
@@ -34,6 +35,7 @@ export {
     v20210901,
     v20211001,
     v20220901,
+    v20221001preview,
 };
 
 export const ContainerGroupIpAddressType = {

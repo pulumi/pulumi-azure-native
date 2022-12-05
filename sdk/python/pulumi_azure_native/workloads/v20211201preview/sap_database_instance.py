@@ -171,6 +171,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
             __props__.__dict__["database_type"] = None
             __props__.__dict__["errors"] = None
             __props__.__dict__["ip_address"] = None
+            __props__.__dict__["load_balancer_details"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
@@ -206,6 +207,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
         __props__.__dict__["database_type"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["ip_address"] = None
+        __props__.__dict__["load_balancer_details"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -248,6 +250,14 @@ class SAPDatabaseInstance(pulumi.CustomResource):
         Database IP Address.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="loadBalancerDetails")
+    def load_balancer_details(self) -> pulumi.Output['outputs.LoadBalancerDetailsResponse']:
+        """
+        The Load Balancer details such as LoadBalancer ID attached to Database Virtual Machines
+        """
+        return pulumi.get(self, "load_balancer_details")
 
     @property
     @pulumi.getter

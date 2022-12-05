@@ -6,8 +6,10 @@ from enum import Enum
 
 __all__ = [
     'AzureFrontDoorEnabled',
+    'ConfigurationType',
     'DatabaseTier',
     'DatabaseType',
+    'DiskSkuName',
     'DiskStorageType',
     'EnableBackup',
     'EnableSslEnforcement',
@@ -48,6 +50,15 @@ class AzureFrontDoorEnabled(str, Enum):
     DISABLED = "Disabled"
 
 
+class ConfigurationType(str, Enum):
+    """
+    The type of file share config.
+    """
+    SKIP = "Skip"
+    CREATE_AND_MOUNT = "CreateAndMount"
+    MOUNT = "Mount"
+
+
 class DatabaseTier(str, Enum):
     """
     Tier of the server SKU
@@ -62,6 +73,19 @@ class DatabaseType(str, Enum):
     Database type
     """
     MY_SQL = "MySql"
+
+
+class DiskSkuName(str, Enum):
+    """
+    Defines the disk sku name.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
 
 
 class DiskStorageType(str, Enum):

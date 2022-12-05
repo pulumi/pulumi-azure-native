@@ -59,6 +59,9 @@ func NewFhirService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20220601:FhirService"),
 		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20221001preview:FhirService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FhirService

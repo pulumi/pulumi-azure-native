@@ -42,6 +42,7 @@ type LookupSAPApplicationServerInstanceResult struct {
 	Name              string                          `pulumi:"name"`
 	ProvisioningState string                          `pulumi:"provisioningState"`
 	Status            string                          `pulumi:"status"`
+	StorageDetails    []StorageInformationResponse    `pulumi:"storageDetails"`
 	Subnet            string                          `pulumi:"subnet"`
 	SystemData        SystemDataResponse              `pulumi:"systemData"`
 	Tags              map[string]string               `pulumi:"tags"`
@@ -145,6 +146,10 @@ func (o LookupSAPApplicationServerInstanceResultOutput) ProvisioningState() pulu
 
 func (o LookupSAPApplicationServerInstanceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSAPApplicationServerInstanceResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o LookupSAPApplicationServerInstanceResultOutput) StorageDetails() StorageInformationResponseArrayOutput {
+	return o.ApplyT(func(v LookupSAPApplicationServerInstanceResult) []StorageInformationResponse { return v.StorageDetails }).(StorageInformationResponseArrayOutput)
 }
 
 func (o LookupSAPApplicationServerInstanceResultOutput) Subnet() pulumi.StringOutput {

@@ -526,8 +526,9 @@ type CentralServerConfigurationResponse struct {
 }
 
 type CentralServerVmDetailsResponse struct {
-	Type             string `pulumi:"type"`
-	VirtualMachineId string `pulumi:"virtualMachineId"`
+	StorageDetails   []StorageInformationResponse `pulumi:"storageDetails"`
+	Type             string                       `pulumi:"type"`
+	VirtualMachineId string                       `pulumi:"virtualMachineId"`
 }
 
 type CentralServerVmDetailsResponseOutput struct{ *pulumi.OutputState }
@@ -542,6 +543,10 @@ func (o CentralServerVmDetailsResponseOutput) ToCentralServerVmDetailsResponseOu
 
 func (o CentralServerVmDetailsResponseOutput) ToCentralServerVmDetailsResponseOutputWithContext(ctx context.Context) CentralServerVmDetailsResponseOutput {
 	return o
+}
+
+func (o CentralServerVmDetailsResponseOutput) StorageDetails() StorageInformationResponseArrayOutput {
+	return o.ApplyT(func(v CentralServerVmDetailsResponse) []StorageInformationResponse { return v.StorageDetails }).(StorageInformationResponseArrayOutput)
 }
 
 func (o CentralServerVmDetailsResponseOutput) Type() pulumi.StringOutput {
@@ -572,6 +577,18 @@ func (o CentralServerVmDetailsResponseArrayOutput) Index(i pulumi.IntInput) Cent
 	}).(CentralServerVmDetailsResponseOutput)
 }
 
+type CreateAndMountFileShareConfiguration struct {
+	ConfigurationType  string  `pulumi:"configurationType"`
+	ResourceGroup      *string `pulumi:"resourceGroup"`
+	StorageAccountName *string `pulumi:"storageAccountName"`
+}
+
+type CreateAndMountFileShareConfigurationResponse struct {
+	ConfigurationType  string  `pulumi:"configurationType"`
+	ResourceGroup      *string `pulumi:"resourceGroup"`
+	StorageAccountName *string `pulumi:"storageAccountName"`
+}
+
 type DB2ProviderInstanceProperties struct {
 	DbName            *string `pulumi:"dbName"`
 	DbPassword        *string `pulumi:"dbPassword"`
@@ -600,6 +617,7 @@ type DB2ProviderInstancePropertiesResponse struct {
 
 type DatabaseConfiguration struct {
 	DatabaseType                *string                     `pulumi:"databaseType"`
+	DiskConfiguration           *DiskConfiguration          `pulumi:"diskConfiguration"`
 	InstanceCount               float64                     `pulumi:"instanceCount"`
 	SubnetId                    string                      `pulumi:"subnetId"`
 	VirtualMachineConfiguration VirtualMachineConfiguration `pulumi:"virtualMachineConfiguration"`
@@ -607,6 +625,7 @@ type DatabaseConfiguration struct {
 
 type DatabaseConfigurationResponse struct {
 	DatabaseType                *string                             `pulumi:"databaseType"`
+	DiskConfiguration           *DiskConfigurationResponse          `pulumi:"diskConfiguration"`
 	InstanceCount               float64                             `pulumi:"instanceCount"`
 	SubnetId                    string                              `pulumi:"subnetId"`
 	VirtualMachineConfiguration VirtualMachineConfigurationResponse `pulumi:"virtualMachineConfiguration"`
@@ -799,8 +818,9 @@ func (o DatabaseProfileResponseOutput) Version() pulumi.StringPtrOutput {
 }
 
 type DatabaseVmDetailsResponse struct {
-	Status           string `pulumi:"status"`
-	VirtualMachineId string `pulumi:"virtualMachineId"`
+	Status           string                       `pulumi:"status"`
+	StorageDetails   []StorageInformationResponse `pulumi:"storageDetails"`
+	VirtualMachineId string                       `pulumi:"virtualMachineId"`
 }
 
 type DatabaseVmDetailsResponseOutput struct{ *pulumi.OutputState }
@@ -819,6 +839,10 @@ func (o DatabaseVmDetailsResponseOutput) ToDatabaseVmDetailsResponseOutputWithCo
 
 func (o DatabaseVmDetailsResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseVmDetailsResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o DatabaseVmDetailsResponseOutput) StorageDetails() StorageInformationResponseArrayOutput {
+	return o.ApplyT(func(v DatabaseVmDetailsResponse) []StorageInformationResponse { return v.StorageDetails }).(StorageInformationResponseArrayOutput)
 }
 
 func (o DatabaseVmDetailsResponseOutput) VirtualMachineId() pulumi.StringOutput {
@@ -894,6 +918,14 @@ type DiscoveryConfigurationResponse struct {
 	AppLocation       string  `pulumi:"appLocation"`
 	CentralServerVmId *string `pulumi:"centralServerVmId"`
 	ConfigurationType string  `pulumi:"configurationType"`
+}
+
+type DiskConfiguration struct {
+	DiskVolumeConfigurations map[string]DiskVolumeConfiguration `pulumi:"diskVolumeConfigurations"`
+}
+
+type DiskConfigurationResponse struct {
+	DiskVolumeConfigurations map[string]DiskVolumeConfigurationResponse `pulumi:"diskVolumeConfigurations"`
 }
 
 type DiskInfo struct {
@@ -1176,6 +1208,26 @@ func (o DiskInfoResponseArrayOutput) Index(i pulumi.IntInput) DiskInfoResponseOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskInfoResponse {
 		return vs[0].([]DiskInfoResponse)[vs[1].(int)]
 	}).(DiskInfoResponseOutput)
+}
+
+type DiskSku struct {
+	Name *string `pulumi:"name"`
+}
+
+type DiskSkuResponse struct {
+	Name *string `pulumi:"name"`
+}
+
+type DiskVolumeConfiguration struct {
+	Count  *float64 `pulumi:"count"`
+	SizeGB *float64 `pulumi:"sizeGB"`
+	Sku    *DiskSku `pulumi:"sku"`
+}
+
+type DiskVolumeConfigurationResponse struct {
+	Count  *float64         `pulumi:"count"`
+	SizeGB *float64         `pulumi:"sizeGB"`
+	Sku    *DiskSkuResponse `pulumi:"sku"`
 }
 
 type EnqueueReplicationServerPropertiesResponse struct {
@@ -2135,6 +2187,28 @@ type LinuxConfigurationResponse struct {
 	SshKeyPair                    *SshKeyPairResponse       `pulumi:"sshKeyPair"`
 }
 
+type LoadBalancerDetailsResponse struct {
+	Id string `pulumi:"id"`
+}
+
+type LoadBalancerDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerDetailsResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerDetailsResponseOutput) ToLoadBalancerDetailsResponseOutput() LoadBalancerDetailsResponseOutput {
+	return o
+}
+
+func (o LoadBalancerDetailsResponseOutput) ToLoadBalancerDetailsResponseOutputWithContext(ctx context.Context) LoadBalancerDetailsResponseOutput {
+	return o
+}
+
+func (o LoadBalancerDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type ManagedRGConfiguration struct {
 	Name *string `pulumi:"name"`
 }
@@ -2502,6 +2576,18 @@ func (o MonitorPropertiesResponseErrorsOutput) Message() pulumi.StringOutput {
 
 func (o MonitorPropertiesResponseErrorsOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponseErrors) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type MountFileShareConfiguration struct {
+	ConfigurationType string `pulumi:"configurationType"`
+	Id                string `pulumi:"id"`
+	PrivateEndpointId string `pulumi:"privateEndpointId"`
+}
+
+type MountFileShareConfigurationResponse struct {
+	ConfigurationType string `pulumi:"configurationType"`
+	Id                string `pulumi:"id"`
+	PrivateEndpointId string `pulumi:"privateEndpointId"`
 }
 
 type MsSqlServerProviderInstanceProperties struct {
@@ -4447,6 +4533,7 @@ type ServiceInitiatedSoftwareConfigurationResponse struct {
 type SingleServerConfiguration struct {
 	AppResourceGroup            string                      `pulumi:"appResourceGroup"`
 	DatabaseType                *string                     `pulumi:"databaseType"`
+	DbDiskConfiguration         *DiskConfiguration          `pulumi:"dbDiskConfiguration"`
 	DeploymentType              string                      `pulumi:"deploymentType"`
 	NetworkConfiguration        *NetworkConfiguration       `pulumi:"networkConfiguration"`
 	SubnetId                    string                      `pulumi:"subnetId"`
@@ -4467,6 +4554,7 @@ func (val *SingleServerConfiguration) Defaults() *SingleServerConfiguration {
 type SingleServerConfigurationResponse struct {
 	AppResourceGroup            string                              `pulumi:"appResourceGroup"`
 	DatabaseType                *string                             `pulumi:"databaseType"`
+	DbDiskConfiguration         *DiskConfigurationResponse          `pulumi:"dbDiskConfiguration"`
 	DeploymentType              string                              `pulumi:"deploymentType"`
 	NetworkConfiguration        *NetworkConfigurationResponse       `pulumi:"networkConfiguration"`
 	SubnetId                    string                              `pulumi:"subnetId"`
@@ -4670,6 +4758,14 @@ func (o SiteProfileResponsePtrOutput) DomainName() pulumi.StringPtrOutput {
 		}
 		return v.DomainName
 	}).(pulumi.StringPtrOutput)
+}
+
+type SkipFileShareConfiguration struct {
+	ConfigurationType string `pulumi:"configurationType"`
+}
+
+type SkipFileShareConfigurationResponse struct {
+	ConfigurationType string `pulumi:"configurationType"`
 }
 
 type Sku struct {
@@ -5002,6 +5098,56 @@ type SshPublicKeyResponse struct {
 	KeyData *string `pulumi:"keyData"`
 }
 
+type StorageConfiguration struct {
+	TransportFileShareConfiguration interface{} `pulumi:"transportFileShareConfiguration"`
+}
+
+type StorageConfigurationResponse struct {
+	TransportFileShareConfiguration interface{} `pulumi:"transportFileShareConfiguration"`
+}
+
+type StorageInformationResponse struct {
+	Id string `pulumi:"id"`
+}
+
+type StorageInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInformationResponse)(nil)).Elem()
+}
+
+func (o StorageInformationResponseOutput) ToStorageInformationResponseOutput() StorageInformationResponseOutput {
+	return o
+}
+
+func (o StorageInformationResponseOutput) ToStorageInformationResponseOutputWithContext(ctx context.Context) StorageInformationResponseOutput {
+	return o
+}
+
+func (o StorageInformationResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageInformationResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type StorageInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageInformationResponse)(nil)).Elem()
+}
+
+func (o StorageInformationResponseArrayOutput) ToStorageInformationResponseArrayOutput() StorageInformationResponseArrayOutput {
+	return o
+}
+
+func (o StorageInformationResponseArrayOutput) ToStorageInformationResponseArrayOutputWithContext(ctx context.Context) StorageInformationResponseArrayOutput {
+	return o
+}
+
+func (o StorageInformationResponseArrayOutput) Index(i pulumi.IntInput) StorageInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageInformationResponse {
+		return vs[0].([]StorageInformationResponse)[vs[1].(int)]
+	}).(StorageInformationResponseOutput)
+}
+
 type SystemDataResponse struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -5057,6 +5203,7 @@ type ThreeTierConfiguration struct {
 	DeploymentType         string                         `pulumi:"deploymentType"`
 	HighAvailabilityConfig *HighAvailabilityConfiguration `pulumi:"highAvailabilityConfig"`
 	NetworkConfiguration   *NetworkConfiguration          `pulumi:"networkConfiguration"`
+	StorageConfiguration   *StorageConfiguration          `pulumi:"storageConfiguration"`
 }
 
 
@@ -5078,6 +5225,7 @@ type ThreeTierConfigurationResponse struct {
 	DeploymentType         string                                 `pulumi:"deploymentType"`
 	HighAvailabilityConfig *HighAvailabilityConfigurationResponse `pulumi:"highAvailabilityConfig"`
 	NetworkConfiguration   *NetworkConfigurationResponse          `pulumi:"networkConfiguration"`
+	StorageConfiguration   *StorageConfigurationResponse          `pulumi:"storageConfiguration"`
 }
 
 
@@ -5640,6 +5788,7 @@ func init() {
 	pulumi.RegisterOutputType(FileshareProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(GatewayServerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GatewayServerPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRGConfigurationOutput{})
 	pulumi.RegisterOutputType(ManagedRGConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ManagedRGConfigurationResponseOutput{})
@@ -5685,6 +5834,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageInformationResponseOutput{})
+	pulumi.RegisterOutputType(StorageInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})

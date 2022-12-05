@@ -17,6 +17,14 @@ const (
 	AzureFrontDoorEnabledDisabled = AzureFrontDoorEnabled("Disabled")
 )
 
+type ConfigurationType string
+
+const (
+	ConfigurationTypeSkip           = ConfigurationType("Skip")
+	ConfigurationTypeCreateAndMount = ConfigurationType("CreateAndMount")
+	ConfigurationTypeMount          = ConfigurationType("Mount")
+)
+
 type DatabaseTier string
 
 const (
@@ -186,6 +194,18 @@ type DatabaseType string
 
 const (
 	DatabaseTypeMySql = DatabaseType("MySql")
+)
+
+type DiskSkuName string
+
+const (
+	DiskSkuName_Standard_LRS    = DiskSkuName("Standard_LRS")
+	DiskSkuName_Premium_LRS     = DiskSkuName("Premium_LRS")
+	DiskSkuName_StandardSSD_LRS = DiskSkuName("StandardSSD_LRS")
+	DiskSkuName_UltraSSD_LRS    = DiskSkuName("UltraSSD_LRS")
+	DiskSkuName_Premium_ZRS     = DiskSkuName("Premium_ZRS")
+	DiskSkuName_StandardSSD_ZRS = DiskSkuName("StandardSSD_ZRS")
+	DiskSkuName_PremiumV2_LRS   = DiskSkuName("PremiumV2_LRS")
 )
 
 type DiskStorageType string

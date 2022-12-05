@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
     public sealed class CentralServerVmDetailsResponse
     {
         /// <summary>
+        /// Storage details of all the Storage Accounts attached to the ASCS Virtual Machine. For e.g. NFS on AFS Shared Storage.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageInformationResponse> StorageDetails;
+        /// <summary>
         /// Defines the type of central server VM.
         /// </summary>
         public readonly string Type;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
         [OutputConstructor]
         private CentralServerVmDetailsResponse(
+            ImmutableArray<Outputs.StorageInformationResponse> storageDetails,
+
             string type,
 
             string virtualMachineId)
         {
+            StorageDetails = storageDetails;
             Type = type;
             VirtualMachineId = virtualMachineId;
         }

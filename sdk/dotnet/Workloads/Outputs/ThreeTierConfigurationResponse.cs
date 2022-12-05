@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// Network configuration common to all servers
         /// </summary>
         public readonly Outputs.NetworkConfigurationResponse? NetworkConfiguration;
+        /// <summary>
+        /// The storage configuration.
+        /// </summary>
+        public readonly Outputs.StorageConfigurationResponse? StorageConfiguration;
 
         [OutputConstructor]
         private ThreeTierConfigurationResponse(
@@ -60,7 +64,9 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             Outputs.HighAvailabilityConfigurationResponse? highAvailabilityConfig,
 
-            Outputs.NetworkConfigurationResponse? networkConfiguration)
+            Outputs.NetworkConfigurationResponse? networkConfiguration,
+
+            Outputs.StorageConfigurationResponse? storageConfiguration)
         {
             AppResourceGroup = appResourceGroup;
             ApplicationServer = applicationServer;
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             DeploymentType = deploymentType;
             HighAvailabilityConfig = highAvailabilityConfig;
             NetworkConfiguration = networkConfiguration;
+            StorageConfiguration = storageConfiguration;
         }
     }
 }

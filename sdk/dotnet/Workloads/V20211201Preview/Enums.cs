@@ -39,6 +39,38 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     }
 
     /// <summary>
+    /// The type of file share config.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
+    {
+        private readonly string _value;
+
+        private ConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationType Skip { get; } = new ConfigurationType("Skip");
+        public static ConfigurationType CreateAndMount { get; } = new ConfigurationType("CreateAndMount");
+        public static ConfigurationType Mount { get; } = new ConfigurationType("Mount");
+
+        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
+        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Tier of the server SKU
     /// </summary>
     [EnumType]
@@ -93,6 +125,42 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatabaseType other && Equals(other);
         public bool Equals(DatabaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the disk sku name.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskSkuName : IEquatable<DiskSkuName>
+    {
+        private readonly string _value;
+
+        private DiskSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskSkuName Standard_LRS { get; } = new DiskSkuName("Standard_LRS");
+        public static DiskSkuName Premium_LRS { get; } = new DiskSkuName("Premium_LRS");
+        public static DiskSkuName StandardSSD_LRS { get; } = new DiskSkuName("StandardSSD_LRS");
+        public static DiskSkuName UltraSSD_LRS { get; } = new DiskSkuName("UltraSSD_LRS");
+        public static DiskSkuName Premium_ZRS { get; } = new DiskSkuName("Premium_ZRS");
+        public static DiskSkuName StandardSSD_ZRS { get; } = new DiskSkuName("StandardSSD_ZRS");
+        public static DiskSkuName PremiumV2_LRS { get; } = new DiskSkuName("PremiumV2_LRS");
+
+        public static bool operator ==(DiskSkuName left, DiskSkuName right) => left.Equals(right);
+        public static bool operator !=(DiskSkuName left, DiskSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(DiskSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskSkuName other && Equals(other);
+        public bool Equals(DiskSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

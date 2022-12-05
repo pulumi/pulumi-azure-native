@@ -28,6 +28,7 @@ type SAPApplicationServerInstance struct {
 	Name              pulumi.StringOutput                   `pulumi:"name"`
 	ProvisioningState pulumi.StringOutput                   `pulumi:"provisioningState"`
 	Status            pulumi.StringOutput                   `pulumi:"status"`
+	StorageDetails    StorageInformationResponseArrayOutput `pulumi:"storageDetails"`
 	Subnet            pulumi.StringOutput                   `pulumi:"subnet"`
 	SystemData        SystemDataResponseOutput              `pulumi:"systemData"`
 	Tags              pulumi.StringMapOutput                `pulumi:"tags"`
@@ -193,6 +194,10 @@ func (o SAPApplicationServerInstanceOutput) ProvisioningState() pulumi.StringOut
 
 func (o SAPApplicationServerInstanceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SAPApplicationServerInstance) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o SAPApplicationServerInstanceOutput) StorageDetails() StorageInformationResponseArrayOutput {
+	return o.ApplyT(func(v *SAPApplicationServerInstance) StorageInformationResponseArrayOutput { return v.StorageDetails }).(StorageInformationResponseArrayOutput)
 }
 
 func (o SAPApplicationServerInstanceOutput) Subnet() pulumi.StringOutput {

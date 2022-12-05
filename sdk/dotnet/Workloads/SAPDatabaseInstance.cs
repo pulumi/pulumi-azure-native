@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// The Load Balancer details such as LoadBalancer ID attached to Database Virtual Machines
+        /// </summary>
+        [Output("loadBalancerDetails")]
+        public Output<Outputs.LoadBalancerDetailsResponse> LoadBalancerDetails { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]

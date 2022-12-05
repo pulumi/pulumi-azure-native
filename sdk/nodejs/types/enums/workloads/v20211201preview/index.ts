@@ -12,6 +12,17 @@ export const AzureFrontDoorEnabled = {
  */
 export type AzureFrontDoorEnabled = (typeof AzureFrontDoorEnabled)[keyof typeof AzureFrontDoorEnabled];
 
+export const ConfigurationType = {
+    Skip: "Skip",
+    CreateAndMount: "CreateAndMount",
+    Mount: "Mount",
+} as const;
+
+/**
+ * The type of file share config.
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
 export const DatabaseTier = {
     Burstable: "Burstable",
     GeneralPurpose: "GeneralPurpose",
@@ -31,6 +42,21 @@ export const DatabaseType = {
  * Database type
  */
 export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
+
+export const DiskSkuName = {
+    Standard_LRS: "Standard_LRS",
+    Premium_LRS: "Premium_LRS",
+    StandardSSD_LRS: "StandardSSD_LRS",
+    UltraSSD_LRS: "UltraSSD_LRS",
+    Premium_ZRS: "Premium_ZRS",
+    StandardSSD_ZRS: "StandardSSD_ZRS",
+    PremiumV2_LRS: "PremiumV2_LRS",
+} as const;
+
+/**
+ * Defines the disk sku name.
+ */
+export type DiskSkuName = (typeof DiskSkuName)[keyof typeof DiskSkuName];
 
 export const DiskStorageType = {
     Premium_LRS: "Premium_LRS",

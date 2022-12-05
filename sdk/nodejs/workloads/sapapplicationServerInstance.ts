@@ -95,6 +95,10 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
+     */
+    public /*out*/ readonly storageDetails!: pulumi.Output<outputs.workloads.StorageInformationResponse[]>;
+    /**
      * Application server Subnet.
      */
     public /*out*/ readonly subnet!: pulumi.Output<string>;
@@ -150,6 +154,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageDetails"] = undefined /*out*/;
             resourceInputs["subnet"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -169,6 +174,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageDetails"] = undefined /*out*/;
             resourceInputs["subnet"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

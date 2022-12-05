@@ -17,6 +17,7 @@ __all__ = [
     'CacheProfileResponse',
     'CentralServerConfigurationResponse',
     'CentralServerVmDetailsResponse',
+    'CreateAndMountFileShareConfigurationResponse',
     'DB2ProviderInstancePropertiesResponse',
     'DatabaseConfigurationResponse',
     'DatabaseProfileResponse',
@@ -25,7 +26,10 @@ __all__ = [
     'DeploymentConfigurationResponse',
     'DeploymentWithOSConfigurationResponse',
     'DiscoveryConfigurationResponse',
+    'DiskConfigurationResponse',
     'DiskInfoResponse',
+    'DiskSkuResponse',
+    'DiskVolumeConfigurationResponse',
     'EnqueueReplicationServerPropertiesResponse',
     'EnqueueServerPropertiesResponse',
     'ErrorDefinitionResponse',
@@ -39,9 +43,11 @@ __all__ = [
     'HighAvailabilitySoftwareConfigurationResponse',
     'ImageReferenceResponse',
     'LinuxConfigurationResponse',
+    'LoadBalancerDetailsResponse',
     'ManagedRGConfigurationResponse',
     'MessageServerPropertiesResponse',
     'MonitorPropertiesResponseErrors',
+    'MountFileShareConfigurationResponse',
     'MsSqlServerProviderInstancePropertiesResponse',
     'NetworkConfigurationResponse',
     'NetworkProfileResponse',
@@ -64,10 +70,13 @@ __all__ = [
     'ServiceInitiatedSoftwareConfigurationResponse',
     'SingleServerConfigurationResponse',
     'SiteProfileResponse',
+    'SkipFileShareConfigurationResponse',
     'SkuResponse',
     'SshConfigurationResponse',
     'SshKeyPairResponse',
     'SshPublicKeyResponse',
+    'StorageConfigurationResponse',
+    'StorageInformationResponse',
     'SystemDataResponse',
     'ThreeTierConfigurationResponse',
     'UserAssignedIdentityResponse',
@@ -354,7 +363,9 @@ class CentralServerVmDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "virtualMachineId":
+        if key == "storageDetails":
+            suggest = "storage_details"
+        elif key == "virtualMachineId":
             suggest = "virtual_machine_id"
 
         if suggest:
@@ -369,14 +380,25 @@ class CentralServerVmDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 storage_details: Sequence['outputs.StorageInformationResponse'],
                  type: str,
                  virtual_machine_id: str):
         """
         The SAP Central Services Instance VM details.
+        :param Sequence['StorageInformationResponse'] storage_details: Storage details of all the Storage Accounts attached to the ASCS Virtual Machine. For e.g. NFS on AFS Shared Storage.
         :param str type: Defines the type of central server VM.
         """
+        pulumi.set(__self__, "storage_details", storage_details)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+
+    @property
+    @pulumi.getter(name="storageDetails")
+    def storage_details(self) -> Sequence['outputs.StorageInformationResponse']:
+        """
+        Storage details of all the Storage Accounts attached to the ASCS Virtual Machine. For e.g. NFS on AFS Shared Storage.
+        """
+        return pulumi.get(self, "storage_details")
 
     @property
     @pulumi.getter
@@ -390,6 +412,75 @@ class CentralServerVmDetailsResponse(dict):
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> str:
         return pulumi.get(self, "virtual_machine_id")
+
+
+@pulumi.output_type
+class CreateAndMountFileShareConfigurationResponse(dict):
+    """
+    Gets or sets the file share configuration for file share created with the VIS case.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreateAndMountFileShareConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreateAndMountFileShareConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreateAndMountFileShareConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_type: str,
+                 resource_group: Optional[str] = None,
+                 storage_account_name: Optional[str] = None):
+        """
+        Gets or sets the file share configuration for file share created with the VIS case.
+        :param str configuration_type: The type of file share config.
+               Expected value is 'CreateAndMount'.
+        :param str resource_group: The name of file share resource group. The app rg is used in case of missing input.
+        :param str storage_account_name: The name of file share storage account name . A custom name is used in case of missing input.
+        """
+        pulumi.set(__self__, "configuration_type", 'CreateAndMount')
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> str:
+        """
+        The type of file share config.
+        Expected value is 'CreateAndMount'.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        The name of file share resource group. The app rg is used in case of missing input.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
+        """
+        The name of file share storage account name . A custom name is used in case of missing input.
+        """
+        return pulumi.get(self, "storage_account_name")
 
 
 @pulumi.output_type
@@ -573,6 +664,8 @@ class DatabaseConfigurationResponse(dict):
             suggest = "virtual_machine_configuration"
         elif key == "databaseType":
             suggest = "database_type"
+        elif key == "diskConfiguration":
+            suggest = "disk_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DatabaseConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -589,19 +682,23 @@ class DatabaseConfigurationResponse(dict):
                  instance_count: float,
                  subnet_id: str,
                  virtual_machine_configuration: 'outputs.VirtualMachineConfigurationResponse',
-                 database_type: Optional[str] = None):
+                 database_type: Optional[str] = None,
+                 disk_configuration: Optional['outputs.DiskConfigurationResponse'] = None):
         """
         Gets or sets the database configuration.
         :param float instance_count: The number of database VMs.
         :param str subnet_id: The subnet id.
         :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: Gets or sets the virtual machine configuration.
         :param str database_type: The database type.
+        :param 'DiskConfigurationResponse' disk_configuration: Gets or sets the disk configuration.
         """
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
         if database_type is not None:
             pulumi.set(__self__, "database_type", database_type)
+        if disk_configuration is not None:
+            pulumi.set(__self__, "disk_configuration", disk_configuration)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -634,6 +731,14 @@ class DatabaseConfigurationResponse(dict):
         The database type.
         """
         return pulumi.get(self, "database_type")
+
+    @property
+    @pulumi.getter(name="diskConfiguration")
+    def disk_configuration(self) -> Optional['outputs.DiskConfigurationResponse']:
+        """
+        Gets or sets the disk configuration.
+        """
+        return pulumi.get(self, "disk_configuration")
 
 
 @pulumi.output_type
@@ -826,7 +931,9 @@ class DatabaseVmDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "virtualMachineId":
+        if key == "storageDetails":
+            suggest = "storage_details"
+        elif key == "virtualMachineId":
             suggest = "virtual_machine_id"
 
         if suggest:
@@ -842,12 +949,15 @@ class DatabaseVmDetailsResponse(dict):
 
     def __init__(__self__, *,
                  status: str,
+                 storage_details: Sequence['outputs.StorageInformationResponse'],
                  virtual_machine_id: str):
         """
         Database VM details.
         :param str status: Defines the SAP Instance status.
+        :param Sequence['StorageInformationResponse'] storage_details: Storage details of all the Storage Accounts attached to the Database Virtual Machine. For e.g. NFS on AFS Shared Storage.
         """
         pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "storage_details", storage_details)
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
     @property
@@ -857,6 +967,14 @@ class DatabaseVmDetailsResponse(dict):
         Defines the SAP Instance status.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="storageDetails")
+    def storage_details(self) -> Sequence['outputs.StorageInformationResponse']:
+        """
+        Storage details of all the Storage Accounts attached to the Database Virtual Machine. For e.g. NFS on AFS Shared Storage.
+        """
+        return pulumi.get(self, "storage_details")
 
     @property
     @pulumi.getter(name="virtualMachineId")
@@ -1165,6 +1283,46 @@ class DiscoveryConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class DiskConfigurationResponse(dict):
+    """
+    The Disk Configuration Details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskVolumeConfigurations":
+            suggest = "disk_volume_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_volume_configurations: Optional[Mapping[str, 'outputs.DiskVolumeConfigurationResponse']] = None):
+        """
+        The Disk Configuration Details.
+        :param Mapping[str, 'DiskVolumeConfigurationResponse'] disk_volume_configurations: The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
+        """
+        if disk_volume_configurations is not None:
+            pulumi.set(__self__, "disk_volume_configurations", disk_volume_configurations)
+
+    @property
+    @pulumi.getter(name="diskVolumeConfigurations")
+    def disk_volume_configurations(self) -> Optional[Mapping[str, 'outputs.DiskVolumeConfigurationResponse']]:
+        """
+        The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
+        """
+        return pulumi.get(self, "disk_volume_configurations")
+
+
+@pulumi.output_type
 class DiskInfoResponse(dict):
     """
     Disk resource creation details
@@ -1215,6 +1373,93 @@ class DiskInfoResponse(dict):
         Disk size in GB
         """
         return pulumi.get(self, "size_in_gb")
+
+
+@pulumi.output_type
+class DiskSkuResponse(dict):
+    """
+    The disk sku.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        The disk sku.
+        :param str name: Defines the disk sku name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Defines the disk sku name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DiskVolumeConfigurationResponse(dict):
+    """
+    The disk configuration required for the selected volume.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeGB":
+            suggest = "size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskVolumeConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskVolumeConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskVolumeConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: Optional[float] = None,
+                 size_gb: Optional[float] = None,
+                 sku: Optional['outputs.DiskSkuResponse'] = None):
+        """
+        The disk configuration required for the selected volume.
+        :param float count: The total number of disks required for the concerned volume.
+        :param float size_gb: The disk size in GB.
+        :param 'DiskSkuResponse' sku: The disk SKU details.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if size_gb is not None:
+            pulumi.set(__self__, "size_gb", size_gb)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        """
+        The total number of disks required for the concerned volume.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="sizeGB")
+    def size_gb(self) -> Optional[float]:
+        """
+        The disk size in GB.
+        """
+        return pulumi.get(self, "size_gb")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.DiskSkuResponse']:
+        """
+        The disk SKU details.
+        """
+        return pulumi.get(self, "sku")
 
 
 @pulumi.output_type
@@ -2216,6 +2461,24 @@ class LinuxConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class LoadBalancerDetailsResponse(dict):
+    """
+    The Load Balancer details such as Load Balancer ID.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The Load Balancer details such as Load Balancer ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ManagedRGConfigurationResponse(dict):
     """
     Managed resource group configuration
@@ -2432,6 +2695,71 @@ class MonitorPropertiesResponseErrors(dict):
         Target of the error.
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class MountFileShareConfigurationResponse(dict):
+    """
+    Gets or sets the file share configuration for externally mounted cases.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "privateEndpointId":
+            suggest = "private_endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MountFileShareConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MountFileShareConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MountFileShareConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_type: str,
+                 id: str,
+                 private_endpoint_id: str):
+        """
+        Gets or sets the file share configuration for externally mounted cases.
+        :param str configuration_type: The type of file share config.
+               Expected value is 'Mount'.
+        :param str id: The fileshare resource ID
+        :param str private_endpoint_id: The private endpoint resource ID
+        """
+        pulumi.set(__self__, "configuration_type", 'Mount')
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "private_endpoint_id", private_endpoint_id)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> str:
+        """
+        The type of file share config.
+        Expected value is 'Mount'.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The fileshare resource ID
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="privateEndpointId")
+    def private_endpoint_id(self) -> str:
+        """
+        The private endpoint resource ID
+        """
+        return pulumi.get(self, "private_endpoint_id")
 
 
 @pulumi.output_type
@@ -4188,6 +4516,8 @@ class SingleServerConfigurationResponse(dict):
             suggest = "virtual_machine_configuration"
         elif key == "databaseType":
             suggest = "database_type"
+        elif key == "dbDiskConfiguration":
+            suggest = "db_disk_configuration"
         elif key == "networkConfiguration":
             suggest = "network_configuration"
 
@@ -4208,6 +4538,7 @@ class SingleServerConfigurationResponse(dict):
                  subnet_id: str,
                  virtual_machine_configuration: 'outputs.VirtualMachineConfigurationResponse',
                  database_type: Optional[str] = None,
+                 db_disk_configuration: Optional['outputs.DiskConfigurationResponse'] = None,
                  network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None):
         """
         Gets or sets the single server configuration.
@@ -4217,6 +4548,7 @@ class SingleServerConfigurationResponse(dict):
         :param str subnet_id: The subnet id.
         :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: Gets or sets the virtual machine configuration.
         :param str database_type: The database type.
+        :param 'DiskConfigurationResponse' db_disk_configuration: Gets or sets the disk configuration.
         :param 'NetworkConfigurationResponse' network_configuration: Network configuration for the server
         """
         pulumi.set(__self__, "app_resource_group", app_resource_group)
@@ -4225,6 +4557,8 @@ class SingleServerConfigurationResponse(dict):
         pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
         if database_type is not None:
             pulumi.set(__self__, "database_type", database_type)
+        if db_disk_configuration is not None:
+            pulumi.set(__self__, "db_disk_configuration", db_disk_configuration)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
 
@@ -4268,6 +4602,14 @@ class SingleServerConfigurationResponse(dict):
         The database type.
         """
         return pulumi.get(self, "database_type")
+
+    @property
+    @pulumi.getter(name="dbDiskConfiguration")
+    def db_disk_configuration(self) -> Optional['outputs.DiskConfigurationResponse']:
+        """
+        Gets or sets the disk configuration.
+        """
+        return pulumi.get(self, "db_disk_configuration")
 
     @property
     @pulumi.getter(name="networkConfiguration")
@@ -4316,6 +4658,47 @@ class SiteProfileResponse(dict):
         Domain name for the application site URL
         """
         return pulumi.get(self, "domain_name")
+
+
+@pulumi.output_type
+class SkipFileShareConfigurationResponse(dict):
+    """
+    Gets or sets the skip file share configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkipFileShareConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkipFileShareConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkipFileShareConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_type: str):
+        """
+        Gets or sets the skip file share configuration
+        :param str configuration_type: The type of file share config.
+               Expected value is 'Skip'.
+        """
+        pulumi.set(__self__, "configuration_type", 'Skip')
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> str:
+        """
+        The type of file share config.
+        Expected value is 'Skip'.
+        """
+        return pulumi.get(self, "configuration_type")
 
 
 @pulumi.output_type
@@ -4523,6 +4906,64 @@ class SshPublicKeyResponse(dict):
 
 
 @pulumi.output_type
+class StorageConfigurationResponse(dict):
+    """
+    Gets or sets the storage configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transportFileShareConfiguration":
+            suggest = "transport_file_share_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transport_file_share_configuration: Optional[Any] = None):
+        """
+        Gets or sets the storage configuration.
+        :param Union['CreateAndMountFileShareConfigurationResponse', 'MountFileShareConfigurationResponse', 'SkipFileShareConfigurationResponse'] transport_file_share_configuration: The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
+        """
+        if transport_file_share_configuration is not None:
+            pulumi.set(__self__, "transport_file_share_configuration", transport_file_share_configuration)
+
+    @property
+    @pulumi.getter(name="transportFileShareConfiguration")
+    def transport_file_share_configuration(self) -> Optional[Any]:
+        """
+        The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
+        """
+        return pulumi.get(self, "transport_file_share_configuration")
+
+
+@pulumi.output_type
+class StorageInformationResponse(dict):
+    """
+    Storage details of all the Storage accounts attached to the VM. For e.g. NFS on AFS Shared Storage. 
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Storage details of all the Storage accounts attached to the VM. For e.g. NFS on AFS Shared Storage. 
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -4654,6 +5095,8 @@ class ThreeTierConfigurationResponse(dict):
             suggest = "high_availability_config"
         elif key == "networkConfiguration":
             suggest = "network_configuration"
+        elif key == "storageConfiguration":
+            suggest = "storage_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ThreeTierConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4673,7 +5116,8 @@ class ThreeTierConfigurationResponse(dict):
                  database_server: 'outputs.DatabaseConfigurationResponse',
                  deployment_type: str,
                  high_availability_config: Optional['outputs.HighAvailabilityConfigurationResponse'] = None,
-                 network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None):
+                 network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None,
+                 storage_configuration: Optional['outputs.StorageConfigurationResponse'] = None):
         """
         Gets or sets the three tier SAP configuration.
         :param str app_resource_group: The application resource group where SAP system resources will be deployed.
@@ -4684,6 +5128,7 @@ class ThreeTierConfigurationResponse(dict):
                Expected value is 'ThreeTier'.
         :param 'HighAvailabilityConfigurationResponse' high_availability_config: The high availability configuration.
         :param 'NetworkConfigurationResponse' network_configuration: Network configuration common to all servers
+        :param 'StorageConfigurationResponse' storage_configuration: The storage configuration.
         """
         pulumi.set(__self__, "app_resource_group", app_resource_group)
         pulumi.set(__self__, "application_server", application_server)
@@ -4694,6 +5139,8 @@ class ThreeTierConfigurationResponse(dict):
             pulumi.set(__self__, "high_availability_config", high_availability_config)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if storage_configuration is not None:
+            pulumi.set(__self__, "storage_configuration", storage_configuration)
 
     @property
     @pulumi.getter(name="appResourceGroup")
@@ -4751,6 +5198,14 @@ class ThreeTierConfigurationResponse(dict):
         Network configuration common to all servers
         """
         return pulumi.get(self, "network_configuration")
+
+    @property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> Optional['outputs.StorageConfigurationResponse']:
+        """
+        The storage configuration.
+        """
+        return pulumi.get(self, "storage_configuration")
 
 
 @pulumi.output_type

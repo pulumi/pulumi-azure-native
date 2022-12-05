@@ -103,6 +103,10 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly status: string;
     /**
+     * Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
+     */
+    readonly storageDetails: outputs.workloads.v20211201preview.StorageInformationResponse[];
+    /**
      * Application server Subnet.
      */
     readonly subnet: string;

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public InputUnion<string, Pulumi.AzureNative.Workloads.SAPDatabaseType>? DatabaseType { get; set; }
 
         /// <summary>
+        /// Gets or sets the disk configuration.
+        /// </summary>
+        [Input("dbDiskConfiguration")]
+        public Input<Inputs.DiskConfigurationArgs>? DbDiskConfiguration { get; set; }
+
+        /// <summary>
         /// The type of SAP deployment, single server or Three tier.
         /// Expected value is 'SingleServer'.
         /// </summary>

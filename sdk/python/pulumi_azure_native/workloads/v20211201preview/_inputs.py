@@ -15,6 +15,7 @@ __all__ = [
     'BackupProfileArgs',
     'CacheProfileArgs',
     'CentralServerConfigurationArgs',
+    'CreateAndMountFileShareConfigurationArgs',
     'DB2ProviderInstancePropertiesArgs',
     'DatabaseConfigurationArgs',
     'DatabaseProfileArgs',
@@ -22,7 +23,10 @@ __all__ = [
     'DeploymentConfigurationArgs',
     'DeploymentWithOSConfigurationArgs',
     'DiscoveryConfigurationArgs',
+    'DiskConfigurationArgs',
     'DiskInfoArgs',
+    'DiskSkuArgs',
+    'DiskVolumeConfigurationArgs',
     'ExternalInstallationSoftwareConfigurationArgs',
     'FileshareProfileArgs',
     'HanaDbProviderInstancePropertiesArgs',
@@ -31,6 +35,7 @@ __all__ = [
     'ImageReferenceArgs',
     'LinuxConfigurationArgs',
     'ManagedRGConfigurationArgs',
+    'MountFileShareConfigurationArgs',
     'MsSqlServerProviderInstancePropertiesArgs',
     'NetworkConfigurationArgs',
     'NetworkProfileArgs',
@@ -48,10 +53,12 @@ __all__ = [
     'ServiceInitiatedSoftwareConfigurationArgs',
     'SingleServerConfigurationArgs',
     'SiteProfileArgs',
+    'SkipFileShareConfigurationArgs',
     'SkuArgs',
     'SshConfigurationArgs',
     'SshKeyPairArgs',
     'SshPublicKeyArgs',
+    'StorageConfigurationArgs',
     'ThreeTierConfigurationArgs',
     'UserAssignedServiceIdentityArgs',
     'UserProfileArgs',
@@ -259,6 +266,63 @@ class CentralServerConfigurationArgs:
 
 
 @pulumi.input_type
+class CreateAndMountFileShareConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_type: pulumi.Input[str],
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None):
+        """
+        Gets or sets the file share configuration for file share created with the VIS case.
+        :param pulumi.Input[str] configuration_type: The type of file share config.
+               Expected value is 'CreateAndMount'.
+        :param pulumi.Input[str] resource_group: The name of file share resource group. The app rg is used in case of missing input.
+        :param pulumi.Input[str] storage_account_name: The name of file share storage account name . A custom name is used in case of missing input.
+        """
+        pulumi.set(__self__, "configuration_type", 'CreateAndMount')
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> pulumi.Input[str]:
+        """
+        The type of file share config.
+        Expected value is 'CreateAndMount'.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "configuration_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of file share resource group. The app rg is used in case of missing input.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of file share storage account name . A custom name is used in case of missing input.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+
+@pulumi.input_type
 class DB2ProviderInstancePropertiesArgs:
     def __init__(__self__, *,
                  provider_type: pulumi.Input[str],
@@ -433,19 +497,23 @@ class DatabaseConfigurationArgs:
                  instance_count: pulumi.Input[float],
                  subnet_id: pulumi.Input[str],
                  virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgs'],
-                 database_type: Optional[pulumi.Input[Union[str, 'SAPDatabaseType']]] = None):
+                 database_type: Optional[pulumi.Input[Union[str, 'SAPDatabaseType']]] = None,
+                 disk_configuration: Optional[pulumi.Input['DiskConfigurationArgs']] = None):
         """
         Gets or sets the database configuration.
         :param pulumi.Input[float] instance_count: The number of database VMs.
         :param pulumi.Input[str] subnet_id: The subnet id.
         :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: Gets or sets the virtual machine configuration.
         :param pulumi.Input[Union[str, 'SAPDatabaseType']] database_type: The database type.
+        :param pulumi.Input['DiskConfigurationArgs'] disk_configuration: Gets or sets the disk configuration.
         """
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
         if database_type is not None:
             pulumi.set(__self__, "database_type", database_type)
+        if disk_configuration is not None:
+            pulumi.set(__self__, "disk_configuration", disk_configuration)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -494,6 +562,18 @@ class DatabaseConfigurationArgs:
     @database_type.setter
     def database_type(self, value: Optional[pulumi.Input[Union[str, 'SAPDatabaseType']]]):
         pulumi.set(self, "database_type", value)
+
+    @property
+    @pulumi.getter(name="diskConfiguration")
+    def disk_configuration(self) -> Optional[pulumi.Input['DiskConfigurationArgs']]:
+        """
+        Gets or sets the disk configuration.
+        """
+        return pulumi.get(self, "disk_configuration")
+
+    @disk_configuration.setter
+    def disk_configuration(self, value: Optional[pulumi.Input['DiskConfigurationArgs']]):
+        pulumi.set(self, "disk_configuration", value)
 
 
 @pulumi.input_type
@@ -921,6 +1001,30 @@ class DiscoveryConfigurationArgs:
 
 
 @pulumi.input_type
+class DiskConfigurationArgs:
+    def __init__(__self__, *,
+                 disk_volume_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgs']]]] = None):
+        """
+        The Disk Configuration Details.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgs']]] disk_volume_configurations: The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
+        """
+        if disk_volume_configurations is not None:
+            pulumi.set(__self__, "disk_volume_configurations", disk_volume_configurations)
+
+    @property
+    @pulumi.getter(name="diskVolumeConfigurations")
+    def disk_volume_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgs']]]]:
+        """
+        The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
+        """
+        return pulumi.get(self, "disk_volume_configurations")
+
+    @disk_volume_configurations.setter
+    def disk_volume_configurations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DiskVolumeConfigurationArgs']]]]):
+        pulumi.set(self, "disk_volume_configurations", value)
+
+
+@pulumi.input_type
 class DiskInfoArgs:
     def __init__(__self__, *,
                  storage_type: pulumi.Input['DiskStorageType'],
@@ -957,6 +1061,86 @@ class DiskInfoArgs:
     @size_in_gb.setter
     def size_in_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "size_in_gb", value)
+
+
+@pulumi.input_type
+class DiskSkuArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[Union[str, 'DiskSkuName']]] = None):
+        """
+        The disk sku.
+        :param pulumi.Input[Union[str, 'DiskSkuName']] name: Defines the disk sku name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'DiskSkuName']]]:
+        """
+        Defines the disk sku name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'DiskSkuName']]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DiskVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[float]] = None,
+                 size_gb: Optional[pulumi.Input[float]] = None,
+                 sku: Optional[pulumi.Input['DiskSkuArgs']] = None):
+        """
+        The disk configuration required for the selected volume.
+        :param pulumi.Input[float] count: The total number of disks required for the concerned volume.
+        :param pulumi.Input[float] size_gb: The disk size in GB.
+        :param pulumi.Input['DiskSkuArgs'] sku: The disk SKU details.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if size_gb is not None:
+            pulumi.set(__self__, "size_gb", size_gb)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[float]]:
+        """
+        The total number of disks required for the concerned volume.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="sizeGB")
+    def size_gb(self) -> Optional[pulumi.Input[float]]:
+        """
+        The disk size in GB.
+        """
+        return pulumi.get(self, "size_gb")
+
+    @size_gb.setter
+    def size_gb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "size_gb", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['DiskSkuArgs']]:
+        """
+        The disk SKU details.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['DiskSkuArgs']]):
+        pulumi.set(self, "sku", value)
 
 
 @pulumi.input_type
@@ -1499,6 +1683,61 @@ class ManagedRGConfigurationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class MountFileShareConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_type: pulumi.Input[str],
+                 id: pulumi.Input[str],
+                 private_endpoint_id: pulumi.Input[str]):
+        """
+        Gets or sets the file share configuration for externally mounted cases.
+        :param pulumi.Input[str] configuration_type: The type of file share config.
+               Expected value is 'Mount'.
+        :param pulumi.Input[str] id: The fileshare resource ID
+        :param pulumi.Input[str] private_endpoint_id: The private endpoint resource ID
+        """
+        pulumi.set(__self__, "configuration_type", 'Mount')
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "private_endpoint_id", private_endpoint_id)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> pulumi.Input[str]:
+        """
+        The type of file share config.
+        Expected value is 'Mount'.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "configuration_type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The fileshare resource ID
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointId")
+    def private_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The private endpoint resource ID
+        """
+        return pulumi.get(self, "private_endpoint_id")
+
+    @private_endpoint_id.setter
+    def private_endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_endpoint_id", value)
 
 
 @pulumi.input_type
@@ -2803,6 +3042,7 @@ class SingleServerConfigurationArgs:
                  subnet_id: pulumi.Input[str],
                  virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgs'],
                  database_type: Optional[pulumi.Input[Union[str, 'SAPDatabaseType']]] = None,
+                 db_disk_configuration: Optional[pulumi.Input['DiskConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None):
         """
         Gets or sets the single server configuration.
@@ -2812,6 +3052,7 @@ class SingleServerConfigurationArgs:
         :param pulumi.Input[str] subnet_id: The subnet id.
         :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: Gets or sets the virtual machine configuration.
         :param pulumi.Input[Union[str, 'SAPDatabaseType']] database_type: The database type.
+        :param pulumi.Input['DiskConfigurationArgs'] db_disk_configuration: Gets or sets the disk configuration.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: Network configuration for the server
         """
         pulumi.set(__self__, "app_resource_group", app_resource_group)
@@ -2820,6 +3061,8 @@ class SingleServerConfigurationArgs:
         pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
         if database_type is not None:
             pulumi.set(__self__, "database_type", database_type)
+        if db_disk_configuration is not None:
+            pulumi.set(__self__, "db_disk_configuration", db_disk_configuration)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
 
@@ -2885,6 +3128,18 @@ class SingleServerConfigurationArgs:
         pulumi.set(self, "database_type", value)
 
     @property
+    @pulumi.getter(name="dbDiskConfiguration")
+    def db_disk_configuration(self) -> Optional[pulumi.Input['DiskConfigurationArgs']]:
+        """
+        Gets or sets the disk configuration.
+        """
+        return pulumi.get(self, "db_disk_configuration")
+
+    @db_disk_configuration.setter
+    def db_disk_configuration(self, value: Optional[pulumi.Input['DiskConfigurationArgs']]):
+        pulumi.set(self, "db_disk_configuration", value)
+
+    @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['NetworkConfigurationArgs']]:
         """
@@ -2919,6 +3174,31 @@ class SiteProfileArgs:
     @domain_name.setter
     def domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name", value)
+
+
+@pulumi.input_type
+class SkipFileShareConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_type: pulumi.Input[str]):
+        """
+        Gets or sets the skip file share configuration
+        :param pulumi.Input[str] configuration_type: The type of file share config.
+               Expected value is 'Skip'.
+        """
+        pulumi.set(__self__, "configuration_type", 'Skip')
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> pulumi.Input[str]:
+        """
+        The type of file share config.
+        Expected value is 'Skip'.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "configuration_type", value)
 
 
 @pulumi.input_type
@@ -3097,6 +3377,30 @@ class SshPublicKeyArgs:
 
 
 @pulumi.input_type
+class StorageConfigurationArgs:
+    def __init__(__self__, *,
+                 transport_file_share_configuration: Optional[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgs', 'MountFileShareConfigurationArgs', 'SkipFileShareConfigurationArgs']]] = None):
+        """
+        Gets or sets the storage configuration.
+        :param pulumi.Input[Union['CreateAndMountFileShareConfigurationArgs', 'MountFileShareConfigurationArgs', 'SkipFileShareConfigurationArgs']] transport_file_share_configuration: The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
+        """
+        if transport_file_share_configuration is not None:
+            pulumi.set(__self__, "transport_file_share_configuration", transport_file_share_configuration)
+
+    @property
+    @pulumi.getter(name="transportFileShareConfiguration")
+    def transport_file_share_configuration(self) -> Optional[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgs', 'MountFileShareConfigurationArgs', 'SkipFileShareConfigurationArgs']]]:
+        """
+        The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
+        """
+        return pulumi.get(self, "transport_file_share_configuration")
+
+    @transport_file_share_configuration.setter
+    def transport_file_share_configuration(self, value: Optional[pulumi.Input[Union['CreateAndMountFileShareConfigurationArgs', 'MountFileShareConfigurationArgs', 'SkipFileShareConfigurationArgs']]]):
+        pulumi.set(self, "transport_file_share_configuration", value)
+
+
+@pulumi.input_type
 class ThreeTierConfigurationArgs:
     def __init__(__self__, *,
                  app_resource_group: pulumi.Input[str],
@@ -3105,7 +3409,8 @@ class ThreeTierConfigurationArgs:
                  database_server: pulumi.Input['DatabaseConfigurationArgs'],
                  deployment_type: pulumi.Input[str],
                  high_availability_config: Optional[pulumi.Input['HighAvailabilityConfigurationArgs']] = None,
-                 network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None):
+                 network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
+                 storage_configuration: Optional[pulumi.Input['StorageConfigurationArgs']] = None):
         """
         Gets or sets the three tier SAP configuration.
         :param pulumi.Input[str] app_resource_group: The application resource group where SAP system resources will be deployed.
@@ -3116,6 +3421,7 @@ class ThreeTierConfigurationArgs:
                Expected value is 'ThreeTier'.
         :param pulumi.Input['HighAvailabilityConfigurationArgs'] high_availability_config: The high availability configuration.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: Network configuration common to all servers
+        :param pulumi.Input['StorageConfigurationArgs'] storage_configuration: The storage configuration.
         """
         pulumi.set(__self__, "app_resource_group", app_resource_group)
         pulumi.set(__self__, "application_server", application_server)
@@ -3126,6 +3432,8 @@ class ThreeTierConfigurationArgs:
             pulumi.set(__self__, "high_availability_config", high_availability_config)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if storage_configuration is not None:
+            pulumi.set(__self__, "storage_configuration", storage_configuration)
 
     @property
     @pulumi.getter(name="appResourceGroup")
@@ -3211,6 +3519,18 @@ class ThreeTierConfigurationArgs:
     @network_configuration.setter
     def network_configuration(self, value: Optional[pulumi.Input['NetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> Optional[pulumi.Input['StorageConfigurationArgs']]:
+        """
+        The storage configuration.
+        """
+        return pulumi.get(self, "storage_configuration")
+
+    @storage_configuration.setter
+    def storage_configuration(self, value: Optional[pulumi.Input['StorageConfigurationArgs']]):
+        pulumi.set(self, "storage_configuration", value)
 
 
 @pulumi.input_type

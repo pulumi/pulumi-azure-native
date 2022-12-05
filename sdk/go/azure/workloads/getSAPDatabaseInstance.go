@@ -27,20 +27,21 @@ type LookupSAPDatabaseInstanceArgs struct {
 
 
 type LookupSAPDatabaseInstanceResult struct {
-	DatabaseSid       string                          `pulumi:"databaseSid"`
-	DatabaseType      string                          `pulumi:"databaseType"`
-	Errors            SAPVirtualInstanceErrorResponse `pulumi:"errors"`
-	Id                string                          `pulumi:"id"`
-	IpAddress         string                          `pulumi:"ipAddress"`
-	Location          string                          `pulumi:"location"`
-	Name              string                          `pulumi:"name"`
-	ProvisioningState string                          `pulumi:"provisioningState"`
-	Status            string                          `pulumi:"status"`
-	Subnet            string                          `pulumi:"subnet"`
-	SystemData        SystemDataResponse              `pulumi:"systemData"`
-	Tags              map[string]string               `pulumi:"tags"`
-	Type              string                          `pulumi:"type"`
-	VmDetails         []DatabaseVmDetailsResponse     `pulumi:"vmDetails"`
+	DatabaseSid         string                          `pulumi:"databaseSid"`
+	DatabaseType        string                          `pulumi:"databaseType"`
+	Errors              SAPVirtualInstanceErrorResponse `pulumi:"errors"`
+	Id                  string                          `pulumi:"id"`
+	IpAddress           string                          `pulumi:"ipAddress"`
+	LoadBalancerDetails LoadBalancerDetailsResponse     `pulumi:"loadBalancerDetails"`
+	Location            string                          `pulumi:"location"`
+	Name                string                          `pulumi:"name"`
+	ProvisioningState   string                          `pulumi:"provisioningState"`
+	Status              string                          `pulumi:"status"`
+	Subnet              string                          `pulumi:"subnet"`
+	SystemData          SystemDataResponse              `pulumi:"systemData"`
+	Tags                map[string]string               `pulumi:"tags"`
+	Type                string                          `pulumi:"type"`
+	VmDetails           []DatabaseVmDetailsResponse     `pulumi:"vmDetails"`
 }
 
 func LookupSAPDatabaseInstanceOutput(ctx *pulumi.Context, args LookupSAPDatabaseInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupSAPDatabaseInstanceResultOutput {
@@ -99,6 +100,10 @@ func (o LookupSAPDatabaseInstanceResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupSAPDatabaseInstanceResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSAPDatabaseInstanceResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+func (o LookupSAPDatabaseInstanceResultOutput) LoadBalancerDetails() LoadBalancerDetailsResponseOutput {
+	return o.ApplyT(func(v LookupSAPDatabaseInstanceResult) LoadBalancerDetailsResponse { return v.LoadBalancerDetails }).(LoadBalancerDetailsResponseOutput)
 }
 
 func (o LookupSAPDatabaseInstanceResultOutput) Location() pulumi.StringOutput {

@@ -5215,6 +5215,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerinstance/v20221001preview",
+  "fqn": "pulumi_azure_native.containerinstance.v20221001preview",
+  "classes": {
+   "azure-native:containerinstance/v20221001preview:ContainerGroup": "ContainerGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerregistry",
   "fqn": "pulumi_azure_native.containerregistry",
   "classes": {
@@ -10652,6 +10660,22 @@ _utilities.register(
    "azure-native:healthcareapis/v20220601:Service": "Service",
    "azure-native:healthcareapis/v20220601:Workspace": "Workspace",
    "azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "healthcareapis/v20221001preview",
+  "fqn": "pulumi_azure_native.healthcareapis.v20221001preview",
+  "classes": {
+   "azure-native:healthcareapis/v20221001preview:AnalyticsConnector": "AnalyticsConnector",
+   "azure-native:healthcareapis/v20221001preview:DicomService": "DicomService",
+   "azure-native:healthcareapis/v20221001preview:FhirService": "FhirService",
+   "azure-native:healthcareapis/v20221001preview:IotConnector": "IotConnector",
+   "azure-native:healthcareapis/v20221001preview:IotConnectorFhirDestination": "IotConnectorFhirDestination",
+   "azure-native:healthcareapis/v20221001preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:healthcareapis/v20221001preview:Service": "Service",
+   "azure-native:healthcareapis/v20221001preview:Workspace": "Workspace",
+   "azure-native:healthcareapis/v20221001preview:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
   }
  },
  {

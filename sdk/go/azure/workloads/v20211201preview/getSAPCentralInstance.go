@@ -36,6 +36,7 @@ type LookupSAPCentralInstanceResult struct {
 	InstanceNo                         string                                      `pulumi:"instanceNo"`
 	KernelPatch                        string                                      `pulumi:"kernelPatch"`
 	KernelVersion                      string                                      `pulumi:"kernelVersion"`
+	LoadBalancerDetails                LoadBalancerDetailsResponse                 `pulumi:"loadBalancerDetails"`
 	Location                           string                                      `pulumi:"location"`
 	MessageServerProperties            *MessageServerPropertiesResponse            `pulumi:"messageServerProperties"`
 	Name                               string                                      `pulumi:"name"`
@@ -126,6 +127,10 @@ func (o LookupSAPCentralInstanceResultOutput) KernelPatch() pulumi.StringOutput 
 
 func (o LookupSAPCentralInstanceResultOutput) KernelVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSAPCentralInstanceResult) string { return v.KernelVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupSAPCentralInstanceResultOutput) LoadBalancerDetails() LoadBalancerDetailsResponseOutput {
+	return o.ApplyT(func(v LookupSAPCentralInstanceResult) LoadBalancerDetailsResponse { return v.LoadBalancerDetails }).(LoadBalancerDetailsResponseOutput)
 }
 
 func (o LookupSAPCentralInstanceResultOutput) Location() pulumi.StringOutput {

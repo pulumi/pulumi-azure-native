@@ -64,6 +64,10 @@ export interface GetSAPDatabaseInstanceResult {
      */
     readonly ipAddress: string;
     /**
+     * The Load Balancer details such as LoadBalancer ID attached to Database Virtual Machines
+     */
+    readonly loadBalancerDetails: outputs.workloads.LoadBalancerDetailsResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;

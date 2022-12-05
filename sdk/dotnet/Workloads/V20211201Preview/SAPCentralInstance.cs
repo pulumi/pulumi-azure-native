@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         public Output<string> KernelVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The Load Balancer details such as LoadBalancer ID attached to ASCS Virtual Machines
+        /// </summary>
+        [Output("loadBalancerDetails")]
+        public Output<Outputs.LoadBalancerDetailsResponse> LoadBalancerDetails { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]

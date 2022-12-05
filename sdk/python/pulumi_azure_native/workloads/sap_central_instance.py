@@ -177,6 +177,7 @@ class SAPCentralInstance(pulumi.CustomResource):
             __props__.__dict__["instance_no"] = None
             __props__.__dict__["kernel_patch"] = None
             __props__.__dict__["kernel_version"] = None
+            __props__.__dict__["load_balancer_details"] = None
             __props__.__dict__["message_server_properties"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -217,6 +218,7 @@ class SAPCentralInstance(pulumi.CustomResource):
         __props__.__dict__["instance_no"] = None
         __props__.__dict__["kernel_patch"] = None
         __props__.__dict__["kernel_version"] = None
+        __props__.__dict__["load_balancer_details"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["message_server_properties"] = None
         __props__.__dict__["name"] = None
@@ -292,6 +294,14 @@ class SAPCentralInstance(pulumi.CustomResource):
         The central services instance Kernel Version.
         """
         return pulumi.get(self, "kernel_version")
+
+    @property
+    @pulumi.getter(name="loadBalancerDetails")
+    def load_balancer_details(self) -> pulumi.Output['outputs.LoadBalancerDetailsResponse']:
+        """
+        The Load Balancer details such as LoadBalancer ID attached to ASCS Virtual Machines
+        """
+        return pulumi.get(self, "load_balancer_details")
 
     @property
     @pulumi.getter

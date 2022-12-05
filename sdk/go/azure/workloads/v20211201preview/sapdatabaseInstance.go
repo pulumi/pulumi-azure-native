@@ -14,19 +14,20 @@ import (
 type SAPDatabaseInstance struct {
 	pulumi.CustomResourceState
 
-	DatabaseSid       pulumi.StringOutput                   `pulumi:"databaseSid"`
-	DatabaseType      pulumi.StringOutput                   `pulumi:"databaseType"`
-	Errors            SAPVirtualInstanceErrorResponseOutput `pulumi:"errors"`
-	IpAddress         pulumi.StringOutput                   `pulumi:"ipAddress"`
-	Location          pulumi.StringOutput                   `pulumi:"location"`
-	Name              pulumi.StringOutput                   `pulumi:"name"`
-	ProvisioningState pulumi.StringOutput                   `pulumi:"provisioningState"`
-	Status            pulumi.StringOutput                   `pulumi:"status"`
-	Subnet            pulumi.StringOutput                   `pulumi:"subnet"`
-	SystemData        SystemDataResponseOutput              `pulumi:"systemData"`
-	Tags              pulumi.StringMapOutput                `pulumi:"tags"`
-	Type              pulumi.StringOutput                   `pulumi:"type"`
-	VmDetails         DatabaseVmDetailsResponseArrayOutput  `pulumi:"vmDetails"`
+	DatabaseSid         pulumi.StringOutput                   `pulumi:"databaseSid"`
+	DatabaseType        pulumi.StringOutput                   `pulumi:"databaseType"`
+	Errors              SAPVirtualInstanceErrorResponseOutput `pulumi:"errors"`
+	IpAddress           pulumi.StringOutput                   `pulumi:"ipAddress"`
+	LoadBalancerDetails LoadBalancerDetailsResponseOutput     `pulumi:"loadBalancerDetails"`
+	Location            pulumi.StringOutput                   `pulumi:"location"`
+	Name                pulumi.StringOutput                   `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput                   `pulumi:"provisioningState"`
+	Status              pulumi.StringOutput                   `pulumi:"status"`
+	Subnet              pulumi.StringOutput                   `pulumi:"subnet"`
+	SystemData          SystemDataResponseOutput              `pulumi:"systemData"`
+	Tags                pulumi.StringMapOutput                `pulumi:"tags"`
+	Type                pulumi.StringOutput                   `pulumi:"type"`
+	VmDetails           DatabaseVmDetailsResponseArrayOutput  `pulumi:"vmDetails"`
 }
 
 
@@ -147,6 +148,10 @@ func (o SAPDatabaseInstanceOutput) Errors() SAPVirtualInstanceErrorResponseOutpu
 
 func (o SAPDatabaseInstanceOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *SAPDatabaseInstance) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+func (o SAPDatabaseInstanceOutput) LoadBalancerDetails() LoadBalancerDetailsResponseOutput {
+	return o.ApplyT(func(v *SAPDatabaseInstance) LoadBalancerDetailsResponseOutput { return v.LoadBalancerDetails }).(LoadBalancerDetailsResponseOutput)
 }
 
 func (o SAPDatabaseInstanceOutput) Location() pulumi.StringOutput {

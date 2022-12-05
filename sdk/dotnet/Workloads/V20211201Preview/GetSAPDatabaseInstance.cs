@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
+        /// The Load Balancer details such as LoadBalancer ID attached to Database Virtual Machines
+        /// </summary>
+        public readonly Outputs.LoadBalancerDetailsResponse LoadBalancerDetails;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 
             string ipAddress,
 
+            Outputs.LoadBalancerDetailsResponse loadBalancerDetails,
+
             string location,
 
             string name,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
             Errors = errors;
             Id = id;
             IpAddress = ipAddress;
+            LoadBalancerDetails = loadBalancerDetails;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

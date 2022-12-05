@@ -79,6 +79,10 @@ export interface GetSAPCentralInstanceResult {
      */
     readonly kernelVersion: string;
     /**
+     * The Load Balancer details such as LoadBalancer ID attached to ASCS Virtual Machines
+     */
+    readonly loadBalancerDetails: outputs.workloads.v20211201preview.LoadBalancerDetailsResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;

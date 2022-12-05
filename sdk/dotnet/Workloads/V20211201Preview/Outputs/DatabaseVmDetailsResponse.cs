@@ -20,15 +20,22 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Outputs
         /// Defines the SAP Instance status.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Storage details of all the Storage Accounts attached to the Database Virtual Machine. For e.g. NFS on AFS Shared Storage.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageInformationResponse> StorageDetails;
         public readonly string VirtualMachineId;
 
         [OutputConstructor]
         private DatabaseVmDetailsResponse(
             string status,
 
+            ImmutableArray<Outputs.StorageInformationResponse> storageDetails,
+
             string virtualMachineId)
         {
             Status = status;
+            StorageDetails = storageDetails;
             VirtualMachineId = virtualMachineId;
         }
     }

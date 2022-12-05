@@ -101,6 +101,12 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
+        /// </summary>
+        [Output("storageDetails")]
+        public Output<ImmutableArray<Outputs.StorageInformationResponse>> StorageDetails { get; private set; } = null!;
+
+        /// <summary>
         /// Application server Subnet.
         /// </summary>
         [Output("subnet")]

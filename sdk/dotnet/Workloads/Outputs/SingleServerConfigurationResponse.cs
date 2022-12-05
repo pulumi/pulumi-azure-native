@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// </summary>
         public readonly string? DatabaseType;
         /// <summary>
+        /// Gets or sets the disk configuration.
+        /// </summary>
+        public readonly Outputs.DiskConfigurationResponse? DbDiskConfiguration;
+        /// <summary>
         /// The type of SAP deployment, single server or Three tier.
         /// Expected value is 'SingleServer'.
         /// </summary>
@@ -48,6 +52,8 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             string? databaseType,
 
+            Outputs.DiskConfigurationResponse? dbDiskConfiguration,
+
             string deploymentType,
 
             Outputs.NetworkConfigurationResponse? networkConfiguration,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         {
             AppResourceGroup = appResourceGroup;
             DatabaseType = databaseType;
+            DbDiskConfiguration = dbDiskConfiguration;
             DeploymentType = deploymentType;
             NetworkConfiguration = networkConfiguration;
             SubnetId = subnetId;

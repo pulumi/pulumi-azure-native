@@ -101,6 +101,9 @@ func NewContainerGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerinstance/v20220901:ContainerGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerinstance/v20221001preview:ContainerGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ContainerGroup

@@ -182,6 +182,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["storage_details"] = None
             __props__.__dict__["subnet"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -224,6 +225,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["storage_details"] = None
         __props__.__dict__["subnet"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -342,6 +344,14 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         Defines the SAP Instance status.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="storageDetails")
+    def storage_details(self) -> pulumi.Output[Sequence['outputs.StorageInformationResponse']]:
+        """
+        Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
+        """
+        return pulumi.get(self, "storage_details")
 
     @property
     @pulumi.getter

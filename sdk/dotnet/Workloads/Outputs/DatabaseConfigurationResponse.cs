@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// </summary>
         public readonly string? DatabaseType;
         /// <summary>
+        /// Gets or sets the disk configuration.
+        /// </summary>
+        public readonly Outputs.DiskConfigurationResponse? DiskConfiguration;
+        /// <summary>
         /// The number of database VMs.
         /// </summary>
         public readonly double InstanceCount;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         private DatabaseConfigurationResponse(
             string? databaseType,
 
+            Outputs.DiskConfigurationResponse? diskConfiguration,
+
             double instanceCount,
 
             string subnetId,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             Outputs.VirtualMachineConfigurationResponse virtualMachineConfiguration)
         {
             DatabaseType = databaseType;
+            DiskConfiguration = diskConfiguration;
             InstanceCount = instanceCount;
             SubnetId = subnetId;
             VirtualMachineConfiguration = virtualMachineConfiguration;

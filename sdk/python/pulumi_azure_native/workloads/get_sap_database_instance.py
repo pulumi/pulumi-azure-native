@@ -22,7 +22,7 @@ class GetSAPDatabaseInstanceResult:
     """
     Define the Database resource.
     """
-    def __init__(__self__, database_sid=None, database_type=None, errors=None, id=None, ip_address=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
+    def __init__(__self__, database_sid=None, database_type=None, errors=None, id=None, ip_address=None, load_balancer_details=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
         if database_sid and not isinstance(database_sid, str):
             raise TypeError("Expected argument 'database_sid' to be a str")
         pulumi.set(__self__, "database_sid", database_sid)
@@ -38,6 +38,9 @@ class GetSAPDatabaseInstanceResult:
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
+        if load_balancer_details and not isinstance(load_balancer_details, dict):
+            raise TypeError("Expected argument 'load_balancer_details' to be a dict")
+        pulumi.set(__self__, "load_balancer_details", load_balancer_details)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -105,6 +108,14 @@ class GetSAPDatabaseInstanceResult:
         Database IP Address.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="loadBalancerDetails")
+    def load_balancer_details(self) -> 'outputs.LoadBalancerDetailsResponse':
+        """
+        The Load Balancer details such as LoadBalancer ID attached to Database Virtual Machines
+        """
+        return pulumi.get(self, "load_balancer_details")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetSAPDatabaseInstanceResult(GetSAPDatabaseInstanceResult):
             errors=self.errors,
             id=self.id,
             ip_address=self.ip_address,
+            load_balancer_details=self.load_balancer_details,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -227,6 +239,7 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
         errors=__ret__.errors,
         id=__ret__.id,
         ip_address=__ret__.ip_address,
+        load_balancer_details=__ret__.load_balancer_details,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

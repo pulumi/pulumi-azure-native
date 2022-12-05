@@ -54,6 +54,10 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
+     * The Load Balancer details such as LoadBalancer ID attached to Database Virtual Machines
+     */
+    public /*out*/ readonly loadBalancerDetails!: pulumi.Output<outputs.workloads.v20211201preview.LoadBalancerDetailsResponse>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
             resourceInputs["databaseType"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["loadBalancerDetails"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -128,6 +133,7 @@ export class SAPDatabaseInstance extends pulumi.CustomResource {
             resourceInputs["databaseType"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["loadBalancerDetails"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

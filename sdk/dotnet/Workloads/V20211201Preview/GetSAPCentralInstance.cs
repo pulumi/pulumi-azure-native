@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// </summary>
         public readonly string KernelVersion;
         /// <summary>
+        /// The Load Balancer details such as LoadBalancer ID attached to ASCS Virtual Machines
+        /// </summary>
+        public readonly Outputs.LoadBalancerDetailsResponse LoadBalancerDetails;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 
             string kernelVersion,
 
+            Outputs.LoadBalancerDetailsResponse loadBalancerDetails,
+
             string location,
 
             Outputs.MessageServerPropertiesResponse? messageServerProperties,
@@ -207,6 +213,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
             InstanceNo = instanceNo;
             KernelPatch = kernelPatch;
             KernelVersion = kernelVersion;
+            LoadBalancerDetails = loadBalancerDetails;
             Location = location;
             MessageServerProperties = messageServerProperties;
             Name = name;

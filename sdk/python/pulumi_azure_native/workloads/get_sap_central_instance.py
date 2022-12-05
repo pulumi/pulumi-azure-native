@@ -22,7 +22,7 @@ class GetSAPCentralInstanceResult:
     """
     Define the SAP Central Services Instance resource.
     """
-    def __init__(__self__, enqueue_replication_server_properties=None, enqueue_server_properties=None, errors=None, gateway_server_properties=None, health=None, id=None, instance_no=None, kernel_patch=None, kernel_version=None, location=None, message_server_properties=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
+    def __init__(__self__, enqueue_replication_server_properties=None, enqueue_server_properties=None, errors=None, gateway_server_properties=None, health=None, id=None, instance_no=None, kernel_patch=None, kernel_version=None, load_balancer_details=None, location=None, message_server_properties=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
         if enqueue_replication_server_properties and not isinstance(enqueue_replication_server_properties, dict):
             raise TypeError("Expected argument 'enqueue_replication_server_properties' to be a dict")
         pulumi.set(__self__, "enqueue_replication_server_properties", enqueue_replication_server_properties)
@@ -50,6 +50,9 @@ class GetSAPCentralInstanceResult:
         if kernel_version and not isinstance(kernel_version, str):
             raise TypeError("Expected argument 'kernel_version' to be a str")
         pulumi.set(__self__, "kernel_version", kernel_version)
+        if load_balancer_details and not isinstance(load_balancer_details, dict):
+            raise TypeError("Expected argument 'load_balancer_details' to be a dict")
+        pulumi.set(__self__, "load_balancer_details", load_balancer_details)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -154,6 +157,14 @@ class GetSAPCentralInstanceResult:
         return pulumi.get(self, "kernel_version")
 
     @property
+    @pulumi.getter(name="loadBalancerDetails")
+    def load_balancer_details(self) -> 'outputs.LoadBalancerDetailsResponse':
+        """
+        The Load Balancer details such as LoadBalancer ID attached to ASCS Virtual Machines
+        """
+        return pulumi.get(self, "load_balancer_details")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -249,6 +260,7 @@ class AwaitableGetSAPCentralInstanceResult(GetSAPCentralInstanceResult):
             instance_no=self.instance_no,
             kernel_patch=self.kernel_patch,
             kernel_version=self.kernel_version,
+            load_balancer_details=self.load_balancer_details,
             location=self.location,
             message_server_properties=self.message_server_properties,
             name=self.name,
@@ -291,6 +303,7 @@ def get_sap_central_instance(central_instance_name: Optional[str] = None,
         instance_no=__ret__.instance_no,
         kernel_patch=__ret__.kernel_patch,
         kernel_version=__ret__.kernel_version,
+        load_balancer_details=__ret__.load_balancer_details,
         location=__ret__.location,
         message_server_properties=__ret__.message_server_properties,
         name=__ret__.name,

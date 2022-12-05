@@ -22,6 +22,7 @@ type SAPCentralInstance struct {
 	InstanceNo                         pulumi.StringOutput                                 `pulumi:"instanceNo"`
 	KernelPatch                        pulumi.StringOutput                                 `pulumi:"kernelPatch"`
 	KernelVersion                      pulumi.StringOutput                                 `pulumi:"kernelVersion"`
+	LoadBalancerDetails                LoadBalancerDetailsResponseOutput                   `pulumi:"loadBalancerDetails"`
 	Location                           pulumi.StringOutput                                 `pulumi:"location"`
 	MessageServerProperties            MessageServerPropertiesResponsePtrOutput            `pulumi:"messageServerProperties"`
 	Name                               pulumi.StringOutput                                 `pulumi:"name"`
@@ -170,6 +171,10 @@ func (o SAPCentralInstanceOutput) KernelPatch() pulumi.StringOutput {
 
 func (o SAPCentralInstanceOutput) KernelVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SAPCentralInstance) pulumi.StringOutput { return v.KernelVersion }).(pulumi.StringOutput)
+}
+
+func (o SAPCentralInstanceOutput) LoadBalancerDetails() LoadBalancerDetailsResponseOutput {
+	return o.ApplyT(func(v *SAPCentralInstance) LoadBalancerDetailsResponseOutput { return v.LoadBalancerDetails }).(LoadBalancerDetailsResponseOutput)
 }
 
 func (o SAPCentralInstanceOutput) Location() pulumi.StringOutput {

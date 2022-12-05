@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.Workloads.V20211201Preview.SAPDatabaseType>? DatabaseType { get; set; }
 
         /// <summary>
+        /// Gets or sets the disk configuration.
+        /// </summary>
+        [Input("diskConfiguration")]
+        public Input<Inputs.DiskConfigurationArgs>? DiskConfiguration { get; set; }
+
+        /// <summary>
         /// The number of database VMs.
         /// </summary>
         [Input("instanceCount", required: true)]
