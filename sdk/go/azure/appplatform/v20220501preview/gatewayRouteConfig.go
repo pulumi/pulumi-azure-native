@@ -52,6 +52,9 @@ func NewGatewayRouteConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:appplatform/v20221101preview:GatewayRouteConfig"),
 		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20221201:GatewayRouteConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GatewayRouteConfig

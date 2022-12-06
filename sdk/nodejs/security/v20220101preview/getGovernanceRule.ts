@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Security GovernanceRule over a given scope
+ * Governance rule over a given scope
  */
 export function getGovernanceRule(args: GetGovernanceRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetGovernanceRuleResult> {
     if (!opts) {
@@ -23,23 +23,27 @@ export function getGovernanceRule(args: GetGovernanceRuleArgs, opts?: pulumi.Inv
 
 export interface GetGovernanceRuleArgs {
     /**
-     * The security GovernanceRule key - unique key for the standard GovernanceRule
+     * The governance rule key - unique key for the standard governance rule (GUID)
      */
     ruleId: string;
 }
 
 /**
- * Security GovernanceRule over a given scope
+ * Governance rule over a given scope
  */
 export interface GetGovernanceRuleResult {
     /**
-     * description of the governanceRule
+     * Description of the governance rule
      */
     readonly description?: string;
     /**
-     * display name of the governanceRule
+     * Display name of the governance rule
      */
     readonly displayName: string;
+    /**
+     * Excluded scopes, filter out the descendants of the scope (on management scopes)
+     */
+    readonly excludedScopes?: string[];
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
@@ -49,6 +53,10 @@ export interface GetGovernanceRuleResult {
      */
     readonly id: string;
     /**
+     * Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+     */
+    readonly includeMemberScopes?: boolean;
+    /**
      * Defines whether the rule is active/inactive
      */
     readonly isDisabled?: boolean;
@@ -57,11 +65,15 @@ export interface GetGovernanceRuleResult {
      */
     readonly isGracePeriod?: boolean;
     /**
+     * The governance rule metadata
+     */
+    readonly metadata?: outputs.security.v20220101preview.GovernanceRuleMetadataResponse;
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+     * The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
      */
     readonly ownerSource: outputs.security.v20220101preview.GovernanceRuleOwnerSourceResponse;
     /**
@@ -81,6 +93,10 @@ export interface GetGovernanceRuleResult {
      */
     readonly sourceResourceType: string;
     /**
+     * The tenantId (GUID)
+     */
+    readonly tenantId: string;
+    /**
      * Resource type
      */
     readonly type: string;
@@ -92,7 +108,7 @@ export function getGovernanceRuleOutput(args: GetGovernanceRuleOutputArgs, opts?
 
 export interface GetGovernanceRuleOutputArgs {
     /**
-     * The security GovernanceRule key - unique key for the standard GovernanceRule
+     * The governance rule key - unique key for the standard governance rule (GUID)
      */
     ruleId: pulumi.Input<string>;
 }

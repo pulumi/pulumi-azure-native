@@ -16,15 +16,19 @@ type SecurityConnectorGovernanceRule struct {
 
 	Description                 pulumi.StringPtrOutput                           `pulumi:"description"`
 	DisplayName                 pulumi.StringOutput                              `pulumi:"displayName"`
+	ExcludedScopes              pulumi.StringArrayOutput                         `pulumi:"excludedScopes"`
 	GovernanceEmailNotification GovernanceRuleEmailNotificationResponsePtrOutput `pulumi:"governanceEmailNotification"`
+	IncludeMemberScopes         pulumi.BoolPtrOutput                             `pulumi:"includeMemberScopes"`
 	IsDisabled                  pulumi.BoolPtrOutput                             `pulumi:"isDisabled"`
 	IsGracePeriod               pulumi.BoolPtrOutput                             `pulumi:"isGracePeriod"`
+	Metadata                    GovernanceRuleMetadataResponsePtrOutput          `pulumi:"metadata"`
 	Name                        pulumi.StringOutput                              `pulumi:"name"`
 	OwnerSource                 GovernanceRuleOwnerSourceResponseOutput          `pulumi:"ownerSource"`
 	RemediationTimeframe        pulumi.StringPtrOutput                           `pulumi:"remediationTimeframe"`
 	RulePriority                pulumi.IntOutput                                 `pulumi:"rulePriority"`
 	RuleType                    pulumi.StringOutput                              `pulumi:"ruleType"`
 	SourceResourceType          pulumi.StringOutput                              `pulumi:"sourceResourceType"`
+	TenantId                    pulumi.StringOutput                              `pulumi:"tenantId"`
 	Type                        pulumi.StringOutput                              `pulumi:"type"`
 }
 
@@ -90,7 +94,9 @@ func (SecurityConnectorGovernanceRuleState) ElementType() reflect.Type {
 type securityConnectorGovernanceRuleArgs struct {
 	Description                 *string                          `pulumi:"description"`
 	DisplayName                 string                           `pulumi:"displayName"`
+	ExcludedScopes              []string                         `pulumi:"excludedScopes"`
 	GovernanceEmailNotification *GovernanceRuleEmailNotification `pulumi:"governanceEmailNotification"`
+	IncludeMemberScopes         *bool                            `pulumi:"includeMemberScopes"`
 	IsDisabled                  *bool                            `pulumi:"isDisabled"`
 	IsGracePeriod               *bool                            `pulumi:"isGracePeriod"`
 	OwnerSource                 GovernanceRuleOwnerSource        `pulumi:"ownerSource"`
@@ -107,7 +113,9 @@ type securityConnectorGovernanceRuleArgs struct {
 type SecurityConnectorGovernanceRuleArgs struct {
 	Description                 pulumi.StringPtrInput
 	DisplayName                 pulumi.StringInput
+	ExcludedScopes              pulumi.StringArrayInput
 	GovernanceEmailNotification GovernanceRuleEmailNotificationPtrInput
+	IncludeMemberScopes         pulumi.BoolPtrInput
 	IsDisabled                  pulumi.BoolPtrInput
 	IsGracePeriod               pulumi.BoolPtrInput
 	OwnerSource                 GovernanceRuleOwnerSourceInput
@@ -165,10 +173,18 @@ func (o SecurityConnectorGovernanceRuleOutput) DisplayName() pulumi.StringOutput
 	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+func (o SecurityConnectorGovernanceRuleOutput) ExcludedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) pulumi.StringArrayOutput { return v.ExcludedScopes }).(pulumi.StringArrayOutput)
+}
+
 func (o SecurityConnectorGovernanceRuleOutput) GovernanceEmailNotification() GovernanceRuleEmailNotificationResponsePtrOutput {
 	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) GovernanceRuleEmailNotificationResponsePtrOutput {
 		return v.GovernanceEmailNotification
 	}).(GovernanceRuleEmailNotificationResponsePtrOutput)
+}
+
+func (o SecurityConnectorGovernanceRuleOutput) IncludeMemberScopes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) pulumi.BoolPtrOutput { return v.IncludeMemberScopes }).(pulumi.BoolPtrOutput)
 }
 
 func (o SecurityConnectorGovernanceRuleOutput) IsDisabled() pulumi.BoolPtrOutput {
@@ -177,6 +193,10 @@ func (o SecurityConnectorGovernanceRuleOutput) IsDisabled() pulumi.BoolPtrOutput
 
 func (o SecurityConnectorGovernanceRuleOutput) IsGracePeriod() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) pulumi.BoolPtrOutput { return v.IsGracePeriod }).(pulumi.BoolPtrOutput)
+}
+
+func (o SecurityConnectorGovernanceRuleOutput) Metadata() GovernanceRuleMetadataResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) GovernanceRuleMetadataResponsePtrOutput { return v.Metadata }).(GovernanceRuleMetadataResponsePtrOutput)
 }
 
 func (o SecurityConnectorGovernanceRuleOutput) Name() pulumi.StringOutput {
@@ -201,6 +221,10 @@ func (o SecurityConnectorGovernanceRuleOutput) RuleType() pulumi.StringOutput {
 
 func (o SecurityConnectorGovernanceRuleOutput) SourceResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) pulumi.StringOutput { return v.SourceResourceType }).(pulumi.StringOutput)
+}
+
+func (o SecurityConnectorGovernanceRuleOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }
 
 func (o SecurityConnectorGovernanceRuleOutput) Type() pulumi.StringOutput {

@@ -29,16 +29,20 @@ type LookupSecurityConnectorGovernanceRuleArgs struct {
 type LookupSecurityConnectorGovernanceRuleResult struct {
 	Description                 *string                                  `pulumi:"description"`
 	DisplayName                 string                                   `pulumi:"displayName"`
+	ExcludedScopes              []string                                 `pulumi:"excludedScopes"`
 	GovernanceEmailNotification *GovernanceRuleEmailNotificationResponse `pulumi:"governanceEmailNotification"`
 	Id                          string                                   `pulumi:"id"`
+	IncludeMemberScopes         *bool                                    `pulumi:"includeMemberScopes"`
 	IsDisabled                  *bool                                    `pulumi:"isDisabled"`
 	IsGracePeriod               *bool                                    `pulumi:"isGracePeriod"`
+	Metadata                    *GovernanceRuleMetadataResponse          `pulumi:"metadata"`
 	Name                        string                                   `pulumi:"name"`
 	OwnerSource                 GovernanceRuleOwnerSourceResponse        `pulumi:"ownerSource"`
 	RemediationTimeframe        *string                                  `pulumi:"remediationTimeframe"`
 	RulePriority                int                                      `pulumi:"rulePriority"`
 	RuleType                    string                                   `pulumi:"ruleType"`
 	SourceResourceType          string                                   `pulumi:"sourceResourceType"`
+	TenantId                    string                                   `pulumi:"tenantId"`
 	Type                        string                                   `pulumi:"type"`
 }
 
@@ -88,6 +92,10 @@ func (o LookupSecurityConnectorGovernanceRuleResultOutput) DisplayName() pulumi.
 	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+func (o LookupSecurityConnectorGovernanceRuleResultOutput) ExcludedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) []string { return v.ExcludedScopes }).(pulumi.StringArrayOutput)
+}
+
 func (o LookupSecurityConnectorGovernanceRuleResultOutput) GovernanceEmailNotification() GovernanceRuleEmailNotificationResponsePtrOutput {
 	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) *GovernanceRuleEmailNotificationResponse {
 		return v.GovernanceEmailNotification
@@ -98,12 +106,20 @@ func (o LookupSecurityConnectorGovernanceRuleResultOutput) Id() pulumi.StringOut
 	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o LookupSecurityConnectorGovernanceRuleResultOutput) IncludeMemberScopes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) *bool { return v.IncludeMemberScopes }).(pulumi.BoolPtrOutput)
+}
+
 func (o LookupSecurityConnectorGovernanceRuleResultOutput) IsDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) *bool { return v.IsDisabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupSecurityConnectorGovernanceRuleResultOutput) IsGracePeriod() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) *bool { return v.IsGracePeriod }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupSecurityConnectorGovernanceRuleResultOutput) Metadata() GovernanceRuleMetadataResponsePtrOutput {
+	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) *GovernanceRuleMetadataResponse { return v.Metadata }).(GovernanceRuleMetadataResponsePtrOutput)
 }
 
 func (o LookupSecurityConnectorGovernanceRuleResultOutput) Name() pulumi.StringOutput {
@@ -130,6 +146,10 @@ func (o LookupSecurityConnectorGovernanceRuleResultOutput) RuleType() pulumi.Str
 
 func (o LookupSecurityConnectorGovernanceRuleResultOutput) SourceResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) string { return v.SourceResourceType }).(pulumi.StringOutput)
+}
+
+func (o LookupSecurityConnectorGovernanceRuleResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityConnectorGovernanceRuleResult) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 func (o LookupSecurityConnectorGovernanceRuleResultOutput) Type() pulumi.StringOutput {

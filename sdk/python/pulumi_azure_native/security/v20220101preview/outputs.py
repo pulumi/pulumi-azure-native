@@ -14,6 +14,7 @@ __all__ = [
     'GovernanceAssignmentAdditionalDataResponse',
     'GovernanceEmailNotificationResponse',
     'GovernanceRuleEmailNotificationResponse',
+    'GovernanceRuleMetadataResponse',
     'GovernanceRuleOwnerSourceResponse',
     'RemediationEtaResponse',
 ]
@@ -21,7 +22,7 @@ __all__ = [
 @pulumi.output_type
 class GovernanceAssignmentAdditionalDataResponse(dict):
     """
-    Describe the additional data of GovernanceAssignment - optional
+    Describe the additional data of governance assignment - optional
     """
     @staticmethod
     def __key_warning(key: str):
@@ -49,10 +50,10 @@ class GovernanceAssignmentAdditionalDataResponse(dict):
                  ticket_number: Optional[int] = None,
                  ticket_status: Optional[str] = None):
         """
-        Describe the additional data of GovernanceAssignment - optional
-        :param str ticket_link: Ticket link associated with this GovernanceAssignment - for example: https://snow.com
-        :param int ticket_number: Ticket number associated with this GovernanceAssignment
-        :param str ticket_status: The ticket status associated with this GovernanceAssignment - for example: Active
+        Describe the additional data of governance assignment - optional
+        :param str ticket_link: Ticket link associated with this governance assignment - for example: https://snow.com
+        :param int ticket_number: Ticket number associated with this governance assignment
+        :param str ticket_status: The ticket status associated with this governance assignment - for example: Active
         """
         if ticket_link is not None:
             pulumi.set(__self__, "ticket_link", ticket_link)
@@ -65,7 +66,7 @@ class GovernanceAssignmentAdditionalDataResponse(dict):
     @pulumi.getter(name="ticketLink")
     def ticket_link(self) -> Optional[str]:
         """
-        Ticket link associated with this GovernanceAssignment - for example: https://snow.com
+        Ticket link associated with this governance assignment - for example: https://snow.com
         """
         return pulumi.get(self, "ticket_link")
 
@@ -73,7 +74,7 @@ class GovernanceAssignmentAdditionalDataResponse(dict):
     @pulumi.getter(name="ticketNumber")
     def ticket_number(self) -> Optional[int]:
         """
-        Ticket number associated with this GovernanceAssignment
+        Ticket number associated with this governance assignment
         """
         return pulumi.get(self, "ticket_number")
 
@@ -81,7 +82,7 @@ class GovernanceAssignmentAdditionalDataResponse(dict):
     @pulumi.getter(name="ticketStatus")
     def ticket_status(self) -> Optional[str]:
         """
-        The ticket status associated with this GovernanceAssignment - for example: Active
+        The ticket status associated with this governance assignment - for example: Active
         """
         return pulumi.get(self, "ticket_status")
 
@@ -143,7 +144,7 @@ class GovernanceEmailNotificationResponse(dict):
 @pulumi.output_type
 class GovernanceRuleEmailNotificationResponse(dict):
     """
-    The governance email weekly notification configuration.
+    The governance email weekly notification configuration
     """
     @staticmethod
     def __key_warning(key: str):
@@ -168,9 +169,9 @@ class GovernanceRuleEmailNotificationResponse(dict):
                  disable_manager_email_notification: Optional[bool] = None,
                  disable_owner_email_notification: Optional[bool] = None):
         """
-        The governance email weekly notification configuration.
-        :param bool disable_manager_email_notification: Defines whether manager email notifications are disabled.
-        :param bool disable_owner_email_notification: Defines whether owner email notifications are disabled.
+        The governance email weekly notification configuration
+        :param bool disable_manager_email_notification: Defines whether manager email notifications are disabled
+        :param bool disable_owner_email_notification: Defines whether owner email notifications are disabled
         """
         if disable_manager_email_notification is not None:
             pulumi.set(__self__, "disable_manager_email_notification", disable_manager_email_notification)
@@ -181,7 +182,7 @@ class GovernanceRuleEmailNotificationResponse(dict):
     @pulumi.getter(name="disableManagerEmailNotification")
     def disable_manager_email_notification(self) -> Optional[bool]:
         """
-        Defines whether manager email notifications are disabled.
+        Defines whether manager email notifications are disabled
         """
         return pulumi.get(self, "disable_manager_email_notification")
 
@@ -189,9 +190,87 @@ class GovernanceRuleEmailNotificationResponse(dict):
     @pulumi.getter(name="disableOwnerEmailNotification")
     def disable_owner_email_notification(self) -> Optional[bool]:
         """
-        Defines whether owner email notifications are disabled.
+        Defines whether owner email notifications are disabled
         """
         return pulumi.get(self, "disable_owner_email_notification")
+
+
+@pulumi.output_type
+class GovernanceRuleMetadataResponse(dict):
+    """
+    The governance rule metadata
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "updatedBy":
+            suggest = "updated_by"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GovernanceRuleMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GovernanceRuleMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GovernanceRuleMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_by: str,
+                 created_on: str,
+                 updated_by: str,
+                 updated_on: str):
+        """
+        The governance rule metadata
+        :param str created_by: Governance rule Created by object id (GUID)
+        :param str created_on: Governance rule creation date
+        :param str updated_by: Governance rule last updated by object id (GUID)
+        :param str updated_on: Governance rule last update date
+        """
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "updated_by", updated_by)
+        pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        Governance rule Created by object id (GUID)
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        Governance rule creation date
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> str:
+        """
+        Governance rule last updated by object id (GUID)
+        """
+        return pulumi.get(self, "updated_by")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> str:
+        """
+        Governance rule last update date
+        """
+        return pulumi.get(self, "updated_on")
 
 
 @pulumi.output_type

@@ -11,24 +11,24 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
 {
 
     /// <summary>
-    /// Describe the additional data of GovernanceAssignment - optional
+    /// Describe the additional data of governance assignment - optional
     /// </summary>
     public sealed class GovernanceAssignmentAdditionalDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Ticket link associated with this GovernanceAssignment - for example: https://snow.com
+        /// Ticket link associated with this governance assignment - for example: https://snow.com
         /// </summary>
         [Input("ticketLink")]
         public Input<string>? TicketLink { get; set; }
 
         /// <summary>
-        /// Ticket number associated with this GovernanceAssignment
+        /// Ticket number associated with this governance assignment
         /// </summary>
         [Input("ticketNumber")]
         public Input<int>? TicketNumber { get; set; }
 
         /// <summary>
-        /// The ticket status associated with this GovernanceAssignment - for example: Active
+        /// The ticket status associated with this governance assignment - for example: Active
         /// </summary>
         [Input("ticketStatus")]
         public Input<string>? TicketStatus { get; set; }

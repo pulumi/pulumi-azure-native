@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Aad
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20210301:OuContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20210501:OuContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20220901:OuContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20221201:OuContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

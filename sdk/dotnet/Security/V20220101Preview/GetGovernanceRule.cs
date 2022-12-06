@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public static class GetGovernanceRule
     {
         /// <summary>
-        /// Security GovernanceRule over a given scope
+        /// Governance rule over a given scope
         /// </summary>
         public static Task<GetGovernanceRuleResult> InvokeAsync(GetGovernanceRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGovernanceRuleResult>("azure-native:security/v20220101preview:getGovernanceRule", args ?? new GetGovernanceRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security GovernanceRule over a given scope
+        /// Governance rule over a given scope
         /// </summary>
         public static Output<GetGovernanceRuleResult> Invoke(GetGovernanceRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceRuleResult>("azure-native:security/v20220101preview:getGovernanceRule", args ?? new GetGovernanceRuleInvokeArgs(), options.WithDefaults());
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public sealed class GetGovernanceRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The security GovernanceRule key - unique key for the standard GovernanceRule
+        /// The governance rule key - unique key for the standard governance rule (GUID)
         /// </summary>
         [Input("ruleId", required: true)]
         public string RuleId { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public sealed class GetGovernanceRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The security GovernanceRule key - unique key for the standard GovernanceRule
+        /// The governance rule key - unique key for the standard governance rule (GUID)
         /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
@@ -58,13 +58,17 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public sealed class GetGovernanceRuleResult
     {
         /// <summary>
-        /// description of the governanceRule
+        /// Description of the governance rule
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// display name of the governanceRule
+        /// Display name of the governance rule
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// Excluded scopes, filter out the descendants of the scope (on management scopes)
+        /// </summary>
+        public readonly ImmutableArray<string> ExcludedScopes;
         /// <summary>
         /// The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         /// </summary>
@@ -74,6 +78,10 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+        /// </summary>
+        public readonly bool? IncludeMemberScopes;
+        /// <summary>
         /// Defines whether the rule is active/inactive
         /// </summary>
         public readonly bool? IsDisabled;
@@ -82,11 +90,15 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// </summary>
         public readonly bool? IsGracePeriod;
         /// <summary>
+        /// The governance rule metadata
+        /// </summary>
+        public readonly Outputs.GovernanceRuleMetadataResponse? Metadata;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        /// The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         /// </summary>
         public readonly Outputs.GovernanceRuleOwnerSourceResponse OwnerSource;
         /// <summary>
@@ -106,6 +118,10 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// </summary>
         public readonly string SourceResourceType;
         /// <summary>
+        /// The tenantId (GUID)
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -116,13 +132,19 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
 
             string displayName,
 
+            ImmutableArray<string> excludedScopes,
+
             Outputs.GovernanceRuleEmailNotificationResponse? governanceEmailNotification,
 
             string id,
 
+            bool? includeMemberScopes,
+
             bool? isDisabled,
 
             bool? isGracePeriod,
+
+            Outputs.GovernanceRuleMetadataResponse? metadata,
 
             string name,
 
@@ -136,20 +158,26 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
 
             string sourceResourceType,
 
+            string tenantId,
+
             string type)
         {
             Description = description;
             DisplayName = displayName;
+            ExcludedScopes = excludedScopes;
             GovernanceEmailNotification = governanceEmailNotification;
             Id = id;
+            IncludeMemberScopes = includeMemberScopes;
             IsDisabled = isDisabled;
             IsGracePeriod = isGracePeriod;
+            Metadata = metadata;
             Name = name;
             OwnerSource = ownerSource;
             RemediationTimeframe = remediationTimeframe;
             RulePriority = rulePriority;
             RuleType = ruleType;
             SourceResourceType = sourceResourceType;
+            TenantId = tenantId;
             Type = type;
         }
     }

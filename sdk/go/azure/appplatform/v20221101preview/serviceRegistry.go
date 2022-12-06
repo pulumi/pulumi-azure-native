@@ -52,6 +52,9 @@ func NewServiceRegistry(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:appplatform/v20220901preview:ServiceRegistry"),
 		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20221201:ServiceRegistry"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceRegistry

@@ -663,6 +663,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "aad/v20221201",
+  "fqn": "pulumi_azure_native.aad.v20221201",
+  "classes": {
+   "azure-native:aad/v20221201:DomainService": "DomainService",
+   "azure-native:aad/v20221201:OuContainer": "OuContainer"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "aadiam",
   "fqn": "pulumi_azure_native.aadiam",
   "classes": {
@@ -2063,6 +2072,32 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "appplatform/v20221201",
+  "fqn": "pulumi_azure_native.appplatform.v20221201",
+  "classes": {
+   "azure-native:appplatform/v20221201:ApiPortal": "ApiPortal",
+   "azure-native:appplatform/v20221201:ApiPortalCustomDomain": "ApiPortalCustomDomain",
+   "azure-native:appplatform/v20221201:App": "App",
+   "azure-native:appplatform/v20221201:Binding": "Binding",
+   "azure-native:appplatform/v20221201:BuildServiceAgentPool": "BuildServiceAgentPool",
+   "azure-native:appplatform/v20221201:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform/v20221201:BuildpackBinding": "BuildpackBinding",
+   "azure-native:appplatform/v20221201:Certificate": "Certificate",
+   "azure-native:appplatform/v20221201:ConfigServer": "ConfigServer",
+   "azure-native:appplatform/v20221201:ConfigurationService": "ConfigurationService",
+   "azure-native:appplatform/v20221201:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20221201:Deployment": "Deployment",
+   "azure-native:appplatform/v20221201:Gateway": "Gateway",
+   "azure-native:appplatform/v20221201:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform/v20221201:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20221201:MonitoringSetting": "MonitoringSetting",
+   "azure-native:appplatform/v20221201:Service": "Service",
+   "azure-native:appplatform/v20221201:ServiceRegistry": "ServiceRegistry",
+   "azure-native:appplatform/v20221201:Storage": "Storage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "attestation",
   "fqn": "pulumi_azure_native.attestation",
   "classes": {
@@ -3147,6 +3182,19 @@ _utilities.register(
    "azure-native:azurestackhci/v20221001:ArcSetting": "ArcSetting",
    "azure-native:azurestackhci/v20221001:Cluster": "Cluster",
    "azure-native:azurestackhci/v20221001:Extension": "Extension"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20221201",
+  "fqn": "pulumi_azure_native.azurestackhci.v20221201",
+  "classes": {
+   "azure-native:azurestackhci/v20221201:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20221201:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20221201:Extension": "Extension",
+   "azure-native:azurestackhci/v20221201:Update": "Update",
+   "azure-native:azurestackhci/v20221201:UpdateRun": "UpdateRun",
+   "azure-native:azurestackhci/v20221201:UpdateSummary": "UpdateSummary"
   }
  },
  {
@@ -18159,6 +18207,11 @@ _utilities.register(
   "mod": "recoveryservices/v20221001",
   "fqn": "pulumi_azure_native.recoveryservices.v20221001",
   "classes": {
+   "azure-native:recoveryservices/v20221001:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20221001:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20221001:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20221001:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20221001:ProtectionPolicy": "ProtectionPolicy",
    "azure-native:recoveryservices/v20221001:ReplicationFabric": "ReplicationFabric",
    "azure-native:recoveryservices/v20221001:ReplicationMigrationItem": "ReplicationMigrationItem",
    "azure-native:recoveryservices/v20221001:ReplicationNetworkMapping": "ReplicationNetworkMapping",
@@ -18169,6 +18222,7 @@ _utilities.register(
    "azure-native:recoveryservices/v20221001:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
    "azure-native:recoveryservices/v20221001:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
    "azure-native:recoveryservices/v20221001:ReplicationvCenter": "ReplicationvCenter",
+   "azure-native:recoveryservices/v20221001:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20221001:Vault": "Vault"
   }
  },
@@ -18935,7 +18989,8 @@ _utilities.register(
   "classes": {
    "azure-native:security/v20220101preview:GovernanceAssignment": "GovernanceAssignment",
    "azure-native:security/v20220101preview:GovernanceRule": "GovernanceRule",
-   "azure-native:security/v20220101preview:SecurityConnectorGovernanceRule": "SecurityConnectorGovernanceRule"
+   "azure-native:security/v20220101preview:SecurityConnectorGovernanceRule": "SecurityConnectorGovernanceRule",
+   "azure-native:security/v20220101preview:managementGroupGovernanceRule": "ManagementGroupGovernanceRule"
   }
  },
  {

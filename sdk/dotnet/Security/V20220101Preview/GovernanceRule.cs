@@ -10,28 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20220101Preview
 {
     /// <summary>
-    /// Security GovernanceRule over a given scope
+    /// Governance rule over a given scope
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20220101preview:GovernanceRule")]
     public partial class GovernanceRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// description of the governanceRule
+        /// Description of the governance rule
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// display name of the governanceRule
+        /// Display name of the governance rule
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Excluded scopes, filter out the descendants of the scope (on management scopes)
+        /// </summary>
+        [Output("excludedScopes")]
+        public Output<ImmutableArray<string>> ExcludedScopes { get; private set; } = null!;
 
         /// <summary>
         /// The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         /// </summary>
         [Output("governanceEmailNotification")]
         public Output<Outputs.GovernanceRuleEmailNotificationResponse?> GovernanceEmailNotification { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+        /// </summary>
+        [Output("includeMemberScopes")]
+        public Output<bool?> IncludeMemberScopes { get; private set; } = null!;
 
         /// <summary>
         /// Defines whether the rule is active/inactive
@@ -46,13 +58,19 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public Output<bool?> IsGracePeriod { get; private set; } = null!;
 
         /// <summary>
+        /// The governance rule metadata
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.GovernanceRuleMetadataResponse?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        /// The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         /// </summary>
         [Output("ownerSource")]
         public Output<Outputs.GovernanceRuleOwnerSourceResponse> OwnerSource { get; private set; } = null!;
@@ -80,6 +98,12 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// </summary>
         [Output("sourceResourceType")]
         public Output<string> SourceResourceType { get; private set; } = null!;
+
+        /// <summary>
+        /// The tenantId (GUID)
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -133,22 +157,40 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public sealed class GovernanceRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// description of the governanceRule
+        /// Description of the governance rule
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// display name of the governanceRule
+        /// Display name of the governance rule
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
+
+        [Input("excludedScopes")]
+        private InputList<string>? _excludedScopes;
+
+        /// <summary>
+        /// Excluded scopes, filter out the descendants of the scope (on management scopes)
+        /// </summary>
+        public InputList<string> ExcludedScopes
+        {
+            get => _excludedScopes ?? (_excludedScopes = new InputList<string>());
+            set => _excludedScopes = value;
+        }
 
         /// <summary>
         /// The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         /// </summary>
         [Input("governanceEmailNotification")]
         public Input<Inputs.GovernanceRuleEmailNotificationArgs>? GovernanceEmailNotification { get; set; }
+
+        /// <summary>
+        /// Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+        /// </summary>
+        [Input("includeMemberScopes")]
+        public Input<bool>? IncludeMemberScopes { get; set; }
 
         /// <summary>
         /// Defines whether the rule is active/inactive
@@ -163,7 +205,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public Input<bool>? IsGracePeriod { get; set; }
 
         /// <summary>
-        /// The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        /// The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         /// </summary>
         [Input("ownerSource", required: true)]
         public Input<Inputs.GovernanceRuleOwnerSourceArgs> OwnerSource { get; set; } = null!;
@@ -175,7 +217,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public Input<string>? RemediationTimeframe { get; set; }
 
         /// <summary>
-        /// The security GovernanceRule key - unique key for the standard GovernanceRule
+        /// The governance rule key - unique key for the standard governance rule (GUID)
         /// </summary>
         [Input("ruleId")]
         public Input<string>? RuleId { get; set; }

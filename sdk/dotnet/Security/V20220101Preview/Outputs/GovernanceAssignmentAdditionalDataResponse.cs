@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Outputs
 {
 
     /// <summary>
-    /// Describe the additional data of GovernanceAssignment - optional
+    /// Describe the additional data of governance assignment - optional
     /// </summary>
     [OutputType]
     public sealed class GovernanceAssignmentAdditionalDataResponse
     {
         /// <summary>
-        /// Ticket link associated with this GovernanceAssignment - for example: https://snow.com
+        /// Ticket link associated with this governance assignment - for example: https://snow.com
         /// </summary>
         public readonly string? TicketLink;
         /// <summary>
-        /// Ticket number associated with this GovernanceAssignment
+        /// Ticket number associated with this governance assignment
         /// </summary>
         public readonly int? TicketNumber;
         /// <summary>
-        /// The ticket status associated with this GovernanceAssignment - for example: Active
+        /// The ticket status associated with this governance assignment - for example: Active
         /// </summary>
         public readonly string? TicketStatus;
 

@@ -27,11 +27,11 @@ class GovernanceAssignmentArgs:
                  remediation_eta: Optional[pulumi.Input['RemediationEtaArgs']] = None):
         """
         The set of arguments for constructing a GovernanceAssignment resource.
-        :param pulumi.Input[str] assessment_name: The Assessment Key - Unique key for the assessment type
+        :param pulumi.Input[str] assessment_name: The Assessment Key - A unique key for the assessment type
         :param pulumi.Input[str] remediation_due_date: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
         :param pulumi.Input[str] scope: Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
         :param pulumi.Input['GovernanceAssignmentAdditionalDataArgs'] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
-        :param pulumi.Input[str] assignment_key: The security governance assignment key - the assessment key of the required governance assignment
+        :param pulumi.Input[str] assignment_key: The governance assignment key - the assessment key of the required governance assignment
         :param pulumi.Input['GovernanceEmailNotificationArgs'] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         :param pulumi.Input[bool] is_grace_period: Defines whether there is a grace period on the governance assignment
         :param pulumi.Input[str] owner: The Owner for the governance assignment - e.g. user@contoso.com - see example
@@ -57,7 +57,7 @@ class GovernanceAssignmentArgs:
     @pulumi.getter(name="assessmentName")
     def assessment_name(self) -> pulumi.Input[str]:
         """
-        The Assessment Key - Unique key for the assessment type
+        The Assessment Key - A unique key for the assessment type
         """
         return pulumi.get(self, "assessment_name")
 
@@ -105,7 +105,7 @@ class GovernanceAssignmentArgs:
     @pulumi.getter(name="assignmentKey")
     def assignment_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The security governance assignment key - the assessment key of the required governance assignment
+        The governance assignment key - the assessment key of the required governance assignment
         """
         return pulumi.get(self, "assignment_key")
 
@@ -178,13 +178,13 @@ class GovernanceAssignment(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Security GovernanceAssignment over a given scope
+        Governance assignment over a given scope
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['GovernanceAssignmentAdditionalDataArgs']] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
-        :param pulumi.Input[str] assessment_name: The Assessment Key - Unique key for the assessment type
-        :param pulumi.Input[str] assignment_key: The security governance assignment key - the assessment key of the required governance assignment
+        :param pulumi.Input[str] assessment_name: The Assessment Key - A unique key for the assessment type
+        :param pulumi.Input[str] assignment_key: The governance assignment key - the assessment key of the required governance assignment
         :param pulumi.Input[pulumi.InputType['GovernanceEmailNotificationArgs']] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         :param pulumi.Input[bool] is_grace_period: Defines whether there is a grace period on the governance assignment
         :param pulumi.Input[str] owner: The Owner for the governance assignment - e.g. user@contoso.com - see example
@@ -199,7 +199,7 @@ class GovernanceAssignment(pulumi.CustomResource):
                  args: GovernanceAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Security GovernanceAssignment over a given scope
+        Governance assignment over a given scope
 
         :param str resource_name: The name of the resource.
         :param GovernanceAssignmentArgs args: The arguments to use to populate this resource's properties.

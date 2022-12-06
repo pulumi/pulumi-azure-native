@@ -90,7 +90,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Deployment" }, { type: "azure-native:appplatform/v20201101preview:Deployment" }, { type: "azure-native:appplatform/v20210601preview:Deployment" }, { type: "azure-native:appplatform/v20210901preview:Deployment" }, { type: "azure-native:appplatform/v20220101preview:Deployment" }, { type: "azure-native:appplatform/v20220301preview:Deployment" }, { type: "azure-native:appplatform/v20220401:Deployment" }, { type: "azure-native:appplatform/v20220501preview:Deployment" }, { type: "azure-native:appplatform/v20220901preview:Deployment" }, { type: "azure-native:appplatform/v20221101preview:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Deployment" }, { type: "azure-native:appplatform/v20201101preview:Deployment" }, { type: "azure-native:appplatform/v20210601preview:Deployment" }, { type: "azure-native:appplatform/v20210901preview:Deployment" }, { type: "azure-native:appplatform/v20220101preview:Deployment" }, { type: "azure-native:appplatform/v20220301preview:Deployment" }, { type: "azure-native:appplatform/v20220401:Deployment" }, { type: "azure-native:appplatform/v20220501preview:Deployment" }, { type: "azure-native:appplatform/v20220901preview:Deployment" }, { type: "azure-native:appplatform/v20221101preview:Deployment" }, { type: "azure-native:appplatform/v20221201:Deployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }

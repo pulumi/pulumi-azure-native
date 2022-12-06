@@ -20,27 +20,36 @@ __all__ = [
 @pulumi.output_type
 class GetGovernanceRuleResult:
     """
-    Security GovernanceRule over a given scope
+    Governance rule over a given scope
     """
-    def __init__(__self__, description=None, display_name=None, governance_email_notification=None, id=None, is_disabled=None, is_grace_period=None, name=None, owner_source=None, remediation_timeframe=None, rule_priority=None, rule_type=None, source_resource_type=None, type=None):
+    def __init__(__self__, description=None, display_name=None, excluded_scopes=None, governance_email_notification=None, id=None, include_member_scopes=None, is_disabled=None, is_grace_period=None, metadata=None, name=None, owner_source=None, remediation_timeframe=None, rule_priority=None, rule_type=None, source_resource_type=None, tenant_id=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if excluded_scopes and not isinstance(excluded_scopes, list):
+            raise TypeError("Expected argument 'excluded_scopes' to be a list")
+        pulumi.set(__self__, "excluded_scopes", excluded_scopes)
         if governance_email_notification and not isinstance(governance_email_notification, dict):
             raise TypeError("Expected argument 'governance_email_notification' to be a dict")
         pulumi.set(__self__, "governance_email_notification", governance_email_notification)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if include_member_scopes and not isinstance(include_member_scopes, bool):
+            raise TypeError("Expected argument 'include_member_scopes' to be a bool")
+        pulumi.set(__self__, "include_member_scopes", include_member_scopes)
         if is_disabled and not isinstance(is_disabled, bool):
             raise TypeError("Expected argument 'is_disabled' to be a bool")
         pulumi.set(__self__, "is_disabled", is_disabled)
         if is_grace_period and not isinstance(is_grace_period, bool):
             raise TypeError("Expected argument 'is_grace_period' to be a bool")
         pulumi.set(__self__, "is_grace_period", is_grace_period)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -59,6 +68,9 @@ class GetGovernanceRuleResult:
         if source_resource_type and not isinstance(source_resource_type, str):
             raise TypeError("Expected argument 'source_resource_type' to be a str")
         pulumi.set(__self__, "source_resource_type", source_resource_type)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -67,7 +79,7 @@ class GetGovernanceRuleResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        description of the governanceRule
+        Description of the governance rule
         """
         return pulumi.get(self, "description")
 
@@ -75,9 +87,17 @@ class GetGovernanceRuleResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
-        display name of the governanceRule
+        Display name of the governance rule
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="excludedScopes")
+    def excluded_scopes(self) -> Optional[Sequence[str]]:
+        """
+        Excluded scopes, filter out the descendants of the scope (on management scopes)
+        """
+        return pulumi.get(self, "excluded_scopes")
 
     @property
     @pulumi.getter(name="governanceEmailNotification")
@@ -94,6 +114,14 @@ class GetGovernanceRuleResult:
         Resource Id
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includeMemberScopes")
+    def include_member_scopes(self) -> Optional[bool]:
+        """
+        Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+        """
+        return pulumi.get(self, "include_member_scopes")
 
     @property
     @pulumi.getter(name="isDisabled")
@@ -113,6 +141,14 @@ class GetGovernanceRuleResult:
 
     @property
     @pulumi.getter
+    def metadata(self) -> Optional['outputs.GovernanceRuleMetadataResponse']:
+        """
+        The governance rule metadata
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name
@@ -123,7 +159,7 @@ class GetGovernanceRuleResult:
     @pulumi.getter(name="ownerSource")
     def owner_source(self) -> 'outputs.GovernanceRuleOwnerSourceResponse':
         """
-        The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         """
         return pulumi.get(self, "owner_source")
 
@@ -160,6 +196,14 @@ class GetGovernanceRuleResult:
         return pulumi.get(self, "source_resource_type")
 
     @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenantId (GUID)
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -176,26 +220,30 @@ class AwaitableGetGovernanceRuleResult(GetGovernanceRuleResult):
         return GetGovernanceRuleResult(
             description=self.description,
             display_name=self.display_name,
+            excluded_scopes=self.excluded_scopes,
             governance_email_notification=self.governance_email_notification,
             id=self.id,
+            include_member_scopes=self.include_member_scopes,
             is_disabled=self.is_disabled,
             is_grace_period=self.is_grace_period,
+            metadata=self.metadata,
             name=self.name,
             owner_source=self.owner_source,
             remediation_timeframe=self.remediation_timeframe,
             rule_priority=self.rule_priority,
             rule_type=self.rule_type,
             source_resource_type=self.source_resource_type,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
 def get_governance_rule(rule_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGovernanceRuleResult:
     """
-    Security GovernanceRule over a given scope
+    Governance rule over a given scope
 
 
-    :param str rule_id: The security GovernanceRule key - unique key for the standard GovernanceRule
+    :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
     """
     __args__ = dict()
     __args__['ruleId'] = rule_id
@@ -205,16 +253,20 @@ def get_governance_rule(rule_id: Optional[str] = None,
     return AwaitableGetGovernanceRuleResult(
         description=__ret__.description,
         display_name=__ret__.display_name,
+        excluded_scopes=__ret__.excluded_scopes,
         governance_email_notification=__ret__.governance_email_notification,
         id=__ret__.id,
+        include_member_scopes=__ret__.include_member_scopes,
         is_disabled=__ret__.is_disabled,
         is_grace_period=__ret__.is_grace_period,
+        metadata=__ret__.metadata,
         name=__ret__.name,
         owner_source=__ret__.owner_source,
         remediation_timeframe=__ret__.remediation_timeframe,
         rule_priority=__ret__.rule_priority,
         rule_type=__ret__.rule_type,
         source_resource_type=__ret__.source_resource_type,
+        tenant_id=__ret__.tenant_id,
         type=__ret__.type)
 
 
@@ -222,9 +274,9 @@ def get_governance_rule(rule_id: Optional[str] = None,
 def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceRuleResult]:
     """
-    Security GovernanceRule over a given scope
+    Governance rule over a given scope
 
 
-    :param str rule_id: The security GovernanceRule key - unique key for the standard GovernanceRule
+    :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
     """
     ...

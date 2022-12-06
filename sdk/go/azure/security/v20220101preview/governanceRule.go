@@ -16,15 +16,19 @@ type GovernanceRule struct {
 
 	Description                 pulumi.StringPtrOutput                           `pulumi:"description"`
 	DisplayName                 pulumi.StringOutput                              `pulumi:"displayName"`
+	ExcludedScopes              pulumi.StringArrayOutput                         `pulumi:"excludedScopes"`
 	GovernanceEmailNotification GovernanceRuleEmailNotificationResponsePtrOutput `pulumi:"governanceEmailNotification"`
+	IncludeMemberScopes         pulumi.BoolPtrOutput                             `pulumi:"includeMemberScopes"`
 	IsDisabled                  pulumi.BoolPtrOutput                             `pulumi:"isDisabled"`
 	IsGracePeriod               pulumi.BoolPtrOutput                             `pulumi:"isGracePeriod"`
+	Metadata                    GovernanceRuleMetadataResponsePtrOutput          `pulumi:"metadata"`
 	Name                        pulumi.StringOutput                              `pulumi:"name"`
 	OwnerSource                 GovernanceRuleOwnerSourceResponseOutput          `pulumi:"ownerSource"`
 	RemediationTimeframe        pulumi.StringPtrOutput                           `pulumi:"remediationTimeframe"`
 	RulePriority                pulumi.IntOutput                                 `pulumi:"rulePriority"`
 	RuleType                    pulumi.StringOutput                              `pulumi:"ruleType"`
 	SourceResourceType          pulumi.StringOutput                              `pulumi:"sourceResourceType"`
+	TenantId                    pulumi.StringOutput                              `pulumi:"tenantId"`
 	Type                        pulumi.StringOutput                              `pulumi:"type"`
 }
 
@@ -84,7 +88,9 @@ func (GovernanceRuleState) ElementType() reflect.Type {
 type governanceRuleArgs struct {
 	Description                 *string                          `pulumi:"description"`
 	DisplayName                 string                           `pulumi:"displayName"`
+	ExcludedScopes              []string                         `pulumi:"excludedScopes"`
 	GovernanceEmailNotification *GovernanceRuleEmailNotification `pulumi:"governanceEmailNotification"`
+	IncludeMemberScopes         *bool                            `pulumi:"includeMemberScopes"`
 	IsDisabled                  *bool                            `pulumi:"isDisabled"`
 	IsGracePeriod               *bool                            `pulumi:"isGracePeriod"`
 	OwnerSource                 GovernanceRuleOwnerSource        `pulumi:"ownerSource"`
@@ -99,7 +105,9 @@ type governanceRuleArgs struct {
 type GovernanceRuleArgs struct {
 	Description                 pulumi.StringPtrInput
 	DisplayName                 pulumi.StringInput
+	ExcludedScopes              pulumi.StringArrayInput
 	GovernanceEmailNotification GovernanceRuleEmailNotificationPtrInput
+	IncludeMemberScopes         pulumi.BoolPtrInput
 	IsDisabled                  pulumi.BoolPtrInput
 	IsGracePeriod               pulumi.BoolPtrInput
 	OwnerSource                 GovernanceRuleOwnerSourceInput
@@ -155,10 +163,18 @@ func (o GovernanceRuleOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GovernanceRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+func (o GovernanceRuleOutput) ExcludedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GovernanceRule) pulumi.StringArrayOutput { return v.ExcludedScopes }).(pulumi.StringArrayOutput)
+}
+
 func (o GovernanceRuleOutput) GovernanceEmailNotification() GovernanceRuleEmailNotificationResponsePtrOutput {
 	return o.ApplyT(func(v *GovernanceRule) GovernanceRuleEmailNotificationResponsePtrOutput {
 		return v.GovernanceEmailNotification
 	}).(GovernanceRuleEmailNotificationResponsePtrOutput)
+}
+
+func (o GovernanceRuleOutput) IncludeMemberScopes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GovernanceRule) pulumi.BoolPtrOutput { return v.IncludeMemberScopes }).(pulumi.BoolPtrOutput)
 }
 
 func (o GovernanceRuleOutput) IsDisabled() pulumi.BoolPtrOutput {
@@ -167,6 +183,10 @@ func (o GovernanceRuleOutput) IsDisabled() pulumi.BoolPtrOutput {
 
 func (o GovernanceRuleOutput) IsGracePeriod() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GovernanceRule) pulumi.BoolPtrOutput { return v.IsGracePeriod }).(pulumi.BoolPtrOutput)
+}
+
+func (o GovernanceRuleOutput) Metadata() GovernanceRuleMetadataResponsePtrOutput {
+	return o.ApplyT(func(v *GovernanceRule) GovernanceRuleMetadataResponsePtrOutput { return v.Metadata }).(GovernanceRuleMetadataResponsePtrOutput)
 }
 
 func (o GovernanceRuleOutput) Name() pulumi.StringOutput {
@@ -191,6 +211,10 @@ func (o GovernanceRuleOutput) RuleType() pulumi.StringOutput {
 
 func (o GovernanceRuleOutput) SourceResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GovernanceRule) pulumi.StringOutput { return v.SourceResourceType }).(pulumi.StringOutput)
+}
+
+func (o GovernanceRuleOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GovernanceRule) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }
 
 func (o GovernanceRuleOutput) Type() pulumi.StringOutput {

@@ -25,10 +25,10 @@ class GovernanceAssignmentAdditionalDataArgs:
                  ticket_number: Optional[pulumi.Input[int]] = None,
                  ticket_status: Optional[pulumi.Input[str]] = None):
         """
-        Describe the additional data of GovernanceAssignment - optional
-        :param pulumi.Input[str] ticket_link: Ticket link associated with this GovernanceAssignment - for example: https://snow.com
-        :param pulumi.Input[int] ticket_number: Ticket number associated with this GovernanceAssignment
-        :param pulumi.Input[str] ticket_status: The ticket status associated with this GovernanceAssignment - for example: Active
+        Describe the additional data of governance assignment - optional
+        :param pulumi.Input[str] ticket_link: Ticket link associated with this governance assignment - for example: https://snow.com
+        :param pulumi.Input[int] ticket_number: Ticket number associated with this governance assignment
+        :param pulumi.Input[str] ticket_status: The ticket status associated with this governance assignment - for example: Active
         """
         if ticket_link is not None:
             pulumi.set(__self__, "ticket_link", ticket_link)
@@ -41,7 +41,7 @@ class GovernanceAssignmentAdditionalDataArgs:
     @pulumi.getter(name="ticketLink")
     def ticket_link(self) -> Optional[pulumi.Input[str]]:
         """
-        Ticket link associated with this GovernanceAssignment - for example: https://snow.com
+        Ticket link associated with this governance assignment - for example: https://snow.com
         """
         return pulumi.get(self, "ticket_link")
 
@@ -53,7 +53,7 @@ class GovernanceAssignmentAdditionalDataArgs:
     @pulumi.getter(name="ticketNumber")
     def ticket_number(self) -> Optional[pulumi.Input[int]]:
         """
-        Ticket number associated with this GovernanceAssignment
+        Ticket number associated with this governance assignment
         """
         return pulumi.get(self, "ticket_number")
 
@@ -65,7 +65,7 @@ class GovernanceAssignmentAdditionalDataArgs:
     @pulumi.getter(name="ticketStatus")
     def ticket_status(self) -> Optional[pulumi.Input[str]]:
         """
-        The ticket status associated with this GovernanceAssignment - for example: Active
+        The ticket status associated with this governance assignment - for example: Active
         """
         return pulumi.get(self, "ticket_status")
 
@@ -120,9 +120,9 @@ class GovernanceRuleEmailNotificationArgs:
                  disable_manager_email_notification: Optional[pulumi.Input[bool]] = None,
                  disable_owner_email_notification: Optional[pulumi.Input[bool]] = None):
         """
-        The governance email weekly notification configuration.
-        :param pulumi.Input[bool] disable_manager_email_notification: Defines whether manager email notifications are disabled.
-        :param pulumi.Input[bool] disable_owner_email_notification: Defines whether owner email notifications are disabled.
+        The governance email weekly notification configuration
+        :param pulumi.Input[bool] disable_manager_email_notification: Defines whether manager email notifications are disabled
+        :param pulumi.Input[bool] disable_owner_email_notification: Defines whether owner email notifications are disabled
         """
         if disable_manager_email_notification is not None:
             pulumi.set(__self__, "disable_manager_email_notification", disable_manager_email_notification)
@@ -133,7 +133,7 @@ class GovernanceRuleEmailNotificationArgs:
     @pulumi.getter(name="disableManagerEmailNotification")
     def disable_manager_email_notification(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defines whether manager email notifications are disabled.
+        Defines whether manager email notifications are disabled
         """
         return pulumi.get(self, "disable_manager_email_notification")
 
@@ -145,7 +145,7 @@ class GovernanceRuleEmailNotificationArgs:
     @pulumi.getter(name="disableOwnerEmailNotification")
     def disable_owner_email_notification(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defines whether owner email notifications are disabled.
+        Defines whether owner email notifications are disabled
         """
         return pulumi.get(self, "disable_owner_email_notification")
 

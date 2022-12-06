@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Security GovernanceRule over a given scope
+ * Governance rule over a given scope
  */
 export class GovernanceRule extends pulumi.CustomResource {
     /**
@@ -38,17 +38,25 @@ export class GovernanceRule extends pulumi.CustomResource {
     }
 
     /**
-     * description of the governanceRule
+     * Description of the governance rule
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * display name of the governanceRule
+     * Display name of the governance rule
      */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Excluded scopes, filter out the descendants of the scope (on management scopes)
+     */
+    public readonly excludedScopes!: pulumi.Output<string[] | undefined>;
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
     public readonly governanceEmailNotification!: pulumi.Output<outputs.security.v20220101preview.GovernanceRuleEmailNotificationResponse | undefined>;
+    /**
+     * Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+     */
+    public readonly includeMemberScopes!: pulumi.Output<boolean | undefined>;
     /**
      * Defines whether the rule is active/inactive
      */
@@ -58,11 +66,15 @@ export class GovernanceRule extends pulumi.CustomResource {
      */
     public readonly isGracePeriod!: pulumi.Output<boolean | undefined>;
     /**
+     * The governance rule metadata
+     */
+    public /*out*/ readonly metadata!: pulumi.Output<outputs.security.v20220101preview.GovernanceRuleMetadataResponse | undefined>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+     * The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
      */
     public readonly ownerSource!: pulumi.Output<outputs.security.v20220101preview.GovernanceRuleOwnerSourceResponse>;
     /**
@@ -81,6 +93,10 @@ export class GovernanceRule extends pulumi.CustomResource {
      * The governance rule source, what the rule affects, e.g. Assessments
      */
     public readonly sourceResourceType!: pulumi.Output<string>;
+    /**
+     * The tenantId (GUID)
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -114,7 +130,9 @@ export class GovernanceRule extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["excludedScopes"] = args ? args.excludedScopes : undefined;
             resourceInputs["governanceEmailNotification"] = args ? args.governanceEmailNotification : undefined;
+            resourceInputs["includeMemberScopes"] = args ? args.includeMemberScopes : undefined;
             resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
             resourceInputs["isGracePeriod"] = args ? args.isGracePeriod : undefined;
             resourceInputs["ownerSource"] = args ? args.ownerSource : undefined;
@@ -123,20 +141,26 @@ export class GovernanceRule extends pulumi.CustomResource {
             resourceInputs["rulePriority"] = args ? args.rulePriority : undefined;
             resourceInputs["ruleType"] = args ? args.ruleType : undefined;
             resourceInputs["sourceResourceType"] = args ? args.sourceResourceType : undefined;
+            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["excludedScopes"] = undefined /*out*/;
             resourceInputs["governanceEmailNotification"] = undefined /*out*/;
+            resourceInputs["includeMemberScopes"] = undefined /*out*/;
             resourceInputs["isDisabled"] = undefined /*out*/;
             resourceInputs["isGracePeriod"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ownerSource"] = undefined /*out*/;
             resourceInputs["remediationTimeframe"] = undefined /*out*/;
             resourceInputs["rulePriority"] = undefined /*out*/;
             resourceInputs["ruleType"] = undefined /*out*/;
             resourceInputs["sourceResourceType"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -149,17 +173,25 @@ export class GovernanceRule extends pulumi.CustomResource {
  */
 export interface GovernanceRuleArgs {
     /**
-     * description of the governanceRule
+     * Description of the governance rule
      */
     description?: pulumi.Input<string>;
     /**
-     * display name of the governanceRule
+     * Display name of the governance rule
      */
     displayName: pulumi.Input<string>;
+    /**
+     * Excluded scopes, filter out the descendants of the scope (on management scopes)
+     */
+    excludedScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
     governanceEmailNotification?: pulumi.Input<inputs.security.v20220101preview.GovernanceRuleEmailNotificationArgs>;
+    /**
+     * Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+     */
+    includeMemberScopes?: pulumi.Input<boolean>;
     /**
      * Defines whether the rule is active/inactive
      */
@@ -169,7 +201,7 @@ export interface GovernanceRuleArgs {
      */
     isGracePeriod?: pulumi.Input<boolean>;
     /**
-     * The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+     * The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
      */
     ownerSource: pulumi.Input<inputs.security.v20220101preview.GovernanceRuleOwnerSourceArgs>;
     /**
@@ -177,7 +209,7 @@ export interface GovernanceRuleArgs {
      */
     remediationTimeframe?: pulumi.Input<string>;
     /**
-     * The security GovernanceRule key - unique key for the standard GovernanceRule
+     * The governance rule key - unique key for the standard governance rule (GUID)
      */
     ruleId?: pulumi.Input<string>;
     /**

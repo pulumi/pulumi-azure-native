@@ -20,6 +20,11 @@ export const getSecurityConnectorGovernanceRule: typeof import("./getSecurityCon
 export const getSecurityConnectorGovernanceRuleOutput: typeof import("./getSecurityConnectorGovernanceRule").getSecurityConnectorGovernanceRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityConnectorGovernanceRule","getSecurityConnectorGovernanceRuleOutput"], () => require("./getSecurityConnectorGovernanceRule"));
 
+export { GetmanagementGroupGovernanceRuleArgs, GetmanagementGroupGovernanceRuleResult, GetmanagementGroupGovernanceRuleOutputArgs } from "./getmanagementGroupGovernanceRule";
+export const getmanagementGroupGovernanceRule: typeof import("./getmanagementGroupGovernanceRule").getmanagementGroupGovernanceRule = null as any;
+export const getmanagementGroupGovernanceRuleOutput: typeof import("./getmanagementGroupGovernanceRule").getmanagementGroupGovernanceRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getmanagementGroupGovernanceRule","getmanagementGroupGovernanceRuleOutput"], () => require("./getmanagementGroupGovernanceRule"));
+
 export { GovernanceAssignmentArgs } from "./governanceAssignment";
 export type GovernanceAssignment = import("./governanceAssignment").GovernanceAssignment;
 export const GovernanceAssignment: typeof import("./governanceAssignment").GovernanceAssignment = null as any;
@@ -29,6 +34,11 @@ export { GovernanceRuleArgs } from "./governanceRule";
 export type GovernanceRule = import("./governanceRule").GovernanceRule;
 export const GovernanceRule: typeof import("./governanceRule").GovernanceRule = null as any;
 utilities.lazyLoad(exports, ["GovernanceRule"], () => require("./governanceRule"));
+
+export { ManagementGroupGovernanceRuleArgs } from "./managementGroupGovernanceRule";
+export type ManagementGroupGovernanceRule = import("./managementGroupGovernanceRule").ManagementGroupGovernanceRule;
+export const ManagementGroupGovernanceRule: typeof import("./managementGroupGovernanceRule").ManagementGroupGovernanceRule = null as any;
+utilities.lazyLoad(exports, ["ManagementGroupGovernanceRule"], () => require("./managementGroupGovernanceRule"));
 
 export { SecurityConnectorGovernanceRuleArgs } from "./securityConnectorGovernanceRule";
 export type SecurityConnectorGovernanceRule = import("./securityConnectorGovernanceRule").SecurityConnectorGovernanceRule;
@@ -49,6 +59,8 @@ const _module = {
                 return new GovernanceRule(name, <any>undefined, { urn })
             case "azure-native:security/v20220101preview:SecurityConnectorGovernanceRule":
                 return new SecurityConnectorGovernanceRule(name, <any>undefined, { urn })
+            case "azure-native:security/v20220101preview:managementGroupGovernanceRule":
+                return new ManagementGroupGovernanceRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

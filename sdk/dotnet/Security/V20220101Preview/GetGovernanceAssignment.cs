@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public static class GetGovernanceAssignment
     {
         /// <summary>
-        /// Security GovernanceAssignment over a given scope
+        /// Governance assignment over a given scope
         /// </summary>
         public static Task<GetGovernanceAssignmentResult> InvokeAsync(GetGovernanceAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGovernanceAssignmentResult>("azure-native:security/v20220101preview:getGovernanceAssignment", args ?? new GetGovernanceAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security GovernanceAssignment over a given scope
+        /// Governance assignment over a given scope
         /// </summary>
         public static Output<GetGovernanceAssignmentResult> Invoke(GetGovernanceAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceAssignmentResult>("azure-native:security/v20220101preview:getGovernanceAssignment", args ?? new GetGovernanceAssignmentInvokeArgs(), options.WithDefaults());
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public sealed class GetGovernanceAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Assessment Key - Unique key for the assessment type
+        /// The Assessment Key - A unique key for the assessment type
         /// </summary>
         [Input("assessmentName", required: true)]
         public string AssessmentName { get; set; } = null!;
 
         /// <summary>
-        /// The security governance assignment key - the assessment key of the required governance assignment
+        /// The governance assignment key - the assessment key of the required governance assignment
         /// </summary>
         [Input("assignmentKey", required: true)]
         public string AssignmentKey { get; set; } = null!;
@@ -54,13 +54,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public sealed class GetGovernanceAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Assessment Key - Unique key for the assessment type
+        /// The Assessment Key - A unique key for the assessment type
         /// </summary>
         [Input("assessmentName", required: true)]
         public Input<string> AssessmentName { get; set; } = null!;
 
         /// <summary>
-        /// The security governance assignment key - the assessment key of the required governance assignment
+        /// The governance assignment key - the assessment key of the required governance assignment
         /// </summary>
         [Input("assignmentKey", required: true)]
         public Input<string> AssignmentKey { get; set; } = null!;

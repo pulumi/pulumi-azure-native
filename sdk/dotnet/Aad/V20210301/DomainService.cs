@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.Aad.V20210301
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20200101:DomainService"},
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20210501:DomainService"},
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20220901:DomainService"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20221201:DomainService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

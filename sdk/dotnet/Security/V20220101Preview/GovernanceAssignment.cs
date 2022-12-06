@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20220101Preview
 {
     /// <summary>
-    /// Security GovernanceAssignment over a given scope
+    /// Governance assignment over a given scope
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20220101preview:GovernanceAssignment")]
     public partial class GovernanceAssignment : global::Pulumi.CustomResource
@@ -115,13 +115,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public Input<Inputs.GovernanceAssignmentAdditionalDataArgs>? AdditionalData { get; set; }
 
         /// <summary>
-        /// The Assessment Key - Unique key for the assessment type
+        /// The Assessment Key - A unique key for the assessment type
         /// </summary>
         [Input("assessmentName", required: true)]
         public Input<string> AssessmentName { get; set; } = null!;
 
         /// <summary>
-        /// The security governance assignment key - the assessment key of the required governance assignment
+        /// The governance assignment key - the assessment key of the required governance assignment
         /// </summary>
         [Input("assignmentKey")]
         public Input<string>? AssignmentKey { get; set; }

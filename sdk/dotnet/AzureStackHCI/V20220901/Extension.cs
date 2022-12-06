@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220501:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221001:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

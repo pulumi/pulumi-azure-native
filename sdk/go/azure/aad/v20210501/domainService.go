@@ -73,6 +73,9 @@ func NewDomainService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:aad/v20220901:DomainService"),
 		},
+		{
+			Type: pulumi.String("azure-native:aad/v20221201:DomainService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DomainService

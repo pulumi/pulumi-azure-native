@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetGovernanceAssignmentResult:
     """
-    Security GovernanceAssignment over a given scope
+    Governance assignment over a given scope
     """
     def __init__(__self__, additional_data=None, governance_email_notification=None, id=None, is_grace_period=None, name=None, owner=None, remediation_due_date=None, remediation_eta=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
@@ -146,11 +146,11 @@ def get_governance_assignment(assessment_name: Optional[str] = None,
                               scope: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGovernanceAssignmentResult:
     """
-    Security GovernanceAssignment over a given scope
+    Governance assignment over a given scope
 
 
-    :param str assessment_name: The Assessment Key - Unique key for the assessment type
-    :param str assignment_key: The security governance assignment key - the assessment key of the required governance assignment
+    :param str assessment_name: The Assessment Key - A unique key for the assessment type
+    :param str assignment_key: The governance assignment key - the assessment key of the required governance assignment
     :param str scope: Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
     """
     __args__ = dict()
@@ -178,11 +178,11 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]
                                      scope: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceAssignmentResult]:
     """
-    Security GovernanceAssignment over a given scope
+    Governance assignment over a given scope
 
 
-    :param str assessment_name: The Assessment Key - Unique key for the assessment type
-    :param str assignment_key: The security governance assignment key - the assessment key of the required governance assignment
+    :param str assessment_name: The Assessment Key - A unique key for the assessment type
+    :param str assignment_key: The governance assignment key - the assessment key of the required governance assignment
     :param str scope: Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
     """
     ...

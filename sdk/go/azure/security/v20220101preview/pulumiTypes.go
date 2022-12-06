@@ -690,6 +690,103 @@ func (o GovernanceRuleEmailNotificationResponsePtrOutput) DisableOwnerEmailNotif
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GovernanceRuleMetadataResponse struct {
+	CreatedBy string `pulumi:"createdBy"`
+	CreatedOn string `pulumi:"createdOn"`
+	UpdatedBy string `pulumi:"updatedBy"`
+	UpdatedOn string `pulumi:"updatedOn"`
+}
+
+type GovernanceRuleMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (GovernanceRuleMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GovernanceRuleMetadataResponse)(nil)).Elem()
+}
+
+func (o GovernanceRuleMetadataResponseOutput) ToGovernanceRuleMetadataResponseOutput() GovernanceRuleMetadataResponseOutput {
+	return o
+}
+
+func (o GovernanceRuleMetadataResponseOutput) ToGovernanceRuleMetadataResponseOutputWithContext(ctx context.Context) GovernanceRuleMetadataResponseOutput {
+	return o
+}
+
+func (o GovernanceRuleMetadataResponseOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GovernanceRuleMetadataResponse) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+func (o GovernanceRuleMetadataResponseOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GovernanceRuleMetadataResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GovernanceRuleMetadataResponseOutput) UpdatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GovernanceRuleMetadataResponse) string { return v.UpdatedBy }).(pulumi.StringOutput)
+}
+
+func (o GovernanceRuleMetadataResponseOutput) UpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GovernanceRuleMetadataResponse) string { return v.UpdatedOn }).(pulumi.StringOutput)
+}
+
+type GovernanceRuleMetadataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GovernanceRuleMetadataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GovernanceRuleMetadataResponse)(nil)).Elem()
+}
+
+func (o GovernanceRuleMetadataResponsePtrOutput) ToGovernanceRuleMetadataResponsePtrOutput() GovernanceRuleMetadataResponsePtrOutput {
+	return o
+}
+
+func (o GovernanceRuleMetadataResponsePtrOutput) ToGovernanceRuleMetadataResponsePtrOutputWithContext(ctx context.Context) GovernanceRuleMetadataResponsePtrOutput {
+	return o
+}
+
+func (o GovernanceRuleMetadataResponsePtrOutput) Elem() GovernanceRuleMetadataResponseOutput {
+	return o.ApplyT(func(v *GovernanceRuleMetadataResponse) GovernanceRuleMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GovernanceRuleMetadataResponse
+		return ret
+	}).(GovernanceRuleMetadataResponseOutput)
+}
+
+func (o GovernanceRuleMetadataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GovernanceRuleMetadataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GovernanceRuleMetadataResponsePtrOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GovernanceRuleMetadataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedOn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GovernanceRuleMetadataResponsePtrOutput) UpdatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GovernanceRuleMetadataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpdatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GovernanceRuleMetadataResponsePtrOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GovernanceRuleMetadataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpdatedOn
+	}).(pulumi.StringPtrOutput)
+}
+
 type GovernanceRuleOwnerSource struct {
 	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
@@ -1002,6 +1099,8 @@ func init() {
 	pulumi.RegisterOutputType(GovernanceRuleEmailNotificationPtrOutput{})
 	pulumi.RegisterOutputType(GovernanceRuleEmailNotificationResponseOutput{})
 	pulumi.RegisterOutputType(GovernanceRuleEmailNotificationResponsePtrOutput{})
+	pulumi.RegisterOutputType(GovernanceRuleMetadataResponseOutput{})
+	pulumi.RegisterOutputType(GovernanceRuleMetadataResponsePtrOutput{})
 	pulumi.RegisterOutputType(GovernanceRuleOwnerSourceOutput{})
 	pulumi.RegisterOutputType(GovernanceRuleOwnerSourceResponseOutput{})
 	pulumi.RegisterOutputType(RemediationEtaOutput{})

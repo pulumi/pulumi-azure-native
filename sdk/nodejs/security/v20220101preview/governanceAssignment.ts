@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Security GovernanceAssignment over a given scope
+ * Governance assignment over a given scope
  */
 export class GovernanceAssignment extends pulumi.CustomResource {
     /**
@@ -125,11 +125,11 @@ export interface GovernanceAssignmentArgs {
      */
     additionalData?: pulumi.Input<inputs.security.v20220101preview.GovernanceAssignmentAdditionalDataArgs>;
     /**
-     * The Assessment Key - Unique key for the assessment type
+     * The Assessment Key - A unique key for the assessment type
      */
     assessmentName: pulumi.Input<string>;
     /**
-     * The security governance assignment key - the assessment key of the required governance assignment
+     * The governance assignment key - the assessment key of the required governance assignment
      */
     assignmentKey?: pulumi.Input<string>;
     /**

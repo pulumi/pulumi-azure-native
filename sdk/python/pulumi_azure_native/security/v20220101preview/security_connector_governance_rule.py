@@ -25,26 +25,30 @@ class SecurityConnectorGovernanceRuleArgs:
                  security_connector_name: pulumi.Input[str],
                  source_resource_type: pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']],
                  description: Optional[pulumi.Input[str]] = None,
+                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  governance_email_notification: Optional[pulumi.Input['GovernanceRuleEmailNotificationArgs']] = None,
+                 include_member_scopes: Optional[pulumi.Input[bool]] = None,
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  is_grace_period: Optional[pulumi.Input[bool]] = None,
                  remediation_timeframe: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityConnectorGovernanceRule resource.
-        :param pulumi.Input[str] display_name: display name of the governanceRule
-        :param pulumi.Input['GovernanceRuleOwnerSourceArgs'] owner_source: The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        :param pulumi.Input[str] display_name: Display name of the governance rule
+        :param pulumi.Input['GovernanceRuleOwnerSourceArgs'] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
         :param pulumi.Input[Union[str, 'GovernanceRuleType']] rule_type: The rule type of the governance rule, defines the source of the rule e.g. Integrated
         :param pulumi.Input[str] security_connector_name: The security connector name.
         :param pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']] source_resource_type: The governance rule source, what the rule affects, e.g. Assessments
-        :param pulumi.Input[str] description: description of the governanceRule
+        :param pulumi.Input[str] description: Description of the governance rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_scopes: Excluded scopes, filter out the descendants of the scope (on management scopes)
         :param pulumi.Input['GovernanceRuleEmailNotificationArgs'] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
+        :param pulumi.Input[bool] include_member_scopes: Defines whether the rule is management scope rule (master connector as a single scope or management scope)
         :param pulumi.Input[bool] is_disabled: Defines whether the rule is active/inactive
         :param pulumi.Input[bool] is_grace_period: Defines whether there is a grace period on the governance rule
         :param pulumi.Input[str] remediation_timeframe: Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
-        :param pulumi.Input[str] rule_id: The security GovernanceRule key - unique key for the standard GovernanceRule
+        :param pulumi.Input[str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "owner_source", owner_source)
@@ -55,8 +59,12 @@ class SecurityConnectorGovernanceRuleArgs:
         pulumi.set(__self__, "source_resource_type", source_resource_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if excluded_scopes is not None:
+            pulumi.set(__self__, "excluded_scopes", excluded_scopes)
         if governance_email_notification is not None:
             pulumi.set(__self__, "governance_email_notification", governance_email_notification)
+        if include_member_scopes is not None:
+            pulumi.set(__self__, "include_member_scopes", include_member_scopes)
         if is_disabled is not None:
             pulumi.set(__self__, "is_disabled", is_disabled)
         if is_grace_period is not None:
@@ -70,7 +78,7 @@ class SecurityConnectorGovernanceRuleArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        display name of the governanceRule
+        Display name of the governance rule
         """
         return pulumi.get(self, "display_name")
 
@@ -82,7 +90,7 @@ class SecurityConnectorGovernanceRuleArgs:
     @pulumi.getter(name="ownerSource")
     def owner_source(self) -> pulumi.Input['GovernanceRuleOwnerSourceArgs']:
         """
-        The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         """
         return pulumi.get(self, "owner_source")
 
@@ -154,13 +162,25 @@ class SecurityConnectorGovernanceRuleArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        description of the governanceRule
+        Description of the governance rule
         """
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="excludedScopes")
+    def excluded_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Excluded scopes, filter out the descendants of the scope (on management scopes)
+        """
+        return pulumi.get(self, "excluded_scopes")
+
+    @excluded_scopes.setter
+    def excluded_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_scopes", value)
 
     @property
     @pulumi.getter(name="governanceEmailNotification")
@@ -173,6 +193,18 @@ class SecurityConnectorGovernanceRuleArgs:
     @governance_email_notification.setter
     def governance_email_notification(self, value: Optional[pulumi.Input['GovernanceRuleEmailNotificationArgs']]):
         pulumi.set(self, "governance_email_notification", value)
+
+    @property
+    @pulumi.getter(name="includeMemberScopes")
+    def include_member_scopes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+        """
+        return pulumi.get(self, "include_member_scopes")
+
+    @include_member_scopes.setter
+    def include_member_scopes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_member_scopes", value)
 
     @property
     @pulumi.getter(name="isDisabled")
@@ -214,7 +246,7 @@ class SecurityConnectorGovernanceRuleArgs:
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The security GovernanceRule key - unique key for the standard GovernanceRule
+        The governance rule key - unique key for the standard governance rule (GUID)
         """
         return pulumi.get(self, "rule_id")
 
@@ -230,7 +262,9 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  governance_email_notification: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']]] = None,
+                 include_member_scopes: Optional[pulumi.Input[bool]] = None,
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  is_grace_period: Optional[pulumi.Input[bool]] = None,
                  owner_source: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleOwnerSourceArgs']]] = None,
@@ -243,19 +277,21 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
                  source_resource_type: Optional[pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']]] = None,
                  __props__=None):
         """
-        Security GovernanceRule over a given scope
+        Governance rule over a given scope
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: description of the governanceRule
-        :param pulumi.Input[str] display_name: display name of the governanceRule
+        :param pulumi.Input[str] description: Description of the governance rule
+        :param pulumi.Input[str] display_name: Display name of the governance rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_scopes: Excluded scopes, filter out the descendants of the scope (on management scopes)
         :param pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
+        :param pulumi.Input[bool] include_member_scopes: Defines whether the rule is management scope rule (master connector as a single scope or management scope)
         :param pulumi.Input[bool] is_disabled: Defines whether the rule is active/inactive
         :param pulumi.Input[bool] is_grace_period: Defines whether there is a grace period on the governance rule
-        :param pulumi.Input[pulumi.InputType['GovernanceRuleOwnerSourceArgs']] owner_source: The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        :param pulumi.Input[pulumi.InputType['GovernanceRuleOwnerSourceArgs']] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         :param pulumi.Input[str] remediation_timeframe: Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[str] rule_id: The security GovernanceRule key - unique key for the standard GovernanceRule
+        :param pulumi.Input[str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
         :param pulumi.Input[int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
         :param pulumi.Input[Union[str, 'GovernanceRuleType']] rule_type: The rule type of the governance rule, defines the source of the rule e.g. Integrated
         :param pulumi.Input[str] security_connector_name: The security connector name.
@@ -268,7 +304,7 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
                  args: SecurityConnectorGovernanceRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Security GovernanceRule over a given scope
+        Governance rule over a given scope
 
         :param str resource_name: The name of the resource.
         :param SecurityConnectorGovernanceRuleArgs args: The arguments to use to populate this resource's properties.
@@ -287,7 +323,9 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  governance_email_notification: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleEmailNotificationArgs']]] = None,
+                 include_member_scopes: Optional[pulumi.Input[bool]] = None,
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  is_grace_period: Optional[pulumi.Input[bool]] = None,
                  owner_source: Optional[pulumi.Input[pulumi.InputType['GovernanceRuleOwnerSourceArgs']]] = None,
@@ -311,7 +349,9 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["excluded_scopes"] = excluded_scopes
             __props__.__dict__["governance_email_notification"] = governance_email_notification
+            __props__.__dict__["include_member_scopes"] = include_member_scopes
             __props__.__dict__["is_disabled"] = is_disabled
             __props__.__dict__["is_grace_period"] = is_grace_period
             if owner_source is None and not opts.urn:
@@ -334,7 +374,9 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
             if source_resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'source_resource_type'")
             __props__.__dict__["source_resource_type"] = source_resource_type
+            __props__.__dict__["metadata"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         super(SecurityConnectorGovernanceRule, __self__).__init__(
             'azure-native:security/v20220101preview:SecurityConnectorGovernanceRule',
@@ -360,15 +402,19 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
 
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["excluded_scopes"] = None
         __props__.__dict__["governance_email_notification"] = None
+        __props__.__dict__["include_member_scopes"] = None
         __props__.__dict__["is_disabled"] = None
         __props__.__dict__["is_grace_period"] = None
+        __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner_source"] = None
         __props__.__dict__["remediation_timeframe"] = None
         __props__.__dict__["rule_priority"] = None
         __props__.__dict__["rule_type"] = None
         __props__.__dict__["source_resource_type"] = None
+        __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return SecurityConnectorGovernanceRule(resource_name, opts=opts, __props__=__props__)
 
@@ -376,7 +422,7 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        description of the governanceRule
+        Description of the governance rule
         """
         return pulumi.get(self, "description")
 
@@ -384,9 +430,17 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        display name of the governanceRule
+        Display name of the governance rule
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="excludedScopes")
+    def excluded_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Excluded scopes, filter out the descendants of the scope (on management scopes)
+        """
+        return pulumi.get(self, "excluded_scopes")
 
     @property
     @pulumi.getter(name="governanceEmailNotification")
@@ -395,6 +449,14 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
         The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         """
         return pulumi.get(self, "governance_email_notification")
+
+    @property
+    @pulumi.getter(name="includeMemberScopes")
+    def include_member_scopes(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Defines whether the rule is management scope rule (master connector as a single scope or management scope)
+        """
+        return pulumi.get(self, "include_member_scopes")
 
     @property
     @pulumi.getter(name="isDisabled")
@@ -414,6 +476,14 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def metadata(self) -> pulumi.Output[Optional['outputs.GovernanceRuleMetadataResponse']]:
+        """
+        The governance rule metadata
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Resource name
@@ -424,7 +494,7 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
     @pulumi.getter(name="ownerSource")
     def owner_source(self) -> pulumi.Output['outputs.GovernanceRuleOwnerSourceResponse']:
         """
-        The Owner source for the governance rule - e.g. Manually by user@contoso.com - see example
+        The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         """
         return pulumi.get(self, "owner_source")
 
@@ -459,6 +529,14 @@ class SecurityConnectorGovernanceRule(pulumi.CustomResource):
         The governance rule source, what the rule affects, e.g. Assessments
         """
         return pulumi.get(self, "source_resource_type")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[str]:
+        """
+        The tenantId (GUID)
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

@@ -27,16 +27,20 @@ type LookupGovernanceRuleArgs struct {
 type LookupGovernanceRuleResult struct {
 	Description                 *string                                  `pulumi:"description"`
 	DisplayName                 string                                   `pulumi:"displayName"`
+	ExcludedScopes              []string                                 `pulumi:"excludedScopes"`
 	GovernanceEmailNotification *GovernanceRuleEmailNotificationResponse `pulumi:"governanceEmailNotification"`
 	Id                          string                                   `pulumi:"id"`
+	IncludeMemberScopes         *bool                                    `pulumi:"includeMemberScopes"`
 	IsDisabled                  *bool                                    `pulumi:"isDisabled"`
 	IsGracePeriod               *bool                                    `pulumi:"isGracePeriod"`
+	Metadata                    *GovernanceRuleMetadataResponse          `pulumi:"metadata"`
 	Name                        string                                   `pulumi:"name"`
 	OwnerSource                 GovernanceRuleOwnerSourceResponse        `pulumi:"ownerSource"`
 	RemediationTimeframe        *string                                  `pulumi:"remediationTimeframe"`
 	RulePriority                int                                      `pulumi:"rulePriority"`
 	RuleType                    string                                   `pulumi:"ruleType"`
 	SourceResourceType          string                                   `pulumi:"sourceResourceType"`
+	TenantId                    string                                   `pulumi:"tenantId"`
 	Type                        string                                   `pulumi:"type"`
 }
 
@@ -84,6 +88,10 @@ func (o LookupGovernanceRuleResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGovernanceRuleResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+func (o LookupGovernanceRuleResultOutput) ExcludedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGovernanceRuleResult) []string { return v.ExcludedScopes }).(pulumi.StringArrayOutput)
+}
+
 func (o LookupGovernanceRuleResultOutput) GovernanceEmailNotification() GovernanceRuleEmailNotificationResponsePtrOutput {
 	return o.ApplyT(func(v LookupGovernanceRuleResult) *GovernanceRuleEmailNotificationResponse {
 		return v.GovernanceEmailNotification
@@ -94,12 +102,20 @@ func (o LookupGovernanceRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGovernanceRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o LookupGovernanceRuleResultOutput) IncludeMemberScopes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupGovernanceRuleResult) *bool { return v.IncludeMemberScopes }).(pulumi.BoolPtrOutput)
+}
+
 func (o LookupGovernanceRuleResultOutput) IsDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGovernanceRuleResult) *bool { return v.IsDisabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupGovernanceRuleResultOutput) IsGracePeriod() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGovernanceRuleResult) *bool { return v.IsGracePeriod }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupGovernanceRuleResultOutput) Metadata() GovernanceRuleMetadataResponsePtrOutput {
+	return o.ApplyT(func(v LookupGovernanceRuleResult) *GovernanceRuleMetadataResponse { return v.Metadata }).(GovernanceRuleMetadataResponsePtrOutput)
 }
 
 func (o LookupGovernanceRuleResultOutput) Name() pulumi.StringOutput {
@@ -124,6 +140,10 @@ func (o LookupGovernanceRuleResultOutput) RuleType() pulumi.StringOutput {
 
 func (o LookupGovernanceRuleResultOutput) SourceResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGovernanceRuleResult) string { return v.SourceResourceType }).(pulumi.StringOutput)
+}
+
+func (o LookupGovernanceRuleResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGovernanceRuleResult) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 func (o LookupGovernanceRuleResultOutput) Type() pulumi.StringOutput {

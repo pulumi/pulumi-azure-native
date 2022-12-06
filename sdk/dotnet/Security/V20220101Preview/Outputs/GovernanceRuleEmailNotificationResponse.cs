@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Outputs
 {
 
     /// <summary>
-    /// The governance email weekly notification configuration.
+    /// The governance email weekly notification configuration
     /// </summary>
     [OutputType]
     public sealed class GovernanceRuleEmailNotificationResponse
     {
         /// <summary>
-        /// Defines whether manager email notifications are disabled.
+        /// Defines whether manager email notifications are disabled
         /// </summary>
         public readonly bool? DisableManagerEmailNotification;
         /// <summary>
-        /// Defines whether owner email notifications are disabled.
+        /// Defines whether owner email notifications are disabled
         /// </summary>
         public readonly bool? DisableOwnerEmailNotification;
 

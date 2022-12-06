@@ -91,7 +91,7 @@ export class ApiPortal extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:ApiPortal" }, { type: "azure-native:appplatform/v20220301preview:ApiPortal" }, { type: "azure-native:appplatform/v20220501preview:ApiPortal" }, { type: "azure-native:appplatform/v20220901preview:ApiPortal" }, { type: "azure-native:appplatform/v20221101preview:ApiPortal" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:ApiPortal" }, { type: "azure-native:appplatform/v20220301preview:ApiPortal" }, { type: "azure-native:appplatform/v20220501preview:ApiPortal" }, { type: "azure-native:appplatform/v20220901preview:ApiPortal" }, { type: "azure-native:appplatform/v20221101preview:ApiPortal" }, { type: "azure-native:appplatform/v20221201:ApiPortal" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiPortal.__pulumiType, name, resourceInputs, opts);
     }

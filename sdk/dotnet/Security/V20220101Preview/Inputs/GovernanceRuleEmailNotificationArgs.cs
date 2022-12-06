@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.Security.V20220101Preview.Inputs
 {
 
     /// <summary>
-    /// The governance email weekly notification configuration.
+    /// The governance email weekly notification configuration
     /// </summary>
     public sealed class GovernanceRuleEmailNotificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines whether manager email notifications are disabled.
+        /// Defines whether manager email notifications are disabled
         /// </summary>
         [Input("disableManagerEmailNotification")]
         public Input<bool>? DisableManagerEmailNotification { get; set; }
 
         /// <summary>
-        /// Defines whether owner email notifications are disabled.
+        /// Defines whether owner email notifications are disabled
         /// </summary>
         [Input("disableOwnerEmailNotification")]
         public Input<bool>? DisableOwnerEmailNotification { get; set; }
