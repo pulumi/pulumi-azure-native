@@ -6504,15 +6504,18 @@
     ],
     "clusters": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "datastores": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "hosts": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "locations": [
       "2020-10-01-preview",
@@ -6537,34 +6540,41 @@
     ],
     "resourcepools": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "vcenters": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "vcenters/inventoryitems": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "virtualmachines": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "virtualmachines/assesspatches": [
       "2022-01-10-preview"
     ],
     "virtualmachines/extensions": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "virtualmachines/guestagents": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "virtualmachines/hybrididentitymetadata": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "virtualmachines/installpatches": [
       "2022-01-10-preview"
@@ -6574,11 +6584,13 @@
     ],
     "virtualmachinetemplates": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ],
     "virtualnetworks": [
       "2020-10-01-preview",
-      "2022-01-10-preview"
+      "2022-01-10-preview",
+      "2022-07-15-preview"
     ]
   },
   "consumption": {
@@ -29400,19 +29412,12 @@
   },
   "usagebilling": {
     "": [
-      "2021-05-01-preview"
-    ],
-    "accounts": [
-      "2021-05-01-preview"
-    ],
-    "locations": [
-      "2021-05-01-preview"
-    ],
-    "locations/operationresults": [
-      "2021-05-01-preview"
+      "2021-05-01-preview",
+      "2022-09-01-preview"
     ],
     "operations": [
-      "2021-05-01-preview"
+      "2021-05-01-preview",
+      "2022-09-01-preview"
     ]
   },
   "videoindexer": {

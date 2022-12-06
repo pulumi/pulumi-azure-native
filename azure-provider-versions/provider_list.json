@@ -8391,6 +8391,7 @@
       {
         "resourceType": "VCenters",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8416,6 +8417,7 @@
       {
         "resourceType": "clusters",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8423,6 +8425,7 @@
       {
         "resourceType": "datastores",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8430,6 +8433,7 @@
       {
         "resourceType": "hosts",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8443,6 +8447,7 @@
       {
         "resourceType": "resourcepools",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8450,6 +8455,7 @@
       {
         "resourceType": "vcenters/inventoryitems",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8457,6 +8463,7 @@
       {
         "resourceType": "virtualmachines",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8464,6 +8471,7 @@
       {
         "resourceType": "virtualmachines/extensions",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8471,6 +8479,7 @@
       {
         "resourceType": "virtualmachines/guestagents",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8478,6 +8487,7 @@
       {
         "resourceType": "virtualmachines/hybrididentitymetadata",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8485,6 +8495,7 @@
       {
         "resourceType": "virtualmachinetemplates",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -8492,6 +8503,7 @@
       {
         "resourceType": "virtualnetworks",
         "apiVersions": [
+          "2022-07-15-preview",
           "2022-01-10-preview",
           "2020-10-01-preview"
         ]
@@ -35790,26 +35802,9 @@
     "namespace": "Microsoft.UsageBilling",
     "resourceTypes": [
       {
-        "resourceType": "accounts",
-        "apiVersions": [
-          "2021-05-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations",
-        "apiVersions": [
-          "2021-05-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations/operationResults",
-        "apiVersions": [
-          "2021-05-01-preview"
-        ]
-      },
-      {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-09-01-preview",
           "2021-05-01-preview"
         ]
       }
