@@ -18260,6 +18260,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "redhatopenshift/v20220904",
+  "fqn": "pulumi_azure_native.redhatopenshift.v20220904",
+  "classes": {
+   "azure-native:redhatopenshift/v20220904:MachinePool": "MachinePool",
+   "azure-native:redhatopenshift/v20220904:OpenShiftCluster": "OpenShiftCluster",
+   "azure-native:redhatopenshift/v20220904:Secret": "Secret",
+   "azure-native:redhatopenshift/v20220904:SyncIdentityProvider": "SyncIdentityProvider",
+   "azure-native:redhatopenshift/v20220904:SyncSet": "SyncSet"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "relay",
   "fqn": "pulumi_azure_native.relay",
   "classes": {

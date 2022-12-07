@@ -26576,6 +26576,7 @@
       {
         "resourceType": "OpenShiftClusters",
         "apiVersions": [
+          "2022-09-04",
           "2022-04-01",
           "2021-09-01-preview",
           "2020-04-30"
@@ -26584,6 +26585,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-09-04",
           "2022-04-01",
           "2021-09-01-preview",
           "2020-04-30",
@@ -26593,6 +26595,7 @@
       {
         "resourceType": "locations/operationresults",
         "apiVersions": [
+          "2022-09-04",
           "2022-04-01",
           "2021-09-01-preview",
           "2020-04-30"
@@ -26601,6 +26604,7 @@
       {
         "resourceType": "locations/operationsstatus",
         "apiVersions": [
+          "2022-09-04",
           "2022-04-01",
           "2021-09-01-preview",
           "2020-04-30"
@@ -26609,6 +26613,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-09-04",
           "2022-04-01",
           "2021-09-01-preview",
           "2020-04-30",
@@ -35520,6 +35525,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-09-15-preview",
           "2022-08-01-preview",
           "2022-05-01-preview",
@@ -35533,6 +35539,7 @@
       {
         "resourceType": "locations/operationstatuses",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-09-15-preview",
           "2022-08-01-preview",
           "2022-05-01-preview",
@@ -35546,6 +35553,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-09-15-preview",
           "2022-08-01-preview",
           "2022-05-01-preview",
@@ -35559,6 +35567,7 @@
       {
         "resourceType": "skus",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-09-15-preview",
           "2022-08-01-preview",
           "2022-05-01-preview",
@@ -35572,6 +35581,7 @@
       {
         "resourceType": "testBaseAccounts",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35581,8 +35591,15 @@
         ]
       },
       {
+        "resourceType": "testBaseAccounts/availableInplaceUpgradeOSs",
+        "apiVersions": [
+          "2022-11-01-preview"
+        ]
+      },
+      {
         "resourceType": "testBaseAccounts/availableOSs",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35594,6 +35611,7 @@
       {
         "resourceType": "testBaseAccounts/customerEvents",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35605,6 +35623,7 @@
       {
         "resourceType": "testBaseAccounts/emailEvents",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35616,12 +35635,20 @@
       {
         "resourceType": "testBaseAccounts/featureUpdateSupportedOses",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "testBaseAccounts/firstPartyApps",
+        "apiVersions": [
+          "2022-11-01-preview"
         ]
       },
       {
         "resourceType": "testBaseAccounts/flightingRings",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35633,6 +35660,7 @@
       {
         "resourceType": "testBaseAccounts/packages",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35644,6 +35672,7 @@
       {
         "resourceType": "testBaseAccounts/packages/favoriteProcesses",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35655,6 +35684,7 @@
       {
         "resourceType": "testBaseAccounts/packages/osUpdates",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35666,6 +35696,7 @@
       {
         "resourceType": "testBaseAccounts/packages/testResults",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35677,6 +35708,7 @@
       {
         "resourceType": "testBaseAccounts/packages/testResults/analysisResults",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35688,6 +35720,7 @@
       {
         "resourceType": "testBaseAccounts/testSummaries",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35699,6 +35732,7 @@
       {
         "resourceType": "testBaseAccounts/testTypes",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -35710,6 +35744,7 @@
       {
         "resourceType": "testBaseAccounts/usages",
         "apiVersions": [
+          "2022-11-01-preview",
           "2022-08-01-preview",
           "2022-04-01-preview",
           "2022-03-01-preview",
@@ -36132,13 +36167,19 @@
     "namespace": "Microsoft.VoiceServices",
     "resourceTypes": [
       {
-        "resourceType": "Locations",
+        "resourceType": "Operations",
         "apiVersions": [
           "2022-12-01-preview"
         ]
       },
       {
-        "resourceType": "Operations",
+        "resourceType": "locations",
+        "apiVersions": [
+          "2022-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
           "2022-12-01-preview"
         ]
@@ -37730,6 +37771,8 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2022-11-01-preview",
+          "2022-10-15-preview",
           "2021-12-01-preview"
         ]
       },

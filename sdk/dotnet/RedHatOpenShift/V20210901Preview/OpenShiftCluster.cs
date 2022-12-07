@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift:OpenShiftCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20200430:OpenShiftCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220401:OpenShiftCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220904:OpenShiftCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
