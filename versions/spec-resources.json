@@ -12405,19 +12405,34 @@
     ]
   },
   "RedHatOpenShift": {
+    "MachinePool": [
+      "2022-09-04"
+    ],
     "OpenShiftCluster": [
       "2020-04-30",
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
+    ],
+    "Secret": [
+      "2022-09-04"
+    ],
+    "SyncIdentityProvider": [
+      "2022-09-04"
+    ],
+    "SyncSet": [
+      "2022-09-04"
     ],
     "listOpenShiftClusterAdminCredentials": [
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
     ],
     "listOpenShiftClusterCredentials": [
       "2020-04-30",
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
     ]
   },
   "Relay": {

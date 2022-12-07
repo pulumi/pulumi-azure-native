@@ -21953,34 +21953,40 @@
       "2019-12-31-preview",
       "2020-04-30",
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
     ],
     "locations": [
       "2019-12-31-preview",
       "2020-04-30",
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
     ],
     "locations/operationresults": [
       "2020-04-30",
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
     ],
     "locations/operationsstatus": [
       "2020-04-30",
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
     ],
     "openshiftclusters": [
       "2020-04-30",
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
     ],
     "operations": [
       "2019-12-31-preview",
       "2020-04-30",
       "2021-09-01-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-09-04"
     ]
   },
   "relay": {
@@ -29200,7 +29206,8 @@
       "2022-04-01-preview",
       "2022-05-01-preview",
       "2022-08-01-preview",
-      "2022-09-15-preview"
+      "2022-09-15-preview",
+      "2022-11-01-preview"
     ],
     "locations": [
       "2020-12-16-preview",
@@ -29210,7 +29217,8 @@
       "2022-04-01-preview",
       "2022-05-01-preview",
       "2022-08-01-preview",
-      "2022-09-15-preview"
+      "2022-09-15-preview",
+      "2022-11-01-preview"
     ],
     "locations/operationstatuses": [
       "2020-12-16-preview",
@@ -29220,7 +29228,8 @@
       "2022-04-01-preview",
       "2022-05-01-preview",
       "2022-08-01-preview",
-      "2022-09-15-preview"
+      "2022-09-15-preview",
+      "2022-11-01-preview"
     ],
     "operations": [
       "2020-12-16-preview",
@@ -29230,7 +29239,8 @@
       "2022-04-01-preview",
       "2022-05-01-preview",
       "2022-08-01-preview",
-      "2022-09-15-preview"
+      "2022-09-15-preview",
+      "2022-11-01-preview"
     ],
     "skus": [
       "2020-12-16-preview",
@@ -29240,7 +29250,8 @@
       "2022-04-01-preview",
       "2022-05-01-preview",
       "2022-08-01-preview",
-      "2022-09-15-preview"
+      "2022-09-15-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts": [
       "2020-12-16-preview",
@@ -29248,7 +29259,11 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
+    ],
+    "testbaseaccounts/availableinplaceupgradeoss": [
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/availableoss": [
       "2020-12-16-preview",
@@ -29256,7 +29271,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/customerevents": [
       "2020-12-16-preview",
@@ -29264,7 +29280,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/emailevents": [
       "2020-12-16-preview",
@@ -29272,10 +29289,15 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/featureupdatesupportedoses": [
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
+    ],
+    "testbaseaccounts/firstpartyapps": [
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/flightingrings": [
       "2020-12-16-preview",
@@ -29283,7 +29305,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/packages": [
       "2020-12-16-preview",
@@ -29291,7 +29314,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/packages/favoriteprocesses": [
       "2020-12-16-preview",
@@ -29299,7 +29323,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/packages/osupdates": [
       "2020-12-16-preview",
@@ -29307,7 +29332,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/packages/testresults": [
       "2020-12-16-preview",
@@ -29315,7 +29341,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/packages/testresults/analysisresults": [
       "2020-12-16-preview",
@@ -29323,7 +29350,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/testsummaries": [
       "2020-12-16-preview",
@@ -29331,7 +29359,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/testtypes": [
       "2020-12-16-preview",
@@ -29339,7 +29368,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ],
     "testbaseaccounts/usages": [
       "2020-12-16-preview",
@@ -29347,7 +29377,8 @@
       "2021-12-01",
       "2022-03-01-preview",
       "2022-04-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2022-11-01-preview"
     ]
   },
   "timeseriesinsights": {
@@ -29639,6 +29670,9 @@
       "2022-12-01-preview"
     ],
     "locations": [
+      "2022-12-01-preview"
+    ],
+    "locations/checknameavailability": [
       "2022-12-01-preview"
     ],
     "operations": [
@@ -31069,7 +31103,9 @@
       "2022-11-01-preview"
     ],
     "locations/operationstatuses": [
-      "2021-12-01-preview"
+      "2021-12-01-preview",
+      "2022-10-15-preview",
+      "2022-11-01-preview"
     ],
     "locations/sapvirtualinstancemetadata": [
       "2021-12-01-preview"

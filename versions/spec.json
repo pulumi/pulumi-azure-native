@@ -11890,6 +11890,15 @@
       "OpenShiftCluster",
       "listOpenShiftClusterAdminCredentials",
       "listOpenShiftClusterCredentials"
+    ],
+    "2022-09-04": [
+      "MachinePool",
+      "OpenShiftCluster",
+      "Secret",
+      "SyncIdentityProvider",
+      "SyncSet",
+      "listOpenShiftClusterAdminCredentials",
+      "listOpenShiftClusterCredentials"
     ]
   },
   "Relay": {
