@@ -2,7 +2,15 @@
 
 ## HEAD (Unreleased)
 
-- Add ServiceNetworking resource provider
+## 1.89.0 (2022-12-08)
+
+- Upgrade to latest version of Azure Rest API Specs
+  - New resource provider: `ServiceNetworking`
+  - New resources:
+    - `servicenetworking.AssociationsInterface`
+    - `servicenetworking.FrontendsInterface`
+    - `servicenetworking.TrafficControllerInterface`
+  - New API versions
 
 ## 1.88.0 (2022-12-01)
 
