@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The order details.
  */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20210601:getOrder", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

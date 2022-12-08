@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * SecurityPolicy association for AzureFrontDoor profile
  */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getSecurityPolicy", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

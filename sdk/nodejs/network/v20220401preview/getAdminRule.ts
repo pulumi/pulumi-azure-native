@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */
 export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleResult> {
     pulumi.log.warn("getAdminRule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getAdminRule", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

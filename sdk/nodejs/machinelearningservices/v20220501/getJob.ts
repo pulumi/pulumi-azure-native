@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220501:getJob", {
         "id": args.id,
         "resourceGroupName": args.resourceGroupName,

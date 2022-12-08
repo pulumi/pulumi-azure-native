@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * DigitalTwinsInstance endpoint resource.
  */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20201201:getDigitalTwinsEndpoint", {
         "endpointName": args.endpointName,
         "resourceGroupName": args.resourceGroupName,

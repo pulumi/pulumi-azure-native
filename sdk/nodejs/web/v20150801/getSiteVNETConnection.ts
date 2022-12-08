@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteVNETConnection(args: GetSiteVNETConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteVNETConnectionResult> {
     pulumi.log.warn("getSiteVNETConnection is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteVNETConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

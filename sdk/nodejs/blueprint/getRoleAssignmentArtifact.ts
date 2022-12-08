@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-11-01-preview.
  */
 export function getRoleAssignmentArtifact(args: GetRoleAssignmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentArtifactResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint:getRoleAssignmentArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

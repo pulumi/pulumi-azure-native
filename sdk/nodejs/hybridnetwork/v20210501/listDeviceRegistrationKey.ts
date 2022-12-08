@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The device registration key.
  */
 export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceRegistrationKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20210501:listDeviceRegistrationKey", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

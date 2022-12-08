@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDatabaseAccountCassandraTable(args: GetDatabaseAccountCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraTableResult> {
     pulumi.log.warn("getDatabaseAccountCassandraTable is deprecated: Version 2015-04-01 will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20150401:getDatabaseAccountCassandraTable", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,

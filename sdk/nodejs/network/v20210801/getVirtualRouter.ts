@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * VirtualRouter Resource.
  */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210801:getVirtualRouter", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

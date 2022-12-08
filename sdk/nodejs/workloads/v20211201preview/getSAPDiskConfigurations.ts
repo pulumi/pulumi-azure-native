@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of disk configuration for vmSku which are part of SAP deployment.
  */
 export function getSAPDiskConfigurations(args: GetSAPDiskConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDiskConfigurationsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPDiskConfigurations", {
         "appLocation": args.appLocation,
         "databaseType": args.databaseType,

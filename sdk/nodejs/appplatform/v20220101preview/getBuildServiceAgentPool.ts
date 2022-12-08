@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The build service agent pool resource
  */
 export function getBuildServiceAgentPool(args: GetBuildServiceAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceAgentPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getBuildServiceAgentPool", {
         "agentPoolName": args.agentPoolName,
         "buildServiceName": args.buildServiceName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Response for the ListAvailableContacts API service call.
  */
 export function listSpacecraftAvailableContacts(args: ListSpacecraftAvailableContactsArgs, opts?: pulumi.InvokeOptions): Promise<ListSpacecraftAvailableContactsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital/v20220301:listSpacecraftAvailableContacts", {
         "contactProfile": args.contactProfile,
         "endTime": args.endTime,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Job Definition.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybriddata/v20190601:getJobDefinition", {
         "dataManagerName": args.dataManagerName,
         "dataServiceName": args.dataServiceName,

@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Represents the serial port of the parent resource.
  */
 export function getSerialPort(args: GetSerialPortArgs, opts?: pulumi.InvokeOptions): Promise<GetSerialPortResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:serialconsole/v20180501:getSerialPort", {
         "parentResource": args.parentResource,
         "parentResourceType": args.parentResourceType,

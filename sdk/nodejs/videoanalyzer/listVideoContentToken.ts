@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-11-01-preview.
  */
 export function listVideoContentToken(args: ListVideoContentTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListVideoContentTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer:listVideoContentToken", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

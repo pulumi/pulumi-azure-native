@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * String dictionary resource
  */
 export function listSiteMetadata(args: ListSiteMetadataArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteMetadataResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteMetadata", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

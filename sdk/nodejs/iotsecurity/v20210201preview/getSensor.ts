@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * IoT sensor model
  */
 export function getSensor(args: GetSensorArgs, opts?: pulumi.InvokeOptions): Promise<GetSensorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotsecurity/v20210201preview:getSensor", {
         "scope": args.scope,
         "sensorName": args.sensorName,

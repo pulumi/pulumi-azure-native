@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * HealthBot resource definition
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthbot/v20201208:getBot", {
         "botName": args.botName,
         "resourceGroupName": args.resourceGroupName,

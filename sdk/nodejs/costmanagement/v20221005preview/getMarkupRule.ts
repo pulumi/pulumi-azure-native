@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Markup rule
  */
 export function getMarkupRule(args: GetMarkupRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMarkupRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20221005preview:getMarkupRule", {
         "billingAccountId": args.billingAccountId,
         "billingProfileId": args.billingProfileId,

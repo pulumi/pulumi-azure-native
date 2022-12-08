@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The virtual machine resource definition.
  */
 export function getvirtualmachineRetrieve(args: GetvirtualmachineRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualmachineRetrieveResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getvirtualmachineRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "virtualmachinesName": args.virtualmachinesName,

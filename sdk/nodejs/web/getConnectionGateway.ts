@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2016-06-01.
  */
 export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getConnectionGateway", {
         "connectionGatewayName": args.connectionGatewayName,
         "resourceGroupName": args.resourceGroupName,

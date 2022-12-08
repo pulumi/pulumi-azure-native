@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-04-16.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getScheduledQueryRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

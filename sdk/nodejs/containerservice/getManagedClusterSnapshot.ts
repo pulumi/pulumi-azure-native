@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-02-02-preview.
  */
 export function getManagedClusterSnapshot(args: GetManagedClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterSnapshotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice:getManagedClusterSnapshot", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

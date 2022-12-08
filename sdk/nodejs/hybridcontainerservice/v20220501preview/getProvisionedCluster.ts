@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The provisionedClusters resource definition.
  */
 export function getProvisionedCluster(args: GetProvisionedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisionedClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20220501preview:getProvisionedCluster", {
         "provisionedClustersName": args.provisionedClustersName,
         "resourceGroupName": args.resourceGroupName,

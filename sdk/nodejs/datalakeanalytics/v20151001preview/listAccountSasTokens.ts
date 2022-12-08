@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The SAS response that contains the storage account, container and associated SAS token for connection use.
  */
 export function listAccountSasTokens(args: ListAccountSasTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountSasTokensResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20151001preview:listAccountSasTokens", {
         "accountName": args.accountName,
         "containerName": args.containerName,

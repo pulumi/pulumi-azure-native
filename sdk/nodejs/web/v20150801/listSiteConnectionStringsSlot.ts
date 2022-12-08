@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * String dictionary resource
  */
 export function listSiteConnectionStringsSlot(args: ListSiteConnectionStringsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteConnectionStringsSlotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteConnectionStringsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

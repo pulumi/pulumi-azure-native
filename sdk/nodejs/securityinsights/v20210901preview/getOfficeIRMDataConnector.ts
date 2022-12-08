@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
  */
 export function getOfficeIRMDataConnector(args: GetOfficeIRMDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeIRMDataConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210901preview:getOfficeIRMDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

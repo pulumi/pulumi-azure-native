@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
  */
 export function getContainerAppsAuthConfig(args: GetContainerAppsAuthConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsAuthConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220301:getContainerAppsAuthConfig", {
         "authConfigName": args.authConfigName,
         "containerAppName": args.containerAppName,

@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The endpoint access for the target resource.
  */
 export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20220501preview:listEndpointCredentials", {
         "endpointName": args.endpointName,
         "expiresin": args.expiresin,

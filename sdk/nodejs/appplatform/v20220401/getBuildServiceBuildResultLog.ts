@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Build result log resource properties payload
  */
 export function getBuildServiceBuildResultLog(args: GetBuildServiceBuildResultLogArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuildResultLogResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220401:getBuildServiceBuildResultLog", {
         "buildName": args.buildName,
         "buildResultName": args.buildResultName,

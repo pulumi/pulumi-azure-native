@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Private Endpoint Connection ARM resource.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getPrivateEndpointConnection", {
         "factoryName": args.factoryName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

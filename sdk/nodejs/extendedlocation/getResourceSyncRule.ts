@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-08-31-preview.
  */
 export function getResourceSyncRule(args: GetResourceSyncRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSyncRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:extendedlocation:getResourceSyncRule", {
         "childResourceName": args.childResourceName,
         "resourceGroupName": args.resourceGroupName,

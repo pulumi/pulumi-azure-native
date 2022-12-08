@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents an incident in Azure Security Insights.
  */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221101:getIncident", {
         "incidentId": args.incidentId,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-01-01.
  */
 export function getJitNetworkAccessPolicy(args: GetJitNetworkAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetJitNetworkAccessPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getJitNetworkAccessPolicy", {
         "ascLocation": args.ascLocation,
         "jitNetworkAccessPolicyName": args.jitNetworkAccessPolicyName,

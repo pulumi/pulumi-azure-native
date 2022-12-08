@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The container for solution.
  */
 export function getManagementAssociation(args: GetManagementAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", {
         "managementAssociationName": args.managementAssociationName,
         "providerName": args.providerName,

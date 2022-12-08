@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The description of the Windows IoT Device Service.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:windowsiot/v20190601:getService", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

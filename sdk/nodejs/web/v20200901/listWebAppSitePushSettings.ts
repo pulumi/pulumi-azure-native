@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Push settings for the App.
  */
 export function listWebAppSitePushSettings(args: ListWebAppSitePushSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20200901:listWebAppSitePushSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

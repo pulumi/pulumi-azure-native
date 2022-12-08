@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-01-preview.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication:getDomain", {
         "domainName": args.domainName,
         "emailServiceName": args.emailServiceName,

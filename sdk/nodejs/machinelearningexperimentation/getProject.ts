@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2017-05-01-preview.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningexperimentation:getProject", {
         "accountName": args.accountName,
         "projectName": args.projectName,

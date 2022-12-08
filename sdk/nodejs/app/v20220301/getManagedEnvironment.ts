@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An environment for hosting container apps
  */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220301:getManagedEnvironment", {
         "environmentName": args.environmentName,
         "resourceGroupName": args.resourceGroupName,

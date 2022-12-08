@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-12-preview.
  */
 export function getFluidRelayServerKeys(args: GetFluidRelayServerKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:fluidrelay:getFluidRelayServerKeys", {
         "name": args.name,
         "resourceGroup": args.resourceGroup,

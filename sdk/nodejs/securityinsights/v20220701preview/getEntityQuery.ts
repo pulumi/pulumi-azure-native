@@ -13,11 +13,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Please use one of the variants: ActivityCustomEntityQuery. */
 export function getEntityQuery(args: GetEntityQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityQueryResult> {
     pulumi.log.warn("getEntityQuery is deprecated: Please use one of the variants: ActivityCustomEntityQuery.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220701preview:getEntityQuery", {
         "entityQueryId": args.entityQueryId,
         "resourceGroupName": args.resourceGroupName,

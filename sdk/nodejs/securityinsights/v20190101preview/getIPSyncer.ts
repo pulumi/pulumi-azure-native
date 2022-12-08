@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Settings with single toggle.
  */
 export function getIPSyncer(args: GetIPSyncerArgs, opts?: pulumi.InvokeOptions): Promise<GetIPSyncerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getIPSyncer", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

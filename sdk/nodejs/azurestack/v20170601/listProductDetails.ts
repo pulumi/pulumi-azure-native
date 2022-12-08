@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Extended description about the product required for installing it into Azure Stack.
  */
 export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductDetailsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20170601:listProductDetails", {
         "productName": args.productName,
         "registrationName": args.registrationName,

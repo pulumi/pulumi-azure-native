@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The container for solution.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationsmanagement/v20151101preview:getSolution", {
         "resourceGroupName": args.resourceGroupName,
         "solutionName": args.solutionName,

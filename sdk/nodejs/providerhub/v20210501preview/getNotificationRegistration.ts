@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The notification registration definition.
  */
 export function getNotificationRegistration(args: GetNotificationRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRegistrationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210501preview:getNotificationRegistration", {
         "notificationRegistrationName": args.notificationRegistrationName,
         "providerNamespace": args.providerNamespace,

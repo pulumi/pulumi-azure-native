@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-10-01-preview.
  */
 export function getBillingRoleAssignmentByBillingAccount(args: GetBillingRoleAssignmentByBillingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByBillingAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing:getBillingRoleAssignmentByBillingAccount", {
         "billingAccountName": args.billingAccountName,
         "billingRoleAssignmentName": args.billingRoleAssignmentName,

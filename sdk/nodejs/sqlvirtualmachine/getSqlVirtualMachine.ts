@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2017-03-01-preview.
  */
 export function getSqlVirtualMachine(args: GetSqlVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine:getSqlVirtualMachine", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

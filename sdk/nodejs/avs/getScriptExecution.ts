@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-01.
  */
 export function getScriptExecution(args: GetScriptExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getScriptExecution", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

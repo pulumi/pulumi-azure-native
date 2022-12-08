@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
  */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetOutputResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20170401preview:getOutput", {
         "jobName": args.jobName,
         "outputName": args.outputName,

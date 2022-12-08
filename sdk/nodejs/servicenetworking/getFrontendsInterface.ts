@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-10-01-preview.
  */
 export function getFrontendsInterface(args: GetFrontendsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontendsInterfaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking:getFrontendsInterface", {
         "frontendName": args.frontendName,
         "resourceGroupName": args.resourceGroupName,

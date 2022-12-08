@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
  */
 export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesEngineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200101:getRulesEngine", {
         "frontDoorName": args.frontDoorName,
         "resourceGroupName": args.resourceGroupName,

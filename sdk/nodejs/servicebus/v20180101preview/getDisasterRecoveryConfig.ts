@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
  */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getDisasterRecoveryConfig", {
         "alias": args.alias,
         "namespaceName": args.namespaceName,

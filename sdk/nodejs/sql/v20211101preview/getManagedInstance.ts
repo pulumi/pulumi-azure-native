@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure SQL managed instance.
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101preview:getManagedInstance", {
         "expand": args.expand,
         "managedInstanceName": args.managedInstanceName,

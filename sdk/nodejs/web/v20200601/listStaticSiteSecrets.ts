@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  */
 export function listStaticSiteSecrets(args: ListStaticSiteSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteSecretsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20200601:listStaticSiteSecrets", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

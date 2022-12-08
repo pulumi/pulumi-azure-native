@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A Database Migration Service resource
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20211030preview:getService", {
         "groupName": args.groupName,
         "serviceName": args.serviceName,

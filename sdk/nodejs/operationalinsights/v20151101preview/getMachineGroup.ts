@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A user-defined logical grouping of machines.
  */
 export function getMachineGroup(args: GetMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getMachineGroup", {
         "endTime": args.endTime,
         "machineGroupName": args.machineGroupName,

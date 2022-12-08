@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Description of a backup which will be performed.
  */
 export function listWebAppBackupConfiguration(args: ListWebAppBackupConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210301:listWebAppBackupConfiguration", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

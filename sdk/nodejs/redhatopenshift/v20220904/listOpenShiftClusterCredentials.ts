@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * OpenShiftClusterCredentials represents an OpenShift cluster's credentials.
  */
 export function listOpenShiftClusterCredentials(args: ListOpenShiftClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220904:listOpenShiftClusterCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

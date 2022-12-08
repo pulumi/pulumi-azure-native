@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-01.
  */
 export function getScheduledTrigger(args: GetScheduledTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledTriggerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getScheduledTrigger", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

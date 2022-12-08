@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-06-05-preview.
  */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm:getVirtualMachineTemplate", {
         "resourceGroupName": args.resourceGroupName,
         "virtualMachineTemplateName": args.virtualMachineTemplateName,

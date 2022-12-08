@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Information about a domain.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:domainregistration/v20210201:getDomain", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-01.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

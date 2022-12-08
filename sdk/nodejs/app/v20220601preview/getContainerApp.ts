@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Container App.
  */
 export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220601preview:getContainerApp", {
         "containerAppName": args.containerAppName,
         "resourceGroupName": args.resourceGroupName,

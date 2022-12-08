@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-07-01-preview.
  */
 export function getSecurityConnectorApplication(args: GetSecurityConnectorApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getSecurityConnectorApplication", {
         "applicationId": args.applicationId,
         "resourceGroupName": args.resourceGroupName,

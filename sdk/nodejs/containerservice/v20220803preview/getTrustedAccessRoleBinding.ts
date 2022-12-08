@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Defines binding between a resource and role
  */
 export function getTrustedAccessRoleBinding(args: GetTrustedAccessRoleBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedAccessRoleBindingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20220803preview:getTrustedAccessRoleBinding", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

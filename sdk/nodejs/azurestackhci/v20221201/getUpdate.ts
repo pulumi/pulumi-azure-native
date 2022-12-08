@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Update details
  */
 export function getUpdate(args: GetUpdateArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20221201:getUpdate", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

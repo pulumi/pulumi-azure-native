@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Peering Service
  */
 export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20220601:getPeeringService", {
         "peeringServiceName": args.peeringServiceName,
         "resourceGroupName": args.resourceGroupName,

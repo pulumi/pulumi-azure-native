@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Friendly Secret name mapping to the any Secret or secret related information.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20221101preview:getSecret", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

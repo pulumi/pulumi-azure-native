@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-01-preview.
  */
 export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getTestBaseAccount", {
         "resourceGroupName": args.resourceGroupName,
         "testBaseAccountName": args.testBaseAccountName,

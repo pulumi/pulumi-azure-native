@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-07-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration:getExtension", {
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,

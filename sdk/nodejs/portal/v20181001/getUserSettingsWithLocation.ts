@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Response to get user settings
  */
 export function getUserSettingsWithLocation(args: GetUserSettingsWithLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsWithLocationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal/v20181001:getUserSettingsWithLocation", {
         "location": args.location,
         "userSettingsName": args.userSettingsName,

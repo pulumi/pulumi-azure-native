@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a file import in Azure Security Insights.
  */
 export function getFileImport(args: GetFileImportArgs, opts?: pulumi.InvokeOptions): Promise<GetFileImportResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20221001preview:getFileImport", {
         "fileImportId": args.fileImportId,
         "resourceGroupName": args.resourceGroupName,

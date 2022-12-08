@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Contract details.
  */
 export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiTagDescriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210101preview:getApiTagDescription", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,

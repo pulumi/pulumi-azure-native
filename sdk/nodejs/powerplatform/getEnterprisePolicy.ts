@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-10-30-preview.
  */
 export function getEnterprisePolicy(args: GetEnterprisePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:powerplatform:getEnterprisePolicy", {
         "enterprisePolicyName": args.enterprisePolicyName,
         "resourceGroupName": args.resourceGroupName,

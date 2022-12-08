@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Response for iSCSI Target requests.
  */
 export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiTargetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagepool/v20210801:getIscsiTarget", {
         "diskPoolName": args.diskPoolName,
         "iscsiTargetName": args.iscsiTargetName,

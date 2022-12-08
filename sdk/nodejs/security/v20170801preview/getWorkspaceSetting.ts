@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Configures where to store the OMS agent data for workspaces under a scope
  */
 export function getWorkspaceSetting(args: GetWorkspaceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSettingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20170801preview:getWorkspaceSetting", {
         "workspaceSettingName": args.workspaceSettingName,
     }, opts);

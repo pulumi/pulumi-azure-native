@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Definition of ARM tracked top level resource.
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20210901preview:getDataCollectionEndpoint", {
         "dataCollectionEndpointName": args.dataCollectionEndpointName,
         "resourceGroupName": args.resourceGroupName,

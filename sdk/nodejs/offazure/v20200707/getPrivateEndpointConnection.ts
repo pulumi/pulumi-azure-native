@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20200707:getPrivateEndpointConnection", {
         "peConnectionName": args.peConnectionName,
         "resourceGroupName": args.resourceGroupName,

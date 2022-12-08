@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-08-01.
  */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getDataExport", {
         "dataExportName": args.dataExportName,
         "resourceGroupName": args.resourceGroupName,

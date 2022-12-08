@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Metadata resource definition.
  */
 export function getMetadata(args: GetMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20211001preview:getMetadata", {
         "metadataName": args.metadataName,
         "resourceGroupName": args.resourceGroupName,

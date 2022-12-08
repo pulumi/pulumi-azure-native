@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A Big Data pool
  */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getBigDataPool", {
         "bigDataPoolName": args.bigDataPoolName,
         "resourceGroupName": args.resourceGroupName,

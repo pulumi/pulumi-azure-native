@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-03-01-preview.
  */
 export function getPrivateEndpointConnectionProxy(args: GetPrivateEndpointConnectionProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionProxyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceupdate:getPrivateEndpointConnectionProxy", {
         "accountName": args.accountName,
         "privateEndpointConnectionProxyId": args.privateEndpointConnectionProxyId,
