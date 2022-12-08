@@ -8150,6 +8150,19 @@
       "Site",
       "Slice",
       "listMobileNetworkSimIds"
+    ],
+    "2022-11-01": [
+      "AttachedDataNetwork",
+      "DataNetwork",
+      "MobileNetwork",
+      "PacketCoreControlPlane",
+      "PacketCoreDataPlane",
+      "Service",
+      "Sim",
+      "SimGroup",
+      "SimPolicy",
+      "Site",
+      "Slice"
     ]
   },
   "Monitor": {

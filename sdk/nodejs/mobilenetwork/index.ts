@@ -127,10 +127,12 @@ export * from "../types/enums/mobilenetwork";
 // Export sub-modules:
 import * as v20220301preview from "./v20220301preview";
 import * as v20220401preview from "./v20220401preview";
+import * as v20221101 from "./v20221101";
 
 export {
     v20220301preview,
     v20220401preview,
+    v20221101,
 };
 
 const _module = {

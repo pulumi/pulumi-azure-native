@@ -791,7 +791,9 @@
   "MixedReality": [
     "2021-03-01-preview"
   ],
-  "MobileNetwork": [],
+  "MobileNetwork": [
+    "2022-11-01"
+  ],
   "Monitor": [],
   "NetApp": [
     "2021-02-01",

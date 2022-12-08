@@ -336,7 +336,7 @@ class Slice(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Slice")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:Slice")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Slice, __self__).__init__(
             'azure-native:mobilenetwork:Slice',

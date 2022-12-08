@@ -63,6 +63,9 @@ func NewPacketCoreControlPlane(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"),
 		},
+		{
+			Type: pulumi.String("azure-native:mobilenetwork/v20221101:PacketCoreControlPlane"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PacketCoreControlPlane

@@ -162,7 +162,7 @@ export class Sim extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:Sim" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:Sim" }, { type: "azure-native:mobilenetwork/v20221101:Sim" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Sim.__pulumiType, name, resourceInputs, opts);
     }

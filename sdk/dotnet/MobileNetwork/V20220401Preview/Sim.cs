@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:Sim"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Sim"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

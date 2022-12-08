@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCoreDataPlane"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:PacketCoreDataPlane"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

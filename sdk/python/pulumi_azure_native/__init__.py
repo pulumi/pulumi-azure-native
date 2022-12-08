@@ -13681,6 +13681,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "mobilenetwork/v20221101",
+  "fqn": "pulumi_azure_native.mobilenetwork.v20221101",
+  "classes": {
+   "azure-native:mobilenetwork/v20221101:AttachedDataNetwork": "AttachedDataNetwork",
+   "azure-native:mobilenetwork/v20221101:DataNetwork": "DataNetwork",
+   "azure-native:mobilenetwork/v20221101:MobileNetwork": "MobileNetwork",
+   "azure-native:mobilenetwork/v20221101:PacketCoreControlPlane": "PacketCoreControlPlane",
+   "azure-native:mobilenetwork/v20221101:PacketCoreDataPlane": "PacketCoreDataPlane",
+   "azure-native:mobilenetwork/v20221101:Service": "Service",
+   "azure-native:mobilenetwork/v20221101:Sim": "Sim",
+   "azure-native:mobilenetwork/v20221101:SimGroup": "SimGroup",
+   "azure-native:mobilenetwork/v20221101:SimPolicy": "SimPolicy",
+   "azure-native:mobilenetwork/v20221101:Site": "Site",
+   "azure-native:mobilenetwork/v20221101:Slice": "Slice"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "monitor",
   "fqn": "pulumi_azure_native.monitor",
   "classes": {

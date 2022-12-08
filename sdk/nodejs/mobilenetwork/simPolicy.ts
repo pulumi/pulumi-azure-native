@@ -173,7 +173,7 @@ export class SimPolicy extends pulumi.CustomResource {
             resourceInputs["ueAmbr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20220401preview:SimPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20220401preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20221101:SimPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SimPolicy.__pulumiType, name, resourceInputs, opts);
     }

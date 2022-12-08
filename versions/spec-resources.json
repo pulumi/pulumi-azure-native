@@ -8470,46 +8470,57 @@
   "MobileNetwork": {
     "AttachedDataNetwork": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "DataNetwork": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "MobileNetwork": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "PacketCoreControlPlane": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "PacketCoreDataPlane": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "Service": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "Sim": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "SimGroup": [
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "SimPolicy": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "Site": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "Slice": [
       "2022-03-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-11-01"
     ],
     "listMobileNetworkSimIds": [
       "2022-03-01-preview",

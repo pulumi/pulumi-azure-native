@@ -432,7 +432,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:AttachedDataNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedDataNetwork, __self__).__init__(
             'azure-native:mobilenetwork:AttachedDataNetwork',

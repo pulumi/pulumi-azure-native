@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:AttachedDataNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
