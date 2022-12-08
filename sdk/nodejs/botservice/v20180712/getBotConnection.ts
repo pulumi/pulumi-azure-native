@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Bot channel resource definition
  */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20180712:getBotConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

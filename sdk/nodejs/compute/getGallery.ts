@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-09-30.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getGallery", {
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,

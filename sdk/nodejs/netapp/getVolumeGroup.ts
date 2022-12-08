@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-10-01.
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp:getVolumeGroup", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

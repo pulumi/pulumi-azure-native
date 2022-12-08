@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The alert rule information
  */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20190601:getSmartDetectorAlertRule", {
         "alertRuleName": args.alertRuleName,
         "expandDetector": args.expandDetector,

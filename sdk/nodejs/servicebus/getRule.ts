@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2017-04-01.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus:getRule", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

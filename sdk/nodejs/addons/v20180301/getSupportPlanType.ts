@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * The status of the Canonical support plan.
  */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:addons/v20180301:getSupportPlanType", {
         "planTypeName": args.planTypeName,
         "providerName": args.providerName,

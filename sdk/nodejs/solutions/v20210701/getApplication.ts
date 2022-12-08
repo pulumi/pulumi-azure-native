@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Information about managed application.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20210701:getApplication", {
         "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-10-31-preview.
  */
 export function getDedicatedHsm(args: GetDedicatedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHsmResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hardwaresecuritymodules:getDedicatedHsm", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

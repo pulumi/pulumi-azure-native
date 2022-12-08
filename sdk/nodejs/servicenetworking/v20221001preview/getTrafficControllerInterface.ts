@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  */
 export function getTrafficControllerInterface(args: GetTrafficControllerInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficControllerInterfaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking/v20221001preview:getTrafficControllerInterface", {
         "resourceGroupName": args.resourceGroupName,
         "trafficControllerName": args.trafficControllerName,

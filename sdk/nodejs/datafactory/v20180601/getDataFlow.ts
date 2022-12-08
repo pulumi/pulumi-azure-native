@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Data flow resource type.
  */
 export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getDataFlow", {
         "dataFlowName": args.dataFlowName,
         "factoryName": args.factoryName,

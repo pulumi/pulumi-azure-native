@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-09-01-preview.
  */
 export function getProjectEnvironmentType(args: GetProjectEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectEnvironmentTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getProjectEnvironmentType", {
         "environmentTypeName": args.environmentTypeName,
         "projectName": args.projectName,

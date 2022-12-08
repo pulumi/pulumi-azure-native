@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A budget resource.
  */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:consumption/v20211001:getBudget", {
         "budgetName": args.budgetName,
         "scope": args.scope,

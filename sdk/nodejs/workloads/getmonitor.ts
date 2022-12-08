@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-12-01-preview.
  */
 export function getmonitor(args: GetmonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetmonitorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getmonitor", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure Video Indexer account.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoindexer/v20220801:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

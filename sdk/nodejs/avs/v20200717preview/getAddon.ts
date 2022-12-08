@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * An addon resource
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20200717preview:getAddon", {
         "addonName": args.addonName,
         "privateCloudName": args.privateCloudName,

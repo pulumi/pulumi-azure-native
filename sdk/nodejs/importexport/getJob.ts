@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-08-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:importexport:getJob", {
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

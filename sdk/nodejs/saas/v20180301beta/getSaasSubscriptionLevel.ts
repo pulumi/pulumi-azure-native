@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * SaaS REST API resource definition.
  */
 export function getSaasSubscriptionLevel(args: GetSaasSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetSaasSubscriptionLevelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:saas/v20180301beta:getSaasSubscriptionLevel", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

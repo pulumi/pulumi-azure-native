@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Describes a DNS resolver.
  */
 export function getDnsResolver(args: GetDnsResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getDnsResolver", {
         "dnsResolverName": args.dnsResolverName,
         "resourceGroupName": args.resourceGroupName,

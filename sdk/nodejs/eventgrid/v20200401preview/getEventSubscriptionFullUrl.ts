@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Full endpoint url of an event subscription
  */
 export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionFullUrlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200401preview:getEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,

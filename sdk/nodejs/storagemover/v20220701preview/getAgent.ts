@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The Agent resource.
  */
 export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover/v20220701preview:getAgent", {
         "agentName": args.agentName,
         "resourceGroupName": args.resourceGroupName,

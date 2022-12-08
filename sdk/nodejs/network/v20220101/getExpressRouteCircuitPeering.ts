@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Peering in an ExpressRouteCircuit resource.
  */
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getExpressRouteCircuitPeering", {
         "circuitName": args.circuitName,
         "peeringName": args.peeringName,

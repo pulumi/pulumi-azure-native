@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-06-30-preview.
  */
 export function getTimeSeriesDatabaseConnection(args: GetTimeSeriesDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetTimeSeriesDatabaseConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

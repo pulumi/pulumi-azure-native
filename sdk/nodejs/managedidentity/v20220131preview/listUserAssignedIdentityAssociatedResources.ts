@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Azure resources returned by the resource action to get a list of assigned resources.
  */
 export function listUserAssignedIdentityAssociatedResources(args: ListUserAssignedIdentityAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListUserAssignedIdentityAssociatedResourcesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedidentity/v20220131preview:listUserAssignedIdentityAssociatedResources", {
         "filter": args.filter,
         "orderby": args.orderby,

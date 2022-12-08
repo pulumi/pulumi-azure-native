@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Contains information about an application in a Batch account.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20210101:getApplication", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,

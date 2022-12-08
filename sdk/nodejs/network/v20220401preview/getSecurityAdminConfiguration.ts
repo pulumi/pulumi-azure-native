@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Defines the security admin configuration
  */
 export function getSecurityAdminConfiguration(args: GetSecurityAdminConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityAdminConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getSecurityAdminConfiguration", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

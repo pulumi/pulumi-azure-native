@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-08-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

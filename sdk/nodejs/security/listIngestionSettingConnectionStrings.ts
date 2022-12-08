@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-01-15-preview.
  */
 export function listIngestionSettingConnectionStrings(args: ListIngestionSettingConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListIngestionSettingConnectionStringsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:listIngestionSettingConnectionStrings", {
         "ingestionSettingName": args.ingestionSettingName,
     }, opts);

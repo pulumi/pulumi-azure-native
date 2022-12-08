@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The network interface resource definition.
  */
 export function getnetworkinterfaceRetrieve(args: GetnetworkinterfaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetnetworkinterfaceRetrieveResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getnetworkinterfaceRetrieve", {
         "networkinterfacesName": args.networkinterfacesName,
         "resourceGroupName": args.resourceGroupName,

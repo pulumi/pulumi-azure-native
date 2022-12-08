@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-04-01-preview.
  */
 export function listDnsForwardingRulesetByVirtualNetwork(args: ListDnsForwardingRulesetByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsForwardingRulesetByVirtualNetworkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listDnsForwardingRulesetByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,
         "top": args.top,

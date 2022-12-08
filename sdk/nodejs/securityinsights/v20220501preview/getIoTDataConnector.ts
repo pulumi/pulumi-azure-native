@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents IoT data connector.
  */
 export function getIoTDataConnector(args: GetIoTDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTDataConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220501preview:getIoTDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,

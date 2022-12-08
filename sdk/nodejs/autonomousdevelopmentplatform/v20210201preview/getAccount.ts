@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * ADP account
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:autonomousdevelopmentplatform/v20210201preview:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

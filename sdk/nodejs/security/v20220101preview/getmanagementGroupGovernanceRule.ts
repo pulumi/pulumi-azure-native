@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Governance rule over a given scope
  */
 export function getmanagementGroupGovernanceRule(args: GetmanagementGroupGovernanceRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagementGroupGovernanceRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20220101preview:getmanagementGroupGovernanceRule", {
         "managementGroupId": args.managementGroupId,
         "ruleId": args.ruleId,

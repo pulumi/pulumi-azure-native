@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-03-25-preview.
  */
 export function getprivateLinkServicesForMIPPolicySync(args: GetprivateLinkServicesForMIPPolicySyncArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForMIPPolicySyncResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getprivateLinkServicesForMIPPolicySync", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

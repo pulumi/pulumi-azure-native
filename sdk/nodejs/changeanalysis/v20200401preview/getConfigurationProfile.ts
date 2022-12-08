@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A profile object that contains change analysis configuration, such as notification settings, for this subscription
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:changeanalysis/v20200401preview:getConfigurationProfile", {
         "profileName": args.profileName,
     }, opts);

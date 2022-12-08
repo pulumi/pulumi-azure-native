@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2015-05-01.
  */
 export function getComponentCurrentBillingFeature(args: GetComponentCurrentBillingFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentCurrentBillingFeatureResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getComponentCurrentBillingFeature", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

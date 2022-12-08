@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
  */
 export function listSiteAuthSettings(args: ListSiteAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteAuthSettingsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteAuthSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

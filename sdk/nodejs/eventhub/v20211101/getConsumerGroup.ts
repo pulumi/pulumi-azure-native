@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Consumer group operation
  */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20211101:getConsumerGroup", {
         "consumerGroupName": args.consumerGroupName,
         "eventHubName": args.eventHubName,

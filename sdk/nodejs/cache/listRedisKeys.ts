@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-06-01.
  */
 export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache:listRedisKeys", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

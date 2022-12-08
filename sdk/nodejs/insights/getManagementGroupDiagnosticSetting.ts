@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-01-01-preview.
  */
 export function getManagementGroupDiagnosticSetting(args: GetManagementGroupDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupDiagnosticSettingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getManagementGroupDiagnosticSetting", {
         "managementGroupId": args.managementGroupId,
         "name": args.name,

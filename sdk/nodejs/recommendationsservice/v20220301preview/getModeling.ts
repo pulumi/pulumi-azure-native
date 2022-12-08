@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Modeling resource details.
  */
 export function getModeling(args: GetModelingArgs, opts?: pulumi.InvokeOptions): Promise<GetModelingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recommendationsservice/v20220301preview:getModeling", {
         "accountName": args.accountName,
         "modelingName": args.modelingName,

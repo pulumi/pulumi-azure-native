@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2021-05-01-preview.
  */
 export function getManagementGroupNetworkManagerConnection(args: GetManagementGroupNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupNetworkManagerConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getManagementGroupNetworkManagerConnection", {
         "managementGroupId": args.managementGroupId,
         "networkManagerConnectionName": args.networkManagerConnectionName,

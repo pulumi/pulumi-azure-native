@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Cluster details.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20221201:getCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

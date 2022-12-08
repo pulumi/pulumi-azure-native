@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * MachinePool represents a MachinePool
  */
 export function getMachinePool(args: GetMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetMachinePoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220904:getMachinePool", {
         "childResourceName": args.childResourceName,
         "resourceGroupName": args.resourceGroupName,

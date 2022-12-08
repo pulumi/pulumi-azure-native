@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-04-01-preview.
  */
 export function getSim(args: GetSimArgs, opts?: pulumi.InvokeOptions): Promise<GetSimResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork:getSim", {
         "resourceGroupName": args.resourceGroupName,
         "simGroupName": args.simGroupName,

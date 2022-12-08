@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The description of the service.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20210601preview:getService", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

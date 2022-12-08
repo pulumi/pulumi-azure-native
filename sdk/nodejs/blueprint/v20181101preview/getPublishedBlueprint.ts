@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a published blueprint.
  */
 export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedBlueprintResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getPublishedBlueprint", {
         "blueprintName": args.blueprintName,
         "resourceScope": args.resourceScope,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The list of supported SKUs for different resources which are part of SAP deployment.
  */
 export function getSAPSupportedSku(args: GetSAPSupportedSkuArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSupportedSkuResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPSupportedSku", {
         "appLocation": args.appLocation,
         "databaseType": args.databaseType,

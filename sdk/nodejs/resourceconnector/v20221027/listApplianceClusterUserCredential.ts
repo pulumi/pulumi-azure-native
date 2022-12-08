@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The List Cluster User Credential appliance.
  */
 export function listApplianceClusterUserCredential(args: ListApplianceClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceClusterUserCredentialResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourceconnector/v20221027:listApplianceClusterUserCredential", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

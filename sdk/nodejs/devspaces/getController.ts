@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-04-01.
  */
 export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devspaces:getController", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

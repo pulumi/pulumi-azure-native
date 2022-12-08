@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents NRT alert rule.
  */
 export function getNrtAlertRule(args: GetNrtAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNrtAlertRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220701preview:getNrtAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

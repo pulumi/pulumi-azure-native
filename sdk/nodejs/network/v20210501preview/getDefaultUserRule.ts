@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Network security default user rule.
  */
 export function getDefaultUserRule(args: GetDefaultUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultUserRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210501preview:getDefaultUserRule", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

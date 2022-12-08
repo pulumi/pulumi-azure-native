@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Data Lake Analytics firewall rule information.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20191101preview:getFirewallRule", {
         "accountName": args.accountName,
         "firewallRuleName": args.firewallRuleName,

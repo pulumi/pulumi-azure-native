@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-02-07-preview.
  */
 export function getSapMonitor(args: GetSapMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetSapMonitorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hanaonazure:getSapMonitor", {
         "resourceGroupName": args.resourceGroupName,
         "sapMonitorName": args.sapMonitorName,

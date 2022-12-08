@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Get the update summaries for the cluster
  */
 export function getUpdateSummary(args: GetUpdateSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateSummaryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20221201:getUpdateSummary", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

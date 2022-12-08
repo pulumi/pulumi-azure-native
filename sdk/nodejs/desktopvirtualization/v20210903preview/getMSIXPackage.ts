@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Schema for MSIX Package properties.
  */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20210903preview:getMSIXPackage", {
         "hostPoolName": args.hostPoolName,
         "msixPackageFullName": args.msixPackageFullName,

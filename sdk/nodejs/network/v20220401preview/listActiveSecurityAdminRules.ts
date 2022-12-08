@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Result of the request to list active security admin rules. It contains a list of active security admin rules and a skiptoken to get the next set of results.
  */
 export function listActiveSecurityAdminRules(args: ListActiveSecurityAdminRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveSecurityAdminRulesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:listActiveSecurityAdminRules", {
         "networkManagerName": args.networkManagerName,
         "regions": args.regions,

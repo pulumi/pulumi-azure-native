@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Class representing a Traffic Manager endpoint.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180801:getEndpoint", {
         "endpointName": args.endpointName,
         "endpointType": args.endpointType,

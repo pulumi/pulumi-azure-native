@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Properties for the database account.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220215preview:getService", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

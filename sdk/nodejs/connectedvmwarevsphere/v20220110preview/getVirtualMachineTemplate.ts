@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Define the virtualMachineTemplate.
  */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220110preview:getVirtualMachineTemplate", {
         "resourceGroupName": args.resourceGroupName,
         "virtualMachineTemplateName": args.virtualMachineTemplateName,

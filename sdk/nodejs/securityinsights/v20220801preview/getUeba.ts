@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Settings with single toggle.
  */
 export function getUeba(args: GetUebaArgs, opts?: pulumi.InvokeOptions): Promise<GetUebaResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801preview:getUeba", {
         "resourceGroupName": args.resourceGroupName,
         "settingsName": args.settingsName,

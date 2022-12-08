@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A private endpoint connection
  */
 export function getManagedInstancePrivateEndpointConnection(args: GetManagedInstancePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstancePrivateEndpointConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getManagedInstancePrivateEndpointConnection", {
         "managedInstanceName": args.managedInstanceName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

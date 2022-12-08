@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-10-01.
  */
 export function getHyperVCollector(args: GetHyperVCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVCollectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getHyperVCollector", {
         "hyperVCollectorName": args.hyperVCollectorName,
         "projectName": args.projectName,

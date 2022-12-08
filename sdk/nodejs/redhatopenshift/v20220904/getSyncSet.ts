@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
  */
 export function getSyncSet(args: GetSyncSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220904:getSyncSet", {
         "childResourceName": args.childResourceName,
         "resourceGroupName": args.resourceGroupName,

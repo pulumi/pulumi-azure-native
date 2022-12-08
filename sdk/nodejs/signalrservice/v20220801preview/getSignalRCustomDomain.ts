@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * A custom domain
  */
 export function getSignalRCustomDomain(args: GetSignalRCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRCustomDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20220801preview:getSignalRCustomDomain", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

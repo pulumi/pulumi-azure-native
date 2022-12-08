@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Frontend Subresource of Traffic Controller.
  */
 export function getFrontendsInterface(args: GetFrontendsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontendsInterfaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking/v20221001preview:getFrontendsInterface", {
         "frontendName": args.frontendName,
         "resourceGroupName": args.resourceGroupName,

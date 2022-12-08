@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Secret represents a secret.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220904:getSecret", {
         "childResourceName": args.childResourceName,
         "resourceGroupName": args.resourceGroupName,

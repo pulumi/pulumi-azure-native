@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Monitoring Setting resource
  */
 export function getMonitoringSetting(args: GetMonitoringSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringSettingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220501preview:getMonitoringSetting", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

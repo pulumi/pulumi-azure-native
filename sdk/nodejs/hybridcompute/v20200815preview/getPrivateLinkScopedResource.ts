@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A private link scoped resource
  */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20200815preview:getPrivateLinkScopedResource", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-01-01.
  */
 export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAlertRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getScheduledAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

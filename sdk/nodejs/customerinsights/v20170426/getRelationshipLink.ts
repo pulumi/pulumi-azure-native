@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The relationship link resource format.
  */
 export function getRelationshipLink(args: GetRelationshipLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipLinkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getRelationshipLink", {
         "hubName": args.hubName,
         "relationshipLinkName": args.relationshipLinkName,

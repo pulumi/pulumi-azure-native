@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20221101preview:getOriginGroup", {
         "endpointName": args.endpointName,
         "originGroupName": args.originGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * An Azure SQL Database server.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getServer", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

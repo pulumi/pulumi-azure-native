@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2019-10-01.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getAssessment", {
         "assessmentName": args.assessmentName,
         "groupName": args.groupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Analytics Connector definition.
  */
 export function getAnalyticsConnector(args: GetAnalyticsConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20221001preview:getAnalyticsConnector", {
         "analyticsConnectorName": args.analyticsConnectorName,
         "resourceGroupName": args.resourceGroupName,

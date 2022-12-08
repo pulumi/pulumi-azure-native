@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2018-08-01-preview.
  */
 export function getReportByResourceGroupName(args: GetReportByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByResourceGroupNameResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getReportByResourceGroupName", {
         "reportName": args.reportName,
         "resourceGroupName": args.resourceGroupName,

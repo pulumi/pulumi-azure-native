@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a ApplicationGroup definition.
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20210114preview:getApplicationGroup", {
         "applicationGroupName": args.applicationGroupName,
         "resourceGroupName": args.resourceGroupName,

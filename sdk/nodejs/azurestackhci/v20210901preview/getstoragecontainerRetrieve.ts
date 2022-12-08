@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The storage container resource definition.
  */
 export function getstoragecontainerRetrieve(args: GetstoragecontainerRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetstoragecontainerRetrieveResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getstoragecontainerRetrieve", {
         "resourceGroupName": args.resourceGroupName,
         "storagecontainersName": args.storagecontainersName,

@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-06-01.
  */
 export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionFullUrlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid:getEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,

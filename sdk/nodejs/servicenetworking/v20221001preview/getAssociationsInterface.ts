@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Association Subresource of Traffic Controller
  */
 export function getAssociationsInterface(args: GetAssociationsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationsInterfaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking/v20221001preview:getAssociationsInterface", {
         "associationName": args.associationName,
         "resourceGroupName": args.resourceGroupName,

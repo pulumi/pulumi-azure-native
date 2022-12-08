@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Secrets related to a Machine Learning compute. Might differ for every type of compute.
  */
 export function listComputeKeys(args: ListComputeKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListComputeKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220101preview:listComputeKeys", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,

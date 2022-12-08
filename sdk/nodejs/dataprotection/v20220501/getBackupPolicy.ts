@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * BaseBackupPolicy resource
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20220501:getBackupPolicy", {
         "backupPolicyName": args.backupPolicyName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Peerings in a VirtualNetwork resource
  */
 export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetvNetPeeringResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databricks/v20180401:getvNetPeering", {
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,

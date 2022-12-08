@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a resource name of a cached server
  */
 export function getGetCachedServerNameExecute(args: GetGetCachedServerNameExecuteArgs, opts?: pulumi.InvokeOptions): Promise<GetGetCachedServerNameExecuteResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", {
         "locationName": args.locationName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Define the Virtual Instance for SAP solutions resource.
  */
 export function getSAPVirtualInstance(args: GetSAPVirtualInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPVirtualInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPVirtualInstance", {
         "resourceGroupName": args.resourceGroupName,
         "sapVirtualInstanceName": args.sapVirtualInstanceName,

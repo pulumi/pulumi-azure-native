@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents a blueprint assignment.
  */
 export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getAssignment", {
         "assignmentName": args.assignmentName,
         "resourceScope": args.resourceScope,

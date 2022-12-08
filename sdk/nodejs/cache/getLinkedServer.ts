@@ -9,11 +9,8 @@ import * as utilities from "../utilities";
  * API Version: 2020-06-01.
  */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache:getLinkedServer", {
         "linkedServerName": args.linkedServerName,
         "name": args.name,

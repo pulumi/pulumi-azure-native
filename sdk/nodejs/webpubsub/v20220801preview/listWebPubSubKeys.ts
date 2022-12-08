@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * A class represents the access keys of the resource.
  */
 export function listWebPubSubKeys(args: ListWebPubSubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebPubSubKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20220801preview:listWebPubSubKeys", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

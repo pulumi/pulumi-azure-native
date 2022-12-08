@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Linked Subscription information.
  */
 export function getLinkedSubscription(args: GetLinkedSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedSubscriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20200601preview:getLinkedSubscription", {
         "linkedSubscriptionName": args.linkedSubscriptionName,
         "resourceGroup": args.resourceGroup,

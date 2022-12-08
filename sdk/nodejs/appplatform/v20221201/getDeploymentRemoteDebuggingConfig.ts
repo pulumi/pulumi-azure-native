@@ -8,11 +8,8 @@ import * as utilities from "../../utilities";
  * Remote debugging config.
  */
 export function getDeploymentRemoteDebuggingConfig(args: GetDeploymentRemoteDebuggingConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentRemoteDebuggingConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221201:getDeploymentRemoteDebuggingConfig", {
         "appName": args.appName,
         "deploymentName": args.deploymentName,

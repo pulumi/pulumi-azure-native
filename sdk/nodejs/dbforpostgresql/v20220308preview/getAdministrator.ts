@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * Represents an Active Directory administrator.
  */
 export function getAdministrator(args: GetAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAdministratorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20220308preview:getAdministrator", {
         "objectId": args.objectId,
         "resourceGroupName": args.resourceGroupName,

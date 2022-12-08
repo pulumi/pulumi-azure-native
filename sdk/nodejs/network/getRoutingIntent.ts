@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-01-01.
  */
 export function getRoutingIntent(args: GetRoutingIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingIntentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getRoutingIntent", {
         "resourceGroupName": args.resourceGroupName,
         "routingIntentName": args.routingIntentName,

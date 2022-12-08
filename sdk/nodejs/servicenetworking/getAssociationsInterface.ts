@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * API Version: 2022-10-01-preview.
  */
 export function getAssociationsInterface(args: GetAssociationsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationsInterfaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking:getAssociationsInterface", {
         "associationName": args.associationName,
         "resourceGroupName": args.resourceGroupName,

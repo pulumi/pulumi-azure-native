@@ -10,11 +10,8 @@ import * as utilities from "../../utilities";
 /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getLabResource(args: GetLabResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResourceResult> {
     pulumi.log.warn("getLabResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20150521preview:getLabResource", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

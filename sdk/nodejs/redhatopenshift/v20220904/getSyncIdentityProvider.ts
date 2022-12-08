@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * SyncIdentityProvider represents a SyncIdentityProvider
  */
 export function getSyncIdentityProvider(args: GetSyncIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncIdentityProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220904:getSyncIdentityProvider", {
         "childResourceName": args.childResourceName,
         "resourceGroupName": args.resourceGroupName,

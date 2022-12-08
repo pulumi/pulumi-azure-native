@@ -11,11 +11,8 @@ import * as utilities from "../../utilities";
  * The Network Manager Connection resource
  */
 export function getSubscriptionNetworkManagerConnection(args: GetSubscriptionNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionNetworkManagerConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getSubscriptionNetworkManagerConnection", {
         "networkManagerConnectionName": args.networkManagerConnectionName,
     }, opts);
