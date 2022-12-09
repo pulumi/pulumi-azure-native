@@ -1,3 +1,5 @@
+
+
 PROJECT_NAME := Pulumi Native Azure Resource Provider
 
 PACK            := azure-native
