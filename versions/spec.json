@@ -1009,6 +1009,25 @@
       "listContainerAppCustomHostNameAnalysis",
       "listContainerAppSecrets",
       "listDaprComponentSecrets"
+    ],
+    "2022-10-01": [
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getManagedEnvironmentAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -13809,6 +13828,11 @@
       "SqlVirtualMachineGroup"
     ],
     "2022-07-01-preview": [
+      "AvailabilityGroupListener",
+      "SqlVirtualMachine",
+      "SqlVirtualMachineGroup"
+    ],
+    "2022-08-01-preview": [
       "AvailabilityGroupListener",
       "SqlVirtualMachine",
       "SqlVirtualMachineGroup"

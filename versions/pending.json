@@ -51,7 +51,8 @@
     "2022-04-01-preview"
   ],
   "App": [
-    "2022-06-01-preview"
+    "2022-06-01-preview",
+    "2022-10-01"
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [
@@ -1089,7 +1090,8 @@
     "2021-11-01-preview",
     "2022-02-01",
     "2022-02-01-preview",
-    "2022-07-01-preview"
+    "2022-07-01-preview",
+    "2022-08-01-preview"
   ],
   "StorSimple": [],
   "Storage": [
