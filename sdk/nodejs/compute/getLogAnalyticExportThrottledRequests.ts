@@ -75,12 +75,9 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
      */
     readonly properties: outputs.compute.LogAnalyticsOutputResponse;
 }
-/**
- * LogAnalytics operation status response
- * API Version: 2020-12-01.
- */
+
 export function getLogAnalyticExportThrottledRequestsOutput(args: GetLogAnalyticExportThrottledRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportThrottledRequestsResult> {
-    return pulumi.output(args).apply((a: any) => getLogAnalyticExportThrottledRequests(a, opts))
+    return pulumi.output(args).apply(a => getLogAnalyticExportThrottledRequests(a, opts))
 }
 
 export interface GetLogAnalyticExportThrottledRequestsOutputArgs {

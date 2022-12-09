@@ -78,11 +78,9 @@ export interface GetAADDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents AAD (Azure Active Directory) data connector.
- */
+
 export function getAADDataConnectorOutput(args: GetAADDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAADDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getAADDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getAADDataConnector(a, opts))
 }
 
 export interface GetAADDataConnectorOutputArgs {

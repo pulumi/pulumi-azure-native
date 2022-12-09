@@ -110,12 +110,9 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
      */
     readonly type: string;
 }
-/**
- * Describes a Virtual Machine run command.
- * API Version: 2021-03-01.
- */
+
 export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineRunCommandByVirtualMachine(a, opts))
+    return pulumi.output(args).apply(a => getVirtualMachineRunCommandByVirtualMachine(a, opts))
 }
 
 export interface GetVirtualMachineRunCommandByVirtualMachineOutputArgs {

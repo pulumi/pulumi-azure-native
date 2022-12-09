@@ -60,11 +60,9 @@ export interface GetRegistryComponentContainerResult {
      */
     readonly type: string;
 }
-/**
- * Azure Resource Manager resource envelope.
- */
+
 export function getRegistryComponentContainerOutput(args: GetRegistryComponentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryComponentContainerResult> {
-    return pulumi.output(args).apply((a: any) => getRegistryComponentContainer(a, opts))
+    return pulumi.output(args).apply(a => getRegistryComponentContainer(a, opts))
 }
 
 export interface GetRegistryComponentContainerOutputArgs {

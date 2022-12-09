@@ -61,12 +61,9 @@ export interface GetLinkedServiceResult {
      */
     readonly type: string;
 }
-/**
- * Linked service resource type.
- * API Version: 2018-06-01.
- */
+
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
-    return pulumi.output(args).apply((a: any) => getLinkedService(a, opts))
+    return pulumi.output(args).apply(a => getLinkedService(a, opts))
 }
 
 export interface GetLinkedServiceOutputArgs {

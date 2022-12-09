@@ -111,11 +111,9 @@ export interface GetDiskResult {
      */
     readonly uniqueIdentifier: string;
 }
-/**
- * A Disk.
- */
+
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
-    return pulumi.output(args).apply((a: any) => getDisk(a, opts))
+    return pulumi.output(args).apply(a => getDisk(a, opts))
 }
 
 export interface GetDiskOutputArgs {

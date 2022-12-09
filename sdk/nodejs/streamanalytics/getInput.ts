@@ -57,12 +57,9 @@ export interface GetInputResult {
      */
     readonly type: string;
 }
-/**
- * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
- * API Version: 2016-03-01.
- */
+
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
-    return pulumi.output(args).apply((a: any) => getInput(a, opts))
+    return pulumi.output(args).apply(a => getInput(a, opts))
 }
 
 export interface GetInputOutputArgs {

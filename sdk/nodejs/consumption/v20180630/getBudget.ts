@@ -76,12 +76,9 @@ export interface GetBudgetResult {
      */
     readonly type: string;
 }
-/**
- * A budget resource.
- */
-/** @deprecated Version 2018-06-30 will be removed in v2 of the provider. */
+
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
-    return pulumi.output(args).apply((a: any) => getBudget(a, opts))
+    return pulumi.output(args).apply(a => getBudget(a, opts))
 }
 
 export interface GetBudgetOutputArgs {

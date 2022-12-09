@@ -64,12 +64,9 @@ export interface GetReportConfigResult {
      */
     readonly type: string;
 }
-/**
- * A report config resource.
- */
-/** @deprecated Version 2018-05-31 will be removed in v2 of the provider. */
+
 export function getReportConfigOutput(args: GetReportConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportConfigResult> {
-    return pulumi.output(args).apply((a: any) => getReportConfig(a, opts))
+    return pulumi.output(args).apply(a => getReportConfig(a, opts))
 }
 
 export interface GetReportConfigOutputArgs {

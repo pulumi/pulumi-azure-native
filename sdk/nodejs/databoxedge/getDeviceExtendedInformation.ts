@@ -84,12 +84,9 @@ export interface GetDeviceExtendedInformationResult {
      */
     readonly type: string;
 }
-/**
- * The extended Info of the Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
- */
+
 export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
-    return pulumi.output(args).apply((a: any) => getDeviceExtendedInformation(a, opts))
+    return pulumi.output(args).apply(a => getDeviceExtendedInformation(a, opts))
 }
 
 export interface GetDeviceExtendedInformationOutputArgs {

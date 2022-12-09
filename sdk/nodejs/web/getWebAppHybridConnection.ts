@@ -92,12 +92,9 @@ export interface GetWebAppHybridConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Hybrid Connection contract. This is used to configure a Hybrid Connection.
- * API Version: 2020-12-01.
- */
+
 export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppHybridConnection(a, opts))
+    return pulumi.output(args).apply(a => getWebAppHybridConnection(a, opts))
 }
 
 export interface GetWebAppHybridConnectionOutputArgs {

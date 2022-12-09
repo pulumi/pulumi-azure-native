@@ -67,11 +67,9 @@ export interface GetHybridUseBenefitResult {
      */
     readonly type: string;
 }
-/**
- * Response on GET of a hybrid use benefit
- */
+
 export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridUseBenefitResult> {
-    return pulumi.output(args).apply((a: any) => getHybridUseBenefit(a, opts))
+    return pulumi.output(args).apply(a => getHybridUseBenefit(a, opts))
 }
 
 export interface GetHybridUseBenefitOutputArgs {

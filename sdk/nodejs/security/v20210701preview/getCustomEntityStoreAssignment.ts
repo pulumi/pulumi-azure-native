@@ -59,11 +59,9 @@ export interface GetCustomEntityStoreAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * Custom entity store assignment
- */
+
 export function getCustomEntityStoreAssignmentOutput(args: GetCustomEntityStoreAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomEntityStoreAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getCustomEntityStoreAssignment(a, opts))
+    return pulumi.output(args).apply(a => getCustomEntityStoreAssignment(a, opts))
 }
 
 export interface GetCustomEntityStoreAssignmentOutputArgs {

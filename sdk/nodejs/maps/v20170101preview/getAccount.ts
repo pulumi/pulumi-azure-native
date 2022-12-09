@@ -65,12 +65,9 @@ export interface GetAccountResult {
      */
     readonly type: string;
 }
-/**
- * An Azure resource which represents access to a suite of Maps REST APIs.
- */
-/** @deprecated Version 2017-01-01-preview will be removed in v2 of the provider. */
+
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
+    return pulumi.output(args).apply(a => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

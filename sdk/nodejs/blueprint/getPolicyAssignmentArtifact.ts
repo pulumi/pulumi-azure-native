@@ -82,12 +82,9 @@ export interface GetPolicyAssignmentArtifactResult {
      */
     readonly type: string;
 }
-/**
- * Blueprint artifact that applies a Policy assignment.
- * API Version: 2018-11-01-preview.
- */
+
 export function getPolicyAssignmentArtifactOutput(args: GetPolicyAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentArtifactResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyAssignmentArtifact(a, opts))
+    return pulumi.output(args).apply(a => getPolicyAssignmentArtifact(a, opts))
 }
 
 export interface GetPolicyAssignmentArtifactOutputArgs {

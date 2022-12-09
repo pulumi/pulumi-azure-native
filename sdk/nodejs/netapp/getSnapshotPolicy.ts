@@ -85,12 +85,9 @@ export interface GetSnapshotPolicyResult {
      */
     readonly weeklySchedule?: outputs.netapp.WeeklyScheduleResponse;
 }
-/**
- * Snapshot policy information
- * API Version: 2020-12-01.
- */
+
 export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshotPolicy(a, opts))
+    return pulumi.output(args).apply(a => getSnapshotPolicy(a, opts))
 }
 
 export interface GetSnapshotPolicyOutputArgs {

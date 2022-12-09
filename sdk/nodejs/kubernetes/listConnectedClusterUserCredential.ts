@@ -54,12 +54,9 @@ export interface ListConnectedClusterUserCredentialResult {
      */
     readonly kubeconfigs: outputs.kubernetes.CredentialResultResponse[];
 }
-/**
- * The list of credential result response.
- * API Version: 2022-05-01-preview.
- */
+
 export function listConnectedClusterUserCredentialOutput(args: ListConnectedClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedClusterUserCredentialResult> {
-    return pulumi.output(args).apply((a: any) => listConnectedClusterUserCredential(a, opts))
+    return pulumi.output(args).apply(a => listConnectedClusterUserCredential(a, opts))
 }
 
 export interface ListConnectedClusterUserCredentialOutputArgs {

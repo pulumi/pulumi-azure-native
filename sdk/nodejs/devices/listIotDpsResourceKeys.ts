@@ -44,12 +44,9 @@ export interface ListIotDpsResourceKeysResult {
      */
     readonly value?: outputs.devices.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse[];
 }
-/**
- * List of shared access keys.
- * API Version: 2020-03-01.
- */
+
 export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysResult> {
-    return pulumi.output(args).apply((a: any) => listIotDpsResourceKeys(a, opts))
+    return pulumi.output(args).apply(a => listIotDpsResourceKeys(a, opts))
 }
 
 export interface ListIotDpsResourceKeysOutputArgs {

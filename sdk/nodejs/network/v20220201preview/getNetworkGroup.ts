@@ -72,11 +72,9 @@ export interface GetNetworkGroupResult {
      */
     readonly type: string;
 }
-/**
- * The network group resource
- */
+
 export function getNetworkGroupOutput(args: GetNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkGroupResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkGroup(a, opts))
+    return pulumi.output(args).apply(a => getNetworkGroup(a, opts))
 }
 
 export interface GetNetworkGroupOutputArgs {

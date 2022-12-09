@@ -128,11 +128,9 @@ export interface GetManagedInstanceResult {
      */
     readonly vCores?: number;
 }
-/**
- * An Azure SQL managed instance.
- */
+
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))
+    return pulumi.output(args).apply(a => getManagedInstance(a, opts))
 }
 
 export interface GetManagedInstanceOutputArgs {

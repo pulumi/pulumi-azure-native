@@ -52,12 +52,9 @@ export interface GetConfigServerResult {
      */
     readonly type: string;
 }
-/**
- * Config Server resource
- * API Version: 2020-07-01.
- */
+
 export function getConfigServerOutput(args: GetConfigServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServerResult> {
-    return pulumi.output(args).apply((a: any) => getConfigServer(a, opts))
+    return pulumi.output(args).apply(a => getConfigServer(a, opts))
 }
 
 export interface GetConfigServerOutputArgs {

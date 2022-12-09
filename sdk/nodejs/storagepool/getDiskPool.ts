@@ -88,12 +88,9 @@ export interface GetDiskPoolResult {
      */
     readonly type: string;
 }
-/**
- * Response for Disk pool request.
- * API Version: 2020-03-15-preview.
- */
+
 export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskPoolResult> {
-    return pulumi.output(args).apply((a: any) => getDiskPool(a, opts))
+    return pulumi.output(args).apply(a => getDiskPool(a, opts))
 }
 
 export interface GetDiskPoolOutputArgs {

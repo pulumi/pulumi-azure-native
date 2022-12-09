@@ -127,12 +127,9 @@ export interface GetSubscriptionResult {
      */
     readonly updatedAt: string;
 }
-/**
- * Description of subscription resource.
- */
-/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
+
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getSubscription(a, opts))
+    return pulumi.output(args).apply(a => getSubscription(a, opts))
 }
 
 export interface GetSubscriptionOutputArgs {

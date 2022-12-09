@@ -68,12 +68,9 @@ export interface GetGremlinResourceGremlinGraphResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB Gremlin graph.
- * API Version: 2021-03-15.
- */
+
 export function getGremlinResourceGremlinGraphOutput(args: GetGremlinResourceGremlinGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinGraphResult> {
-    return pulumi.output(args).apply((a: any) => getGremlinResourceGremlinGraph(a, opts))
+    return pulumi.output(args).apply(a => getGremlinResourceGremlinGraph(a, opts))
 }
 
 export interface GetGremlinResourceGremlinGraphOutputArgs {

@@ -64,11 +64,9 @@ export interface GetSyncGroupResult {
      */
     readonly uniqueId: string;
 }
-/**
- * Sync Group object.
- */
+
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))
+    return pulumi.output(args).apply(a => getSyncGroup(a, opts))
 }
 
 export interface GetSyncGroupOutputArgs {

@@ -74,12 +74,9 @@ export interface GetManagerExtendedInfoResult {
      */
     readonly version?: string;
 }
-/**
- * The extended info of the manager.
- */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
+
 export function getManagerExtendedInfoOutput(args: GetManagerExtendedInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerExtendedInfoResult> {
-    return pulumi.output(args).apply((a: any) => getManagerExtendedInfo(a, opts))
+    return pulumi.output(args).apply(a => getManagerExtendedInfo(a, opts))
 }
 
 export interface GetManagerExtendedInfoOutputArgs {

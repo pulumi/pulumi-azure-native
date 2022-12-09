@@ -65,11 +65,9 @@ export interface GetApplicationTypeResult {
      */
     readonly type: string;
 }
-/**
- * The application type name resource
- */
+
 export function getApplicationTypeOutput(args: GetApplicationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationType(a, opts))
+    return pulumi.output(args).apply(a => getApplicationType(a, opts))
 }
 
 export interface GetApplicationTypeOutputArgs {

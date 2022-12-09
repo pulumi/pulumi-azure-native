@@ -85,12 +85,9 @@ export interface GetIotConnectorResult {
      */
     readonly type: string;
 }
-/**
- * IoT Connector definition.
- * API Version: 2022-05-15.
- */
+
 export function getIotConnectorOutput(args: GetIotConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getIotConnector(a, opts))
+    return pulumi.output(args).apply(a => getIotConnector(a, opts))
 }
 
 export interface GetIotConnectorOutputArgs {

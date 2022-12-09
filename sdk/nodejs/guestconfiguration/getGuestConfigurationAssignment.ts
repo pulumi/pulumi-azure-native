@@ -61,12 +61,9 @@ export interface GetGuestConfigurationAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * Guest configuration assignment is an association between a machine and guest configuration.
- * API Version: 2020-06-25.
- */
+
 export function getGuestConfigurationAssignmentOutput(args: GetGuestConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getGuestConfigurationAssignment(a, opts))
+    return pulumi.output(args).apply(a => getGuestConfigurationAssignment(a, opts))
 }
 
 export interface GetGuestConfigurationAssignmentOutputArgs {

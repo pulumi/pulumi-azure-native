@@ -89,12 +89,9 @@ export interface GetSpatialAnchorsAccountResult {
      */
     readonly type: string;
 }
-/**
- * SpatialAnchorsAccount Response.
- */
-/** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
+
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
-    return pulumi.output(args).apply((a: any) => getSpatialAnchorsAccount(a, opts))
+    return pulumi.output(args).apply(a => getSpatialAnchorsAccount(a, opts))
 }
 
 export interface GetSpatialAnchorsAccountOutputArgs {

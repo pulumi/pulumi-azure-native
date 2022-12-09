@@ -77,13 +77,9 @@ export interface GetUserRuleResult {
      */
     readonly type: string;
 }
-/**
- * Network base rule.
- * API Version: 2021-02-01-preview.
- */
-/** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
+
 export function getUserRuleOutput(args: GetUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleResult> {
-    return pulumi.output(args).apply((a: any) => getUserRule(a, opts))
+    return pulumi.output(args).apply(a => getUserRule(a, opts))
 }
 
 export interface GetUserRuleOutputArgs {

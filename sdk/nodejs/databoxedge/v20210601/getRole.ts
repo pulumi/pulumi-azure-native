@@ -62,12 +62,9 @@ export interface GetRoleResult {
      */
     readonly type: string;
 }
-/**
- * Compute role.
- */
-/** @deprecated Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole. */
+
 export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
-    return pulumi.output(args).apply((a: any) => getRole(a, opts))
+    return pulumi.output(args).apply(a => getRole(a, opts))
 }
 
 export interface GetRoleOutputArgs {

@@ -63,11 +63,9 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly virtualNetworkRules?: outputs.eventhub.v20180101preview.NWRuleSetVirtualNetworkRulesResponse[];
 }
-/**
- * Description of topic resource.
- */
+
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceNetworkRuleSet(a, opts))
+    return pulumi.output(args).apply(a => getNamespaceNetworkRuleSet(a, opts))
 }
 
 export interface GetNamespaceNetworkRuleSetOutputArgs {

@@ -64,12 +64,9 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
- * API Version: 2020-10-01.
- */
+
 export function getWebAppSwiftVirtualNetworkConnectionOutput(args: GetWebAppSwiftVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppSwiftVirtualNetworkConnection(a, opts))
+    return pulumi.output(args).apply(a => getWebAppSwiftVirtualNetworkConnection(a, opts))
 }
 
 export interface GetWebAppSwiftVirtualNetworkConnectionOutputArgs {

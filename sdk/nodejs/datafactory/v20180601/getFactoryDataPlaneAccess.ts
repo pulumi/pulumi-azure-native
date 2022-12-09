@@ -72,11 +72,9 @@ export interface GetFactoryDataPlaneAccessResult {
      */
     readonly policy?: outputs.datafactory.v20180601.UserAccessPolicyResponse;
 }
-/**
- * Get Data Plane read only token response definition.
- */
+
 export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {
-    return pulumi.output(args).apply((a: any) => getFactoryDataPlaneAccess(a, opts))
+    return pulumi.output(args).apply(a => getFactoryDataPlaneAccess(a, opts))
 }
 
 export interface GetFactoryDataPlaneAccessOutputArgs {

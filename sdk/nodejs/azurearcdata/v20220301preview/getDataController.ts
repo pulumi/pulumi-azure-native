@@ -67,11 +67,9 @@ export interface GetDataControllerResult {
      */
     readonly type: string;
 }
-/**
- * Data controller resource
- */
+
 export function getDataControllerOutput(args: GetDataControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataControllerResult> {
-    return pulumi.output(args).apply((a: any) => getDataController(a, opts))
+    return pulumi.output(args).apply(a => getDataController(a, opts))
 }
 
 export interface GetDataControllerOutputArgs {

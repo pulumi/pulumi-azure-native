@@ -71,12 +71,9 @@ export interface GetSubscriptionDiagnosticSettingResult {
      */
     readonly workspaceId?: string;
 }
-/**
- * The subscription diagnostic setting resource.
- * API Version: 2017-05-01-preview.
- */
+
 export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriptionDiagnosticSetting(a, opts))
+    return pulumi.output(args).apply(a => getSubscriptionDiagnosticSetting(a, opts))
 }
 
 export interface GetSubscriptionDiagnosticSettingOutputArgs {

@@ -70,12 +70,9 @@ export interface GetASCDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents ASC (Azure Security Center) data connector.
- * API Version: 2020-01-01.
- */
+
 export function getASCDataConnectorOutput(args: GetASCDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetASCDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getASCDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getASCDataConnector(a, opts))
 }
 
 export interface GetASCDataConnectorOutputArgs {

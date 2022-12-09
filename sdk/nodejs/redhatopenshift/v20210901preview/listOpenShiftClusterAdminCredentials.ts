@@ -36,11 +36,9 @@ export interface ListOpenShiftClusterAdminCredentialsResult {
      */
     readonly kubeconfig?: string;
 }
-/**
- * OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
- */
+
 export function listOpenShiftClusterAdminCredentialsOutput(args: ListOpenShiftClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterAdminCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listOpenShiftClusterAdminCredentials(a, opts))
+    return pulumi.output(args).apply(a => listOpenShiftClusterAdminCredentials(a, opts))
 }
 
 export interface ListOpenShiftClusterAdminCredentialsOutputArgs {

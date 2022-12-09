@@ -48,11 +48,9 @@ export interface ListDnsResolverByVirtualNetworkResult {
      */
     readonly value?: outputs.network.v20200401preview.SubResourceResponse[];
 }
-/**
- * The response to an enumeration operation on sub-resources.
- */
+
 export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
-    return pulumi.output(args).apply((a: any) => listDnsResolverByVirtualNetwork(a, opts))
+    return pulumi.output(args).apply(a => listDnsResolverByVirtualNetwork(a, opts))
 }
 
 export interface ListDnsResolverByVirtualNetworkOutputArgs {

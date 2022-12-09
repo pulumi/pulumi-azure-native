@@ -39,11 +39,9 @@ export interface ListClusterLanguageExtensionsResult {
      */
     readonly value?: outputs.kusto.v20200215.LanguageExtensionResponse[];
 }
-/**
- * The list of language extension objects.
- */
+
 export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
-    return pulumi.output(args).apply((a: any) => listClusterLanguageExtensions(a, opts))
+    return pulumi.output(args).apply(a => listClusterLanguageExtensions(a, opts))
 }
 
 export interface ListClusterLanguageExtensionsOutputArgs {

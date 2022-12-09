@@ -73,12 +73,9 @@ export interface GetNamedValueResult {
      */
     readonly value?: string;
 }
-/**
- * NamedValue details.
- * API Version: 2020-12-01.
- */
+
 export function getNamedValueOutput(args: GetNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedValueResult> {
-    return pulumi.output(args).apply((a: any) => getNamedValue(a, opts))
+    return pulumi.output(args).apply(a => getNamedValue(a, opts))
 }
 
 export interface GetNamedValueOutputArgs {

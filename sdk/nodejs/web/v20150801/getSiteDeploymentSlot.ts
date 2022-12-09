@@ -104,12 +104,9 @@ export interface GetSiteDeploymentSlotResult {
      */
     readonly type?: string;
 }
-/**
- * Represents user credentials used for publishing activity
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getSiteDeploymentSlotOutput(args: GetSiteDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteDeploymentSlotResult> {
-    return pulumi.output(args).apply((a: any) => getSiteDeploymentSlot(a, opts))
+    return pulumi.output(args).apply(a => getSiteDeploymentSlot(a, opts))
 }
 
 export interface GetSiteDeploymentSlotOutputArgs {

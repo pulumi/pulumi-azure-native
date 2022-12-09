@@ -41,11 +41,9 @@ export interface GetAssetEncryptionKeyResult {
      */
     readonly storageEncryptionKey?: string;
 }
-/**
- * The Asset Storage encryption key.
- */
+
 export function getAssetEncryptionKeyOutput(args: GetAssetEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEncryptionKeyResult> {
-    return pulumi.output(args).apply((a: any) => getAssetEncryptionKey(a, opts))
+    return pulumi.output(args).apply(a => getAssetEncryptionKey(a, opts))
 }
 
 export interface GetAssetEncryptionKeyOutputArgs {

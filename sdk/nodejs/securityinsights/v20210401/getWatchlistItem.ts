@@ -110,11 +110,9 @@ export interface GetWatchlistItemResult {
      */
     readonly watchlistItemType?: string;
 }
-/**
- * Represents a Watchlist Item in Azure Security Insights.
- */
+
 export function getWatchlistItemOutput(args: GetWatchlistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatchlistItemResult> {
-    return pulumi.output(args).apply((a: any) => getWatchlistItem(a, opts))
+    return pulumi.output(args).apply(a => getWatchlistItem(a, opts))
 }
 
 export interface GetWatchlistItemOutputArgs {

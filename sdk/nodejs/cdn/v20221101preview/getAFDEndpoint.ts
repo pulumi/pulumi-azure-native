@@ -85,11 +85,9 @@ export interface GetAFDEndpointResult {
      */
     readonly type: string;
 }
-/**
- * Azure Front Door endpoint is the entity within a Azure Front Door profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
- */
+
 export function getAFDEndpointOutput(args: GetAFDEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getAFDEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getAFDEndpoint(a, opts))
 }
 
 export interface GetAFDEndpointOutputArgs {

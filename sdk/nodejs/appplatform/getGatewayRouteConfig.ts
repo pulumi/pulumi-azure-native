@@ -66,12 +66,9 @@ export interface GetGatewayRouteConfigResult {
      */
     readonly type: string;
 }
-/**
- * Spring Cloud Gateway route config resource
- * API Version: 2022-01-01-preview.
- */
+
 export function getGatewayRouteConfigOutput(args: GetGatewayRouteConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteConfigResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayRouteConfig(a, opts))
+    return pulumi.output(args).apply(a => getGatewayRouteConfig(a, opts))
 }
 
 export interface GetGatewayRouteConfigOutputArgs {

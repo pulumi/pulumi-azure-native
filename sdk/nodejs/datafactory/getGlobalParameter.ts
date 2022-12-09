@@ -61,12 +61,9 @@ export interface GetGlobalParameterResult {
      */
     readonly type: string;
 }
-/**
- * Global parameters resource type.
- * API Version: 2018-06-01.
- */
+
 export function getGlobalParameterOutput(args: GetGlobalParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalParameterResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalParameter(a, opts))
+    return pulumi.output(args).apply(a => getGlobalParameter(a, opts))
 }
 
 export interface GetGlobalParameterOutputArgs {

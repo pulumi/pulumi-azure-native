@@ -84,11 +84,9 @@ export interface GetShareResult {
      */
     readonly userName: string;
 }
-/**
- * A share data transfer object.
- */
+
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
-    return pulumi.output(args).apply((a: any) => getShare(a, opts))
+    return pulumi.output(args).apply(a => getShare(a, opts))
 }
 
 export interface GetShareOutputArgs {

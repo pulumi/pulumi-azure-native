@@ -48,11 +48,9 @@ export interface GetAdvancedThreatProtectionResult {
      */
     readonly type: string;
 }
-/**
- * The Advanced Threat Protection resource.
- */
+
 export function getAdvancedThreatProtectionOutput(args: GetAdvancedThreatProtectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdvancedThreatProtectionResult> {
-    return pulumi.output(args).apply((a: any) => getAdvancedThreatProtection(a, opts))
+    return pulumi.output(args).apply(a => getAdvancedThreatProtection(a, opts))
 }
 
 export interface GetAdvancedThreatProtectionOutputArgs {

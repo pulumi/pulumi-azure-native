@@ -68,11 +68,9 @@ export interface GetUserResult {
      */
     readonly userType: string;
 }
-/**
- * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
- */
+
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply((a: any) => getUser(a, opts))
+    return pulumi.output(args).apply(a => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {

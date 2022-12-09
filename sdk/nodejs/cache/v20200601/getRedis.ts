@@ -135,11 +135,9 @@ export interface GetRedisResult {
      */
     readonly zones?: string[];
 }
-/**
- * A single Redis item in List or Get Operation.
- */
+
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
-    return pulumi.output(args).apply((a: any) => getRedis(a, opts))
+    return pulumi.output(args).apply(a => getRedis(a, opts))
 }
 
 export interface GetRedisOutputArgs {

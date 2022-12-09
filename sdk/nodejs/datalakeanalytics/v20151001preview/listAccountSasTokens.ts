@@ -53,11 +53,9 @@ export interface ListAccountSasTokensResult {
      */
     readonly value: outputs.datalakeanalytics.v20151001preview.SasTokenInformationResponse[];
 }
-/**
- * The SAS response that contains the storage account, container and associated SAS token for connection use.
- */
+
 export function listAccountSasTokensOutput(args: ListAccountSasTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountSasTokensResult> {
-    return pulumi.output(args).apply((a: any) => listAccountSasTokens(a, opts))
+    return pulumi.output(args).apply(a => listAccountSasTokens(a, opts))
 }
 
 export interface ListAccountSasTokensOutputArgs {

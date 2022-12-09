@@ -95,11 +95,9 @@ export interface GetVmmServerResult {
      */
     readonly version: string;
 }
-/**
- * The VmmServers resource definition.
- */
+
 export function getVmmServerOutput(args: GetVmmServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmmServerResult> {
-    return pulumi.output(args).apply((a: any) => getVmmServer(a, opts))
+    return pulumi.output(args).apply(a => getVmmServer(a, opts))
 }
 
 export interface GetVmmServerOutputArgs {

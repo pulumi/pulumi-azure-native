@@ -59,11 +59,9 @@ export interface GetActionRuleByNameResult {
      */
     readonly type: string;
 }
-/**
- * Action rule object containing target scope, conditions and suppression logic
- */
+
 export function getActionRuleByNameOutput(args: GetActionRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRuleByNameResult> {
-    return pulumi.output(args).apply((a: any) => getActionRuleByName(a, opts))
+    return pulumi.output(args).apply(a => getActionRuleByName(a, opts))
 }
 
 export interface GetActionRuleByNameOutputArgs {

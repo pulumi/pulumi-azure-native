@@ -40,12 +40,9 @@ export interface ListContainerAppSecretsResult {
      */
     readonly value: outputs.app.ContainerAppSecretResponse[];
 }
-/**
- * Container App Secrets Collection ARM resource.
- * API Version: 2022-03-01.
- */
+
 export function listContainerAppSecretsOutput(args: ListContainerAppSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listContainerAppSecrets(a, opts))
+    return pulumi.output(args).apply(a => listContainerAppSecrets(a, opts))
 }
 
 export interface ListContainerAppSecretsOutputArgs {

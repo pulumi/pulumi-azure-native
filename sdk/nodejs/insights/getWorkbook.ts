@@ -100,12 +100,9 @@ export interface GetWorkbookResult {
      */
     readonly version?: string;
 }
-/**
- * An Application Insights workbook definition.
- * API Version: 2020-10-20.
- */
+
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
-    return pulumi.output(args).apply((a: any) => getWorkbook(a, opts))
+    return pulumi.output(args).apply(a => getWorkbook(a, opts))
 }
 
 export interface GetWorkbookOutputArgs {

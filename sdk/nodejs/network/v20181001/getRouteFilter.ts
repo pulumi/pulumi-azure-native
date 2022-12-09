@@ -76,11 +76,9 @@ export interface GetRouteFilterResult {
      */
     readonly type: string;
 }
-/**
- * Route Filter Resource.
- */
+
 export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
-    return pulumi.output(args).apply((a: any) => getRouteFilter(a, opts))
+    return pulumi.output(args).apply(a => getRouteFilter(a, opts))
 }
 
 export interface GetRouteFilterOutputArgs {

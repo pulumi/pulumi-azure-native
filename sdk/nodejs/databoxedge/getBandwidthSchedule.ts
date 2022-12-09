@@ -73,12 +73,9 @@ export interface GetBandwidthScheduleResult {
      */
     readonly type: string;
 }
-/**
- * The bandwidth schedule details.
- * API Version: 2020-12-01.
- */
+
 export function getBandwidthScheduleOutput(args: GetBandwidthScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getBandwidthSchedule(a, opts))
+    return pulumi.output(args).apply(a => getBandwidthSchedule(a, opts))
 }
 
 export interface GetBandwidthScheduleOutputArgs {

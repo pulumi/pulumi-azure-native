@@ -41,12 +41,9 @@ export interface ListRedisKeysResult {
      */
     readonly secondaryKey: string;
 }
-/**
- * Redis cache access keys.
- * API Version: 2020-06-01.
- */
+
 export function listRedisKeysOutput(args: ListRedisKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRedisKeysResult> {
-    return pulumi.output(args).apply((a: any) => listRedisKeys(a, opts))
+    return pulumi.output(args).apply(a => listRedisKeys(a, opts))
 }
 
 export interface ListRedisKeysOutputArgs {

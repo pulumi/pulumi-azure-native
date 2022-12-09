@@ -74,11 +74,9 @@ export interface GetPolicySetDefinitionResult {
      */
     readonly type: string;
 }
-/**
- * The policy set definition.
- */
+
 export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getPolicySetDefinition(a, opts))
+    return pulumi.output(args).apply(a => getPolicySetDefinition(a, opts))
 }
 
 export interface GetPolicySetDefinitionOutputArgs {

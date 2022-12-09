@@ -81,12 +81,9 @@ export interface ListBotConnectionWithSecretsResult {
      */
     readonly zones: string[];
 }
-/**
- * Bot channel resource definition
- * API Version: 2021-03-01.
- */
+
 export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listBotConnectionWithSecrets(a, opts))
+    return pulumi.output(args).apply(a => listBotConnectionWithSecrets(a, opts))
 }
 
 export interface ListBotConnectionWithSecretsOutputArgs {

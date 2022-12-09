@@ -60,11 +60,9 @@ export interface GetSyncSetResult {
      */
     readonly type: string;
 }
-/**
- * SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
- */
+
 export function getSyncSetOutput(args: GetSyncSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncSetResult> {
-    return pulumi.output(args).apply((a: any) => getSyncSet(a, opts))
+    return pulumi.output(args).apply(a => getSyncSet(a, opts))
 }
 
 export interface GetSyncSetOutputArgs {

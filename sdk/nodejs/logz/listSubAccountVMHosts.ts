@@ -49,12 +49,9 @@ export interface ListSubAccountVMHostsResult {
      */
     readonly value?: outputs.logz.VMResourcesResponse[];
 }
-/**
- * Response of a list VM Host Update Operation.
- * API Version: 2020-10-01.
- */
+
 export function listSubAccountVMHostsOutput(args: ListSubAccountVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountVMHostsResult> {
-    return pulumi.output(args).apply((a: any) => listSubAccountVMHosts(a, opts))
+    return pulumi.output(args).apply(a => listSubAccountVMHosts(a, opts))
 }
 
 export interface ListSubAccountVMHostsOutputArgs {

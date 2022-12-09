@@ -92,11 +92,9 @@ export interface GetPipelineResult {
      */
     readonly variables?: {[key: string]: outputs.datafactory.v20180601.VariableSpecificationResponse};
 }
-/**
- * Pipeline resource type.
- */
+
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
+    return pulumi.output(args).apply(a => getPipeline(a, opts))
 }
 
 export interface GetPipelineOutputArgs {

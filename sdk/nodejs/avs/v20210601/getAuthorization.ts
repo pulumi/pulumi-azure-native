@@ -61,11 +61,9 @@ export interface GetAuthorizationResult {
      */
     readonly type: string;
 }
-/**
- * ExpressRoute Circuit Authorization
- */
+
 export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorization(a, opts))
+    return pulumi.output(args).apply(a => getAuthorization(a, opts))
 }
 
 export interface GetAuthorizationOutputArgs {

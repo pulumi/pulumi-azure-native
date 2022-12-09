@@ -71,11 +71,9 @@ export interface GetCustomResourceProviderResult {
      */
     readonly validations?: outputs.customproviders.v20180901preview.CustomRPValidationsResponse[];
 }
-/**
- * A manifest file that defines the custom resource provider resources.
- */
+
 export function getCustomResourceProviderOutput(args: GetCustomResourceProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceProviderResult> {
-    return pulumi.output(args).apply((a: any) => getCustomResourceProvider(a, opts))
+    return pulumi.output(args).apply(a => getCustomResourceProvider(a, opts))
 }
 
 export interface GetCustomResourceProviderOutputArgs {

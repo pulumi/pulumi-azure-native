@@ -45,12 +45,9 @@ export interface ListStreamingLocatorContentKeysResult {
      */
     readonly contentKeys?: outputs.media.StreamingLocatorContentKeyResponse[];
 }
-/**
- * Class of response for listContentKeys action
- * API Version: 2020-05-01.
- */
+
 export function listStreamingLocatorContentKeysOutput(args: ListStreamingLocatorContentKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorContentKeysResult> {
-    return pulumi.output(args).apply((a: any) => listStreamingLocatorContentKeys(a, opts))
+    return pulumi.output(args).apply(a => listStreamingLocatorContentKeys(a, opts))
 }
 
 export interface ListStreamingLocatorContentKeysOutputArgs {

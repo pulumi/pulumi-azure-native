@@ -63,12 +63,9 @@ export interface GetThreatIntelligenceIndicatorResult {
      */
     readonly type: string;
 }
-/**
- * Threat intelligence information object.
- * API Version: 2019-01-01-preview.
- */
+
 export function getThreatIntelligenceIndicatorOutput(args: GetThreatIntelligenceIndicatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceIndicatorResult> {
-    return pulumi.output(args).apply((a: any) => getThreatIntelligenceIndicator(a, opts))
+    return pulumi.output(args).apply(a => getThreatIntelligenceIndicator(a, opts))
 }
 
 export interface GetThreatIntelligenceIndicatorOutputArgs {

@@ -94,12 +94,9 @@ export interface GetVpnConnectionResult {
      */
     readonly sharedKey?: string;
 }
-/**
- * VpnConnection Resource.
- */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+
 export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVpnConnection(a, opts))
+    return pulumi.output(args).apply(a => getVpnConnection(a, opts))
 }
 
 export interface GetVpnConnectionOutputArgs {

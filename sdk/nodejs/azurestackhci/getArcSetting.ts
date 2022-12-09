@@ -93,12 +93,9 @@ export interface GetArcSettingResult {
      */
     readonly type: string;
 }
-/**
- * ArcSetting details.
- * API Version: 2021-01-01-preview.
- */
+
 export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {
-    return pulumi.output(args).apply((a: any) => getArcSetting(a, opts))
+    return pulumi.output(args).apply(a => getArcSetting(a, opts))
 }
 
 export interface GetArcSettingOutputArgs {

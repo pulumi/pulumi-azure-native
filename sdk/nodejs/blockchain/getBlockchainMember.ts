@@ -116,12 +116,9 @@ export interface GetBlockchainMemberResult {
      */
     readonly validatorNodesSku?: outputs.blockchain.BlockchainMemberNodesSkuResponse;
 }
-/**
- * Payload of the blockchain member which is exposed in the request/response of the resource provider.
- * API Version: 2018-06-01-preview.
- */
+
 export function getBlockchainMemberOutput(args: GetBlockchainMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlockchainMemberResult> {
-    return pulumi.output(args).apply((a: any) => getBlockchainMember(a, opts))
+    return pulumi.output(args).apply(a => getBlockchainMember(a, opts))
 }
 
 export interface GetBlockchainMemberOutputArgs {

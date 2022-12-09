@@ -65,11 +65,9 @@ export interface GetCodeVersionResult {
      */
     readonly type: string;
 }
-/**
- * Azure Resource Manager resource envelope.
- */
+
 export function getCodeVersionOutput(args: GetCodeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeVersionResult> {
-    return pulumi.output(args).apply((a: any) => getCodeVersion(a, opts))
+    return pulumi.output(args).apply(a => getCodeVersion(a, opts))
 }
 
 export interface GetCodeVersionOutputArgs {

@@ -90,11 +90,9 @@ export interface GetIoTAddonResult {
      */
     readonly version: string;
 }
-/**
- * IoT Addon.
- */
+
 export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTAddonResult> {
-    return pulumi.output(args).apply((a: any) => getIoTAddon(a, opts))
+    return pulumi.output(args).apply(a => getIoTAddon(a, opts))
 }
 
 export interface GetIoTAddonOutputArgs {

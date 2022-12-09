@@ -60,11 +60,9 @@ export interface GetServerTrustGroupResult {
      */
     readonly type: string;
 }
-/**
- * A server trust group.
- */
+
 export function getServerTrustGroupOutput(args: GetServerTrustGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustGroupResult> {
-    return pulumi.output(args).apply((a: any) => getServerTrustGroup(a, opts))
+    return pulumi.output(args).apply(a => getServerTrustGroup(a, opts))
 }
 
 export interface GetServerTrustGroupOutputArgs {

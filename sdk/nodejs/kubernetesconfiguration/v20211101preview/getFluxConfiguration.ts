@@ -122,11 +122,9 @@ export interface GetFluxConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * The Flux Configuration object returned in Get & Put response.
- */
+
 export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluxConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getFluxConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getFluxConfiguration(a, opts))
 }
 
 export interface GetFluxConfigurationOutputArgs {

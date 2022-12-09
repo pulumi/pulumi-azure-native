@@ -91,12 +91,9 @@ export interface GetBackupScheduleResult {
      */
     readonly type: string;
 }
-/**
- * The backup schedule.
- * API Version: 2017-06-01.
- */
+
 export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getBackupSchedule(a, opts))
+    return pulumi.output(args).apply(a => getBackupSchedule(a, opts))
 }
 
 export interface GetBackupScheduleOutputArgs {

@@ -83,12 +83,9 @@ export interface GetOriginGroupResult {
      */
     readonly type: string;
 }
-/**
- * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
- */
-/** @deprecated Version 2020-03-31 will be removed in v2 of the provider. */
+
 export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginGroupResult> {
-    return pulumi.output(args).apply((a: any) => getOriginGroup(a, opts))
+    return pulumi.output(args).apply(a => getOriginGroup(a, opts))
 }
 
 export interface GetOriginGroupOutputArgs {

@@ -53,11 +53,9 @@ export interface ListActiveConnectivityConfigurationResult {
      */
     readonly value?: outputs.network.v20210201preview.ActiveConnectivityConfigurationResponse[];
 }
-/**
- * Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
- */
+
 export function listActiveConnectivityConfigurationOutput(args: ListActiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveConnectivityConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => listActiveConnectivityConfiguration(a, opts))
+    return pulumi.output(args).apply(a => listActiveConnectivityConfiguration(a, opts))
 }
 
 export interface ListActiveConnectivityConfigurationOutputArgs {

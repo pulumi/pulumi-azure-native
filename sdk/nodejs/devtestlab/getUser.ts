@@ -86,12 +86,9 @@ export interface GetUserResult {
      */
     readonly uniqueIdentifier: string;
 }
-/**
- * Profile of a lab user.
- * API Version: 2018-09-15.
- */
+
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply((a: any) => getUser(a, opts))
+    return pulumi.output(args).apply(a => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {

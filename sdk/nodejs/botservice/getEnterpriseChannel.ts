@@ -72,12 +72,9 @@ export interface GetEnterpriseChannelResult {
      */
     readonly type: string;
 }
-/**
- * Enterprise Channel resource definition
- * API Version: 2018-07-12.
- */
+
 export function getEnterpriseChannelOutput(args: GetEnterpriseChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseChannelResult> {
-    return pulumi.output(args).apply((a: any) => getEnterpriseChannel(a, opts))
+    return pulumi.output(args).apply(a => getEnterpriseChannel(a, opts))
 }
 
 export interface GetEnterpriseChannelOutputArgs {

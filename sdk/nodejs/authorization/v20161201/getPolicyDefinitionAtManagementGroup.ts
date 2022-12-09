@@ -70,12 +70,9 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
      */
     readonly policyType?: string;
 }
-/**
- * The policy definition.
- */
-/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
+
 export function getPolicyDefinitionAtManagementGroupOutput(args: GetPolicyDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionAtManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyDefinitionAtManagementGroup(a, opts))
+    return pulumi.output(args).apply(a => getPolicyDefinitionAtManagementGroup(a, opts))
 }
 
 export interface GetPolicyDefinitionAtManagementGroupOutputArgs {

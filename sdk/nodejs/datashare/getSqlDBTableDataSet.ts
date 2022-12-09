@@ -87,12 +87,9 @@ export interface GetSqlDBTableDataSetResult {
      */
     readonly type: string;
 }
-/**
- * A SQL DB table data set.
- * API Version: 2020-09-01.
- */
+
 export function getSqlDBTableDataSetOutput(args: GetSqlDBTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDBTableDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getSqlDBTableDataSet(a, opts))
+    return pulumi.output(args).apply(a => getSqlDBTableDataSet(a, opts))
 }
 
 export interface GetSqlDBTableDataSetOutputArgs {

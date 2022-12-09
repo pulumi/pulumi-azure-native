@@ -114,11 +114,9 @@ export interface GetRouteResult {
      */
     readonly type: string;
 }
-/**
- * Friendly Routes name mapping to the any Routes or secret related information.
- */
+
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
-    return pulumi.output(args).apply((a: any) => getRoute(a, opts))
+    return pulumi.output(args).apply(a => getRoute(a, opts))
 }
 
 export interface GetRouteOutputArgs {

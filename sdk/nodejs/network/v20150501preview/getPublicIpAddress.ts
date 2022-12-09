@@ -89,12 +89,9 @@ export interface GetPublicIpAddressResult {
      */
     readonly type: string;
 }
-/**
- * PublicIPAddress resource
- */
-/** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
+
 export function getPublicIpAddressOutput(args: GetPublicIpAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpAddressResult> {
-    return pulumi.output(args).apply((a: any) => getPublicIpAddress(a, opts))
+    return pulumi.output(args).apply(a => getPublicIpAddress(a, opts))
 }
 
 export interface GetPublicIpAddressOutputArgs {

@@ -46,11 +46,9 @@ export interface ListBuildServiceBuilderDeploymentsResult {
      */
     readonly deployments?: string[];
 }
-/**
- * A list of deployments resource ids.
- */
+
 export function listBuildServiceBuilderDeploymentsOutput(args: ListBuildServiceBuilderDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildServiceBuilderDeploymentsResult> {
-    return pulumi.output(args).apply((a: any) => listBuildServiceBuilderDeployments(a, opts))
+    return pulumi.output(args).apply(a => listBuildServiceBuilderDeployments(a, opts))
 }
 
 export interface ListBuildServiceBuilderDeploymentsOutputArgs {

@@ -71,11 +71,9 @@ export interface ListWebAppBackupConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * Description of a backup which will be performed.
- */
+
 export function listWebAppBackupConfigurationOutput(args: ListWebAppBackupConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppBackupConfiguration(a, opts))
+    return pulumi.output(args).apply(a => listWebAppBackupConfiguration(a, opts))
 }
 
 export interface ListWebAppBackupConfigurationOutputArgs {

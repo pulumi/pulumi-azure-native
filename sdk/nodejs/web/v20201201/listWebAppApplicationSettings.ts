@@ -52,11 +52,9 @@ export interface ListWebAppApplicationSettingsResult {
      */
     readonly type: string;
 }
-/**
- * String dictionary resource.
- */
+
 export function listWebAppApplicationSettingsOutput(args: ListWebAppApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppApplicationSettings(a, opts))
+    return pulumi.output(args).apply(a => listWebAppApplicationSettings(a, opts))
 }
 
 export interface ListWebAppApplicationSettingsOutputArgs {

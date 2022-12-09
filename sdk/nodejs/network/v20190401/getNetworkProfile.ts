@@ -80,11 +80,9 @@ export interface GetNetworkProfileResult {
      */
     readonly type: string;
 }
-/**
- * Network profile resource.
- */
+
 export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkProfile(a, opts))
+    return pulumi.output(args).apply(a => getNetworkProfile(a, opts))
 }
 
 export interface GetNetworkProfileOutputArgs {

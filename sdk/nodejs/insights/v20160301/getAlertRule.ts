@@ -83,11 +83,9 @@ export interface GetAlertRuleResult {
      */
     readonly type: string;
 }
-/**
- * The alert rule resource.
- */
+
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getAlertRule(a, opts))
+    return pulumi.output(args).apply(a => getAlertRule(a, opts))
 }
 
 export interface GetAlertRuleOutputArgs {

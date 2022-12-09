@@ -76,12 +76,9 @@ export interface GetCapabilityResult {
      */
     readonly type: string;
 }
-/**
- * Model that represents a Capability resource.
- * API Version: 2021-09-15-preview.
- */
+
 export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {
-    return pulumi.output(args).apply((a: any) => getCapability(a, opts))
+    return pulumi.output(args).apply(a => getCapability(a, opts))
 }
 
 export interface GetCapabilityOutputArgs {

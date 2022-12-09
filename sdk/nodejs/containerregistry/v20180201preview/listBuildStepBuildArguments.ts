@@ -53,11 +53,9 @@ export interface ListBuildStepBuildArgumentsResult {
      */
     readonly value?: outputs.containerregistry.v20180201preview.BuildArgumentResponse[];
 }
-/**
- * The list of build arguments for a build step.
- */
+
 export function listBuildStepBuildArgumentsOutput(args: ListBuildStepBuildArgumentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildStepBuildArgumentsResult> {
-    return pulumi.output(args).apply((a: any) => listBuildStepBuildArguments(a, opts))
+    return pulumi.output(args).apply(a => listBuildStepBuildArguments(a, opts))
 }
 
 export interface ListBuildStepBuildArgumentsOutputArgs {

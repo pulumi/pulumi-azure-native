@@ -91,11 +91,9 @@ export interface GetIotSecuritySolutionResult {
      */
     readonly workspace: string;
 }
-/**
- * Security Solution
- */
+
 export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotSecuritySolutionResult> {
-    return pulumi.output(args).apply((a: any) => getIotSecuritySolution(a, opts))
+    return pulumi.output(args).apply(a => getIotSecuritySolution(a, opts))
 }
 
 export interface GetIotSecuritySolutionOutputArgs {

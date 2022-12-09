@@ -76,11 +76,9 @@ export interface GetTokenResult {
      */
     readonly type: string;
 }
-/**
- * An object that represents a token for a container registry.
- */
+
 export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTokenResult> {
-    return pulumi.output(args).apply((a: any) => getToken(a, opts))
+    return pulumi.output(args).apply(a => getToken(a, opts))
 }
 
 export interface GetTokenOutputArgs {

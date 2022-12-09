@@ -62,12 +62,9 @@ export interface GetAddonResult {
      */
     readonly type: string;
 }
-/**
- * An addon resource
- * API Version: 2020-07-17-preview.
- */
+
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
-    return pulumi.output(args).apply((a: any) => getAddon(a, opts))
+    return pulumi.output(args).apply(a => getAddon(a, opts))
 }
 
 export interface GetAddonOutputArgs {

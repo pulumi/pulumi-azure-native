@@ -54,12 +54,9 @@ export interface GetOnlineEndpointTokenResult {
      */
     readonly tokenType?: string;
 }
-/**
- * Service Token
- * API Version: 2021-03-01-preview.
- */
+
 export function getOnlineEndpointTokenOutput(args: GetOnlineEndpointTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointTokenResult> {
-    return pulumi.output(args).apply((a: any) => getOnlineEndpointToken(a, opts))
+    return pulumi.output(args).apply(a => getOnlineEndpointToken(a, opts))
 }
 
 export interface GetOnlineEndpointTokenOutputArgs {

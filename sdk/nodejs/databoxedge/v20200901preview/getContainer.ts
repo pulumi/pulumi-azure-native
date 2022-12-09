@@ -79,12 +79,9 @@ export interface GetContainerResult {
      */
     readonly type: string;
 }
-/**
- * Represents a container on the  Data Box Edge/Gateway device.
- */
-/** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider. */
+
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
-    return pulumi.output(args).apply((a: any) => getContainer(a, opts))
+    return pulumi.output(args).apply(a => getContainer(a, opts))
 }
 
 export interface GetContainerOutputArgs {

@@ -45,12 +45,9 @@ export interface ListKustoPoolFollowerDatabasesResult {
      */
     readonly value?: outputs.synapse.FollowerDatabaseDefinitionResponse[];
 }
-/**
- * The list Kusto database principals operation response.
- * API Version: 2021-06-01-preview.
- */
+
 export function listKustoPoolFollowerDatabasesOutput(args: ListKustoPoolFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolFollowerDatabasesResult> {
-    return pulumi.output(args).apply((a: any) => listKustoPoolFollowerDatabases(a, opts))
+    return pulumi.output(args).apply(a => listKustoPoolFollowerDatabases(a, opts))
 }
 
 export interface ListKustoPoolFollowerDatabasesOutputArgs {

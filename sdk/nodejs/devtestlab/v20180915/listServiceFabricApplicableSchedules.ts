@@ -73,11 +73,9 @@ export interface ListServiceFabricApplicableSchedulesResult {
      */
     readonly type: string;
 }
-/**
- * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
- */
+
 export function listServiceFabricApplicableSchedulesOutput(args: ListServiceFabricApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceFabricApplicableSchedulesResult> {
-    return pulumi.output(args).apply((a: any) => listServiceFabricApplicableSchedules(a, opts))
+    return pulumi.output(args).apply(a => listServiceFabricApplicableSchedules(a, opts))
 }
 
 export interface ListServiceFabricApplicableSchedulesOutputArgs {

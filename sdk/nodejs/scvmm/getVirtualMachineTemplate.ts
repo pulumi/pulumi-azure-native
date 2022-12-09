@@ -136,12 +136,9 @@ export interface GetVirtualMachineTemplateResult {
      */
     readonly vmmServerId?: string;
 }
-/**
- * The VirtualMachineTemplates resource definition.
- * API Version: 2020-06-05-preview.
- */
+
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineTemplate(a, opts))
+    return pulumi.output(args).apply(a => getVirtualMachineTemplate(a, opts))
 }
 
 export interface GetVirtualMachineTemplateOutputArgs {

@@ -83,12 +83,9 @@ export interface GetViewResult {
      */
     readonly viewName: string;
 }
-/**
- * The view resource format.
- * API Version: 2017-04-26.
- */
+
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
-    return pulumi.output(args).apply((a: any) => getView(a, opts))
+    return pulumi.output(args).apply(a => getView(a, opts))
 }
 
 export interface GetViewOutputArgs {

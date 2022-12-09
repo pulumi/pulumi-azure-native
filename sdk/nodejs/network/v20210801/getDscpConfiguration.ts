@@ -103,11 +103,9 @@ export interface GetDscpConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * Differentiated Services Code Point configuration for any given network interface
- */
+
 export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getDscpConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getDscpConfiguration(a, opts))
 }
 
 export interface GetDscpConfigurationOutputArgs {

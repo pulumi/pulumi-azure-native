@@ -73,12 +73,9 @@ export interface GetCatalogResult {
      */
     readonly type: string;
 }
-/**
- * Represents a catalog.
- * API Version: 2022-09-01-preview.
- */
+
 export function getCatalogOutput(args: GetCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogResult> {
-    return pulumi.output(args).apply((a: any) => getCatalog(a, opts))
+    return pulumi.output(args).apply(a => getCatalog(a, opts))
 }
 
 export interface GetCatalogOutputArgs {

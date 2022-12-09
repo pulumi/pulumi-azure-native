@@ -55,12 +55,9 @@ export interface GetDomainTopicResult {
      */
     readonly type: string;
 }
-/**
- * Domain Topic.
- */
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
-    return pulumi.output(args).apply((a: any) => getDomainTopic(a, opts))
+    return pulumi.output(args).apply(a => getDomainTopic(a, opts))
 }
 
 export interface GetDomainTopicOutputArgs {

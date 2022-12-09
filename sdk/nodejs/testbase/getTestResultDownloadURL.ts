@@ -51,12 +51,9 @@ export interface GetTestResultDownloadURLResult {
      */
     readonly expirationTime: string;
 }
-/**
- * The response of getting a download URL.
- * API Version: 2022-04-01-preview.
- */
+
 export function getTestResultDownloadURLOutput(args: GetTestResultDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultDownloadURLResult> {
-    return pulumi.output(args).apply((a: any) => getTestResultDownloadURL(a, opts))
+    return pulumi.output(args).apply(a => getTestResultDownloadURL(a, opts))
 }
 
 export interface GetTestResultDownloadURLOutputArgs {

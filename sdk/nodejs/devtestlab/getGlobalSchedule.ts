@@ -105,12 +105,9 @@ export interface GetGlobalScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.WeekDetailsResponse;
 }
-/**
- * A schedule.
- * API Version: 2018-09-15.
- */
+
 export function getGlobalScheduleOutput(args: GetGlobalScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalSchedule(a, opts))
+    return pulumi.output(args).apply(a => getGlobalSchedule(a, opts))
 }
 
 export interface GetGlobalScheduleOutputArgs {

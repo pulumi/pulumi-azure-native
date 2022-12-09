@@ -54,12 +54,9 @@ export interface GetSettingByScopeResult {
      */
     readonly type: string;
 }
-/**
- * Setting definition.
- */
-/** @deprecated Please use one of the variants: TagInheritanceSetting. */
+
 export function getSettingByScopeOutput(args: GetSettingByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSettingByScopeResult> {
-    return pulumi.output(args).apply((a: any) => getSettingByScope(a, opts))
+    return pulumi.output(args).apply(a => getSettingByScope(a, opts))
 }
 
 export interface GetSettingByScopeOutputArgs {

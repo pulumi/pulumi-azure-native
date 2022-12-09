@@ -101,11 +101,9 @@ export interface GetvirtualmachineRetrieveResult {
      */
     readonly vmId: string;
 }
-/**
- * The virtual machine resource definition.
- */
+
 export function getvirtualmachineRetrieveOutput(args: GetvirtualmachineRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualmachineRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getvirtualmachineRetrieve(a, opts))
+    return pulumi.output(args).apply(a => getvirtualmachineRetrieve(a, opts))
 }
 
 export interface GetvirtualmachineRetrieveOutputArgs {

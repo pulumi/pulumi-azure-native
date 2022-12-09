@@ -69,12 +69,9 @@ export interface GetDeploymentScriptResult {
      */
     readonly type: string;
 }
-/**
- * Deployment script object.
- */
-/** @deprecated Please use one of the variants: AzureCliScript, AzurePowerShellScript. */
+
 export function getDeploymentScriptOutput(args: GetDeploymentScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentScriptResult> {
-    return pulumi.output(args).apply((a: any) => getDeploymentScript(a, opts))
+    return pulumi.output(args).apply(a => getDeploymentScript(a, opts))
 }
 
 export interface GetDeploymentScriptOutputArgs {

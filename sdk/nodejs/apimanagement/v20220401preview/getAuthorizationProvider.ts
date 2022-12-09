@@ -64,11 +64,9 @@ export interface GetAuthorizationProviderResult {
      */
     readonly type: string;
 }
-/**
- * Authorization Provider contract.
- */
+
 export function getAuthorizationProviderOutput(args: GetAuthorizationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationProviderResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizationProvider(a, opts))
+    return pulumi.output(args).apply(a => getAuthorizationProvider(a, opts))
 }
 
 export interface GetAuthorizationProviderOutputArgs {

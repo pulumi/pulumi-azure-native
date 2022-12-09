@@ -68,11 +68,9 @@ export interface GetWebPubSubCustomDomainResult {
      */
     readonly type: string;
 }
-/**
- * A custom domain
- */
+
 export function getWebPubSubCustomDomainOutput(args: GetWebPubSubCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomDomainResult> {
-    return pulumi.output(args).apply((a: any) => getWebPubSubCustomDomain(a, opts))
+    return pulumi.output(args).apply(a => getWebPubSubCustomDomain(a, opts))
 }
 
 export interface GetWebPubSubCustomDomainOutputArgs {

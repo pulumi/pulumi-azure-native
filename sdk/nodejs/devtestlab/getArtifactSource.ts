@@ -107,12 +107,9 @@ export interface GetArtifactSourceResult {
      */
     readonly uri?: string;
 }
-/**
- * Properties of an artifact source.
- * API Version: 2018-09-15.
- */
+
 export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {
-    return pulumi.output(args).apply((a: any) => getArtifactSource(a, opts))
+    return pulumi.output(args).apply(a => getArtifactSource(a, opts))
 }
 
 export interface GetArtifactSourceOutputArgs {

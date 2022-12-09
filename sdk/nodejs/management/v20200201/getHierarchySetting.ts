@@ -53,12 +53,9 @@ export interface GetHierarchySettingResult {
      */
     readonly type: string;
 }
-/**
- * Settings defined at the Management Group scope.
- */
-/** @deprecated Version 2020-02-01 will be removed in v2 of the provider. */
+
 export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHierarchySettingResult> {
-    return pulumi.output(args).apply((a: any) => getHierarchySetting(a, opts))
+    return pulumi.output(args).apply(a => getHierarchySetting(a, opts))
 }
 
 export interface GetHierarchySettingOutputArgs {

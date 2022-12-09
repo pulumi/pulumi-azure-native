@@ -48,11 +48,9 @@ export interface GetBastionShareableLinkResult {
      */
     readonly value?: outputs.network.v20191201.BastionShareableLinkResponse[];
 }
-/**
- * Response for all the Bastion Shareable Link endpoints.
- */
+
 export function getBastionShareableLinkOutput(args: GetBastionShareableLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionShareableLinkResult> {
-    return pulumi.output(args).apply((a: any) => getBastionShareableLink(a, opts))
+    return pulumi.output(args).apply(a => getBastionShareableLink(a, opts))
 }
 
 export interface GetBastionShareableLinkOutputArgs {

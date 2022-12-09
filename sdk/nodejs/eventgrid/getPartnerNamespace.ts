@@ -87,12 +87,9 @@ export interface GetPartnerNamespaceResult {
      */
     readonly type: string;
 }
-/**
- * EventGrid Partner Namespace.
- * API Version: 2021-06-01-preview.
- */
+
 export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerNamespaceResult> {
-    return pulumi.output(args).apply((a: any) => getPartnerNamespace(a, opts))
+    return pulumi.output(args).apply(a => getPartnerNamespace(a, opts))
 }
 
 export interface GetPartnerNamespaceOutputArgs {

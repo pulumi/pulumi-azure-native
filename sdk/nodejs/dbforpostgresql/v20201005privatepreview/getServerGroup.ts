@@ -131,11 +131,9 @@ export interface GetServerGroupResult {
      */
     readonly type: string;
 }
-/**
- * Represents a server group for create.
- */
+
 export function getServerGroupOutput(args: GetServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerGroupResult> {
-    return pulumi.output(args).apply((a: any) => getServerGroup(a, opts))
+    return pulumi.output(args).apply(a => getServerGroup(a, opts))
 }
 
 export interface GetServerGroupOutputArgs {

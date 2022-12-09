@@ -40,11 +40,9 @@ export interface ListDomainSharedAccessKeysResult {
      */
     readonly key2?: string;
 }
-/**
- * Shared access keys of the Domain
- */
+
 export function listDomainSharedAccessKeysOutput(args: ListDomainSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainSharedAccessKeysResult> {
-    return pulumi.output(args).apply((a: any) => listDomainSharedAccessKeys(a, opts))
+    return pulumi.output(args).apply(a => listDomainSharedAccessKeys(a, opts))
 }
 
 export interface ListDomainSharedAccessKeysOutputArgs {

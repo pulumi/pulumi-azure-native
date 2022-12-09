@@ -73,12 +73,9 @@ export interface GetRestorePointResult {
      */
     readonly type: string;
 }
-/**
- * Restore Point details.
- * API Version: 2021-03-01.
- */
+
 export function getRestorePointOutput(args: GetRestorePointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointResult> {
-    return pulumi.output(args).apply((a: any) => getRestorePoint(a, opts))
+    return pulumi.output(args).apply(a => getRestorePoint(a, opts))
 }
 
 export interface GetRestorePointOutputArgs {

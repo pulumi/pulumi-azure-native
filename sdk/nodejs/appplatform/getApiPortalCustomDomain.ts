@@ -66,12 +66,9 @@ export interface GetApiPortalCustomDomainResult {
      */
     readonly type: string;
 }
-/**
- * Custom domain of the API portal
- * API Version: 2022-01-01-preview.
- */
+
 export function getApiPortalCustomDomainOutput(args: GetApiPortalCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalCustomDomainResult> {
-    return pulumi.output(args).apply((a: any) => getApiPortalCustomDomain(a, opts))
+    return pulumi.output(args).apply(a => getApiPortalCustomDomain(a, opts))
 }
 
 export interface GetApiPortalCustomDomainOutputArgs {

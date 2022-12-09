@@ -131,11 +131,9 @@ export interface GetComponentResult {
      */
     readonly type: string;
 }
-/**
- * An Application Insights component definition.
- */
+
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
-    return pulumi.output(args).apply((a: any) => getComponent(a, opts))
+    return pulumi.output(args).apply(a => getComponent(a, opts))
 }
 
 export interface GetComponentOutputArgs {

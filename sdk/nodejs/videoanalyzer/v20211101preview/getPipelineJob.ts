@@ -80,11 +80,9 @@ export interface GetPipelineJobResult {
      */
     readonly type: string;
 }
-/**
- * Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
- */
+
 export function getPipelineJobOutput(args: GetPipelineJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineJobResult> {
-    return pulumi.output(args).apply((a: any) => getPipelineJob(a, opts))
+    return pulumi.output(args).apply(a => getPipelineJob(a, opts))
 }
 
 export interface GetPipelineJobOutputArgs {

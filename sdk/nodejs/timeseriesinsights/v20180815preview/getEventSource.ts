@@ -63,12 +63,9 @@ export interface GetEventSourceResult {
      */
     readonly type: string;
 }
-/**
- * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
- */
-/** @deprecated Version 2018-08-15-preview will be removed in v2 of the provider. */
+
 export function getEventSourceOutput(args: GetEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceResult> {
-    return pulumi.output(args).apply((a: any) => getEventSource(a, opts))
+    return pulumi.output(args).apply(a => getEventSource(a, opts))
 }
 
 export interface GetEventSourceOutputArgs {

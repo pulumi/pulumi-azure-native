@@ -81,11 +81,9 @@ export interface GetApiDiagnosticResult {
      */
     readonly type: string;
 }
-/**
- * Diagnostic details.
- */
+
 export function getApiDiagnosticOutput(args: GetApiDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDiagnosticResult> {
-    return pulumi.output(args).apply((a: any) => getApiDiagnostic(a, opts))
+    return pulumi.output(args).apply(a => getApiDiagnostic(a, opts))
 }
 
 export interface GetApiDiagnosticOutputArgs {

@@ -81,12 +81,9 @@ export interface GetScheduleResult {
      */
     readonly type: string;
 }
-/**
- * Schedule for automatically turning virtual machines in a lab on and off at specified times.
- * API Version: 2021-10-01-preview.
- */
+
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
+    return pulumi.output(args).apply(a => getSchedule(a, opts))
 }
 
 export interface GetScheduleOutputArgs {

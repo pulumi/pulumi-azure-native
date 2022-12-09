@@ -76,11 +76,9 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
      */
     readonly type: string;
 }
-/**
- * Describes a Shared Private Link Resource
- */
+
 export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRSharedPrivateLinkResourceResult> {
-    return pulumi.output(args).apply((a: any) => getSignalRSharedPrivateLinkResource(a, opts))
+    return pulumi.output(args).apply(a => getSignalRSharedPrivateLinkResource(a, opts))
 }
 
 export interface GetSignalRSharedPrivateLinkResourceOutputArgs {

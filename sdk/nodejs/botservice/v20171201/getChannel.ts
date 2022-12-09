@@ -78,12 +78,9 @@ export interface GetChannelResult {
      */
     readonly type: string;
 }
-/**
- * Bot channel resource definition
- */
-/** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
+
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
+    return pulumi.output(args).apply(a => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {

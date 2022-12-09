@@ -64,11 +64,9 @@ export interface GetSqlResourceSqlRoleDefinitionResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB SQL Role Definition.
- */
+
 export function getSqlResourceSqlRoleDefinitionOutput(args: GetSqlResourceSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getSqlResourceSqlRoleDefinition(a, opts))
+    return pulumi.output(args).apply(a => getSqlResourceSqlRoleDefinition(a, opts))
 }
 
 export interface GetSqlResourceSqlRoleDefinitionOutputArgs {

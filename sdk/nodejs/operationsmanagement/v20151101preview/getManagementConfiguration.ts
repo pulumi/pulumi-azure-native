@@ -55,11 +55,9 @@ export interface GetManagementConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * The container for solution.
- */
+
 export function getManagementConfigurationOutput(args: GetManagementConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getManagementConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getManagementConfiguration(a, opts))
 }
 
 export interface GetManagementConfigurationOutputArgs {

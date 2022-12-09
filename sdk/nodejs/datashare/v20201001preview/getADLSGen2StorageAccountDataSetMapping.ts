@@ -98,11 +98,9 @@ export interface GetADLSGen2StorageAccountDataSetMappingResult {
      */
     readonly type: string;
 }
-/**
- * ADLSGen2 storage account data set mapping.
- */
+
 export function getADLSGen2StorageAccountDataSetMappingOutput(args: GetADLSGen2StorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2StorageAccountDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getADLSGen2StorageAccountDataSetMapping(a, opts))
+    return pulumi.output(args).apply(a => getADLSGen2StorageAccountDataSetMapping(a, opts))
 }
 
 export interface GetADLSGen2StorageAccountDataSetMappingOutputArgs {

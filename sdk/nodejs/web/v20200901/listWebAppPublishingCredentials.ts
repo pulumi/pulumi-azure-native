@@ -75,11 +75,9 @@ export interface ListWebAppPublishingCredentialsResult {
      */
     readonly type: string;
 }
-/**
- * User credentials used for publishing activity.
- */
+
 export function listWebAppPublishingCredentialsOutput(args: ListWebAppPublishingCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppPublishingCredentials(a, opts))
+    return pulumi.output(args).apply(a => listWebAppPublishingCredentials(a, opts))
 }
 
 export interface ListWebAppPublishingCredentialsOutputArgs {

@@ -105,11 +105,9 @@ export interface GetLiveOutputResult {
      */
     readonly type: string;
 }
-/**
- * The Live Output.
- */
+
 export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {
-    return pulumi.output(args).apply((a: any) => getLiveOutput(a, opts))
+    return pulumi.output(args).apply(a => getLiveOutput(a, opts))
 }
 
 export interface GetLiveOutputOutputArgs {

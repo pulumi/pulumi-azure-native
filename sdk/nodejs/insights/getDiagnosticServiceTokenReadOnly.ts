@@ -32,12 +32,9 @@ export interface GetDiagnosticServiceTokenReadOnlyResult {
      */
     readonly token?: string;
 }
-/**
- * The response to a diagnostic services token query.
- * API Version: 2021-03-03-preview.
- */
+
 export function getDiagnosticServiceTokenReadOnlyOutput(args: GetDiagnosticServiceTokenReadOnlyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceTokenReadOnlyResult> {
-    return pulumi.output(args).apply((a: any) => getDiagnosticServiceTokenReadOnly(a, opts))
+    return pulumi.output(args).apply(a => getDiagnosticServiceTokenReadOnly(a, opts))
 }
 
 export interface GetDiagnosticServiceTokenReadOnlyOutputArgs {

@@ -119,12 +119,9 @@ export interface GetConnectorMappingResult {
      */
     readonly type: string;
 }
-/**
- * The connector mapping resource format.
- */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+
 export function getConnectorMappingOutput(args: GetConnectorMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorMappingResult> {
-    return pulumi.output(args).apply((a: any) => getConnectorMapping(a, opts))
+    return pulumi.output(args).apply(a => getConnectorMapping(a, opts))
 }
 
 export interface GetConnectorMappingOutputArgs {

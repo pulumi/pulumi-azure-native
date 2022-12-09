@@ -84,11 +84,9 @@ export interface GetDaprComponentResult {
      */
     readonly version?: string;
 }
-/**
- * Dapr Component.
- */
+
 export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResult> {
-    return pulumi.output(args).apply((a: any) => getDaprComponent(a, opts))
+    return pulumi.output(args).apply(a => getDaprComponent(a, opts))
 }
 
 export interface GetDaprComponentOutputArgs {

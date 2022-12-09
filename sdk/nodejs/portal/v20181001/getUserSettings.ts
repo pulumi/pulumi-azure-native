@@ -34,11 +34,9 @@ export interface GetUserSettingsResult {
      */
     readonly properties: outputs.portal.v20181001.UserPropertiesResponse;
 }
-/**
- * Response to get user settings
- */
+
 export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSettingsResult> {
-    return pulumi.output(args).apply((a: any) => getUserSettings(a, opts))
+    return pulumi.output(args).apply(a => getUserSettings(a, opts))
 }
 
 export interface GetUserSettingsOutputArgs {

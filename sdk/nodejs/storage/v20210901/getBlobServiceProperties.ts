@@ -92,11 +92,9 @@ export interface GetBlobServicePropertiesResult {
      */
     readonly type: string;
 }
-/**
- * The properties of a storage account’s Blob service.
- */
+
 export function getBlobServicePropertiesOutput(args: GetBlobServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobServicePropertiesResult> {
-    return pulumi.output(args).apply((a: any) => getBlobServiceProperties(a, opts))
+    return pulumi.output(args).apply(a => getBlobServiceProperties(a, opts))
 }
 
 export interface GetBlobServicePropertiesOutputArgs {

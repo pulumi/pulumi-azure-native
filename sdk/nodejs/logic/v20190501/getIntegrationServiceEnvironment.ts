@@ -67,11 +67,9 @@ export interface GetIntegrationServiceEnvironmentResult {
      */
     readonly type: string;
 }
-/**
- * The integration service environment.
- */
+
 export function getIntegrationServiceEnvironmentOutput(args: GetIntegrationServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationServiceEnvironment(a, opts))
+    return pulumi.output(args).apply(a => getIntegrationServiceEnvironment(a, opts))
 }
 
 export interface GetIntegrationServiceEnvironmentOutputArgs {

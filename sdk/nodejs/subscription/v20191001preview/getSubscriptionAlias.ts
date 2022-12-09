@@ -48,12 +48,9 @@ export interface GetSubscriptionAliasResult {
      */
     readonly type: string;
 }
-/**
- * Subscription Information with the alias.
- */
-/** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
+
 export function getSubscriptionAliasOutput(args: GetSubscriptionAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionAliasResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriptionAlias(a, opts))
+    return pulumi.output(args).apply(a => getSubscriptionAlias(a, opts))
 }
 
 export interface GetSubscriptionAliasOutputArgs {

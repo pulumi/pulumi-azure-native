@@ -40,12 +40,9 @@ export interface GetGlobalUserOperationBatchStatusResult {
      */
     readonly items: outputs.labservices.OperationBatchStatusResponseItemResponse[];
 }
-/**
- * Status Details of the long running operation for an environment
- * API Version: 2018-10-15.
- */
+
 export function getGlobalUserOperationBatchStatusOutput(args: GetGlobalUserOperationBatchStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationBatchStatusResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalUserOperationBatchStatus(a, opts))
+    return pulumi.output(args).apply(a => getGlobalUserOperationBatchStatus(a, opts))
 }
 
 export interface GetGlobalUserOperationBatchStatusOutputArgs {

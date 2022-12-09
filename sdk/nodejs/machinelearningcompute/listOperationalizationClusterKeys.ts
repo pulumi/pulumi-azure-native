@@ -60,12 +60,9 @@ export interface ListOperationalizationClusterKeysResult {
      */
     readonly storageAccount?: outputs.machinelearningcompute.StorageAccountCredentialsResponse;
 }
-/**
- * Credentials to resources in the cluster.
- * API Version: 2017-08-01-preview.
- */
+
 export function listOperationalizationClusterKeysOutput(args: ListOperationalizationClusterKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOperationalizationClusterKeysResult> {
-    return pulumi.output(args).apply((a: any) => listOperationalizationClusterKeys(a, opts))
+    return pulumi.output(args).apply(a => listOperationalizationClusterKeys(a, opts))
 }
 
 export interface ListOperationalizationClusterKeysOutputArgs {

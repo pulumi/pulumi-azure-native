@@ -48,11 +48,9 @@ export interface ListConfigurationStoreKeysResult {
      */
     readonly value?: outputs.appconfiguration.v20210301preview.ApiKeyResponse[];
 }
-/**
- * The result of a request to list API keys.
- */
+
 export function listConfigurationStoreKeysOutput(args: ListConfigurationStoreKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeysResult> {
-    return pulumi.output(args).apply((a: any) => listConfigurationStoreKeys(a, opts))
+    return pulumi.output(args).apply(a => listConfigurationStoreKeys(a, opts))
 }
 
 export interface ListConfigurationStoreKeysOutputArgs {

@@ -62,12 +62,9 @@ export interface GetAccessControlRecordResult {
      */
     readonly volumeCount: number;
 }
-/**
- * The access control record.
- * API Version: 2017-06-01.
- */
+
 export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
-    return pulumi.output(args).apply((a: any) => getAccessControlRecord(a, opts))
+    return pulumi.output(args).apply(a => getAccessControlRecord(a, opts))
 }
 
 export interface GetAccessControlRecordOutputArgs {

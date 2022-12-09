@@ -77,12 +77,9 @@ export interface GetOrderResult {
      */
     readonly type: string;
 }
-/**
- * The order details.
- */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
+
 export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderResult> {
-    return pulumi.output(args).apply((a: any) => getOrder(a, opts))
+    return pulumi.output(args).apply(a => getOrder(a, opts))
 }
 
 export interface GetOrderOutputArgs {

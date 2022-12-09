@@ -89,11 +89,9 @@ export interface GetKustoPoolAttachedDatabaseConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * Class representing an attached database configuration.
- */
+
 export function getKustoPoolAttachedDatabaseConfigurationOutput(args: GetKustoPoolAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolAttachedDatabaseConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getKustoPoolAttachedDatabaseConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getKustoPoolAttachedDatabaseConfiguration(a, opts))
 }
 
 export interface GetKustoPoolAttachedDatabaseConfigurationOutputArgs {

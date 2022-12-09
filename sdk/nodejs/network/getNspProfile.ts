@@ -66,12 +66,9 @@ export interface GetNspProfileResult {
      */
     readonly type: string;
 }
-/**
- * The network security perimeter profile resource
- * API Version: 2021-02-01-preview.
- */
+
 export function getNspProfileOutput(args: GetNspProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspProfileResult> {
-    return pulumi.output(args).apply((a: any) => getNspProfile(a, opts))
+    return pulumi.output(args).apply(a => getNspProfile(a, opts))
 }
 
 export interface GetNspProfileOutputArgs {

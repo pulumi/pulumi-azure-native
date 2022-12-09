@@ -80,11 +80,9 @@ export interface GetStorageAccountResult {
      */
     readonly type: string;
 }
-/**
- * Represents a Storage Account on the  Data Box Edge/Gateway device.
- */
+
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
-    return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
+    return pulumi.output(args).apply(a => getStorageAccount(a, opts))
 }
 
 export interface GetStorageAccountOutputArgs {

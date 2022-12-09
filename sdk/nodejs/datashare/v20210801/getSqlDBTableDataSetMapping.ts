@@ -94,11 +94,9 @@ export interface GetSqlDBTableDataSetMappingResult {
      */
     readonly type: string;
 }
-/**
- * A SQL DB Table data set mapping.
- */
+
 export function getSqlDBTableDataSetMappingOutput(args: GetSqlDBTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDBTableDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getSqlDBTableDataSetMapping(a, opts))
+    return pulumi.output(args).apply(a => getSqlDBTableDataSetMapping(a, opts))
 }
 
 export interface GetSqlDBTableDataSetMappingOutputArgs {

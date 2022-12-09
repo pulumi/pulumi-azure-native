@@ -67,12 +67,9 @@ export interface GetDataSetMappingResult {
      */
     readonly type: string;
 }
-/**
- * A data set mapping data transfer object.
- */
-/** @deprecated Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, KustoTableDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping. */
+
 export function getDataSetMappingOutput(args: GetDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getDataSetMapping(a, opts))
+    return pulumi.output(args).apply(a => getDataSetMapping(a, opts))
 }
 
 export interface GetDataSetMappingOutputArgs {

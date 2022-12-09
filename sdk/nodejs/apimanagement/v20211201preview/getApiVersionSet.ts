@@ -69,11 +69,9 @@ export interface GetApiVersionSetResult {
      */
     readonly versioningScheme: string;
 }
-/**
- * API Version Set Contract details.
- */
+
 export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
-    return pulumi.output(args).apply((a: any) => getApiVersionSet(a, opts))
+    return pulumi.output(args).apply(a => getApiVersionSet(a, opts))
 }
 
 export interface GetApiVersionSetOutputArgs {

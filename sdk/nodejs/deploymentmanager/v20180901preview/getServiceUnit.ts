@@ -79,12 +79,9 @@ export interface GetServiceUnitResult {
      */
     readonly type: string;
 }
-/**
- * Represents the response of a service unit resource.
- */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
+
 export function getServiceUnitOutput(args: GetServiceUnitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceUnitResult> {
-    return pulumi.output(args).apply((a: any) => getServiceUnit(a, opts))
+    return pulumi.output(args).apply(a => getServiceUnit(a, opts))
 }
 
 export interface GetServiceUnitOutputArgs {

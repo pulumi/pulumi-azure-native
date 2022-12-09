@@ -63,11 +63,9 @@ export interface GetPrivateLinkHubResult {
      */
     readonly type: string;
 }
-/**
- * A privateLinkHub
- */
+
 export function getPrivateLinkHubOutput(args: GetPrivateLinkHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkHubResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkHub(a, opts))
+    return pulumi.output(args).apply(a => getPrivateLinkHub(a, opts))
 }
 
 export interface GetPrivateLinkHubOutputArgs {

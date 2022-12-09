@@ -75,11 +75,9 @@ export interface GetVideoAnalyzerResult {
      */
     readonly type: string;
 }
-/**
- * A Video Analyzer account.
- */
+
 export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoAnalyzerResult> {
-    return pulumi.output(args).apply((a: any) => getVideoAnalyzer(a, opts))
+    return pulumi.output(args).apply(a => getVideoAnalyzer(a, opts))
 }
 
 export interface GetVideoAnalyzerOutputArgs {

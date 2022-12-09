@@ -66,12 +66,9 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * Maintenance configuration record type
- */
-/** @deprecated Version 2018-06-01-preview will be removed in v2 of the provider. */
+
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getMaintenanceConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getMaintenanceConfiguration(a, opts))
 }
 
 export interface GetMaintenanceConfigurationOutputArgs {

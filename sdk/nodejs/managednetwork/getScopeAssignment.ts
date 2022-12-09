@@ -61,12 +61,9 @@ export interface GetScopeAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * The Managed Network resource
- * API Version: 2019-06-01-preview.
- */
+
 export function getScopeAssignmentOutput(args: GetScopeAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getScopeAssignment(a, opts))
+    return pulumi.output(args).apply(a => getScopeAssignment(a, opts))
 }
 
 export interface GetScopeAssignmentOutputArgs {

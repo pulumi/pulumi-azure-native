@@ -84,11 +84,9 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
      */
     readonly status: string;
 }
-/**
- * LogAnalytics operation status response
- */
+
 export function getLogAnalyticExportThrottledRequestsOutput(args: GetLogAnalyticExportThrottledRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportThrottledRequestsResult> {
-    return pulumi.output(args).apply((a: any) => getLogAnalyticExportThrottledRequests(a, opts))
+    return pulumi.output(args).apply(a => getLogAnalyticExportThrottledRequests(a, opts))
 }
 
 export interface GetLogAnalyticExportThrottledRequestsOutputArgs {

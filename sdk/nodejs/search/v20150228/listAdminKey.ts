@@ -40,11 +40,9 @@ export interface ListAdminKeyResult {
      */
     readonly secondaryKey: string;
 }
-/**
- * Response containing the primary and secondary API keys for a given Azure Search service.
- */
+
 export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAdminKeyResult> {
-    return pulumi.output(args).apply((a: any) => listAdminKey(a, opts))
+    return pulumi.output(args).apply(a => listAdminKey(a, opts))
 }
 
 export interface ListAdminKeyOutputArgs {

@@ -65,11 +65,9 @@ export interface GetBuildServiceAgentPoolResult {
      */
     readonly type: string;
 }
-/**
- * The build service agent pool resource
- */
+
 export function getBuildServiceAgentPoolOutput(args: GetBuildServiceAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceAgentPoolResult> {
-    return pulumi.output(args).apply((a: any) => getBuildServiceAgentPool(a, opts))
+    return pulumi.output(args).apply(a => getBuildServiceAgentPool(a, opts))
 }
 
 export interface GetBuildServiceAgentPoolOutputArgs {

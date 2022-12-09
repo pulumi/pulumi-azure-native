@@ -79,12 +79,9 @@ export interface GetDatabaseAccountSqlDatabaseResult {
      */
     readonly users?: string;
 }
-/**
- * An Azure Cosmos DB SQL database.
- */
-/** @deprecated Version 2016-03-19 will be removed in v2 of the provider. */
+
 export function getDatabaseAccountSqlDatabaseOutput(args: GetDatabaseAccountSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountSqlDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseAccountSqlDatabase(a, opts))
+    return pulumi.output(args).apply(a => getDatabaseAccountSqlDatabase(a, opts))
 }
 
 export interface GetDatabaseAccountSqlDatabaseOutputArgs {

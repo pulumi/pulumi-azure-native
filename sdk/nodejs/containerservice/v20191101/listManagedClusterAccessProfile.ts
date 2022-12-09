@@ -61,11 +61,9 @@ export interface ListManagedClusterAccessProfileResult {
      */
     readonly type: string;
 }
-/**
- * Managed cluster Access Profile.
- */
+
 export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
-    return pulumi.output(args).apply((a: any) => listManagedClusterAccessProfile(a, opts))
+    return pulumi.output(args).apply(a => listManagedClusterAccessProfile(a, opts))
 }
 
 export interface ListManagedClusterAccessProfileOutputArgs {

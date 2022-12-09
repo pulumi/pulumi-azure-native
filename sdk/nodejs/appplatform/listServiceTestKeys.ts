@@ -53,12 +53,9 @@ export interface ListServiceTestKeysResult {
      */
     readonly secondaryTestEndpoint?: string;
 }
-/**
- * Test keys payload
- * API Version: 2020-07-01.
- */
+
 export function listServiceTestKeysOutput(args: ListServiceTestKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceTestKeysResult> {
-    return pulumi.output(args).apply((a: any) => listServiceTestKeys(a, opts))
+    return pulumi.output(args).apply(a => listServiceTestKeys(a, opts))
 }
 
 export interface ListServiceTestKeysOutputArgs {

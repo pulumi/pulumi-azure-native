@@ -95,12 +95,9 @@ export interface GetMicrosoftSecurityIncidentCreationAlertRuleResult {
      */
     readonly type: string;
 }
-/**
- * Represents MicrosoftSecurityIncidentCreation rule.
- * API Version: 2020-01-01.
- */
+
 export function getMicrosoftSecurityIncidentCreationAlertRuleOutput(args: GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getMicrosoftSecurityIncidentCreationAlertRule(a, opts))
+    return pulumi.output(args).apply(a => getMicrosoftSecurityIncidentCreationAlertRule(a, opts))
 }
 
 export interface GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs {

@@ -106,12 +106,9 @@ export interface GetNotificationHubAuthorizationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Description of a Namespace AuthorizationRules.
- * API Version: 2017-04-01.
- */
+
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getNotificationHubAuthorizationRule(a, opts))
+    return pulumi.output(args).apply(a => getNotificationHubAuthorizationRule(a, opts))
 }
 
 export interface GetNotificationHubAuthorizationRuleOutputArgs {

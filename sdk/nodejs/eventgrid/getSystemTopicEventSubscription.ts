@@ -105,12 +105,9 @@ export interface GetSystemTopicEventSubscriptionResult {
      */
     readonly type: string;
 }
-/**
- * Event Subscription
- * API Version: 2020-04-01-preview.
- */
+
 export function getSystemTopicEventSubscriptionOutput(args: GetSystemTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscription(a, opts))
+    return pulumi.output(args).apply(a => getSystemTopicEventSubscription(a, opts))
 }
 
 export interface GetSystemTopicEventSubscriptionOutputArgs {

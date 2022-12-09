@@ -68,11 +68,9 @@ export interface GetPrivateEndpointConnectionsForEDMResult {
      */
     readonly type: string;
 }
-/**
- * The Private Endpoint Connection resource.
- */
+
 export function getPrivateEndpointConnectionsForEDMOutput(args: GetPrivateEndpointConnectionsForEDMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForEDMResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsForEDM(a, opts))
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionsForEDM(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionsForEDMOutputArgs {

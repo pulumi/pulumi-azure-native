@@ -78,11 +78,9 @@ export interface GetEntityResult {
      */
     readonly value?: outputs.management.v20191101.EntityInfoResponse[];
 }
-/**
- * Describes the result of the request to view entities.
- */
+
 export function getEntityOutput(args?: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
-    return pulumi.output(args).apply((a: any) => getEntity(a, opts))
+    return pulumi.output(args).apply(a => getEntity(a, opts))
 }
 
 export interface GetEntityOutputArgs {

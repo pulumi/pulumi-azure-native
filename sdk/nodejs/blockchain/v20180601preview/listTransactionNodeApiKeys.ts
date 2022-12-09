@@ -44,11 +44,9 @@ export interface ListTransactionNodeApiKeysResult {
      */
     readonly keys?: outputs.blockchain.v20180601preview.ApiKeyResponse[];
 }
-/**
- * Collection of the API key payload which is exposed in the response of the resource provider.
- */
+
 export function listTransactionNodeApiKeysOutput(args: ListTransactionNodeApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTransactionNodeApiKeysResult> {
-    return pulumi.output(args).apply((a: any) => listTransactionNodeApiKeys(a, opts))
+    return pulumi.output(args).apply(a => listTransactionNodeApiKeys(a, opts))
 }
 
 export interface ListTransactionNodeApiKeysOutputArgs {

@@ -125,12 +125,9 @@ export interface GetApiResult {
      */
     readonly type: string;
 }
-/**
- * Api details.
- * API Version: 2020-12-01.
- */
+
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
-    return pulumi.output(args).apply((a: any) => getApi(a, opts))
+    return pulumi.output(args).apply(a => getApi(a, opts))
 }
 
 export interface GetApiOutputArgs {

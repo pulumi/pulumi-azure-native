@@ -93,12 +93,9 @@ export interface GetApplianceDefinitionResult {
      */
     readonly type: string;
 }
-/**
- * Information about appliance definition.
- */
-/** @deprecated Version 2016-09-01-preview will be removed in v2 of the provider. */
+
 export function getApplianceDefinitionOutput(args: GetApplianceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getApplianceDefinition(a, opts))
+    return pulumi.output(args).apply(a => getApplianceDefinition(a, opts))
 }
 
 export interface GetApplianceDefinitionOutputArgs {

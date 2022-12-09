@@ -73,12 +73,9 @@ export interface GetVolumeGroupResult {
      */
     readonly volumes?: outputs.netapp.VolumeGroupVolumePropertiesResponse[];
 }
-/**
- * Volume group resource for create
- * API Version: 2021-10-01.
- */
+
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeGroup(a, opts))
+    return pulumi.output(args).apply(a => getVolumeGroup(a, opts))
 }
 
 export interface GetVolumeGroupOutputArgs {

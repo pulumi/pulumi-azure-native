@@ -76,12 +76,9 @@ export interface GetAvailabilitySetResult {
      */
     readonly vmmServerId?: string;
 }
-/**
- * The AvailabilitySets resource definition.
- * API Version: 2020-06-05-preview.
- */
+
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
-    return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))
+    return pulumi.output(args).apply(a => getAvailabilitySet(a, opts))
 }
 
 export interface GetAvailabilitySetOutputArgs {

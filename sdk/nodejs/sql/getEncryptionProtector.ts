@@ -82,12 +82,9 @@ export interface GetEncryptionProtectorResult {
      */
     readonly uri: string;
 }
-/**
- * The server encryption protector.
- * API Version: 2020-11-01-preview.
- */
+
 export function getEncryptionProtectorOutput(args: GetEncryptionProtectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionProtectorResult> {
-    return pulumi.output(args).apply((a: any) => getEncryptionProtector(a, opts))
+    return pulumi.output(args).apply(a => getEncryptionProtector(a, opts))
 }
 
 export interface GetEncryptionProtectorOutputArgs {

@@ -111,12 +111,9 @@ export interface GetEnvironmentSettingResult {
      */
     readonly uniqueIdentifier?: string;
 }
-/**
- * Represents settings of an environment, from which environment instances would be created
- * API Version: 2018-10-15.
- */
+
 export function getEnvironmentSettingOutput(args: GetEnvironmentSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSettingResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironmentSetting(a, opts))
+    return pulumi.output(args).apply(a => getEnvironmentSetting(a, opts))
 }
 
 export interface GetEnvironmentSettingOutputArgs {

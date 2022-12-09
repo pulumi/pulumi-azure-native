@@ -62,12 +62,9 @@ export interface GetReplicationRecoveryPlanResult {
      */
     readonly type: string;
 }
-/**
- * Recovery plan details.
- */
-/** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
+
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))
+    return pulumi.output(args).apply(a => getReplicationRecoveryPlan(a, opts))
 }
 
 export interface GetReplicationRecoveryPlanOutputArgs {

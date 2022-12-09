@@ -70,12 +70,9 @@ export interface GetOpenIdConnectProviderResult {
      */
     readonly type: string;
 }
-/**
- * OpenId Connect Provider details.
- * API Version: 2020-12-01.
- */
+
 export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
-    return pulumi.output(args).apply((a: any) => getOpenIdConnectProvider(a, opts))
+    return pulumi.output(args).apply(a => getOpenIdConnectProvider(a, opts))
 }
 
 export interface GetOpenIdConnectProviderOutputArgs {

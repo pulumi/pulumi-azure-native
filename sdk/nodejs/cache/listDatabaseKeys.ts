@@ -46,12 +46,9 @@ export interface ListDatabaseKeysResult {
      */
     readonly secondaryKey: string;
 }
-/**
- * The secret access keys used for authenticating connections to redis
- * API Version: 2021-03-01.
- */
+
 export function listDatabaseKeysOutput(args: ListDatabaseKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseKeysResult> {
-    return pulumi.output(args).apply((a: any) => listDatabaseKeys(a, opts))
+    return pulumi.output(args).apply(a => listDatabaseKeys(a, opts))
 }
 
 export interface ListDatabaseKeysOutputArgs {

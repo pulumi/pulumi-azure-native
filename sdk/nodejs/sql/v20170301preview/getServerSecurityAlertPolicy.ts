@@ -81,11 +81,9 @@ export interface GetServerSecurityAlertPolicyResult {
      */
     readonly type: string;
 }
-/**
- * A server security alert policy.
- */
+
 export function getServerSecurityAlertPolicyOutput(args: GetServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSecurityAlertPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getServerSecurityAlertPolicy(a, opts))
+    return pulumi.output(args).apply(a => getServerSecurityAlertPolicy(a, opts))
 }
 
 export interface GetServerSecurityAlertPolicyOutputArgs {

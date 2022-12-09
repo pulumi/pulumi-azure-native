@@ -36,11 +36,9 @@ export interface GetRegistrationActivationKeyResult {
      */
     readonly activationKey?: string;
 }
-/**
- * The resource containing the Azure Stack activation key.
- */
+
 export function getRegistrationActivationKeyOutput(args: GetRegistrationActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationActivationKeyResult> {
-    return pulumi.output(args).apply((a: any) => getRegistrationActivationKey(a, opts))
+    return pulumi.output(args).apply(a => getRegistrationActivationKey(a, opts))
 }
 
 export interface GetRegistrationActivationKeyOutputArgs {

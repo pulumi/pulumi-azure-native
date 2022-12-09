@@ -61,12 +61,9 @@ export interface GetGatewayResult {
      */
     readonly type: string;
 }
-/**
- * Gateway details.
- * API Version: 2020-12-01.
- */
+
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
+    return pulumi.output(args).apply(a => getGateway(a, opts))
 }
 
 export interface GetGatewayOutputArgs {

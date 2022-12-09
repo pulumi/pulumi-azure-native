@@ -101,12 +101,9 @@ export interface GetSAPDatabaseInstanceResult {
      */
     readonly vmDetails: outputs.workloads.DatabaseVmDetailsResponse[];
 }
-/**
- * Define the Database resource.
- * API Version: 2021-12-01-preview.
- */
+
 export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDatabaseInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getSAPDatabaseInstance(a, opts))
+    return pulumi.output(args).apply(a => getSAPDatabaseInstance(a, opts))
 }
 
 export interface GetSAPDatabaseInstanceOutputArgs {

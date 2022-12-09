@@ -112,12 +112,9 @@ export interface GetVpnServerConfigurationResult {
      */
     readonly vpnProtocols?: string[];
 }
-/**
- * VpnServerConfiguration Resource.
- * API Version: 2020-11-01.
- */
+
 export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnServerConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getVpnServerConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getVpnServerConfiguration(a, opts))
 }
 
 export interface GetVpnServerConfigurationOutputArgs {

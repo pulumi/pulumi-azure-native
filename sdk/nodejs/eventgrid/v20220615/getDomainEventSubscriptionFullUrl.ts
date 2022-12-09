@@ -41,11 +41,9 @@ export interface GetDomainEventSubscriptionFullUrlResult {
      */
     readonly endpointUrl?: string;
 }
-/**
- * Full endpoint url of an event subscription
- */
+
 export function getDomainEventSubscriptionFullUrlOutput(args: GetDomainEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainEventSubscriptionFullUrlResult> {
-    return pulumi.output(args).apply((a: any) => getDomainEventSubscriptionFullUrl(a, opts))
+    return pulumi.output(args).apply(a => getDomainEventSubscriptionFullUrl(a, opts))
 }
 
 export interface GetDomainEventSubscriptionFullUrlOutputArgs {

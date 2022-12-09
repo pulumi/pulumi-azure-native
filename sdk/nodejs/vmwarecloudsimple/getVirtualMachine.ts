@@ -144,12 +144,9 @@ export interface GetVirtualMachineResult {
      */
     readonly vmwaretools: string;
 }
-/**
- * Virtual machine model
- * API Version: 2019-04-01.
- */
+
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
+    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
 }
 
 export interface GetVirtualMachineOutputArgs {

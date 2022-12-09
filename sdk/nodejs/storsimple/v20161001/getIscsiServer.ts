@@ -76,12 +76,9 @@ export interface GetIscsiServerResult {
      */
     readonly type: string;
 }
-/**
- * The iSCSI server.
- */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
+
 export function getIscsiServerOutput(args: GetIscsiServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiServerResult> {
-    return pulumi.output(args).apply((a: any) => getIscsiServer(a, opts))
+    return pulumi.output(args).apply(a => getIscsiServer(a, opts))
 }
 
 export interface GetIscsiServerOutputArgs {

@@ -63,11 +63,9 @@ export interface GetManagementGroupNetworkManagerConnectionResult {
      */
     readonly type: string;
 }
-/**
- * The Network Manager Connection resource
- */
+
 export function getManagementGroupNetworkManagerConnectionOutput(args: GetManagementGroupNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupNetworkManagerConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getManagementGroupNetworkManagerConnection(a, opts))
+    return pulumi.output(args).apply(a => getManagementGroupNetworkManagerConnection(a, opts))
 }
 
 export interface GetManagementGroupNetworkManagerConnectionOutputArgs {

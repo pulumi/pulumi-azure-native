@@ -56,11 +56,9 @@ export interface GetSshPublicKeyResult {
      */
     readonly type: string;
 }
-/**
- * Specifies information about the SSH public key.
- */
+
 export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
-    return pulumi.output(args).apply((a: any) => getSshPublicKey(a, opts))
+    return pulumi.output(args).apply(a => getSshPublicKey(a, opts))
 }
 
 export interface GetSshPublicKeyOutputArgs {

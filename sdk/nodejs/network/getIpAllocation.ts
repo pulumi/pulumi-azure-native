@@ -93,12 +93,9 @@ export interface GetIpAllocationResult {
      */
     readonly virtualNetwork: outputs.network.SubResourceResponse;
 }
-/**
- * IpAllocation resource.
- * API Version: 2020-11-01.
- */
+
 export function getIpAllocationOutput(args: GetIpAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAllocationResult> {
-    return pulumi.output(args).apply((a: any) => getIpAllocation(a, opts))
+    return pulumi.output(args).apply(a => getIpAllocation(a, opts))
 }
 
 export interface GetIpAllocationOutputArgs {

@@ -100,12 +100,9 @@ export interface GetEventGridDataConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Class representing an Event Grid data connection.
- * API Version: 2021-01-01.
- */
+
 export function getEventGridDataConnectionOutput(args: GetEventGridDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventGridDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getEventGridDataConnection(a, opts))
+    return pulumi.output(args).apply(a => getEventGridDataConnection(a, opts))
 }
 
 export interface GetEventGridDataConnectionOutputArgs {

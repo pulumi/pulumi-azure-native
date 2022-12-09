@@ -50,11 +50,9 @@ export interface GetSkusResult {
      */
     readonly type: string;
 }
-/**
- * API Version: 2020-11-20.
- */
+
 export function getSkusOutput(args: GetSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusResult> {
-    return pulumi.output(args).apply((a: any) => getSkus(a, opts))
+    return pulumi.output(args).apply(a => getSkus(a, opts))
 }
 
 export interface GetSkusOutputArgs {

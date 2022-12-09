@@ -41,11 +41,9 @@ export interface ListFirewallPolicyIdpsSignaturesFilterValueResult {
      */
     readonly filterValues?: string[];
 }
-/**
- * Describes the list of all possible values for a specific filter value
- */
+
 export function listFirewallPolicyIdpsSignaturesFilterValueOutput(args: ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
-    return pulumi.output(args).apply((a: any) => listFirewallPolicyIdpsSignaturesFilterValue(a, opts))
+    return pulumi.output(args).apply(a => listFirewallPolicyIdpsSignaturesFilterValue(a, opts))
 }
 
 export interface ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs {

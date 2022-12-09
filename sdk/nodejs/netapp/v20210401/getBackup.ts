@@ -106,11 +106,9 @@ export interface GetBackupResult {
      */
     readonly volumeName: string;
 }
-/**
- * Backup of a Volume
- */
+
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
-    return pulumi.output(args).apply((a: any) => getBackup(a, opts))
+    return pulumi.output(args).apply(a => getBackup(a, opts))
 }
 
 export interface GetBackupOutputArgs {

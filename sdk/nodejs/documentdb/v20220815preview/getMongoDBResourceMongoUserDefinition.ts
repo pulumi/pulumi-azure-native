@@ -76,11 +76,9 @@ export interface GetMongoDBResourceMongoUserDefinitionResult {
      */
     readonly userName?: string;
 }
-/**
- * An Azure Cosmos DB User Definition
- */
+
 export function getMongoDBResourceMongoUserDefinitionOutput(args: GetMongoDBResourceMongoUserDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoUserDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoUserDefinition(a, opts))
+    return pulumi.output(args).apply(a => getMongoDBResourceMongoUserDefinition(a, opts))
 }
 
 export interface GetMongoDBResourceMongoUserDefinitionOutputArgs {

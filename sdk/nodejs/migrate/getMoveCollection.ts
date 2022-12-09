@@ -68,12 +68,9 @@ export interface GetMoveCollectionResult {
      */
     readonly type: string;
 }
-/**
- * Define the move collection.
- * API Version: 2021-01-01.
- */
+
 export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getMoveCollection(a, opts))
+    return pulumi.output(args).apply(a => getMoveCollection(a, opts))
 }
 
 export interface GetMoveCollectionOutputArgs {

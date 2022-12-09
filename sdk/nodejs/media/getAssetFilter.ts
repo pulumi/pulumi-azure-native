@@ -74,12 +74,9 @@ export interface GetAssetFilterResult {
      */
     readonly type: string;
 }
-/**
- * An Asset Filter.
- * API Version: 2020-05-01.
- */
+
 export function getAssetFilterOutput(args: GetAssetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetFilterResult> {
-    return pulumi.output(args).apply((a: any) => getAssetFilter(a, opts))
+    return pulumi.output(args).apply(a => getAssetFilter(a, opts))
 }
 
 export interface GetAssetFilterOutputArgs {

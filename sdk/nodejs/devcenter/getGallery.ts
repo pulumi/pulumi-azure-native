@@ -65,12 +65,9 @@ export interface GetGalleryResult {
      */
     readonly type: string;
 }
-/**
- * Represents a gallery.
- * API Version: 2022-09-01-preview.
- */
+
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
-    return pulumi.output(args).apply((a: any) => getGallery(a, opts))
+    return pulumi.output(args).apply(a => getGallery(a, opts))
 }
 
 export interface GetGalleryOutputArgs {

@@ -70,11 +70,9 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult {
      */
     readonly type: string;
 }
-/**
- * Static Site User Provided Function App ARM resource.
- */
+
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
-    return pulumi.output(args).apply((a: any) => getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(a, opts))
+    return pulumi.output(args).apply(a => getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(a, opts))
 }
 
 export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArgs {

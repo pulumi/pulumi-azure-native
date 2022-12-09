@@ -50,12 +50,9 @@ export interface ListVolumeReplicationsResult {
      */
     readonly value?: outputs.netapp.ReplicationResponse[];
 }
-/**
- * List Replications
- * API Version: 2022-01-01.
- */
+
 export function listVolumeReplicationsOutput(args: ListVolumeReplicationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeReplicationsResult> {
-    return pulumi.output(args).apply((a: any) => listVolumeReplications(a, opts))
+    return pulumi.output(args).apply(a => listVolumeReplications(a, opts))
 }
 
 export interface ListVolumeReplicationsOutputArgs {

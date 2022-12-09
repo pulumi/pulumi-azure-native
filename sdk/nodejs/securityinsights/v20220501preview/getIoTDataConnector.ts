@@ -73,11 +73,9 @@ export interface GetIoTDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents IoT data connector.
- */
+
 export function getIoTDataConnectorOutput(args: GetIoTDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getIoTDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getIoTDataConnector(a, opts))
 }
 
 export interface GetIoTDataConnectorOutputArgs {

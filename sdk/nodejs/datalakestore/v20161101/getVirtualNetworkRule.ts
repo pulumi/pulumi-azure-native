@@ -53,11 +53,9 @@ export interface GetVirtualNetworkRuleResult {
      */
     readonly type: string;
 }
-/**
- * Data Lake Store virtual network rule information.
- */
+
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetworkRule(a, opts))
 }
 
 export interface GetVirtualNetworkRuleOutputArgs {

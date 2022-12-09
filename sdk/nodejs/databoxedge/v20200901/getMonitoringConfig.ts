@@ -58,12 +58,9 @@ export interface GetMonitoringConfigResult {
      */
     readonly type: string;
 }
-/**
- * The metric setting details for the role
- */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+
 export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringConfigResult> {
-    return pulumi.output(args).apply((a: any) => getMonitoringConfig(a, opts))
+    return pulumi.output(args).apply(a => getMonitoringConfig(a, opts))
 }
 
 export interface GetMonitoringConfigOutputArgs {

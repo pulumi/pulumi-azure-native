@@ -91,12 +91,9 @@ export interface GetSiteVNETConnectionResult {
      */
     readonly vnetResourceId?: string;
 }
-/**
- * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getSiteVNETConnectionOutput(args: GetSiteVNETConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteVNETConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getSiteVNETConnection(a, opts))
+    return pulumi.output(args).apply(a => getSiteVNETConnection(a, opts))
 }
 
 export interface GetSiteVNETConnectionOutputArgs {

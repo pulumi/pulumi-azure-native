@@ -113,12 +113,9 @@ export interface GetRedisResult {
      */
     readonly type: string;
 }
-/**
- * A single Redis item in List or Get Operation.
- */
-/** @deprecated Version 2017-02-01 will be removed in v2 of the provider. */
+
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
-    return pulumi.output(args).apply((a: any) => getRedis(a, opts))
+    return pulumi.output(args).apply(a => getRedis(a, opts))
 }
 
 export interface GetRedisOutputArgs {

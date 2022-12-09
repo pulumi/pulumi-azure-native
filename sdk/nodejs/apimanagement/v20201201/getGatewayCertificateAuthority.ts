@@ -58,11 +58,9 @@ export interface GetGatewayCertificateAuthorityResult {
      */
     readonly type: string;
 }
-/**
- * Gateway certificate authority details.
- */
+
 export function getGatewayCertificateAuthorityOutput(args: GetGatewayCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCertificateAuthorityResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayCertificateAuthority(a, opts))
+    return pulumi.output(args).apply(a => getGatewayCertificateAuthority(a, opts))
 }
 
 export interface GetGatewayCertificateAuthorityOutputArgs {

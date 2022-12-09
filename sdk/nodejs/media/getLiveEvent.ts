@@ -117,12 +117,9 @@ export interface GetLiveEventResult {
      */
     readonly useStaticHostname?: boolean;
 }
-/**
- * The live event.
- * API Version: 2020-05-01.
- */
+
 export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventResult> {
-    return pulumi.output(args).apply((a: any) => getLiveEvent(a, opts))
+    return pulumi.output(args).apply(a => getLiveEvent(a, opts))
 }
 
 export interface GetLiveEventOutputArgs {

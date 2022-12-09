@@ -53,11 +53,9 @@ export interface ListActiveSecurityUserRulesResult {
      */
     readonly value?: (outputs.network.v20220201preview.ActiveDefaultSecurityUserRuleResponse | outputs.network.v20220201preview.ActiveSecurityUserRuleResponse)[];
 }
-/**
- * Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
- */
+
 export function listActiveSecurityUserRulesOutput(args: ListActiveSecurityUserRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityUserRulesResult> {
-    return pulumi.output(args).apply((a: any) => listActiveSecurityUserRules(a, opts))
+    return pulumi.output(args).apply(a => listActiveSecurityUserRules(a, opts))
 }
 
 export interface ListActiveSecurityUserRulesOutputArgs {

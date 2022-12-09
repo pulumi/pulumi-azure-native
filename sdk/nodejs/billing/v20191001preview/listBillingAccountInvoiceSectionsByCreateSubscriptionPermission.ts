@@ -38,11 +38,9 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
      */
     readonly value?: outputs.billing.v20191001preview.InvoiceSectionWithCreateSubPermissionResponse[];
 }
-/**
- * The list of invoice section properties with create subscription permission.
- */
+
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
-    return pulumi.output(args).apply((a: any) => listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(a, opts))
+    return pulumi.output(args).apply(a => listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(a, opts))
 }
 
 export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs {

@@ -60,11 +60,9 @@ export interface GetRegistrationAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * The registration assignment.
- */
+
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getRegistrationAssignment(a, opts))
+    return pulumi.output(args).apply(a => getRegistrationAssignment(a, opts))
 }
 
 export interface GetRegistrationAssignmentOutputArgs {

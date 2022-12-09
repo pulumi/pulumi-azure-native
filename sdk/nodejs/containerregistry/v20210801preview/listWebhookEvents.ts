@@ -48,11 +48,9 @@ export interface ListWebhookEventsResult {
      */
     readonly value?: outputs.containerregistry.v20210801preview.EventResponse[];
 }
-/**
- * The result of a request to list events for a webhook.
- */
+
 export function listWebhookEventsOutput(args: ListWebhookEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebhookEventsResult> {
-    return pulumi.output(args).apply((a: any) => listWebhookEvents(a, opts))
+    return pulumi.output(args).apply(a => listWebhookEvents(a, opts))
 }
 
 export interface ListWebhookEventsOutputArgs {

@@ -101,11 +101,9 @@ export interface GetAgentResult {
      */
     readonly uptimeInSeconds: number;
 }
-/**
- * The Agent resource.
- */
+
 export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
-    return pulumi.output(args).apply((a: any) => getAgent(a, opts))
+    return pulumi.output(args).apply(a => getAgent(a, opts))
 }
 
 export interface GetAgentOutputArgs {

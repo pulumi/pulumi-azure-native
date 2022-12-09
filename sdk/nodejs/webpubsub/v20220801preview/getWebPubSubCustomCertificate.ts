@@ -72,11 +72,9 @@ export interface GetWebPubSubCustomCertificateResult {
      */
     readonly type: string;
 }
-/**
- * A custom certificate.
- */
+
 export function getWebPubSubCustomCertificateOutput(args: GetWebPubSubCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getWebPubSubCustomCertificate(a, opts))
+    return pulumi.output(args).apply(a => getWebPubSubCustomCertificate(a, opts))
 }
 
 export interface GetWebPubSubCustomCertificateOutputArgs {

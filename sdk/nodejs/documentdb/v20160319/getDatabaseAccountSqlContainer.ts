@@ -99,12 +99,9 @@ export interface GetDatabaseAccountSqlContainerResult {
      */
     readonly uniqueKeyPolicy?: outputs.documentdb.v20160319.UniqueKeyPolicyResponse;
 }
-/**
- * An Azure Cosmos DB container.
- */
-/** @deprecated Version 2016-03-19 will be removed in v2 of the provider. */
+
 export function getDatabaseAccountSqlContainerOutput(args: GetDatabaseAccountSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountSqlContainerResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseAccountSqlContainer(a, opts))
+    return pulumi.output(args).apply(a => getDatabaseAccountSqlContainer(a, opts))
 }
 
 export interface GetDatabaseAccountSqlContainerOutputArgs {

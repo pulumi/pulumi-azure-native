@@ -85,11 +85,9 @@ export interface GetKubernetesRoleResult {
      */
     readonly type: string;
 }
-/**
- * Kubernetes role.
- */
+
 export function getKubernetesRoleOutput(args: GetKubernetesRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesRoleResult> {
-    return pulumi.output(args).apply((a: any) => getKubernetesRole(a, opts))
+    return pulumi.output(args).apply(a => getKubernetesRole(a, opts))
 }
 
 export interface GetKubernetesRoleOutputArgs {

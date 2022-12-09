@@ -74,11 +74,9 @@ export interface GetWebAppPrivateEndpointConnectionSlotResult {
      */
     readonly type: string;
 }
-/**
- * Remote Private Endpoint Connection ARM resource.
- */
+
 export function getWebAppPrivateEndpointConnectionSlotOutput(args: GetWebAppPrivateEndpointConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPrivateEndpointConnectionSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppPrivateEndpointConnectionSlot(a, opts))
+    return pulumi.output(args).apply(a => getWebAppPrivateEndpointConnectionSlot(a, opts))
 }
 
 export interface GetWebAppPrivateEndpointConnectionSlotOutputArgs {

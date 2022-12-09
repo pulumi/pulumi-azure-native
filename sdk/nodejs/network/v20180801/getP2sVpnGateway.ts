@@ -83,11 +83,9 @@ export interface GetP2sVpnGatewayResult {
      */
     readonly vpnGatewayScaleUnit?: number;
 }
-/**
- * P2SVpnGateway Resource.
- */
+
 export function getP2sVpnGatewayOutput(args: GetP2sVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getP2sVpnGateway(a, opts))
+    return pulumi.output(args).apply(a => getP2sVpnGateway(a, opts))
 }
 
 export interface GetP2sVpnGatewayOutputArgs {

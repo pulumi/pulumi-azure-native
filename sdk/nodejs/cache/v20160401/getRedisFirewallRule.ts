@@ -59,12 +59,9 @@ export interface GetRedisFirewallRuleResult {
      */
     readonly type: string;
 }
-/**
- * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
- */
-/** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
+
 export function getRedisFirewallRuleOutput(args: GetRedisFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisFirewallRuleResult> {
-    return pulumi.output(args).apply((a: any) => getRedisFirewallRule(a, opts))
+    return pulumi.output(args).apply(a => getRedisFirewallRule(a, opts))
 }
 
 export interface GetRedisFirewallRuleOutputArgs {

@@ -61,12 +61,9 @@ export interface GetPrivateDnsZoneGroupResult {
      */
     readonly provisioningState: string;
 }
-/**
- * Private dns zone group resource.
- * API Version: 2020-11-01.
- */
+
 export function getPrivateDnsZoneGroupOutput(args: GetPrivateDnsZoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsZoneGroupResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateDnsZoneGroup(a, opts))
+    return pulumi.output(args).apply(a => getPrivateDnsZoneGroup(a, opts))
 }
 
 export interface GetPrivateDnsZoneGroupOutputArgs {

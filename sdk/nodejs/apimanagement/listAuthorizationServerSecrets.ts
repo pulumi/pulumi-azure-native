@@ -50,12 +50,9 @@ export interface ListAuthorizationServerSecretsResult {
      */
     readonly resourceOwnerUsername?: string;
 }
-/**
- * OAuth Server Secrets Contract.
- * API Version: 2020-12-01.
- */
+
 export function listAuthorizationServerSecretsOutput(args: ListAuthorizationServerSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAuthorizationServerSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listAuthorizationServerSecrets(a, opts))
+    return pulumi.output(args).apply(a => listAuthorizationServerSecrets(a, opts))
 }
 
 export interface ListAuthorizationServerSecretsOutputArgs {

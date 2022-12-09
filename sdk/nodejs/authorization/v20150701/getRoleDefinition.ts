@@ -69,12 +69,9 @@ export interface GetRoleDefinitionResult {
      */
     readonly type: string;
 }
-/**
- * Role definition.
- */
-/** @deprecated Version 2015-07-01 will be removed in v2 of the provider. */
+
 export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
+    return pulumi.output(args).apply(a => getRoleDefinition(a, opts))
 }
 
 export interface GetRoleDefinitionOutputArgs {

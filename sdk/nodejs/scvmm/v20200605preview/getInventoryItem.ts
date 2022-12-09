@@ -80,11 +80,9 @@ export interface GetInventoryItemResult {
      */
     readonly uuid: string;
 }
-/**
- * Defines the inventory item.
- */
+
 export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
-    return pulumi.output(args).apply((a: any) => getInventoryItem(a, opts))
+    return pulumi.output(args).apply(a => getInventoryItem(a, opts))
 }
 
 export interface GetInventoryItemOutputArgs {

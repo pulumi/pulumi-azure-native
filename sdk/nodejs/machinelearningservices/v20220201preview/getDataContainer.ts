@@ -60,11 +60,9 @@ export interface GetDataContainerResult {
      */
     readonly type: string;
 }
-/**
- * Azure Resource Manager resource envelope.
- */
+
 export function getDataContainerOutput(args: GetDataContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataContainerResult> {
-    return pulumi.output(args).apply((a: any) => getDataContainer(a, opts))
+    return pulumi.output(args).apply(a => getDataContainer(a, opts))
 }
 
 export interface GetDataContainerOutputArgs {

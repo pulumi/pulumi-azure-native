@@ -84,11 +84,9 @@ export interface GetUserResult {
      */
     readonly type: string;
 }
-/**
- * User details.
- */
+
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply((a: any) => getUser(a, opts))
+    return pulumi.output(args).apply(a => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {

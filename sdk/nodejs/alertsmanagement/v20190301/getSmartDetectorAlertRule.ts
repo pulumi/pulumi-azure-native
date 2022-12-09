@@ -86,12 +86,9 @@ export interface GetSmartDetectorAlertRuleResult {
      */
     readonly type: string;
 }
-/**
- * The alert rule information
- */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
+
 export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getSmartDetectorAlertRule(a, opts))
+    return pulumi.output(args).apply(a => getSmartDetectorAlertRule(a, opts))
 }
 
 export interface GetSmartDetectorAlertRuleOutputArgs {

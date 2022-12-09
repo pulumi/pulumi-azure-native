@@ -60,11 +60,9 @@ export interface ListSiteMetadataResult {
      */
     readonly type?: string;
 }
-/**
- * String dictionary resource
- */
+
 export function listSiteMetadataOutput(args: ListSiteMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteMetadataResult> {
-    return pulumi.output(args).apply((a: any) => listSiteMetadata(a, opts))
+    return pulumi.output(args).apply(a => listSiteMetadata(a, opts))
 }
 
 export interface ListSiteMetadataOutputArgs {

@@ -52,12 +52,9 @@ export interface GetCostAllocationRuleResult {
      */
     readonly type: string;
 }
-/**
- * The cost allocation rule model definition
- * API Version: 2020-03-01-preview.
- */
+
 export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostAllocationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getCostAllocationRule(a, opts))
+    return pulumi.output(args).apply(a => getCostAllocationRule(a, opts))
 }
 
 export interface GetCostAllocationRuleOutputArgs {

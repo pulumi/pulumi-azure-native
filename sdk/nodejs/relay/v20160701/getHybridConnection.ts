@@ -71,12 +71,9 @@ export interface GetHybridConnectionResult {
      */
     readonly userMetadata?: string;
 }
-/**
- * Description of HybridConnection Resource.
- */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
+
 export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getHybridConnection(a, opts))
+    return pulumi.output(args).apply(a => getHybridConnection(a, opts))
 }
 
 export interface GetHybridConnectionOutputArgs {

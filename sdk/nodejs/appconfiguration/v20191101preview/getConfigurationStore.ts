@@ -89,12 +89,9 @@ export interface GetConfigurationStoreResult {
      */
     readonly type: string;
 }
-/**
- * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
- */
-/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
+
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationStore(a, opts))
+    return pulumi.output(args).apply(a => getConfigurationStore(a, opts))
 }
 
 export interface GetConfigurationStoreOutputArgs {

@@ -72,11 +72,9 @@ export interface GetPipelineRunResult {
      */
     readonly type: string;
 }
-/**
- * An object that represents a pipeline run for a container registry.
- */
+
 export function getPipelineRunOutput(args: GetPipelineRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineRunResult> {
-    return pulumi.output(args).apply((a: any) => getPipelineRun(a, opts))
+    return pulumi.output(args).apply(a => getPipelineRun(a, opts))
 }
 
 export interface GetPipelineRunOutputArgs {

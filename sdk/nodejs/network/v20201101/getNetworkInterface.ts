@@ -136,11 +136,9 @@ export interface GetNetworkInterfaceResult {
      */
     readonly virtualMachine: outputs.network.v20201101.SubResourceResponse;
 }
-/**
- * A network interface in a resource group.
- */
+
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))
+    return pulumi.output(args).apply(a => getNetworkInterface(a, opts))
 }
 
 export interface GetNetworkInterfaceOutputArgs {

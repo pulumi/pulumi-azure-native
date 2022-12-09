@@ -208,11 +208,9 @@ export interface GetClusterResult {
      */
     readonly waveUpgradePaused?: boolean;
 }
-/**
- * The cluster resource
- */
+
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
+    return pulumi.output(args).apply(a => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

@@ -113,12 +113,9 @@ export interface GetHostPoolResult {
      */
     readonly vmTemplate?: string;
 }
-/**
- * Represents a HostPool definition.
- */
-/** @deprecated Version 2019-09-24-preview will be removed in v2 of the provider. */
+
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
-    return pulumi.output(args).apply((a: any) => getHostPool(a, opts))
+    return pulumi.output(args).apply(a => getHostPool(a, opts))
 }
 
 export interface GetHostPoolOutputArgs {

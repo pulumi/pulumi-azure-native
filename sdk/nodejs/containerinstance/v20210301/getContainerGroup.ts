@@ -118,11 +118,9 @@ export interface GetContainerGroupResult {
      */
     readonly volumes?: outputs.containerinstance.v20210301.VolumeResponse[];
 }
-/**
- * A container group.
- */
+
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {
-    return pulumi.output(args).apply((a: any) => getContainerGroup(a, opts))
+    return pulumi.output(args).apply(a => getContainerGroup(a, opts))
 }
 
 export interface GetContainerGroupOutputArgs {

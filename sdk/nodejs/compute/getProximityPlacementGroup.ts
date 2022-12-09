@@ -81,12 +81,9 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly virtualMachines: outputs.compute.SubResourceWithColocationStatusResponse[];
 }
-/**
- * Specifies information about the proximity placement group.
- * API Version: 2020-12-01.
- */
+
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))
+    return pulumi.output(args).apply(a => getProximityPlacementGroup(a, opts))
 }
 
 export interface GetProximityPlacementGroupOutputArgs {

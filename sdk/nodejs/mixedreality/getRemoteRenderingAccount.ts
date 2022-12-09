@@ -88,12 +88,9 @@ export interface GetRemoteRenderingAccountResult {
      */
     readonly type: string;
 }
-/**
- * RemoteRenderingAccount Response.
- * API Version: 2021-01-01.
- */
+
 export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
-    return pulumi.output(args).apply((a: any) => getRemoteRenderingAccount(a, opts))
+    return pulumi.output(args).apply(a => getRemoteRenderingAccount(a, opts))
 }
 
 export interface GetRemoteRenderingAccountOutputArgs {

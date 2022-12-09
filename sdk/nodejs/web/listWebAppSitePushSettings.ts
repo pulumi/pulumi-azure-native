@@ -68,12 +68,9 @@ export interface ListWebAppSitePushSettingsResult {
      */
     readonly type: string;
 }
-/**
- * Push settings for the App.
- * API Version: 2020-12-01.
- */
+
 export function listWebAppSitePushSettingsOutput(args: ListWebAppSitePushSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppSitePushSettings(a, opts))
+    return pulumi.output(args).apply(a => listWebAppSitePushSettings(a, opts))
 }
 
 export interface ListWebAppSitePushSettingsOutputArgs {

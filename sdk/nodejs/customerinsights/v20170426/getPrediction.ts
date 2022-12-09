@@ -120,11 +120,9 @@ export interface GetPredictionResult {
      */
     readonly type: string;
 }
-/**
- * The prediction resource format.
- */
+
 export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionResult> {
-    return pulumi.output(args).apply((a: any) => getPrediction(a, opts))
+    return pulumi.output(args).apply(a => getPrediction(a, opts))
 }
 
 export interface GetPredictionOutputArgs {

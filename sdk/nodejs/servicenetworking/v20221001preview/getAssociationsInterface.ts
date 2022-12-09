@@ -76,11 +76,9 @@ export interface GetAssociationsInterfaceResult {
      */
     readonly type: string;
 }
-/**
- * Association Subresource of Traffic Controller
- */
+
 export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationsInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getAssociationsInterface(a, opts))
+    return pulumi.output(args).apply(a => getAssociationsInterface(a, opts))
 }
 
 export interface GetAssociationsInterfaceOutputArgs {

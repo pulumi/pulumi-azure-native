@@ -57,11 +57,9 @@ export interface GetSyncIdentityProviderResult {
      */
     readonly type: string;
 }
-/**
- * SyncIdentityProvider represents a SyncIdentityProvider
- */
+
 export function getSyncIdentityProviderOutput(args: GetSyncIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncIdentityProviderResult> {
-    return pulumi.output(args).apply((a: any) => getSyncIdentityProvider(a, opts))
+    return pulumi.output(args).apply(a => getSyncIdentityProvider(a, opts))
 }
 
 export interface GetSyncIdentityProviderOutputArgs {

@@ -66,12 +66,9 @@ export interface GetServerCommunicationLinkResult {
      */
     readonly type: string;
 }
-/**
- * Server communication link.
- * API Version: 2014-04-01.
- */
+
 export function getServerCommunicationLinkOutput(args: GetServerCommunicationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCommunicationLinkResult> {
-    return pulumi.output(args).apply((a: any) => getServerCommunicationLink(a, opts))
+    return pulumi.output(args).apply(a => getServerCommunicationLink(a, opts))
 }
 
 export interface GetServerCommunicationLinkOutputArgs {

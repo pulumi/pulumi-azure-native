@@ -76,11 +76,9 @@ export interface GetVirtualNetworkGatewayNatRuleResult {
      */
     readonly type: string;
 }
-/**
- * VirtualNetworkGatewayNatRule Resource.
- */
+
 export function getVirtualNetworkGatewayNatRuleOutput(args: GetVirtualNetworkGatewayNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayNatRuleResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayNatRule(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetworkGatewayNatRule(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayNatRuleOutputArgs {

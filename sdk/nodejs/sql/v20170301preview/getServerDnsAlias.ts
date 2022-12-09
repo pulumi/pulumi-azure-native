@@ -53,11 +53,9 @@ export interface GetServerDnsAliasResult {
      */
     readonly type: string;
 }
-/**
- * A server DNS alias.
- */
+
 export function getServerDnsAliasOutput(args: GetServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDnsAliasResult> {
-    return pulumi.output(args).apply((a: any) => getServerDnsAlias(a, opts))
+    return pulumi.output(args).apply(a => getServerDnsAlias(a, opts))
 }
 
 export interface GetServerDnsAliasOutputArgs {

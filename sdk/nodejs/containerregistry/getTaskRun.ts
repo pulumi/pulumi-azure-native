@@ -83,13 +83,9 @@ export interface GetTaskRunResult {
      */
     readonly type: string;
 }
-/**
- * The task run that has the ARM resource and properties.
- * The task run will have the information of request and result of a run.
- * API Version: 2019-06-01-preview.
- */
+
 export function getTaskRunOutput(args: GetTaskRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskRunResult> {
-    return pulumi.output(args).apply((a: any) => getTaskRun(a, opts))
+    return pulumi.output(args).apply(a => getTaskRun(a, opts))
 }
 
 export interface GetTaskRunOutputArgs {

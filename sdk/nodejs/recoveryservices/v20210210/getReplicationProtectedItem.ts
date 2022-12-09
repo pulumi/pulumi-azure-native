@@ -70,11 +70,9 @@ export interface GetReplicationProtectedItemResult {
      */
     readonly type: string;
 }
-/**
- * Replication protected item.
- */
+
 export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectedItemResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationProtectedItem(a, opts))
+    return pulumi.output(args).apply(a => getReplicationProtectedItem(a, opts))
 }
 
 export interface GetReplicationProtectedItemOutputArgs {

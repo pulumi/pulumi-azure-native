@@ -90,11 +90,9 @@ export interface GetServiceFabricResult {
      */
     readonly uniqueIdentifier: string;
 }
-/**
- * A Service Fabric.
- */
+
 export function getServiceFabricOutput(args: GetServiceFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricResult> {
-    return pulumi.output(args).apply((a: any) => getServiceFabric(a, opts))
+    return pulumi.output(args).apply(a => getServiceFabric(a, opts))
 }
 
 export interface GetServiceFabricOutputArgs {

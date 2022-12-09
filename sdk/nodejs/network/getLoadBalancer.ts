@@ -109,12 +109,9 @@ export interface GetLoadBalancerResult {
      */
     readonly type: string;
 }
-/**
- * LoadBalancer resource.
- * API Version: 2020-11-01.
- */
+
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
-    return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
+    return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
 }
 
 export interface GetLoadBalancerOutputArgs {

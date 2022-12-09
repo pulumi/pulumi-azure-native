@@ -89,12 +89,9 @@ export interface GetApplicationGatewayBackendHealthOnDemandResult {
      */
     readonly backendHealthHttpSettings?: outputs.network.ApplicationGatewayBackendHealthHttpSettingsResponse;
 }
-/**
- * Result of on demand test probe.
- * API Version: 2020-11-01.
- */
+
 export function getApplicationGatewayBackendHealthOnDemandOutput(args: GetApplicationGatewayBackendHealthOnDemandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayBackendHealthOnDemandResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationGatewayBackendHealthOnDemand(a, opts))
+    return pulumi.output(args).apply(a => getApplicationGatewayBackendHealthOnDemand(a, opts))
 }
 
 export interface GetApplicationGatewayBackendHealthOnDemandOutputArgs {

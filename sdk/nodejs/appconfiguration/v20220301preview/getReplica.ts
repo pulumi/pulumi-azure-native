@@ -68,11 +68,9 @@ export interface GetReplicaResult {
      */
     readonly type: string;
 }
-/**
- * The replica resource.
- */
+
 export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaResult> {
-    return pulumi.output(args).apply((a: any) => getReplica(a, opts))
+    return pulumi.output(args).apply(a => getReplica(a, opts))
 }
 
 export interface GetReplicaOutputArgs {

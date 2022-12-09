@@ -88,11 +88,9 @@ export interface GetAssetResult {
      */
     readonly type: string;
 }
-/**
- * An Asset.
- */
+
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
-    return pulumi.output(args).apply((a: any) => getAsset(a, opts))
+    return pulumi.output(args).apply(a => getAsset(a, opts))
 }
 
 export interface GetAssetOutputArgs {

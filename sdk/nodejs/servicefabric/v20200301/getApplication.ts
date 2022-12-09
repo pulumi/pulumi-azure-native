@@ -108,11 +108,9 @@ export interface GetApplicationResult {
      */
     readonly upgradePolicy?: outputs.servicefabric.v20200301.ApplicationUpgradePolicyResponse;
 }
-/**
- * The application resource.
- */
+
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
+    return pulumi.output(args).apply(a => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

@@ -80,12 +80,9 @@ export interface GetSqlPoolWorkloadGroupResult {
      */
     readonly type: string;
 }
-/**
- * Workload group operations for a sql pool
- */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+
 export function getSqlPoolWorkloadGroupOutput(args: GetSqlPoolWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSqlPoolWorkloadGroup(a, opts))
+    return pulumi.output(args).apply(a => getSqlPoolWorkloadGroup(a, opts))
 }
 
 export interface GetSqlPoolWorkloadGroupOutputArgs {

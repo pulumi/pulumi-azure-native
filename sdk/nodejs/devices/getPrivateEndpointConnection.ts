@@ -57,12 +57,9 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-/**
- * The private endpoint connection of an IotHub
- * API Version: 2020-08-31.
- */
+
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionOutputArgs {

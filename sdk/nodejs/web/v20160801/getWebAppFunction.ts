@@ -89,11 +89,9 @@ export interface GetWebAppFunctionResult {
      */
     readonly type: string;
 }
-/**
- * Web Job Information.
- */
+
 export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFunctionResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppFunction(a, opts))
+    return pulumi.output(args).apply(a => getWebAppFunction(a, opts))
 }
 
 export interface GetWebAppFunctionOutputArgs {

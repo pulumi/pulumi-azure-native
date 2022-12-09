@@ -73,11 +73,9 @@ export interface GetAwsCloudTrailDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents Amazon Web Services CloudTrail data connector.
- */
+
 export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getAwsCloudTrailDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getAwsCloudTrailDataConnector(a, opts))
 }
 
 export interface GetAwsCloudTrailDataConnectorOutputArgs {

@@ -99,11 +99,9 @@ export interface GetOperationalizationClusterResult {
      */
     readonly type: string;
 }
-/**
- * Instance of an Azure ML Operationalization Cluster resource.
- */
+
 export function getOperationalizationClusterOutput(args: GetOperationalizationClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperationalizationClusterResult> {
-    return pulumi.output(args).apply((a: any) => getOperationalizationCluster(a, opts))
+    return pulumi.output(args).apply(a => getOperationalizationCluster(a, opts))
 }
 
 export interface GetOperationalizationClusterOutputArgs {

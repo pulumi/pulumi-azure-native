@@ -45,8 +45,9 @@ export interface ListWorkflowRunActionRepetitionExpressionTracesArgs {
 export interface ListWorkflowRunActionRepetitionExpressionTracesResult {
     readonly inputs?: outputs.logic.v20160601.ExpressionRootResponse[];
 }
+
 export function listWorkflowRunActionRepetitionExpressionTracesOutput(args: ListWorkflowRunActionRepetitionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionRepetitionExpressionTracesResult> {
-    return pulumi.output(args).apply((a: any) => listWorkflowRunActionRepetitionExpressionTraces(a, opts))
+    return pulumi.output(args).apply(a => listWorkflowRunActionRepetitionExpressionTraces(a, opts))
 }
 
 export interface ListWorkflowRunActionRepetitionExpressionTracesOutputArgs {

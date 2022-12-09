@@ -75,11 +75,9 @@ export interface GetIotHubResourceResult {
      */
     readonly type: string;
 }
-/**
- * The description of the IoT hub.
- */
+
 export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceResult> {
-    return pulumi.output(args).apply((a: any) => getIotHubResource(a, opts))
+    return pulumi.output(args).apply(a => getIotHubResource(a, opts))
 }
 
 export interface GetIotHubResourceOutputArgs {

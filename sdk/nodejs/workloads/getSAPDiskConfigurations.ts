@@ -65,12 +65,9 @@ export interface GetSAPDiskConfigurationsResult {
      */
     readonly diskConfigurations?: outputs.workloads.SAPDiskConfigurationResponse[];
 }
-/**
- * The list of disk configuration for vmSku which are part of SAP deployment.
- * API Version: 2021-12-01-preview.
- */
+
 export function getSAPDiskConfigurationsOutput(args: GetSAPDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDiskConfigurationsResult> {
-    return pulumi.output(args).apply((a: any) => getSAPDiskConfigurations(a, opts))
+    return pulumi.output(args).apply(a => getSAPDiskConfigurations(a, opts))
 }
 
 export interface GetSAPDiskConfigurationsOutputArgs {

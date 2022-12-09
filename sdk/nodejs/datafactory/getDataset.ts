@@ -61,12 +61,9 @@ export interface GetDatasetResult {
      */
     readonly type: string;
 }
-/**
- * Dataset resource type.
- * API Version: 2018-06-01.
- */
+
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
-    return pulumi.output(args).apply((a: any) => getDataset(a, opts))
+    return pulumi.output(args).apply(a => getDataset(a, opts))
 }
 
 export interface GetDatasetOutputArgs {

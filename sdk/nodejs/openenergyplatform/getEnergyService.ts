@@ -57,11 +57,9 @@ export interface GetEnergyServiceResult {
      */
     readonly type: string;
 }
-/**
- * API Version: 2022-04-04-preview.
- */
+
 export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {
-    return pulumi.output(args).apply((a: any) => getEnergyService(a, opts))
+    return pulumi.output(args).apply(a => getEnergyService(a, opts))
 }
 
 export interface GetEnergyServiceOutputArgs {

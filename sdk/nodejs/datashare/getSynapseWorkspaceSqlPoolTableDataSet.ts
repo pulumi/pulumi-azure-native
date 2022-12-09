@@ -75,12 +75,9 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetResult {
      */
     readonly type: string;
 }
-/**
- * A Synapse Workspace Sql Pool Table data set.
- * API Version: 2020-09-01.
- */
+
 export function getSynapseWorkspaceSqlPoolTableDataSetOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getSynapseWorkspaceSqlPoolTableDataSet(a, opts))
+    return pulumi.output(args).apply(a => getSynapseWorkspaceSqlPoolTableDataSet(a, opts))
 }
 
 export interface GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs {

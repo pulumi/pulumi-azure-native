@@ -53,11 +53,9 @@ export interface ListProductsAndConfigurationProductFamiliesResult {
      */
     readonly value: outputs.edgeorder.v20220501preview.ProductFamilyResponse[];
 }
-/**
- * The list of product families.
- */
+
 export function listProductsAndConfigurationProductFamiliesOutput(args: ListProductsAndConfigurationProductFamiliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsAndConfigurationProductFamiliesResult> {
-    return pulumi.output(args).apply((a: any) => listProductsAndConfigurationProductFamilies(a, opts))
+    return pulumi.output(args).apply(a => listProductsAndConfigurationProductFamilies(a, opts))
 }
 
 export interface ListProductsAndConfigurationProductFamiliesOutputArgs {

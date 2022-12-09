@@ -68,11 +68,9 @@ export interface GetFleetMemberResult {
      */
     readonly type: string;
 }
-/**
- * A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
- */
+
 export function getFleetMemberOutput(args: GetFleetMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetMemberResult> {
-    return pulumi.output(args).apply((a: any) => getFleetMember(a, opts))
+    return pulumi.output(args).apply(a => getFleetMember(a, opts))
 }
 
 export interface GetFleetMemberOutputArgs {

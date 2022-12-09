@@ -72,11 +72,9 @@ export interface GetJobAgentResult {
      */
     readonly type: string;
 }
-/**
- * An Azure SQL job agent.
- */
+
 export function getJobAgentOutput(args: GetJobAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobAgentResult> {
-    return pulumi.output(args).apply((a: any) => getJobAgent(a, opts))
+    return pulumi.output(args).apply(a => getJobAgent(a, opts))
 }
 
 export interface GetJobAgentOutputArgs {

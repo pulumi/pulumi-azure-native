@@ -69,11 +69,9 @@ export interface ListWebAppFunctionKeysSlotResult {
      */
     readonly type: string;
 }
-/**
- * String dictionary resource.
- */
+
 export function listWebAppFunctionKeysSlotOutput(args: ListWebAppFunctionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppFunctionKeysSlot(a, opts))
+    return pulumi.output(args).apply(a => listWebAppFunctionKeysSlot(a, opts))
 }
 
 export interface ListWebAppFunctionKeysSlotOutputArgs {

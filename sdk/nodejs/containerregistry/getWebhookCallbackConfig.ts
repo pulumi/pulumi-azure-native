@@ -46,12 +46,9 @@ export interface GetWebhookCallbackConfigResult {
      */
     readonly serviceUri: string;
 }
-/**
- * The configuration of service URI and custom headers for the webhook.
- * API Version: 2019-05-01.
- */
+
 export function getWebhookCallbackConfigOutput(args: GetWebhookCallbackConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookCallbackConfigResult> {
-    return pulumi.output(args).apply((a: any) => getWebhookCallbackConfig(a, opts))
+    return pulumi.output(args).apply(a => getWebhookCallbackConfig(a, opts))
 }
 
 export interface GetWebhookCallbackConfigOutputArgs {

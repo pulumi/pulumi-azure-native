@@ -39,8 +39,9 @@ export interface GetImportCollectorResult {
     readonly properties: outputs.migrate.v20191001.ImportCollectorPropertiesResponse;
     readonly type: string;
 }
+
 export function getImportCollectorOutput(args: GetImportCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorResult> {
-    return pulumi.output(args).apply((a: any) => getImportCollector(a, opts))
+    return pulumi.output(args).apply(a => getImportCollector(a, opts))
 }
 
 export interface GetImportCollectorOutputArgs {

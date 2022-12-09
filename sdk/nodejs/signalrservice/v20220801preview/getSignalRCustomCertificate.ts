@@ -72,11 +72,9 @@ export interface GetSignalRCustomCertificateResult {
      */
     readonly type: string;
 }
-/**
- * A custom certificate.
- */
+
 export function getSignalRCustomCertificateOutput(args: GetSignalRCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getSignalRCustomCertificate(a, opts))
+    return pulumi.output(args).apply(a => getSignalRCustomCertificate(a, opts))
 }
 
 export interface GetSignalRCustomCertificateOutputArgs {

@@ -73,11 +73,9 @@ export interface GetPeriodicTimerEventTriggerResult {
      */
     readonly type: string;
 }
-/**
- * Trigger details.
- */
+
 export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getPeriodicTimerEventTrigger(a, opts))
+    return pulumi.output(args).apply(a => getPeriodicTimerEventTrigger(a, opts))
 }
 
 export interface GetPeriodicTimerEventTriggerOutputArgs {

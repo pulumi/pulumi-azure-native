@@ -60,13 +60,9 @@ export interface GetAlertRuleResult {
      */
     readonly type: string;
 }
-/**
- * Alert rule.
- * API Version: 2020-01-01.
- */
-/** @deprecated Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule. */
+
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getAlertRule(a, opts))
+    return pulumi.output(args).apply(a => getAlertRule(a, opts))
 }
 
 export interface GetAlertRuleOutputArgs {

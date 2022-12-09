@@ -43,11 +43,9 @@ export interface ListQueryKeyBySearchServiceResult {
      */
     readonly value: outputs.search.v20200313.QueryKeyResponse[];
 }
-/**
- * Response containing the query API keys for a given Azure Cognitive Search service.
- */
+
 export function listQueryKeyBySearchServiceOutput(args: ListQueryKeyBySearchServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueryKeyBySearchServiceResult> {
-    return pulumi.output(args).apply((a: any) => listQueryKeyBySearchService(a, opts))
+    return pulumi.output(args).apply(a => listQueryKeyBySearchService(a, opts))
 }
 
 export interface ListQueryKeyBySearchServiceOutputArgs {

@@ -88,11 +88,9 @@ export interface GetGuestAgentResult {
      */
     readonly uuid: string;
 }
-/**
- * Defines the GuestAgent.
- */
+
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestAgentResult> {
-    return pulumi.output(args).apply((a: any) => getGuestAgent(a, opts))
+    return pulumi.output(args).apply(a => getGuestAgent(a, opts))
 }
 
 export interface GetGuestAgentOutputArgs {

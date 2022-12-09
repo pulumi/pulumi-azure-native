@@ -116,11 +116,9 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly virtualHub?: outputs.network.v20210501.SubResourceResponse;
 }
-/**
- * NetworkVirtualAppliance Resource.
- */
+
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))
+    return pulumi.output(args).apply(a => getNetworkVirtualAppliance(a, opts))
 }
 
 export interface GetNetworkVirtualApplianceOutputArgs {

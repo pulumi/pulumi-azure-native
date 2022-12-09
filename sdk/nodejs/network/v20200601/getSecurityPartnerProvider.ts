@@ -75,11 +75,9 @@ export interface GetSecurityPartnerProviderResult {
      */
     readonly virtualHub?: outputs.network.v20200601.SubResourceResponse;
 }
-/**
- * Security Partner Provider resource.
- */
+
 export function getSecurityPartnerProviderOutput(args: GetSecurityPartnerProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPartnerProviderResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityPartnerProvider(a, opts))
+    return pulumi.output(args).apply(a => getSecurityPartnerProvider(a, opts))
 }
 
 export interface GetSecurityPartnerProviderOutputArgs {

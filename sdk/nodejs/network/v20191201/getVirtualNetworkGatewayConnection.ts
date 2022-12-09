@@ -143,11 +143,9 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly virtualNetworkGateway2?: outputs.network.v20191201.VirtualNetworkGatewayResponse;
 }
-/**
- * A common class for general resource information.
- */
+
 export function getVirtualNetworkGatewayConnectionOutput(args: GetVirtualNetworkGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayConnection(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetworkGatewayConnection(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayConnectionOutputArgs {

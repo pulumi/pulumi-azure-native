@@ -79,11 +79,9 @@ export interface GetDedicatedHsmResult {
      */
     readonly zones?: string[];
 }
-/**
- * Resource information with extended details.
- */
+
 export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHsmResult> {
-    return pulumi.output(args).apply((a: any) => getDedicatedHsm(a, opts))
+    return pulumi.output(args).apply(a => getDedicatedHsm(a, opts))
 }
 
 export interface GetDedicatedHsmOutputArgs {

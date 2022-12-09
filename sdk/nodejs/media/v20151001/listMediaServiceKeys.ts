@@ -52,11 +52,9 @@ export interface ListMediaServiceKeysResult {
      */
     readonly secondaryKey?: string;
 }
-/**
- * The response body for a ListKeys API.
- */
+
 export function listMediaServiceKeysOutput(args: ListMediaServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceKeysResult> {
-    return pulumi.output(args).apply((a: any) => listMediaServiceKeys(a, opts))
+    return pulumi.output(args).apply(a => listMediaServiceKeys(a, opts))
 }
 
 export interface ListMediaServiceKeysOutputArgs {

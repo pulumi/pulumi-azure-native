@@ -66,12 +66,9 @@ export interface GetSiteSlotConfigNamesResult {
      */
     readonly type?: string;
 }
-/**
- * Slot Config names azure resource
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getSiteSlotConfigNamesOutput(args: GetSiteSlotConfigNamesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSlotConfigNamesResult> {
-    return pulumi.output(args).apply((a: any) => getSiteSlotConfigNames(a, opts))
+    return pulumi.output(args).apply(a => getSiteSlotConfigNames(a, opts))
 }
 
 export interface GetSiteSlotConfigNamesOutputArgs {

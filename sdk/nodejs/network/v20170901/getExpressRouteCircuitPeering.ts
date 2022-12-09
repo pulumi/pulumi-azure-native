@@ -122,12 +122,9 @@ export interface GetExpressRouteCircuitPeeringResult {
      */
     readonly vlanId?: number;
 }
-/**
- * Peering in an ExpressRouteCircuit resource.
- */
-/** @deprecated Version 2017-09-01 will be removed in v2 of the provider. */
+
 export function getExpressRouteCircuitPeeringOutput(args: GetExpressRouteCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getExpressRouteCircuitPeering(a, opts))
+    return pulumi.output(args).apply(a => getExpressRouteCircuitPeering(a, opts))
 }
 
 export interface GetExpressRouteCircuitPeeringOutputArgs {

@@ -65,12 +65,9 @@ export interface GetApiPortalResult {
      */
     readonly type: string;
 }
-/**
- * API portal resource
- * API Version: 2022-01-01-preview.
- */
+
 export function getApiPortalOutput(args: GetApiPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalResult> {
-    return pulumi.output(args).apply((a: any) => getApiPortal(a, opts))
+    return pulumi.output(args).apply(a => getApiPortal(a, opts))
 }
 
 export interface GetApiPortalOutputArgs {

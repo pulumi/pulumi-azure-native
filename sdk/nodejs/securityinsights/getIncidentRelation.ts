@@ -87,12 +87,9 @@ export interface GetIncidentRelationResult {
      */
     readonly type: string;
 }
-/**
- * Represents a relation between two resources
- * API Version: 2021-03-01-preview.
- */
+
 export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentRelationResult> {
-    return pulumi.output(args).apply((a: any) => getIncidentRelation(a, opts))
+    return pulumi.output(args).apply(a => getIncidentRelation(a, opts))
 }
 
 export interface GetIncidentRelationOutputArgs {

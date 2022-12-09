@@ -60,11 +60,9 @@ export interface GetPredictionTrainingResultsResult {
      */
     readonly tenantId: string;
 }
-/**
- * The training results of the prediction.
- */
+
 export function getPredictionTrainingResultsOutput(args: GetPredictionTrainingResultsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionTrainingResultsResult> {
-    return pulumi.output(args).apply((a: any) => getPredictionTrainingResults(a, opts))
+    return pulumi.output(args).apply(a => getPredictionTrainingResults(a, opts))
 }
 
 export interface GetPredictionTrainingResultsOutputArgs {

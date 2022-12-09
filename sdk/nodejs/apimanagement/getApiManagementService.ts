@@ -168,12 +168,9 @@ export interface GetApiManagementServiceResult {
      */
     readonly zones?: string[];
 }
-/**
- * A single API Management service resource in List or Get response.
- * API Version: 2020-12-01.
- */
+
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {
-    return pulumi.output(args).apply((a: any) => getApiManagementService(a, opts))
+    return pulumi.output(args).apply(a => getApiManagementService(a, opts))
 }
 
 export interface GetApiManagementServiceOutputArgs {

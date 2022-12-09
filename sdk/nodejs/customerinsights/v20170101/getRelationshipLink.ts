@@ -98,12 +98,9 @@ export interface GetRelationshipLinkResult {
      */
     readonly type: string;
 }
-/**
- * The relationship link resource format.
- */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+
 export function getRelationshipLinkOutput(args: GetRelationshipLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipLinkResult> {
-    return pulumi.output(args).apply((a: any) => getRelationshipLink(a, opts))
+    return pulumi.output(args).apply(a => getRelationshipLink(a, opts))
 }
 
 export interface GetRelationshipLinkOutputArgs {

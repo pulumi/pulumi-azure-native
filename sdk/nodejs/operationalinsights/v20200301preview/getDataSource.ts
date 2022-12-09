@@ -65,11 +65,9 @@ export interface GetDataSourceResult {
      */
     readonly type: string;
 }
-/**
- * Datasources under OMS Workspace.
- */
+
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
-    return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
+    return pulumi.output(args).apply(a => getDataSource(a, opts))
 }
 
 export interface GetDataSourceOutputArgs {

@@ -66,11 +66,9 @@ export interface GetGatewayHostnameConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * Gateway hostname configuration details.
- */
+
 export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayHostnameConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getGatewayHostnameConfiguration(a, opts))
 }
 
 export interface GetGatewayHostnameConfigurationOutputArgs {

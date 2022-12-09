@@ -89,12 +89,9 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
      */
     readonly txtRecords?: string[];
 }
-/**
- * Custom domain analysis.
- * API Version: 2022-03-01.
- */
+
 export function listContainerAppCustomHostNameAnalysisOutput(args: ListContainerAppCustomHostNameAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppCustomHostNameAnalysisResult> {
-    return pulumi.output(args).apply((a: any) => listContainerAppCustomHostNameAnalysis(a, opts))
+    return pulumi.output(args).apply(a => listContainerAppCustomHostNameAnalysis(a, opts))
 }
 
 export interface ListContainerAppCustomHostNameAnalysisOutputArgs {

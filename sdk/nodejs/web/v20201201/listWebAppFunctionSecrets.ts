@@ -45,11 +45,9 @@ export interface ListWebAppFunctionSecretsResult {
      */
     readonly triggerUrl?: string;
 }
-/**
- * Function secrets.
- */
+
 export function listWebAppFunctionSecretsOutput(args: ListWebAppFunctionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppFunctionSecrets(a, opts))
+    return pulumi.output(args).apply(a => listWebAppFunctionSecrets(a, opts))
 }
 
 export interface ListWebAppFunctionSecretsOutputArgs {

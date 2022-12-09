@@ -80,11 +80,9 @@ export interface GetResourceSyncRuleResult {
      */
     readonly type: string;
 }
-/**
- * Resource Sync Rules definition.
- */
+
 export function getResourceSyncRuleOutput(args: GetResourceSyncRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSyncRuleResult> {
-    return pulumi.output(args).apply((a: any) => getResourceSyncRule(a, opts))
+    return pulumi.output(args).apply(a => getResourceSyncRule(a, opts))
 }
 
 export interface GetResourceSyncRuleOutputArgs {

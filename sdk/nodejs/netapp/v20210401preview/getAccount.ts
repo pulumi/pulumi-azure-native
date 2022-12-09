@@ -71,11 +71,9 @@ export interface GetAccountResult {
      */
     readonly type: string;
 }
-/**
- * NetApp account resource
- */
+
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
+    return pulumi.output(args).apply(a => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

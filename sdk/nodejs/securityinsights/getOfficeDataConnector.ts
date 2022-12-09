@@ -70,12 +70,9 @@ export interface GetOfficeDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents office data connector.
- * API Version: 2020-01-01.
- */
+
 export function getOfficeDataConnectorOutput(args: GetOfficeDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getOfficeDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getOfficeDataConnector(a, opts))
 }
 
 export interface GetOfficeDataConnectorOutputArgs {

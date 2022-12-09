@@ -61,12 +61,9 @@ export interface GetDataFlowResult {
      */
     readonly type: string;
 }
-/**
- * Data flow resource type.
- * API Version: 2018-06-01.
- */
+
 export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
-    return pulumi.output(args).apply((a: any) => getDataFlow(a, opts))
+    return pulumi.output(args).apply(a => getDataFlow(a, opts))
 }
 
 export interface GetDataFlowOutputArgs {

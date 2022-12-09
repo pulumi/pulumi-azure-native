@@ -71,11 +71,9 @@ export interface GetSqlManagedInstanceResult {
      */
     readonly type: string;
 }
-/**
- * A SqlManagedInstance.
- */
+
 export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getSqlManagedInstance(a, opts))
+    return pulumi.output(args).apply(a => getSqlManagedInstance(a, opts))
 }
 
 export interface GetSqlManagedInstanceOutputArgs {

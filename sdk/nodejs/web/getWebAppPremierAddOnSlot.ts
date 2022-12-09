@@ -87,12 +87,9 @@ export interface GetWebAppPremierAddOnSlotResult {
      */
     readonly vendor?: string;
 }
-/**
- * Premier add-on.
- * API Version: 2020-12-01.
- */
+
 export function getWebAppPremierAddOnSlotOutput(args: GetWebAppPremierAddOnSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppPremierAddOnSlot(a, opts))
+    return pulumi.output(args).apply(a => getWebAppPremierAddOnSlot(a, opts))
 }
 
 export interface GetWebAppPremierAddOnSlotOutputArgs {

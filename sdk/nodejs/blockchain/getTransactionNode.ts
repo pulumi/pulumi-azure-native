@@ -81,12 +81,9 @@ export interface GetTransactionNodeResult {
      */
     readonly userName: string;
 }
-/**
- * Payload of the transaction node which is the request/response of the resource provider.
- * API Version: 2018-06-01-preview.
- */
+
 export function getTransactionNodeOutput(args: GetTransactionNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransactionNodeResult> {
-    return pulumi.output(args).apply((a: any) => getTransactionNode(a, opts))
+    return pulumi.output(args).apply(a => getTransactionNode(a, opts))
 }
 
 export interface GetTransactionNodeOutputArgs {

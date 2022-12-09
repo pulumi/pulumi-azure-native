@@ -84,11 +84,9 @@ export interface GetLocalUserResult {
      */
     readonly type: string;
 }
-/**
- * The local user associated with the storage accounts.
- */
+
 export function getLocalUserOutput(args: GetLocalUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalUserResult> {
-    return pulumi.output(args).apply((a: any) => getLocalUser(a, opts))
+    return pulumi.output(args).apply(a => getLocalUser(a, opts))
 }
 
 export interface GetLocalUserOutputArgs {

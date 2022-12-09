@@ -76,12 +76,9 @@ export interface GetAdminRuleResult {
      */
     readonly type: string;
 }
-/**
- * Network base admin rule.
- */
-/** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */
+
 export function getAdminRuleOutput(args: GetAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleResult> {
-    return pulumi.output(args).apply((a: any) => getAdminRule(a, opts))
+    return pulumi.output(args).apply(a => getAdminRule(a, opts))
 }
 
 export interface GetAdminRuleOutputArgs {

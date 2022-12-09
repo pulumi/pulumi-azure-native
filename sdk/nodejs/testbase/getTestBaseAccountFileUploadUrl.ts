@@ -46,12 +46,9 @@ export interface GetTestBaseAccountFileUploadUrlResult {
      */
     readonly uploadUrl: string;
 }
-/**
- * The URL response
- * API Version: 2022-04-01-preview.
- */
+
 export function getTestBaseAccountFileUploadUrlOutput(args: GetTestBaseAccountFileUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountFileUploadUrlResult> {
-    return pulumi.output(args).apply((a: any) => getTestBaseAccountFileUploadUrl(a, opts))
+    return pulumi.output(args).apply(a => getTestBaseAccountFileUploadUrl(a, opts))
 }
 
 export interface GetTestBaseAccountFileUploadUrlOutputArgs {

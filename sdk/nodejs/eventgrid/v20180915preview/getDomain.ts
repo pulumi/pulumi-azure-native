@@ -73,12 +73,9 @@ export interface GetDomainResult {
      */
     readonly type: string;
 }
-/**
- * EventGrid Domain
- */
-/** @deprecated Version 2018-09-15-preview will be removed in v2 of the provider. */
+
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
+    return pulumi.output(args).apply(a => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

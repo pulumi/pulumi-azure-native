@@ -61,12 +61,9 @@ export interface GetBackupInstanceResult {
      */
     readonly type: string;
 }
-/**
- * BackupInstance Resource
- * API Version: 2021-01-01.
- */
+
 export function getBackupInstanceOutput(args: GetBackupInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getBackupInstance(a, opts))
+    return pulumi.output(args).apply(a => getBackupInstance(a, opts))
 }
 
 export interface GetBackupInstanceOutputArgs {

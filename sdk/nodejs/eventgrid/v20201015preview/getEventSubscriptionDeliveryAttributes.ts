@@ -39,11 +39,9 @@ export interface GetEventSubscriptionDeliveryAttributesResult {
      */
     readonly value?: (outputs.eventgrid.v20201015preview.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.v20201015preview.StaticDeliveryAttributeMappingResponse)[];
 }
-/**
- * Result of the Get delivery attributes operation.
- */
+
 export function getEventSubscriptionDeliveryAttributesOutput(args: GetEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionDeliveryAttributesResult> {
-    return pulumi.output(args).apply((a: any) => getEventSubscriptionDeliveryAttributes(a, opts))
+    return pulumi.output(args).apply(a => getEventSubscriptionDeliveryAttributes(a, opts))
 }
 
 export interface GetEventSubscriptionDeliveryAttributesOutputArgs {

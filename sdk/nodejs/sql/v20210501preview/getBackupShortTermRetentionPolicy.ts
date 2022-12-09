@@ -62,11 +62,9 @@ export interface GetBackupShortTermRetentionPolicyResult {
      */
     readonly type: string;
 }
-/**
- * A short term retention policy.
- */
+
 export function getBackupShortTermRetentionPolicyOutput(args: GetBackupShortTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupShortTermRetentionPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupShortTermRetentionPolicy(a, opts))
+    return pulumi.output(args).apply(a => getBackupShortTermRetentionPolicy(a, opts))
 }
 
 export interface GetBackupShortTermRetentionPolicyOutputArgs {

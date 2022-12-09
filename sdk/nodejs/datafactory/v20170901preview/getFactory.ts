@@ -77,12 +77,9 @@ export interface GetFactoryResult {
      */
     readonly vstsConfiguration?: outputs.datafactory.v20170901preview.FactoryVSTSConfigurationResponse;
 }
-/**
- * Factory resource type.
- */
-/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
+
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
-    return pulumi.output(args).apply((a: any) => getFactory(a, opts))
+    return pulumi.output(args).apply(a => getFactory(a, opts))
 }
 
 export interface GetFactoryOutputArgs {

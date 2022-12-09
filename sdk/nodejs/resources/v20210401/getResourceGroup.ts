@@ -58,11 +58,9 @@ export interface GetResourceGroupResult {
      */
     readonly type: string;
 }
-/**
- * Resource group information.
- */
+
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getResourceGroup(a, opts))
+    return pulumi.output(args).apply(a => getResourceGroup(a, opts))
 }
 
 export interface GetResourceGroupOutputArgs {

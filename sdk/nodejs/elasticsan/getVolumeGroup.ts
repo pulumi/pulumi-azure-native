@@ -77,12 +77,9 @@ export interface GetVolumeGroupResult {
      */
     readonly type: string;
 }
-/**
- * Response for Volume Group request.
- * API Version: 2021-11-20-preview.
- */
+
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeGroup(a, opts))
+    return pulumi.output(args).apply(a => getVolumeGroup(a, opts))
 }
 
 export interface GetVolumeGroupOutputArgs {

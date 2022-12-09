@@ -45,8 +45,9 @@ export interface GetPrivateLinkAssociationResult {
      */
     readonly type: string;
 }
+
 export function getPrivateLinkAssociationOutput(args: GetPrivateLinkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkAssociation(a, opts))
+    return pulumi.output(args).apply(a => getPrivateLinkAssociation(a, opts))
 }
 
 export interface GetPrivateLinkAssociationOutputArgs {

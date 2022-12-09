@@ -69,12 +69,9 @@ export interface GetPrivateEndpointConnectionsForMIPPolicySyncResult {
      */
     readonly type: string;
 }
-/**
- * The Private Endpoint Connection resource.
- * API Version: 2021-03-25-preview.
- */
+
 export function getPrivateEndpointConnectionsForMIPPolicySyncOutput(args: GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForMIPPolicySyncResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsForMIPPolicySync(a, opts))
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionsForMIPPolicySync(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs {

@@ -73,12 +73,9 @@ export interface GetManagerResult {
      */
     readonly type: string;
 }
-/**
- * The StorSimple Manager
- */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
+
 export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerResult> {
-    return pulumi.output(args).apply((a: any) => getManager(a, opts))
+    return pulumi.output(args).apply(a => getManager(a, opts))
 }
 
 export interface GetManagerOutputArgs {

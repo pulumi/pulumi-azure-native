@@ -72,13 +72,9 @@ export interface GetEntityQueryResult {
      */
     readonly type: string;
 }
-/**
- * Specific entity query.
- * API Version: 2021-03-01-preview.
- */
-/** @deprecated Please use one of the variants: ActivityCustomEntityQuery. */
+
 export function getEntityQueryOutput(args: GetEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityQueryResult> {
-    return pulumi.output(args).apply((a: any) => getEntityQuery(a, opts))
+    return pulumi.output(args).apply(a => getEntityQuery(a, opts))
 }
 
 export interface GetEntityQueryOutputArgs {

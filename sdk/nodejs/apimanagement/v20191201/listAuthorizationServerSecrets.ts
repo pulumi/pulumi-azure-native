@@ -41,11 +41,9 @@ export interface ListAuthorizationServerSecretsResult {
      */
     readonly clientSecret?: string;
 }
-/**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
- */
+
 export function listAuthorizationServerSecretsOutput(args: ListAuthorizationServerSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAuthorizationServerSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listAuthorizationServerSecrets(a, opts))
+    return pulumi.output(args).apply(a => listAuthorizationServerSecrets(a, opts))
 }
 
 export interface ListAuthorizationServerSecretsOutputArgs {

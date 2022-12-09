@@ -77,11 +77,9 @@ export interface GetAdminRuleCollectionResult {
      */
     readonly type: string;
 }
-/**
- * Defines the admin rule collection.
- */
+
 export function getAdminRuleCollectionOutput(args: GetAdminRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getAdminRuleCollection(a, opts))
+    return pulumi.output(args).apply(a => getAdminRuleCollection(a, opts))
 }
 
 export interface GetAdminRuleCollectionOutputArgs {

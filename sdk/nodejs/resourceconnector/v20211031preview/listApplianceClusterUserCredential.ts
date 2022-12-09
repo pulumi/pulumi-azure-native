@@ -43,11 +43,9 @@ export interface ListApplianceClusterUserCredentialResult {
      */
     readonly kubeconfigs: outputs.resourceconnector.v20211031preview.ApplianceCredentialKubeconfigResponse[];
 }
-/**
- * The List Cluster User Credential appliance.
- */
+
 export function listApplianceClusterUserCredentialOutput(args: ListApplianceClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceClusterUserCredentialResult> {
-    return pulumi.output(args).apply((a: any) => listApplianceClusterUserCredential(a, opts))
+    return pulumi.output(args).apply(a => listApplianceClusterUserCredential(a, opts))
 }
 
 export interface ListApplianceClusterUserCredentialOutputArgs {

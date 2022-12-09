@@ -77,12 +77,9 @@ export interface GetVirtualHubIpConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * IpConfigurations.
- * API Version: 2020-11-01.
- */
+
 export function getVirtualHubIpConfigurationOutput(args: GetVirtualHubIpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubIpConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualHubIpConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getVirtualHubIpConfiguration(a, opts))
 }
 
 export interface GetVirtualHubIpConfigurationOutputArgs {

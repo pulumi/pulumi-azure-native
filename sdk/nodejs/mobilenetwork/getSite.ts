@@ -97,12 +97,9 @@ export interface GetSiteResult {
      */
     readonly type: string;
 }
-/**
- * Site resource.
- * API Version: 2022-04-01-preview.
- */
+
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
-    return pulumi.output(args).apply((a: any) => getSite(a, opts))
+    return pulumi.output(args).apply(a => getSite(a, opts))
 }
 
 export interface GetSiteOutputArgs {

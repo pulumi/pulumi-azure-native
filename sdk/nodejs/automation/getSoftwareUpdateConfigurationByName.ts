@@ -89,12 +89,9 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
      */
     readonly updateConfiguration: outputs.automation.UpdateConfigurationResponse;
 }
-/**
- * Software update configuration properties.
- * API Version: 2019-06-01.
- */
+
 export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
-    return pulumi.output(args).apply((a: any) => getSoftwareUpdateConfigurationByName(a, opts))
+    return pulumi.output(args).apply(a => getSoftwareUpdateConfigurationByName(a, opts))
 }
 
 export interface GetSoftwareUpdateConfigurationByNameOutputArgs {

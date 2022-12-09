@@ -62,12 +62,9 @@ export interface GetProviderInstanceResult {
      */
     readonly type: string;
 }
-/**
- * A provider instance associated with a SAP monitor.
- * API Version: 2020-02-07-preview.
- */
+
 export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getProviderInstance(a, opts))
+    return pulumi.output(args).apply(a => getProviderInstance(a, opts))
 }
 
 export interface GetProviderInstanceOutputArgs {

@@ -53,9 +53,9 @@ export interface GetQueueResult {
      */
     readonly type: string;
 }
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
-    return pulumi.output(args).apply((a: any) => getQueue(a, opts))
+    return pulumi.output(args).apply(a => getQueue(a, opts))
 }
 
 export interface GetQueueOutputArgs {

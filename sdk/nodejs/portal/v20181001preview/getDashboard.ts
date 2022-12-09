@@ -63,11 +63,9 @@ export interface GetDashboardResult {
      */
     readonly type: string;
 }
-/**
- * The shared dashboard resource definition.
- */
+
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
-    return pulumi.output(args).apply((a: any) => getDashboard(a, opts))
+    return pulumi.output(args).apply(a => getDashboard(a, opts))
 }
 
 export interface GetDashboardOutputArgs {

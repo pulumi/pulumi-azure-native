@@ -86,12 +86,9 @@ export interface GetSqlDatabaseResult {
      */
     readonly type: string;
 }
-/**
- * A sql database resource.
- */
-/** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
+
 export function getSqlDatabaseOutput(args: GetSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getSqlDatabase(a, opts))
+    return pulumi.output(args).apply(a => getSqlDatabase(a, opts))
 }
 
 export interface GetSqlDatabaseOutputArgs {

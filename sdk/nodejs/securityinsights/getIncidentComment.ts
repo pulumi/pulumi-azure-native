@@ -87,12 +87,9 @@ export interface GetIncidentCommentResult {
      */
     readonly type: string;
 }
-/**
- * Represents an incident comment
- * API Version: 2021-03-01-preview.
- */
+
 export function getIncidentCommentOutput(args: GetIncidentCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCommentResult> {
-    return pulumi.output(args).apply((a: any) => getIncidentComment(a, opts))
+    return pulumi.output(args).apply(a => getIncidentComment(a, opts))
 }
 
 export interface GetIncidentCommentOutputArgs {

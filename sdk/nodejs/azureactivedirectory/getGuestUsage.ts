@@ -57,12 +57,9 @@ export interface GetGuestUsageResult {
      */
     readonly type: string;
 }
-/**
- * Guest Usages Resource
- * API Version: 2020-05-01-preview.
- */
+
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
-    return pulumi.output(args).apply((a: any) => getGuestUsage(a, opts))
+    return pulumi.output(args).apply(a => getGuestUsage(a, opts))
 }
 
 export interface GetGuestUsageOutputArgs {

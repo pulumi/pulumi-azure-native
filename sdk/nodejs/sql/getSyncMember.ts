@@ -104,12 +104,9 @@ export interface GetSyncMemberResult {
      */
     readonly userName?: string;
 }
-/**
- * An Azure SQL Database sync member.
- * API Version: 2020-11-01-preview.
- */
+
 export function getSyncMemberOutput(args: GetSyncMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncMemberResult> {
-    return pulumi.output(args).apply((a: any) => getSyncMember(a, opts))
+    return pulumi.output(args).apply(a => getSyncMember(a, opts))
 }
 
 export interface GetSyncMemberOutputArgs {

@@ -40,12 +40,9 @@ export interface ListEnergyServicePartitionsResult {
      */
     readonly dataPartitionInfo?: outputs.openenergyplatform.DataPartitionPropertiesResponse[];
 }
-/**
- * List of data partitions.
- * API Version: 2022-04-04-preview.
- */
+
 export function listEnergyServicePartitionsOutput(args: ListEnergyServicePartitionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEnergyServicePartitionsResult> {
-    return pulumi.output(args).apply((a: any) => listEnergyServicePartitions(a, opts))
+    return pulumi.output(args).apply(a => listEnergyServicePartitions(a, opts))
 }
 
 export interface ListEnergyServicePartitionsOutputArgs {

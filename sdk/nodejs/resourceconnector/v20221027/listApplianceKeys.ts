@@ -47,11 +47,9 @@ export interface ListApplianceKeysResult {
      */
     readonly sshKeys: {[key: string]: outputs.resourceconnector.v20221027.SSHKeyResponse};
 }
-/**
- * The List Cluster Keys Results appliance.
- */
+
 export function listApplianceKeysOutput(args: ListApplianceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceKeysResult> {
-    return pulumi.output(args).apply((a: any) => listApplianceKeys(a, opts))
+    return pulumi.output(args).apply(a => listApplianceKeys(a, opts))
 }
 
 export interface ListApplianceKeysOutputArgs {

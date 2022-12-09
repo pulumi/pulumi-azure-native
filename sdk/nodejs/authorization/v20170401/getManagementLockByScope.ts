@@ -59,11 +59,9 @@ export interface GetManagementLockByScopeResult {
      */
     readonly type: string;
 }
-/**
- * The lock information.
- */
+
 export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {
-    return pulumi.output(args).apply((a: any) => getManagementLockByScope(a, opts))
+    return pulumi.output(args).apply(a => getManagementLockByScope(a, opts))
 }
 
 export interface GetManagementLockByScopeOutputArgs {

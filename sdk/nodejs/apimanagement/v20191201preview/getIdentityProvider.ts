@@ -85,11 +85,9 @@ export interface GetIdentityProviderResult {
      */
     readonly type: string;
 }
-/**
- * Identity Provider details.
- */
+
 export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
-    return pulumi.output(args).apply((a: any) => getIdentityProvider(a, opts))
+    return pulumi.output(args).apply(a => getIdentityProvider(a, opts))
 }
 
 export interface GetIdentityProviderOutputArgs {

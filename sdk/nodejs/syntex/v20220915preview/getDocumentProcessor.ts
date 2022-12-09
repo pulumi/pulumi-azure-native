@@ -63,11 +63,9 @@ export interface GetDocumentProcessorResult {
      */
     readonly type: string;
 }
-/**
- * Document processor details
- */
+
 export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentProcessorResult> {
-    return pulumi.output(args).apply((a: any) => getDocumentProcessor(a, opts))
+    return pulumi.output(args).apply(a => getDocumentProcessor(a, opts))
 }
 
 export interface GetDocumentProcessorOutputArgs {

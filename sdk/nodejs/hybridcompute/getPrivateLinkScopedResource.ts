@@ -58,12 +58,9 @@ export interface GetPrivateLinkScopedResourceResult {
      */
     readonly type: string;
 }
-/**
- * A private link scoped resource
- * API Version: 2020-08-15-preview.
- */
+
 export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkScopedResource(a, opts))
+    return pulumi.output(args).apply(a => getPrivateLinkScopedResource(a, opts))
 }
 
 export interface GetPrivateLinkScopedResourceOutputArgs {

@@ -52,12 +52,9 @@ export interface GetBuildServiceBuildResultLogResult {
      */
     readonly blobUrl?: string;
 }
-/**
- * Build result log resource properties payload
- * API Version: 2022-01-01-preview.
- */
+
 export function getBuildServiceBuildResultLogOutput(args: GetBuildServiceBuildResultLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuildResultLogResult> {
-    return pulumi.output(args).apply((a: any) => getBuildServiceBuildResultLog(a, opts))
+    return pulumi.output(args).apply(a => getBuildServiceBuildResultLog(a, opts))
 }
 
 export interface GetBuildServiceBuildResultLogOutputArgs {

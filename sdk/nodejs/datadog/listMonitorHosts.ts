@@ -44,12 +44,9 @@ export interface ListMonitorHostsResult {
      */
     readonly value?: outputs.datadog.DatadogHostResponse[];
 }
-/**
- * Response of a list operation.
- * API Version: 2021-03-01.
- */
+
 export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorHostsResult> {
-    return pulumi.output(args).apply((a: any) => listMonitorHosts(a, opts))
+    return pulumi.output(args).apply(a => listMonitorHosts(a, opts))
 }
 
 export interface ListMonitorHostsOutputArgs {

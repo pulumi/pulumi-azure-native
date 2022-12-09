@@ -32,12 +32,9 @@ export interface ListPrivateStoreNewPlansNotificationsArgs {
 export interface ListPrivateStoreNewPlansNotificationsResult {
     readonly newPlansNotifications?: outputs.marketplace.NewNotificationsResponse[];
 }
-/**
- * List of all new plans notifications for public offers
- * API Version: 2021-12-01.
- */
+
 export function listPrivateStoreNewPlansNotificationsOutput(args: ListPrivateStoreNewPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreNewPlansNotificationsResult> {
-    return pulumi.output(args).apply((a: any) => listPrivateStoreNewPlansNotifications(a, opts))
+    return pulumi.output(args).apply(a => listPrivateStoreNewPlansNotifications(a, opts))
 }
 
 export interface ListPrivateStoreNewPlansNotificationsOutputArgs {

@@ -62,11 +62,9 @@ export interface GetReportResult {
      */
     readonly type: string;
 }
-/**
- * A report resource.
- */
+
 export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {
-    return pulumi.output(args).apply((a: any) => getReport(a, opts))
+    return pulumi.output(args).apply(a => getReport(a, opts))
 }
 
 export interface GetReportOutputArgs {

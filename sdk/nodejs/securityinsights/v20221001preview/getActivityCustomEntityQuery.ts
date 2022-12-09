@@ -109,11 +109,9 @@ export interface GetActivityCustomEntityQueryResult {
      */
     readonly type: string;
 }
-/**
- * Represents Activity entity query.
- */
+
 export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {
-    return pulumi.output(args).apply((a: any) => getActivityCustomEntityQuery(a, opts))
+    return pulumi.output(args).apply(a => getActivityCustomEntityQuery(a, opts))
 }
 
 export interface GetActivityCustomEntityQueryOutputArgs {

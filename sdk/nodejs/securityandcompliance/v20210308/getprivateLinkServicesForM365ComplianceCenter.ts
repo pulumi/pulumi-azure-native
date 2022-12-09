@@ -75,11 +75,9 @@ export interface GetprivateLinkServicesForM365ComplianceCenterResult {
      */
     readonly type: string;
 }
-/**
- * The description of the service.
- */
+
 export function getprivateLinkServicesForM365ComplianceCenterOutput(args: GetprivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForM365ComplianceCenterResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForM365ComplianceCenter(a, opts))
+    return pulumi.output(args).apply(a => getprivateLinkServicesForM365ComplianceCenter(a, opts))
 }
 
 export interface GetprivateLinkServicesForM365ComplianceCenterOutputArgs {

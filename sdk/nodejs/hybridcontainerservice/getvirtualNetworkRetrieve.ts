@@ -65,12 +65,9 @@ export interface GetvirtualNetworkRetrieveResult {
      */
     readonly type: string;
 }
-/**
- * The virtualNetworks resource definition.
- * API Version: 2022-05-01-preview.
- */
+
 export function getvirtualNetworkRetrieveOutput(args: GetvirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualNetworkRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getvirtualNetworkRetrieve(a, opts))
+    return pulumi.output(args).apply(a => getvirtualNetworkRetrieve(a, opts))
 }
 
 export interface GetvirtualNetworkRetrieveOutputArgs {

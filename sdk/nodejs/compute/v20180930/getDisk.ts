@@ -109,12 +109,9 @@ export interface GetDiskResult {
      */
     readonly zones?: string[];
 }
-/**
- * Disk resource.
- */
-/** @deprecated Version 2018-09-30 will be removed in v2 of the provider. */
+
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
-    return pulumi.output(args).apply((a: any) => getDisk(a, opts))
+    return pulumi.output(args).apply(a => getDisk(a, opts))
 }
 
 export interface GetDiskOutputArgs {

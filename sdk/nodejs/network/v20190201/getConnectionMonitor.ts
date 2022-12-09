@@ -92,11 +92,9 @@ export interface GetConnectionMonitorResult {
      */
     readonly type: string;
 }
-/**
- * Information about the connection monitor.
- */
+
 export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getConnectionMonitor(a, opts))
+    return pulumi.output(args).apply(a => getConnectionMonitor(a, opts))
 }
 
 export interface GetConnectionMonitorOutputArgs {

@@ -64,11 +64,9 @@ export interface GetstorageSpaceRetrieveResult {
      */
     readonly type: string;
 }
-/**
- * The storageSpaces resource definition.
- */
+
 export function getstorageSpaceRetrieveOutput(args: GetstorageSpaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetstorageSpaceRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getstorageSpaceRetrieve(a, opts))
+    return pulumi.output(args).apply(a => getstorageSpaceRetrieve(a, opts))
 }
 
 export interface GetstorageSpaceRetrieveOutputArgs {

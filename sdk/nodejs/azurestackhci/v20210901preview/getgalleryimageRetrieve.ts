@@ -103,11 +103,9 @@ export interface GetgalleryimageRetrieveResult {
      */
     readonly version?: outputs.azurestackhci.v20210901preview.GalleryImageVersionResponse;
 }
-/**
- * The gallery image resource definition.
- */
+
 export function getgalleryimageRetrieveOutput(args: GetgalleryimageRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgalleryimageRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getgalleryimageRetrieve(a, opts))
+    return pulumi.output(args).apply(a => getgalleryimageRetrieve(a, opts))
 }
 
 export interface GetgalleryimageRetrieveOutputArgs {

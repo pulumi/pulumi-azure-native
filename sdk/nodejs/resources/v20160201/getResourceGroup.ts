@@ -52,12 +52,9 @@ export interface GetResourceGroupResult {
      */
     readonly tags?: {[key: string]: string};
 }
-/**
- * Resource group information.
- */
-/** @deprecated Version 2016-02-01 will be removed in v2 of the provider. */
+
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getResourceGroup(a, opts))
+    return pulumi.output(args).apply(a => getResourceGroup(a, opts))
 }
 
 export interface GetResourceGroupOutputArgs {

@@ -55,11 +55,9 @@ export interface GetSecurityContactResult {
      */
     readonly type: string;
 }
-/**
- * Contact details for security issues
- */
+
 export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityContactResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityContact(a, opts))
+    return pulumi.output(args).apply(a => getSecurityContact(a, opts))
 }
 
 export interface GetSecurityContactOutputArgs {

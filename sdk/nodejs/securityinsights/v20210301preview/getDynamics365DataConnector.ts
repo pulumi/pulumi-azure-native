@@ -78,11 +78,9 @@ export interface GetDynamics365DataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents Dynamics365 data connector.
- */
+
 export function getDynamics365DataConnectorOutput(args: GetDynamics365DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamics365DataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getDynamics365DataConnector(a, opts))
+    return pulumi.output(args).apply(a => getDynamics365DataConnector(a, opts))
 }
 
 export interface GetDynamics365DataConnectorOutputArgs {

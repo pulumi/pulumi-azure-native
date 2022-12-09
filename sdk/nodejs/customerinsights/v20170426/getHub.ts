@@ -75,11 +75,9 @@ export interface GetHubResult {
      */
     readonly webEndpoint: string;
 }
-/**
- * Hub resource.
- */
+
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
-    return pulumi.output(args).apply((a: any) => getHub(a, opts))
+    return pulumi.output(args).apply(a => getHub(a, opts))
 }
 
 export interface GetHubOutputArgs {

@@ -76,12 +76,9 @@ export interface GetDataConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Class representing a data connection.
- */
-/** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
+
 export function getDataConnectionOutput(args: GetDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getDataConnection(a, opts))
+    return pulumi.output(args).apply(a => getDataConnection(a, opts))
 }
 
 export interface GetDataConnectionOutputArgs {

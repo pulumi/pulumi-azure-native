@@ -54,11 +54,9 @@ export interface ListAssetContainerSasResult {
      */
     readonly assetContainerSasUrls?: string[];
 }
-/**
- * The Asset Storage container SAS URLs.
- */
+
 export function listAssetContainerSasOutput(args: ListAssetContainerSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetContainerSasResult> {
-    return pulumi.output(args).apply((a: any) => listAssetContainerSas(a, opts))
+    return pulumi.output(args).apply(a => listAssetContainerSas(a, opts))
 }
 
 export interface ListAssetContainerSasOutputArgs {

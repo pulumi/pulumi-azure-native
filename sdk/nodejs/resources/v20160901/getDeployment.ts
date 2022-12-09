@@ -49,12 +49,9 @@ export interface GetDeploymentResult {
      */
     readonly properties: outputs.resources.v20160901.DeploymentPropertiesExtendedResponse;
 }
-/**
- * Deployment information.
- */
-/** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
+
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
+    return pulumi.output(args).apply(a => getDeployment(a, opts))
 }
 
 export interface GetDeploymentOutputArgs {

@@ -45,11 +45,9 @@ export interface GetTriggerEventSubscriptionStatusResult {
      */
     readonly triggerName: string;
 }
-/**
- * Defines the response of a trigger subscription operation.
- */
+
 export function getTriggerEventSubscriptionStatusOutput(args: GetTriggerEventSubscriptionStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerEventSubscriptionStatusResult> {
-    return pulumi.output(args).apply((a: any) => getTriggerEventSubscriptionStatus(a, opts))
+    return pulumi.output(args).apply(a => getTriggerEventSubscriptionStatus(a, opts))
 }
 
 export interface GetTriggerEventSubscriptionStatusOutputArgs {

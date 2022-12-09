@@ -73,12 +73,9 @@ export interface ListWebAppSitePushSettingsSlotResult {
      */
     readonly type: string;
 }
-/**
- * Push settings for the App.
- * API Version: 2020-12-01.
- */
+
 export function listWebAppSitePushSettingsSlotOutput(args: ListWebAppSitePushSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppSitePushSettingsSlot(a, opts))
+    return pulumi.output(args).apply(a => listWebAppSitePushSettingsSlot(a, opts))
 }
 
 export interface ListWebAppSitePushSettingsSlotOutputArgs {

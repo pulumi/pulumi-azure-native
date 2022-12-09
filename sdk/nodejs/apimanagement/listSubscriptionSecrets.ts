@@ -46,12 +46,9 @@ export interface ListSubscriptionSecretsResult {
      */
     readonly secondaryKey?: string;
 }
-/**
- * Subscription keys.
- * API Version: 2020-12-01.
- */
+
 export function listSubscriptionSecretsOutput(args: ListSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubscriptionSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listSubscriptionSecrets(a, opts))
+    return pulumi.output(args).apply(a => listSubscriptionSecrets(a, opts))
 }
 
 export interface ListSubscriptionSecretsOutputArgs {

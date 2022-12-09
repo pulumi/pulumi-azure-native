@@ -70,12 +70,9 @@ export interface GetRegistrationResult {
      */
     readonly type: string;
 }
-/**
- * Registration information.
- */
-/** @deprecated Version 2016-01-01 will be removed in v2 of the provider. */
+
 export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getRegistration(a, opts))
+    return pulumi.output(args).apply(a => getRegistration(a, opts))
 }
 
 export interface GetRegistrationOutputArgs {

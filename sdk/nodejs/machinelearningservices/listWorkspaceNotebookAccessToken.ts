@@ -37,11 +37,9 @@ export interface ListWorkspaceNotebookAccessTokenResult {
     readonly scope: string;
     readonly tokenType: string;
 }
-/**
- * API Version: 2021-01-01.
- */
+
 export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebookAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookAccessTokenResult> {
-    return pulumi.output(args).apply((a: any) => listWorkspaceNotebookAccessToken(a, opts))
+    return pulumi.output(args).apply(a => listWorkspaceNotebookAccessToken(a, opts))
 }
 
 export interface ListWorkspaceNotebookAccessTokenOutputArgs {

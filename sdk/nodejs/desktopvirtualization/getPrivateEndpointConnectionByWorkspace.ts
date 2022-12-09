@@ -69,12 +69,9 @@ export interface GetPrivateEndpointConnectionByWorkspaceResult {
      */
     readonly type: string;
 }
-/**
- * The Private Endpoint Connection resource.
- * API Version: 2021-04-01-preview.
- */
+
 export function getPrivateEndpointConnectionByWorkspaceOutput(args: GetPrivateEndpointConnectionByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionByWorkspace(a, opts))
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionByWorkspace(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionByWorkspaceOutputArgs {

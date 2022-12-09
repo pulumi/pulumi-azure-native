@@ -65,11 +65,9 @@ export interface GetReplicationRecoveryServicesProviderResult {
      */
     readonly type: string;
 }
-/**
- * Provider details.
- */
+
 export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationRecoveryServicesProvider(a, opts))
+    return pulumi.output(args).apply(a => getReplicationRecoveryServicesProvider(a, opts))
 }
 
 export interface GetReplicationRecoveryServicesProviderOutputArgs {

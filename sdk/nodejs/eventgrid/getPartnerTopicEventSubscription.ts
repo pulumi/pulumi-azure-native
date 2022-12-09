@@ -105,12 +105,9 @@ export interface GetPartnerTopicEventSubscriptionResult {
      */
     readonly type: string;
 }
-/**
- * Event Subscription
- * API Version: 2020-04-01-preview.
- */
+
 export function getPartnerTopicEventSubscriptionOutput(args: GetPartnerTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getPartnerTopicEventSubscription(a, opts))
+    return pulumi.output(args).apply(a => getPartnerTopicEventSubscription(a, opts))
 }
 
 export interface GetPartnerTopicEventSubscriptionOutputArgs {

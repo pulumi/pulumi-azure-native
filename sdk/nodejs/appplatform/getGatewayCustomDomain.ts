@@ -66,12 +66,9 @@ export interface GetGatewayCustomDomainResult {
      */
     readonly type: string;
 }
-/**
- * Custom domain of the Spring Cloud Gateway
- * API Version: 2022-01-01-preview.
- */
+
 export function getGatewayCustomDomainOutput(args: GetGatewayCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCustomDomainResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayCustomDomain(a, opts))
+    return pulumi.output(args).apply(a => getGatewayCustomDomain(a, opts))
 }
 
 export interface GetGatewayCustomDomainOutputArgs {

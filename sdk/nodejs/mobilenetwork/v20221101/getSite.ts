@@ -72,11 +72,9 @@ export interface GetSiteResult {
      */
     readonly type: string;
 }
-/**
- * Site resource. Must be created in the same location as its parent mobile network.
- */
+
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
-    return pulumi.output(args).apply((a: any) => getSite(a, opts))
+    return pulumi.output(args).apply(a => getSite(a, opts))
 }
 
 export interface GetSiteOutputArgs {

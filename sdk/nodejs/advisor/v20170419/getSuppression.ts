@@ -59,12 +59,9 @@ export interface GetSuppressionResult {
      */
     readonly type: string;
 }
-/**
- * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
- */
-/** @deprecated Version 2017-04-19 will be removed in v2 of the provider. */
+
 export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionResult> {
-    return pulumi.output(args).apply((a: any) => getSuppression(a, opts))
+    return pulumi.output(args).apply(a => getSuppression(a, opts))
 }
 
 export interface GetSuppressionOutputArgs {

@@ -65,11 +65,9 @@ export interface GetTestResultFileResult {
      */
     readonly nextLink?: string;
 }
-/**
- * Test result.
- */
+
 export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultFileResult> {
-    return pulumi.output(args).apply((a: any) => getTestResultFile(a, opts))
+    return pulumi.output(args).apply(a => getTestResultFile(a, opts))
 }
 
 export interface GetTestResultFileOutputArgs {

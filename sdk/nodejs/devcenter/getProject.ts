@@ -72,12 +72,9 @@ export interface GetProjectResult {
      */
     readonly type: string;
 }
-/**
- * Represents a project resource.
- * API Version: 2022-09-01-preview.
- */
+
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply((a: any) => getProject(a, opts))
+    return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {

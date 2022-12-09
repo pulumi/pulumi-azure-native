@@ -88,11 +88,9 @@ export interface GetConfigurationAssignmentParentResult {
      */
     readonly type: string;
 }
-/**
- * Configuration Assignment
- */
+
 export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationAssignmentParent(a, opts))
+    return pulumi.output(args).apply(a => getConfigurationAssignmentParent(a, opts))
 }
 
 export interface GetConfigurationAssignmentParentOutputArgs {

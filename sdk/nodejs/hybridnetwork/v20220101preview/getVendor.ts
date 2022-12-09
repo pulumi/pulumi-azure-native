@@ -54,11 +54,9 @@ export interface GetVendorResult {
      */
     readonly type: string;
 }
-/**
- * Vendor resource.
- */
+
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
-    return pulumi.output(args).apply((a: any) => getVendor(a, opts))
+    return pulumi.output(args).apply(a => getVendor(a, opts))
 }
 
 export interface GetVendorOutputArgs {

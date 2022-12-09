@@ -34,8 +34,9 @@ export interface ListWorkspaceKeysResult {
     readonly userStorageKey: string;
     readonly userStorageResourceId: string;
 }
+
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))
+    return pulumi.output(args).apply(a => listWorkspaceKeys(a, opts))
 }
 
 export interface ListWorkspaceKeysOutputArgs {

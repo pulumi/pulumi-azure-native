@@ -67,11 +67,9 @@ export interface GetProductPolicyResult {
      */
     readonly value: string;
 }
-/**
- * Policy Contract details.
- */
+
 export function getProductPolicyOutput(args: GetProductPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getProductPolicy(a, opts))
+    return pulumi.output(args).apply(a => getProductPolicy(a, opts))
 }
 
 export interface GetProductPolicyOutputArgs {

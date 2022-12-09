@@ -98,11 +98,9 @@ export interface GetThreatIntelligenceAlertRuleResult {
      */
     readonly type: string;
 }
-/**
- * Represents Threat Intelligence alert rule.
- */
+
 export function getThreatIntelligenceAlertRuleOutput(args: GetThreatIntelligenceAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getThreatIntelligenceAlertRule(a, opts))
+    return pulumi.output(args).apply(a => getThreatIntelligenceAlertRule(a, opts))
 }
 
 export interface GetThreatIntelligenceAlertRuleOutputArgs {

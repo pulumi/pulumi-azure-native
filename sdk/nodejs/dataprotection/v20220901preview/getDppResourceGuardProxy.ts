@@ -51,8 +51,9 @@ export interface GetDppResourceGuardProxyResult {
      */
     readonly type: string;
 }
+
 export function getDppResourceGuardProxyOutput(args: GetDppResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDppResourceGuardProxyResult> {
-    return pulumi.output(args).apply((a: any) => getDppResourceGuardProxy(a, opts))
+    return pulumi.output(args).apply(a => getDppResourceGuardProxy(a, opts))
 }
 
 export interface GetDppResourceGuardProxyOutputArgs {

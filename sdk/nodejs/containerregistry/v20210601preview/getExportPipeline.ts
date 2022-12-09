@@ -76,11 +76,9 @@ export interface GetExportPipelineResult {
      */
     readonly type: string;
 }
-/**
- * An object that represents an export pipeline for a container registry.
- */
+
 export function getExportPipelineOutput(args: GetExportPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportPipelineResult> {
-    return pulumi.output(args).apply((a: any) => getExportPipeline(a, opts))
+    return pulumi.output(args).apply(a => getExportPipeline(a, opts))
 }
 
 export interface GetExportPipelineOutputArgs {

@@ -105,12 +105,9 @@ export interface GetManagedClusterResult {
      */
     readonly type: string;
 }
-/**
- * Managed cluster.
- */
-/** @deprecated Version 2018-08-01-preview will be removed in v2 of the provider. */
+
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
-    return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))
+    return pulumi.output(args).apply(a => getManagedCluster(a, opts))
 }
 
 export interface GetManagedClusterOutputArgs {

@@ -85,12 +85,9 @@ export interface GetServiceEndpointPolicyResult {
      */
     readonly type: string;
 }
-/**
- * Service End point policy resource.
- * API Version: 2020-11-01.
- */
+
 export function getServiceEndpointPolicyOutput(args: GetServiceEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getServiceEndpointPolicy(a, opts))
+    return pulumi.output(args).apply(a => getServiceEndpointPolicy(a, opts))
 }
 
 export interface GetServiceEndpointPolicyOutputArgs {

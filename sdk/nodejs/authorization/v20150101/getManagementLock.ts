@@ -49,12 +49,9 @@ export interface GetManagementLockResult {
      */
     readonly type: string;
 }
-/**
- * Management lock information.
- */
-/** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
+
 export function getManagementLockOutput(args: GetManagementLockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockResult> {
-    return pulumi.output(args).apply((a: any) => getManagementLock(a, opts))
+    return pulumi.output(args).apply(a => getManagementLock(a, opts))
 }
 
 export interface GetManagementLockOutputArgs {

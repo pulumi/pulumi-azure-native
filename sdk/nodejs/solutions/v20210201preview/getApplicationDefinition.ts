@@ -127,11 +127,9 @@ export interface GetApplicationDefinitionResult {
      */
     readonly type: string;
 }
-/**
- * Information about managed application definition.
- */
+
 export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationDefinition(a, opts))
+    return pulumi.output(args).apply(a => getApplicationDefinition(a, opts))
 }
 
 export interface GetApplicationDefinitionOutputArgs {

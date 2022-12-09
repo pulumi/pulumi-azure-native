@@ -71,12 +71,9 @@ export interface GetKustoPoolDatabaseResult {
      */
     readonly type: string;
 }
-/**
- * Class representing a Kusto database.
- */
-/** @deprecated Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase. */
+
 export function getKustoPoolDatabaseOutput(args: GetKustoPoolDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getKustoPoolDatabase(a, opts))
+    return pulumi.output(args).apply(a => getKustoPoolDatabase(a, opts))
 }
 
 export interface GetKustoPoolDatabaseOutputArgs {

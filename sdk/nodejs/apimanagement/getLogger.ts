@@ -71,12 +71,9 @@ export interface GetLoggerResult {
      */
     readonly type: string;
 }
-/**
- * Logger details.
- * API Version: 2020-12-01.
- */
+
 export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerResult> {
-    return pulumi.output(args).apply((a: any) => getLogger(a, opts))
+    return pulumi.output(args).apply(a => getLogger(a, opts))
 }
 
 export interface GetLoggerOutputArgs {

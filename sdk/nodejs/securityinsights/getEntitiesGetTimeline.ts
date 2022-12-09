@@ -74,12 +74,9 @@ export interface GetEntitiesGetTimelineResult {
      */
     readonly value?: (outputs.securityinsights.ActivityTimelineItemResponse | outputs.securityinsights.BookmarkTimelineItemResponse | outputs.securityinsights.SecurityAlertTimelineItemResponse)[];
 }
-/**
- * The entity timeline result operation response.
- * API Version: 2019-01-01-preview.
- */
+
 export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
-    return pulumi.output(args).apply((a: any) => getEntitiesGetTimeline(a, opts))
+    return pulumi.output(args).apply(a => getEntitiesGetTimeline(a, opts))
 }
 
 export interface GetEntitiesGetTimelineOutputArgs {

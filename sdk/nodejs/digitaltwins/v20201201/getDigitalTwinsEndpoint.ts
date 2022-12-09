@@ -56,11 +56,9 @@ export interface GetDigitalTwinsEndpointResult {
      */
     readonly type: string;
 }
-/**
- * DigitalTwinsInstance endpoint resource.
- */
+
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getDigitalTwinsEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getDigitalTwinsEndpoint(a, opts))
 }
 
 export interface GetDigitalTwinsEndpointOutputArgs {

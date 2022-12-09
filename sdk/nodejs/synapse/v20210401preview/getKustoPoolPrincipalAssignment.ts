@@ -89,11 +89,9 @@ export interface GetKustoPoolPrincipalAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * Class representing a cluster principal assignment.
- */
+
 export function getKustoPoolPrincipalAssignmentOutput(args: GetKustoPoolPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolPrincipalAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getKustoPoolPrincipalAssignment(a, opts))
+    return pulumi.output(args).apply(a => getKustoPoolPrincipalAssignment(a, opts))
 }
 
 export interface GetKustoPoolPrincipalAssignmentOutputArgs {

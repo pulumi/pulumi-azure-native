@@ -73,11 +73,9 @@ export interface GetCloudEdgeManagementRoleResult {
      */
     readonly type: string;
 }
-/**
- * CloudEdgeManagementRole role.
- */
+
 export function getCloudEdgeManagementRoleOutput(args: GetCloudEdgeManagementRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEdgeManagementRoleResult> {
-    return pulumi.output(args).apply((a: any) => getCloudEdgeManagementRole(a, opts))
+    return pulumi.output(args).apply(a => getCloudEdgeManagementRole(a, opts))
 }
 
 export interface GetCloudEdgeManagementRoleOutputArgs {

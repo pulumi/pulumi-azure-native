@@ -53,11 +53,9 @@ export interface ListActiveSecurityAdminRulesResult {
      */
     readonly value?: (outputs.network.v20220101.ActiveDefaultSecurityAdminRuleResponse | outputs.network.v20220101.ActiveSecurityAdminRuleResponse)[];
 }
-/**
- * Result of the request to list active security admin rules. It contains a list of active security admin rules and a skiptoken to get the next set of results.
- */
+
 export function listActiveSecurityAdminRulesOutput(args: ListActiveSecurityAdminRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityAdminRulesResult> {
-    return pulumi.output(args).apply((a: any) => listActiveSecurityAdminRules(a, opts))
+    return pulumi.output(args).apply(a => listActiveSecurityAdminRules(a, opts))
 }
 
 export interface ListActiveSecurityAdminRulesOutputArgs {

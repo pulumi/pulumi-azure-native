@@ -116,11 +116,9 @@ export interface GetAuthorizationServerResult {
      */
     readonly type: string;
 }
-/**
- * External OAuth authorization server settings.
- */
+
 export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationServerResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizationServer(a, opts))
+    return pulumi.output(args).apply(a => getAuthorizationServer(a, opts))
 }
 
 export interface GetAuthorizationServerOutputArgs {

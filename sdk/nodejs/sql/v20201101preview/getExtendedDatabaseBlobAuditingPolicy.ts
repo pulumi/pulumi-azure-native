@@ -157,11 +157,9 @@ export interface GetExtendedDatabaseBlobAuditingPolicyResult {
      */
     readonly type: string;
 }
-/**
- * An extended database blob auditing policy.
- */
+
 export function getExtendedDatabaseBlobAuditingPolicyOutput(args: GetExtendedDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedDatabaseBlobAuditingPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getExtendedDatabaseBlobAuditingPolicy(a, opts))
+    return pulumi.output(args).apply(a => getExtendedDatabaseBlobAuditingPolicy(a, opts))
 }
 
 export interface GetExtendedDatabaseBlobAuditingPolicyOutputArgs {

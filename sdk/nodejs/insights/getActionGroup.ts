@@ -104,12 +104,9 @@ export interface GetActionGroupResult {
      */
     readonly webhookReceivers?: outputs.insights.WebhookReceiverResponse[];
 }
-/**
- * An action group resource.
- * API Version: 2019-06-01.
- */
+
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
-    return pulumi.output(args).apply((a: any) => getActionGroup(a, opts))
+    return pulumi.output(args).apply(a => getActionGroup(a, opts))
 }
 
 export interface GetActionGroupOutputArgs {

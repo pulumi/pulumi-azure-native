@@ -136,11 +136,9 @@ export interface GetStreamingJobResult {
      */
     readonly type: string;
 }
-/**
- * A streaming job object, containing all information associated with the named streaming job.
- */
+
 export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingJobResult> {
-    return pulumi.output(args).apply((a: any) => getStreamingJob(a, opts))
+    return pulumi.output(args).apply(a => getStreamingJob(a, opts))
 }
 
 export interface GetStreamingJobOutputArgs {

@@ -68,12 +68,9 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * Configuration of App Service site logs.
- * API Version: 2020-12-01.
- */
+
 export function getWebAppDiagnosticLogsConfigurationOutput(args: GetWebAppDiagnosticLogsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppDiagnosticLogsConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getWebAppDiagnosticLogsConfiguration(a, opts))
 }
 
 export interface GetWebAppDiagnosticLogsConfigurationOutputArgs {

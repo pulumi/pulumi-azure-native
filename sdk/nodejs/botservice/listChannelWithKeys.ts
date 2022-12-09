@@ -101,12 +101,9 @@ export interface ListChannelWithKeysResult {
      */
     readonly zones: string[];
 }
-/**
- * The ARM channel of list channel with keys operation response.
- * API Version: 2021-03-01.
- */
+
 export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
-    return pulumi.output(args).apply((a: any) => listChannelWithKeys(a, opts))
+    return pulumi.output(args).apply(a => listChannelWithKeys(a, opts))
 }
 
 export interface ListChannelWithKeysOutputArgs {

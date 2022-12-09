@@ -63,12 +63,9 @@ export interface ListNotificationHubKeysResult {
      */
     readonly secondaryKey?: string;
 }
-/**
- * Namespace/NotificationHub Connection String
- * API Version: 2017-04-01.
- */
+
 export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {
-    return pulumi.output(args).apply((a: any) => listNotificationHubKeys(a, opts))
+    return pulumi.output(args).apply(a => listNotificationHubKeys(a, opts))
 }
 
 export interface ListNotificationHubKeysOutputArgs {

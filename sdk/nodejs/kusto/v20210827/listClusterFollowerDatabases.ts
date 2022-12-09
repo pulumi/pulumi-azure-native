@@ -39,11 +39,9 @@ export interface ListClusterFollowerDatabasesResult {
      */
     readonly value?: outputs.kusto.v20210827.FollowerDatabaseDefinitionResponse[];
 }
-/**
- * The list Kusto database principals operation response.
- */
+
 export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
-    return pulumi.output(args).apply((a: any) => listClusterFollowerDatabases(a, opts))
+    return pulumi.output(args).apply(a => listClusterFollowerDatabases(a, opts))
 }
 
 export interface ListClusterFollowerDatabasesOutputArgs {

@@ -90,11 +90,9 @@ export interface GetDatabaseThreatDetectionPolicyResult {
      */
     readonly useServerDefault?: string;
 }
-/**
- * Contains information about a database Threat Detection policy.
- */
+
 export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseThreatDetectionPolicy(a, opts))
+    return pulumi.output(args).apply(a => getDatabaseThreatDetectionPolicy(a, opts))
 }
 
 export interface GetDatabaseThreatDetectionPolicyOutputArgs {

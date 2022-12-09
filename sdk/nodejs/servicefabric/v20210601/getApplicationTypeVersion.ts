@@ -85,11 +85,9 @@ export interface GetApplicationTypeVersionResult {
      */
     readonly type: string;
 }
-/**
- * An application type version resource for the specified application type name resource.
- */
+
 export function getApplicationTypeVersionOutput(args: GetApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeVersionResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationTypeVersion(a, opts))
+    return pulumi.output(args).apply(a => getApplicationTypeVersion(a, opts))
 }
 
 export interface GetApplicationTypeVersionOutputArgs {

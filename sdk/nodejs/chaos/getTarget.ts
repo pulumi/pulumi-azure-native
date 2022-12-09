@@ -75,12 +75,9 @@ export interface GetTargetResult {
      */
     readonly type: string;
 }
-/**
- * Model that represents a Target resource.
- * API Version: 2021-09-15-preview.
- */
+
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {
-    return pulumi.output(args).apply((a: any) => getTarget(a, opts))
+    return pulumi.output(args).apply(a => getTarget(a, opts))
 }
 
 export interface GetTargetOutputArgs {

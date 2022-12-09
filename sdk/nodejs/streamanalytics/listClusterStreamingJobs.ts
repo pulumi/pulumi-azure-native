@@ -44,12 +44,9 @@ export interface ListClusterStreamingJobsResult {
      */
     readonly value: outputs.streamanalytics.ClusterJobResponse[];
 }
-/**
- * A list of streaming jobs. Populated by a List operation.
- * API Version: 2020-03-01-preview.
- */
+
 export function listClusterStreamingJobsOutput(args: ListClusterStreamingJobsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterStreamingJobsResult> {
-    return pulumi.output(args).apply((a: any) => listClusterStreamingJobs(a, opts))
+    return pulumi.output(args).apply(a => listClusterStreamingJobs(a, opts))
 }
 
 export interface ListClusterStreamingJobsOutputArgs {

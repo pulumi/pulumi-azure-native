@@ -61,11 +61,9 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
      */
     readonly version: string;
 }
-/**
- * Connection information for encrypting the on-premises data source credentials.
- */
+
 export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationRuntimeConnectionInfo(a, opts))
+    return pulumi.output(args).apply(a => getIntegrationRuntimeConnectionInfo(a, opts))
 }
 
 export interface GetIntegrationRuntimeConnectionInfoOutputArgs {

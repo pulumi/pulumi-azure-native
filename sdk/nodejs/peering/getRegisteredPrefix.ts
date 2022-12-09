@@ -70,12 +70,9 @@ export interface GetRegisteredPrefixResult {
      */
     readonly type: string;
 }
-/**
- * The customer's prefix that is registered by the peering service provider.
- * API Version: 2021-01-01.
- */
+
 export function getRegisteredPrefixOutput(args: GetRegisteredPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredPrefixResult> {
-    return pulumi.output(args).apply((a: any) => getRegisteredPrefix(a, opts))
+    return pulumi.output(args).apply(a => getRegisteredPrefix(a, opts))
 }
 
 export interface GetRegisteredPrefixOutputArgs {

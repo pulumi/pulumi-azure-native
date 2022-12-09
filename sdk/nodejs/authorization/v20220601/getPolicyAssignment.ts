@@ -103,11 +103,9 @@ export interface GetPolicyAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * The policy assignment.
- */
+
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyAssignment(a, opts))
+    return pulumi.output(args).apply(a => getPolicyAssignment(a, opts))
 }
 
 export interface GetPolicyAssignmentOutputArgs {

@@ -56,11 +56,9 @@ export interface GetGuestDiagnosticsSettingsAssociationResult {
      */
     readonly type: string;
 }
-/**
- * Virtual machine guest diagnostic settings resource.
- */
+
 export function getGuestDiagnosticsSettingsAssociationOutput(args: GetGuestDiagnosticsSettingsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingsAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getGuestDiagnosticsSettingsAssociation(a, opts))
+    return pulumi.output(args).apply(a => getGuestDiagnosticsSettingsAssociation(a, opts))
 }
 
 export interface GetGuestDiagnosticsSettingsAssociationOutputArgs {

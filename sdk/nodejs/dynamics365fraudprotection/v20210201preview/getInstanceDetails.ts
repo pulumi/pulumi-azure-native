@@ -67,11 +67,9 @@ export interface GetInstanceDetailsResult {
      */
     readonly type: string;
 }
-/**
- * Represents an instance of a DFP instance resource.
- */
+
 export function getInstanceDetailsOutput(args: GetInstanceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getInstanceDetails(a, opts))
+    return pulumi.output(args).apply(a => getInstanceDetails(a, opts))
 }
 
 export interface GetInstanceDetailsOutputArgs {

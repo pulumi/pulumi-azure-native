@@ -84,11 +84,9 @@ export interface GetSavedSearchResult {
      */
     readonly version?: number;
 }
-/**
- * Value object for saved search results.
- */
+
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
-    return pulumi.output(args).apply((a: any) => getSavedSearch(a, opts))
+    return pulumi.output(args).apply(a => getSavedSearch(a, opts))
 }
 
 export interface GetSavedSearchOutputArgs {

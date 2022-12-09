@@ -69,12 +69,9 @@ export interface GetProfileResult {
      */
     readonly type: string;
 }
-/**
- * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
- */
-/** @deprecated Version 2019-06-15-preview will be removed in v2 of the provider. */
+
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
+    return pulumi.output(args).apply(a => getProfile(a, opts))
 }
 
 export interface GetProfileOutputArgs {

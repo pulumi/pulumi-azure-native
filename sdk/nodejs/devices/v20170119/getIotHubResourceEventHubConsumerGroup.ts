@@ -56,12 +56,9 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
      */
     readonly tags?: {[key: string]: string};
 }
-/**
- * The properties of the EventHubConsumerGroupInfo object.
- */
-/** @deprecated Version 2017-01-19 will be removed in v2 of the provider. */
+
 export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
-    return pulumi.output(args).apply((a: any) => getIotHubResourceEventHubConsumerGroup(a, opts))
+    return pulumi.output(args).apply(a => getIotHubResourceEventHubConsumerGroup(a, opts))
 }
 
 export interface GetIotHubResourceEventHubConsumerGroupOutputArgs {

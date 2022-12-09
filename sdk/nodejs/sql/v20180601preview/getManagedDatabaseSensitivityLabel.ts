@@ -90,11 +90,9 @@ export interface GetManagedDatabaseSensitivityLabelResult {
      */
     readonly type: string;
 }
-/**
- * A sensitivity label.
- */
+
 export function getManagedDatabaseSensitivityLabelOutput(args: GetManagedDatabaseSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseSensitivityLabelResult> {
-    return pulumi.output(args).apply((a: any) => getManagedDatabaseSensitivityLabel(a, opts))
+    return pulumi.output(args).apply(a => getManagedDatabaseSensitivityLabel(a, opts))
 }
 
 export interface GetManagedDatabaseSensitivityLabelOutputArgs {

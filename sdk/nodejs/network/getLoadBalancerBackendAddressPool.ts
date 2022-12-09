@@ -81,12 +81,9 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly type: string;
 }
-/**
- * Pool of backend IP addresses.
- * API Version: 2020-11-01.
- */
+
 export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {
-    return pulumi.output(args).apply((a: any) => getLoadBalancerBackendAddressPool(a, opts))
+    return pulumi.output(args).apply(a => getLoadBalancerBackendAddressPool(a, opts))
 }
 
 export interface GetLoadBalancerBackendAddressPoolOutputArgs {

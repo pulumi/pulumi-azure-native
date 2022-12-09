@@ -86,12 +86,9 @@ export interface GetVirtualNetworkResult {
      */
     readonly type: string;
 }
-/**
- * Virtual Network resource
- */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
+
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
 }
 
 export interface GetVirtualNetworkOutputArgs {

@@ -52,11 +52,9 @@ export interface GetAssociationResult {
      */
     readonly type: string;
 }
-/**
- * The resource definition of this association.
- */
+
 export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getAssociation(a, opts))
+    return pulumi.output(args).apply(a => getAssociation(a, opts))
 }
 
 export interface GetAssociationOutputArgs {

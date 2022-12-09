@@ -44,11 +44,9 @@ export interface ListDatabasePrincipalsResult {
      */
     readonly value?: outputs.kusto.v20220707.DatabasePrincipalResponse[];
 }
-/**
- * The list Kusto database principals operation response.
- */
+
 export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasePrincipalsResult> {
-    return pulumi.output(args).apply((a: any) => listDatabasePrincipals(a, opts))
+    return pulumi.output(args).apply(a => listDatabasePrincipals(a, opts))
 }
 
 export interface ListDatabasePrincipalsOutputArgs {

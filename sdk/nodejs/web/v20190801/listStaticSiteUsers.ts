@@ -48,11 +48,9 @@ export interface ListStaticSiteUsersResult {
      */
     readonly value: outputs.web.v20190801.StaticSiteUserARMResourceResponse[];
 }
-/**
- * Collection of static site custom users.
- */
+
 export function listStaticSiteUsersOutput(args: ListStaticSiteUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteUsersResult> {
-    return pulumi.output(args).apply((a: any) => listStaticSiteUsers(a, opts))
+    return pulumi.output(args).apply(a => listStaticSiteUsers(a, opts))
 }
 
 export interface ListStaticSiteUsersOutputArgs {

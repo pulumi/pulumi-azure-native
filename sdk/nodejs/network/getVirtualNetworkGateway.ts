@@ -132,12 +132,9 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly vpnType?: string;
 }
-/**
- * A common class for general resource information.
- * API Version: 2020-11-01.
- */
+
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkGateway(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetworkGateway(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayOutputArgs {

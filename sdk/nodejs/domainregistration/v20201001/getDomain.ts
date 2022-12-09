@@ -121,11 +121,9 @@ export interface GetDomainResult {
      */
     readonly type: string;
 }
-/**
- * Information about a domain.
- */
+
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
+    return pulumi.output(args).apply(a => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

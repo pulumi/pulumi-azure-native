@@ -66,12 +66,9 @@ export interface GetBlobInventoryPolicyResult {
      */
     readonly type: string;
 }
-/**
- * The storage account blob inventory policy.
- */
-/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
+
 export function getBlobInventoryPolicyOutput(args: GetBlobInventoryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobInventoryPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBlobInventoryPolicy(a, opts))
+    return pulumi.output(args).apply(a => getBlobInventoryPolicy(a, opts))
 }
 
 export interface GetBlobInventoryPolicyOutputArgs {

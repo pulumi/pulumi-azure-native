@@ -57,11 +57,9 @@ export interface GetAPICollectionResult {
      */
     readonly type: string;
 }
-/**
- * An API collection as represented by Defender for APIs.
- */
+
 export function getAPICollectionOutput(args: GetAPICollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPICollectionResult> {
-    return pulumi.output(args).apply((a: any) => getAPICollection(a, opts))
+    return pulumi.output(args).apply(a => getAPICollection(a, opts))
 }
 
 export interface GetAPICollectionOutputArgs {

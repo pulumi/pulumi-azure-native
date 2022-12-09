@@ -99,12 +99,9 @@ export interface GetEndpointResult {
      */
     readonly weight?: number;
 }
-/**
- * Class representing a Traffic Manager endpoint.
- */
-/** @deprecated Version 2018-03-01 will be removed in v2 of the provider. */
+
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getEndpoint(a, opts))
 }
 
 export interface GetEndpointOutputArgs {

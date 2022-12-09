@@ -80,12 +80,9 @@ export interface GetOrderResult {
      */
     readonly type: string;
 }
-/**
- * The order details.
- * API Version: 2020-12-01.
- */
+
 export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderResult> {
-    return pulumi.output(args).apply((a: any) => getOrder(a, opts))
+    return pulumi.output(args).apply(a => getOrder(a, opts))
 }
 
 export interface GetOrderOutputArgs {

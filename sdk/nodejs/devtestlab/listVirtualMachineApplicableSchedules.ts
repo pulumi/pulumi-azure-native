@@ -69,12 +69,9 @@ export interface ListVirtualMachineApplicableSchedulesResult {
      */
     readonly type: string;
 }
-/**
- * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
- * API Version: 2018-09-15.
- */
+
 export function listVirtualMachineApplicableSchedulesOutput(args: ListVirtualMachineApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVirtualMachineApplicableSchedulesResult> {
-    return pulumi.output(args).apply((a: any) => listVirtualMachineApplicableSchedules(a, opts))
+    return pulumi.output(args).apply(a => listVirtualMachineApplicableSchedules(a, opts))
 }
 
 export interface ListVirtualMachineApplicableSchedulesOutputArgs {

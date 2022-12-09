@@ -108,11 +108,9 @@ export interface GetScheduleResult {
      */
     readonly type: string;
 }
-/**
- * Definition of the schedule.
- */
+
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
+    return pulumi.output(args).apply(a => getSchedule(a, opts))
 }
 
 export interface GetScheduleOutputArgs {

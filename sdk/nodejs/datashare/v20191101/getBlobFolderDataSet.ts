@@ -83,11 +83,9 @@ export interface GetBlobFolderDataSetResult {
      */
     readonly type: string;
 }
-/**
- * An Azure storage blob folder data set.
- */
+
 export function getBlobFolderDataSetOutput(args: GetBlobFolderDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobFolderDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getBlobFolderDataSet(a, opts))
+    return pulumi.output(args).apply(a => getBlobFolderDataSet(a, opts))
 }
 
 export interface GetBlobFolderDataSetOutputArgs {

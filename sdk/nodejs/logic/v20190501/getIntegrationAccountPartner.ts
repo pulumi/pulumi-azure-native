@@ -80,11 +80,9 @@ export interface GetIntegrationAccountPartnerResult {
      */
     readonly type: string;
 }
-/**
- * The integration account partner.
- */
+
 export function getIntegrationAccountPartnerOutput(args: GetIntegrationAccountPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountPartnerResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationAccountPartner(a, opts))
+    return pulumi.output(args).apply(a => getIntegrationAccountPartner(a, opts))
 }
 
 export interface GetIntegrationAccountPartnerOutputArgs {

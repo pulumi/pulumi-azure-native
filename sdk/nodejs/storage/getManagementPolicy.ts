@@ -61,12 +61,9 @@ export interface GetManagementPolicyResult {
      */
     readonly type: string;
 }
-/**
- * The Get Storage Account ManagementPolicies operation response.
- * API Version: 2021-02-01.
- */
+
 export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getManagementPolicy(a, opts))
+    return pulumi.output(args).apply(a => getManagementPolicy(a, opts))
 }
 
 export interface GetManagementPolicyOutputArgs {

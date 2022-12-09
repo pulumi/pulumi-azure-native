@@ -121,12 +121,9 @@ export interface GetContactResult {
      */
     readonly type: string;
 }
-/**
- * Customer creates a contact resource for a spacecraft resource.
- * API Version: 2021-04-04-preview.
- */
+
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
-    return pulumi.output(args).apply((a: any) => getContact(a, opts))
+    return pulumi.output(args).apply(a => getContact(a, opts))
 }
 
 export interface GetContactOutputArgs {

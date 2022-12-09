@@ -83,11 +83,9 @@ export interface GetAutomationResult {
      */
     readonly type: string;
 }
-/**
- * The security automation resource.
- */
+
 export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationResult> {
-    return pulumi.output(args).apply((a: any) => getAutomation(a, opts))
+    return pulumi.output(args).apply(a => getAutomation(a, opts))
 }
 
 export interface GetAutomationOutputArgs {

@@ -69,11 +69,9 @@ export interface GetWorkloadNetworkVMGroupResult {
      */
     readonly type: string;
 }
-/**
- * NSX VM Group
- */
+
 export function getWorkloadNetworkVMGroupOutput(args: GetWorkloadNetworkVMGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkVMGroupResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkVMGroup(a, opts))
+    return pulumi.output(args).apply(a => getWorkloadNetworkVMGroup(a, opts))
 }
 
 export interface GetWorkloadNetworkVMGroupOutputArgs {

@@ -121,12 +121,9 @@ export interface GetBlobContainerResult {
      */
     readonly version: string;
 }
-/**
- * Properties of the blob container, including Id, resource name, resource type, Etag.
- * API Version: 2021-02-01.
- */
+
 export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerResult> {
-    return pulumi.output(args).apply((a: any) => getBlobContainer(a, opts))
+    return pulumi.output(args).apply(a => getBlobContainer(a, opts))
 }
 
 export interface GetBlobContainerOutputArgs {

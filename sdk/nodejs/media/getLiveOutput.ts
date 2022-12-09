@@ -98,12 +98,9 @@ export interface GetLiveOutputResult {
      */
     readonly type: string;
 }
-/**
- * The Live Output.
- * API Version: 2020-05-01.
- */
+
 export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {
-    return pulumi.output(args).apply((a: any) => getLiveOutput(a, opts))
+    return pulumi.output(args).apply(a => getLiveOutput(a, opts))
 }
 
 export interface GetLiveOutputOutputArgs {

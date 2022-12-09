@@ -85,12 +85,9 @@ export interface GetSqlPoolWorkloadClassifierResult {
      */
     readonly type: string;
 }
-/**
- * Workload classifier operations for a data warehouse
- */
-/** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
+
 export function getSqlPoolWorkloadClassifierOutput(args: GetSqlPoolWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadClassifierResult> {
-    return pulumi.output(args).apply((a: any) => getSqlPoolWorkloadClassifier(a, opts))
+    return pulumi.output(args).apply(a => getSqlPoolWorkloadClassifier(a, opts))
 }
 
 export interface GetSqlPoolWorkloadClassifierOutputArgs {

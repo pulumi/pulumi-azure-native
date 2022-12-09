@@ -49,12 +49,9 @@ export interface ListDeploymentInfoResult {
      */
     readonly version: string;
 }
-/**
- * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
- * API Version: 2020-07-01.
- */
+
 export function listDeploymentInfoOutput(args: ListDeploymentInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeploymentInfoResult> {
-    return pulumi.output(args).apply((a: any) => listDeploymentInfo(a, opts))
+    return pulumi.output(args).apply(a => listDeploymentInfo(a, opts))
 }
 
 export interface ListDeploymentInfoOutputArgs {

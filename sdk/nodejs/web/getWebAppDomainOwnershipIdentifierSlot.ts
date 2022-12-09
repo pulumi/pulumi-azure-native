@@ -63,12 +63,9 @@ export interface GetWebAppDomainOwnershipIdentifierSlotResult {
      */
     readonly value?: string;
 }
-/**
- * A domain specific resource identifier.
- * API Version: 2020-12-01.
- */
+
 export function getWebAppDomainOwnershipIdentifierSlotOutput(args: GetWebAppDomainOwnershipIdentifierSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppDomainOwnershipIdentifierSlot(a, opts))
+    return pulumi.output(args).apply(a => getWebAppDomainOwnershipIdentifierSlot(a, opts))
 }
 
 export interface GetWebAppDomainOwnershipIdentifierSlotOutputArgs {

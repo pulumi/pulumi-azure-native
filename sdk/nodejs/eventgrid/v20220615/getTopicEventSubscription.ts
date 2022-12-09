@@ -104,11 +104,9 @@ export interface GetTopicEventSubscriptionResult {
      */
     readonly type: string;
 }
-/**
- * Event Subscription
- */
+
 export function getTopicEventSubscriptionOutput(args: GetTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicEventSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getTopicEventSubscription(a, opts))
+    return pulumi.output(args).apply(a => getTopicEventSubscription(a, opts))
 }
 
 export interface GetTopicEventSubscriptionOutputArgs {

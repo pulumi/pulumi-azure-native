@@ -70,11 +70,9 @@ export interface GetStaticSiteCustomDomainResult {
      */
     readonly validationToken: string;
 }
-/**
- * Static Site Custom Domain Overview ARM resource.
- */
+
 export function getStaticSiteCustomDomainOutput(args: GetStaticSiteCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteCustomDomainResult> {
-    return pulumi.output(args).apply((a: any) => getStaticSiteCustomDomain(a, opts))
+    return pulumi.output(args).apply(a => getStaticSiteCustomDomain(a, opts))
 }
 
 export interface GetStaticSiteCustomDomainOutputArgs {

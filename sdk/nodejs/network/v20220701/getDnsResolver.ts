@@ -79,11 +79,9 @@ export interface GetDnsResolverResult {
      */
     readonly virtualNetwork: outputs.network.v20220701.SubResourceResponse;
 }
-/**
- * Describes a DNS resolver.
- */
+
 export function getDnsResolverOutput(args: GetDnsResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverResult> {
-    return pulumi.output(args).apply((a: any) => getDnsResolver(a, opts))
+    return pulumi.output(args).apply(a => getDnsResolver(a, opts))
 }
 
 export interface GetDnsResolverOutputArgs {

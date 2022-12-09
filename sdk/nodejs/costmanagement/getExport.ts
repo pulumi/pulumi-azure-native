@@ -81,12 +81,9 @@ export interface GetExportResult {
      */
     readonly type: string;
 }
-/**
- * An export resource.
- * API Version: 2020-06-01.
- */
+
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
-    return pulumi.output(args).apply((a: any) => getExport(a, opts))
+    return pulumi.output(args).apply(a => getExport(a, opts))
 }
 
 export interface GetExportOutputArgs {

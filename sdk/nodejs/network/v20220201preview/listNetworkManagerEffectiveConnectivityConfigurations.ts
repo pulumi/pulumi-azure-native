@@ -48,11 +48,9 @@ export interface ListNetworkManagerEffectiveConnectivityConfigurationsResult {
      */
     readonly value?: outputs.network.v20220201preview.EffectiveConnectivityConfigurationResponse[];
 }
-/**
- * Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
- */
+
 export function listNetworkManagerEffectiveConnectivityConfigurationsOutput(args: ListNetworkManagerEffectiveConnectivityConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveConnectivityConfigurationsResult> {
-    return pulumi.output(args).apply((a: any) => listNetworkManagerEffectiveConnectivityConfigurations(a, opts))
+    return pulumi.output(args).apply(a => listNetworkManagerEffectiveConnectivityConfigurations(a, opts))
 }
 
 export interface ListNetworkManagerEffectiveConnectivityConfigurationsOutputArgs {

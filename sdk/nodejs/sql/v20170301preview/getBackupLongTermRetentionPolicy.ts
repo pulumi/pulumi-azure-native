@@ -70,11 +70,9 @@ export interface GetBackupLongTermRetentionPolicyResult {
      */
     readonly yearlyRetention?: string;
 }
-/**
- * A long term retention policy.
- */
+
 export function getBackupLongTermRetentionPolicyOutput(args: GetBackupLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupLongTermRetentionPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupLongTermRetentionPolicy(a, opts))
+    return pulumi.output(args).apply(a => getBackupLongTermRetentionPolicy(a, opts))
 }
 
 export interface GetBackupLongTermRetentionPolicyOutputArgs {

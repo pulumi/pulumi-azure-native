@@ -74,11 +74,9 @@ export interface ListConnectionConsentLinksResult {
      */
     readonly value?: outputs.web.v20150801preview.ConsentLinkResponse[];
 }
-/**
- * Collection of consent links
- */
+
 export function listConnectionConsentLinksOutput(args: ListConnectionConsentLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionConsentLinksResult> {
-    return pulumi.output(args).apply((a: any) => listConnectionConsentLinks(a, opts))
+    return pulumi.output(args).apply(a => listConnectionConsentLinks(a, opts))
 }
 
 export interface ListConnectionConsentLinksOutputArgs {

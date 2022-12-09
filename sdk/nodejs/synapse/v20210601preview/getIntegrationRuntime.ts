@@ -60,11 +60,9 @@ export interface GetIntegrationRuntimeResult {
      */
     readonly type: string;
 }
-/**
- * Integration runtime resource type.
- */
+
 export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationRuntime(a, opts))
+    return pulumi.output(args).apply(a => getIntegrationRuntime(a, opts))
 }
 
 export interface GetIntegrationRuntimeOutputArgs {

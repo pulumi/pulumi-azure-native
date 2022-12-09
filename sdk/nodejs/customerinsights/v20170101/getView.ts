@@ -84,12 +84,9 @@ export interface GetViewResult {
      */
     readonly viewName: string;
 }
-/**
- * The view resource format.
- */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
+
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
-    return pulumi.output(args).apply((a: any) => getView(a, opts))
+    return pulumi.output(args).apply(a => getView(a, opts))
 }
 
 export interface GetViewOutputArgs {

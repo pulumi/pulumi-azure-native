@@ -76,11 +76,9 @@ export interface GetMarkupRuleResult {
      */
     readonly type: string;
 }
-/**
- * Markup rule
- */
+
 export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarkupRuleResult> {
-    return pulumi.output(args).apply((a: any) => getMarkupRule(a, opts))
+    return pulumi.output(args).apply(a => getMarkupRule(a, opts))
 }
 
 export interface GetMarkupRuleOutputArgs {

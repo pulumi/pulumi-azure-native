@@ -71,11 +71,9 @@ export interface GetDdosProtectionPlanResult {
      */
     readonly virtualNetworks: outputs.network.v20190901.SubResourceResponse[];
 }
-/**
- * A DDoS protection plan in a resource group.
- */
+
 export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosProtectionPlanResult> {
-    return pulumi.output(args).apply((a: any) => getDdosProtectionPlan(a, opts))
+    return pulumi.output(args).apply(a => getDdosProtectionPlan(a, opts))
 }
 
 export interface GetDdosProtectionPlanOutputArgs {

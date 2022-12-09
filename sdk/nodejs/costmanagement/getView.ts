@@ -107,12 +107,9 @@ export interface GetViewResult {
      */
     readonly type: string;
 }
-/**
- * States and configurations of Cost Analysis.
- * API Version: 2019-11-01.
- */
+
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
-    return pulumi.output(args).apply((a: any) => getView(a, opts))
+    return pulumi.output(args).apply(a => getView(a, opts))
 }
 
 export interface GetViewOutputArgs {

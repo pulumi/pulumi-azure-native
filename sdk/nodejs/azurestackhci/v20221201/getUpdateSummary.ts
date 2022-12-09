@@ -87,11 +87,9 @@ export interface GetUpdateSummaryResult {
      */
     readonly type: string;
 }
-/**
- * Get the update summaries for the cluster
- */
+
 export function getUpdateSummaryOutput(args: GetUpdateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getUpdateSummary(a, opts))
+    return pulumi.output(args).apply(a => getUpdateSummary(a, opts))
 }
 
 export interface GetUpdateSummaryOutputArgs {

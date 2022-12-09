@@ -97,12 +97,9 @@ export interface GetKubeEnvironmentResult {
      */
     readonly type: string;
 }
-/**
- * A Kubernetes cluster specialized for web workloads by Azure App Service
- * API Version: 2021-01-01.
- */
+
 export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubeEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getKubeEnvironment(a, opts))
+    return pulumi.output(args).apply(a => getKubeEnvironment(a, opts))
 }
 
 export interface GetKubeEnvironmentOutputArgs {

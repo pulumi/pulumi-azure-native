@@ -96,11 +96,9 @@ export interface GetIntegrationAccountAgreementResult {
      */
     readonly type: string;
 }
-/**
- * The integration account agreement.
- */
+
 export function getIntegrationAccountAgreementOutput(args: GetIntegrationAccountAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAgreementResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationAccountAgreement(a, opts))
+    return pulumi.output(args).apply(a => getIntegrationAccountAgreement(a, opts))
 }
 
 export interface GetIntegrationAccountAgreementOutputArgs {

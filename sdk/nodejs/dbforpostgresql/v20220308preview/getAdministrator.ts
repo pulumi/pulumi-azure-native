@@ -72,11 +72,9 @@ export interface GetAdministratorResult {
      */
     readonly type: string;
 }
-/**
- * Represents an Active Directory administrator.
- */
+
 export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdministratorResult> {
-    return pulumi.output(args).apply((a: any) => getAdministrator(a, opts))
+    return pulumi.output(args).apply(a => getAdministrator(a, opts))
 }
 
 export interface GetAdministratorOutputArgs {

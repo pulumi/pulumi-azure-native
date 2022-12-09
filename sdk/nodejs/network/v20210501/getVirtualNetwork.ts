@@ -120,11 +120,9 @@ export interface GetVirtualNetworkResult {
      */
     readonly virtualNetworkPeerings?: outputs.network.v20210501.VirtualNetworkPeeringResponse[];
 }
-/**
- * Virtual Network resource.
- */
+
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
 }
 
 export interface GetVirtualNetworkOutputArgs {

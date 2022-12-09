@@ -39,11 +39,9 @@ export interface ListBotSecretsResult {
      */
     readonly secrets?: outputs.healthbot.v20220808.HealthBotKeyResponse[];
 }
-/**
- * Health Bot Keys Response.
- */
+
 export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listBotSecrets(a, opts))
+    return pulumi.output(args).apply(a => listBotSecrets(a, opts))
 }
 
 export interface ListBotSecretsOutputArgs {

@@ -89,12 +89,9 @@ export interface GetSnapshotResult {
      */
     readonly type: string;
 }
-/**
- * Snapshot resource.
- */
-/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
+
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
+    return pulumi.output(args).apply(a => getSnapshot(a, opts))
 }
 
 export interface GetSnapshotOutputArgs {

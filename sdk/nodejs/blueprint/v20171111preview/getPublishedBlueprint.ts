@@ -86,12 +86,9 @@ export interface GetPublishedBlueprintResult {
      */
     readonly type: string;
 }
-/**
- * Represents a published Blueprint.
- */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
+
 export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedBlueprintResult> {
-    return pulumi.output(args).apply((a: any) => getPublishedBlueprint(a, opts))
+    return pulumi.output(args).apply(a => getPublishedBlueprint(a, opts))
 }
 
 export interface GetPublishedBlueprintOutputArgs {

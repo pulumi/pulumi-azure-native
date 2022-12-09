@@ -104,12 +104,9 @@ export interface GetServiceResult {
      */
     readonly type: string;
 }
-/**
- * Describes an Azure Cognitive Search service and its current state.
- * API Version: 2020-08-01.
- */
+
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    return pulumi.output(args).apply(a => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

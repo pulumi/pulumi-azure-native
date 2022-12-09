@@ -45,12 +45,9 @@ export interface ListDeviceFailoverSetsResult {
      */
     readonly value?: outputs.storsimple.FailoverSetResponse[];
 }
-/**
- * The list of failover sets.
- * API Version: 2017-06-01.
- */
+
 export function listDeviceFailoverSetsOutput(args: ListDeviceFailoverSetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceFailoverSetsResult> {
-    return pulumi.output(args).apply((a: any) => listDeviceFailoverSets(a, opts))
+    return pulumi.output(args).apply(a => listDeviceFailoverSets(a, opts))
 }
 
 export interface ListDeviceFailoverSetsOutputArgs {

@@ -72,11 +72,9 @@ export interface GetMachineLearningDatasetResult {
      */
     readonly type: string;
 }
-/**
- * Machine Learning dataset object wrapped into ARM resource envelope.
- */
+
 export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatasetResult> {
-    return pulumi.output(args).apply((a: any) => getMachineLearningDataset(a, opts))
+    return pulumi.output(args).apply(a => getMachineLearningDataset(a, opts))
 }
 
 export interface GetMachineLearningDatasetOutputArgs {

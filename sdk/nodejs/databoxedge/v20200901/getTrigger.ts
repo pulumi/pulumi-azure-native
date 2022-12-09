@@ -62,12 +62,9 @@ export interface GetTriggerResult {
      */
     readonly type: string;
 }
-/**
- * Trigger details.
- */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getTrigger(a, opts))
+    return pulumi.output(args).apply(a => getTrigger(a, opts))
 }
 
 export interface GetTriggerOutputArgs {

@@ -122,11 +122,9 @@ export interface GetExtensionResult {
      */
     readonly version?: string;
 }
-/**
- * The Extension Instance object.
- */
+
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
+    return pulumi.output(args).apply(a => getExtension(a, opts))
 }
 
 export interface GetExtensionOutputArgs {

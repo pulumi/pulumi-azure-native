@@ -72,12 +72,9 @@ export interface GetSqlResourceSqlTriggerResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB trigger.
- * API Version: 2021-03-15.
- */
+
 export function getSqlResourceSqlTriggerOutput(args: GetSqlResourceSqlTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getSqlResourceSqlTrigger(a, opts))
+    return pulumi.output(args).apply(a => getSqlResourceSqlTrigger(a, opts))
 }
 
 export interface GetSqlResourceSqlTriggerOutputArgs {

@@ -123,11 +123,9 @@ export interface GetEnvironmentResult {
      */
     readonly uniqueIdentifier?: string;
 }
-/**
- * Represents an environment instance
- */
+
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
+    return pulumi.output(args).apply(a => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {

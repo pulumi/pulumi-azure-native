@@ -62,12 +62,9 @@ export interface GetChannelResult {
      */
     readonly type: string;
 }
-/**
- * The EngagementFabric channel
- * API Version: 2018-09-01-preview.
- */
+
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
+    return pulumi.output(args).apply(a => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {

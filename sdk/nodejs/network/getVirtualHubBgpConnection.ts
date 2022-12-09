@@ -70,12 +70,9 @@ export interface GetVirtualHubBgpConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Virtual Appliance Site resource.
- * API Version: 2020-11-01.
- */
+
 export function getVirtualHubBgpConnectionOutput(args: GetVirtualHubBgpConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubBgpConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualHubBgpConnection(a, opts))
+    return pulumi.output(args).apply(a => getVirtualHubBgpConnection(a, opts))
 }
 
 export interface GetVirtualHubBgpConnectionOutputArgs {

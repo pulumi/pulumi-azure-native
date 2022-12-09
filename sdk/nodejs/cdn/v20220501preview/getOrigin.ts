@@ -117,11 +117,9 @@ export interface GetOriginResult {
      */
     readonly weight?: number;
 }
-/**
- * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
- */
+
 export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {
-    return pulumi.output(args).apply((a: any) => getOrigin(a, opts))
+    return pulumi.output(args).apply(a => getOrigin(a, opts))
 }
 
 export interface GetOriginOutputArgs {

@@ -75,11 +75,9 @@ export interface GetDnsForwardingRulesetResult {
      */
     readonly type: string;
 }
-/**
- * Describes a DNS forwarding ruleset.
- */
+
 export function getDnsForwardingRulesetOutput(args: GetDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsForwardingRulesetResult> {
-    return pulumi.output(args).apply((a: any) => getDnsForwardingRuleset(a, opts))
+    return pulumi.output(args).apply(a => getDnsForwardingRuleset(a, opts))
 }
 
 export interface GetDnsForwardingRulesetOutputArgs {

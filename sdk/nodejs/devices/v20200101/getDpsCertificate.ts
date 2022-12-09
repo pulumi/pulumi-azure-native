@@ -62,12 +62,9 @@ export interface GetDpsCertificateResult {
      */
     readonly type: string;
 }
-/**
- * The X509 Certificate.
- */
-/** @deprecated Version 2020-01-01 will be removed in v2 of the provider. */
+
 export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getDpsCertificate(a, opts))
+    return pulumi.output(args).apply(a => getDpsCertificate(a, opts))
 }
 
 export interface GetDpsCertificateOutputArgs {

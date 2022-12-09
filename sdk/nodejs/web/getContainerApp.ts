@@ -84,12 +84,9 @@ export interface GetContainerAppResult {
      */
     readonly type: string;
 }
-/**
- * Container App.
- * API Version: 2021-03-01.
- */
+
 export function getContainerAppOutput(args: GetContainerAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppResult> {
-    return pulumi.output(args).apply((a: any) => getContainerApp(a, opts))
+    return pulumi.output(args).apply(a => getContainerApp(a, opts))
 }
 
 export interface GetContainerAppOutputArgs {

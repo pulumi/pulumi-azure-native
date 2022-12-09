@@ -100,12 +100,9 @@ export interface GetDscpConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * DSCP Configuration in a resource group.
- * API Version: 2020-11-01.
- */
+
 export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getDscpConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getDscpConfiguration(a, opts))
 }
 
 export interface GetDscpConfigurationOutputArgs {

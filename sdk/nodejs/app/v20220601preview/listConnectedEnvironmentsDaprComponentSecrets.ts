@@ -44,11 +44,9 @@ export interface ListConnectedEnvironmentsDaprComponentSecretsResult {
      */
     readonly value: outputs.app.v20220601preview.DaprSecretResponse[];
 }
-/**
- * Dapr component Secrets Collection for ListSecrets Action.
- */
+
 export function listConnectedEnvironmentsDaprComponentSecretsOutput(args: ListConnectedEnvironmentsDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedEnvironmentsDaprComponentSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listConnectedEnvironmentsDaprComponentSecrets(a, opts))
+    return pulumi.output(args).apply(a => listConnectedEnvironmentsDaprComponentSecrets(a, opts))
 }
 
 export interface ListConnectedEnvironmentsDaprComponentSecretsOutputArgs {

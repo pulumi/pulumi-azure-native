@@ -85,12 +85,9 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      */
     readonly userImpact?: string;
 }
-/**
- * Security assessment metadata
- * API Version: 2020-01-01.
- */
+
 export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getAssessmentMetadataInSubscription(a, opts))
+    return pulumi.output(args).apply(a => getAssessmentMetadataInSubscription(a, opts))
 }
 
 export interface GetAssessmentMetadataInSubscriptionOutputArgs {

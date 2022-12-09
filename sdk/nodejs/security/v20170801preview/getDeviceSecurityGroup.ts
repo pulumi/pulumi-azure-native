@@ -63,11 +63,9 @@ export interface GetDeviceSecurityGroupResult {
      */
     readonly type: string;
 }
-/**
- * The device security group resource
- */
+
 export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDeviceSecurityGroup(a, opts))
+    return pulumi.output(args).apply(a => getDeviceSecurityGroup(a, opts))
 }
 
 export interface GetDeviceSecurityGroupOutputArgs {

@@ -70,12 +70,9 @@ export interface GetGlobalReachConnectionResult {
      */
     readonly type: string;
 }
-/**
- * A global reach connection resource
- * API Version: 2020-07-17-preview.
- */
+
 export function getGlobalReachConnectionOutput(args: GetGlobalReachConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalReachConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalReachConnection(a, opts))
+    return pulumi.output(args).apply(a => getGlobalReachConnection(a, opts))
 }
 
 export interface GetGlobalReachConnectionOutputArgs {

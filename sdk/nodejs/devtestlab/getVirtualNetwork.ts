@@ -98,12 +98,9 @@ export interface GetVirtualNetworkResult {
      */
     readonly uniqueIdentifier: string;
 }
-/**
- * A virtual network.
- * API Version: 2018-09-15.
- */
+
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
 }
 
 export interface GetVirtualNetworkOutputArgs {

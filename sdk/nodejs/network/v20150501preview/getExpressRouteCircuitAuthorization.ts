@@ -63,12 +63,9 @@ export interface GetExpressRouteCircuitAuthorizationResult {
      */
     readonly provisioningState?: string;
 }
-/**
- * Authorization in a ExpressRouteCircuit resource
- */
-/** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
+
 export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {
-    return pulumi.output(args).apply((a: any) => getExpressRouteCircuitAuthorization(a, opts))
+    return pulumi.output(args).apply(a => getExpressRouteCircuitAuthorization(a, opts))
 }
 
 export interface GetExpressRouteCircuitAuthorizationOutputArgs {

@@ -64,11 +64,9 @@ export interface GetApplicationAcceleratorResult {
      */
     readonly type: string;
 }
-/**
- * Application accelerator resource
- */
+
 export function getApplicationAcceleratorOutput(args: GetApplicationAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationAcceleratorResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationAccelerator(a, opts))
+    return pulumi.output(args).apply(a => getApplicationAccelerator(a, opts))
 }
 
 export interface GetApplicationAcceleratorOutputArgs {

@@ -48,11 +48,9 @@ export interface GetAssetEncryptionKeyResult {
      */
     readonly key?: string;
 }
-/**
- * Data needed to decrypt asset files encrypted with legacy storage encryption.
- */
+
 export function getAssetEncryptionKeyOutput(args: GetAssetEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEncryptionKeyResult> {
-    return pulumi.output(args).apply((a: any) => getAssetEncryptionKey(a, opts))
+    return pulumi.output(args).apply(a => getAssetEncryptionKey(a, opts))
 }
 
 export interface GetAssetEncryptionKeyOutputArgs {

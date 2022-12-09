@@ -47,11 +47,9 @@ export interface GetWorkspaceSettingResult {
      */
     readonly workspaceId: string;
 }
-/**
- * Configures where to store the OMS agent data for workspaces under a scope
- */
+
 export function getWorkspaceSettingOutput(args: GetWorkspaceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSettingResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceSetting(a, opts))
+    return pulumi.output(args).apply(a => getWorkspaceSetting(a, opts))
 }
 
 export interface GetWorkspaceSettingOutputArgs {

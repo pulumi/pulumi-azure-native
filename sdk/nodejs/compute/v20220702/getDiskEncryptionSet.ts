@@ -91,11 +91,9 @@ export interface GetDiskEncryptionSetResult {
      */
     readonly type: string;
 }
-/**
- * disk encryption set resource.
- */
+
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
-    return pulumi.output(args).apply((a: any) => getDiskEncryptionSet(a, opts))
+    return pulumi.output(args).apply(a => getDiskEncryptionSet(a, opts))
 }
 
 export interface GetDiskEncryptionSetOutputArgs {

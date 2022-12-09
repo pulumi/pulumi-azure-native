@@ -108,11 +108,9 @@ export interface GetLiveEventResult {
      */
     readonly vanityUrl?: boolean;
 }
-/**
- * The Live Event.
- */
+
 export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventResult> {
-    return pulumi.output(args).apply((a: any) => getLiveEvent(a, opts))
+    return pulumi.output(args).apply(a => getLiveEvent(a, opts))
 }
 
 export interface GetLiveEventOutputArgs {

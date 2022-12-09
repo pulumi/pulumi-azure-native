@@ -76,11 +76,9 @@ export interface ListChannelWithKeysResult {
      */
     readonly type: string;
 }
-/**
- * Bot channel resource definition
- */
+
 export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
-    return pulumi.output(args).apply((a: any) => listChannelWithKeys(a, opts))
+    return pulumi.output(args).apply(a => listChannelWithKeys(a, opts))
 }
 
 export interface ListChannelWithKeysOutputArgs {

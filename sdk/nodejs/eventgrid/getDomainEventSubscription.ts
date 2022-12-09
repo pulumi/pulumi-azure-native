@@ -105,12 +105,9 @@ export interface GetDomainEventSubscriptionResult {
      */
     readonly type: string;
 }
-/**
- * Event Subscription
- * API Version: 2021-10-15-preview.
- */
+
 export function getDomainEventSubscriptionOutput(args: GetDomainEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainEventSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getDomainEventSubscription(a, opts))
+    return pulumi.output(args).apply(a => getDomainEventSubscription(a, opts))
 }
 
 export interface GetDomainEventSubscriptionOutputArgs {

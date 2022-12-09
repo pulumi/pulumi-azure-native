@@ -77,11 +77,9 @@ export interface GetWorkloadNetworkPortMirroringResult {
      */
     readonly type: string;
 }
-/**
- * NSX Port Mirroring
- */
+
 export function getWorkloadNetworkPortMirroringOutput(args: GetWorkloadNetworkPortMirroringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPortMirroringResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkPortMirroring(a, opts))
+    return pulumi.output(args).apply(a => getWorkloadNetworkPortMirroring(a, opts))
 }
 
 export interface GetWorkloadNetworkPortMirroringOutputArgs {

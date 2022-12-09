@@ -139,11 +139,9 @@ export interface GetApplicationResult {
      */
     readonly updatedBy: outputs.solutions.v20210701.ApplicationClientDetailsResponse;
 }
-/**
- * Information about managed application.
- */
+
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
+    return pulumi.output(args).apply(a => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

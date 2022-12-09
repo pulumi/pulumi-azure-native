@@ -103,12 +103,9 @@ export interface GetDedicatedHostResult {
      */
     readonly virtualMachines: outputs.compute.v20191201.SubResourceReadOnlyResponse[];
 }
-/**
- * Specifies information about the Dedicated host.
- */
-/** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
+
 export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
-    return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))
+    return pulumi.output(args).apply(a => getDedicatedHost(a, opts))
 }
 
 export interface GetDedicatedHostOutputArgs {

@@ -101,12 +101,9 @@ export interface GetRelationshipResult {
      */
     readonly type: string;
 }
-/**
- * The relationship resource format.
- * API Version: 2017-04-26.
- */
+
 export function getRelationshipOutput(args: GetRelationshipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipResult> {
-    return pulumi.output(args).apply((a: any) => getRelationship(a, opts))
+    return pulumi.output(args).apply(a => getRelationship(a, opts))
 }
 
 export interface GetRelationshipOutputArgs {

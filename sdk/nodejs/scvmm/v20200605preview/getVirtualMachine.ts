@@ -127,11 +127,9 @@ export interface GetVirtualMachineResult {
      */
     readonly vmmServerId?: string;
 }
-/**
- * The VirtualMachines resource definition.
- */
+
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
+    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
 }
 
 export interface GetVirtualMachineOutputArgs {

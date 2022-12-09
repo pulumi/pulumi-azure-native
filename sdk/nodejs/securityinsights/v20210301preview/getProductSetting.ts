@@ -71,12 +71,9 @@ export interface GetProductSettingResult {
      */
     readonly type: string;
 }
-/**
- * The Setting.
- */
-/** @deprecated Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba. */
+
 export function getProductSettingOutput(args: GetProductSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductSettingResult> {
-    return pulumi.output(args).apply((a: any) => getProductSetting(a, opts))
+    return pulumi.output(args).apply(a => getProductSetting(a, opts))
 }
 
 export interface GetProductSettingOutputArgs {

@@ -64,11 +64,9 @@ export interface GetProactiveDetectionConfigurationResult {
      */
     readonly sendEmailsToSubscriptionOwners?: boolean;
 }
-/**
- * Properties that define a ProactiveDetection configuration.
- */
+
 export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getProactiveDetectionConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getProactiveDetectionConfiguration(a, opts))
 }
 
 export interface GetProactiveDetectionConfigurationOutputArgs {

@@ -98,12 +98,9 @@ export interface GetNotificationHubResult {
      */
     readonly wnsCredential?: outputs.notificationhubs.v20160301.WnsCredentialResponse;
 }
-/**
- * Description of a NotificationHub Resource.
- */
-/** @deprecated Version 2016-03-01 will be removed in v2 of the provider. */
+
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {
-    return pulumi.output(args).apply((a: any) => getNotificationHub(a, opts))
+    return pulumi.output(args).apply(a => getNotificationHub(a, opts))
 }
 
 export interface GetNotificationHubOutputArgs {

@@ -108,11 +108,9 @@ export interface GetPython3PackageResult {
      */
     readonly version?: string;
 }
-/**
- * Definition of the module type.
- */
+
 export function getPython3PackageOutput(args: GetPython3PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython3PackageResult> {
-    return pulumi.output(args).apply((a: any) => getPython3Package(a, opts))
+    return pulumi.output(args).apply(a => getPython3Package(a, opts))
 }
 
 export interface GetPython3PackageOutputArgs {

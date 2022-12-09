@@ -81,11 +81,9 @@ export interface GetACIServiceResult {
      */
     readonly type: string;
 }
-/**
- * Machine Learning service object wrapped into ARM resource envelope.
- */
+
 export function getACIServiceOutput(args: GetACIServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACIServiceResult> {
-    return pulumi.output(args).apply((a: any) => getACIService(a, opts))
+    return pulumi.output(args).apply(a => getACIService(a, opts))
 }
 
 export interface GetACIServiceOutputArgs {

@@ -37,12 +37,9 @@ export interface ListDeviceRegistrationKeyResult {
      */
     readonly registrationKey: string;
 }
-/**
- * The device registration key.
- * API Version: 2020-01-01-preview.
- */
+
 export function listDeviceRegistrationKeyOutput(args: ListDeviceRegistrationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceRegistrationKeyResult> {
-    return pulumi.output(args).apply((a: any) => listDeviceRegistrationKey(a, opts))
+    return pulumi.output(args).apply(a => listDeviceRegistrationKey(a, opts))
 }
 
 export interface ListDeviceRegistrationKeyOutputArgs {

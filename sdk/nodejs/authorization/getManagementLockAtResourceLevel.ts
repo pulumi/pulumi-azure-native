@@ -80,12 +80,9 @@ export interface GetManagementLockAtResourceLevelResult {
      */
     readonly type: string;
 }
-/**
- * The lock information.
- * API Version: 2017-04-01.
- */
+
 export function getManagementLockAtResourceLevelOutput(args: GetManagementLockAtResourceLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceLevelResult> {
-    return pulumi.output(args).apply((a: any) => getManagementLockAtResourceLevel(a, opts))
+    return pulumi.output(args).apply(a => getManagementLockAtResourceLevel(a, opts))
 }
 
 export interface GetManagementLockAtResourceLevelOutputArgs {

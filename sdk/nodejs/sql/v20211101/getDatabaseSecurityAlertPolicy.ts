@@ -93,11 +93,9 @@ export interface GetDatabaseSecurityAlertPolicyResult {
      */
     readonly type: string;
 }
-/**
- * A database security alert policy.
- */
+
 export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseSecurityAlertPolicy(a, opts))
+    return pulumi.output(args).apply(a => getDatabaseSecurityAlertPolicy(a, opts))
 }
 
 export interface GetDatabaseSecurityAlertPolicyOutputArgs {

@@ -97,11 +97,9 @@ export interface GetPartnerTopicResult {
      */
     readonly type: string;
 }
-/**
- * Event Grid Partner Topic.
- */
+
 export function getPartnerTopicOutput(args: GetPartnerTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicResult> {
-    return pulumi.output(args).apply((a: any) => getPartnerTopic(a, opts))
+    return pulumi.output(args).apply(a => getPartnerTopic(a, opts))
 }
 
 export interface GetPartnerTopicOutputArgs {

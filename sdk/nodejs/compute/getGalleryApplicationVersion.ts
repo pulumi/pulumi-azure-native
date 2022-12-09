@@ -83,12 +83,9 @@ export interface GetGalleryApplicationVersionResult {
      */
     readonly type: string;
 }
-/**
- * Specifies information about the gallery Application Version that you want to create or update.
- * API Version: 2020-09-30.
- */
+
 export function getGalleryApplicationVersionOutput(args: GetGalleryApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationVersionResult> {
-    return pulumi.output(args).apply((a: any) => getGalleryApplicationVersion(a, opts))
+    return pulumi.output(args).apply(a => getGalleryApplicationVersion(a, opts))
 }
 
 export interface GetGalleryApplicationVersionOutputArgs {

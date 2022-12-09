@@ -90,12 +90,9 @@ export interface GetFormulaResourceResult {
      */
     readonly vm?: outputs.devtestlab.v20150521preview.FormulaPropertiesFromVmResponse;
 }
-/**
- * A formula.
- */
-/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
+
 export function getFormulaResourceOutput(args: GetFormulaResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormulaResourceResult> {
-    return pulumi.output(args).apply((a: any) => getFormulaResource(a, opts))
+    return pulumi.output(args).apply(a => getFormulaResource(a, opts))
 }
 
 export interface GetFormulaResourceOutputArgs {

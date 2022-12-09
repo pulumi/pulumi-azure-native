@@ -106,11 +106,9 @@ export interface GetTiTaxiiDataConnectorResult {
      */
     readonly workspaceId?: string;
 }
-/**
- * Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
- */
+
 export function getTiTaxiiDataConnectorOutput(args: GetTiTaxiiDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTiTaxiiDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getTiTaxiiDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getTiTaxiiDataConnector(a, opts))
 }
 
 export interface GetTiTaxiiDataConnectorOutputArgs {

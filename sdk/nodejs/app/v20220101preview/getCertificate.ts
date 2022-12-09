@@ -68,11 +68,9 @@ export interface GetCertificateResult {
      */
     readonly type: string;
 }
-/**
- * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
- */
+
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {

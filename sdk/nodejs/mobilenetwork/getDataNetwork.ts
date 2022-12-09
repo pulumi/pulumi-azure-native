@@ -97,12 +97,9 @@ export interface GetDataNetworkResult {
      */
     readonly type: string;
 }
-/**
- * Data network resource.
- * API Version: 2022-04-01-preview.
- */
+
 export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getDataNetwork(a, opts))
+    return pulumi.output(args).apply(a => getDataNetwork(a, opts))
 }
 
 export interface GetDataNetworkOutputArgs {

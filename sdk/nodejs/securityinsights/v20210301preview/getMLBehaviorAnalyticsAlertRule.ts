@@ -98,11 +98,9 @@ export interface GetMLBehaviorAnalyticsAlertRuleResult {
      */
     readonly type: string;
 }
-/**
- * Represents MLBehaviorAnalytics alert rule.
- */
+
 export function getMLBehaviorAnalyticsAlertRuleOutput(args: GetMLBehaviorAnalyticsAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLBehaviorAnalyticsAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getMLBehaviorAnalyticsAlertRule(a, opts))
+    return pulumi.output(args).apply(a => getMLBehaviorAnalyticsAlertRule(a, opts))
 }
 
 export interface GetMLBehaviorAnalyticsAlertRuleOutputArgs {

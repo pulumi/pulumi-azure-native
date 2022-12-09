@@ -40,11 +40,9 @@ export interface ListOpenShiftClusterCredentialsResult {
      */
     readonly kubeadminUsername?: string;
 }
-/**
- * OpenShiftClusterCredentials represents an OpenShift cluster's credentials
- */
+
 export function listOpenShiftClusterCredentialsOutput(args: ListOpenShiftClusterCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listOpenShiftClusterCredentials(a, opts))
+    return pulumi.output(args).apply(a => listOpenShiftClusterCredentials(a, opts))
 }
 
 export interface ListOpenShiftClusterCredentialsOutputArgs {

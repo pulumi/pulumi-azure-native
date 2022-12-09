@@ -125,12 +125,9 @@ export interface GetWorkspaceResult {
      */
     readonly workspaceUID: string;
 }
-/**
- * A workspace
- */
-/** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
+
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
 }
 
 export interface GetWorkspaceOutputArgs {

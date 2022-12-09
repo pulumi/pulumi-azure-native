@@ -65,12 +65,9 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-/**
- * The Private Endpoint Connection resource.
- * API Version: 2020-12-01.
- */
+
 export function getDiskAccessAPrivateEndpointConnectionOutput(args: GetDiskAccessAPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessAPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getDiskAccessAPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply(a => getDiskAccessAPrivateEndpointConnection(a, opts))
 }
 
 export interface GetDiskAccessAPrivateEndpointConnectionOutputArgs {

@@ -146,12 +146,9 @@ export interface GetVirtualMachineResult {
      */
     readonly zones?: string[];
 }
-/**
- * Describes a Virtual Machine.
- */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
+
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
+    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
 }
 
 export interface GetVirtualMachineOutputArgs {

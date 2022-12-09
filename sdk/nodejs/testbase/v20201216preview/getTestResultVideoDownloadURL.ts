@@ -50,11 +50,9 @@ export interface GetTestResultVideoDownloadURLResult {
      */
     readonly expirationTime: string;
 }
-/**
- * The response of getting a download URL.
- */
+
 export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
-    return pulumi.output(args).apply((a: any) => getTestResultVideoDownloadURL(a, opts))
+    return pulumi.output(args).apply(a => getTestResultVideoDownloadURL(a, opts))
 }
 
 export interface GetTestResultVideoDownloadURLOutputArgs {

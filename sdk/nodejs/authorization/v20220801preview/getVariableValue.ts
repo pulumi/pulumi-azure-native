@@ -55,11 +55,9 @@ export interface GetVariableValueResult {
      */
     readonly values: outputs.authorization.v20220801preview.PolicyVariableValueColumnValueResponse[];
 }
-/**
- * The variable value.
- */
+
 export function getVariableValueOutput(args: GetVariableValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableValueResult> {
-    return pulumi.output(args).apply((a: any) => getVariableValue(a, opts))
+    return pulumi.output(args).apply(a => getVariableValue(a, opts))
 }
 
 export interface GetVariableValueOutputArgs {

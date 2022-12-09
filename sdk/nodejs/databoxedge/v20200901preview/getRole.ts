@@ -62,12 +62,9 @@ export interface GetRoleResult {
      */
     readonly type: string;
 }
-/**
- * Compute role.
- */
-/** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider. */
+
 export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
-    return pulumi.output(args).apply((a: any) => getRole(a, opts))
+    return pulumi.output(args).apply(a => getRole(a, opts))
 }
 
 export interface GetRoleOutputArgs {

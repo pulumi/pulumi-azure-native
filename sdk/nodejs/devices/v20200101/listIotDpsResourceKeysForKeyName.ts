@@ -53,11 +53,9 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
      */
     readonly secondaryKey?: string;
 }
-/**
- * Description of the shared access key.
- */
+
 export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
-    return pulumi.output(args).apply((a: any) => listIotDpsResourceKeysForKeyName(a, opts))
+    return pulumi.output(args).apply(a => listIotDpsResourceKeysForKeyName(a, opts))
 }
 
 export interface ListIotDpsResourceKeysForKeyNameOutputArgs {

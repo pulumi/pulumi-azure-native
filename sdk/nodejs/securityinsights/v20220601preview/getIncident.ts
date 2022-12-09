@@ -140,11 +140,9 @@ export interface GetIncidentResult {
      */
     readonly type: string;
 }
-/**
- * Represents an incident in Azure Security Insights.
- */
+
 export function getIncidentOutput(args: GetIncidentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentResult> {
-    return pulumi.output(args).apply((a: any) => getIncident(a, opts))
+    return pulumi.output(args).apply(a => getIncident(a, opts))
 }
 
 export interface GetIncidentOutputArgs {

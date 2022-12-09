@@ -72,11 +72,9 @@ export interface GetDataStoreResult {
      */
     readonly type: string;
 }
-/**
- * Data store.
- */
+
 export function getDataStoreOutput(args: GetDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataStoreResult> {
-    return pulumi.output(args).apply((a: any) => getDataStore(a, opts))
+    return pulumi.output(args).apply(a => getDataStore(a, opts))
 }
 
 export interface GetDataStoreOutputArgs {

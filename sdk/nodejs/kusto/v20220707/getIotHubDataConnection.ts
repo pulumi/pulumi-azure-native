@@ -103,11 +103,9 @@ export interface GetIotHubDataConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Class representing an iot hub data connection.
- */
+
 export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getIotHubDataConnection(a, opts))
+    return pulumi.output(args).apply(a => getIotHubDataConnection(a, opts))
 }
 
 export interface GetIotHubDataConnectionOutputArgs {

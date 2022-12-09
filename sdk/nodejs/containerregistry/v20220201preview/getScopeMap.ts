@@ -74,11 +74,9 @@ export interface GetScopeMapResult {
      */
     readonly type: string;
 }
-/**
- * An object that represents a scope map for a container registry.
- */
+
 export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {
-    return pulumi.output(args).apply((a: any) => getScopeMap(a, opts))
+    return pulumi.output(args).apply(a => getScopeMap(a, opts))
 }
 
 export interface GetScopeMapOutputArgs {

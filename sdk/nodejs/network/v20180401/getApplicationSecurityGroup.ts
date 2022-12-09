@@ -66,12 +66,9 @@ export interface GetApplicationSecurityGroupResult {
      */
     readonly type: string;
 }
-/**
- * An application security group in a resource group.
- */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+
 export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationSecurityGroup(a, opts))
+    return pulumi.output(args).apply(a => getApplicationSecurityGroup(a, opts))
 }
 
 export interface GetApplicationSecurityGroupOutputArgs {

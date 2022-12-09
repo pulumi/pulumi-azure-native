@@ -100,12 +100,9 @@ export interface GetSAPVirtualInstanceResult {
      */
     readonly type: string;
 }
-/**
- * Define the Virtual Instance for SAP solutions resource.
- * API Version: 2021-12-01-preview.
- */
+
 export function getSAPVirtualInstanceOutput(args: GetSAPVirtualInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPVirtualInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getSAPVirtualInstance(a, opts))
+    return pulumi.output(args).apply(a => getSAPVirtualInstance(a, opts))
 }
 
 export interface GetSAPVirtualInstanceOutputArgs {

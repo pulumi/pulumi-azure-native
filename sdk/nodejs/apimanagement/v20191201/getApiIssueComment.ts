@@ -71,11 +71,9 @@ export interface GetApiIssueCommentResult {
      */
     readonly userId: string;
 }
-/**
- * Issue Comment Contract details.
- */
+
 export function getApiIssueCommentOutput(args: GetApiIssueCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueCommentResult> {
-    return pulumi.output(args).apply((a: any) => getApiIssueComment(a, opts))
+    return pulumi.output(args).apply(a => getApiIssueComment(a, opts))
 }
 
 export interface GetApiIssueCommentOutputArgs {

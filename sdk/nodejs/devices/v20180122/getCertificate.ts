@@ -62,12 +62,9 @@ export interface GetCertificateResult {
      */
     readonly type: string;
 }
-/**
- * The X509 Certificate.
- */
-/** @deprecated Version 2018-01-22 will be removed in v2 of the provider. */
+
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {

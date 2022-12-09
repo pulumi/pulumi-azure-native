@@ -66,11 +66,9 @@ export interface GetGraphResourceGraphResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB Graph resource.
- */
+
 export function getGraphResourceGraphOutput(args: GetGraphResourceGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResourceGraphResult> {
-    return pulumi.output(args).apply((a: any) => getGraphResourceGraph(a, opts))
+    return pulumi.output(args).apply(a => getGraphResourceGraph(a, opts))
 }
 
 export interface GetGraphResourceGraphOutputArgs {

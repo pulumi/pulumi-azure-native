@@ -89,11 +89,9 @@ export interface GetApiOperationResult {
      */
     readonly urlTemplate: string;
 }
-/**
- * Api Operation details.
- */
+
 export function getApiOperationOutput(args: GetApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationResult> {
-    return pulumi.output(args).apply((a: any) => getApiOperation(a, opts))
+    return pulumi.output(args).apply(a => getApiOperation(a, opts))
 }
 
 export interface GetApiOperationOutputArgs {

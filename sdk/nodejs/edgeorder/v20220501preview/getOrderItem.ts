@@ -80,11 +80,9 @@ export interface GetOrderItemResult {
      */
     readonly type: string;
 }
-/**
- * Represents order item resource.
- */
+
 export function getOrderItemOutput(args: GetOrderItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemResult> {
-    return pulumi.output(args).apply((a: any) => getOrderItem(a, opts))
+    return pulumi.output(args).apply(a => getOrderItem(a, opts))
 }
 
 export interface GetOrderItemOutputArgs {

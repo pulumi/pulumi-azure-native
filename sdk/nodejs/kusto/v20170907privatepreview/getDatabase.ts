@@ -82,12 +82,9 @@ export interface GetDatabaseResult {
      */
     readonly type: string;
 }
-/**
- * Class representing a Kusto database.
- */
-/** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
+
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
+    return pulumi.output(args).apply(a => getDatabase(a, opts))
 }
 
 export interface GetDatabaseOutputArgs {

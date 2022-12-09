@@ -66,12 +66,9 @@ export interface GetFileServicePropertiesResult {
      */
     readonly type: string;
 }
-/**
- * The properties of File services in storage account.
- */
-/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
+
 export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServicePropertiesResult> {
-    return pulumi.output(args).apply((a: any) => getFileServiceProperties(a, opts))
+    return pulumi.output(args).apply(a => getFileServiceProperties(a, opts))
 }
 
 export interface GetFileServicePropertiesOutputArgs {

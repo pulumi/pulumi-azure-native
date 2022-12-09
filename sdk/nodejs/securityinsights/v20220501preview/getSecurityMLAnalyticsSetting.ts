@@ -66,12 +66,9 @@ export interface GetSecurityMLAnalyticsSettingResult {
      */
     readonly type: string;
 }
-/**
- * Security ML Analytics Setting
- */
-/** @deprecated Please use one of the variants: AnomalySecurityMLAnalyticsSettings. */
+
 export function getSecurityMLAnalyticsSettingOutput(args: GetSecurityMLAnalyticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMLAnalyticsSettingResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityMLAnalyticsSetting(a, opts))
+    return pulumi.output(args).apply(a => getSecurityMLAnalyticsSetting(a, opts))
 }
 
 export interface GetSecurityMLAnalyticsSettingOutputArgs {

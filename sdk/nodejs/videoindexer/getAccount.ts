@@ -84,12 +84,9 @@ export interface GetAccountResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Video Analyzer for Media account.
- * API Version: 2021-10-18-preview.
- */
+
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
+    return pulumi.output(args).apply(a => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

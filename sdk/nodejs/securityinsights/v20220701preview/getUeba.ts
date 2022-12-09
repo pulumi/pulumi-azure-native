@@ -69,11 +69,9 @@ export interface GetUebaResult {
      */
     readonly type: string;
 }
-/**
- * Settings with single toggle.
- */
+
 export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUebaResult> {
-    return pulumi.output(args).apply((a: any) => getUeba(a, opts))
+    return pulumi.output(args).apply(a => getUeba(a, opts))
 }
 
 export interface GetUebaOutputArgs {

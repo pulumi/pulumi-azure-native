@@ -70,12 +70,9 @@ export interface GetAppResult {
      */
     readonly type: string;
 }
-/**
- * App resource payload
- * API Version: 2020-07-01.
- */
+
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    return pulumi.output(args).apply((a: any) => getApp(a, opts))
+    return pulumi.output(args).apply(a => getApp(a, opts))
 }
 
 export interface GetAppOutputArgs {

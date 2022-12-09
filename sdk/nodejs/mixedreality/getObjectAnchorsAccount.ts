@@ -85,12 +85,9 @@ export interface GetObjectAnchorsAccountResult {
      */
     readonly type: string;
 }
-/**
- * ObjectAnchorsAccount Response.
- * API Version: 2021-03-01-preview.
- */
+
 export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
-    return pulumi.output(args).apply((a: any) => getObjectAnchorsAccount(a, opts))
+    return pulumi.output(args).apply(a => getObjectAnchorsAccount(a, opts))
 }
 
 export interface GetObjectAnchorsAccountOutputArgs {

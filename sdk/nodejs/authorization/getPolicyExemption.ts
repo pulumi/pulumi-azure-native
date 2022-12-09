@@ -80,12 +80,9 @@ export interface GetPolicyExemptionResult {
      */
     readonly type: string;
 }
-/**
- * The policy exemption.
- * API Version: 2020-07-01-preview.
- */
+
 export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyExemption(a, opts))
+    return pulumi.output(args).apply(a => getPolicyExemption(a, opts))
 }
 
 export interface GetPolicyExemptionOutputArgs {

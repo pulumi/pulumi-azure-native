@@ -109,12 +109,9 @@ export interface GetApplicationResult {
      */
     readonly upgradePolicy?: outputs.servicefabric.ApplicationUpgradePolicyResponse;
 }
-/**
- * The application resource.
- * API Version: 2020-03-01.
- */
+
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
+    return pulumi.output(args).apply(a => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

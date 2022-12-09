@@ -183,12 +183,9 @@ export interface GetSiteSlotResult {
      */
     readonly usageState: string;
 }
-/**
- * Represents a web app
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getSiteSlotOutput(args: GetSiteSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSlotResult> {
-    return pulumi.output(args).apply((a: any) => getSiteSlot(a, opts))
+    return pulumi.output(args).apply(a => getSiteSlot(a, opts))
 }
 
 export interface GetSiteSlotOutputArgs {

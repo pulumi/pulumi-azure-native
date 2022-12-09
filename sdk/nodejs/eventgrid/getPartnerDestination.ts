@@ -89,12 +89,9 @@ export interface GetPartnerDestinationResult {
      */
     readonly type: string;
 }
-/**
- * Event Grid Partner Destination.
- * API Version: 2021-10-15-preview.
- */
+
 export function getPartnerDestinationOutput(args: GetPartnerDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerDestinationResult> {
-    return pulumi.output(args).apply((a: any) => getPartnerDestination(a, opts))
+    return pulumi.output(args).apply(a => getPartnerDestination(a, opts))
 }
 
 export interface GetPartnerDestinationOutputArgs {

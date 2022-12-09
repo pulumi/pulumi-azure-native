@@ -99,12 +99,9 @@ export interface GetBlobFolderDataSetMappingResult {
      */
     readonly type: string;
 }
-/**
- * A Blob folder data set mapping.
- * API Version: 2020-09-01.
- */
+
 export function getBlobFolderDataSetMappingOutput(args: GetBlobFolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobFolderDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getBlobFolderDataSetMapping(a, opts))
+    return pulumi.output(args).apply(a => getBlobFolderDataSetMapping(a, opts))
 }
 
 export interface GetBlobFolderDataSetMappingOutputArgs {

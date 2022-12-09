@@ -76,12 +76,9 @@ export interface GetKustoPoolDataConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Class representing a data connection.
- */
-/** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
+
 export function getKustoPoolDataConnectionOutput(args: GetKustoPoolDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getKustoPoolDataConnection(a, opts))
+    return pulumi.output(args).apply(a => getKustoPoolDataConnection(a, opts))
 }
 
 export interface GetKustoPoolDataConnectionOutputArgs {

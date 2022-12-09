@@ -51,11 +51,9 @@ export interface GetDefaultRolloutResult {
      */
     readonly type: string;
 }
-/**
- * Default rollout definition.
- */
+
 export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
-    return pulumi.output(args).apply((a: any) => getDefaultRollout(a, opts))
+    return pulumi.output(args).apply(a => getDefaultRollout(a, opts))
 }
 
 export interface GetDefaultRolloutOutputArgs {

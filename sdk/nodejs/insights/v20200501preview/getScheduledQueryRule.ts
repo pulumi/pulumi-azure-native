@@ -116,11 +116,9 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly windowSize: string;
 }
-/**
- * The scheduled query rule resource.
- */
+
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
-    return pulumi.output(args).apply((a: any) => getScheduledQueryRule(a, opts))
+    return pulumi.output(args).apply(a => getScheduledQueryRule(a, opts))
 }
 
 export interface GetScheduledQueryRuleOutputArgs {

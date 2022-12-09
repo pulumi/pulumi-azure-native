@@ -84,12 +84,9 @@ export interface GetNetworkManagerResult {
      */
     readonly type: string;
 }
-/**
- * The Managed Network resource
- * API Version: 2021-02-01-preview.
- */
+
 export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkManager(a, opts))
+    return pulumi.output(args).apply(a => getNetworkManager(a, opts))
 }
 
 export interface GetNetworkManagerOutputArgs {

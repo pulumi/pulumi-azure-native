@@ -70,12 +70,9 @@ export interface GetDisasterRecoveryConfigResult {
      */
     readonly type: string;
 }
-/**
- * Single item in List or Get Alias(Disaster Recovery configuration) operation
- * API Version: 2017-04-01.
- */
+
 export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
-    return pulumi.output(args).apply((a: any) => getDisasterRecoveryConfig(a, opts))
+    return pulumi.output(args).apply(a => getDisasterRecoveryConfig(a, opts))
 }
 
 export interface GetDisasterRecoveryConfigOutputArgs {

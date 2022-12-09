@@ -80,11 +80,9 @@ export interface GetLabAccountResult {
      */
     readonly uniqueIdentifier?: string;
 }
-/**
- * Represents a lab account.
- */
+
 export function getLabAccountOutput(args: GetLabAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountResult> {
-    return pulumi.output(args).apply((a: any) => getLabAccount(a, opts))
+    return pulumi.output(args).apply(a => getLabAccount(a, opts))
 }
 
 export interface GetLabAccountOutputArgs {

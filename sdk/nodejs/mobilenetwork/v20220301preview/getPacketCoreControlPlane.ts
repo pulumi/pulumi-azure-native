@@ -107,11 +107,9 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly version?: string;
 }
-/**
- * Packet core control plane resource.
- */
+
 export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
-    return pulumi.output(args).apply((a: any) => getPacketCoreControlPlane(a, opts))
+    return pulumi.output(args).apply(a => getPacketCoreControlPlane(a, opts))
 }
 
 export interface GetPacketCoreControlPlaneOutputArgs {

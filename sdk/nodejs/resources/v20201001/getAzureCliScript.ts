@@ -128,11 +128,9 @@ export interface GetAzureCliScriptResult {
      */
     readonly type: string;
 }
-/**
- * Object model for the Azure CLI script.
- */
+
 export function getAzureCliScriptOutput(args: GetAzureCliScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureCliScriptResult> {
-    return pulumi.output(args).apply((a: any) => getAzureCliScript(a, opts))
+    return pulumi.output(args).apply(a => getAzureCliScript(a, opts))
 }
 
 export interface GetAzureCliScriptOutputArgs {

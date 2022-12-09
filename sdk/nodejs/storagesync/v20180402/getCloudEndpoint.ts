@@ -92,12 +92,9 @@ export interface GetCloudEndpointResult {
      */
     readonly type: string;
 }
-/**
- * Cloud Endpoint object.
- */
-/** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
+
 export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getCloudEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getCloudEndpoint(a, opts))
 }
 
 export interface GetCloudEndpointOutputArgs {

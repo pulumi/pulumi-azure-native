@@ -110,12 +110,9 @@ export interface GetLabResult {
      */
     readonly userQuota: number;
 }
-/**
- * Represents a lab.
- * API Version: 2018-10-15.
- */
+
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
-    return pulumi.output(args).apply((a: any) => getLab(a, opts))
+    return pulumi.output(args).apply(a => getLab(a, opts))
 }
 
 export interface GetLabOutputArgs {

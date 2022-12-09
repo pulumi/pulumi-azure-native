@@ -54,12 +54,9 @@ export interface ListRemediationDeploymentsAtManagementGroupResult {
      */
     readonly value: outputs.policyinsights.RemediationDeploymentResponse[];
 }
-/**
- * List of deployments for a remediation.
- * API Version: 2019-07-01.
- */
+
 export function listRemediationDeploymentsAtManagementGroupOutput(args: ListRemediationDeploymentsAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => listRemediationDeploymentsAtManagementGroup(a, opts))
+    return pulumi.output(args).apply(a => listRemediationDeploymentsAtManagementGroup(a, opts))
 }
 
 export interface ListRemediationDeploymentsAtManagementGroupOutputArgs {

@@ -96,11 +96,9 @@ export interface GetWebAppDeploymentResult {
      */
     readonly type: string;
 }
-/**
- * User credentials used for publishing activity.
- */
+
 export function getWebAppDeploymentOutput(args: GetWebAppDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppDeployment(a, opts))
+    return pulumi.output(args).apply(a => getWebAppDeployment(a, opts))
 }
 
 export interface GetWebAppDeploymentOutputArgs {

@@ -60,11 +60,9 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * Guest configuration assignment is an association between a machine and guest configuration.
- */
+
 export function getGuestConfigurationHCRPAssignmentOutput(args: GetGuestConfigurationHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationHCRPAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getGuestConfigurationHCRPAssignment(a, opts))
+    return pulumi.output(args).apply(a => getGuestConfigurationHCRPAssignment(a, opts))
 }
 
 export interface GetGuestConfigurationHCRPAssignmentOutputArgs {

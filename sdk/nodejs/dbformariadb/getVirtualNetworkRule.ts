@@ -62,12 +62,9 @@ export interface GetVirtualNetworkRuleResult {
      */
     readonly virtualNetworkSubnetId: string;
 }
-/**
- * A virtual network rule.
- * API Version: 2018-06-01.
- */
+
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetworkRule(a, opts))
 }
 
 export interface GetVirtualNetworkRuleOutputArgs {

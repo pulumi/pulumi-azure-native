@@ -113,12 +113,9 @@ export interface GetConnectedClusterResult {
      */
     readonly type: string;
 }
-/**
- * Represents a connected cluster.
- */
-/** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
+
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
-    return pulumi.output(args).apply((a: any) => getConnectedCluster(a, opts))
+    return pulumi.output(args).apply(a => getConnectedCluster(a, opts))
 }
 
 export interface GetConnectedClusterOutputArgs {

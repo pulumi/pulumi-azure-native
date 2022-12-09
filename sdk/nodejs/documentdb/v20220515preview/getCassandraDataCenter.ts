@@ -56,11 +56,9 @@ export interface GetCassandraDataCenterResult {
      */
     readonly type: string;
 }
-/**
- * A managed Cassandra data center.
- */
+
 export function getCassandraDataCenterOutput(args: GetCassandraDataCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraDataCenterResult> {
-    return pulumi.output(args).apply((a: any) => getCassandraDataCenter(a, opts))
+    return pulumi.output(args).apply(a => getCassandraDataCenter(a, opts))
 }
 
 export interface GetCassandraDataCenterOutputArgs {

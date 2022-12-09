@@ -72,11 +72,9 @@ export interface GetScopeConnectionResult {
      */
     readonly type: string;
 }
-/**
- * The Scope Connections resource
- */
+
 export function getScopeConnectionOutput(args: GetScopeConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getScopeConnection(a, opts))
+    return pulumi.output(args).apply(a => getScopeConnection(a, opts))
 }
 
 export interface GetScopeConnectionOutputArgs {

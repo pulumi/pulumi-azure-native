@@ -60,11 +60,9 @@ export interface GetServerAdministratorResult {
      */
     readonly type: string;
 }
-/**
- * Represents a and external administrator to be created.
- */
+
 export function getServerAdministratorOutput(args: GetServerAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdministratorResult> {
-    return pulumi.output(args).apply((a: any) => getServerAdministrator(a, opts))
+    return pulumi.output(args).apply(a => getServerAdministrator(a, opts))
 }
 
 export interface GetServerAdministratorOutputArgs {

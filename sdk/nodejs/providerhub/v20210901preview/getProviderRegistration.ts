@@ -41,8 +41,9 @@ export interface GetProviderRegistrationResult {
      */
     readonly type: string;
 }
+
 export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getProviderRegistration(a, opts))
+    return pulumi.output(args).apply(a => getProviderRegistration(a, opts))
 }
 
 export interface GetProviderRegistrationOutputArgs {

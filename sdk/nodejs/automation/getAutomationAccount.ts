@@ -112,12 +112,9 @@ export interface GetAutomationAccountResult {
      */
     readonly type: string;
 }
-/**
- * Definition of the automation account type.
- * API Version: 2021-06-22.
- */
+
 export function getAutomationAccountOutput(args: GetAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationAccountResult> {
-    return pulumi.output(args).apply((a: any) => getAutomationAccount(a, opts))
+    return pulumi.output(args).apply(a => getAutomationAccount(a, opts))
 }
 
 export interface GetAutomationAccountOutputArgs {

@@ -88,11 +88,9 @@ export interface GetAnalyticsConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Analytics Connector definition.
- */
+
 export function getAnalyticsConnectorOutput(args: GetAnalyticsConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getAnalyticsConnector(a, opts))
+    return pulumi.output(args).apply(a => getAnalyticsConnector(a, opts))
 }
 
 export interface GetAnalyticsConnectorOutputArgs {

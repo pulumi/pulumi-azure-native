@@ -90,12 +90,9 @@ export interface GetProjectResult {
      */
     readonly type: string;
 }
-/**
- * A project resource
- */
-/** @deprecated Version 2017-11-15-preview will be removed in v2 of the provider. */
+
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply((a: any) => getProject(a, opts))
+    return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {

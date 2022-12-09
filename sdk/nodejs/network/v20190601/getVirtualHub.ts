@@ -91,11 +91,9 @@ export interface GetVirtualHubResult {
      */
     readonly vpnGateway?: outputs.network.v20190601.SubResourceResponse;
 }
-/**
- * VirtualHub Resource.
- */
+
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))
+    return pulumi.output(args).apply(a => getVirtualHub(a, opts))
 }
 
 export interface GetVirtualHubOutputArgs {

@@ -60,11 +60,9 @@ export interface GetTagRuleResult {
      */
     readonly type: string;
 }
-/**
- * Capture logs and metrics of Azure resources based on ARM tags.
- */
+
 export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagRuleResult> {
-    return pulumi.output(args).apply((a: any) => getTagRule(a, opts))
+    return pulumi.output(args).apply(a => getTagRule(a, opts))
 }
 
 export interface GetTagRuleOutputArgs {

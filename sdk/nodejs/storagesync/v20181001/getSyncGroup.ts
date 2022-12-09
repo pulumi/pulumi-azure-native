@@ -59,12 +59,9 @@ export interface GetSyncGroupResult {
      */
     readonly uniqueId?: string;
 }
-/**
- * Sync Group object.
- */
-/** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
+
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))
+    return pulumi.output(args).apply(a => getSyncGroup(a, opts))
 }
 
 export interface GetSyncGroupOutputArgs {

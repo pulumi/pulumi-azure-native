@@ -84,11 +84,9 @@ export interface GetSecurityAdminConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * Defines the security configuration
- */
+
 export function getSecurityAdminConfigurationOutput(args: GetSecurityAdminConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityAdminConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityAdminConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getSecurityAdminConfiguration(a, opts))
 }
 
 export interface GetSecurityAdminConfigurationOutputArgs {

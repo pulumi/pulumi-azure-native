@@ -48,11 +48,9 @@ export interface ListWebPubSubKeysResult {
      */
     readonly secondaryKey?: string;
 }
-/**
- * A class represents the access keys of the resource.
- */
+
 export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebPubSubKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWebPubSubKeys(a, opts))
+    return pulumi.output(args).apply(a => listWebPubSubKeys(a, opts))
 }
 
 export interface ListWebPubSubKeysOutputArgs {

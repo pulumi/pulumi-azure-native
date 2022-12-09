@@ -77,12 +77,9 @@ export interface GetEndpointResult {
      */
     readonly type: string;
 }
-/**
- * The endpoint for the target resource.
- * API Version: 2022-05-01-preview.
- */
+
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getEndpoint(a, opts))
 }
 
 export interface GetEndpointOutputArgs {

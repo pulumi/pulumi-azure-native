@@ -55,12 +55,9 @@ export interface GetDeploymentAtSubscriptionScopeResult {
      */
     readonly type: string;
 }
-/**
- * Deployment information.
- * API Version: 2021-01-01.
- */
+
 export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
-    return pulumi.output(args).apply((a: any) => getDeploymentAtSubscriptionScope(a, opts))
+    return pulumi.output(args).apply(a => getDeploymentAtSubscriptionScope(a, opts))
 }
 
 export interface GetDeploymentAtSubscriptionScopeOutputArgs {

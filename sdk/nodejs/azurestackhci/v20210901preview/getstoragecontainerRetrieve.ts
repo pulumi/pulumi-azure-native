@@ -78,11 +78,9 @@ export interface GetstoragecontainerRetrieveResult {
      */
     readonly type: string;
 }
-/**
- * The storage container resource definition.
- */
+
 export function getstoragecontainerRetrieveOutput(args: GetstoragecontainerRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetstoragecontainerRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getstoragecontainerRetrieve(a, opts))
+    return pulumi.output(args).apply(a => getstoragecontainerRetrieve(a, opts))
 }
 
 export interface GetstoragecontainerRetrieveOutputArgs {

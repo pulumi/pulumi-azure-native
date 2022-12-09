@@ -132,11 +132,9 @@ export interface GetRoleAssignmentResult {
      */
     readonly widgetTypes?: outputs.customerinsights.v20170426.ResourceSetDescriptionResponse;
 }
-/**
- * The Role Assignment resource format.
- */
+
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getRoleAssignment(a, opts))
+    return pulumi.output(args).apply(a => getRoleAssignment(a, opts))
 }
 
 export interface GetRoleAssignmentOutputArgs {

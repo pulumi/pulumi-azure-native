@@ -72,12 +72,9 @@ export interface GetBastionHostResult {
      */
     readonly type: string;
 }
-/**
- * Bastion Host resource.
- * API Version: 2020-11-01.
- */
+
 export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
-    return pulumi.output(args).apply((a: any) => getBastionHost(a, opts))
+    return pulumi.output(args).apply(a => getBastionHost(a, opts))
 }
 
 export interface GetBastionHostOutputArgs {

@@ -55,11 +55,9 @@ export interface GetSkusNestedResourceTypeFirstResult {
      */
     readonly type: string;
 }
-/**
- * API Version: 2020-11-20.
- */
+
 export function getSkusNestedResourceTypeFirstOutput(args: GetSkusNestedResourceTypeFirstOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeFirstResult> {
-    return pulumi.output(args).apply((a: any) => getSkusNestedResourceTypeFirst(a, opts))
+    return pulumi.output(args).apply(a => getSkusNestedResourceTypeFirst(a, opts))
 }
 
 export interface GetSkusNestedResourceTypeFirstOutputArgs {

@@ -60,11 +60,9 @@ export interface GetManagedEnvironmentsStorageResult {
      */
     readonly type: string;
 }
-/**
- * Storage resource for managedEnvironment.
- */
+
 export function getManagedEnvironmentsStorageOutput(args: GetManagedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentsStorageResult> {
-    return pulumi.output(args).apply((a: any) => getManagedEnvironmentsStorage(a, opts))
+    return pulumi.output(args).apply(a => getManagedEnvironmentsStorage(a, opts))
 }
 
 export interface GetManagedEnvironmentsStorageOutputArgs {

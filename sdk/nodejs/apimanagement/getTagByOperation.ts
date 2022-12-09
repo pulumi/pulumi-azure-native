@@ -64,12 +64,9 @@ export interface GetTagByOperationResult {
      */
     readonly type: string;
 }
-/**
- * Tag Contract details.
- * API Version: 2020-12-01.
- */
+
 export function getTagByOperationOutput(args: GetTagByOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByOperationResult> {
-    return pulumi.output(args).apply((a: any) => getTagByOperation(a, opts))
+    return pulumi.output(args).apply(a => getTagByOperation(a, opts))
 }
 
 export interface GetTagByOperationOutputArgs {

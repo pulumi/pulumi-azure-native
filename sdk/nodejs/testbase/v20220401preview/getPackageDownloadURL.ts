@@ -45,11 +45,9 @@ export interface GetPackageDownloadURLResult {
      */
     readonly expirationTime: string;
 }
-/**
- * The response of getting a download URL.
- */
+
 export function getPackageDownloadURLOutput(args: GetPackageDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageDownloadURLResult> {
-    return pulumi.output(args).apply((a: any) => getPackageDownloadURL(a, opts))
+    return pulumi.output(args).apply(a => getPackageDownloadURL(a, opts))
 }
 
 export interface GetPackageDownloadURLOutputArgs {

@@ -79,11 +79,9 @@ export interface ListWebAppSitePushSettingsSlotResult {
      */
     readonly type: string;
 }
-/**
- * Push settings for the App.
- */
+
 export function listWebAppSitePushSettingsSlotOutput(args: ListWebAppSitePushSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppSitePushSettingsSlot(a, opts))
+    return pulumi.output(args).apply(a => listWebAppSitePushSettingsSlot(a, opts))
 }
 
 export interface ListWebAppSitePushSettingsSlotOutputArgs {

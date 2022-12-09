@@ -58,11 +58,9 @@ export interface GetSettingResult {
      */
     readonly type: string;
 }
-/**
- * State of the myscope setting.
- */
+
 export function getSettingOutput(args: GetSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSettingResult> {
-    return pulumi.output(args).apply((a: any) => getSetting(a, opts))
+    return pulumi.output(args).apply(a => getSetting(a, opts))
 }
 
 export interface GetSettingOutputArgs {

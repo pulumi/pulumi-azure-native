@@ -70,12 +70,9 @@ export interface GetJobResult {
      */
     readonly version: number;
 }
-/**
- * A job.
- * API Version: 2020-11-01-preview.
- */
+
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
-    return pulumi.output(args).apply((a: any) => getJob(a, opts))
+    return pulumi.output(args).apply(a => getJob(a, opts))
 }
 
 export interface GetJobOutputArgs {

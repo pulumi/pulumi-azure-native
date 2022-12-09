@@ -49,11 +49,9 @@ export interface GetSqlMigrationServiceResult {
     readonly tags?: {[key: string]: string};
     readonly type: string;
 }
-/**
- * A SQL Migration Service.
- */
+
 export function getSqlMigrationServiceOutput(args: GetSqlMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlMigrationServiceResult> {
-    return pulumi.output(args).apply((a: any) => getSqlMigrationService(a, opts))
+    return pulumi.output(args).apply(a => getSqlMigrationService(a, opts))
 }
 
 export interface GetSqlMigrationServiceOutputArgs {

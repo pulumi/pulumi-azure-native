@@ -97,12 +97,9 @@ export interface GetRolloutResult {
      */
     readonly type: string;
 }
-/**
- * Defines the PUT rollout request body.
- * API Version: 2019-11-01-preview.
- */
+
 export function getRolloutOutput(args: GetRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolloutResult> {
-    return pulumi.output(args).apply((a: any) => getRollout(a, opts))
+    return pulumi.output(args).apply(a => getRollout(a, opts))
 }
 
 export interface GetRolloutOutputArgs {

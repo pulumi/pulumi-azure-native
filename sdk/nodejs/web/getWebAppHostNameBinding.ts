@@ -90,12 +90,9 @@ export interface GetWebAppHostNameBindingResult {
      */
     readonly virtualIP: string;
 }
-/**
- * A hostname binding object.
- * API Version: 2020-12-01.
- */
+
 export function getWebAppHostNameBindingOutput(args: GetWebAppHostNameBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppHostNameBinding(a, opts))
+    return pulumi.output(args).apply(a => getWebAppHostNameBinding(a, opts))
 }
 
 export interface GetWebAppHostNameBindingOutputArgs {

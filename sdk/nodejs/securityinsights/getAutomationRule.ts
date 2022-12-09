@@ -94,12 +94,9 @@ export interface GetAutomationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Represents an automation rule.
- * API Version: 2019-01-01-preview.
- */
+
 export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getAutomationRule(a, opts))
+    return pulumi.output(args).apply(a => getAutomationRule(a, opts))
 }
 
 export interface GetAutomationRuleOutputArgs {

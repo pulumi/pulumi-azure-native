@@ -95,12 +95,9 @@ export interface GetProjectResult {
      */
     readonly workspaceId: string;
 }
-/**
- * An object that represents a machine learning project.
- * API Version: 2017-05-01-preview.
- */
+
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply((a: any) => getProject(a, opts))
+    return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {

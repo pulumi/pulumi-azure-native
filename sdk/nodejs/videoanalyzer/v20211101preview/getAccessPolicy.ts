@@ -64,11 +64,9 @@ export interface GetAccessPolicyResult {
      */
     readonly type: string;
 }
-/**
- * Access policies help define the authentication rules, and control access to specific video resources.
- */
+
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
+    return pulumi.output(args).apply(a => getAccessPolicy(a, opts))
 }
 
 export interface GetAccessPolicyOutputArgs {

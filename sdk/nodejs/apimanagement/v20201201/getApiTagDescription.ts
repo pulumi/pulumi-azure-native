@@ -74,11 +74,9 @@ export interface GetApiTagDescriptionResult {
      */
     readonly type: string;
 }
-/**
- * Contract details.
- */
+
 export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiTagDescriptionResult> {
-    return pulumi.output(args).apply((a: any) => getApiTagDescription(a, opts))
+    return pulumi.output(args).apply(a => getApiTagDescription(a, opts))
 }
 
 export interface GetApiTagDescriptionOutputArgs {

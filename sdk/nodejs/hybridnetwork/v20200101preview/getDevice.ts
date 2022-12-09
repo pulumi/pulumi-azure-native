@@ -71,11 +71,9 @@ export interface GetDeviceResult {
      */
     readonly type: string;
 }
-/**
- * Device resource.
- */
+
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
-    return pulumi.output(args).apply((a: any) => getDevice(a, opts))
+    return pulumi.output(args).apply(a => getDevice(a, opts))
 }
 
 export interface GetDeviceOutputArgs {

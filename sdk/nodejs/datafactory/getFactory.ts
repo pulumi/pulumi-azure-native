@@ -96,12 +96,9 @@ export interface GetFactoryResult {
      */
     readonly version: string;
 }
-/**
- * Factory resource type.
- * API Version: 2018-06-01.
- */
+
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
-    return pulumi.output(args).apply((a: any) => getFactory(a, opts))
+    return pulumi.output(args).apply(a => getFactory(a, opts))
 }
 
 export interface GetFactoryOutputArgs {

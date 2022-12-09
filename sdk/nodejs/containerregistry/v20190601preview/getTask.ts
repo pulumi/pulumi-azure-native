@@ -118,12 +118,9 @@ export interface GetTaskResult {
      */
     readonly type: string;
 }
-/**
- * The task that has the ARM resource and task properties.
- * The task will have all information to schedule a run against it.
- */
+
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
-    return pulumi.output(args).apply((a: any) => getTask(a, opts))
+    return pulumi.output(args).apply(a => getTask(a, opts))
 }
 
 export interface GetTaskOutputArgs {

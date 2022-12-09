@@ -68,11 +68,9 @@ export interface GetMongoDBResourceMongoRoleDefinitionResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB Mongo Role Definition.
- */
+
 export function getMongoDBResourceMongoRoleDefinitionOutput(args: GetMongoDBResourceMongoRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoRoleDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoRoleDefinition(a, opts))
+    return pulumi.output(args).apply(a => getMongoDBResourceMongoRoleDefinition(a, opts))
 }
 
 export interface GetMongoDBResourceMongoRoleDefinitionOutputArgs {

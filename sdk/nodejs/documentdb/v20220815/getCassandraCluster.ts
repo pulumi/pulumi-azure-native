@@ -63,11 +63,9 @@ export interface GetCassandraClusterResult {
      */
     readonly type: string;
 }
-/**
- * Representation of a managed Cassandra cluster.
- */
+
 export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCassandraCluster(a, opts))
+    return pulumi.output(args).apply(a => getCassandraCluster(a, opts))
 }
 
 export interface GetCassandraClusterOutputArgs {

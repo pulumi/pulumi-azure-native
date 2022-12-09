@@ -75,12 +75,9 @@ export interface GetAnomaliesResult {
      */
     readonly type: string;
 }
-/**
- * Settings with single toggle.
- * API Version: 2021-03-01-preview.
- */
+
 export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomaliesResult> {
-    return pulumi.output(args).apply((a: any) => getAnomalies(a, opts))
+    return pulumi.output(args).apply(a => getAnomalies(a, opts))
 }
 
 export interface GetAnomaliesOutputArgs {

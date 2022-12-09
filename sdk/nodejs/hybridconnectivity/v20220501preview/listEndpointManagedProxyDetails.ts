@@ -50,11 +50,9 @@ export interface ListEndpointManagedProxyDetailsResult {
      */
     readonly proxy: string;
 }
-/**
- * Managed Proxy
- */
+
 export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
-    return pulumi.output(args).apply((a: any) => listEndpointManagedProxyDetails(a, opts))
+    return pulumi.output(args).apply(a => listEndpointManagedProxyDetails(a, opts))
 }
 
 export interface ListEndpointManagedProxyDetailsOutputArgs {

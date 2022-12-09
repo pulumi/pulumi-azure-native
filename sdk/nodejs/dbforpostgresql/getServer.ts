@@ -124,12 +124,9 @@ export interface GetServerResult {
      */
     readonly version?: string;
 }
-/**
- * Represents a server.
- * API Version: 2017-12-01.
- */
+
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    return pulumi.output(args).apply((a: any) => getServer(a, opts))
+    return pulumi.output(args).apply(a => getServer(a, opts))
 }
 
 export interface GetServerOutputArgs {

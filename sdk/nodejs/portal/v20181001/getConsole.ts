@@ -34,11 +34,9 @@ export interface GetConsoleResult {
      */
     readonly properties: outputs.portal.v20181001.ConsolePropertiesResponse;
 }
-/**
- * Cloud shell console
- */
+
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
-    return pulumi.output(args).apply((a: any) => getConsole(a, opts))
+    return pulumi.output(args).apply(a => getConsole(a, opts))
 }
 
 export interface GetConsoleOutputArgs {

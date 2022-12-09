@@ -60,11 +60,9 @@ export interface GetTimeSeriesDatabaseConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Describes a time series database connection resource.
- */
+
 export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getTimeSeriesDatabaseConnection(a, opts))
+    return pulumi.output(args).apply(a => getTimeSeriesDatabaseConnection(a, opts))
 }
 
 export interface GetTimeSeriesDatabaseConnectionOutputArgs {

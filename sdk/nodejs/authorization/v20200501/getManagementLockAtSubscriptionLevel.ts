@@ -58,11 +58,9 @@ export interface GetManagementLockAtSubscriptionLevelResult {
      */
     readonly type: string;
 }
-/**
- * The lock information.
- */
+
 export function getManagementLockAtSubscriptionLevelOutput(args: GetManagementLockAtSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtSubscriptionLevelResult> {
-    return pulumi.output(args).apply((a: any) => getManagementLockAtSubscriptionLevel(a, opts))
+    return pulumi.output(args).apply(a => getManagementLockAtSubscriptionLevel(a, opts))
 }
 
 export interface GetManagementLockAtSubscriptionLevelOutputArgs {

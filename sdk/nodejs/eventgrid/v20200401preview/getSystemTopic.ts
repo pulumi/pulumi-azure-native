@@ -75,11 +75,9 @@ export interface GetSystemTopicResult {
      */
     readonly type: string;
 }
-/**
- * EventGrid System Topic.
- */
+
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {
-    return pulumi.output(args).apply((a: any) => getSystemTopic(a, opts))
+    return pulumi.output(args).apply(a => getSystemTopic(a, opts))
 }
 
 export interface GetSystemTopicOutputArgs {

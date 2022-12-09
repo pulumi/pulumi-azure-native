@@ -71,11 +71,9 @@ export interface GetAddressByNameResult {
      */
     readonly type: string;
 }
-/**
- * Address Resource.
- */
+
 export function getAddressByNameOutput(args: GetAddressByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddressByNameResult> {
-    return pulumi.output(args).apply((a: any) => getAddressByName(a, opts))
+    return pulumi.output(args).apply(a => getAddressByName(a, opts))
 }
 
 export interface GetAddressByNameOutputArgs {

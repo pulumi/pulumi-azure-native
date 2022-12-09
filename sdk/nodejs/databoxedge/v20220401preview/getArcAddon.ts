@@ -98,11 +98,9 @@ export interface GetArcAddonResult {
      */
     readonly version: string;
 }
-/**
- * Arc Addon.
- */
+
 export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {
-    return pulumi.output(args).apply((a: any) => getArcAddon(a, opts))
+    return pulumi.output(args).apply(a => getArcAddon(a, opts))
 }
 
 export interface GetArcAddonOutputArgs {

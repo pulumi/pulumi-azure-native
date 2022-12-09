@@ -83,11 +83,9 @@ export interface GetVendorSkusResult {
      */
     readonly type: string;
 }
-/**
- * Sku sub resource.
- */
+
 export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
-    return pulumi.output(args).apply((a: any) => getVendorSkus(a, opts))
+    return pulumi.output(args).apply(a => getVendorSkus(a, opts))
 }
 
 export interface GetVendorSkusOutputArgs {

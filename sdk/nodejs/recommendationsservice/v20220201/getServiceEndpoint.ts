@@ -68,11 +68,9 @@ export interface GetServiceEndpointResult {
      */
     readonly type: string;
 }
-/**
- * ServiceEndpoint resource details.
- */
+
 export function getServiceEndpointOutput(args: GetServiceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getServiceEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getServiceEndpoint(a, opts))
 }
 
 export interface GetServiceEndpointOutputArgs {

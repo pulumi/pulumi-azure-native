@@ -57,12 +57,9 @@ export interface ListWorkflowRunActionExpressionTracesResult {
     readonly nextLink?: string;
     readonly value?: any;
 }
-/**
- * The expression traces.
- * API Version: 2022-03-01.
- */
+
 export function listWorkflowRunActionExpressionTracesOutput(args: ListWorkflowRunActionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionExpressionTracesResult> {
-    return pulumi.output(args).apply((a: any) => listWorkflowRunActionExpressionTraces(a, opts))
+    return pulumi.output(args).apply(a => listWorkflowRunActionExpressionTraces(a, opts))
 }
 
 export interface ListWorkflowRunActionExpressionTracesOutputArgs {

@@ -73,12 +73,9 @@ export interface GetSqlResourceSqlUserDefinedFunctionResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB userDefinedFunction.
- */
-/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+
 export function getSqlResourceSqlUserDefinedFunctionOutput(args: GetSqlResourceSqlUserDefinedFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlUserDefinedFunctionResult> {
-    return pulumi.output(args).apply((a: any) => getSqlResourceSqlUserDefinedFunction(a, opts))
+    return pulumi.output(args).apply(a => getSqlResourceSqlUserDefinedFunction(a, opts))
 }
 
 export interface GetSqlResourceSqlUserDefinedFunctionOutputArgs {

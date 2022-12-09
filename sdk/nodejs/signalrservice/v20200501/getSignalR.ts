@@ -117,11 +117,9 @@ export interface GetSignalRResult {
      */
     readonly version: string;
 }
-/**
- * A class represent a SignalR service resource.
- */
+
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
-    return pulumi.output(args).apply((a: any) => getSignalR(a, opts))
+    return pulumi.output(args).apply(a => getSignalR(a, opts))
 }
 
 export interface GetSignalROutputArgs {

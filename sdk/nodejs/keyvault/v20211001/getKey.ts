@@ -85,11 +85,9 @@ export interface GetKeyResult {
      */
     readonly type: string;
 }
-/**
- * The key resource.
- */
+
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    return pulumi.output(args).apply((a: any) => getKey(a, opts))
+    return pulumi.output(args).apply(a => getKey(a, opts))
 }
 
 export interface GetKeyOutputArgs {

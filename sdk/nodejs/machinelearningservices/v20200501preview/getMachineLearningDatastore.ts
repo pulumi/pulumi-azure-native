@@ -72,11 +72,9 @@ export interface GetMachineLearningDatastoreResult {
      */
     readonly type: string;
 }
-/**
- * Machine Learning datastore object wrapped into ARM resource envelope.
- */
+
 export function getMachineLearningDatastoreOutput(args: GetMachineLearningDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatastoreResult> {
-    return pulumi.output(args).apply((a: any) => getMachineLearningDatastore(a, opts))
+    return pulumi.output(args).apply(a => getMachineLearningDatastore(a, opts))
 }
 
 export interface GetMachineLearningDatastoreOutputArgs {

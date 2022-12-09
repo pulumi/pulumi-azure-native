@@ -92,12 +92,9 @@ export interface GetCloudResult {
      */
     readonly vmmServerId?: string;
 }
-/**
- * The Clouds resource definition.
- * API Version: 2020-06-05-preview.
- */
+
 export function getCloudOutput(args: GetCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudResult> {
-    return pulumi.output(args).apply((a: any) => getCloud(a, opts))
+    return pulumi.output(args).apply(a => getCloud(a, opts))
 }
 
 export interface GetCloudOutputArgs {

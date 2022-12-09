@@ -63,12 +63,9 @@ export interface GetManagedInstanceAdministratorResult {
      */
     readonly type: string;
 }
-/**
- * An Azure SQL managed instance administrator.
- * API Version: 2020-11-01-preview.
- */
+
 export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAdministratorResult> {
-    return pulumi.output(args).apply((a: any) => getManagedInstanceAdministrator(a, opts))
+    return pulumi.output(args).apply(a => getManagedInstanceAdministrator(a, opts))
 }
 
 export interface GetManagedInstanceAdministratorOutputArgs {

@@ -68,12 +68,9 @@ export interface GetTableResourceTableResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB Table.
- */
-/** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
+
 export function getTableResourceTableOutput(args: GetTableResourceTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResourceTableResult> {
-    return pulumi.output(args).apply((a: any) => getTableResourceTable(a, opts))
+    return pulumi.output(args).apply(a => getTableResourceTable(a, opts))
 }
 
 export interface GetTableResourceTableOutputArgs {

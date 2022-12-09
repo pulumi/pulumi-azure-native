@@ -77,11 +77,9 @@ export interface GetConnectionMonitorTestResult {
      */
     readonly type: string;
 }
-/**
- * The Connection Monitor Test class.
- */
+
 export function getConnectionMonitorTestOutput(args: GetConnectionMonitorTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorTestResult> {
-    return pulumi.output(args).apply((a: any) => getConnectionMonitorTest(a, opts))
+    return pulumi.output(args).apply(a => getConnectionMonitorTest(a, opts))
 }
 
 export interface GetConnectionMonitorTestOutputArgs {

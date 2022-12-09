@@ -89,12 +89,9 @@ export interface GetVpnSiteResult {
      */
     readonly virtualWAN?: outputs.network.v20180401.SubResourceResponse;
 }
-/**
- * VpnSite Resource.
- */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
+
 export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {
-    return pulumi.output(args).apply((a: any) => getVpnSite(a, opts))
+    return pulumi.output(args).apply(a => getVpnSite(a, opts))
 }
 
 export interface GetVpnSiteOutputArgs {

@@ -61,12 +61,9 @@ export interface GetNetworkSecurityPerimeterResult {
      */
     readonly type: string;
 }
-/**
- * The Network Security Perimeter resource
- * API Version: 2021-02-01-preview.
- */
+
 export function getNetworkSecurityPerimeterOutput(args: GetNetworkSecurityPerimeterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityPerimeterResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkSecurityPerimeter(a, opts))
+    return pulumi.output(args).apply(a => getNetworkSecurityPerimeter(a, opts))
 }
 
 export interface GetNetworkSecurityPerimeterOutputArgs {

@@ -63,11 +63,9 @@ export interface GetManagedHsmResult {
      */
     readonly type: string;
 }
-/**
- * Resource information with extended details.
- */
+
 export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHsmResult> {
-    return pulumi.output(args).apply((a: any) => getManagedHsm(a, opts))
+    return pulumi.output(args).apply(a => getManagedHsm(a, opts))
 }
 
 export interface GetManagedHsmOutputArgs {

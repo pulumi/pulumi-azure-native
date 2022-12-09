@@ -61,12 +61,9 @@ export interface GetDataCollectionRuleAssociationResult {
      */
     readonly type: string;
 }
-/**
- * Definition of generic ARM proxy resource.
- * API Version: 2019-11-01-preview.
- */
+
 export function getDataCollectionRuleAssociationOutput(args: GetDataCollectionRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getDataCollectionRuleAssociation(a, opts))
+    return pulumi.output(args).apply(a => getDataCollectionRuleAssociation(a, opts))
 }
 
 export interface GetDataCollectionRuleAssociationOutputArgs {

@@ -67,12 +67,9 @@ export interface GetConsumerGroupResult {
      */
     readonly userMetadata?: string;
 }
-/**
- * Single item in List or Get Consumer group operation
- * API Version: 2017-04-01.
- */
+
 export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumerGroupResult> {
-    return pulumi.output(args).apply((a: any) => getConsumerGroup(a, opts))
+    return pulumi.output(args).apply(a => getConsumerGroup(a, opts))
 }
 
 export interface GetConsumerGroupOutputArgs {

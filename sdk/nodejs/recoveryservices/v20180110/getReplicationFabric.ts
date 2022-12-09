@@ -62,12 +62,9 @@ export interface GetReplicationFabricResult {
      */
     readonly type: string;
 }
-/**
- * Fabric definition.
- */
-/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
+
 export function getReplicationFabricOutput(args: GetReplicationFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationFabricResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationFabric(a, opts))
+    return pulumi.output(args).apply(a => getReplicationFabric(a, opts))
 }
 
 export interface GetReplicationFabricOutputArgs {

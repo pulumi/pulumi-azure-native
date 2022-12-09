@@ -71,11 +71,9 @@ export interface GetInstancePoolResult {
      */
     readonly vCores: number;
 }
-/**
- * An Azure SQL instance pool.
- */
+
 export function getInstancePoolOutput(args: GetInstancePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancePoolResult> {
-    return pulumi.output(args).apply((a: any) => getInstancePool(a, opts))
+    return pulumi.output(args).apply(a => getInstancePool(a, opts))
 }
 
 export interface GetInstancePoolOutputArgs {

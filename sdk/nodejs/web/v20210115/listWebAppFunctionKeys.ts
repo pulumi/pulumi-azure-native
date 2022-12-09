@@ -57,11 +57,9 @@ export interface ListWebAppFunctionKeysResult {
      */
     readonly type: string;
 }
-/**
- * String dictionary resource.
- */
+
 export function listWebAppFunctionKeysOutput(args: ListWebAppFunctionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppFunctionKeys(a, opts))
+    return pulumi.output(args).apply(a => listWebAppFunctionKeys(a, opts))
 }
 
 export interface ListWebAppFunctionKeysOutputArgs {

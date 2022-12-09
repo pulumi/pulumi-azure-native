@@ -91,11 +91,9 @@ export interface GetSnapshotResult {
      */
     readonly vmSize: string;
 }
-/**
- * A node pool snapshot resource.
- */
+
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
+    return pulumi.output(args).apply(a => getSnapshot(a, opts))
 }
 
 export interface GetSnapshotOutputArgs {

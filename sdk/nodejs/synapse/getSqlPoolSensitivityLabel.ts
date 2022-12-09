@@ -107,12 +107,9 @@ export interface GetSqlPoolSensitivityLabelResult {
      */
     readonly type: string;
 }
-/**
- * A sensitivity label.
- * API Version: 2021-03-01.
- */
+
 export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
-    return pulumi.output(args).apply((a: any) => getSqlPoolSensitivityLabel(a, opts))
+    return pulumi.output(args).apply(a => getSqlPoolSensitivityLabel(a, opts))
 }
 
 export interface GetSqlPoolSensitivityLabelOutputArgs {

@@ -36,11 +36,9 @@ export interface GetGlobalUserOperationStatusResult {
      */
     readonly status: string;
 }
-/**
- * Status Details of the long running operation for an environment
- */
+
 export function getGlobalUserOperationStatusOutput(args: GetGlobalUserOperationStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationStatusResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalUserOperationStatus(a, opts))
+    return pulumi.output(args).apply(a => getGlobalUserOperationStatus(a, opts))
 }
 
 export interface GetGlobalUserOperationStatusOutputArgs {

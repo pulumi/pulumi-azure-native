@@ -46,12 +46,9 @@ export interface ListGatewayKeysResult {
      */
     readonly secondary?: string;
 }
-/**
- * Gateway authentication keys.
- * API Version: 2020-12-01.
- */
+
 export function listGatewayKeysOutput(args: ListGatewayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayKeysResult> {
-    return pulumi.output(args).apply((a: any) => listGatewayKeys(a, opts))
+    return pulumi.output(args).apply(a => listGatewayKeys(a, opts))
 }
 
 export interface ListGatewayKeysOutputArgs {

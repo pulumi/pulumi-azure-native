@@ -56,11 +56,9 @@ export interface GetazureADMetricResult {
      */
     readonly type: string;
 }
-/**
- * AzureADMetrics resource.
- */
+
 export function getazureADMetricOutput(args: GetazureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetazureADMetricResult> {
-    return pulumi.output(args).apply((a: any) => getazureADMetric(a, opts))
+    return pulumi.output(args).apply(a => getazureADMetric(a, opts))
 }
 
 export interface GetazureADMetricOutputArgs {

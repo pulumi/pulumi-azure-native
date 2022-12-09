@@ -99,11 +99,9 @@ export interface GetSubvolumeMetadataResult {
      */
     readonly type: string;
 }
-/**
- * Result of the post subvolume and action is to get metadata of the subvolume.
- */
+
 export function getSubvolumeMetadataOutput(args: GetSubvolumeMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeMetadataResult> {
-    return pulumi.output(args).apply((a: any) => getSubvolumeMetadata(a, opts))
+    return pulumi.output(args).apply(a => getSubvolumeMetadata(a, opts))
 }
 
 export interface GetSubvolumeMetadataOutputArgs {

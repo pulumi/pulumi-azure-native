@@ -86,11 +86,9 @@ export interface GetSqlDWTableDataSetResult {
      */
     readonly type: string;
 }
-/**
- * A SQL DW table data set.
- */
+
 export function getSqlDWTableDataSetOutput(args: GetSqlDWTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getSqlDWTableDataSet(a, opts))
+    return pulumi.output(args).apply(a => getSqlDWTableDataSet(a, opts))
 }
 
 export interface GetSqlDWTableDataSetOutputArgs {

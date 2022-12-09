@@ -106,12 +106,9 @@ export interface GetEndpointResult {
      */
     readonly type: string;
 }
-/**
- * CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
- */
-/** @deprecated Version 2016-04-02 will be removed in v2 of the provider. */
+
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getEndpoint(a, opts))
 }
 
 export interface GetEndpointOutputArgs {

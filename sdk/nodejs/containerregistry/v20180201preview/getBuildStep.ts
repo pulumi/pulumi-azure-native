@@ -61,11 +61,9 @@ export interface GetBuildStepResult {
      */
     readonly type: string;
 }
-/**
- * Build step resource properties
- */
+
 export function getBuildStepOutput(args: GetBuildStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildStepResult> {
-    return pulumi.output(args).apply((a: any) => getBuildStep(a, opts))
+    return pulumi.output(args).apply(a => getBuildStep(a, opts))
 }
 
 export interface GetBuildStepOutputArgs {

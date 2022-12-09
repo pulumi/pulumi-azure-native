@@ -67,11 +67,9 @@ export interface GetLinkerDryrunResult {
      */
     readonly type: string;
 }
-/**
- * a dryrun job resource
- */
+
 export function getLinkerDryrunOutput(args: GetLinkerDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerDryrunResult> {
-    return pulumi.output(args).apply((a: any) => getLinkerDryrun(a, opts))
+    return pulumi.output(args).apply(a => getLinkerDryrun(a, opts))
 }
 
 export interface GetLinkerDryrunOutputArgs {

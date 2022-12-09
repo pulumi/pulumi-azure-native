@@ -69,11 +69,9 @@ export interface GetExpressRoutePortAuthorizationResult {
      */
     readonly type: string;
 }
-/**
- * ExpressRoutePort Authorization resource definition.
- */
+
 export function getExpressRoutePortAuthorizationOutput(args: GetExpressRoutePortAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortAuthorizationResult> {
-    return pulumi.output(args).apply((a: any) => getExpressRoutePortAuthorization(a, opts))
+    return pulumi.output(args).apply(a => getExpressRoutePortAuthorization(a, opts))
 }
 
 export interface GetExpressRoutePortAuthorizationOutputArgs {

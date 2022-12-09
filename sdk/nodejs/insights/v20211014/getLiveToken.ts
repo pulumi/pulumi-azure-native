@@ -31,11 +31,9 @@ export interface GetLiveTokenResult {
      */
     readonly liveToken: string;
 }
-/**
- * The response to a live token query.
- */
+
 export function getLiveTokenOutput(args: GetLiveTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveTokenResult> {
-    return pulumi.output(args).apply((a: any) => getLiveToken(a, opts))
+    return pulumi.output(args).apply(a => getLiveToken(a, opts))
 }
 
 export interface GetLiveTokenOutputArgs {

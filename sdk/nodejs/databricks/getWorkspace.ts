@@ -104,12 +104,9 @@ export interface GetWorkspaceResult {
      */
     readonly workspaceUrl: string;
 }
-/**
- * Information about workspace.
- * API Version: 2018-04-01.
- */
+
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
 }
 
 export interface GetWorkspaceOutputArgs {

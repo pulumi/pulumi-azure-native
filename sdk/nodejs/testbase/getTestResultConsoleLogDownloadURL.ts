@@ -56,12 +56,9 @@ export interface GetTestResultConsoleLogDownloadURLResult {
      */
     readonly expirationTime: string;
 }
-/**
- * The response of getting a download URL.
- * API Version: 2022-04-01-preview.
- */
+
 export function getTestResultConsoleLogDownloadURLOutput(args: GetTestResultConsoleLogDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultConsoleLogDownloadURLResult> {
-    return pulumi.output(args).apply((a: any) => getTestResultConsoleLogDownloadURL(a, opts))
+    return pulumi.output(args).apply(a => getTestResultConsoleLogDownloadURL(a, opts))
 }
 
 export interface GetTestResultConsoleLogDownloadURLOutputArgs {

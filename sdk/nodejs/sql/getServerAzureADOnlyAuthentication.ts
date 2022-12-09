@@ -54,12 +54,9 @@ export interface GetServerAzureADOnlyAuthenticationResult {
      */
     readonly type: string;
 }
-/**
- * Azure Active Directory only authentication.
- * API Version: 2020-11-01-preview.
- */
+
 export function getServerAzureADOnlyAuthenticationOutput(args: GetServerAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADOnlyAuthenticationResult> {
-    return pulumi.output(args).apply((a: any) => getServerAzureADOnlyAuthentication(a, opts))
+    return pulumi.output(args).apply(a => getServerAzureADOnlyAuthentication(a, opts))
 }
 
 export interface GetServerAzureADOnlyAuthenticationOutputArgs {

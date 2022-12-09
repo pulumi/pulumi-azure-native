@@ -45,11 +45,9 @@ export interface GetExposureControlFeatureValueResult {
      */
     readonly value: string;
 }
-/**
- * The exposure control response.
- */
+
 export function getExposureControlFeatureValueOutput(args: GetExposureControlFeatureValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueResult> {
-    return pulumi.output(args).apply((a: any) => getExposureControlFeatureValue(a, opts))
+    return pulumi.output(args).apply(a => getExposureControlFeatureValue(a, opts))
 }
 
 export interface GetExposureControlFeatureValueOutputArgs {

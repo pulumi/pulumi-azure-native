@@ -76,12 +76,9 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
      */
     readonly type: string;
 }
-/**
- * The policy set definition.
- * API Version: 2020-09-01.
- */
+
 export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getPolicySetDefinitionAtManagementGroup(a, opts))
+    return pulumi.output(args).apply(a => getPolicySetDefinitionAtManagementGroup(a, opts))
 }
 
 export interface GetPolicySetDefinitionAtManagementGroupOutputArgs {

@@ -70,11 +70,9 @@ export interface GetBuildpackBindingResult {
      */
     readonly type: string;
 }
-/**
- * Buildpack Binding Resource object
- */
+
 export function getBuildpackBindingOutput(args: GetBuildpackBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildpackBindingResult> {
-    return pulumi.output(args).apply((a: any) => getBuildpackBinding(a, opts))
+    return pulumi.output(args).apply(a => getBuildpackBinding(a, opts))
 }
 
 export interface GetBuildpackBindingOutputArgs {

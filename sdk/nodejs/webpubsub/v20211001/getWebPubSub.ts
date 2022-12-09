@@ -137,11 +137,9 @@ export interface GetWebPubSubResult {
      */
     readonly version: string;
 }
-/**
- * A class represent a resource.
- */
+
 export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubResult> {
-    return pulumi.output(args).apply((a: any) => getWebPubSub(a, opts))
+    return pulumi.output(args).apply(a => getWebPubSub(a, opts))
 }
 
 export interface GetWebPubSubOutputArgs {

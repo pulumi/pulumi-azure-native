@@ -44,12 +44,9 @@ export interface ListMobileNetworkSimIdsResult {
      */
     readonly value?: outputs.mobilenetwork.SubResourceResponse[];
 }
-/**
- * Response for list SIM IDs API service call.
- * API Version: 2022-04-01-preview.
- */
+
 export function listMobileNetworkSimIdsOutput(args: ListMobileNetworkSimIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMobileNetworkSimIdsResult> {
-    return pulumi.output(args).apply((a: any) => listMobileNetworkSimIds(a, opts))
+    return pulumi.output(args).apply(a => listMobileNetworkSimIds(a, opts))
 }
 
 export interface ListMobileNetworkSimIdsOutputArgs {

@@ -70,11 +70,9 @@ export interface GetLogProfileResult {
      */
     readonly type: string;
 }
-/**
- * The log profile resource.
- */
+
 export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
-    return pulumi.output(args).apply((a: any) => getLogProfile(a, opts))
+    return pulumi.output(args).apply(a => getLogProfile(a, opts))
 }
 
 export interface GetLogProfileOutputArgs {

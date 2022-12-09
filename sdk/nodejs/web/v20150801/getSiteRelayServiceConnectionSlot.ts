@@ -75,12 +75,9 @@ export interface GetSiteRelayServiceConnectionSlotResult {
      */
     readonly type?: string;
 }
-/**
- * Class that represents a BizTalk Hybrid Connection
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getSiteRelayServiceConnectionSlotOutput(args: GetSiteRelayServiceConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteRelayServiceConnectionSlotResult> {
-    return pulumi.output(args).apply((a: any) => getSiteRelayServiceConnectionSlot(a, opts))
+    return pulumi.output(args).apply(a => getSiteRelayServiceConnectionSlot(a, opts))
 }
 
 export interface GetSiteRelayServiceConnectionSlotOutputArgs {

@@ -86,12 +86,9 @@ export interface GetSnapshotPolicyResult {
      */
     readonly weeklySchedule?: outputs.netapp.v20200801.WeeklyScheduleResponse;
 }
-/**
- * Snapshot policy information
- */
-/** @deprecated Version 2020-08-01 will be removed in v2 of the provider. */
+
 export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshotPolicy(a, opts))
+    return pulumi.output(args).apply(a => getSnapshotPolicy(a, opts))
 }
 
 export interface GetSnapshotPolicyOutputArgs {

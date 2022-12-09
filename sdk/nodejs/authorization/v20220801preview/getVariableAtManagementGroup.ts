@@ -55,11 +55,9 @@ export interface GetVariableAtManagementGroupResult {
      */
     readonly type: string;
 }
-/**
- * The variable.
- */
+
 export function getVariableAtManagementGroupOutput(args: GetVariableAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableAtManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getVariableAtManagementGroup(a, opts))
+    return pulumi.output(args).apply(a => getVariableAtManagementGroup(a, opts))
 }
 
 export interface GetVariableAtManagementGroupOutputArgs {

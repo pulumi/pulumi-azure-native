@@ -83,11 +83,9 @@ export interface GetWorkspaceResult {
      */
     readonly usable: string;
 }
-/**
- * The resource proxy definition object for quantum workspace.
- */
+
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
 }
 
 export interface GetWorkspaceOutputArgs {

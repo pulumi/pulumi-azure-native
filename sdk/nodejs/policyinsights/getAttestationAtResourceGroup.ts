@@ -88,12 +88,9 @@ export interface GetAttestationAtResourceGroupResult {
      */
     readonly type: string;
 }
-/**
- * An attestation resource.
- * API Version: 2021-01-01.
- */
+
 export function getAttestationAtResourceGroupOutput(args: GetAttestationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getAttestationAtResourceGroup(a, opts))
+    return pulumi.output(args).apply(a => getAttestationAtResourceGroup(a, opts))
 }
 
 export interface GetAttestationAtResourceGroupOutputArgs {

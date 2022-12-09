@@ -111,12 +111,9 @@ export interface GetServiceResult {
      */
     readonly type: string;
 }
-/**
- * The service resource.
- */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
+
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    return pulumi.output(args).apply(a => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

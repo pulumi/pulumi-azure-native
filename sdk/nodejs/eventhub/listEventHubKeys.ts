@@ -71,12 +71,9 @@ export interface ListEventHubKeysResult {
      */
     readonly secondaryKey: string;
 }
-/**
- * Namespace/EventHub Connection String
- * API Version: 2017-04-01.
- */
+
 export function listEventHubKeysOutput(args: ListEventHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEventHubKeysResult> {
-    return pulumi.output(args).apply((a: any) => listEventHubKeys(a, opts))
+    return pulumi.output(args).apply(a => listEventHubKeys(a, opts))
 }
 
 export interface ListEventHubKeysOutputArgs {

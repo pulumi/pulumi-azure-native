@@ -65,11 +65,9 @@ export interface ListSiteAppSettingsSlotResult {
      */
     readonly type?: string;
 }
-/**
- * String dictionary resource
- */
+
 export function listSiteAppSettingsSlotOutput(args: ListSiteAppSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteAppSettingsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listSiteAppSettingsSlot(a, opts))
+    return pulumi.output(args).apply(a => listSiteAppSettingsSlot(a, opts))
 }
 
 export interface ListSiteAppSettingsSlotOutputArgs {

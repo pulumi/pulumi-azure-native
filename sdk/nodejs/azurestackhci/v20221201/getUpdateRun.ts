@@ -113,11 +113,9 @@ export interface GetUpdateRunResult {
      */
     readonly type: string;
 }
-/**
- * Details of an Update run
- */
+
 export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
-    return pulumi.output(args).apply((a: any) => getUpdateRun(a, opts))
+    return pulumi.output(args).apply(a => getUpdateRun(a, opts))
 }
 
 export interface GetUpdateRunOutputArgs {

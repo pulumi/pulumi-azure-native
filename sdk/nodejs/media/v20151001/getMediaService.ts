@@ -63,11 +63,9 @@ export interface GetMediaServiceResult {
      */
     readonly type: string;
 }
-/**
- * The properties of a Media Service resource.
- */
+
 export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaServiceResult> {
-    return pulumi.output(args).apply((a: any) => getMediaService(a, opts))
+    return pulumi.output(args).apply(a => getMediaService(a, opts))
 }
 
 export interface GetMediaServiceOutputArgs {

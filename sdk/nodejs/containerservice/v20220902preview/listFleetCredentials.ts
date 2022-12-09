@@ -39,11 +39,9 @@ export interface ListFleetCredentialsResult {
      */
     readonly kubeconfigs: outputs.containerservice.v20220902preview.FleetCredentialResultResponse[];
 }
-/**
- * The list credential result response.
- */
+
 export function listFleetCredentialsOutput(args: ListFleetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFleetCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listFleetCredentials(a, opts))
+    return pulumi.output(args).apply(a => listFleetCredentials(a, opts))
 }
 
 export interface ListFleetCredentialsOutputArgs {

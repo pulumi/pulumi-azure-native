@@ -62,11 +62,9 @@ export interface GetSubAccountTagRuleResult {
      */
     readonly type: string;
 }
-/**
- * Capture logs and metrics of Azure resources based on ARM tags.
- */
+
 export function getSubAccountTagRuleOutput(args: GetSubAccountTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountTagRuleResult> {
-    return pulumi.output(args).apply((a: any) => getSubAccountTagRule(a, opts))
+    return pulumi.output(args).apply(a => getSubAccountTagRule(a, opts))
 }
 
 export interface GetSubAccountTagRuleOutputArgs {

@@ -163,11 +163,9 @@ export interface GetManagedClusterResult {
      */
     readonly zonalResiliency?: boolean;
 }
-/**
- * The manged cluster resource
- */
+
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
-    return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))
+    return pulumi.output(args).apply(a => getManagedCluster(a, opts))
 }
 
 export interface GetManagedClusterOutputArgs {

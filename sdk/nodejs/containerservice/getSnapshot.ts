@@ -68,12 +68,9 @@ export interface GetSnapshotResult {
      */
     readonly type: string;
 }
-/**
- * A node pool snapshot resource.
- * API Version: 2021-08-01.
- */
+
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
+    return pulumi.output(args).apply(a => getSnapshot(a, opts))
 }
 
 export interface GetSnapshotOutputArgs {

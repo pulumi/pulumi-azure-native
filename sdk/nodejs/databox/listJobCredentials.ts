@@ -44,12 +44,9 @@ export interface ListJobCredentialsResult {
      */
     readonly value?: outputs.databox.UnencryptedCredentialsResponse[];
 }
-/**
- * List of unencrypted credentials for accessing device.
- * API Version: 2020-11-01.
- */
+
 export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listJobCredentials(a, opts))
+    return pulumi.output(args).apply(a => listJobCredentials(a, opts))
 }
 
 export interface ListJobCredentialsOutputArgs {

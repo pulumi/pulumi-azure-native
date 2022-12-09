@@ -64,11 +64,9 @@ export interface GetAccessPolicyResult {
      */
     readonly type: string;
 }
-/**
- * Policy that determines how a video can be accessed.
- */
+
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
+    return pulumi.output(args).apply(a => getAccessPolicy(a, opts))
 }
 
 export interface GetAccessPolicyOutputArgs {

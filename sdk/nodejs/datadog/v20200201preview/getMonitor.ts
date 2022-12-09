@@ -51,9 +51,9 @@ export interface GetMonitorResult {
      */
     readonly type: string;
 }
-/** @deprecated Version 2020-02-01-preview will be removed in v2 of the provider. */
+
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
+    return pulumi.output(args).apply(a => getMonitor(a, opts))
 }
 
 export interface GetMonitorOutputArgs {

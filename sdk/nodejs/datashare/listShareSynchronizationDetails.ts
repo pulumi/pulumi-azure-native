@@ -109,12 +109,9 @@ export interface ListShareSynchronizationDetailsResult {
      */
     readonly value: outputs.datashare.SynchronizationDetailsResponse[];
 }
-/**
- * details of synchronization
- * API Version: 2020-09-01.
- */
+
 export function listShareSynchronizationDetailsOutput(args: ListShareSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSynchronizationDetailsResult> {
-    return pulumi.output(args).apply((a: any) => listShareSynchronizationDetails(a, opts))
+    return pulumi.output(args).apply(a => listShareSynchronizationDetails(a, opts))
 }
 
 export interface ListShareSynchronizationDetailsOutputArgs {

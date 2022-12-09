@@ -88,12 +88,9 @@ export interface GetJitRequestResult {
      */
     readonly updatedBy: outputs.solutions.ApplicationClientDetailsResponse;
 }
-/**
- * Information about JIT request definition.
- * API Version: 2019-07-01.
- */
+
 export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitRequestResult> {
-    return pulumi.output(args).apply((a: any) => getJitRequest(a, opts))
+    return pulumi.output(args).apply(a => getJitRequest(a, opts))
 }
 
 export interface GetJitRequestOutputArgs {

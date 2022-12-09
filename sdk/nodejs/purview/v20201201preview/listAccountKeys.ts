@@ -40,11 +40,9 @@ export interface ListAccountKeysResult {
      */
     readonly atlasKafkaSecondaryEndpoint?: string;
 }
-/**
- * The Account access keys.
- */
+
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
-    return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))
+    return pulumi.output(args).apply(a => listAccountKeys(a, opts))
 }
 
 export interface ListAccountKeysOutputArgs {

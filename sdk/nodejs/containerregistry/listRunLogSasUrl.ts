@@ -46,12 +46,9 @@ export interface ListRunLogSasUrlResult {
      */
     readonly logLink?: string;
 }
-/**
- * The result of get log link operation.
- * API Version: 2019-06-01-preview.
- */
+
 export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
-    return pulumi.output(args).apply((a: any) => listRunLogSasUrl(a, opts))
+    return pulumi.output(args).apply(a => listRunLogSasUrl(a, opts))
 }
 
 export interface ListRunLogSasUrlOutputArgs {

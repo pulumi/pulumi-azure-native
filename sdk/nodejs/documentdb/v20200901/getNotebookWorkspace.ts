@@ -59,12 +59,9 @@ export interface GetNotebookWorkspaceResult {
      */
     readonly type: string;
 }
-/**
- * A notebook workspace resource
- */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+
 export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getNotebookWorkspace(a, opts))
+    return pulumi.output(args).apply(a => getNotebookWorkspace(a, opts))
 }
 
 export interface GetNotebookWorkspaceOutputArgs {

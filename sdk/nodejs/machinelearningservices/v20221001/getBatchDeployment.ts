@@ -79,8 +79,9 @@ export interface GetBatchDeploymentResult {
      */
     readonly type: string;
 }
+
 export function getBatchDeploymentOutput(args: GetBatchDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getBatchDeployment(a, opts))
+    return pulumi.output(args).apply(a => getBatchDeployment(a, opts))
 }
 
 export interface GetBatchDeploymentOutputArgs {

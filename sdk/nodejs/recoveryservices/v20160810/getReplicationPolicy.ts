@@ -62,12 +62,9 @@ export interface GetReplicationPolicyResult {
      */
     readonly type: string;
 }
-/**
- * Protection profile details.
- */
-/** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
+
 export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationPolicy(a, opts))
+    return pulumi.output(args).apply(a => getReplicationPolicy(a, opts))
 }
 
 export interface GetReplicationPolicyOutputArgs {

@@ -67,11 +67,9 @@ export interface GetEmailServiceResult {
      */
     readonly type: string;
 }
-/**
- * A class representing an EmailService resource.
- */
+
 export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {
-    return pulumi.output(args).apply((a: any) => getEmailService(a, opts))
+    return pulumi.output(args).apply(a => getEmailService(a, opts))
 }
 
 export interface GetEmailServiceOutputArgs {

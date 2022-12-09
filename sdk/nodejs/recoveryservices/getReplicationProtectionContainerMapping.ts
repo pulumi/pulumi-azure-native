@@ -71,12 +71,9 @@ export interface GetReplicationProtectionContainerMappingResult {
      */
     readonly type: string;
 }
-/**
- * Protection container mapping object.
- * API Version: 2018-07-10.
- */
+
 export function getReplicationProtectionContainerMappingOutput(args: GetReplicationProtectionContainerMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionContainerMappingResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationProtectionContainerMapping(a, opts))
+    return pulumi.output(args).apply(a => getReplicationProtectionContainerMapping(a, opts))
 }
 
 export interface GetReplicationProtectionContainerMappingOutputArgs {

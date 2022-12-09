@@ -65,12 +65,9 @@ export interface GetCustomerEventResult {
      */
     readonly type: string;
 }
-/**
- * The Customer Notification Event resource.
- * API Version: 2022-04-01-preview.
- */
+
 export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerEventResult> {
-    return pulumi.output(args).apply((a: any) => getCustomerEvent(a, opts))
+    return pulumi.output(args).apply(a => getCustomerEvent(a, opts))
 }
 
 export interface GetCustomerEventOutputArgs {

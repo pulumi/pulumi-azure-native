@@ -85,12 +85,9 @@ export interface GetEnvironmentResult {
      */
     readonly type: string;
 }
-/**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
- */
-/** @deprecated Version 2017-02-28-preview will be removed in v2 of the provider. */
+
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
+    return pulumi.output(args).apply(a => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {

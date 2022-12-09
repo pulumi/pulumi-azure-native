@@ -99,11 +99,9 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly visibility?: string;
 }
-/**
- * Maintenance configuration record type
- */
+
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getMaintenanceConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getMaintenanceConfiguration(a, opts))
 }
 
 export interface GetMaintenanceConfigurationOutputArgs {

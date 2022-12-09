@@ -108,12 +108,9 @@ export interface GetExpressRoutePortResult {
      */
     readonly type: string;
 }
-/**
- * ExpressRoutePort resource definition.
- * API Version: 2020-11-01.
- */
+
 export function getExpressRoutePortOutput(args: GetExpressRoutePortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortResult> {
-    return pulumi.output(args).apply((a: any) => getExpressRoutePort(a, opts))
+    return pulumi.output(args).apply(a => getExpressRoutePort(a, opts))
 }
 
 export interface GetExpressRoutePortOutputArgs {

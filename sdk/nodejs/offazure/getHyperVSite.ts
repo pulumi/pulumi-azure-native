@@ -61,12 +61,9 @@ export interface GetHyperVSiteResult {
      */
     readonly type: string;
 }
-/**
- * Site REST Resource.
- * API Version: 2020-01-01.
- */
+
 export function getHyperVSiteOutput(args: GetHyperVSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVSiteResult> {
-    return pulumi.output(args).apply((a: any) => getHyperVSite(a, opts))
+    return pulumi.output(args).apply(a => getHyperVSite(a, opts))
 }
 
 export interface GetHyperVSiteOutputArgs {

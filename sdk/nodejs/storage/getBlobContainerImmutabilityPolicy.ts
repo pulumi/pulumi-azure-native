@@ -71,12 +71,9 @@ export interface GetBlobContainerImmutabilityPolicyResult {
      */
     readonly type: string;
 }
-/**
- * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
- * API Version: 2021-02-01.
- */
+
 export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBlobContainerImmutabilityPolicy(a, opts))
+    return pulumi.output(args).apply(a => getBlobContainerImmutabilityPolicy(a, opts))
 }
 
 export interface GetBlobContainerImmutabilityPolicyOutputArgs {

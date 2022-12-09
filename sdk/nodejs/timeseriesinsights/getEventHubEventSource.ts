@@ -106,12 +106,9 @@ export interface GetEventHubEventSourceResult {
      */
     readonly type: string;
 }
-/**
- * An event source that receives its data from an Azure EventHub.
- * API Version: 2020-05-15.
- */
+
 export function getEventHubEventSourceOutput(args: GetEventHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubEventSourceResult> {
-    return pulumi.output(args).apply((a: any) => getEventHubEventSource(a, opts))
+    return pulumi.output(args).apply(a => getEventHubEventSource(a, opts))
 }
 
 export interface GetEventHubEventSourceOutputArgs {

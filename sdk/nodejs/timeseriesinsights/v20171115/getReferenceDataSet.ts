@@ -78,12 +78,9 @@ export interface GetReferenceDataSetResult {
      */
     readonly type: string;
 }
-/**
- * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
- */
-/** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
+
 export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getReferenceDataSet(a, opts))
+    return pulumi.output(args).apply(a => getReferenceDataSet(a, opts))
 }
 
 export interface GetReferenceDataSetOutputArgs {

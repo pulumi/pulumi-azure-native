@@ -60,12 +60,9 @@ export interface GetVaultResult {
      */
     readonly type: string;
 }
-/**
- * Resource information with extended details.
- * API Version: 2019-09-01.
- */
+
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
-    return pulumi.output(args).apply((a: any) => getVault(a, opts))
+    return pulumi.output(args).apply(a => getVault(a, opts))
 }
 
 export interface GetVaultOutputArgs {

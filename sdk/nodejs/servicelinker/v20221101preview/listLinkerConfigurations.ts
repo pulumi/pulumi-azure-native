@@ -39,11 +39,9 @@ export interface ListLinkerConfigurationsResult {
      */
     readonly configurations?: outputs.servicelinker.v20221101preview.SourceConfigurationResponse[];
 }
-/**
- * Configurations for source resource, include appSettings, connectionString and serviceBindings
- */
+
 export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLinkerConfigurationsResult> {
-    return pulumi.output(args).apply((a: any) => listLinkerConfigurations(a, opts))
+    return pulumi.output(args).apply(a => listLinkerConfigurations(a, opts))
 }
 
 export interface ListLinkerConfigurationsOutputArgs {

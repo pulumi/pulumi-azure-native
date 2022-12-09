@@ -42,12 +42,9 @@ export interface GetBuildLogLinkResult {
      */
     readonly logLink?: string;
 }
-/**
- * The result of get log link operation.
- * API Version: 2018-02-01-preview.
- */
+
 export function getBuildLogLinkOutput(args: GetBuildLogLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildLogLinkResult> {
-    return pulumi.output(args).apply((a: any) => getBuildLogLink(a, opts))
+    return pulumi.output(args).apply(a => getBuildLogLink(a, opts))
 }
 
 export interface GetBuildLogLinkOutputArgs {

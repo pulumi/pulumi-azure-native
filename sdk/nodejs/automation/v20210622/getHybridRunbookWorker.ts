@@ -85,11 +85,9 @@ export interface GetHybridRunbookWorkerResult {
      */
     readonly workerType?: string;
 }
-/**
- * Definition of hybrid runbook worker.
- */
+
 export function getHybridRunbookWorkerOutput(args: GetHybridRunbookWorkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerResult> {
-    return pulumi.output(args).apply((a: any) => getHybridRunbookWorker(a, opts))
+    return pulumi.output(args).apply(a => getHybridRunbookWorker(a, opts))
 }
 
 export interface GetHybridRunbookWorkerOutputArgs {

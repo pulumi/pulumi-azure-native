@@ -65,11 +65,9 @@ export interface GetSkusNestedResourceTypeThirdResult {
      */
     readonly type: string;
 }
-/**
- * API Version: 2020-11-20.
- */
+
 export function getSkusNestedResourceTypeThirdOutput(args: GetSkusNestedResourceTypeThirdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeThirdResult> {
-    return pulumi.output(args).apply((a: any) => getSkusNestedResourceTypeThird(a, opts))
+    return pulumi.output(args).apply(a => getSkusNestedResourceTypeThird(a, opts))
 }
 
 export interface GetSkusNestedResourceTypeThirdOutputArgs {

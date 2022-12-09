@@ -101,11 +101,9 @@ export interface GetStandardEnvironmentResult {
      */
     readonly type: string;
 }
-/**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Standard environments have data retention limits.
- */
+
 export function getStandardEnvironmentOutput(args: GetStandardEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getStandardEnvironment(a, opts))
+    return pulumi.output(args).apply(a => getStandardEnvironment(a, opts))
 }
 
 export interface GetStandardEnvironmentOutputArgs {

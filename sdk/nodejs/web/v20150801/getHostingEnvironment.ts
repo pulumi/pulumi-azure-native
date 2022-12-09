@@ -182,12 +182,9 @@ export interface GetHostingEnvironmentResult {
      */
     readonly workerPools?: outputs.web.v20150801.WorkerPoolResponse[];
 }
-/**
- * Description of an hostingEnvironment (App Service Environment)
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getHostingEnvironmentOutput(args: GetHostingEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostingEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getHostingEnvironment(a, opts))
+    return pulumi.output(args).apply(a => getHostingEnvironment(a, opts))
 }
 
 export interface GetHostingEnvironmentOutputArgs {

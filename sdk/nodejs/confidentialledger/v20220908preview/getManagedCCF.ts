@@ -63,11 +63,9 @@ export interface GetManagedCCFResult {
      */
     readonly type: string;
 }
-/**
- * Managed CCF. Contains the properties of Managed CCF Resource.
- */
+
 export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedCCFResult> {
-    return pulumi.output(args).apply((a: any) => getManagedCCF(a, opts))
+    return pulumi.output(args).apply(a => getManagedCCF(a, opts))
 }
 
 export interface GetManagedCCFOutputArgs {

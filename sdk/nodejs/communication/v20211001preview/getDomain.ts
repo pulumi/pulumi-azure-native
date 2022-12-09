@@ -100,11 +100,9 @@ export interface GetDomainResult {
      */
     readonly verificationStates: outputs.communication.v20211001preview.DomainPropertiesResponseVerificationStates;
 }
-/**
- * A class representing a Domains resource.
- */
+
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
+    return pulumi.output(args).apply(a => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

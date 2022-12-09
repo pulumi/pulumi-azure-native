@@ -53,11 +53,9 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Single item in a List or Get AuthorizationRule operation
- */
+
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
+    return pulumi.output(args).apply(a => getNamespaceAuthorizationRule(a, opts))
 }
 
 export interface GetNamespaceAuthorizationRuleOutputArgs {

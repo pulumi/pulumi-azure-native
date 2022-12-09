@@ -91,11 +91,9 @@ export interface GetLabPlanResult {
      */
     readonly type: string;
 }
-/**
- * Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
- */
+
 export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabPlanResult> {
-    return pulumi.output(args).apply((a: any) => getLabPlan(a, opts))
+    return pulumi.output(args).apply(a => getLabPlan(a, opts))
 }
 
 export interface GetLabPlanOutputArgs {

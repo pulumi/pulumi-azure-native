@@ -75,11 +75,9 @@ export interface GetAutoscaleSettingResult {
      */
     readonly type: string;
 }
-/**
- * The autoscale setting resource.
- */
+
 export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscaleSettingResult> {
-    return pulumi.output(args).apply((a: any) => getAutoscaleSetting(a, opts))
+    return pulumi.output(args).apply(a => getAutoscaleSetting(a, opts))
 }
 
 export interface GetAutoscaleSettingOutputArgs {

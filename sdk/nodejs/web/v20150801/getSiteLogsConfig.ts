@@ -77,12 +77,9 @@ export interface GetSiteLogsConfigResult {
      */
     readonly type?: string;
 }
-/**
- * Configuration of Azure web site
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getSiteLogsConfigOutput(args: GetSiteLogsConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteLogsConfigResult> {
-    return pulumi.output(args).apply((a: any) => getSiteLogsConfig(a, opts))
+    return pulumi.output(args).apply(a => getSiteLogsConfig(a, opts))
 }
 
 export interface GetSiteLogsConfigOutputArgs {

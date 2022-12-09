@@ -69,11 +69,9 @@ export interface GetHybridConnectionAuthorizationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Single item in a List or Get AuthorizationRule operation
- */
+
 export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getHybridConnectionAuthorizationRule(a, opts))
+    return pulumi.output(args).apply(a => getHybridConnectionAuthorizationRule(a, opts))
 }
 
 export interface GetHybridConnectionAuthorizationRuleOutputArgs {

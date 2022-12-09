@@ -74,12 +74,9 @@ export interface GetTIDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents threat intelligence data connector.
- * API Version: 2020-01-01.
- */
+
 export function getTIDataConnectorOutput(args: GetTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTIDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getTIDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getTIDataConnector(a, opts))
 }
 
 export interface GetTIDataConnectorOutputArgs {

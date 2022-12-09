@@ -72,12 +72,9 @@ export interface GetApiIssueAttachmentResult {
      */
     readonly type: string;
 }
-/**
- * Issue Attachment Contract details.
- * API Version: 2020-12-01.
- */
+
 export function getApiIssueAttachmentOutput(args: GetApiIssueAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueAttachmentResult> {
-    return pulumi.output(args).apply((a: any) => getApiIssueAttachment(a, opts))
+    return pulumi.output(args).apply(a => getApiIssueAttachment(a, opts))
 }
 
 export interface GetApiIssueAttachmentOutputArgs {

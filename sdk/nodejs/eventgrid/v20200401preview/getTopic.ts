@@ -93,11 +93,9 @@ export interface GetTopicResult {
      */
     readonly type: string;
 }
-/**
- * EventGrid Topic
- */
+
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
-    return pulumi.output(args).apply((a: any) => getTopic(a, opts))
+    return pulumi.output(args).apply(a => getTopic(a, opts))
 }
 
 export interface GetTopicOutputArgs {

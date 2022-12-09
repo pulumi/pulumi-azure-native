@@ -41,11 +41,9 @@ export interface ListControllerConnectionDetailsResult {
      */
     readonly connectionDetailsList?: outputs.devspaces.ControllerConnectionDetailsResponse[];
 }
-/**
- * API Version: 2019-04-01.
- */
+
 export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
-    return pulumi.output(args).apply((a: any) => listControllerConnectionDetails(a, opts))
+    return pulumi.output(args).apply(a => listControllerConnectionDetails(a, opts))
 }
 
 export interface ListControllerConnectionDetailsOutputArgs {

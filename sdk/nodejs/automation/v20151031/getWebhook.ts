@@ -96,11 +96,9 @@ export interface GetWebhookResult {
      */
     readonly uri?: string;
 }
-/**
- * Definition of the webhook type.
- */
+
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
-    return pulumi.output(args).apply((a: any) => getWebhook(a, opts))
+    return pulumi.output(args).apply(a => getWebhook(a, opts))
 }
 
 export interface GetWebhookOutputArgs {

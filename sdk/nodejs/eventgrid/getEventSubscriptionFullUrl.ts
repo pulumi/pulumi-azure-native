@@ -37,12 +37,9 @@ export interface GetEventSubscriptionFullUrlResult {
      */
     readonly endpointUrl?: string;
 }
-/**
- * Full endpoint url of an event subscription
- * API Version: 2020-06-01.
- */
+
 export function getEventSubscriptionFullUrlOutput(args: GetEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionFullUrlResult> {
-    return pulumi.output(args).apply((a: any) => getEventSubscriptionFullUrl(a, opts))
+    return pulumi.output(args).apply(a => getEventSubscriptionFullUrl(a, opts))
 }
 
 export interface GetEventSubscriptionFullUrlOutputArgs {

@@ -71,12 +71,9 @@ export interface GetPolicyDefinitionResult {
      */
     readonly type: string;
 }
-/**
- * The policy definition.
- * API Version: 2020-09-01.
- */
+
 export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyDefinition(a, opts))
+    return pulumi.output(args).apply(a => getPolicyDefinition(a, opts))
 }
 
 export interface GetPolicyDefinitionOutputArgs {

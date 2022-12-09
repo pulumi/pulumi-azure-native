@@ -63,11 +63,9 @@ export interface ListShareSynchronizationsResult {
      */
     readonly value: outputs.datashare.v20181101preview.ShareSynchronizationResponse[];
 }
-/**
- * List response for get ShareSynchronization.
- */
+
 export function listShareSynchronizationsOutput(args: ListShareSynchronizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSynchronizationsResult> {
-    return pulumi.output(args).apply((a: any) => listShareSynchronizations(a, opts))
+    return pulumi.output(args).apply(a => listShareSynchronizations(a, opts))
 }
 
 export interface ListShareSynchronizationsOutputArgs {

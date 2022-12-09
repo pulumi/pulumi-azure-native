@@ -77,12 +77,9 @@ export interface GetEmailTemplateResult {
      */
     readonly type: string;
 }
-/**
- * Email Template details.
- * API Version: 2020-12-01.
- */
+
 export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getEmailTemplate(a, opts))
+    return pulumi.output(args).apply(a => getEmailTemplate(a, opts))
 }
 
 export interface GetEmailTemplateOutputArgs {

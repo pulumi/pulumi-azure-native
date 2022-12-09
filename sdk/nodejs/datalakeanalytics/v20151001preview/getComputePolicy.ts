@@ -67,12 +67,9 @@ export interface GetComputePolicyResult {
      */
     readonly type: string;
 }
-/**
- * Data Lake Analytics compute policy information.
- */
-/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
+
 export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getComputePolicy(a, opts))
+    return pulumi.output(args).apply(a => getComputePolicy(a, opts))
 }
 
 export interface GetComputePolicyOutputArgs {

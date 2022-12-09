@@ -54,11 +54,9 @@ export interface GetManagedServerDnsAliasResult {
      */
     readonly type: string;
 }
-/**
- * A managed server DNS alias.
- */
+
 export function getManagedServerDnsAliasOutput(args: GetManagedServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedServerDnsAliasResult> {
-    return pulumi.output(args).apply((a: any) => getManagedServerDnsAlias(a, opts))
+    return pulumi.output(args).apply(a => getManagedServerDnsAlias(a, opts))
 }
 
 export interface GetManagedServerDnsAliasOutputArgs {

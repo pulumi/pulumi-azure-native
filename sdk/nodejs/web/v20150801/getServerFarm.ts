@@ -110,12 +110,9 @@ export interface GetServerFarmResult {
      */
     readonly workerTierName?: string;
 }
-/**
- * App Service Plan Model
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getServerFarmOutput(args: GetServerFarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerFarmResult> {
-    return pulumi.output(args).apply((a: any) => getServerFarm(a, opts))
+    return pulumi.output(args).apply(a => getServerFarm(a, opts))
 }
 
 export interface GetServerFarmOutputArgs {

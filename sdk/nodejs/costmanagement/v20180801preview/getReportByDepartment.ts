@@ -67,11 +67,9 @@ export interface GetReportByDepartmentResult {
      */
     readonly type: string;
 }
-/**
- * A report resource.
- */
+
 export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByDepartmentResult> {
-    return pulumi.output(args).apply((a: any) => getReportByDepartment(a, opts))
+    return pulumi.output(args).apply(a => getReportByDepartment(a, opts))
 }
 
 export interface GetReportByDepartmentOutputArgs {

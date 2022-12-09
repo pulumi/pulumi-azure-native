@@ -71,11 +71,9 @@ export interface GetPostgresInstanceResult {
      */
     readonly type: string;
 }
-/**
- * A Postgres Instance.
- */
+
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getPostgresInstance(a, opts))
+    return pulumi.output(args).apply(a => getPostgresInstance(a, opts))
 }
 
 export interface GetPostgresInstanceOutputArgs {

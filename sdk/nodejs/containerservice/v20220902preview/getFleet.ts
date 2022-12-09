@@ -71,11 +71,9 @@ export interface GetFleetResult {
      */
     readonly type: string;
 }
-/**
- * The Fleet resource which contains multiple Kubernetes clusters as its members.
- */
+
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
-    return pulumi.output(args).apply((a: any) => getFleet(a, opts))
+    return pulumi.output(args).apply(a => getFleet(a, opts))
 }
 
 export interface GetFleetOutputArgs {

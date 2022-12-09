@@ -105,11 +105,9 @@ export interface GetStudentResult {
      */
     readonly type: string;
 }
-/**
- * Student details.
- */
+
 export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudentResult> {
-    return pulumi.output(args).apply((a: any) => getStudent(a, opts))
+    return pulumi.output(args).apply(a => getStudent(a, opts))
 }
 
 export interface GetStudentOutputArgs {

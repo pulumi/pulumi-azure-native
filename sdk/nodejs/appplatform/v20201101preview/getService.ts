@@ -63,11 +63,9 @@ export interface GetServiceResult {
      */
     readonly type: string;
 }
-/**
- * Service resource
- */
+
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    return pulumi.output(args).apply(a => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

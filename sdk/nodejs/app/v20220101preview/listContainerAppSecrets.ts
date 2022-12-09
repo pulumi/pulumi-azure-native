@@ -39,11 +39,9 @@ export interface ListContainerAppSecretsResult {
      */
     readonly value: outputs.app.v20220101preview.ContainerAppSecretResponse[];
 }
-/**
- * Container App Secrets Collection ARM resource.
- */
+
 export function listContainerAppSecretsOutput(args: ListContainerAppSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listContainerAppSecrets(a, opts))
+    return pulumi.output(args).apply(a => listContainerAppSecrets(a, opts))
 }
 
 export interface ListContainerAppSecretsOutputArgs {

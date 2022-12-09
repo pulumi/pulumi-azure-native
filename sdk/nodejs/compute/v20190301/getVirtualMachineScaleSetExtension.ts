@@ -88,12 +88,9 @@ export interface GetVirtualMachineScaleSetExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
-/**
- * Describes a Virtual Machine Scale Set Extension.
- */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
+
 export function getVirtualMachineScaleSetExtensionOutput(args: GetVirtualMachineScaleSetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetExtension(a, opts))
+    return pulumi.output(args).apply(a => getVirtualMachineScaleSetExtension(a, opts))
 }
 
 export interface GetVirtualMachineScaleSetExtensionOutputArgs {

@@ -85,12 +85,9 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-/**
- * The Private Endpoint Connection resource.
- * API Version: 2021-01-01.
- */
+
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionOutputArgs {

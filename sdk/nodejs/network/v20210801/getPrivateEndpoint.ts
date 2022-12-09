@@ -104,11 +104,9 @@ export interface GetPrivateEndpointResult {
      */
     readonly type: string;
 }
-/**
- * Private endpoint resource.
- */
+
 export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getPrivateEndpoint(a, opts))
 }
 
 export interface GetPrivateEndpointOutputArgs {

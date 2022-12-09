@@ -54,12 +54,9 @@ export interface GetManagementLockAtResourceGroupLevelResult {
      */
     readonly type: string;
 }
-/**
- * Management lock information.
- */
-/** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
+
 export function getManagementLockAtResourceGroupLevelOutput(args: GetManagementLockAtResourceGroupLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceGroupLevelResult> {
-    return pulumi.output(args).apply((a: any) => getManagementLockAtResourceGroupLevel(a, opts))
+    return pulumi.output(args).apply(a => getManagementLockAtResourceGroupLevel(a, opts))
 }
 
 export interface GetManagementLockAtResourceGroupLevelOutputArgs {

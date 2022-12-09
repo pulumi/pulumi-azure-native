@@ -48,11 +48,9 @@ export interface ListNetworkManagerEffectiveSecurityAdminRulesResult {
      */
     readonly value?: (outputs.network.v20220201preview.EffectiveDefaultSecurityAdminRuleResponse | outputs.network.v20220201preview.EffectiveSecurityAdminRuleResponse)[];
 }
-/**
- * Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
- */
+
 export function listNetworkManagerEffectiveSecurityAdminRulesOutput(args: ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveSecurityAdminRulesResult> {
-    return pulumi.output(args).apply((a: any) => listNetworkManagerEffectiveSecurityAdminRules(a, opts))
+    return pulumi.output(args).apply(a => listNetworkManagerEffectiveSecurityAdminRules(a, opts))
 }
 
 export interface ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs {

@@ -88,11 +88,9 @@ export interface GetVirtualRouterResult {
      */
     readonly virtualRouterIps?: string[];
 }
-/**
- * VirtualRouter Resource.
- */
+
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualRouter(a, opts))
+    return pulumi.output(args).apply(a => getVirtualRouter(a, opts))
 }
 
 export interface GetVirtualRouterOutputArgs {

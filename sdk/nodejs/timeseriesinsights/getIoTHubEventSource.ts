@@ -102,12 +102,9 @@ export interface GetIoTHubEventSourceResult {
      */
     readonly type: string;
 }
-/**
- * An event source that receives its data from an Azure IoTHub.
- * API Version: 2020-05-15.
- */
+
 export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTHubEventSourceResult> {
-    return pulumi.output(args).apply((a: any) => getIoTHubEventSource(a, opts))
+    return pulumi.output(args).apply(a => getIoTHubEventSource(a, opts))
 }
 
 export interface GetIoTHubEventSourceOutputArgs {

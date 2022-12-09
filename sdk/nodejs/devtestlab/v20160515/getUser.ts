@@ -87,12 +87,9 @@ export interface GetUserResult {
      */
     readonly uniqueIdentifier?: string;
 }
-/**
- * Profile of a lab user.
- */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
+
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply((a: any) => getUser(a, opts))
+    return pulumi.output(args).apply(a => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {

@@ -100,11 +100,9 @@ export interface GetkustoPoolResult {
      */
     readonly workspaceUid?: string;
 }
-/**
- * Class representing a Kusto kusto pool.
- */
+
 export function getkustoPoolOutput(args: GetkustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetkustoPoolResult> {
-    return pulumi.output(args).apply((a: any) => getkustoPool(a, opts))
+    return pulumi.output(args).apply(a => getkustoPool(a, opts))
 }
 
 export interface GetkustoPoolOutputArgs {

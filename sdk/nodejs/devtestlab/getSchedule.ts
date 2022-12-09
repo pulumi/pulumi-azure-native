@@ -110,12 +110,9 @@ export interface GetScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.WeekDetailsResponse;
 }
-/**
- * A schedule.
- * API Version: 2018-09-15.
- */
+
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
+    return pulumi.output(args).apply(a => getSchedule(a, opts))
 }
 
 export interface GetScheduleOutputArgs {

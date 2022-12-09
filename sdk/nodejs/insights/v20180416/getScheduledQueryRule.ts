@@ -107,11 +107,9 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly type: string;
 }
-/**
- * The Log Search Rule resource.
- */
+
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
-    return pulumi.output(args).apply((a: any) => getScheduledQueryRule(a, opts))
+    return pulumi.output(args).apply(a => getScheduledQueryRule(a, opts))
 }
 
 export interface GetScheduledQueryRuleOutputArgs {

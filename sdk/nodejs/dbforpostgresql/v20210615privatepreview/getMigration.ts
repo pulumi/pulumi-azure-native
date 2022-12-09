@@ -104,11 +104,9 @@ export interface GetMigrationResult {
     readonly type: string;
     readonly userAssignedIdentityResourceId?: string;
 }
-/**
- * Represents a migration resource.
- */
+
 export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationResult> {
-    return pulumi.output(args).apply((a: any) => getMigration(a, opts))
+    return pulumi.output(args).apply(a => getMigration(a, opts))
 }
 
 export interface GetMigrationOutputArgs {

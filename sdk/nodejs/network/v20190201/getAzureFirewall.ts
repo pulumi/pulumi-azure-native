@@ -83,11 +83,9 @@ export interface GetAzureFirewallResult {
      */
     readonly type: string;
 }
-/**
- * Azure Firewall resource
- */
+
 export function getAzureFirewallOutput(args: GetAzureFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureFirewallResult> {
-    return pulumi.output(args).apply((a: any) => getAzureFirewall(a, opts))
+    return pulumi.output(args).apply(a => getAzureFirewall(a, opts))
 }
 
 export interface GetAzureFirewallOutputArgs {

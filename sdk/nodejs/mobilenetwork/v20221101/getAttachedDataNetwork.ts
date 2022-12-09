@@ -98,11 +98,9 @@ export interface GetAttachedDataNetworkResult {
      */
     readonly userPlaneDataInterface: outputs.mobilenetwork.v20221101.InterfacePropertiesResponse;
 }
-/**
- * Attached data network resource. Must be created in the same location as its parent packet core data plane.
- */
+
 export function getAttachedDataNetworkOutput(args: GetAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDataNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getAttachedDataNetwork(a, opts))
+    return pulumi.output(args).apply(a => getAttachedDataNetwork(a, opts))
 }
 
 export interface GetAttachedDataNetworkOutputArgs {

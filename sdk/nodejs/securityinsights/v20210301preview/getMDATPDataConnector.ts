@@ -78,11 +78,9 @@ export interface GetMDATPDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
- */
+
 export function getMDATPDataConnectorOutput(args: GetMDATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMDATPDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getMDATPDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getMDATPDataConnector(a, opts))
 }
 
 export interface GetMDATPDataConnectorOutputArgs {

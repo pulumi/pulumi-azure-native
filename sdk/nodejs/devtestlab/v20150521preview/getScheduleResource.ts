@@ -90,12 +90,9 @@ export interface GetScheduleResourceResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20150521preview.WeekDetailsResponse;
 }
-/**
- * A schedule.
- */
-/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
+
 export function getScheduleResourceOutput(args: GetScheduleResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResourceResult> {
-    return pulumi.output(args).apply((a: any) => getScheduleResource(a, opts))
+    return pulumi.output(args).apply(a => getScheduleResource(a, opts))
 }
 
 export interface GetScheduleResourceOutputArgs {

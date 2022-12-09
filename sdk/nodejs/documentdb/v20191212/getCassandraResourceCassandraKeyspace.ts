@@ -63,12 +63,9 @@ export interface GetCassandraResourceCassandraKeyspaceResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB Cassandra keyspace.
- */
-/** @deprecated Version 2019-12-12 will be removed in v2 of the provider. */
+
 export function getCassandraResourceCassandraKeyspaceOutput(args: GetCassandraResourceCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraKeyspaceResult> {
-    return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraKeyspace(a, opts))
+    return pulumi.output(args).apply(a => getCassandraResourceCassandraKeyspace(a, opts))
 }
 
 export interface GetCassandraResourceCassandraKeyspaceOutputArgs {

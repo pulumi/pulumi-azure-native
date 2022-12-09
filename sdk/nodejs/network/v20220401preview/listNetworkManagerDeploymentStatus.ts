@@ -58,11 +58,9 @@ export interface ListNetworkManagerDeploymentStatusResult {
      */
     readonly value?: outputs.network.v20220401preview.NetworkManagerDeploymentStatusResponse[];
 }
-/**
- * A list of Network Manager Deployment Status
- */
+
 export function listNetworkManagerDeploymentStatusOutput(args: ListNetworkManagerDeploymentStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerDeploymentStatusResult> {
-    return pulumi.output(args).apply((a: any) => listNetworkManagerDeploymentStatus(a, opts))
+    return pulumi.output(args).apply(a => listNetworkManagerDeploymentStatus(a, opts))
 }
 
 export interface ListNetworkManagerDeploymentStatusOutputArgs {

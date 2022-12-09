@@ -57,12 +57,9 @@ export interface GetTableServicePropertiesResult {
      */
     readonly type: string;
 }
-/**
- * The properties of a storage account’s Table service.
- * API Version: 2021-02-01.
- */
+
 export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableServicePropertiesResult> {
-    return pulumi.output(args).apply((a: any) => getTableServiceProperties(a, opts))
+    return pulumi.output(args).apply(a => getTableServiceProperties(a, opts))
 }
 
 export interface GetTableServicePropertiesOutputArgs {

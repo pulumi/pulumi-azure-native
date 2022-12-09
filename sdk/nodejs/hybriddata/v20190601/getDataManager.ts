@@ -66,11 +66,9 @@ export interface GetDataManagerResult {
      */
     readonly type: string;
 }
-/**
- * The DataManager resource.
- */
+
 export function getDataManagerOutput(args: GetDataManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataManagerResult> {
-    return pulumi.output(args).apply((a: any) => getDataManager(a, opts))
+    return pulumi.output(args).apply(a => getDataManager(a, opts))
 }
 
 export interface GetDataManagerOutputArgs {

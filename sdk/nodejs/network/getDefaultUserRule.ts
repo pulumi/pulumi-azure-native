@@ -116,12 +116,9 @@ export interface GetDefaultUserRuleResult {
      */
     readonly type: string;
 }
-/**
- * Network security default user rule.
- * API Version: 2021-02-01-preview.
- */
+
 export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultUserRuleResult> {
-    return pulumi.output(args).apply((a: any) => getDefaultUserRule(a, opts))
+    return pulumi.output(args).apply(a => getDefaultUserRule(a, opts))
 }
 
 export interface GetDefaultUserRuleOutputArgs {

@@ -109,12 +109,9 @@ export interface GetModuleResult {
      */
     readonly version?: string;
 }
-/**
- * Definition of the module type.
- * API Version: 2019-06-01.
- */
+
 export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleResult> {
-    return pulumi.output(args).apply((a: any) => getModule(a, opts))
+    return pulumi.output(args).apply(a => getModule(a, opts))
 }
 
 export interface GetModuleOutputArgs {

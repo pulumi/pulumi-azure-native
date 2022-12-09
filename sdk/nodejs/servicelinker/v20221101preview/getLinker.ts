@@ -87,11 +87,9 @@ export interface GetLinkerResult {
      */
     readonly vNetSolution?: outputs.servicelinker.v20221101preview.VNetSolutionResponse;
 }
-/**
- * Linker of source and target resource
- */
+
 export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
-    return pulumi.output(args).apply((a: any) => getLinker(a, opts))
+    return pulumi.output(args).apply(a => getLinker(a, opts))
 }
 
 export interface GetLinkerOutputArgs {

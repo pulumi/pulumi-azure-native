@@ -84,12 +84,9 @@ export interface GetADCCatalogResult {
      */
     readonly users?: outputs.datacatalog.PrincipalsResponse[];
 }
-/**
- * Azure Data Catalog.
- * API Version: 2016-03-30.
- */
+
 export function getADCCatalogOutput(args: GetADCCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADCCatalogResult> {
-    return pulumi.output(args).apply((a: any) => getADCCatalog(a, opts))
+    return pulumi.output(args).apply(a => getADCCatalog(a, opts))
 }
 
 export interface GetADCCatalogOutputArgs {

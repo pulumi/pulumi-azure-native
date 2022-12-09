@@ -72,11 +72,9 @@ export interface GetWebPubSubPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-/**
- * A private endpoint connection to an azure resource
- */
+
 export function getWebPubSubPrivateEndpointConnectionOutput(args: GetWebPubSubPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getWebPubSubPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply(a => getWebPubSubPrivateEndpointConnection(a, opts))
 }
 
 export interface GetWebPubSubPrivateEndpointConnectionOutputArgs {

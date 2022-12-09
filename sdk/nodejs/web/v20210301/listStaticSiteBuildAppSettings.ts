@@ -57,11 +57,9 @@ export interface ListStaticSiteBuildAppSettingsResult {
      */
     readonly type: string;
 }
-/**
- * String dictionary resource.
- */
+
 export function listStaticSiteBuildAppSettingsOutput(args: ListStaticSiteBuildAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteBuildAppSettingsResult> {
-    return pulumi.output(args).apply((a: any) => listStaticSiteBuildAppSettings(a, opts))
+    return pulumi.output(args).apply(a => listStaticSiteBuildAppSettings(a, opts))
 }
 
 export interface ListStaticSiteBuildAppSettingsOutputArgs {

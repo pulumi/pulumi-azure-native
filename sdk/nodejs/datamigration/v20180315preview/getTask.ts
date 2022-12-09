@@ -72,12 +72,9 @@ export interface GetTaskResult {
      */
     readonly type: string;
 }
-/**
- * A task resource
- */
-/** @deprecated Version 2018-03-15-preview will be removed in v2 of the provider. */
+
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
-    return pulumi.output(args).apply((a: any) => getTask(a, opts))
+    return pulumi.output(args).apply(a => getTask(a, opts))
 }
 
 export interface GetTaskOutputArgs {

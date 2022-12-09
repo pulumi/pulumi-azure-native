@@ -69,11 +69,9 @@ export interface GetVariableResult {
      */
     readonly value?: string;
 }
-/**
- * Definition of the variable.
- */
+
 export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
-    return pulumi.output(args).apply((a: any) => getVariable(a, opts))
+    return pulumi.output(args).apply(a => getVariable(a, opts))
 }
 
 export interface GetVariableOutputArgs {

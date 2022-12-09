@@ -71,12 +71,9 @@ export interface ListQueueKeysResult {
      */
     readonly secondaryKey: string;
 }
-/**
- * Namespace/ServiceBus Connection String
- * API Version: 2017-04-01.
- */
+
 export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueueKeysResult> {
-    return pulumi.output(args).apply((a: any) => listQueueKeys(a, opts))
+    return pulumi.output(args).apply(a => listQueueKeys(a, opts))
 }
 
 export interface ListQueueKeysOutputArgs {

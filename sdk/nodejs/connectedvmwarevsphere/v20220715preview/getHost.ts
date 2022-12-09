@@ -107,11 +107,9 @@ export interface GetHostResult {
      */
     readonly vCenterId?: string;
 }
-/**
- * Define the host.
- */
+
 export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
-    return pulumi.output(args).apply((a: any) => getHost(a, opts))
+    return pulumi.output(args).apply(a => getHost(a, opts))
 }
 
 export interface GetHostOutputArgs {

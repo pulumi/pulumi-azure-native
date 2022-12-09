@@ -112,11 +112,9 @@ export interface GetScriptExecutionLogsResult {
      */
     readonly warnings: string[];
 }
-/**
- * An instance of a script executed by a user - custom or AVS
- */
+
 export function getScriptExecutionLogsOutput(args: GetScriptExecutionLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionLogsResult> {
-    return pulumi.output(args).apply((a: any) => getScriptExecutionLogs(a, opts))
+    return pulumi.output(args).apply(a => getScriptExecutionLogs(a, opts))
 }
 
 export interface GetScriptExecutionLogsOutputArgs {

@@ -75,11 +75,9 @@ export interface GetSimGroupResult {
      */
     readonly type: string;
 }
-/**
- * SIM group resource.
- */
+
 export function getSimGroupOutput(args: GetSimGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSimGroup(a, opts))
+    return pulumi.output(args).apply(a => getSimGroup(a, opts))
 }
 
 export interface GetSimGroupOutputArgs {

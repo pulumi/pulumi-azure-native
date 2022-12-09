@@ -91,11 +91,9 @@ export interface GetDataCollectionEndpointResult {
      */
     readonly type: string;
 }
-/**
- * Definition of ARM tracked top level resource.
- */
+
 export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getDataCollectionEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getDataCollectionEndpoint(a, opts))
 }
 
 export interface GetDataCollectionEndpointOutputArgs {

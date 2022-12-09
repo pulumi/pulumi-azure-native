@@ -81,11 +81,9 @@ export interface GetPredictionModelStatusResult {
      */
     readonly validationSetCount: number;
 }
-/**
- * The prediction model status.
- */
+
 export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionModelStatusResult> {
-    return pulumi.output(args).apply((a: any) => getPredictionModelStatus(a, opts))
+    return pulumi.output(args).apply(a => getPredictionModelStatus(a, opts))
 }
 
 export interface GetPredictionModelStatusOutputArgs {

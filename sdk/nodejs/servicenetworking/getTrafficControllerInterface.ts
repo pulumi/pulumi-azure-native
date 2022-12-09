@@ -76,12 +76,9 @@ export interface GetTrafficControllerInterfaceResult {
      */
     readonly type: string;
 }
-/**
- * Concrete tracked resource types can be created by aliasing this type using a specific property type.
- * API Version: 2022-10-01-preview.
- */
+
 export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getTrafficControllerInterface(a, opts))
+    return pulumi.output(args).apply(a => getTrafficControllerInterface(a, opts))
 }
 
 export interface GetTrafficControllerInterfaceOutputArgs {

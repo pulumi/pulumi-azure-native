@@ -57,11 +57,9 @@ export interface GetBackupPolicyResult {
      */
     readonly type: string;
 }
-/**
- * BaseBackupPolicy resource
- */
+
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
+    return pulumi.output(args).apply(a => getBackupPolicy(a, opts))
 }
 
 export interface GetBackupPolicyOutputArgs {

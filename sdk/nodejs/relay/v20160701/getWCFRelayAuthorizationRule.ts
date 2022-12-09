@@ -60,12 +60,9 @@ export interface GetWCFRelayAuthorizationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Description of a Namespace AuthorizationRules.
- */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
+
 export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getWCFRelayAuthorizationRule(a, opts))
+    return pulumi.output(args).apply(a => getWCFRelayAuthorizationRule(a, opts))
 }
 
 export interface GetWCFRelayAuthorizationRuleOutputArgs {

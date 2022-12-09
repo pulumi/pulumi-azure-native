@@ -62,12 +62,9 @@ export interface GetWorkspaceSqlAadAdminResult {
      */
     readonly type: string;
 }
-/**
- * Workspace active directory administrator
- */
-/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
+
 export function getWorkspaceSqlAadAdminOutput(args: GetWorkspaceSqlAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSqlAadAdminResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceSqlAadAdmin(a, opts))
+    return pulumi.output(args).apply(a => getWorkspaceSqlAadAdmin(a, opts))
 }
 
 export interface GetWorkspaceSqlAadAdminOutputArgs {

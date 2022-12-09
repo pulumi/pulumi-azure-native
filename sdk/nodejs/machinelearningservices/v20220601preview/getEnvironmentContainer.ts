@@ -60,11 +60,9 @@ export interface GetEnvironmentContainerResult {
      */
     readonly type: string;
 }
-/**
- * Azure Resource Manager resource envelope.
- */
+
 export function getEnvironmentContainerOutput(args: GetEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentContainerResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironmentContainer(a, opts))
+    return pulumi.output(args).apply(a => getEnvironmentContainer(a, opts))
 }
 
 export interface GetEnvironmentContainerOutputArgs {

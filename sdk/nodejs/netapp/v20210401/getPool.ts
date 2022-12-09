@@ -97,11 +97,9 @@ export interface GetPoolResult {
      */
     readonly utilizedThroughputMibps: number;
 }
-/**
- * Capacity pool resource
- */
+
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    return pulumi.output(args).apply((a: any) => getPool(a, opts))
+    return pulumi.output(args).apply(a => getPool(a, opts))
 }
 
 export interface GetPoolOutputArgs {

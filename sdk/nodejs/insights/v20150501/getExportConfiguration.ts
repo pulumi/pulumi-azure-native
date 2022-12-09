@@ -113,11 +113,9 @@ export interface GetExportConfigurationResult {
      */
     readonly subscriptionId: string;
 }
-/**
- * Properties that define a Continuous Export configuration.
- */
+
 export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getExportConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getExportConfiguration(a, opts))
 }
 
 export interface GetExportConfigurationOutputArgs {

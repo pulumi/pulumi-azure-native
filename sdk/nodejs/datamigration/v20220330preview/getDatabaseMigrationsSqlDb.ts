@@ -58,11 +58,9 @@ export interface GetDatabaseMigrationsSqlDbResult {
     readonly systemData: outputs.datamigration.v20220330preview.SystemDataResponse;
     readonly type: string;
 }
-/**
- * Database Migration Resource for SQL Database.
- */
+
 export function getDatabaseMigrationsSqlDbOutput(args: GetDatabaseMigrationsSqlDbOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationsSqlDbResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseMigrationsSqlDb(a, opts))
+    return pulumi.output(args).apply(a => getDatabaseMigrationsSqlDb(a, opts))
 }
 
 export interface GetDatabaseMigrationsSqlDbOutputArgs {

@@ -80,11 +80,9 @@ export interface GetSourceControlResult {
      */
     readonly type: string;
 }
-/**
- * Represents a SourceControl in Azure Security Insights.
- */
+
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
-    return pulumi.output(args).apply((a: any) => getSourceControl(a, opts))
+    return pulumi.output(args).apply(a => getSourceControl(a, opts))
 }
 
 export interface GetSourceControlOutputArgs {

@@ -42,8 +42,9 @@ export interface GetMonitorDefaultKeyResult {
      */
     readonly name?: string;
 }
+
 export function getMonitorDefaultKeyOutput(args: GetMonitorDefaultKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorDefaultKeyResult> {
-    return pulumi.output(args).apply((a: any) => getMonitorDefaultKey(a, opts))
+    return pulumi.output(args).apply(a => getMonitorDefaultKey(a, opts))
 }
 
 export interface GetMonitorDefaultKeyOutputArgs {

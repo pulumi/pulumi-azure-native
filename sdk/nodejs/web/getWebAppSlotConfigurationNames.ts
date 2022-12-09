@@ -61,12 +61,9 @@ export interface GetWebAppSlotConfigurationNamesResult {
      */
     readonly type: string;
 }
-/**
- * Slot Config names azure resource.
- * API Version: 2020-12-01.
- */
+
 export function getWebAppSlotConfigurationNamesOutput(args: GetWebAppSlotConfigurationNamesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotConfigurationNamesResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppSlotConfigurationNames(a, opts))
+    return pulumi.output(args).apply(a => getWebAppSlotConfigurationNames(a, opts))
 }
 
 export interface GetWebAppSlotConfigurationNamesOutputArgs {

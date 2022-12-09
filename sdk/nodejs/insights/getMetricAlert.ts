@@ -108,12 +108,9 @@ export interface GetMetricAlertResult {
      */
     readonly windowSize: string;
 }
-/**
- * The metric alert resource.
- * API Version: 2018-03-01.
- */
+
 export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricAlertResult> {
-    return pulumi.output(args).apply((a: any) => getMetricAlert(a, opts))
+    return pulumi.output(args).apply(a => getMetricAlert(a, opts))
 }
 
 export interface GetMetricAlertOutputArgs {

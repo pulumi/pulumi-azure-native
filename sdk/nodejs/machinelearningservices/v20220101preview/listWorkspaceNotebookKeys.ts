@@ -28,8 +28,9 @@ export interface ListWorkspaceNotebookKeysResult {
     readonly primaryAccessKey: string;
     readonly secondaryAccessKey: string;
 }
+
 export function listWorkspaceNotebookKeysOutput(args: ListWorkspaceNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWorkspaceNotebookKeys(a, opts))
+    return pulumi.output(args).apply(a => listWorkspaceNotebookKeys(a, opts))
 }
 
 export interface ListWorkspaceNotebookKeysOutputArgs {

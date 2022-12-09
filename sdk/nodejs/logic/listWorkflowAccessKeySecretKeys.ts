@@ -42,11 +42,9 @@ export interface ListWorkflowAccessKeySecretKeysResult {
      */
     readonly secondarySecretKey: string;
 }
-/**
- * API Version: 2015-02-01-preview.
- */
+
 export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWorkflowAccessKeySecretKeys(a, opts))
+    return pulumi.output(args).apply(a => listWorkflowAccessKeySecretKeys(a, opts))
 }
 
 export interface ListWorkflowAccessKeySecretKeysOutputArgs {

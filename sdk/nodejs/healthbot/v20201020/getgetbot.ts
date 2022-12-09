@@ -69,12 +69,9 @@ export interface GetgetbotResult {
      */
     readonly type: string;
 }
-/**
- * Bot resource definition
- */
-/** @deprecated Version 2020-10-20 will be removed in v2 of the provider. */
+
 export function getgetbotOutput(args: GetgetbotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgetbotResult> {
-    return pulumi.output(args).apply((a: any) => getgetbot(a, opts))
+    return pulumi.output(args).apply(a => getgetbot(a, opts))
 }
 
 export interface GetgetbotOutputArgs {

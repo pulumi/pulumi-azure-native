@@ -68,11 +68,9 @@ export interface GetFirewallPolicyRuleGroupResult {
      */
     readonly type: string;
 }
-/**
- * Rule Group resource.
- */
+
 export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallPolicyRuleGroup(a, opts))
+    return pulumi.output(args).apply(a => getFirewallPolicyRuleGroup(a, opts))
 }
 
 export interface GetFirewallPolicyRuleGroupOutputArgs {

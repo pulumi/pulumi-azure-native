@@ -56,11 +56,9 @@ export interface GetServiceTopologyResult {
      */
     readonly type: string;
 }
-/**
- * The resource representation of a service topology.
- */
+
 export function getServiceTopologyOutput(args: GetServiceTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTopologyResult> {
-    return pulumi.output(args).apply((a: any) => getServiceTopology(a, opts))
+    return pulumi.output(args).apply(a => getServiceTopology(a, opts))
 }
 
 export interface GetServiceTopologyOutputArgs {

@@ -92,11 +92,9 @@ export interface GetStreamingLocatorResult {
      */
     readonly type: string;
 }
-/**
- * A Streaming Locator resource
- */
+
 export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingLocatorResult> {
-    return pulumi.output(args).apply((a: any) => getStreamingLocator(a, opts))
+    return pulumi.output(args).apply(a => getStreamingLocator(a, opts))
 }
 
 export interface GetStreamingLocatorOutputArgs {

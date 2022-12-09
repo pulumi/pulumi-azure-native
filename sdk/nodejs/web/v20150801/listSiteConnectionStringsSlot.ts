@@ -68,11 +68,9 @@ export interface ListSiteConnectionStringsSlotResult {
      */
     readonly type?: string;
 }
-/**
- * String dictionary resource
- */
+
 export function listSiteConnectionStringsSlotOutput(args: ListSiteConnectionStringsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteConnectionStringsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listSiteConnectionStringsSlot(a, opts))
+    return pulumi.output(args).apply(a => listSiteConnectionStringsSlot(a, opts))
 }
 
 export interface ListSiteConnectionStringsSlotOutputArgs {

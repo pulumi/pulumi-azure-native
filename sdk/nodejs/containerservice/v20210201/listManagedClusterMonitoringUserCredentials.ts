@@ -39,11 +39,9 @@ export interface ListManagedClusterMonitoringUserCredentialsResult {
      */
     readonly kubeconfigs: outputs.containerservice.v20210201.CredentialResultResponse[];
 }
-/**
- * The list of credential result response.
- */
+
 export function listManagedClusterMonitoringUserCredentialsOutput(args: ListManagedClusterMonitoringUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterMonitoringUserCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listManagedClusterMonitoringUserCredentials(a, opts))
+    return pulumi.output(args).apply(a => listManagedClusterMonitoringUserCredentials(a, opts))
 }
 
 export interface ListManagedClusterMonitoringUserCredentialsOutputArgs {

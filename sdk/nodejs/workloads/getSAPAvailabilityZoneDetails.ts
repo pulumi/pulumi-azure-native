@@ -50,12 +50,9 @@ export interface GetSAPAvailabilityZoneDetailsResult {
      */
     readonly availabilityZonePairs?: outputs.workloads.SAPAvailabilityZonePairResponse[];
 }
-/**
- * The list of supported availability zone pairs which are part of SAP HA deployment.
- * API Version: 2021-12-01-preview.
- */
+
 export function getSAPAvailabilityZoneDetailsOutput(args: GetSAPAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPAvailabilityZoneDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getSAPAvailabilityZoneDetails(a, opts))
+    return pulumi.output(args).apply(a => getSAPAvailabilityZoneDetails(a, opts))
 }
 
 export interface GetSAPAvailabilityZoneDetailsOutputArgs {

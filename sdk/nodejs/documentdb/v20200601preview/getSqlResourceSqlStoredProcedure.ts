@@ -77,12 +77,9 @@ export interface GetSqlResourceSqlStoredProcedureResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB storedProcedure.
- */
-/** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
+
 export function getSqlResourceSqlStoredProcedureOutput(args: GetSqlResourceSqlStoredProcedureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlStoredProcedureResult> {
-    return pulumi.output(args).apply((a: any) => getSqlResourceSqlStoredProcedure(a, opts))
+    return pulumi.output(args).apply(a => getSqlResourceSqlStoredProcedure(a, opts))
 }
 
 export interface GetSqlResourceSqlStoredProcedureOutputArgs {

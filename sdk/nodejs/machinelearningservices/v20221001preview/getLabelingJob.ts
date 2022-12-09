@@ -70,11 +70,9 @@ export interface GetLabelingJobResult {
      */
     readonly type: string;
 }
-/**
- * Azure Resource Manager resource envelope.
- */
+
 export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelingJobResult> {
-    return pulumi.output(args).apply((a: any) => getLabelingJob(a, opts))
+    return pulumi.output(args).apply(a => getLabelingJob(a, opts))
 }
 
 export interface GetLabelingJobOutputArgs {

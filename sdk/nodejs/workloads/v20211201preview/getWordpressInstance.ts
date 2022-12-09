@@ -71,11 +71,9 @@ export interface GetWordpressInstanceResult {
      */
     readonly version: string;
 }
-/**
- * WordPress instance resource
- */
+
 export function getWordpressInstanceOutput(args: GetWordpressInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWordpressInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getWordpressInstance(a, opts))
+    return pulumi.output(args).apply(a => getWordpressInstance(a, opts))
 }
 
 export interface GetWordpressInstanceOutputArgs {

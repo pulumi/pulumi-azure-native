@@ -58,11 +58,9 @@ export interface GetHybridConnectionAuthorizationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Description of a namespace authorization rule.
- */
+
 export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getHybridConnectionAuthorizationRule(a, opts))
+    return pulumi.output(args).apply(a => getHybridConnectionAuthorizationRule(a, opts))
 }
 
 export interface GetHybridConnectionAuthorizationRuleOutputArgs {

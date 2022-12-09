@@ -102,12 +102,9 @@ export interface GetSubscriptionResult {
      */
     readonly type: string;
 }
-/**
- * Subscription details.
- * API Version: 2020-12-01.
- */
+
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getSubscription(a, opts))
+    return pulumi.output(args).apply(a => getSubscription(a, opts))
 }
 
 export interface GetSubscriptionOutputArgs {

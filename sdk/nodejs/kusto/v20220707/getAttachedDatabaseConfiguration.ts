@@ -88,11 +88,9 @@ export interface GetAttachedDatabaseConfigurationResult {
      */
     readonly type: string;
 }
-/**
- * Class representing an attached database configuration.
- */
+
 export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getAttachedDatabaseConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getAttachedDatabaseConfiguration(a, opts))
 }
 
 export interface GetAttachedDatabaseConfigurationOutputArgs {

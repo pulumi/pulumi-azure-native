@@ -58,12 +58,9 @@ export interface ListTenantAccessSecretsResult {
      */
     readonly secondaryKey?: string;
 }
-/**
- * Tenant access information contract of the API Management service.
- * API Version: 2020-12-01.
- */
+
 export function listTenantAccessSecretsOutput(args: ListTenantAccessSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listTenantAccessSecrets(a, opts))
+    return pulumi.output(args).apply(a => listTenantAccessSecrets(a, opts))
 }
 
 export interface ListTenantAccessSecretsOutputArgs {

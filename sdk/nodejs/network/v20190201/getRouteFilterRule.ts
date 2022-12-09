@@ -69,11 +69,9 @@ export interface GetRouteFilterRuleResult {
      */
     readonly routeFilterRuleType: string;
 }
-/**
- * Route Filter Rule Resource
- */
+
 export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterRuleResult> {
-    return pulumi.output(args).apply((a: any) => getRouteFilterRule(a, opts))
+    return pulumi.output(args).apply(a => getRouteFilterRule(a, opts))
 }
 
 export interface GetRouteFilterRuleOutputArgs {

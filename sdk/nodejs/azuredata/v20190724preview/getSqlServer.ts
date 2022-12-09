@@ -74,11 +74,9 @@ export interface GetSqlServerResult {
      */
     readonly version?: string;
 }
-/**
- * A SQL server.
- */
+
 export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServer(a, opts))
+    return pulumi.output(args).apply(a => getSqlServer(a, opts))
 }
 
 export interface GetSqlServerOutputArgs {

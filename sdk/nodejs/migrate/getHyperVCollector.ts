@@ -42,11 +42,9 @@ export interface GetHyperVCollectorResult {
     readonly properties: outputs.migrate.CollectorPropertiesResponse;
     readonly type: string;
 }
-/**
- * API Version: 2019-10-01.
- */
+
 export function getHyperVCollectorOutput(args: GetHyperVCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVCollectorResult> {
-    return pulumi.output(args).apply((a: any) => getHyperVCollector(a, opts))
+    return pulumi.output(args).apply(a => getHyperVCollector(a, opts))
 }
 
 export interface GetHyperVCollectorOutputArgs {

@@ -83,12 +83,9 @@ export interface GetDatabasePrincipalAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * Class representing a database principal assignment.
- * API Version: 2021-01-01.
- */
+
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))
+    return pulumi.output(args).apply(a => getDatabasePrincipalAssignment(a, opts))
 }
 
 export interface GetDatabasePrincipalAssignmentOutputArgs {

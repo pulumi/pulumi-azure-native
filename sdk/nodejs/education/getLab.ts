@@ -102,12 +102,9 @@ export interface GetLabResult {
      */
     readonly value?: number;
 }
-/**
- * Lab details.
- * API Version: 2021-12-01-preview.
- */
+
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
-    return pulumi.output(args).apply((a: any) => getLab(a, opts))
+    return pulumi.output(args).apply(a => getLab(a, opts))
 }
 
 export interface GetLabOutputArgs {

@@ -40,11 +40,9 @@ export interface ListRegistryBuildSourceUploadUrlResult {
      */
     readonly uploadUrl?: string;
 }
-/**
- * The properties of a response to source upload request.
- */
+
 export function listRegistryBuildSourceUploadUrlOutput(args: ListRegistryBuildSourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryBuildSourceUploadUrlResult> {
-    return pulumi.output(args).apply((a: any) => listRegistryBuildSourceUploadUrl(a, opts))
+    return pulumi.output(args).apply(a => listRegistryBuildSourceUploadUrl(a, opts))
 }
 
 export interface ListRegistryBuildSourceUploadUrlOutputArgs {

@@ -65,12 +65,9 @@ export interface GetPrivateLinkHubResult {
      */
     readonly type: string;
 }
-/**
- * A privateLinkHub
- */
-/** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
+
 export function getPrivateLinkHubOutput(args: GetPrivateLinkHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkHubResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkHub(a, opts))
+    return pulumi.output(args).apply(a => getPrivateLinkHub(a, opts))
 }
 
 export interface GetPrivateLinkHubOutputArgs {

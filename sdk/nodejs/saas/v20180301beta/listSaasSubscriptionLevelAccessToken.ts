@@ -40,11 +40,9 @@ export interface ListSaasSubscriptionLevelAccessTokenResult {
      */
     readonly token?: string;
 }
-/**
- * the ISV access token result response.
- */
+
 export function listSaasSubscriptionLevelAccessTokenOutput(args: ListSaasSubscriptionLevelAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasSubscriptionLevelAccessTokenResult> {
-    return pulumi.output(args).apply((a: any) => listSaasSubscriptionLevelAccessToken(a, opts))
+    return pulumi.output(args).apply(a => listSaasSubscriptionLevelAccessToken(a, opts))
 }
 
 export interface ListSaasSubscriptionLevelAccessTokenOutputArgs {

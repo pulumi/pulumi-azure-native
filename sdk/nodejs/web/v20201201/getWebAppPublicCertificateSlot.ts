@@ -70,11 +70,9 @@ export interface GetWebAppPublicCertificateSlotResult {
      */
     readonly type: string;
 }
-/**
- * Public certificate object
- */
+
 export function getWebAppPublicCertificateSlotOutput(args: GetWebAppPublicCertificateSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppPublicCertificateSlot(a, opts))
+    return pulumi.output(args).apply(a => getWebAppPublicCertificateSlot(a, opts))
 }
 
 export interface GetWebAppPublicCertificateSlotOutputArgs {

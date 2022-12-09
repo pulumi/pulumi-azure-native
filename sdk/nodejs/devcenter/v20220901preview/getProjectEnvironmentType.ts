@@ -88,11 +88,9 @@ export interface GetProjectEnvironmentTypeResult {
      */
     readonly userRoleAssignments?: {[key: string]: outputs.devcenter.v20220901preview.UserRoleAssignmentResponse};
 }
-/**
- * Represents an environment type.
- */
+
 export function getProjectEnvironmentTypeOutput(args: GetProjectEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectEnvironmentTypeResult> {
-    return pulumi.output(args).apply((a: any) => getProjectEnvironmentType(a, opts))
+    return pulumi.output(args).apply(a => getProjectEnvironmentType(a, opts))
 }
 
 export interface GetProjectEnvironmentTypeOutputArgs {

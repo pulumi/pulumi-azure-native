@@ -69,12 +69,9 @@ export interface GetFirewallPolicyRuleCollectionGroupResult {
      */
     readonly type: string;
 }
-/**
- * Rule Collection Group resource.
- * API Version: 2020-11-01.
- */
+
 export function getFirewallPolicyRuleCollectionGroupOutput(args: GetFirewallPolicyRuleCollectionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleCollectionGroupResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallPolicyRuleCollectionGroup(a, opts))
+    return pulumi.output(args).apply(a => getFirewallPolicyRuleCollectionGroup(a, opts))
 }
 
 export interface GetFirewallPolicyRuleCollectionGroupOutputArgs {

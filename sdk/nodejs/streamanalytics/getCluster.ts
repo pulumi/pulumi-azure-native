@@ -68,12 +68,9 @@ export interface GetClusterResult {
      */
     readonly type: string;
 }
-/**
- * A Stream Analytics Cluster object
- * API Version: 2020-03-01-preview.
- */
+
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
+    return pulumi.output(args).apply(a => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

@@ -73,11 +73,9 @@ export interface ListSitePublishingCredentialsSlotResult {
      */
     readonly type?: string;
 }
-/**
- * Represents user credentials used for publishing activity
- */
+
 export function listSitePublishingCredentialsSlotOutput(args: ListSitePublishingCredentialsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSitePublishingCredentialsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listSitePublishingCredentialsSlot(a, opts))
+    return pulumi.output(args).apply(a => listSitePublishingCredentialsSlot(a, opts))
 }
 
 export interface ListSitePublishingCredentialsSlotOutputArgs {

@@ -88,11 +88,9 @@ export interface GetBuildTaskResult {
      */
     readonly type: string;
 }
-/**
- * The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
- */
+
 export function getBuildTaskOutput(args: GetBuildTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildTaskResult> {
-    return pulumi.output(args).apply((a: any) => getBuildTask(a, opts))
+    return pulumi.output(args).apply(a => getBuildTask(a, opts))
 }
 
 export interface GetBuildTaskOutputArgs {

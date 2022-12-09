@@ -83,11 +83,9 @@ export interface GetLocalNetworkGatewayResult {
      */
     readonly type: string;
 }
-/**
- * A common class for general resource information.
- */
+
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getLocalNetworkGateway(a, opts))
+    return pulumi.output(args).apply(a => getLocalNetworkGateway(a, opts))
 }
 
 export interface GetLocalNetworkGatewayOutputArgs {

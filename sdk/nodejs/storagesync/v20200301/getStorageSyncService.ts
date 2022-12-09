@@ -83,11 +83,9 @@ export interface GetStorageSyncServiceResult {
      */
     readonly type: string;
 }
-/**
- * Storage Sync Service object.
- */
+
 export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {
-    return pulumi.output(args).apply((a: any) => getStorageSyncService(a, opts))
+    return pulumi.output(args).apply(a => getStorageSyncService(a, opts))
 }
 
 export interface GetStorageSyncServiceOutputArgs {

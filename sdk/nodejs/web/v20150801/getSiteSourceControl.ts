@@ -78,12 +78,9 @@ export interface GetSiteSourceControlResult {
      */
     readonly type?: string;
 }
-/**
- * Describes the source control configuration for web app
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getSiteSourceControlOutput(args: GetSiteSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSourceControlResult> {
-    return pulumi.output(args).apply((a: any) => getSiteSourceControl(a, opts))
+    return pulumi.output(args).apply(a => getSiteSourceControl(a, opts))
 }
 
 export interface GetSiteSourceControlOutputArgs {

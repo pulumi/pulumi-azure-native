@@ -97,11 +97,9 @@ export interface GetWatcherResult {
      */
     readonly type: string;
 }
-/**
- * Definition of the watcher type.
- */
+
 export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {
-    return pulumi.output(args).apply((a: any) => getWatcher(a, opts))
+    return pulumi.output(args).apply(a => getWatcher(a, opts))
 }
 
 export interface GetWatcherOutputArgs {

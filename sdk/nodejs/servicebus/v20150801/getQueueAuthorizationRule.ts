@@ -64,12 +64,9 @@ export interface GetQueueAuthorizationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Description of a namespace authorization rule.
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getQueueAuthorizationRule(a, opts))
+    return pulumi.output(args).apply(a => getQueueAuthorizationRule(a, opts))
 }
 
 export interface GetQueueAuthorizationRuleOutputArgs {

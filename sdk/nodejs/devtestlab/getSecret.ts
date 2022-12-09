@@ -80,12 +80,9 @@ export interface GetSecretResult {
      */
     readonly value?: string;
 }
-/**
- * A secret.
- * API Version: 2018-09-15.
- */
+
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
+    return pulumi.output(args).apply(a => getSecret(a, opts))
 }
 
 export interface GetSecretOutputArgs {

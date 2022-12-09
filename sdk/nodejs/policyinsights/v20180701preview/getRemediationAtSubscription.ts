@@ -72,12 +72,9 @@ export interface GetRemediationAtSubscriptionResult {
      */
     readonly type: string;
 }
-/**
- * The remediation definition.
- */
-/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
+
 export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getRemediationAtSubscription(a, opts))
+    return pulumi.output(args).apply(a => getRemediationAtSubscription(a, opts))
 }
 
 export interface GetRemediationAtSubscriptionOutputArgs {

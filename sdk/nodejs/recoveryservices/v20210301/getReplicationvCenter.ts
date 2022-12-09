@@ -65,11 +65,9 @@ export interface GetReplicationvCenterResult {
      */
     readonly type: string;
 }
-/**
- * vCenter definition.
- */
+
 export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationvCenterResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationvCenter(a, opts))
+    return pulumi.output(args).apply(a => getReplicationvCenter(a, opts))
 }
 
 export interface GetReplicationvCenterOutputArgs {

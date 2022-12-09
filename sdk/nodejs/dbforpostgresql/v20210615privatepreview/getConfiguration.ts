@@ -80,11 +80,9 @@ export interface GetConfigurationResult {
      */
     readonly value?: string;
 }
-/**
- * Represents a Configuration.
- */
+
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))
+    return pulumi.output(args).apply(a => getConfiguration(a, opts))
 }
 
 export interface GetConfigurationOutputArgs {

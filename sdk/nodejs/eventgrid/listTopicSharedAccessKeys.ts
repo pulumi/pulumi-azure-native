@@ -41,12 +41,9 @@ export interface ListTopicSharedAccessKeysResult {
      */
     readonly key2?: string;
 }
-/**
- * Shared access keys of the Topic
- * API Version: 2020-06-01.
- */
+
 export function listTopicSharedAccessKeysOutput(args: ListTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicSharedAccessKeysResult> {
-    return pulumi.output(args).apply((a: any) => listTopicSharedAccessKeys(a, opts))
+    return pulumi.output(args).apply(a => listTopicSharedAccessKeys(a, opts))
 }
 
 export interface ListTopicSharedAccessKeysOutputArgs {

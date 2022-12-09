@@ -124,11 +124,9 @@ export interface GetRunbookResult {
      */
     readonly type: string;
 }
-/**
- * Definition of the runbook type.
- */
+
 export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {
-    return pulumi.output(args).apply((a: any) => getRunbook(a, opts))
+    return pulumi.output(args).apply(a => getRunbook(a, opts))
 }
 
 export interface GetRunbookOutputArgs {

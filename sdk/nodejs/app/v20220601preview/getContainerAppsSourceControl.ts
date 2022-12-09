@@ -74,11 +74,9 @@ export interface GetContainerAppsSourceControlResult {
      */
     readonly type: string;
 }
-/**
- * Container App SourceControl.
- */
+
 export function getContainerAppsSourceControlOutput(args: GetContainerAppsSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsSourceControlResult> {
-    return pulumi.output(args).apply((a: any) => getContainerAppsSourceControl(a, opts))
+    return pulumi.output(args).apply(a => getContainerAppsSourceControl(a, opts))
 }
 
 export interface GetContainerAppsSourceControlOutputArgs {

@@ -44,11 +44,9 @@ export interface ListKustoPoolLanguageExtensionsResult {
      */
     readonly value?: outputs.synapse.v20210601preview.LanguageExtensionResponse[];
 }
-/**
- * The list of language extension objects.
- */
+
 export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {
-    return pulumi.output(args).apply((a: any) => listKustoPoolLanguageExtensions(a, opts))
+    return pulumi.output(args).apply(a => listKustoPoolLanguageExtensions(a, opts))
 }
 
 export interface ListKustoPoolLanguageExtensionsOutputArgs {

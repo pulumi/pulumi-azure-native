@@ -114,12 +114,9 @@ export interface GetMetadataResult {
      */
     readonly version?: string;
 }
-/**
- * Metadata resource definition.
- * API Version: 2021-03-01-preview.
- */
+
 export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataResult> {
-    return pulumi.output(args).apply((a: any) => getMetadata(a, opts))
+    return pulumi.output(args).apply(a => getMetadata(a, opts))
 }
 
 export interface GetMetadataOutputArgs {

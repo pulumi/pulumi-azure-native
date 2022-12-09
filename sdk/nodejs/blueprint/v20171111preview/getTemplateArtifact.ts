@@ -81,11 +81,9 @@ export interface GetTemplateArtifactResult {
      */
     readonly type: string;
 }
-/**
- * Blueprint artifact deploys Azure resource manager template.
- */
+
 export function getTemplateArtifactOutput(args: GetTemplateArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateArtifactResult> {
-    return pulumi.output(args).apply((a: any) => getTemplateArtifact(a, opts))
+    return pulumi.output(args).apply(a => getTemplateArtifact(a, opts))
 }
 
 export interface GetTemplateArtifactOutputArgs {

@@ -88,11 +88,9 @@ export interface GetInterfaceEndpointResult {
      */
     readonly type: string;
 }
-/**
- * Interface endpoint resource.
- */
+
 export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInterfaceEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getInterfaceEndpoint(a, opts))
+    return pulumi.output(args).apply(a => getInterfaceEndpoint(a, opts))
 }
 
 export interface GetInterfaceEndpointOutputArgs {

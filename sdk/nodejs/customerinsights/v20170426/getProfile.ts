@@ -129,11 +129,9 @@ export interface GetProfileResult {
      */
     readonly typeName?: string;
 }
-/**
- * The profile resource format.
- */
+
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
+    return pulumi.output(args).apply(a => getProfile(a, opts))
 }
 
 export interface GetProfileOutputArgs {

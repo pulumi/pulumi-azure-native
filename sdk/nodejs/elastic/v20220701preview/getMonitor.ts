@@ -71,11 +71,9 @@ export interface GetMonitorResult {
      */
     readonly type: string;
 }
-/**
- * Monitor resource.
- */
+
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
+    return pulumi.output(args).apply(a => getMonitor(a, opts))
 }
 
 export interface GetMonitorOutputArgs {

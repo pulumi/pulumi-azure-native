@@ -69,12 +69,9 @@ export interface GetCassandraResourceCassandraTableResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB Cassandra table.
- */
-/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
+
 export function getCassandraResourceCassandraTableOutput(args: GetCassandraResourceCassandraTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraTableResult> {
-    return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraTable(a, opts))
+    return pulumi.output(args).apply(a => getCassandraResourceCassandraTable(a, opts))
 }
 
 export interface GetCassandraResourceCassandraTableOutputArgs {

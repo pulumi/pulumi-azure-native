@@ -45,11 +45,9 @@ export interface ListVideoContentTokenResult {
      */
     readonly token: string;
 }
-/**
- * "Video content token grants access to the video content URLs."
- */
+
 export function listVideoContentTokenOutput(args: ListVideoContentTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoContentTokenResult> {
-    return pulumi.output(args).apply((a: any) => listVideoContentToken(a, opts))
+    return pulumi.output(args).apply(a => listVideoContentToken(a, opts))
 }
 
 export interface ListVideoContentTokenOutputArgs {

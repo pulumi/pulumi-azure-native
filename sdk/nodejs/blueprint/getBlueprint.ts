@@ -80,12 +80,9 @@ export interface GetBlueprintResult {
      */
     readonly versions?: any;
 }
-/**
- * Represents a Blueprint definition.
- * API Version: 2018-11-01-preview.
- */
+
 export function getBlueprintOutput(args: GetBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlueprintResult> {
-    return pulumi.output(args).apply((a: any) => getBlueprint(a, opts))
+    return pulumi.output(args).apply(a => getBlueprint(a, opts))
 }
 
 export interface GetBlueprintOutputArgs {

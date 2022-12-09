@@ -84,11 +84,9 @@ export interface GetRemediationAtManagementGroupResult {
      */
     readonly type: string;
 }
-/**
- * The remediation definition.
- */
+
 export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getRemediationAtManagementGroup(a, opts))
+    return pulumi.output(args).apply(a => getRemediationAtManagementGroup(a, opts))
 }
 
 export interface GetRemediationAtManagementGroupOutputArgs {

@@ -73,11 +73,9 @@ export interface GetServerAdvisorResult {
      */
     readonly type: string;
 }
-/**
- * Database Advisor.
- */
+
 export function getServerAdvisorOutput(args: GetServerAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdvisorResult> {
-    return pulumi.output(args).apply((a: any) => getServerAdvisor(a, opts))
+    return pulumi.output(args).apply(a => getServerAdvisor(a, opts))
 }
 
 export interface GetServerAdvisorOutputArgs {

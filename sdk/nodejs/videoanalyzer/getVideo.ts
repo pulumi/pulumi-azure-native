@@ -77,12 +77,9 @@ export interface GetVideoResult {
      */
     readonly type: string;
 }
-/**
- * The representation of a single video in a Video Analyzer account.
- * API Version: 2021-05-01-preview.
- */
+
 export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoResult> {
-    return pulumi.output(args).apply((a: any) => getVideo(a, opts))
+    return pulumi.output(args).apply(a => getVideo(a, opts))
 }
 
 export interface GetVideoOutputArgs {

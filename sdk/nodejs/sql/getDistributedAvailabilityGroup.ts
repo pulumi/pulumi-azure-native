@@ -90,12 +90,9 @@ export interface GetDistributedAvailabilityGroupResult {
      */
     readonly type: string;
 }
-/**
- * Distributed availability group between box and Sql Managed Instance.
- * API Version: 2021-05-01-preview.
- */
+
 export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDistributedAvailabilityGroup(a, opts))
+    return pulumi.output(args).apply(a => getDistributedAvailabilityGroup(a, opts))
 }
 
 export interface GetDistributedAvailabilityGroupOutputArgs {

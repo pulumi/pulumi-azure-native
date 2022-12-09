@@ -44,11 +44,9 @@ export interface ListWebAppHostKeysResult {
      */
     readonly systemKeys?: {[key: string]: string};
 }
-/**
- * Functions host level keys.
- */
+
 export function listWebAppHostKeysOutput(args: ListWebAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHostKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppHostKeys(a, opts))
+    return pulumi.output(args).apply(a => listWebAppHostKeys(a, opts))
 }
 
 export interface ListWebAppHostKeysOutputArgs {

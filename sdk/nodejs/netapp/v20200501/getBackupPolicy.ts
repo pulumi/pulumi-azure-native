@@ -94,12 +94,9 @@ export interface GetBackupPolicyResult {
      */
     readonly yearlyBackupsToKeep?: number;
 }
-/**
- * Backup policy information
- */
-/** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
+
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
+    return pulumi.output(args).apply(a => getBackupPolicy(a, opts))
 }
 
 export interface GetBackupPolicyOutputArgs {

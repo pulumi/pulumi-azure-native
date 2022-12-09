@@ -89,12 +89,9 @@ export interface GetPrivateZoneResult {
      */
     readonly type: string;
 }
-/**
- * Describes a Private DNS zone.
- * API Version: 2020-06-01.
- */
+
 export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateZoneResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateZone(a, opts))
+    return pulumi.output(args).apply(a => getPrivateZone(a, opts))
 }
 
 export interface GetPrivateZoneOutputArgs {

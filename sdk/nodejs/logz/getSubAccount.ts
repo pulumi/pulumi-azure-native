@@ -60,11 +60,9 @@ export interface GetSubAccountResult {
      */
     readonly type: string;
 }
-/**
- * API Version: 2020-10-01.
- */
+
 export function getSubAccountOutput(args: GetSubAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountResult> {
-    return pulumi.output(args).apply((a: any) => getSubAccount(a, opts))
+    return pulumi.output(args).apply(a => getSubAccount(a, opts))
 }
 
 export interface GetSubAccountOutputArgs {

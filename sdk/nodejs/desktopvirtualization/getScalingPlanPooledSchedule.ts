@@ -125,12 +125,9 @@ export interface GetScalingPlanPooledScheduleResult {
      */
     readonly type: string;
 }
-/**
- * Represents a ScalingPlanPooledSchedule definition.
- * API Version: 2022-04-01-preview.
- */
+
 export function getScalingPlanPooledScheduleOutput(args: GetScalingPlanPooledScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanPooledScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getScalingPlanPooledSchedule(a, opts))
+    return pulumi.output(args).apply(a => getScalingPlanPooledSchedule(a, opts))
 }
 
 export interface GetScalingPlanPooledScheduleOutputArgs {

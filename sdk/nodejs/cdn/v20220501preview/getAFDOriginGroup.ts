@@ -81,11 +81,9 @@ export interface GetAFDOriginGroupResult {
      */
     readonly type: string;
 }
-/**
- * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
- */
+
 export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginGroupResult> {
-    return pulumi.output(args).apply((a: any) => getAFDOriginGroup(a, opts))
+    return pulumi.output(args).apply(a => getAFDOriginGroup(a, opts))
 }
 
 export interface GetAFDOriginGroupOutputArgs {

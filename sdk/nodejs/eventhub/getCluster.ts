@@ -76,12 +76,9 @@ export interface GetClusterResult {
      */
     readonly updatedAt: string;
 }
-/**
- * Single Event Hubs Cluster resource in List or Get operations.
- * API Version: 2018-01-01-preview.
- */
+
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
+    return pulumi.output(args).apply(a => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

@@ -100,12 +100,9 @@ export interface GetDatastoreResult {
      */
     readonly vCenterId?: string;
 }
-/**
- * Define the datastore.
- * API Version: 2020-10-01-preview.
- */
+
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
-    return pulumi.output(args).apply((a: any) => getDatastore(a, opts))
+    return pulumi.output(args).apply(a => getDatastore(a, opts))
 }
 
 export interface GetDatastoreOutputArgs {

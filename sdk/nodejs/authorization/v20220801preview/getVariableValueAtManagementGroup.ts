@@ -60,11 +60,9 @@ export interface GetVariableValueAtManagementGroupResult {
      */
     readonly values: outputs.authorization.v20220801preview.PolicyVariableValueColumnValueResponse[];
 }
-/**
- * The variable value.
- */
+
 export function getVariableValueAtManagementGroupOutput(args: GetVariableValueAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableValueAtManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getVariableValueAtManagementGroup(a, opts))
+    return pulumi.output(args).apply(a => getVariableValueAtManagementGroup(a, opts))
 }
 
 export interface GetVariableValueAtManagementGroupOutputArgs {

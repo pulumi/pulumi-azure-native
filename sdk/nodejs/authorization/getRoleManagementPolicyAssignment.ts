@@ -68,12 +68,9 @@ export interface GetRoleManagementPolicyAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * Role management policy
- * API Version: 2020-10-01.
- */
+
 export function getRoleManagementPolicyAssignmentOutput(args: GetRoleManagementPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleManagementPolicyAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getRoleManagementPolicyAssignment(a, opts))
+    return pulumi.output(args).apply(a => getRoleManagementPolicyAssignment(a, opts))
 }
 
 export interface GetRoleManagementPolicyAssignmentOutputArgs {

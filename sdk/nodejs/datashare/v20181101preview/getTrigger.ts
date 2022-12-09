@@ -60,12 +60,9 @@ export interface GetTriggerResult {
      */
     readonly type: string;
 }
-/**
- * A Trigger data transfer object.
- */
-/** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
+
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getTrigger(a, opts))
+    return pulumi.output(args).apply(a => getTrigger(a, opts))
 }
 
 export interface GetTriggerOutputArgs {

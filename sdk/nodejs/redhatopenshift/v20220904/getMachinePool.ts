@@ -57,11 +57,9 @@ export interface GetMachinePoolResult {
      */
     readonly type: string;
 }
-/**
- * MachinePool represents a MachinePool
- */
+
 export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachinePoolResult> {
-    return pulumi.output(args).apply((a: any) => getMachinePool(a, opts))
+    return pulumi.output(args).apply(a => getMachinePool(a, opts))
 }
 
 export interface GetMachinePoolOutputArgs {

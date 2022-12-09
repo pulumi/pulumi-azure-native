@@ -69,11 +69,9 @@ export interface GetSecretResult {
      */
     readonly type: string;
 }
-/**
- * Friendly Secret name mapping to the any Secret or secret related information.
- */
+
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
+    return pulumi.output(args).apply(a => getSecret(a, opts))
 }
 
 export interface GetSecretOutputArgs {

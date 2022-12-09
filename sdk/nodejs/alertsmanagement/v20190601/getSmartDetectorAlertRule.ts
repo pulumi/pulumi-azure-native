@@ -92,11 +92,9 @@ export interface GetSmartDetectorAlertRuleResult {
      */
     readonly type: string;
 }
-/**
- * The alert rule information
- */
+
 export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getSmartDetectorAlertRule(a, opts))
+    return pulumi.output(args).apply(a => getSmartDetectorAlertRule(a, opts))
 }
 
 export interface GetSmartDetectorAlertRuleOutputArgs {

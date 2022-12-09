@@ -65,11 +65,9 @@ export interface GetTrackResult {
      */
     readonly type: string;
 }
-/**
- * An Asset Track resource.
- */
+
 export function getTrackOutput(args: GetTrackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackResult> {
-    return pulumi.output(args).apply((a: any) => getTrack(a, opts))
+    return pulumi.output(args).apply(a => getTrack(a, opts))
 }
 
 export interface GetTrackOutputArgs {

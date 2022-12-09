@@ -80,12 +80,9 @@ export interface GetPrivateStoreCollectionResult {
      */
     readonly type: string;
 }
-/**
- * The Collection data structure.
- * API Version: 2021-12-01.
- */
+
 export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateStoreCollection(a, opts))
+    return pulumi.output(args).apply(a => getPrivateStoreCollection(a, opts))
 }
 
 export interface GetPrivateStoreCollectionOutputArgs {

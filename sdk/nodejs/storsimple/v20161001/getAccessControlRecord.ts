@@ -55,12 +55,9 @@ export interface GetAccessControlRecordResult {
      */
     readonly type: string;
 }
-/**
- * The access control record
- */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
+
 export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
-    return pulumi.output(args).apply((a: any) => getAccessControlRecord(a, opts))
+    return pulumi.output(args).apply(a => getAccessControlRecord(a, opts))
 }
 
 export interface GetAccessControlRecordOutputArgs {

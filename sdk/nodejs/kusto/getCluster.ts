@@ -132,12 +132,9 @@ export interface GetClusterResult {
      */
     readonly zones?: string[];
 }
-/**
- * Class representing a Kusto cluster.
- * API Version: 2021-01-01.
- */
+
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
+    return pulumi.output(args).apply(a => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

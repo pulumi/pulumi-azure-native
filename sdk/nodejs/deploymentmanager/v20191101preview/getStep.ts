@@ -59,11 +59,9 @@ export interface GetStepResult {
      */
     readonly type: string;
 }
-/**
- * The resource representation of a rollout step.
- */
+
 export function getStepOutput(args: GetStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStepResult> {
-    return pulumi.output(args).apply((a: any) => getStep(a, opts))
+    return pulumi.output(args).apply(a => getStep(a, opts))
 }
 
 export interface GetStepOutputArgs {

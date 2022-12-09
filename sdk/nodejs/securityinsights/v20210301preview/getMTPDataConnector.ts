@@ -78,11 +78,9 @@ export interface GetMTPDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Represents MTP (Microsoft Threat Protection) data connector.
- */
+
 export function getMTPDataConnectorOutput(args: GetMTPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMTPDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getMTPDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getMTPDataConnector(a, opts))
 }
 
 export interface GetMTPDataConnectorOutputArgs {

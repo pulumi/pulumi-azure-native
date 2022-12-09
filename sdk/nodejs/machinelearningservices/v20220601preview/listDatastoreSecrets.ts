@@ -41,11 +41,9 @@ export interface ListDatastoreSecretsResult {
      */
     readonly secretsType: string;
 }
-/**
- * Base definition for datastore secrets.
- */
+
 export function listDatastoreSecretsOutput(args: ListDatastoreSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatastoreSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listDatastoreSecrets(a, opts))
+    return pulumi.output(args).apply(a => listDatastoreSecrets(a, opts))
 }
 
 export interface ListDatastoreSecretsOutputArgs {

@@ -137,12 +137,9 @@ export interface GetAppServiceCertificateOrderResult {
      */
     readonly validityInYears?: number;
 }
-/**
- * SSL certificate purchase order.
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
-    return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrder(a, opts))
+    return pulumi.output(args).apply(a => getAppServiceCertificateOrder(a, opts))
 }
 
 export interface GetAppServiceCertificateOrderOutputArgs {

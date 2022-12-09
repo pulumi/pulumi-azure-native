@@ -58,12 +58,9 @@ export interface ListEndpointCredentialsResult {
      */
     readonly namespaceNameSuffix: string;
 }
-/**
- * The endpoint access for the target resource.
- * API Version: 2022-05-01-preview.
- */
+
 export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listEndpointCredentials(a, opts))
+    return pulumi.output(args).apply(a => listEndpointCredentials(a, opts))
 }
 
 export interface ListEndpointCredentialsOutputArgs {

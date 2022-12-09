@@ -159,12 +159,9 @@ export interface GetManagedInstanceResult {
      */
     readonly zoneRedundant?: boolean;
 }
-/**
- * An Azure SQL managed instance.
- * API Version: 2020-11-01-preview.
- */
+
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))
+    return pulumi.output(args).apply(a => getManagedInstance(a, opts))
 }
 
 export interface GetManagedInstanceOutputArgs {

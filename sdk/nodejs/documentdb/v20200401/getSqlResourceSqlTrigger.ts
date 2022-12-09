@@ -73,12 +73,9 @@ export interface GetSqlResourceSqlTriggerResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB trigger.
- */
-/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
+
 export function getSqlResourceSqlTriggerOutput(args: GetSqlResourceSqlTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getSqlResourceSqlTrigger(a, opts))
+    return pulumi.output(args).apply(a => getSqlResourceSqlTrigger(a, opts))
 }
 
 export interface GetSqlResourceSqlTriggerOutputArgs {

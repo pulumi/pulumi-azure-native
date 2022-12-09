@@ -92,12 +92,9 @@ export interface GetOpenShiftClusterResult {
      */
     readonly workerProfiles?: outputs.redhatopenshift.WorkerProfileResponse[];
 }
-/**
- * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
- * API Version: 2020-04-30.
- */
+
 export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftClusterResult> {
-    return pulumi.output(args).apply((a: any) => getOpenShiftCluster(a, opts))
+    return pulumi.output(args).apply(a => getOpenShiftCluster(a, opts))
 }
 
 export interface GetOpenShiftClusterOutputArgs {

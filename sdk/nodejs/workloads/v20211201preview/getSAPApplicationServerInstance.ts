@@ -124,11 +124,9 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly virtualMachineId: string;
 }
-/**
- * Define the SAP Application Server Instance resource.
- */
+
 export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getSAPApplicationServerInstance(a, opts))
+    return pulumi.output(args).apply(a => getSAPApplicationServerInstance(a, opts))
 }
 
 export interface GetSAPApplicationServerInstanceOutputArgs {

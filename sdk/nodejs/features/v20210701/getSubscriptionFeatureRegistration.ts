@@ -48,11 +48,9 @@ export interface GetSubscriptionFeatureRegistrationResult {
      */
     readonly type: string;
 }
-/**
- * Subscription feature registration details
- */
+
 export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriptionFeatureRegistration(a, opts))
+    return pulumi.output(args).apply(a => getSubscriptionFeatureRegistration(a, opts))
 }
 
 export interface GetSubscriptionFeatureRegistrationOutputArgs {

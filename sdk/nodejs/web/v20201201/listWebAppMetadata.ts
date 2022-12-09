@@ -52,11 +52,9 @@ export interface ListWebAppMetadataResult {
      */
     readonly type: string;
 }
-/**
- * String dictionary resource.
- */
+
 export function listWebAppMetadataOutput(args: ListWebAppMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppMetadata(a, opts))
+    return pulumi.output(args).apply(a => listWebAppMetadata(a, opts))
 }
 
 export interface ListWebAppMetadataOutputArgs {

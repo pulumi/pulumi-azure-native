@@ -62,12 +62,9 @@ export interface GetNetworkWatcherResult {
      */
     readonly type: string;
 }
-/**
- * Network watcher in a resource group.
- */
-/** @deprecated Version 2017-11-01 will be removed in v2 of the provider. */
+
 export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkWatcher(a, opts))
+    return pulumi.output(args).apply(a => getNetworkWatcher(a, opts))
 }
 
 export interface GetNetworkWatcherOutputArgs {

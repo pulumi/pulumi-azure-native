@@ -38,11 +38,9 @@ export interface ListListUpgradableVersionPostArgs {
 export interface ListListUpgradableVersionPostResult {
     readonly supportedPath?: string[];
 }
-/**
- * The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
- */
+
 export function listListUpgradableVersionPostOutput(args: ListListUpgradableVersionPostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListUpgradableVersionPostResult> {
-    return pulumi.output(args).apply((a: any) => listListUpgradableVersionPost(a, opts))
+    return pulumi.output(args).apply(a => listListUpgradableVersionPost(a, opts))
 }
 
 export interface ListListUpgradableVersionPostOutputArgs {

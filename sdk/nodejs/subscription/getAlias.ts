@@ -47,12 +47,9 @@ export interface GetAliasResult {
      */
     readonly type: string;
 }
-/**
- * Subscription Information with the alias.
- * API Version: 2020-09-01.
- */
+
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
-    return pulumi.output(args).apply((a: any) => getAlias(a, opts))
+    return pulumi.output(args).apply(a => getAlias(a, opts))
 }
 
 export interface GetAliasOutputArgs {

@@ -41,11 +41,9 @@ export interface GetSystemTopicEventSubscriptionFullUrlResult {
      */
     readonly endpointUrl?: string;
 }
-/**
- * Full endpoint url of an event subscription
- */
+
 export function getSystemTopicEventSubscriptionFullUrlOutput(args: GetSystemTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionFullUrlResult> {
-    return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscriptionFullUrl(a, opts))
+    return pulumi.output(args).apply(a => getSystemTopicEventSubscriptionFullUrl(a, opts))
 }
 
 export interface GetSystemTopicEventSubscriptionFullUrlOutputArgs {

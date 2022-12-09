@@ -69,11 +69,9 @@ export interface GetEntityAnalyticsResult {
      */
     readonly type: string;
 }
-/**
- * Settings with single toggle.
- */
+
 export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityAnalyticsResult> {
-    return pulumi.output(args).apply((a: any) => getEntityAnalytics(a, opts))
+    return pulumi.output(args).apply(a => getEntityAnalytics(a, opts))
 }
 
 export interface GetEntityAnalyticsOutputArgs {

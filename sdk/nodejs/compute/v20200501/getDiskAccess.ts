@@ -69,12 +69,9 @@ export interface GetDiskAccessResult {
      */
     readonly type: string;
 }
-/**
- * disk access resource.
- */
-/** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
+
 export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
-    return pulumi.output(args).apply((a: any) => getDiskAccess(a, opts))
+    return pulumi.output(args).apply(a => getDiskAccess(a, opts))
 }
 
 export interface GetDiskAccessOutputArgs {

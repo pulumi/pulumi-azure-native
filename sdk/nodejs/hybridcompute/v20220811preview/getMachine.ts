@@ -176,11 +176,9 @@ export interface GetMachineResult {
      */
     readonly vmUuid: string;
 }
-/**
- * Describes a hybrid machine.
- */
+
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
-    return pulumi.output(args).apply((a: any) => getMachine(a, opts))
+    return pulumi.output(args).apply(a => getMachine(a, opts))
 }
 
 export interface GetMachineOutputArgs {

@@ -63,11 +63,9 @@ export interface GetProjectResult {
      */
     readonly type: string;
 }
-/**
- * Azure Migrate Project.
- */
+
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply((a: any) => getProject(a, opts))
+    return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {

@@ -40,12 +40,9 @@ export interface GetConsoleWithLocationResult {
      */
     readonly properties: outputs.portal.ConsolePropertiesResponse;
 }
-/**
- * Cloud shell console
- * API Version: 2018-10-01.
- */
+
 export function getConsoleWithLocationOutput(args: GetConsoleWithLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleWithLocationResult> {
-    return pulumi.output(args).apply((a: any) => getConsoleWithLocation(a, opts))
+    return pulumi.output(args).apply(a => getConsoleWithLocation(a, opts))
 }
 
 export interface GetConsoleWithLocationOutputArgs {

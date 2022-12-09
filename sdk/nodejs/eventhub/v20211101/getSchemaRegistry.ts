@@ -78,11 +78,9 @@ export interface GetSchemaRegistryResult {
      */
     readonly updatedAtUtc: string;
 }
-/**
- * Single item in List or Get Schema Group operation
- */
+
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
-    return pulumi.output(args).apply((a: any) => getSchemaRegistry(a, opts))
+    return pulumi.output(args).apply(a => getSchemaRegistry(a, opts))
 }
 
 export interface GetSchemaRegistryOutputArgs {

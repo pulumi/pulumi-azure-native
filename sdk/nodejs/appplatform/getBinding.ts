@@ -62,12 +62,9 @@ export interface GetBindingResult {
      */
     readonly type: string;
 }
-/**
- * Binding resource payload
- * API Version: 2020-07-01.
- */
+
 export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBindingResult> {
-    return pulumi.output(args).apply((a: any) => getBinding(a, opts))
+    return pulumi.output(args).apply(a => getBinding(a, opts))
 }
 
 export interface GetBindingOutputArgs {

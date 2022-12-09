@@ -102,12 +102,9 @@ export interface GetManagedHostingEnvironmentResult {
      */
     readonly virtualNetwork?: outputs.web.v20150801.VirtualNetworkProfileResponse;
 }
-/**
- * Description of an hostingEnvironment (App Service Environment)
- */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
+
 export function getManagedHostingEnvironmentOutput(args: GetManagedHostingEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHostingEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getManagedHostingEnvironment(a, opts))
+    return pulumi.output(args).apply(a => getManagedHostingEnvironment(a, opts))
 }
 
 export interface GetManagedHostingEnvironmentOutputArgs {

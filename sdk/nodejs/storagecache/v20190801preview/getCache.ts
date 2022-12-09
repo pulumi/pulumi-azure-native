@@ -85,12 +85,9 @@ export interface GetCacheResult {
      */
     readonly upgradeStatus?: outputs.storagecache.v20190801preview.CacheUpgradeStatusResponse;
 }
-/**
- * A cache instance.  Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- */
-/** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
+
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
-    return pulumi.output(args).apply((a: any) => getCache(a, opts))
+    return pulumi.output(args).apply(a => getCache(a, opts))
 }
 
 export interface GetCacheOutputArgs {

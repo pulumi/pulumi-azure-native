@@ -78,12 +78,9 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly type: string;
 }
-/**
- * The storage account credential
- */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
+
 export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {
-    return pulumi.output(args).apply((a: any) => getStorageAccountCredential(a, opts))
+    return pulumi.output(args).apply(a => getStorageAccountCredential(a, opts))
 }
 
 export interface GetStorageAccountCredentialOutputArgs {

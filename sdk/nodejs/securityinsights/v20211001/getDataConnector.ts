@@ -66,12 +66,9 @@ export interface GetDataConnectorResult {
      */
     readonly type: string;
 }
-/**
- * Data connector.
- */
-/** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector. */
+
 export function getDataConnectorOutput(args: GetDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getDataConnector(a, opts))
+    return pulumi.output(args).apply(a => getDataConnector(a, opts))
 }
 
 export interface GetDataConnectorOutputArgs {

@@ -66,12 +66,9 @@ export interface GetSecretResult {
      */
     readonly type: string;
 }
-/**
- * Resource information with extended details.
- */
-/** @deprecated Version 2018-02-14-preview will be removed in v2 of the provider. */
+
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
+    return pulumi.output(args).apply(a => getSecret(a, opts))
 }
 
 export interface GetSecretOutputArgs {

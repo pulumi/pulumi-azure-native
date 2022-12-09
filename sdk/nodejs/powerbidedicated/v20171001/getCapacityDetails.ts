@@ -85,12 +85,9 @@ export interface GetCapacityDetailsResult {
      */
     readonly type: string;
 }
-/**
- * Represents an instance of a Dedicated Capacity resource.
- */
-/** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
+
 export function getCapacityDetailsOutput(args: GetCapacityDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getCapacityDetails(a, opts))
+    return pulumi.output(args).apply(a => getCapacityDetails(a, opts))
 }
 
 export interface GetCapacityDetailsOutputArgs {

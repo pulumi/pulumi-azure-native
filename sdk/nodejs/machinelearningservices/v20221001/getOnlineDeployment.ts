@@ -79,8 +79,9 @@ export interface GetOnlineDeploymentResult {
      */
     readonly type: string;
 }
+
 export function getOnlineDeploymentOutput(args: GetOnlineDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getOnlineDeployment(a, opts))
+    return pulumi.output(args).apply(a => getOnlineDeployment(a, opts))
 }
 
 export interface GetOnlineDeploymentOutputArgs {

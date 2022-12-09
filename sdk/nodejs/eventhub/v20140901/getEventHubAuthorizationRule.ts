@@ -64,12 +64,9 @@ export interface GetEventHubAuthorizationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Single item in a List or Get AuthorizationRule operation
- */
-/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
+
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))
+    return pulumi.output(args).apply(a => getEventHubAuthorizationRule(a, opts))
 }
 
 export interface GetEventHubAuthorizationRuleOutputArgs {

@@ -181,11 +181,9 @@ export interface ListWebAppAuthSettingsResult {
      */
     readonly unauthenticatedClientAction?: string;
 }
-/**
- * Configuration settings for the Azure App Service Authentication / Authorization feature.
- */
+
 export function listWebAppAuthSettingsOutput(args: ListWebAppAuthSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppAuthSettings(a, opts))
+    return pulumi.output(args).apply(a => listWebAppAuthSettings(a, opts))
 }
 
 export interface ListWebAppAuthSettingsOutputArgs {

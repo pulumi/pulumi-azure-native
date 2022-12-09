@@ -59,11 +59,9 @@ export interface GetImageUploadUrlForDataResult {
      */
     readonly relativePath?: string;
 }
-/**
- * The image definition.
- */
+
 export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
-    return pulumi.output(args).apply((a: any) => getImageUploadUrlForData(a, opts))
+    return pulumi.output(args).apply(a => getImageUploadUrlForData(a, opts))
 }
 
 export interface GetImageUploadUrlForDataOutputArgs {

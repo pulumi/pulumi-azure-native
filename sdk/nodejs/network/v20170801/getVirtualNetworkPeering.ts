@@ -82,12 +82,9 @@ export interface GetVirtualNetworkPeeringResult {
      */
     readonly useRemoteGateways?: boolean;
 }
-/**
- * Peerings in a virtual network resource.
- */
-/** @deprecated Version 2017-08-01 will be removed in v2 of the provider. */
+
 export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkPeering(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetworkPeering(a, opts))
 }
 
 export interface GetVirtualNetworkPeeringOutputArgs {

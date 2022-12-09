@@ -85,12 +85,9 @@ export interface GetDaprComponentResult {
      */
     readonly version?: string;
 }
-/**
- * Dapr Component.
- * API Version: 2022-03-01.
- */
+
 export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResult> {
-    return pulumi.output(args).apply((a: any) => getDaprComponent(a, opts))
+    return pulumi.output(args).apply(a => getDaprComponent(a, opts))
 }
 
 export interface GetDaprComponentOutputArgs {

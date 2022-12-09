@@ -63,12 +63,9 @@ export interface ListHybridConnectionKeysResult {
      */
     readonly secondaryKey?: string;
 }
-/**
- * Namespace/Relay Connection String
- * API Version: 2017-04-01.
- */
+
 export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHybridConnectionKeysResult> {
-    return pulumi.output(args).apply((a: any) => listHybridConnectionKeys(a, opts))
+    return pulumi.output(args).apply(a => listHybridConnectionKeys(a, opts))
 }
 
 export interface ListHybridConnectionKeysOutputArgs {

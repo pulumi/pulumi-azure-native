@@ -122,12 +122,9 @@ export interface GetRecordSetResult {
      */
     readonly type: string;
 }
-/**
- * Describes a DNS record set (a collection of DNS records with the same name and type).
- * API Version: 2018-05-01.
- */
+
 export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
-    return pulumi.output(args).apply((a: any) => getRecordSet(a, opts))
+    return pulumi.output(args).apply(a => getRecordSet(a, opts))
 }
 
 export interface GetRecordSetOutputArgs {

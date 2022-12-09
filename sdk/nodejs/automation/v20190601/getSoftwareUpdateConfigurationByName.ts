@@ -88,11 +88,9 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
      */
     readonly updateConfiguration: outputs.automation.v20190601.UpdateConfigurationResponse;
 }
-/**
- * Software update configuration properties.
- */
+
 export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
-    return pulumi.output(args).apply((a: any) => getSoftwareUpdateConfigurationByName(a, opts))
+    return pulumi.output(args).apply(a => getSoftwareUpdateConfigurationByName(a, opts))
 }
 
 export interface GetSoftwareUpdateConfigurationByNameOutputArgs {

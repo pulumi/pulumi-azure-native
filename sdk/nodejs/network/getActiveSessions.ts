@@ -44,12 +44,9 @@ export interface GetActiveSessionsResult {
      */
     readonly value?: outputs.network.BastionActiveSessionResponse[];
 }
-/**
- * Response for GetActiveSessions.
- * API Version: 2020-11-01.
- */
+
 export function getActiveSessionsOutput(args: GetActiveSessionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveSessionsResult> {
-    return pulumi.output(args).apply((a: any) => getActiveSessions(a, opts))
+    return pulumi.output(args).apply(a => getActiveSessions(a, opts))
 }
 
 export interface GetActiveSessionsOutputArgs {

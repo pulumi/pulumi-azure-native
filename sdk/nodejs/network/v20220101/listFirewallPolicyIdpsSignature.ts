@@ -68,11 +68,9 @@ export interface ListFirewallPolicyIdpsSignatureResult {
      */
     readonly signatures?: outputs.network.v20220101.SingleQueryResultResponse[];
 }
-/**
- * Query result
- */
+
 export function listFirewallPolicyIdpsSignatureOutput(args: ListFirewallPolicyIdpsSignatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignatureResult> {
-    return pulumi.output(args).apply((a: any) => listFirewallPolicyIdpsSignature(a, opts))
+    return pulumi.output(args).apply(a => listFirewallPolicyIdpsSignature(a, opts))
 }
 
 export interface ListFirewallPolicyIdpsSignatureOutputArgs {

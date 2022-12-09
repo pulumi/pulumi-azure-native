@@ -100,12 +100,9 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly type: string;
 }
-/**
- * Class representing an event hub data connection.
- * API Version: 2021-01-01.
- */
+
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getEventHubDataConnection(a, opts))
+    return pulumi.output(args).apply(a => getEventHubDataConnection(a, opts))
 }
 
 export interface GetEventHubDataConnectionOutputArgs {

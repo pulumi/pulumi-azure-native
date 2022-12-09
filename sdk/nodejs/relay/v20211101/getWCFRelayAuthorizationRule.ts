@@ -69,11 +69,9 @@ export interface GetWCFRelayAuthorizationRuleResult {
      */
     readonly type: string;
 }
-/**
- * Single item in a List or Get AuthorizationRule operation
- */
+
 export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getWCFRelayAuthorizationRule(a, opts))
+    return pulumi.output(args).apply(a => getWCFRelayAuthorizationRule(a, opts))
 }
 
 export interface GetWCFRelayAuthorizationRuleOutputArgs {

@@ -79,12 +79,9 @@ export interface GetSubvolumeResult {
      */
     readonly type: string;
 }
-/**
- * Subvolume Information properties
- * API Version: 2021-10-01.
- */
+
 export function getSubvolumeOutput(args: GetSubvolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeResult> {
-    return pulumi.output(args).apply((a: any) => getSubvolume(a, opts))
+    return pulumi.output(args).apply(a => getSubvolume(a, opts))
 }
 
 export interface GetSubvolumeOutputArgs {

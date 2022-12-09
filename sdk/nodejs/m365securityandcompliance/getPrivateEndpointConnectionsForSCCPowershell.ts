@@ -69,12 +69,9 @@ export interface GetPrivateEndpointConnectionsForSCCPowershellResult {
      */
     readonly type: string;
 }
-/**
- * The Private Endpoint Connection resource.
- * API Version: 2021-03-25-preview.
- */
+
 export function getPrivateEndpointConnectionsForSCCPowershellOutput(args: GetPrivateEndpointConnectionsForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForSCCPowershellResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsForSCCPowershell(a, opts))
+    return pulumi.output(args).apply(a => getPrivateEndpointConnectionsForSCCPowershell(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionsForSCCPowershellOutputArgs {

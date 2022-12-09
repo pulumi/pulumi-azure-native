@@ -81,12 +81,9 @@ export interface GetDedicatedHostGroupResult {
      */
     readonly zones?: string[];
 }
-/**
- * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
- * API Version: 2020-12-01.
- */
+
 export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDedicatedHostGroup(a, opts))
+    return pulumi.output(args).apply(a => getDedicatedHostGroup(a, opts))
 }
 
 export interface GetDedicatedHostGroupOutputArgs {

@@ -103,11 +103,9 @@ export interface GetLabResult {
      */
     readonly virtualMachineProfile: outputs.labservices.v20211115preview.VirtualMachineProfileResponse;
 }
-/**
- * The lab resource.
- */
+
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
-    return pulumi.output(args).apply((a: any) => getLab(a, opts))
+    return pulumi.output(args).apply(a => getLab(a, opts))
 }
 
 export interface GetLabOutputArgs {

@@ -100,12 +100,9 @@ export interface GetElasticSanResult {
      */
     readonly volumeGroupCount: number;
 }
-/**
- * Response for ElasticSan request.
- * API Version: 2021-11-20-preview.
- */
+
 export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticSanResult> {
-    return pulumi.output(args).apply((a: any) => getElasticSan(a, opts))
+    return pulumi.output(args).apply(a => getElasticSan(a, opts))
 }
 
 export interface GetElasticSanOutputArgs {

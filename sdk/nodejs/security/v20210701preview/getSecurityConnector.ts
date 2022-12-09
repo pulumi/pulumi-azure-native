@@ -83,11 +83,9 @@ export interface GetSecurityConnectorResult {
      */
     readonly type: string;
 }
-/**
- * The security connector resource.
- */
+
 export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityConnector(a, opts))
+    return pulumi.output(args).apply(a => getSecurityConnector(a, opts))
 }
 
 export interface GetSecurityConnectorOutputArgs {

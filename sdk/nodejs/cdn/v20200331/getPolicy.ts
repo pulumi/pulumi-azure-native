@@ -90,12 +90,9 @@ export interface GetPolicyResult {
      */
     readonly type: string;
 }
-/**
- * Defines web application firewall policy for Azure CDN.
- */
-/** @deprecated Version 2020-03-31 will be removed in v2 of the provider. */
+
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    return pulumi.output(args).apply(a => getPolicy(a, opts))
 }
 
 export interface GetPolicyOutputArgs {

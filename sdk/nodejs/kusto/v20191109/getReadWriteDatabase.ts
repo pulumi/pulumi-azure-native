@@ -81,11 +81,9 @@ export interface GetReadWriteDatabaseResult {
      */
     readonly type: string;
 }
-/**
- * Class representing a read write database.
- */
+
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getReadWriteDatabase(a, opts))
+    return pulumi.output(args).apply(a => getReadWriteDatabase(a, opts))
 }
 
 export interface GetReadWriteDatabaseOutputArgs {

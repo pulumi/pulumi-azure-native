@@ -60,11 +60,9 @@ export interface GetDevToolPortalResult {
      */
     readonly type: string;
 }
-/**
- * Dev Tool Portal resource
- */
+
 export function getDevToolPortalOutput(args: GetDevToolPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevToolPortalResult> {
-    return pulumi.output(args).apply((a: any) => getDevToolPortal(a, opts))
+    return pulumi.output(args).apply(a => getDevToolPortal(a, opts))
 }
 
 export interface GetDevToolPortalOutputArgs {

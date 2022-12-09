@@ -66,11 +66,9 @@ export interface GetApiSchemaResult {
      */
     readonly value?: string;
 }
-/**
- * Schema Contract details.
- */
+
 export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiSchemaResult> {
-    return pulumi.output(args).apply((a: any) => getApiSchema(a, opts))
+    return pulumi.output(args).apply(a => getApiSchema(a, opts))
 }
 
 export interface GetApiSchemaOutputArgs {

@@ -72,11 +72,9 @@ export interface GetPacketCoreDataPlaneResult {
      */
     readonly userPlaneAccessInterface: outputs.mobilenetwork.v20221101.InterfacePropertiesResponse;
 }
-/**
- * Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
- */
+
 export function getPacketCoreDataPlaneOutput(args: GetPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreDataPlaneResult> {
-    return pulumi.output(args).apply((a: any) => getPacketCoreDataPlane(a, opts))
+    return pulumi.output(args).apply(a => getPacketCoreDataPlane(a, opts))
 }
 
 export interface GetPacketCoreDataPlaneOutputArgs {

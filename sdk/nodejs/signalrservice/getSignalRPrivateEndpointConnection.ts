@@ -65,12 +65,9 @@ export interface GetSignalRPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-/**
- * A private endpoint connection to SignalR resource
- * API Version: 2020-05-01.
- */
+
 export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getSignalRPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply(a => getSignalRPrivateEndpointConnection(a, opts))
 }
 
 export interface GetSignalRPrivateEndpointConnectionOutputArgs {

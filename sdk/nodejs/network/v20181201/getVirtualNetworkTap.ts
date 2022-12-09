@@ -83,11 +83,9 @@ export interface GetVirtualNetworkTapResult {
      */
     readonly type: string;
 }
-/**
- * Virtual Network Tap resource
- */
+
 export function getVirtualNetworkTapOutput(args: GetVirtualNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkTapResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkTap(a, opts))
+    return pulumi.output(args).apply(a => getVirtualNetworkTap(a, opts))
 }
 
 export interface GetVirtualNetworkTapOutputArgs {

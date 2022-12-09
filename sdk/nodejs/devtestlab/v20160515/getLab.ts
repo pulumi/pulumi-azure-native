@@ -101,12 +101,9 @@ export interface GetLabResult {
      */
     readonly vaultName: string;
 }
-/**
- * A lab.
- */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
+
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
-    return pulumi.output(args).apply((a: any) => getLab(a, opts))
+    return pulumi.output(args).apply(a => getLab(a, opts))
 }
 
 export interface GetLabOutputArgs {

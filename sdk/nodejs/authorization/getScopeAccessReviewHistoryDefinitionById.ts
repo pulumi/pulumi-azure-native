@@ -112,12 +112,9 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
      */
     readonly userPrincipalName: string;
 }
-/**
- * Access Review History Definition.
- * API Version: 2021-12-01-preview.
- */
+
 export function getScopeAccessReviewHistoryDefinitionByIdOutput(args: GetScopeAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAccessReviewHistoryDefinitionByIdResult> {
-    return pulumi.output(args).apply((a: any) => getScopeAccessReviewHistoryDefinitionById(a, opts))
+    return pulumi.output(args).apply(a => getScopeAccessReviewHistoryDefinitionById(a, opts))
 }
 
 export interface GetScopeAccessReviewHistoryDefinitionByIdOutputArgs {

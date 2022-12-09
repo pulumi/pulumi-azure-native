@@ -104,11 +104,9 @@ export interface GetLinkResult {
      */
     readonly type: string;
 }
-/**
- * The link resource format.
- */
+
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
-    return pulumi.output(args).apply((a: any) => getLink(a, opts))
+    return pulumi.output(args).apply(a => getLink(a, opts))
 }
 
 export interface GetLinkOutputArgs {

@@ -75,11 +75,9 @@ export interface GetprivateLinkServicesForMIPPolicySyncResult {
      */
     readonly type: string;
 }
-/**
- * The description of the service.
- */
+
 export function getprivateLinkServicesForMIPPolicySyncOutput(args: GetprivateLinkServicesForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForMIPPolicySyncResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForMIPPolicySync(a, opts))
+    return pulumi.output(args).apply(a => getprivateLinkServicesForMIPPolicySync(a, opts))
 }
 
 export interface GetprivateLinkServicesForMIPPolicySyncOutputArgs {

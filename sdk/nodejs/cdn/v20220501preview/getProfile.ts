@@ -87,11 +87,9 @@ export interface GetProfileResult {
      */
     readonly type: string;
 }
-/**
- * A profile is a logical grouping of endpoints that share the same settings.
- */
+
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
+    return pulumi.output(args).apply(a => getProfile(a, opts))
 }
 
 export interface GetProfileOutputArgs {

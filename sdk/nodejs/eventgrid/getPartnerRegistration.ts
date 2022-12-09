@@ -120,12 +120,9 @@ export interface GetPartnerRegistrationResult {
      */
     readonly visibilityState?: string;
 }
-/**
- * Information about a partner registration.
- * API Version: 2021-06-01-preview.
- */
+
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getPartnerRegistration(a, opts))
+    return pulumi.output(args).apply(a => getPartnerRegistration(a, opts))
 }
 
 export interface GetPartnerRegistrationOutputArgs {

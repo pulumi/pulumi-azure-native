@@ -44,11 +44,9 @@ export interface GetGlobalUserEnvironmentResult {
      */
     readonly environment: outputs.labservices.v20181015.EnvironmentDetailsResponse;
 }
-/**
- * Represents the environments details
- */
+
 export function getGlobalUserEnvironmentOutput(args: GetGlobalUserEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalUserEnvironment(a, opts))
+    return pulumi.output(args).apply(a => getGlobalUserEnvironment(a, opts))
 }
 
 export interface GetGlobalUserEnvironmentOutputArgs {

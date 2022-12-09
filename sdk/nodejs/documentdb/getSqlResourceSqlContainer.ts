@@ -68,12 +68,9 @@ export interface GetSqlResourceSqlContainerResult {
      */
     readonly type: string;
 }
-/**
- * An Azure Cosmos DB container.
- * API Version: 2021-03-15.
- */
+
 export function getSqlResourceSqlContainerOutput(args: GetSqlResourceSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlContainerResult> {
-    return pulumi.output(args).apply((a: any) => getSqlResourceSqlContainer(a, opts))
+    return pulumi.output(args).apply(a => getSqlResourceSqlContainer(a, opts))
 }
 
 export interface GetSqlResourceSqlContainerOutputArgs {

@@ -94,11 +94,9 @@ export interface GetScheduledTriggerResult {
      */
     readonly userName: string;
 }
-/**
- * A type of trigger based on schedule
- */
+
 export function getScheduledTriggerOutput(args: GetScheduledTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getScheduledTrigger(a, opts))
+    return pulumi.output(args).apply(a => getScheduledTrigger(a, opts))
 }
 
 export interface GetScheduledTriggerOutputArgs {

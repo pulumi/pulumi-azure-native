@@ -52,11 +52,9 @@ export interface ListVendorSkusCredentialResult {
      */
     readonly username?: string;
 }
-/**
- * The Sku credential definition.
- */
+
 export function listVendorSkusCredentialOutput(args: ListVendorSkusCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVendorSkusCredentialResult> {
-    return pulumi.output(args).apply((a: any) => listVendorSkusCredential(a, opts))
+    return pulumi.output(args).apply(a => listVendorSkusCredential(a, opts))
 }
 
 export interface ListVendorSkusCredentialOutputArgs {

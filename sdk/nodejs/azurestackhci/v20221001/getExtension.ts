@@ -121,11 +121,9 @@ export interface GetExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
-/**
- * Details of a particular extension in HCI Cluster.
- */
+
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
+    return pulumi.output(args).apply(a => getExtension(a, opts))
 }
 
 export interface GetExtensionOutputArgs {

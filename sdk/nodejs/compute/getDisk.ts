@@ -176,12 +176,9 @@ export interface GetDiskResult {
      */
     readonly zones?: string[];
 }
-/**
- * Disk resource.
- * API Version: 2020-12-01.
- */
+
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
-    return pulumi.output(args).apply((a: any) => getDisk(a, opts))
+    return pulumi.output(args).apply(a => getDisk(a, opts))
 }
 
 export interface GetDiskOutputArgs {

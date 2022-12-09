@@ -60,11 +60,9 @@ export interface GetModelContainerResult {
      */
     readonly type: string;
 }
-/**
- * Azure Resource Manager resource envelope.
- */
+
 export function getModelContainerOutput(args: GetModelContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelContainerResult> {
-    return pulumi.output(args).apply((a: any) => getModelContainer(a, opts))
+    return pulumi.output(args).apply(a => getModelContainer(a, opts))
 }
 
 export interface GetModelContainerOutputArgs {

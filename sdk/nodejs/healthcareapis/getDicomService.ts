@@ -97,12 +97,9 @@ export interface GetDicomServiceResult {
      */
     readonly type: string;
 }
-/**
- * The description of Dicom Service
- * API Version: 2022-05-15.
- */
+
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
-    return pulumi.output(args).apply((a: any) => getDicomService(a, opts))
+    return pulumi.output(args).apply(a => getDicomService(a, opts))
 }
 
 export interface GetDicomServiceOutputArgs {

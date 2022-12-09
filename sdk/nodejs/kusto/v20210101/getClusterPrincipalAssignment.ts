@@ -77,11 +77,9 @@ export interface GetClusterPrincipalAssignmentResult {
      */
     readonly type: string;
 }
-/**
- * Class representing a cluster principal assignment.
- */
+
 export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getClusterPrincipalAssignment(a, opts))
+    return pulumi.output(args).apply(a => getClusterPrincipalAssignment(a, opts))
 }
 
 export interface GetClusterPrincipalAssignmentOutputArgs {

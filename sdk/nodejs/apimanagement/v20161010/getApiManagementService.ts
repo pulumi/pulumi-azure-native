@@ -127,11 +127,9 @@ export interface GetApiManagementServiceResult {
      */
     readonly vpnconfiguration?: outputs.apimanagement.v20161010.VirtualNetworkConfigurationResponse;
 }
-/**
- * A single API Management service resource in List or Get response.
- */
+
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {
-    return pulumi.output(args).apply((a: any) => getApiManagementService(a, opts))
+    return pulumi.output(args).apply(a => getApiManagementService(a, opts))
 }
 
 export interface GetApiManagementServiceOutputArgs {

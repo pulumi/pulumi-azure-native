@@ -68,12 +68,9 @@ export interface GetIntegrationAccountResult {
      */
     readonly type: string;
 }
-/**
- * The integration account.
- * API Version: 2019-05-01.
- */
+
 export function getIntegrationAccountOutput(args: GetIntegrationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationAccount(a, opts))
+    return pulumi.output(args).apply(a => getIntegrationAccount(a, opts))
 }
 
 export interface GetIntegrationAccountOutputArgs {

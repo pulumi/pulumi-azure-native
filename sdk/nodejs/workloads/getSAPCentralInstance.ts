@@ -121,12 +121,9 @@ export interface GetSAPCentralInstanceResult {
      */
     readonly vmDetails: outputs.workloads.CentralServerVmDetailsResponse[];
 }
-/**
- * Define the SAP Central Services Instance resource.
- * API Version: 2021-12-01-preview.
- */
+
 export function getSAPCentralInstanceOutput(args: GetSAPCentralInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPCentralInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getSAPCentralInstance(a, opts))
+    return pulumi.output(args).apply(a => getSAPCentralInstance(a, opts))
 }
 
 export interface GetSAPCentralInstanceOutputArgs {

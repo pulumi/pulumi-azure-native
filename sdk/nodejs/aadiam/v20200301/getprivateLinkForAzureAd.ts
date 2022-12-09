@@ -72,11 +72,9 @@ export interface GetprivateLinkForAzureAdResult {
      */
     readonly type: string;
 }
-/**
- * PrivateLink Policy configuration object.
- */
+
 export function getprivateLinkForAzureAdOutput(args: GetprivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkForAzureAdResult> {
-    return pulumi.output(args).apply((a: any) => getprivateLinkForAzureAd(a, opts))
+    return pulumi.output(args).apply(a => getprivateLinkForAzureAd(a, opts))
 }
 
 export interface GetprivateLinkForAzureAdOutputArgs {

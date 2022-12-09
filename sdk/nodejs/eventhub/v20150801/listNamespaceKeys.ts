@@ -57,11 +57,9 @@ export interface ListNamespaceKeysResult {
      */
     readonly secondaryKey: string;
 }
-/**
- * Namespace/EventHub Connection String
- */
+
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
-    return pulumi.output(args).apply((a: any) => listNamespaceKeys(a, opts))
+    return pulumi.output(args).apply(a => listNamespaceKeys(a, opts))
 }
 
 export interface ListNamespaceKeysOutputArgs {

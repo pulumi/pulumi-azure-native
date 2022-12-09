@@ -70,12 +70,9 @@ export interface GetWorkspaceConnectionResult {
      */
     readonly valueFormat?: string;
 }
-/**
- * Workspace connection.
- * API Version: 2021-01-01.
- */
+
 export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceConnection(a, opts))
+    return pulumi.output(args).apply(a => getWorkspaceConnection(a, opts))
 }
 
 export interface GetWorkspaceConnectionOutputArgs {

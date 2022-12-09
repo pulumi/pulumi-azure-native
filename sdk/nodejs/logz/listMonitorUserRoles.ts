@@ -49,12 +49,9 @@ export interface ListMonitorUserRolesResult {
      */
     readonly value?: outputs.logz.UserRoleResponseResponse[];
 }
-/**
- * Response for list of user's role for Logz.io account.
- * API Version: 2020-10-01.
- */
+
 export function listMonitorUserRolesOutput(args: ListMonitorUserRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorUserRolesResult> {
-    return pulumi.output(args).apply((a: any) => listMonitorUserRoles(a, opts))
+    return pulumi.output(args).apply(a => listMonitorUserRoles(a, opts))
 }
 
 export interface ListMonitorUserRolesOutputArgs {

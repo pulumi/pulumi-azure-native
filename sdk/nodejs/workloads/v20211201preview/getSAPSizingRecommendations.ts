@@ -79,11 +79,9 @@ export interface GetSAPSizingRecommendationsResult {
      */
     readonly deploymentType: string;
 }
-/**
- * The SAP sizing recommendation result.
- */
+
 export function getSAPSizingRecommendationsOutput(args: GetSAPSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSizingRecommendationsResult> {
-    return pulumi.output(args).apply((a: any) => getSAPSizingRecommendations(a, opts))
+    return pulumi.output(args).apply(a => getSAPSizingRecommendations(a, opts))
 }
 
 export interface GetSAPSizingRecommendationsOutputArgs {

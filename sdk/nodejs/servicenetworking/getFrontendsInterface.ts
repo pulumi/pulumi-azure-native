@@ -81,12 +81,9 @@ export interface GetFrontendsInterfaceResult {
      */
     readonly type: string;
 }
-/**
- * Frontend Subresource of Traffic Controller.
- * API Version: 2022-10-01-preview.
- */
+
 export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontendsInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getFrontendsInterface(a, opts))
+    return pulumi.output(args).apply(a => getFrontendsInterface(a, opts))
 }
 
 export interface GetFrontendsInterfaceOutputArgs {

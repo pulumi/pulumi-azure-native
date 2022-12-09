@@ -74,12 +74,9 @@ export interface ListWebAppPublishingCredentialsSlotResult {
      */
     readonly type: string;
 }
-/**
- * User credentials used for publishing activity.
- * API Version: 2020-12-01.
- */
+
 export function listWebAppPublishingCredentialsSlotOutput(args: ListWebAppPublishingCredentialsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppPublishingCredentialsSlot(a, opts))
+    return pulumi.output(args).apply(a => listWebAppPublishingCredentialsSlot(a, opts))
 }
 
 export interface ListWebAppPublishingCredentialsSlotOutputArgs {

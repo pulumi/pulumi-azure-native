@@ -89,11 +89,9 @@ export interface GetNspAccessRuleResult {
      */
     readonly type: string;
 }
-/**
- * The NSP access rule resource
- */
+
 export function getNspAccessRuleOutput(args: GetNspAccessRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspAccessRuleResult> {
-    return pulumi.output(args).apply((a: any) => getNspAccessRule(a, opts))
+    return pulumi.output(args).apply(a => getNspAccessRule(a, opts))
 }
 
 export interface GetNspAccessRuleOutputArgs {

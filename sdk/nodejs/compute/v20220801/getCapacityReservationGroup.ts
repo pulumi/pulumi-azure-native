@@ -76,11 +76,9 @@ export interface GetCapacityReservationGroupResult {
      */
     readonly zones?: string[];
 }
-/**
- * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
- */
+
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationGroupResult> {
-    return pulumi.output(args).apply((a: any) => getCapacityReservationGroup(a, opts))
+    return pulumi.output(args).apply(a => getCapacityReservationGroup(a, opts))
 }
 
 export interface GetCapacityReservationGroupOutputArgs {

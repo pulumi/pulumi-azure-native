@@ -79,12 +79,9 @@ export interface GetRoleAssignmentArtifactResult {
      */
     readonly type: string;
 }
-/**
- * Blueprint artifact that applies a Role assignment.
- * API Version: 2018-11-01-preview.
- */
+
 export function getRoleAssignmentArtifactOutput(args: GetRoleAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentArtifactResult> {
-    return pulumi.output(args).apply((a: any) => getRoleAssignmentArtifact(a, opts))
+    return pulumi.output(args).apply(a => getRoleAssignmentArtifact(a, opts))
 }
 
 export interface GetRoleAssignmentArtifactOutputArgs {

@@ -96,11 +96,9 @@ export interface GetSimResult {
      */
     readonly vendorName: string;
 }
-/**
- * SIM resource.
- */
+
 export function getSimOutput(args: GetSimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimResult> {
-    return pulumi.output(args).apply((a: any) => getSim(a, opts))
+    return pulumi.output(args).apply(a => getSim(a, opts))
 }
 
 export interface GetSimOutputArgs {

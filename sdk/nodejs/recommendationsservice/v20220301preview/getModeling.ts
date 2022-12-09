@@ -68,11 +68,9 @@ export interface GetModelingResult {
      */
     readonly type: string;
 }
-/**
- * Modeling resource details.
- */
+
 export function getModelingOutput(args: GetModelingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelingResult> {
-    return pulumi.output(args).apply((a: any) => getModeling(a, opts))
+    return pulumi.output(args).apply(a => getModeling(a, opts))
 }
 
 export interface GetModelingOutputArgs {

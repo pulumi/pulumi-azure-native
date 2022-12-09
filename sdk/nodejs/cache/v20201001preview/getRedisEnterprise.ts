@@ -87,11 +87,9 @@ export interface GetRedisEnterpriseResult {
      */
     readonly zones?: string[];
 }
-/**
- * Describes the RedisEnterprise cluster
- */
+
 export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisEnterpriseResult> {
-    return pulumi.output(args).apply((a: any) => getRedisEnterprise(a, opts))
+    return pulumi.output(args).apply(a => getRedisEnterprise(a, opts))
 }
 
 export interface GetRedisEnterpriseOutputArgs {

@@ -45,12 +45,9 @@ export interface ListManagerPublicEncryptionKeyResult {
      */
     readonly valueCertificateThumbprint?: string;
 }
-/**
- * Represents the secrets encrypted using Symmetric Encryption Key.
- * API Version: 2017-06-01.
- */
+
 export function listManagerPublicEncryptionKeyOutput(args: ListManagerPublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerPublicEncryptionKeyResult> {
-    return pulumi.output(args).apply((a: any) => listManagerPublicEncryptionKey(a, opts))
+    return pulumi.output(args).apply(a => listManagerPublicEncryptionKey(a, opts))
 }
 
 export interface ListManagerPublicEncryptionKeyOutputArgs {

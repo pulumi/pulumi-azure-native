@@ -184,12 +184,9 @@ export interface GetScopeAccessReviewScheduleDefinitionByIdResult {
      */
     readonly userPrincipalName: string;
 }
-/**
- * Access Review Schedule Definition.
- * API Version: 2021-12-01-preview.
- */
+
 export function getScopeAccessReviewScheduleDefinitionByIdOutput(args: GetScopeAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAccessReviewScheduleDefinitionByIdResult> {
-    return pulumi.output(args).apply((a: any) => getScopeAccessReviewScheduleDefinitionById(a, opts))
+    return pulumi.output(args).apply(a => getScopeAccessReviewScheduleDefinitionById(a, opts))
 }
 
 export interface GetScopeAccessReviewScheduleDefinitionByIdOutputArgs {

@@ -78,12 +78,9 @@ export interface GetStorageInsightResult {
      */
     readonly type: string;
 }
-/**
- * The top level storage insight resource container.
- */
-/** @deprecated Version 2015-03-20 will be removed in v2 of the provider. */
+
 export function getStorageInsightOutput(args: GetStorageInsightOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightResult> {
-    return pulumi.output(args).apply((a: any) => getStorageInsight(a, opts))
+    return pulumi.output(args).apply(a => getStorageInsight(a, opts))
 }
 
 export interface GetStorageInsightOutputArgs {
