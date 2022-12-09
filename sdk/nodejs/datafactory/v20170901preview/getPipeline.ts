@@ -78,9 +78,12 @@ export interface GetPipelineResult {
      */
     readonly type: string;
 }
-
+/**
+ * Pipeline resource type.
+ */
+/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply(a => getPipeline(a, opts))
+    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
 }
 
 export interface GetPipelineOutputArgs {

@@ -72,9 +72,12 @@ export interface GetFileServerResult {
      */
     readonly type: string;
 }
-
+/**
+ * The file server.
+ */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileServerOutput(args: GetFileServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServerResult> {
-    return pulumi.output(args).apply(a => getFileServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileServer(a, opts))
 }
 
 export interface GetFileServerOutputArgs {

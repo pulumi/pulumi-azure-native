@@ -70,9 +70,9 @@ export interface GetAdaptiveApplicationControlResult {
     readonly type: string;
     readonly vmRecommendations?: outputs.security.v20150601preview.VmRecommendationResponse[];
 }
-
+/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
 export function getAdaptiveApplicationControlOutput(args: GetAdaptiveApplicationControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdaptiveApplicationControlResult> {
-    return pulumi.output(args).apply(a => getAdaptiveApplicationControl(a, opts))
+    return pulumi.output(args).apply((a: any) => getAdaptiveApplicationControl(a, opts))
 }
 
 export interface GetAdaptiveApplicationControlOutputArgs {

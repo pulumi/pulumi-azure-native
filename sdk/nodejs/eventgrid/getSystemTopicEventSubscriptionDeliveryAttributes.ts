@@ -45,9 +45,12 @@ export interface GetSystemTopicEventSubscriptionDeliveryAttributesResult {
      */
     readonly value?: (outputs.eventgrid.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.StaticDeliveryAttributeMappingResponse)[];
 }
-
+/**
+ * Result of the Get delivery attributes operation.
+ * API Version: 2021-06-01-preview.
+ */
 export function getSystemTopicEventSubscriptionDeliveryAttributesOutput(args: GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionDeliveryAttributesResult> {
-    return pulumi.output(args).apply(a => getSystemTopicEventSubscriptionDeliveryAttributes(a, opts))
+    return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscriptionDeliveryAttributes(a, opts))
 }
 
 export interface GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs {

@@ -81,9 +81,12 @@ export interface GetStreamingPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Streaming Policy resource
+ * API Version: 2020-05-01.
+ */
 export function getStreamingPolicyOutput(args: GetStreamingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingPolicyResult> {
-    return pulumi.output(args).apply(a => getStreamingPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getStreamingPolicy(a, opts))
 }
 
 export interface GetStreamingPolicyOutputArgs {

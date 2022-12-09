@@ -49,9 +49,12 @@ export interface GetProductsResult {
      */
     readonly value?: outputs.azurestack.ProductResponse[];
 }
-
+/**
+ * Pageable list of products.
+ * API Version: 2017-06-01.
+ */
 export function getProductsOutput(args: GetProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductsResult> {
-    return pulumi.output(args).apply(a => getProducts(a, opts))
+    return pulumi.output(args).apply((a: any) => getProducts(a, opts))
 }
 
 export interface GetProductsOutputArgs {

@@ -36,9 +36,11 @@ export interface ListKeyByAutomationAccountResult {
      */
     readonly keys?: outputs.automation.KeyResponse[];
 }
-
+/**
+ * API Version: 2021-06-22.
+ */
 export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKeyByAutomationAccountResult> {
-    return pulumi.output(args).apply(a => listKeyByAutomationAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => listKeyByAutomationAccount(a, opts))
 }
 
 export interface ListKeyByAutomationAccountOutputArgs {

@@ -58,9 +58,11 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerResult {
      */
     readonly value?: outputs.network.v20210201preview.EffectiveVirtualNetworkResponse[];
 }
-
+/**
+ * Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+ */
 export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {
-    return pulumi.output(args).apply(a => listEffectiveVirtualNetworkByNetworkManager(a, opts))
+    return pulumi.output(args).apply((a: any) => listEffectiveVirtualNetworkByNetworkManager(a, opts))
 }
 
 export interface ListEffectiveVirtualNetworkByNetworkManagerOutputArgs {

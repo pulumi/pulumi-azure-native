@@ -114,9 +114,11 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes a Virtual Machine run command.
+ */
 export function getVirtualMachineScaleSetVMRunCommandOutput(args: GetVirtualMachineScaleSetVMRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMRunCommandResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineScaleSetVMRunCommand(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMRunCommand(a, opts))
 }
 
 export interface GetVirtualMachineScaleSetVMRunCommandOutputArgs {

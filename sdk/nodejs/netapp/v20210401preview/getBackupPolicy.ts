@@ -92,9 +92,11 @@ export interface GetBackupPolicyResult {
      */
     readonly yearlyBackupsToKeep?: number;
 }
-
+/**
+ * Backup policy information
+ */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
-    return pulumi.output(args).apply(a => getBackupPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
 }
 
 export interface GetBackupPolicyOutputArgs {

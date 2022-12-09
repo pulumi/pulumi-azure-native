@@ -88,9 +88,11 @@ export interface GetCustomIPPrefixResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Custom IP prefix resource.
+ */
 export function getCustomIPPrefixOutput(args: GetCustomIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomIPPrefixResult> {
-    return pulumi.output(args).apply(a => getCustomIPPrefix(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomIPPrefix(a, opts))
 }
 
 export interface GetCustomIPPrefixOutputArgs {

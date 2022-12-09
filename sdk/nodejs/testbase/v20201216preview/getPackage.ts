@@ -118,9 +118,12 @@ export interface GetPackageResult {
      */
     readonly version: string;
 }
-
+/**
+ * The Test Base Package resource.
+ */
+/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
-    return pulumi.output(args).apply(a => getPackage(a, opts))
+    return pulumi.output(args).apply((a: any) => getPackage(a, opts))
 }
 
 export interface GetPackageOutputArgs {

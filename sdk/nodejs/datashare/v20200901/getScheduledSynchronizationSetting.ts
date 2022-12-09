@@ -86,9 +86,11 @@ export interface GetScheduledSynchronizationSettingResult {
      */
     readonly userName: string;
 }
-
+/**
+ * A type of synchronization setting based on schedule
+ */
 export function getScheduledSynchronizationSettingOutput(args: GetScheduledSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledSynchronizationSettingResult> {
-    return pulumi.output(args).apply(a => getScheduledSynchronizationSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getScheduledSynchronizationSetting(a, opts))
 }
 
 export interface GetScheduledSynchronizationSettingOutputArgs {

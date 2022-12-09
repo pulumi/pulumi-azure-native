@@ -65,9 +65,11 @@ export interface GetWorkloadNetworkPublicIPResult {
      */
     readonly type: string;
 }
-
+/**
+ * NSX Public IP Block
+ */
 export function getWorkloadNetworkPublicIPOutput(args: GetWorkloadNetworkPublicIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPublicIPResult> {
-    return pulumi.output(args).apply(a => getWorkloadNetworkPublicIP(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkloadNetworkPublicIP(a, opts))
 }
 
 export interface GetWorkloadNetworkPublicIPOutputArgs {

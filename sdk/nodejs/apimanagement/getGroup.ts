@@ -66,9 +66,12 @@ export interface GetGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * Contract details.
+ * API Version: 2020-12-01.
+ */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    return pulumi.output(args).apply(a => getGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
 }
 
 export interface GetGroupOutputArgs {

@@ -257,9 +257,11 @@ export interface ListWebAppAuthSettingsSlotResult {
      */
     readonly validateIssuer?: boolean;
 }
-
+/**
+ * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ */
 export function listWebAppAuthSettingsSlotOutput(args: ListWebAppAuthSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppAuthSettingsSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppAuthSettingsSlot(a, opts))
 }
 
 export interface ListWebAppAuthSettingsSlotOutputArgs {

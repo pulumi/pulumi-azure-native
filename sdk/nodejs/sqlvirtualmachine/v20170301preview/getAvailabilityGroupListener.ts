@@ -72,9 +72,11 @@ export interface GetAvailabilityGroupListenerResult {
      */
     readonly type: string;
 }
-
+/**
+ * A SQL Server availability group listener.
+ */
 export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {
-    return pulumi.output(args).apply(a => getAvailabilityGroupListener(a, opts))
+    return pulumi.output(args).apply((a: any) => getAvailabilityGroupListener(a, opts))
 }
 
 export interface GetAvailabilityGroupListenerOutputArgs {

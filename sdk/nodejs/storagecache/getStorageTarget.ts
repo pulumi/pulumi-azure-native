@@ -89,9 +89,12 @@ export interface GetStorageTargetResult {
      */
     readonly unknown?: outputs.storagecache.UnknownTargetResponse;
 }
-
+/**
+ * Type of the Storage Target.
+ * API Version: 2021-03-01.
+ */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
-    return pulumi.output(args).apply(a => getStorageTarget(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageTarget(a, opts))
 }
 
 export interface GetStorageTargetOutputArgs {

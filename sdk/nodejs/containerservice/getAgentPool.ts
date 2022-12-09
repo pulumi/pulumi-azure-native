@@ -189,9 +189,12 @@ export interface GetAgentPoolResult {
      */
     readonly vnetSubnetID?: string;
 }
-
+/**
+ * Agent Pool.
+ * API Version: 2021-03-01.
+ */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
-    return pulumi.output(args).apply(a => getAgentPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
 }
 
 export interface GetAgentPoolOutputArgs {

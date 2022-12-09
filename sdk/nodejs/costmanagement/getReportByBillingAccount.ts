@@ -68,9 +68,12 @@ export interface GetReportByBillingAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * A report resource.
+ * API Version: 2018-08-01-preview.
+ */
 export function getReportByBillingAccountOutput(args: GetReportByBillingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByBillingAccountResult> {
-    return pulumi.output(args).apply(a => getReportByBillingAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getReportByBillingAccount(a, opts))
 }
 
 export interface GetReportByBillingAccountOutputArgs {

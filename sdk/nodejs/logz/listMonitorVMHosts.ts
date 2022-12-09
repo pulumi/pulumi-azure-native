@@ -44,9 +44,12 @@ export interface ListMonitorVMHostsResult {
      */
     readonly value?: outputs.logz.VMResourcesResponse[];
 }
-
+/**
+ * Response of a list VM Host Update Operation.
+ * API Version: 2020-10-01.
+ */
 export function listMonitorVMHostsOutput(args: ListMonitorVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorVMHostsResult> {
-    return pulumi.output(args).apply(a => listMonitorVMHosts(a, opts))
+    return pulumi.output(args).apply((a: any) => listMonitorVMHosts(a, opts))
 }
 
 export interface ListMonitorVMHostsOutputArgs {

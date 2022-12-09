@@ -40,9 +40,11 @@ export interface ListStorageAccountKeysResult {
      */
     readonly key2?: string;
 }
-
+/**
+ * The access keys for the storage account.
+ */
 export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
-    return pulumi.output(args).apply(a => listStorageAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listStorageAccountKeys(a, opts))
 }
 
 export interface ListStorageAccountKeysOutputArgs {

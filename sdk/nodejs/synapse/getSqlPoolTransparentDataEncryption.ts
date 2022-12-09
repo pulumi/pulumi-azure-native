@@ -63,9 +63,12 @@ export interface GetSqlPoolTransparentDataEncryptionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a Sql pool transparent data encryption configuration.
+ * API Version: 2021-03-01.
+ */
 export function getSqlPoolTransparentDataEncryptionOutput(args: GetSqlPoolTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolTransparentDataEncryptionResult> {
-    return pulumi.output(args).apply(a => getSqlPoolTransparentDataEncryption(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlPoolTransparentDataEncryption(a, opts))
 }
 
 export interface GetSqlPoolTransparentDataEncryptionOutputArgs {

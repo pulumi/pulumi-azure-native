@@ -95,9 +95,12 @@ export interface GetSqlDWTableDataSetMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * A SQL DW Table data set mapping.
+ * API Version: 2020-09-01.
+ */
 export function getSqlDWTableDataSetMappingOutput(args: GetSqlDWTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetMappingResult> {
-    return pulumi.output(args).apply(a => getSqlDWTableDataSetMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlDWTableDataSetMapping(a, opts))
 }
 
 export interface GetSqlDWTableDataSetMappingOutputArgs {

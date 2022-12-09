@@ -130,9 +130,12 @@ export interface GetKpiResult {
      */
     readonly unit?: string;
 }
-
+/**
+ * The KPI resource format.
+ */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKpiResult> {
-    return pulumi.output(args).apply(a => getKpi(a, opts))
+    return pulumi.output(args).apply((a: any) => getKpi(a, opts))
 }
 
 export interface GetKpiOutputArgs {

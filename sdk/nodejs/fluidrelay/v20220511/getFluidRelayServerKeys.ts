@@ -40,9 +40,11 @@ export interface GetFluidRelayServerKeysResult {
      */
     readonly key2: string;
 }
-
+/**
+ * The set of available keys for this server.
+ */
 export function getFluidRelayServerKeysOutput(args: GetFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluidRelayServerKeysResult> {
-    return pulumi.output(args).apply(a => getFluidRelayServerKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => getFluidRelayServerKeys(a, opts))
 }
 
 export interface GetFluidRelayServerKeysOutputArgs {

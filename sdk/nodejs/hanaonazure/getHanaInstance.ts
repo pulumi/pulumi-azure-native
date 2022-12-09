@@ -96,9 +96,12 @@ export interface GetHanaInstanceResult {
      */
     readonly type: string;
 }
-
+/**
+ * HANA instance info on Azure (ARM properties and HANA properties)
+ * API Version: 2017-11-03-preview.
+ */
 export function getHanaInstanceOutput(args: GetHanaInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHanaInstanceResult> {
-    return pulumi.output(args).apply(a => getHanaInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getHanaInstance(a, opts))
 }
 
 export interface GetHanaInstanceOutputArgs {

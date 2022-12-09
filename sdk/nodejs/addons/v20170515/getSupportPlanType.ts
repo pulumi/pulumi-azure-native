@@ -50,9 +50,12 @@ export interface GetSupportPlanTypeResult {
      */
     readonly type: string;
 }
-
+/**
+ * The status of the Canonical support plan.
+ */
+/** @deprecated Version 2017-05-15 will be removed in v2 of the provider. */
 export function getSupportPlanTypeOutput(args: GetSupportPlanTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportPlanTypeResult> {
-    return pulumi.output(args).apply(a => getSupportPlanType(a, opts))
+    return pulumi.output(args).apply((a: any) => getSupportPlanType(a, opts))
 }
 
 export interface GetSupportPlanTypeOutputArgs {

@@ -107,9 +107,12 @@ export interface GetSensitivityLabelResult {
      */
     readonly type: string;
 }
-
+/**
+ * A sensitivity label.
+ * API Version: 2020-11-01-preview.
+ */
 export function getSensitivityLabelOutput(args: GetSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitivityLabelResult> {
-    return pulumi.output(args).apply(a => getSensitivityLabel(a, opts))
+    return pulumi.output(args).apply((a: any) => getSensitivityLabel(a, opts))
 }
 
 export interface GetSensitivityLabelOutputArgs {

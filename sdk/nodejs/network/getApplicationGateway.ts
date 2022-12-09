@@ -188,9 +188,12 @@ export interface GetApplicationGatewayResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Application gateway resource.
+ * API Version: 2020-11-01.
+ */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
-    return pulumi.output(args).apply(a => getApplicationGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))
 }
 
 export interface GetApplicationGatewayOutputArgs {

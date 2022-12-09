@@ -67,9 +67,11 @@ export interface GetReportByResourceGroupNameResult {
      */
     readonly type: string;
 }
-
+/**
+ * A report resource.
+ */
 export function getReportByResourceGroupNameOutput(args: GetReportByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByResourceGroupNameResult> {
-    return pulumi.output(args).apply(a => getReportByResourceGroupName(a, opts))
+    return pulumi.output(args).apply((a: any) => getReportByResourceGroupName(a, opts))
 }
 
 export interface GetReportByResourceGroupNameOutputArgs {

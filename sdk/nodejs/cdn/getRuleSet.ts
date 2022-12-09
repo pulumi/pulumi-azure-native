@@ -62,9 +62,12 @@ export interface GetRuleSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * Friendly RuleSet name mapping to the any RuleSet or secret related information.
+ * API Version: 2020-09-01.
+ */
 export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleSetResult> {
-    return pulumi.output(args).apply(a => getRuleSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getRuleSet(a, opts))
 }
 
 export interface GetRuleSetOutputArgs {

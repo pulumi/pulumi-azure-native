@@ -51,9 +51,11 @@ export interface GetMonitoringSettingResult {
      */
     readonly type: string;
 }
-
+/**
+ * Monitoring Setting resource
+ */
 export function getMonitoringSettingOutput(args: GetMonitoringSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSettingResult> {
-    return pulumi.output(args).apply(a => getMonitoringSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getMonitoringSetting(a, opts))
 }
 
 export interface GetMonitoringSettingOutputArgs {

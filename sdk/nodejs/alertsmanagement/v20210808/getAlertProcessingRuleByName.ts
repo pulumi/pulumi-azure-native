@@ -63,9 +63,11 @@ export interface GetAlertProcessingRuleByNameResult {
      */
     readonly type: string;
 }
-
+/**
+ * Alert processing rule object containing target scopes, conditions and scheduling logic.
+ */
 export function getAlertProcessingRuleByNameOutput(args: GetAlertProcessingRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertProcessingRuleByNameResult> {
-    return pulumi.output(args).apply(a => getAlertProcessingRuleByName(a, opts))
+    return pulumi.output(args).apply((a: any) => getAlertProcessingRuleByName(a, opts))
 }
 
 export interface GetAlertProcessingRuleByNameOutputArgs {

@@ -80,9 +80,12 @@ export interface GetWebAppSourceControlResult {
      */
     readonly type: string;
 }
-
+/**
+ * Source control configuration for an app.
+ * API Version: 2020-12-01.
+ */
 export function getWebAppSourceControlOutput(args: GetWebAppSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlResult> {
-    return pulumi.output(args).apply(a => getWebAppSourceControl(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppSourceControl(a, opts))
 }
 
 export interface GetWebAppSourceControlOutputArgs {

@@ -68,9 +68,11 @@ export interface GetConnectedEnvironmentsCertificateResult {
      */
     readonly type: string;
 }
-
+/**
+ * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
+ */
 export function getConnectedEnvironmentsCertificateOutput(args: GetConnectedEnvironmentsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsCertificateResult> {
-    return pulumi.output(args).apply(a => getConnectedEnvironmentsCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsCertificate(a, opts))
 }
 
 export interface GetConnectedEnvironmentsCertificateOutputArgs {

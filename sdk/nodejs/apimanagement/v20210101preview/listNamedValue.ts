@@ -41,9 +41,11 @@ export interface ListNamedValueResult {
      */
     readonly value?: string;
 }
-
+/**
+ * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ */
 export function listNamedValueOutput(args: ListNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamedValueResult> {
-    return pulumi.output(args).apply(a => listNamedValue(a, opts))
+    return pulumi.output(args).apply((a: any) => listNamedValue(a, opts))
 }
 
 export interface ListNamedValueOutputArgs {

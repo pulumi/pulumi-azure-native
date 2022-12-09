@@ -108,9 +108,12 @@ export interface GetVCenterResult {
      */
     readonly version: string;
 }
-
+/**
+ * Defines the vCenter.
+ * API Version: 2020-10-01-preview.
+ */
 export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVCenterResult> {
-    return pulumi.output(args).apply(a => getVCenter(a, opts))
+    return pulumi.output(args).apply((a: any) => getVCenter(a, opts))
 }
 
 export interface GetVCenterOutputArgs {

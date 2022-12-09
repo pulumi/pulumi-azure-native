@@ -65,9 +65,11 @@ export interface GetVirtualRouterPeeringResult {
      */
     readonly type: string;
 }
-
+/**
+ * Virtual Router Peering resource
+ */
 export function getVirtualRouterPeeringOutput(args: GetVirtualRouterPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterPeeringResult> {
-    return pulumi.output(args).apply(a => getVirtualRouterPeering(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualRouterPeering(a, opts))
 }
 
 export interface GetVirtualRouterPeeringOutputArgs {

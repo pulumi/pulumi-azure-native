@@ -103,9 +103,12 @@ export interface GetSignalRResult {
      */
     readonly version?: string;
 }
-
+/**
+ * A class represent a SignalR service resource.
+ */
+/** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
-    return pulumi.output(args).apply(a => getSignalR(a, opts))
+    return pulumi.output(args).apply((a: any) => getSignalR(a, opts))
 }
 
 export interface GetSignalROutputArgs {

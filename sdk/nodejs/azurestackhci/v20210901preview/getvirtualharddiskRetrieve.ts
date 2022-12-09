@@ -92,9 +92,11 @@ export interface GetvirtualharddiskRetrieveResult {
      */
     readonly type: string;
 }
-
+/**
+ * The virtual hard disk resource definition.
+ */
 export function getvirtualharddiskRetrieveOutput(args: GetvirtualharddiskRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualharddiskRetrieveResult> {
-    return pulumi.output(args).apply(a => getvirtualharddiskRetrieve(a, opts))
+    return pulumi.output(args).apply((a: any) => getvirtualharddiskRetrieve(a, opts))
 }
 
 export interface GetvirtualharddiskRetrieveOutputArgs {

@@ -129,9 +129,12 @@ export interface GetStreamingEndpointResult {
      */
     readonly type: string;
 }
-
+/**
+ * The streaming endpoint.
+ * API Version: 2020-05-01.
+ */
 export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingEndpointResult> {
-    return pulumi.output(args).apply(a => getStreamingEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getStreamingEndpoint(a, opts))
 }
 
 export interface GetStreamingEndpointOutputArgs {

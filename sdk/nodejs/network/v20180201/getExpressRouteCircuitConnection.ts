@@ -83,9 +83,12 @@ export interface GetExpressRouteCircuitConnectionResult {
      */
     readonly provisioningState: string;
 }
-
+/**
+ * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+ */
+/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
-    return pulumi.output(args).apply(a => getExpressRouteCircuitConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getExpressRouteCircuitConnection(a, opts))
 }
 
 export interface GetExpressRouteCircuitConnectionOutputArgs {

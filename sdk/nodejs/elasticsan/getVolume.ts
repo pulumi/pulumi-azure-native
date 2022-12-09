@@ -82,9 +82,12 @@ export interface GetVolumeResult {
      */
     readonly volumeId: string;
 }
-
+/**
+ * Response for Volume request.
+ * API Version: 2021-11-20-preview.
+ */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply(a => getVolume(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }
 
 export interface GetVolumeOutputArgs {

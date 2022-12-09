@@ -100,9 +100,11 @@ export interface GetPrivateLinkServiceResult {
      */
     readonly visibility?: outputs.network.v20190801.PrivateLinkServicePropertiesResponseVisibility;
 }
-
+/**
+ * Private link service resource.
+ */
 export function getPrivateLinkServiceOutput(args: GetPrivateLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServiceResult> {
-    return pulumi.output(args).apply(a => getPrivateLinkService(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateLinkService(a, opts))
 }
 
 export interface GetPrivateLinkServiceOutputArgs {

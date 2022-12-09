@@ -71,9 +71,12 @@ export interface GetReplicationMigrationItemResult {
      */
     readonly type: string;
 }
-
+/**
+ * Migration item.
+ * API Version: 2018-07-10.
+ */
 export function getReplicationMigrationItemOutput(args: GetReplicationMigrationItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationMigrationItemResult> {
-    return pulumi.output(args).apply(a => getReplicationMigrationItem(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationMigrationItem(a, opts))
 }
 
 export interface GetReplicationMigrationItemOutputArgs {

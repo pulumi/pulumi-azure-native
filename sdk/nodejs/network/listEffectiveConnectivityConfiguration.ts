@@ -49,9 +49,12 @@ export interface ListEffectiveConnectivityConfigurationResult {
      */
     readonly value?: outputs.network.EffectiveConnectivityConfigurationResponse[];
 }
-
+/**
+ * Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+ * API Version: 2021-02-01-preview.
+ */
 export function listEffectiveConnectivityConfigurationOutput(args: ListEffectiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveConnectivityConfigurationResult> {
-    return pulumi.output(args).apply(a => listEffectiveConnectivityConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => listEffectiveConnectivityConfiguration(a, opts))
 }
 
 export interface ListEffectiveConnectivityConfigurationOutputArgs {

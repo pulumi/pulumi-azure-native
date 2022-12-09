@@ -82,9 +82,11 @@ export interface GetScheduledActionResult {
      */
     readonly viewId: string;
 }
-
+/**
+ * Scheduled action definition.
+ */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
-    return pulumi.output(args).apply(a => getScheduledAction(a, opts))
+    return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))
 }
 
 export interface GetScheduledActionOutputArgs {

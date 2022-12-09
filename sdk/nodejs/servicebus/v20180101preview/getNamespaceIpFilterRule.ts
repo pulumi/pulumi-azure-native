@@ -61,9 +61,11 @@ export interface GetNamespaceIpFilterRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Single item in a List or Get IpFilterRules operation
+ */
 export function getNamespaceIpFilterRuleOutput(args: GetNamespaceIpFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceIpFilterRuleResult> {
-    return pulumi.output(args).apply(a => getNamespaceIpFilterRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespaceIpFilterRule(a, opts))
 }
 
 export interface GetNamespaceIpFilterRuleOutputArgs {

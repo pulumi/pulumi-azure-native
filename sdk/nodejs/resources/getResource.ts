@@ -95,9 +95,12 @@ export interface GetResourceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Resource information.
+ * API Version: 2019-05-01.
+ */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
-    return pulumi.output(args).apply(a => getResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getResource(a, opts))
 }
 
 export interface GetResourceOutputArgs {

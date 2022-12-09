@@ -68,9 +68,11 @@ export interface GetPartnerRegistrationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Information about a partner registration.
+ */
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
-    return pulumi.output(args).apply(a => getPartnerRegistration(a, opts))
+    return pulumi.output(args).apply((a: any) => getPartnerRegistration(a, opts))
 }
 
 export interface GetPartnerRegistrationOutputArgs {

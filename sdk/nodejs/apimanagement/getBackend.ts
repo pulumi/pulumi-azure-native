@@ -89,9 +89,12 @@ export interface GetBackendResult {
      */
     readonly url: string;
 }
-
+/**
+ * Backend details.
+ * API Version: 2020-12-01.
+ */
 export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {
-    return pulumi.output(args).apply(a => getBackend(a, opts))
+    return pulumi.output(args).apply((a: any) => getBackend(a, opts))
 }
 
 export interface GetBackendOutputArgs {

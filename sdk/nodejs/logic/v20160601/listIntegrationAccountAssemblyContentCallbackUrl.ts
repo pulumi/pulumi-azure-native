@@ -64,9 +64,11 @@ export interface ListIntegrationAccountAssemblyContentCallbackUrlResult {
      */
     readonly value: string;
 }
-
+/**
+ * The workflow trigger callback URL.
+ */
 export function listIntegrationAccountAssemblyContentCallbackUrlOutput(args: ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountAssemblyContentCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listIntegrationAccountAssemblyContentCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listIntegrationAccountAssemblyContentCallbackUrl(a, opts))
 }
 
 export interface ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs {

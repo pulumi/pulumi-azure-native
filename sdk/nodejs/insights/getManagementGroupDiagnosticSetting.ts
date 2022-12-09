@@ -76,9 +76,12 @@ export interface GetManagementGroupDiagnosticSettingResult {
      */
     readonly workspaceId?: string;
 }
-
+/**
+ * The management group diagnostic setting resource.
+ * API Version: 2020-01-01-preview.
+ */
 export function getManagementGroupDiagnosticSettingOutput(args: GetManagementGroupDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupDiagnosticSettingResult> {
-    return pulumi.output(args).apply(a => getManagementGroupDiagnosticSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagementGroupDiagnosticSetting(a, opts))
 }
 
 export interface GetManagementGroupDiagnosticSettingOutputArgs {

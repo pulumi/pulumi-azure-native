@@ -90,9 +90,12 @@ export interface GetTopicResult {
      */
     readonly type: string;
 }
-
+/**
+ * EventGrid Topic
+ * API Version: 2020-06-01.
+ */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
-    return pulumi.output(args).apply(a => getTopic(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }
 
 export interface GetTopicOutputArgs {

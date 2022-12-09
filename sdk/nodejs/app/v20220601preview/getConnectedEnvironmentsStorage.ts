@@ -60,9 +60,11 @@ export interface GetConnectedEnvironmentsStorageResult {
      */
     readonly type: string;
 }
-
+/**
+ * Storage resource for connectedEnvironment.
+ */
 export function getConnectedEnvironmentsStorageOutput(args: GetConnectedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsStorageResult> {
-    return pulumi.output(args).apply(a => getConnectedEnvironmentsStorage(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsStorage(a, opts))
 }
 
 export interface GetConnectedEnvironmentsStorageOutputArgs {

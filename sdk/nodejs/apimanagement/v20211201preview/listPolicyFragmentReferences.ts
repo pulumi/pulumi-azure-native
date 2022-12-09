@@ -62,9 +62,11 @@ export interface ListPolicyFragmentReferencesResult {
      */
     readonly value?: outputs.apimanagement.v20211201preview.ResourceCollectionResponseValue[];
 }
-
+/**
+ * A collection of resources.
+ */
 export function listPolicyFragmentReferencesOutput(args: ListPolicyFragmentReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyFragmentReferencesResult> {
-    return pulumi.output(args).apply(a => listPolicyFragmentReferences(a, opts))
+    return pulumi.output(args).apply((a: any) => listPolicyFragmentReferences(a, opts))
 }
 
 export interface ListPolicyFragmentReferencesOutputArgs {

@@ -53,9 +53,12 @@ export interface GetRoleAssignmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Role Assignments
+ */
+/** @deprecated Version 2015-07-01 will be removed in v2 of the provider. */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
-    return pulumi.output(args).apply(a => getRoleAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoleAssignment(a, opts))
 }
 
 export interface GetRoleAssignmentOutputArgs {

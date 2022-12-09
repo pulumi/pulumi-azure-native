@@ -42,9 +42,12 @@ export interface GetChannelFullUrlResult {
      */
     readonly endpointUrl?: string;
 }
-
+/**
+ * Full endpoint url of an event subscription
+ * API Version: 2021-10-15-preview.
+ */
 export function getChannelFullUrlOutput(args: GetChannelFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelFullUrlResult> {
-    return pulumi.output(args).apply(a => getChannelFullUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => getChannelFullUrl(a, opts))
 }
 
 export interface GetChannelFullUrlOutputArgs {

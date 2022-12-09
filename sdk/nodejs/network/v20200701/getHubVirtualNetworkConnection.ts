@@ -76,9 +76,11 @@ export interface GetHubVirtualNetworkConnectionResult {
      */
     readonly routingConfiguration?: outputs.network.v20200701.RoutingConfigurationResponse;
 }
-
+/**
+ * HubVirtualNetworkConnection Resource.
+ */
 export function getHubVirtualNetworkConnectionOutput(args: GetHubVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubVirtualNetworkConnectionResult> {
-    return pulumi.output(args).apply(a => getHubVirtualNetworkConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getHubVirtualNetworkConnection(a, opts))
 }
 
 export interface GetHubVirtualNetworkConnectionOutputArgs {

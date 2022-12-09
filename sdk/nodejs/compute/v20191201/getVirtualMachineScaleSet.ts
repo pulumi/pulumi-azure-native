@@ -125,9 +125,12 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Describes a Virtual Machine Scale Set.
+ */
+/** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineScaleSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSet(a, opts))
 }
 
 export interface GetVirtualMachineScaleSetOutputArgs {

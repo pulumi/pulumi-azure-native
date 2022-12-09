@@ -74,9 +74,12 @@ export interface GetEntityInsightsResult {
      */
     readonly value?: outputs.securityinsights.EntityInsightItemResponse[];
 }
-
+/**
+ * The Get Insights result operation response.
+ * API Version: 2019-01-01-preview.
+ */
 export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityInsightsResult> {
-    return pulumi.output(args).apply(a => getEntityInsights(a, opts))
+    return pulumi.output(args).apply((a: any) => getEntityInsights(a, opts))
 }
 
 export interface GetEntityInsightsOutputArgs {

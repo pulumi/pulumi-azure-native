@@ -65,9 +65,9 @@ export interface GetJitNetworkAccessPolicyResult {
      */
     readonly virtualMachines: outputs.security.v20150601preview.JitNetworkAccessPolicyVirtualMachineResponse[];
 }
-
+/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
 export function getJitNetworkAccessPolicyOutput(args: GetJitNetworkAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitNetworkAccessPolicyResult> {
-    return pulumi.output(args).apply(a => getJitNetworkAccessPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getJitNetworkAccessPolicy(a, opts))
 }
 
 export interface GetJitNetworkAccessPolicyOutputArgs {

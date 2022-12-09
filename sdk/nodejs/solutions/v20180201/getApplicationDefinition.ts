@@ -105,9 +105,12 @@ export interface GetApplicationDefinitionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Information about managed application definition.
+ */
+/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationDefinitionResult> {
-    return pulumi.output(args).apply(a => getApplicationDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationDefinition(a, opts))
 }
 
 export interface GetApplicationDefinitionOutputArgs {

@@ -53,9 +53,11 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
      */
     readonly value?: (outputs.synapse.v20210301.SsisEnvironmentResponse | outputs.synapse.v20210301.SsisFolderResponse | outputs.synapse.v20210301.SsisPackageResponse | outputs.synapse.v20210301.SsisProjectResponse)[];
 }
-
+/**
+ * A list of SSIS object metadata.
+ */
 export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
-    return pulumi.output(args).apply(a => getIntegrationRuntimeObjectMetadatum(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationRuntimeObjectMetadatum(a, opts))
 }
 
 export interface GetIntegrationRuntimeObjectMetadatumOutputArgs {

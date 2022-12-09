@@ -109,9 +109,12 @@ export interface GetPython2PackageResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Definition of the module type.
+ * API Version: 2019-06-01.
+ */
 export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython2PackageResult> {
-    return pulumi.output(args).apply(a => getPython2Package(a, opts))
+    return pulumi.output(args).apply((a: any) => getPython2Package(a, opts))
 }
 
 export interface GetPython2PackageOutputArgs {

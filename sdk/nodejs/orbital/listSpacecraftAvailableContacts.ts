@@ -64,9 +64,12 @@ export interface ListSpacecraftAvailableContactsResult {
      */
     readonly value?: outputs.orbital.AvailableContactsResponse[];
 }
-
+/**
+ * Response for the ListAvailableContacts API service call.
+ * API Version: 2021-04-04-preview.
+ */
 export function listSpacecraftAvailableContactsOutput(args: ListSpacecraftAvailableContactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpacecraftAvailableContactsResult> {
-    return pulumi.output(args).apply(a => listSpacecraftAvailableContacts(a, opts))
+    return pulumi.output(args).apply((a: any) => listSpacecraftAvailableContacts(a, opts))
 }
 
 export interface ListSpacecraftAvailableContactsOutputArgs {

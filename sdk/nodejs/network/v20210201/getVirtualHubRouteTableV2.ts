@@ -64,9 +64,11 @@ export interface GetVirtualHubRouteTableV2Result {
      */
     readonly routes?: outputs.network.v20210201.VirtualHubRouteV2Response[];
 }
-
+/**
+ * VirtualHubRouteTableV2 Resource.
+ */
 export function getVirtualHubRouteTableV2Output(args: GetVirtualHubRouteTableV2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableV2Result> {
-    return pulumi.output(args).apply(a => getVirtualHubRouteTableV2(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualHubRouteTableV2(a, opts))
 }
 
 export interface GetVirtualHubRouteTableV2OutputArgs {

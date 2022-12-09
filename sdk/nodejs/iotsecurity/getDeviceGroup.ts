@@ -52,9 +52,12 @@ export interface GetDeviceGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * Device group
+ * API Version: 2021-02-01-preview.
+ */
 export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {
-    return pulumi.output(args).apply(a => getDeviceGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeviceGroup(a, opts))
 }
 
 export interface GetDeviceGroupOutputArgs {

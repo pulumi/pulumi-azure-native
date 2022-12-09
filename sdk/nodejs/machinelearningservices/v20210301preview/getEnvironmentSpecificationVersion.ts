@@ -65,9 +65,11 @@ export interface GetEnvironmentSpecificationVersionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Azure Resource Manager resource envelope.
+ */
 export function getEnvironmentSpecificationVersionOutput(args: GetEnvironmentSpecificationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSpecificationVersionResult> {
-    return pulumi.output(args).apply(a => getEnvironmentSpecificationVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironmentSpecificationVersion(a, opts))
 }
 
 export interface GetEnvironmentSpecificationVersionOutputArgs {

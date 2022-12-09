@@ -141,9 +141,12 @@ export interface GetDomainServiceResult {
      */
     readonly vnetSiteId: string;
 }
-
+/**
+ * Domain service.
+ */
+/** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
 export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
-    return pulumi.output(args).apply(a => getDomainService(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainService(a, opts))
 }
 
 export interface GetDomainServiceOutputArgs {

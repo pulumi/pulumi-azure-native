@@ -73,9 +73,12 @@ export interface ListUserAssignedIdentityAssociatedResourcesResult {
      */
     readonly value: outputs.managedidentity.AzureResourceResponse[];
 }
-
+/**
+ * Azure resources returned by the resource action to get a list of assigned resources.
+ * API Version: 2022-01-31-preview.
+ */
 export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
-    return pulumi.output(args).apply(a => listUserAssignedIdentityAssociatedResources(a, opts))
+    return pulumi.output(args).apply((a: any) => listUserAssignedIdentityAssociatedResources(a, opts))
 }
 
 export interface ListUserAssignedIdentityAssociatedResourcesOutputArgs {

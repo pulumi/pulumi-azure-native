@@ -56,9 +56,12 @@ export interface ListWebAppAzureStorageAccountsResult {
      */
     readonly type: string;
 }
-
+/**
+ * AzureStorageInfo dictionary resource.
+ * API Version: 2020-12-01.
+ */
 export function listWebAppAzureStorageAccountsOutput(args: ListWebAppAzureStorageAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAzureStorageAccountsResult> {
-    return pulumi.output(args).apply(a => listWebAppAzureStorageAccounts(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppAzureStorageAccounts(a, opts))
 }
 
 export interface ListWebAppAzureStorageAccountsOutputArgs {

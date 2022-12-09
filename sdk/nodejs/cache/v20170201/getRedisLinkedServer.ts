@@ -67,9 +67,12 @@ export interface GetRedisLinkedServerResult {
      */
     readonly type: string;
 }
-
+/**
+ * Response to put/get linked server (with properties) for Redis cache.
+ */
+/** @deprecated Version 2017-02-01 will be removed in v2 of the provider. */
 export function getRedisLinkedServerOutput(args: GetRedisLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisLinkedServerResult> {
-    return pulumi.output(args).apply(a => getRedisLinkedServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getRedisLinkedServer(a, opts))
 }
 
 export interface GetRedisLinkedServerOutputArgs {

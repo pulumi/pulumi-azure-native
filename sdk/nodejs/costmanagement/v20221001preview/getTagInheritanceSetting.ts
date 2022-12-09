@@ -60,9 +60,11 @@ export interface GetTagInheritanceSettingResult {
      */
     readonly type: string;
 }
-
+/**
+ * Tag Inheritance Setting definition.
+ */
 export function getTagInheritanceSettingOutput(args: GetTagInheritanceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagInheritanceSettingResult> {
-    return pulumi.output(args).apply(a => getTagInheritanceSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getTagInheritanceSetting(a, opts))
 }
 
 export interface GetTagInheritanceSettingOutputArgs {

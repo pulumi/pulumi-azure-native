@@ -76,9 +76,11 @@ export interface GetEncryptionScopeResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Encryption Scope resource.
+ */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
-    return pulumi.output(args).apply(a => getEncryptionScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getEncryptionScope(a, opts))
 }
 
 export interface GetEncryptionScopeOutputArgs {

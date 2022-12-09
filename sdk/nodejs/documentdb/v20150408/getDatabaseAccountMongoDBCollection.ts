@@ -75,9 +75,12 @@ export interface GetDatabaseAccountMongoDBCollectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB MongoDB collection.
+ */
+/** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccountMongoDBCollectionOutput(args: GetDatabaseAccountMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountMongoDBCollectionResult> {
-    return pulumi.output(args).apply(a => getDatabaseAccountMongoDBCollection(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabaseAccountMongoDBCollection(a, opts))
 }
 
 export interface GetDatabaseAccountMongoDBCollectionOutputArgs {

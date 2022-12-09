@@ -73,9 +73,11 @@ export interface GetCodelessApiPollingDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents Codeless API Polling data connector.
+ */
 export function getCodelessApiPollingDataConnectorOutput(args: GetCodelessApiPollingDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodelessApiPollingDataConnectorResult> {
-    return pulumi.output(args).apply(a => getCodelessApiPollingDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getCodelessApiPollingDataConnector(a, opts))
 }
 
 export interface GetCodelessApiPollingDataConnectorOutputArgs {

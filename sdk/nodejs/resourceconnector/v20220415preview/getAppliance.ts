@@ -87,9 +87,11 @@ export interface GetApplianceResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Appliances definition.
+ */
 export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
-    return pulumi.output(args).apply(a => getAppliance(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppliance(a, opts))
 }
 
 export interface GetApplianceOutputArgs {

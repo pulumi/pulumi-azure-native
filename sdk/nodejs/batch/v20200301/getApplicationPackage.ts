@@ -80,9 +80,12 @@ export interface GetApplicationPackageResult {
      */
     readonly type: string;
 }
-
+/**
+ * An application package which represents a particular version of an application.
+ */
+/** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
 export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationPackageResult> {
-    return pulumi.output(args).apply(a => getApplicationPackage(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationPackage(a, opts))
 }
 
 export interface GetApplicationPackageOutputArgs {

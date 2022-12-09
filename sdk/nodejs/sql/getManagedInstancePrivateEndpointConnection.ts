@@ -65,9 +65,12 @@ export interface GetManagedInstancePrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * A private endpoint connection
+ * API Version: 2020-11-01-preview.
+ */
 export function getManagedInstancePrivateEndpointConnectionOutput(args: GetManagedInstancePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstancePrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getManagedInstancePrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedInstancePrivateEndpointConnection(a, opts))
 }
 
 export interface GetManagedInstancePrivateEndpointConnectionOutputArgs {

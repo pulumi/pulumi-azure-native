@@ -44,9 +44,12 @@ export interface ListApplianceClusterCustomerUserCredentialResult {
      */
     readonly sshKeys: {[key: string]: outputs.resourceconnector.SSHKeyResponse};
 }
-
+/**
+ * The List Cluster Customer User Credential Results appliance.
+ * API Version: 2022-04-15-preview.
+ */
 export function listApplianceClusterCustomerUserCredentialOutput(args: ListApplianceClusterCustomerUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceClusterCustomerUserCredentialResult> {
-    return pulumi.output(args).apply(a => listApplianceClusterCustomerUserCredential(a, opts))
+    return pulumi.output(args).apply((a: any) => listApplianceClusterCustomerUserCredential(a, opts))
 }
 
 export interface ListApplianceClusterCustomerUserCredentialOutputArgs {

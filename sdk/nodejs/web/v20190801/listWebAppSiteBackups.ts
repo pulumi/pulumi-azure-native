@@ -43,9 +43,11 @@ export interface ListWebAppSiteBackupsResult {
      */
     readonly value: outputs.web.v20190801.BackupItemResponse[];
 }
-
+/**
+ * Collection of backup items.
+ */
 export function listWebAppSiteBackupsOutput(args: ListWebAppSiteBackupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSiteBackupsResult> {
-    return pulumi.output(args).apply(a => listWebAppSiteBackups(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppSiteBackups(a, opts))
 }
 
 export interface ListWebAppSiteBackupsOutputArgs {

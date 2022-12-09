@@ -77,9 +77,12 @@ export interface GetDscNodeConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the dsc node configuration.
+ * API Version: 2019-06-01.
+ */
 export function getDscNodeConfigurationOutput(args: GetDscNodeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscNodeConfigurationResult> {
-    return pulumi.output(args).apply(a => getDscNodeConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getDscNodeConfiguration(a, opts))
 }
 
 export interface GetDscNodeConfigurationOutputArgs {

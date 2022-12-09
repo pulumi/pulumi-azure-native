@@ -109,9 +109,11 @@ export interface GetScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20180915.WeekDetailsResponse;
 }
-
+/**
+ * A schedule.
+ */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    return pulumi.output(args).apply(a => getSchedule(a, opts))
+    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
 }
 
 export interface GetScheduleOutputArgs {

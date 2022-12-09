@@ -79,9 +79,11 @@ export interface GetRegistryResult {
      */
     readonly type: string;
 }
-
+/**
+ * An object that represents a container registry.
+ */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
-    return pulumi.output(args).apply(a => getRegistry(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistry(a, opts))
 }
 
 export interface GetRegistryOutputArgs {

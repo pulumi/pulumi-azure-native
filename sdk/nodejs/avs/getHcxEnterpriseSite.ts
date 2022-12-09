@@ -58,9 +58,12 @@ export interface GetHcxEnterpriseSiteResult {
      */
     readonly type: string;
 }
-
+/**
+ * An HCX Enterprise Site resource
+ * API Version: 2020-03-20.
+ */
 export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHcxEnterpriseSiteResult> {
-    return pulumi.output(args).apply(a => getHcxEnterpriseSite(a, opts))
+    return pulumi.output(args).apply((a: any) => getHcxEnterpriseSite(a, opts))
 }
 
 export interface GetHcxEnterpriseSiteOutputArgs {

@@ -71,9 +71,12 @@ export interface GetLabelingJobResult {
      */
     readonly type: string;
 }
-
+/**
+ * Machine Learning labeling job object wrapped into ARM resource envelope.
+ * API Version: 2020-09-01-preview.
+ */
 export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelingJobResult> {
-    return pulumi.output(args).apply(a => getLabelingJob(a, opts))
+    return pulumi.output(args).apply((a: any) => getLabelingJob(a, opts))
 }
 
 export interface GetLabelingJobOutputArgs {

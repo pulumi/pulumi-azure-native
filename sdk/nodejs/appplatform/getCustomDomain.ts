@@ -62,9 +62,12 @@ export interface GetCustomDomainResult {
      */
     readonly type: string;
 }
-
+/**
+ * Custom domain resource payload.
+ * API Version: 2020-07-01.
+ */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
-    return pulumi.output(args).apply(a => getCustomDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomDomain(a, opts))
 }
 
 export interface GetCustomDomainOutputArgs {

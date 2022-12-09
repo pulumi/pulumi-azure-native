@@ -49,9 +49,12 @@ export interface ListDnsForwardingRulesetByVirtualNetworkResult {
      */
     readonly value?: outputs.network.VirtualNetworkDnsForwardingRulesetResponse[];
 }
-
+/**
+ * The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
+ * API Version: 2020-04-01-preview.
+ */
 export function listDnsForwardingRulesetByVirtualNetworkOutput(args: ListDnsForwardingRulesetByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsForwardingRulesetByVirtualNetworkResult> {
-    return pulumi.output(args).apply(a => listDnsForwardingRulesetByVirtualNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => listDnsForwardingRulesetByVirtualNetwork(a, opts))
 }
 
 export interface ListDnsForwardingRulesetByVirtualNetworkOutputArgs {

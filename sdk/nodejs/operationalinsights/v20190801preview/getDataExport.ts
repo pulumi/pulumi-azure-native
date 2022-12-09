@@ -77,9 +77,11 @@ export interface GetDataExportResult {
      */
     readonly type: string;
 }
-
+/**
+ * The top level data export resource container.
+ */
 export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
-    return pulumi.output(args).apply(a => getDataExport(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataExport(a, opts))
 }
 
 export interface GetDataExportOutputArgs {

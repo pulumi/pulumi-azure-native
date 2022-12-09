@@ -83,9 +83,11 @@ export interface GetBudgetResult {
      */
     readonly type: string;
 }
-
+/**
+ * A budget resource.
+ */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
-    return pulumi.output(args).apply(a => getBudget(a, opts))
+    return pulumi.output(args).apply((a: any) => getBudget(a, opts))
 }
 
 export interface GetBudgetOutputArgs {

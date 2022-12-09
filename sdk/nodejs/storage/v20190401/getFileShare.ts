@@ -67,9 +67,12 @@ export interface GetFileShareResult {
      */
     readonly type: string;
 }
-
+/**
+ * Properties of the file share, including Id, resource name, resource type, Etag.
+ */
+/** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
-    return pulumi.output(args).apply(a => getFileShare(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileShare(a, opts))
 }
 
 export interface GetFileShareOutputArgs {

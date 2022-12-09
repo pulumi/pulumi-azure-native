@@ -81,9 +81,12 @@ export interface GetWorkloadNetworkSegmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * NSX Segment
+ * API Version: 2020-07-17-preview.
+ */
 export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
-    return pulumi.output(args).apply(a => getWorkloadNetworkSegment(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkloadNetworkSegment(a, opts))
 }
 
 export interface GetWorkloadNetworkSegmentOutputArgs {

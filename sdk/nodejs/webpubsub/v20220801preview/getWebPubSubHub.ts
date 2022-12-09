@@ -60,9 +60,11 @@ export interface GetWebPubSubHubResult {
      */
     readonly type: string;
 }
-
+/**
+ * A hub setting
+ */
 export function getWebPubSubHubOutput(args: GetWebPubSubHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubHubResult> {
-    return pulumi.output(args).apply(a => getWebPubSubHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebPubSubHub(a, opts))
 }
 
 export interface GetWebPubSubHubOutputArgs {

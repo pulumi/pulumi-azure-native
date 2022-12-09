@@ -68,9 +68,12 @@ export interface GetCustomDomainResult {
      */
     readonly type: string;
 }
-
+/**
+ * CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
+ */
+/** @deprecated Version 2015-06-01 will be removed in v2 of the provider. */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
-    return pulumi.output(args).apply(a => getCustomDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomDomain(a, opts))
 }
 
 export interface GetCustomDomainOutputArgs {

@@ -149,9 +149,11 @@ export interface GetScheduledAlertRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents scheduled alert rule.
+ */
 export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {
-    return pulumi.output(args).apply(a => getScheduledAlertRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getScheduledAlertRule(a, opts))
 }
 
 export interface GetScheduledAlertRuleOutputArgs {

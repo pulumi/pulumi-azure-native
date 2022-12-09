@@ -75,9 +75,11 @@ export interface GetFluidRelayServerResult {
      */
     readonly type: string;
 }
-
+/**
+ * A FluidRelay Server.
+ */
 export function getFluidRelayServerOutput(args: GetFluidRelayServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluidRelayServerResult> {
-    return pulumi.output(args).apply(a => getFluidRelayServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getFluidRelayServer(a, opts))
 }
 
 export interface GetFluidRelayServerOutputArgs {

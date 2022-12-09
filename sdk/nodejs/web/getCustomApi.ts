@@ -69,9 +69,12 @@ export interface GetCustomApiResult {
      */
     readonly type: string;
 }
-
+/**
+ * A custom API
+ * API Version: 2016-06-01.
+ */
 export function getCustomApiOutput(args: GetCustomApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomApiResult> {
-    return pulumi.output(args).apply(a => getCustomApi(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomApi(a, opts))
 }
 
 export interface GetCustomApiOutputArgs {

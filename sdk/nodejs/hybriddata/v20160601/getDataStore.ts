@@ -74,9 +74,12 @@ export interface GetDataStoreResult {
      */
     readonly type: string;
 }
-
+/**
+ * Data store.
+ */
+/** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getDataStoreOutput(args: GetDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataStoreResult> {
-    return pulumi.output(args).apply(a => getDataStore(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataStore(a, opts))
 }
 
 export interface GetDataStoreOutputArgs {

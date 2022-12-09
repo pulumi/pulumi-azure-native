@@ -92,9 +92,12 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthResult {
      */
     readonly vpnServerConfiguration?: outputs.network.SubResourceResponse;
 }
-
+/**
+ * P2SVpnGateway Resource.
+ * API Version: 2020-11-01.
+ */
 export function getP2sVpnGatewayP2sVpnConnectionHealthOutput(args: GetP2sVpnGatewayP2sVpnConnectionHealthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayP2sVpnConnectionHealthResult> {
-    return pulumi.output(args).apply(a => getP2sVpnGatewayP2sVpnConnectionHealth(a, opts))
+    return pulumi.output(args).apply((a: any) => getP2sVpnGatewayP2sVpnConnectionHealth(a, opts))
 }
 
 export interface GetP2sVpnGatewayP2sVpnConnectionHealthOutputArgs {

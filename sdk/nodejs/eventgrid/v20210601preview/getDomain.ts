@@ -124,9 +124,11 @@ export interface GetDomainResult {
      */
     readonly type: string;
 }
-
+/**
+ * EventGrid Domain.
+ */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply(a => getDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

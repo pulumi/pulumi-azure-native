@@ -49,9 +49,11 @@ export interface ListDeviceFailoverTarsResult {
      */
     readonly value?: outputs.storsimple.v20170601.FailoverTargetResponse[];
 }
-
+/**
+ * The list of all devices in a resource and their eligibility status as a failover target device.
+ */
 export function listDeviceFailoverTarsOutput(args: ListDeviceFailoverTarsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceFailoverTarsResult> {
-    return pulumi.output(args).apply(a => listDeviceFailoverTars(a, opts))
+    return pulumi.output(args).apply((a: any) => listDeviceFailoverTars(a, opts))
 }
 
 export interface ListDeviceFailoverTarsOutputArgs {

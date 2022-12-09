@@ -89,9 +89,12 @@ export interface GetDataCollectionRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of ARM tracked top level resource.
+ * API Version: 2019-11-01-preview.
+ */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
-    return pulumi.output(args).apply(a => getDataCollectionRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))
 }
 
 export interface GetDataCollectionRuleOutputArgs {

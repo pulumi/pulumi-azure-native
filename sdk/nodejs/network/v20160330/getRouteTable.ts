@@ -78,9 +78,12 @@ export interface GetRouteTableResult {
      */
     readonly type: string;
 }
-
+/**
+ * RouteTable resource
+ */
+/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
-    return pulumi.output(args).apply(a => getRouteTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))
 }
 
 export interface GetRouteTableOutputArgs {

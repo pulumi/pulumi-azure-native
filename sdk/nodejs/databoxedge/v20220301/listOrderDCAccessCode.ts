@@ -36,9 +36,11 @@ export interface ListOrderDCAccessCodeResult {
      */
     readonly authCode?: string;
 }
-
+/**
+ * DC Access code in the case of Self Managed Shipping.
+ */
 export function listOrderDCAccessCodeOutput(args: ListOrderDCAccessCodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOrderDCAccessCodeResult> {
-    return pulumi.output(args).apply(a => listOrderDCAccessCode(a, opts))
+    return pulumi.output(args).apply((a: any) => listOrderDCAccessCode(a, opts))
 }
 
 export interface ListOrderDCAccessCodeOutputArgs {

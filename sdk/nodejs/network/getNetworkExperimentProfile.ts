@@ -65,9 +65,12 @@ export interface GetNetworkExperimentProfileResult {
      */
     readonly type: string;
 }
-
+/**
+ * Defines an Network Experiment Profile and lists of Experiments
+ * API Version: 2019-11-01.
+ */
 export function getNetworkExperimentProfileOutput(args: GetNetworkExperimentProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkExperimentProfileResult> {
-    return pulumi.output(args).apply(a => getNetworkExperimentProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkExperimentProfile(a, opts))
 }
 
 export interface GetNetworkExperimentProfileOutputArgs {

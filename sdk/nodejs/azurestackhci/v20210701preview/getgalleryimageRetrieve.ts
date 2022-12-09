@@ -87,9 +87,11 @@ export interface GetgalleryimageRetrieveResult {
      */
     readonly type: string;
 }
-
+/**
+ * The galleryimages resource definition.
+ */
 export function getgalleryimageRetrieveOutput(args: GetgalleryimageRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgalleryimageRetrieveResult> {
-    return pulumi.output(args).apply(a => getgalleryimageRetrieve(a, opts))
+    return pulumi.output(args).apply((a: any) => getgalleryimageRetrieve(a, opts))
 }
 
 export interface GetgalleryimageRetrieveOutputArgs {

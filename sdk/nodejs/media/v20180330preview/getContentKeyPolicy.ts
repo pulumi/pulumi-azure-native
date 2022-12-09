@@ -72,9 +72,11 @@ export interface GetContentKeyPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Content Key Policy resource.
+ */
 export function getContentKeyPolicyOutput(args: GetContentKeyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyResult> {
-    return pulumi.output(args).apply(a => getContentKeyPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getContentKeyPolicy(a, opts))
 }
 
 export interface GetContentKeyPolicyOutputArgs {

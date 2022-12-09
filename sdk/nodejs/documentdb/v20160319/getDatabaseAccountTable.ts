@@ -59,9 +59,12 @@ export interface GetDatabaseAccountTableResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB Table.
+ */
+/** @deprecated Version 2016-03-19 will be removed in v2 of the provider. */
 export function getDatabaseAccountTableOutput(args: GetDatabaseAccountTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountTableResult> {
-    return pulumi.output(args).apply(a => getDatabaseAccountTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabaseAccountTable(a, opts))
 }
 
 export interface GetDatabaseAccountTableOutputArgs {

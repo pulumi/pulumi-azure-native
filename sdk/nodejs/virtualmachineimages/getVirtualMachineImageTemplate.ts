@@ -92,9 +92,12 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly vmProfile?: outputs.virtualmachineimages.ImageTemplateVmProfileResponse;
 }
-
+/**
+ * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+ * API Version: 2020-02-14.
+ */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineImageTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))
 }
 
 export interface GetVirtualMachineImageTemplateOutputArgs {

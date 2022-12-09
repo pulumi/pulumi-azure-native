@@ -50,9 +50,11 @@ export interface GetConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * The connector setting
+ */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
-    return pulumi.output(args).apply(a => getConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnector(a, opts))
 }
 
 export interface GetConnectorOutputArgs {

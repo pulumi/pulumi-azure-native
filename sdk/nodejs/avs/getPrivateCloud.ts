@@ -116,9 +116,12 @@ export interface GetPrivateCloudResult {
      */
     readonly vmotionNetwork: string;
 }
-
+/**
+ * A private cloud resource
+ * API Version: 2020-03-20.
+ */
 export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
-    return pulumi.output(args).apply(a => getPrivateCloud(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateCloud(a, opts))
 }
 
 export interface GetPrivateCloudOutputArgs {

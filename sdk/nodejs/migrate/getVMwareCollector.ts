@@ -42,9 +42,11 @@ export interface GetVMwareCollectorResult {
     readonly properties: outputs.migrate.CollectorPropertiesResponse;
     readonly type: string;
 }
-
+/**
+ * API Version: 2019-10-01.
+ */
 export function getVMwareCollectorOutput(args: GetVMwareCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMwareCollectorResult> {
-    return pulumi.output(args).apply(a => getVMwareCollector(a, opts))
+    return pulumi.output(args).apply((a: any) => getVMwareCollector(a, opts))
 }
 
 export interface GetVMwareCollectorOutputArgs {

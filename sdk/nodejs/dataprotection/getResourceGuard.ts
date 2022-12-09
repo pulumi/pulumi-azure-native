@@ -68,9 +68,11 @@ export interface GetResourceGuardResult {
      */
     readonly type: string;
 }
-
+/**
+ * API Version: 2021-10-01-preview.
+ */
 export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardResult> {
-    return pulumi.output(args).apply(a => getResourceGuard(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceGuard(a, opts))
 }
 
 export interface GetResourceGuardOutputArgs {

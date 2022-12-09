@@ -46,9 +46,11 @@ export interface GetTagAtScopeResult {
      */
     readonly type: string;
 }
-
+/**
+ * Wrapper resource for tags API requests and responses.
+ */
 export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagAtScopeResult> {
-    return pulumi.output(args).apply(a => getTagAtScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getTagAtScope(a, opts))
 }
 
 export interface GetTagAtScopeOutputArgs {

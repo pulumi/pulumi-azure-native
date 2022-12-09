@@ -50,9 +50,11 @@ export interface GetOutboundFirewallRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure SQL DB Server Outbound Firewall Rule.
+ */
 export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
-    return pulumi.output(args).apply(a => getOutboundFirewallRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getOutboundFirewallRule(a, opts))
 }
 
 export interface GetOutboundFirewallRuleOutputArgs {

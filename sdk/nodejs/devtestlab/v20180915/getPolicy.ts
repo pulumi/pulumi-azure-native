@@ -103,9 +103,11 @@ export interface GetPolicyResult {
      */
     readonly uniqueIdentifier: string;
 }
-
+/**
+ * A Policy.
+ */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply(a => getPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }
 
 export interface GetPolicyOutputArgs {

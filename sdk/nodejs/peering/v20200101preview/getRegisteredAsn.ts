@@ -63,9 +63,12 @@ export interface GetRegisteredAsnResult {
      */
     readonly type: string;
 }
-
+/**
+ * The customer's ASN that is registered by the peering service provider.
+ */
+/** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredAsnResult> {
-    return pulumi.output(args).apply(a => getRegisteredAsn(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegisteredAsn(a, opts))
 }
 
 export interface GetRegisteredAsnOutputArgs {

@@ -111,9 +111,11 @@ export interface GetVpnServerConfigurationResult {
      */
     readonly vpnProtocols?: string[];
 }
-
+/**
+ * VpnServerConfiguration Resource.
+ */
 export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnServerConfigurationResult> {
-    return pulumi.output(args).apply(a => getVpnServerConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpnServerConfiguration(a, opts))
 }
 
 export interface GetVpnServerConfigurationOutputArgs {

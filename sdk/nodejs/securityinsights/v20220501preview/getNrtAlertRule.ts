@@ -129,9 +129,11 @@ export interface GetNrtAlertRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents NRT alert rule.
+ */
 export function getNrtAlertRuleOutput(args: GetNrtAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNrtAlertRuleResult> {
-    return pulumi.output(args).apply(a => getNrtAlertRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getNrtAlertRule(a, opts))
 }
 
 export interface GetNrtAlertRuleOutputArgs {

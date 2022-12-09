@@ -87,9 +87,11 @@ export interface GetConnectedEnvironmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+ */
 export function getConnectedEnvironmentOutput(args: GetConnectedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentResult> {
-    return pulumi.output(args).apply(a => getConnectedEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectedEnvironment(a, opts))
 }
 
 export interface GetConnectedEnvironmentOutputArgs {

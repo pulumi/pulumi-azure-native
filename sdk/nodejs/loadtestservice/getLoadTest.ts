@@ -76,9 +76,12 @@ export interface GetLoadTestResult {
      */
     readonly type: string;
 }
-
+/**
+ * LoadTest details
+ * API Version: 2021-12-01-preview.
+ */
 export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestResult> {
-    return pulumi.output(args).apply(a => getLoadTest(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoadTest(a, opts))
 }
 
 export interface GetLoadTestOutputArgs {

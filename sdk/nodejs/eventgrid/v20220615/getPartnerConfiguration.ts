@@ -62,9 +62,11 @@ export interface GetPartnerConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Partner configuration information
+ */
 export function getPartnerConfigurationOutput(args: GetPartnerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerConfigurationResult> {
-    return pulumi.output(args).apply(a => getPartnerConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getPartnerConfiguration(a, opts))
 }
 
 export interface GetPartnerConfigurationOutputArgs {

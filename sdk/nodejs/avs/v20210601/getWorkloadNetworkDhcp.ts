@@ -56,9 +56,11 @@ export interface GetWorkloadNetworkDhcpResult {
      */
     readonly type: string;
 }
-
+/**
+ * NSX DHCP
+ */
 export function getWorkloadNetworkDhcpOutput(args: GetWorkloadNetworkDhcpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDhcpResult> {
-    return pulumi.output(args).apply(a => getWorkloadNetworkDhcp(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkloadNetworkDhcp(a, opts))
 }
 
 export interface GetWorkloadNetworkDhcpOutputArgs {

@@ -72,9 +72,11 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly type: string;
 }
-
+/**
+ * Defines the hybridIdentityMetadata.
+ */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
-    return pulumi.output(args).apply(a => getHybridIdentityMetadatum(a, opts))
+    return pulumi.output(args).apply((a: any) => getHybridIdentityMetadatum(a, opts))
 }
 
 export interface GetHybridIdentityMetadatumOutputArgs {

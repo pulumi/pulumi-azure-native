@@ -55,9 +55,12 @@ export interface GetDeploymentAtTenantScopeResult {
      */
     readonly type: string;
 }
-
+/**
+ * Deployment information.
+ * API Version: 2021-01-01.
+ */
 export function getDeploymentAtTenantScopeOutput(args: GetDeploymentAtTenantScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtTenantScopeResult> {
-    return pulumi.output(args).apply(a => getDeploymentAtTenantScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeploymentAtTenantScope(a, opts))
 }
 
 export interface GetDeploymentAtTenantScopeOutputArgs {

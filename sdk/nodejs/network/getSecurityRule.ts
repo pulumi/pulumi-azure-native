@@ -121,9 +121,12 @@ export interface GetSecurityRuleResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Network security rule.
+ * API Version: 2020-11-01.
+ */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
-    return pulumi.output(args).apply(a => getSecurityRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityRule(a, opts))
 }
 
 export interface GetSecurityRuleOutputArgs {

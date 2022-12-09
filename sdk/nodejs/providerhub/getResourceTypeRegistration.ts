@@ -45,9 +45,11 @@ export interface GetResourceTypeRegistrationResult {
      */
     readonly type: string;
 }
-
+/**
+ * API Version: 2020-11-20.
+ */
 export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
-    return pulumi.output(args).apply(a => getResourceTypeRegistration(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceTypeRegistration(a, opts))
 }
 
 export interface GetResourceTypeRegistrationOutputArgs {

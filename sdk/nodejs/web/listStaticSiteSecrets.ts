@@ -53,9 +53,12 @@ export interface ListStaticSiteSecretsResult {
      */
     readonly type: string;
 }
-
+/**
+ * String dictionary resource.
+ * API Version: 2020-12-01.
+ */
 export function listStaticSiteSecretsOutput(args: ListStaticSiteSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteSecretsResult> {
-    return pulumi.output(args).apply(a => listStaticSiteSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => listStaticSiteSecrets(a, opts))
 }
 
 export interface ListStaticSiteSecretsOutputArgs {

@@ -89,9 +89,12 @@ export interface GetZoneResult {
      */
     readonly zoneType?: string;
 }
-
+/**
+ * Describes a DNS zone.
+ */
+/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
-    return pulumi.output(args).apply(a => getZone(a, opts))
+    return pulumi.output(args).apply((a: any) => getZone(a, opts))
 }
 
 export interface GetZoneOutputArgs {

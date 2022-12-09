@@ -90,9 +90,8 @@ export interface GetIntegrationAccountAgreementResult {
      */
     readonly type?: string;
 }
-
 export function getIntegrationAccountAgreementOutput(args: GetIntegrationAccountAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAgreementResult> {
-    return pulumi.output(args).apply(a => getIntegrationAccountAgreement(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountAgreement(a, opts))
 }
 
 export interface GetIntegrationAccountAgreementOutputArgs {

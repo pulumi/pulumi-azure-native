@@ -35,9 +35,11 @@ export interface ListSaasResourceAccessTokenResult {
      */
     readonly token?: string;
 }
-
+/**
+ * the ISV access token result response.
+ */
 export function listSaasResourceAccessTokenOutput(args: ListSaasResourceAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasResourceAccessTokenResult> {
-    return pulumi.output(args).apply(a => listSaasResourceAccessToken(a, opts))
+    return pulumi.output(args).apply((a: any) => listSaasResourceAccessToken(a, opts))
 }
 
 export interface ListSaasResourceAccessTokenOutputArgs {

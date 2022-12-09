@@ -62,9 +62,12 @@ export interface GetContentTypeResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Content type contract details.
+ * API Version: 2020-12-01.
+ */
 export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
-    return pulumi.output(args).apply(a => getContentType(a, opts))
+    return pulumi.output(args).apply((a: any) => getContentType(a, opts))
 }
 
 export interface GetContentTypeOutputArgs {

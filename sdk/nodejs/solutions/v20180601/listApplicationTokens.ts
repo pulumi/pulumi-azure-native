@@ -49,9 +49,11 @@ export interface ListApplicationTokensResult {
      */
     readonly value?: outputs.solutions.v20180601.ManagedIdentityTokenResponse[];
 }
-
+/**
+ * The array of managed identity tokens.
+ */
 export function listApplicationTokensOutput(args: ListApplicationTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationTokensResult> {
-    return pulumi.output(args).apply(a => listApplicationTokens(a, opts))
+    return pulumi.output(args).apply((a: any) => listApplicationTokens(a, opts))
 }
 
 export interface ListApplicationTokensOutputArgs {

@@ -63,9 +63,11 @@ export interface GetSqlServerInstanceResult {
      */
     readonly type: string;
 }
-
+/**
+ * A SqlServerInstance.
+ */
 export function getSqlServerInstanceOutput(args: GetSqlServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceResult> {
-    return pulumi.output(args).apply(a => getSqlServerInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlServerInstance(a, opts))
 }
 
 export interface GetSqlServerInstanceOutputArgs {

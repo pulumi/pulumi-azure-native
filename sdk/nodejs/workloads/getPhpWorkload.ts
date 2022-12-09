@@ -128,9 +128,12 @@ export interface GetPhpWorkloadResult {
      */
     readonly webNodesProfile: outputs.workloads.VmssNodesProfileResponse;
 }
-
+/**
+ * Php workload resource
+ * API Version: 2021-12-01-preview.
+ */
 export function getPhpWorkloadOutput(args: GetPhpWorkloadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPhpWorkloadResult> {
-    return pulumi.output(args).apply(a => getPhpWorkload(a, opts))
+    return pulumi.output(args).apply((a: any) => getPhpWorkload(a, opts))
 }
 
 export interface GetPhpWorkloadOutputArgs {

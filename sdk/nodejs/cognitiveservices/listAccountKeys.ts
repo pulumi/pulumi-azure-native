@@ -41,9 +41,12 @@ export interface ListAccountKeysResult {
      */
     readonly key2?: string;
 }
-
+/**
+ * The access keys for the cognitive services account.
+ * API Version: 2017-04-18.
+ */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
-    return pulumi.output(args).apply(a => listAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))
 }
 
 export interface ListAccountKeysOutputArgs {

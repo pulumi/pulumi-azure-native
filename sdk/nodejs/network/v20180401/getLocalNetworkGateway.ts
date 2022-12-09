@@ -81,9 +81,12 @@ export interface GetLocalNetworkGatewayResult {
      */
     readonly type: string;
 }
-
+/**
+ * A common class for general resource information
+ */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
-    return pulumi.output(args).apply(a => getLocalNetworkGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocalNetworkGateway(a, opts))
 }
 
 export interface GetLocalNetworkGatewayOutputArgs {

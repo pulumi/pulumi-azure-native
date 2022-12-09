@@ -46,9 +46,8 @@ export interface GetResourceManagementPrivateLinkResult {
      */
     readonly type: string;
 }
-
 export function getResourceManagementPrivateLinkOutput(args: GetResourceManagementPrivateLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceManagementPrivateLinkResult> {
-    return pulumi.output(args).apply(a => getResourceManagementPrivateLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceManagementPrivateLink(a, opts))
 }
 
 export interface GetResourceManagementPrivateLinkOutputArgs {

@@ -64,9 +64,12 @@ export interface GetPeerAsnResult {
      */
     readonly validationState?: string;
 }
-
+/**
+ * The essential information related to the peer's ASN.
+ */
+/** @deprecated Version 2019-09-01-preview will be removed in v2 of the provider. */
 export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
-    return pulumi.output(args).apply(a => getPeerAsn(a, opts))
+    return pulumi.output(args).apply((a: any) => getPeerAsn(a, opts))
 }
 
 export interface GetPeerAsnOutputArgs {

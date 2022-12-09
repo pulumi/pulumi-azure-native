@@ -59,9 +59,11 @@ export interface GetConfigurationProfilePreferenceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the configuration profile preference.
+ */
 export function getConfigurationProfilePreferenceOutput(args: GetConfigurationProfilePreferenceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilePreferenceResult> {
-    return pulumi.output(args).apply(a => getConfigurationProfilePreference(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationProfilePreference(a, opts))
 }
 
 export interface GetConfigurationProfilePreferenceOutputArgs {

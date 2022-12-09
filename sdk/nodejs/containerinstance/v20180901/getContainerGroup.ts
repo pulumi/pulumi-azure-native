@@ -100,9 +100,12 @@ export interface GetContainerGroupResult {
      */
     readonly volumes?: outputs.containerinstance.v20180901.VolumeResponse[];
 }
-
+/**
+ * A container group.
+ */
+/** @deprecated Version 2018-09-01 will be removed in v2 of the provider. */
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {
-    return pulumi.output(args).apply(a => getContainerGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getContainerGroup(a, opts))
 }
 
 export interface GetContainerGroupOutputArgs {

@@ -44,9 +44,11 @@ export interface ListClusterZonesResult {
      */
     readonly zones?: outputs.avs.v20220501.ClusterZoneResponse[];
 }
-
+/**
+ * List of all zones and associated hosts for a cluster
+ */
 export function listClusterZonesOutput(args: ListClusterZonesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterZonesResult> {
-    return pulumi.output(args).apply(a => listClusterZones(a, opts))
+    return pulumi.output(args).apply((a: any) => listClusterZones(a, opts))
 }
 
 export interface ListClusterZonesOutputArgs {

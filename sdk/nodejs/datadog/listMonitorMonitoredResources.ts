@@ -44,9 +44,12 @@ export interface ListMonitorMonitoredResourcesResult {
      */
     readonly value?: outputs.datadog.MonitoredResourceResponse[];
 }
-
+/**
+ * Response of a list operation.
+ * API Version: 2021-03-01.
+ */
 export function listMonitorMonitoredResourcesOutput(args: ListMonitorMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorMonitoredResourcesResult> {
-    return pulumi.output(args).apply(a => listMonitorMonitoredResources(a, opts))
+    return pulumi.output(args).apply((a: any) => listMonitorMonitoredResources(a, opts))
 }
 
 export interface ListMonitorMonitoredResourcesOutputArgs {

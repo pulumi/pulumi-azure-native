@@ -64,9 +64,11 @@ export interface GetWebAppDomainOwnershipIdentifierResult {
      */
     readonly value?: string;
 }
-
+/**
+ * A domain specific resource identifier.
+ */
 export function getWebAppDomainOwnershipIdentifierOutput(args: GetWebAppDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierResult> {
-    return pulumi.output(args).apply(a => getWebAppDomainOwnershipIdentifier(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppDomainOwnershipIdentifier(a, opts))
 }
 
 export interface GetWebAppDomainOwnershipIdentifierOutputArgs {

@@ -79,9 +79,12 @@ export interface GetWorkloadGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * Workload group operations for a data warehouse
+ * API Version: 2020-11-01-preview.
+ */
 export function getWorkloadGroupOutput(args: GetWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadGroupResult> {
-    return pulumi.output(args).apply(a => getWorkloadGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkloadGroup(a, opts))
 }
 
 export interface GetWorkloadGroupOutputArgs {

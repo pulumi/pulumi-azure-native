@@ -92,9 +92,11 @@ export interface GetSimPolicyResult {
      */
     readonly ueAmbr: outputs.mobilenetwork.v20221101.AmbrResponse;
 }
-
+/**
+ * SIM policy resource.
+ */
 export function getSimPolicyOutput(args: GetSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimPolicyResult> {
-    return pulumi.output(args).apply(a => getSimPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getSimPolicy(a, opts))
 }
 
 export interface GetSimPolicyOutputArgs {

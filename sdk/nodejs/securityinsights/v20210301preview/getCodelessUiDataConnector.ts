@@ -74,9 +74,11 @@ export interface GetCodelessUiDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents Codeless UI data connector.
+ */
 export function getCodelessUiDataConnectorOutput(args: GetCodelessUiDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodelessUiDataConnectorResult> {
-    return pulumi.output(args).apply(a => getCodelessUiDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getCodelessUiDataConnector(a, opts))
 }
 
 export interface GetCodelessUiDataConnectorOutputArgs {

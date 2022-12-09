@@ -72,9 +72,11 @@ export interface GetApiOperationPolicyResult {
      */
     readonly value: string;
 }
-
+/**
+ * Policy Contract details.
+ */
 export function getApiOperationPolicyOutput(args: GetApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationPolicyResult> {
-    return pulumi.output(args).apply(a => getApiOperationPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiOperationPolicy(a, opts))
 }
 
 export interface GetApiOperationPolicyOutputArgs {

@@ -64,9 +64,11 @@ export interface GetBandwidthSettingResult {
      */
     readonly volumeCount: number;
 }
-
+/**
+ * The bandwidth setting.
+ */
 export function getBandwidthSettingOutput(args: GetBandwidthSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthSettingResult> {
-    return pulumi.output(args).apply(a => getBandwidthSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getBandwidthSetting(a, opts))
 }
 
 export interface GetBandwidthSettingOutputArgs {

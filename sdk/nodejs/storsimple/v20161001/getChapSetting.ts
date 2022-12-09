@@ -63,9 +63,12 @@ export interface GetChapSettingResult {
      */
     readonly type: string;
 }
-
+/**
+ * Challenge-Handshake Authentication Protocol (CHAP) setting
+ */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getChapSettingOutput(args: GetChapSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChapSettingResult> {
-    return pulumi.output(args).apply(a => getChapSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getChapSetting(a, opts))
 }
 
 export interface GetChapSettingOutputArgs {

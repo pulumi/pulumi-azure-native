@@ -36,9 +36,11 @@ export interface GetApiManagementServiceSsoTokenResult {
      */
     readonly redirectUri?: string;
 }
-
+/**
+ * The response of the GetSsoToken operation.
+ */
 export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServiceSsoTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceSsoTokenResult> {
-    return pulumi.output(args).apply(a => getApiManagementServiceSsoToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiManagementServiceSsoToken(a, opts))
 }
 
 export interface GetApiManagementServiceSsoTokenOutputArgs {

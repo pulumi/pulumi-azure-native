@@ -57,9 +57,11 @@ export interface GetFirewallRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Data Lake Store firewall rule information.
+ */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
-    return pulumi.output(args).apply(a => getFirewallRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }
 
 export interface GetFirewallRuleOutputArgs {

@@ -82,9 +82,11 @@ export interface GetBlobStorageAccountDataSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure blob storage account data set.
+ */
 export function getBlobStorageAccountDataSetOutput(args: GetBlobStorageAccountDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobStorageAccountDataSetResult> {
-    return pulumi.output(args).apply(a => getBlobStorageAccountDataSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getBlobStorageAccountDataSet(a, opts))
 }
 
 export interface GetBlobStorageAccountDataSetOutputArgs {

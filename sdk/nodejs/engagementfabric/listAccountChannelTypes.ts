@@ -40,9 +40,12 @@ export interface ListAccountChannelTypesResult {
      */
     readonly value?: outputs.engagementfabric.ChannelTypeDescriptionResponse[];
 }
-
+/**
+ * List of the EngagementFabric channel descriptions
+ * API Version: 2018-09-01-preview.
+ */
 export function listAccountChannelTypesOutput(args: ListAccountChannelTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountChannelTypesResult> {
-    return pulumi.output(args).apply(a => listAccountChannelTypes(a, opts))
+    return pulumi.output(args).apply((a: any) => listAccountChannelTypes(a, opts))
 }
 
 export interface ListAccountChannelTypesOutputArgs {

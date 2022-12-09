@@ -49,9 +49,11 @@ export interface ListProductsAndConfigurationsResult {
      */
     readonly value: outputs.edgeorder.v20220501preview.ConfigurationResponse[];
 }
-
+/**
+ * The list of configurations.
+ */
 export function listProductsAndConfigurationsOutput(args?: ListProductsAndConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsAndConfigurationsResult> {
-    return pulumi.output(args).apply(a => listProductsAndConfigurations(a, opts))
+    return pulumi.output(args).apply((a: any) => listProductsAndConfigurations(a, opts))
 }
 
 export interface ListProductsAndConfigurationsOutputArgs {

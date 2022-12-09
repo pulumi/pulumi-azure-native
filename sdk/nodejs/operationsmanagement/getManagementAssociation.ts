@@ -71,9 +71,12 @@ export interface GetManagementAssociationResult {
      */
     readonly type: string;
 }
-
+/**
+ * The container for solution.
+ * API Version: 2015-11-01-preview.
+ */
 export function getManagementAssociationOutput(args: GetManagementAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementAssociationResult> {
-    return pulumi.output(args).apply(a => getManagementAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagementAssociation(a, opts))
 }
 
 export interface GetManagementAssociationOutputArgs {

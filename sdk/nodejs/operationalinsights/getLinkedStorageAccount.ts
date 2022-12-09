@@ -58,9 +58,12 @@ export interface GetLinkedStorageAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * Linked storage accounts top level resource container.
+ * API Version: 2020-08-01.
+ */
 export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {
-    return pulumi.output(args).apply(a => getLinkedStorageAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getLinkedStorageAccount(a, opts))
 }
 
 export interface GetLinkedStorageAccountOutputArgs {

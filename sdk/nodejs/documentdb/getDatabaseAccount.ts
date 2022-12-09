@@ -176,9 +176,12 @@ export interface GetDatabaseAccountResult {
      */
     readonly writeLocations: outputs.documentdb.LocationResponse[];
 }
-
+/**
+ * An Azure Cosmos DB database account.
+ * API Version: 2021-03-15.
+ */
 export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {
-    return pulumi.output(args).apply(a => getDatabaseAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabaseAccount(a, opts))
 }
 
 export interface GetDatabaseAccountOutputArgs {

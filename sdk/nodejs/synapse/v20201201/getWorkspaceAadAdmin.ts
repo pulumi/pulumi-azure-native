@@ -62,9 +62,12 @@ export interface GetWorkspaceAadAdminResult {
      */
     readonly type: string;
 }
-
+/**
+ * Workspace active directory administrator
+ */
+/** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
-    return pulumi.output(args).apply(a => getWorkspaceAadAdmin(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspaceAadAdmin(a, opts))
 }
 
 export interface GetWorkspaceAadAdminOutputArgs {

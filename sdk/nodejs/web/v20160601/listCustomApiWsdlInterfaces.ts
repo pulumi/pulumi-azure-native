@@ -59,9 +59,11 @@ export interface ListCustomApiWsdlInterfacesResult {
      */
     readonly value?: outputs.web.v20160601.WsdlServiceResponse[];
 }
-
+/**
+ * A list of custom API WSDL interfaces
+ */
 export function listCustomApiWsdlInterfacesOutput(args: ListCustomApiWsdlInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCustomApiWsdlInterfacesResult> {
-    return pulumi.output(args).apply(a => listCustomApiWsdlInterfaces(a, opts))
+    return pulumi.output(args).apply((a: any) => listCustomApiWsdlInterfaces(a, opts))
 }
 
 export interface ListCustomApiWsdlInterfacesOutputArgs {

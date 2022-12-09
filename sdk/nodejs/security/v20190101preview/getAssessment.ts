@@ -72,9 +72,11 @@ export interface GetAssessmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Security assessment on a resource
+ */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
-    return pulumi.output(args).apply(a => getAssessment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssessment(a, opts))
 }
 
 export interface GetAssessmentOutputArgs {

@@ -98,9 +98,12 @@ export interface GetLinkResult {
      */
     readonly type: string;
 }
-
+/**
+ * The link resource format.
+ */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
-    return pulumi.output(args).apply(a => getLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getLink(a, opts))
 }
 
 export interface GetLinkOutputArgs {

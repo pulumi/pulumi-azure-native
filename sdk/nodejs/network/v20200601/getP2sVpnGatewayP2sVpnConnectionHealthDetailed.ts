@@ -46,9 +46,11 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult {
      */
     readonly sasUrl?: string;
 }
-
+/**
+ * P2S Vpn connection detailed health written to sas url.
+ */
 export function getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput(args: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> {
-    return pulumi.output(args).apply(a => getP2sVpnGatewayP2sVpnConnectionHealthDetailed(a, opts))
+    return pulumi.output(args).apply((a: any) => getP2sVpnGatewayP2sVpnConnectionHealthDetailed(a, opts))
 }
 
 export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs {

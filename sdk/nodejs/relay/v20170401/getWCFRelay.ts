@@ -81,9 +81,11 @@ export interface GetWCFRelayResult {
      */
     readonly userMetadata?: string;
 }
-
+/**
+ * Description of the WCF relay resource.
+ */
 export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
-    return pulumi.output(args).apply(a => getWCFRelay(a, opts))
+    return pulumi.output(args).apply((a: any) => getWCFRelay(a, opts))
 }
 
 export interface GetWCFRelayOutputArgs {

@@ -73,9 +73,12 @@ export interface GetTransformResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+ * API Version: 2020-05-01.
+ */
 export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformResult> {
-    return pulumi.output(args).apply(a => getTransform(a, opts))
+    return pulumi.output(args).apply((a: any) => getTransform(a, opts))
 }
 
 export interface GetTransformOutputArgs {

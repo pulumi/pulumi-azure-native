@@ -82,9 +82,12 @@ export interface GetEndpointVariantResult {
      */
     readonly type: string;
 }
-
+/**
+ * Machine Learning service object wrapped into ARM resource envelope.
+ * API Version: 2021-01-01.
+ */
 export function getEndpointVariantOutput(args: GetEndpointVariantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointVariantResult> {
-    return pulumi.output(args).apply(a => getEndpointVariant(a, opts))
+    return pulumi.output(args).apply((a: any) => getEndpointVariant(a, opts))
 }
 
 export interface GetEndpointVariantOutputArgs {

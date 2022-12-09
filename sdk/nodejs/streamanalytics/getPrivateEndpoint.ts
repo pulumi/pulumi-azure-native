@@ -61,9 +61,12 @@ export interface GetPrivateEndpointResult {
      */
     readonly type: string;
 }
-
+/**
+ * Complete information about the private endpoint.
+ * API Version: 2020-03-01-preview.
+ */
 export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
-    return pulumi.output(args).apply(a => getPrivateEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateEndpoint(a, opts))
 }
 
 export interface GetPrivateEndpointOutputArgs {

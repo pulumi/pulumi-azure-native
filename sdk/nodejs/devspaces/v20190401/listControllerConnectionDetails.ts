@@ -38,9 +38,8 @@ export interface ListControllerConnectionDetailsResult {
      */
     readonly connectionDetailsList?: outputs.devspaces.v20190401.ControllerConnectionDetailsResponse[];
 }
-
 export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
-    return pulumi.output(args).apply(a => listControllerConnectionDetails(a, opts))
+    return pulumi.output(args).apply((a: any) => listControllerConnectionDetails(a, opts))
 }
 
 export interface ListControllerConnectionDetailsOutputArgs {

@@ -109,9 +109,11 @@ export interface GetPrivateRecordSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+ */
 export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateRecordSetResult> {
-    return pulumi.output(args).apply(a => getPrivateRecordSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateRecordSet(a, opts))
 }
 
 export interface GetPrivateRecordSetOutputArgs {

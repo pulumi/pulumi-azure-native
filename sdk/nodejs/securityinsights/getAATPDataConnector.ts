@@ -70,9 +70,12 @@ export interface GetAATPDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents AATP (Azure Advanced Threat Protection) data connector.
+ * API Version: 2020-01-01.
+ */
 export function getAATPDataConnectorOutput(args: GetAATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAATPDataConnectorResult> {
-    return pulumi.output(args).apply(a => getAATPDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getAATPDataConnector(a, opts))
 }
 
 export interface GetAATPDataConnectorOutputArgs {

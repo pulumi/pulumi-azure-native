@@ -124,9 +124,11 @@ export interface GetBookmarkResult {
      */
     readonly updatedBy?: outputs.securityinsights.v20221001preview.UserInfoResponse;
 }
-
+/**
+ * Represents a bookmark in Azure Security Insights.
+ */
 export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkResult> {
-    return pulumi.output(args).apply(a => getBookmark(a, opts))
+    return pulumi.output(args).apply((a: any) => getBookmark(a, opts))
 }
 
 export interface GetBookmarkOutputArgs {

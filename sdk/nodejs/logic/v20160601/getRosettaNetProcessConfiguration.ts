@@ -100,9 +100,11 @@ export interface GetRosettaNetProcessConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * The integration account RosettaNet process configuration.
+ */
 export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {
-    return pulumi.output(args).apply(a => getRosettaNetProcessConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getRosettaNetProcessConfiguration(a, opts))
 }
 
 export interface GetRosettaNetProcessConfigurationOutputArgs {

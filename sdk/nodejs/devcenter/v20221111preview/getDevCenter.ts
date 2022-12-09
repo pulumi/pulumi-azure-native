@@ -71,9 +71,11 @@ export interface GetDevCenterResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a devcenter resource.
+ */
 export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevCenterResult> {
-    return pulumi.output(args).apply(a => getDevCenter(a, opts))
+    return pulumi.output(args).apply((a: any) => getDevCenter(a, opts))
 }
 
 export interface GetDevCenterOutputArgs {

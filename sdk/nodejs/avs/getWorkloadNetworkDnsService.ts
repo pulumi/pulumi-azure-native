@@ -82,9 +82,12 @@ export interface GetWorkloadNetworkDnsServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * NSX DNS Service
+ * API Version: 2020-07-17-preview.
+ */
 export function getWorkloadNetworkDnsServiceOutput(args: GetWorkloadNetworkDnsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsServiceResult> {
-    return pulumi.output(args).apply(a => getWorkloadNetworkDnsService(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsService(a, opts))
 }
 
 export interface GetWorkloadNetworkDnsServiceOutputArgs {

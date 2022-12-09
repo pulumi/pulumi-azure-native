@@ -40,9 +40,11 @@ export interface ListRemoteRenderingAccountKeysResult {
      */
     readonly secondaryKey: string;
 }
-
+/**
+ * Developer Keys of account
+ */
 export function listRemoteRenderingAccountKeysOutput(args: ListRemoteRenderingAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemoteRenderingAccountKeysResult> {
-    return pulumi.output(args).apply(a => listRemoteRenderingAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listRemoteRenderingAccountKeys(a, opts))
 }
 
 export interface ListRemoteRenderingAccountKeysOutputArgs {

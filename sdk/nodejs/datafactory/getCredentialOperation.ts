@@ -61,9 +61,12 @@ export interface GetCredentialOperationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Credential resource type.
+ * API Version: 2018-06-01.
+ */
 export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialOperationResult> {
-    return pulumi.output(args).apply(a => getCredentialOperation(a, opts))
+    return pulumi.output(args).apply((a: any) => getCredentialOperation(a, opts))
 }
 
 export interface GetCredentialOperationOutputArgs {

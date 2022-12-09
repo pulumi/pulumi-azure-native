@@ -58,9 +58,12 @@ export interface GetCustomerSubscriptionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Customer subscription.
+ * API Version: 2017-06-01.
+ */
 export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerSubscriptionResult> {
-    return pulumi.output(args).apply(a => getCustomerSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomerSubscription(a, opts))
 }
 
 export interface GetCustomerSubscriptionOutputArgs {

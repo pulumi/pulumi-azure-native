@@ -93,9 +93,12 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents an instance of a orchestrator.
+ */
+/** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getOrchestratorInstanceServiceDetailsOutput(args: GetOrchestratorInstanceServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratorInstanceServiceDetailsResult> {
-    return pulumi.output(args).apply(a => getOrchestratorInstanceServiceDetails(a, opts))
+    return pulumi.output(args).apply((a: any) => getOrchestratorInstanceServiceDetails(a, opts))
 }
 
 export interface GetOrchestratorInstanceServiceDetailsOutputArgs {

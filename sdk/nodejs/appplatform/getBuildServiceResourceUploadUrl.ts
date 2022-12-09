@@ -46,9 +46,12 @@ export interface GetBuildServiceResourceUploadUrlResult {
      */
     readonly uploadUrl?: string;
 }
-
+/**
+ * Resource upload definition payload
+ * API Version: 2022-01-01-preview.
+ */
 export function getBuildServiceResourceUploadUrlOutput(args: GetBuildServiceResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceResourceUploadUrlResult> {
-    return pulumi.output(args).apply(a => getBuildServiceResourceUploadUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => getBuildServiceResourceUploadUrl(a, opts))
 }
 
 export interface GetBuildServiceResourceUploadUrlOutputArgs {

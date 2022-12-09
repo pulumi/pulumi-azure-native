@@ -77,9 +77,12 @@ export interface GetVirtualHubResult {
      */
     readonly virtualWan?: outputs.network.v20180401.SubResourceResponse;
 }
-
+/**
+ * VirtualHub Resource.
+ */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
-    return pulumi.output(args).apply(a => getVirtualHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))
 }
 
 export interface GetVirtualHubOutputArgs {

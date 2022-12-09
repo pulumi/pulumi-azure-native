@@ -97,9 +97,12 @@ export interface GetNatGatewayResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Nat Gateway resource.
+ * API Version: 2020-11-01.
+ */
 export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
-    return pulumi.output(args).apply(a => getNatGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))
 }
 
 export interface GetNatGatewayOutputArgs {

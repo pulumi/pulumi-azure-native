@@ -81,9 +81,11 @@ export interface GetMultipleActivationKeyResult {
      */
     readonly type: string;
 }
-
+/**
+ * MAK key details.
+ */
 export function getMultipleActivationKeyOutput(args: GetMultipleActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultipleActivationKeyResult> {
-    return pulumi.output(args).apply(a => getMultipleActivationKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getMultipleActivationKey(a, opts))
 }
 
 export interface GetMultipleActivationKeyOutputArgs {

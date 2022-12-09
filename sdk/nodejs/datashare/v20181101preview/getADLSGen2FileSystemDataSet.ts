@@ -79,9 +79,11 @@ export interface GetADLSGen2FileSystemDataSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * An ADLS Gen 2 file system data set.
+ */
 export function getADLSGen2FileSystemDataSetOutput(args: GetADLSGen2FileSystemDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FileSystemDataSetResult> {
-    return pulumi.output(args).apply(a => getADLSGen2FileSystemDataSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getADLSGen2FileSystemDataSet(a, opts))
 }
 
 export interface GetADLSGen2FileSystemDataSetOutputArgs {

@@ -65,9 +65,12 @@ export interface GetServiceRunnerResult {
      */
     readonly type: string;
 }
-
+/**
+ * A container for a managed identity to execute DevTest lab services.
+ * API Version: 2018-09-15.
+ */
 export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRunnerResult> {
-    return pulumi.output(args).apply(a => getServiceRunner(a, opts))
+    return pulumi.output(args).apply((a: any) => getServiceRunner(a, opts))
 }
 
 export interface GetServiceRunnerOutputArgs {

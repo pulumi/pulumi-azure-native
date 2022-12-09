@@ -72,9 +72,11 @@ export interface GetConnectionTypeResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the connection type.
+ */
 export function getConnectionTypeOutput(args: GetConnectionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionTypeResult> {
-    return pulumi.output(args).apply(a => getConnectionType(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectionType(a, opts))
 }
 
 export interface GetConnectionTypeOutputArgs {

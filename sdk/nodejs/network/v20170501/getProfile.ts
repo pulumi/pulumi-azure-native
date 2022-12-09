@@ -77,9 +77,12 @@ export interface GetProfileResult {
      */
     readonly type: string;
 }
-
+/**
+ * Class representing a Traffic Manager profile.
+ */
+/** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    return pulumi.output(args).apply(a => getProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }
 
 export interface GetProfileOutputArgs {

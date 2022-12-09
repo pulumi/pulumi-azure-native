@@ -40,9 +40,12 @@ export interface GetUserSettingsWithLocationResult {
      */
     readonly properties: outputs.portal.UserPropertiesResponse;
 }
-
+/**
+ * Response to get user settings
+ * API Version: 2018-10-01.
+ */
 export function getUserSettingsWithLocationOutput(args: GetUserSettingsWithLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSettingsWithLocationResult> {
-    return pulumi.output(args).apply(a => getUserSettingsWithLocation(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserSettingsWithLocation(a, opts))
 }
 
 export interface GetUserSettingsWithLocationOutputArgs {

@@ -81,9 +81,12 @@ export interface GetIpGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * The IpGroups resource information.
+ * API Version: 2020-11-01.
+ */
 export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
-    return pulumi.output(args).apply(a => getIpGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getIpGroup(a, opts))
 }
 
 export interface GetIpGroupOutputArgs {

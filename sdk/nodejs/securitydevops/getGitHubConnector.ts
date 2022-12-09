@@ -64,9 +64,12 @@ export interface GetGitHubConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
+ * API Version: 2022-09-01-preview.
+ */
 export function getGitHubConnectorOutput(args: GetGitHubConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubConnectorResult> {
-    return pulumi.output(args).apply(a => getGitHubConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getGitHubConnector(a, opts))
 }
 
 export interface GetGitHubConnectorOutputArgs {

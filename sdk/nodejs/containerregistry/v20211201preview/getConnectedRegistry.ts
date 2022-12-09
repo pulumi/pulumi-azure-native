@@ -104,9 +104,11 @@ export interface GetConnectedRegistryResult {
      */
     readonly version: string;
 }
-
+/**
+ * An object that represents a connected registry for a container registry.
+ */
 export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedRegistryResult> {
-    return pulumi.output(args).apply(a => getConnectedRegistry(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectedRegistry(a, opts))
 }
 
 export interface GetConnectedRegistryOutputArgs {

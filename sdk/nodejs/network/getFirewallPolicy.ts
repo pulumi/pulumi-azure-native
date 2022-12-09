@@ -121,9 +121,12 @@ export interface GetFirewallPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * FirewallPolicy Resource.
+ * API Version: 2020-11-01.
+ */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
-    return pulumi.output(args).apply(a => getFirewallPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))
 }
 
 export interface GetFirewallPolicyOutputArgs {

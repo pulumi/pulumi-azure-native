@@ -74,9 +74,11 @@ export interface GetTargetResult {
      */
     readonly type: string;
 }
-
+/**
+ * Model that represents a Target resource.
+ */
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {
-    return pulumi.output(args).apply(a => getTarget(a, opts))
+    return pulumi.output(args).apply((a: any) => getTarget(a, opts))
 }
 
 export interface GetTargetOutputArgs {

@@ -71,9 +71,11 @@ export interface GetManagedClusterSnapshotResult {
      */
     readonly type: string;
 }
-
+/**
+ * A managed cluster snapshot resource.
+ */
 export function getManagedClusterSnapshotOutput(args: GetManagedClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterSnapshotResult> {
-    return pulumi.output(args).apply(a => getManagedClusterSnapshot(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedClusterSnapshot(a, opts))
 }
 
 export interface GetManagedClusterSnapshotOutputArgs {

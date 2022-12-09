@@ -184,9 +184,11 @@ export interface GetNodeTypeResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+ */
 export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeTypeResult> {
-    return pulumi.output(args).apply(a => getNodeType(a, opts))
+    return pulumi.output(args).apply((a: any) => getNodeType(a, opts))
 }
 
 export interface GetNodeTypeOutputArgs {

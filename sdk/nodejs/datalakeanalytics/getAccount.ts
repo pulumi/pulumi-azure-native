@@ -172,9 +172,12 @@ export interface GetAccountResult {
      */
     readonly virtualNetworkRules: outputs.datalakeanalytics.VirtualNetworkRuleResponse[];
 }
-
+/**
+ * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+ * API Version: 2016-11-01.
+ */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply(a => getAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

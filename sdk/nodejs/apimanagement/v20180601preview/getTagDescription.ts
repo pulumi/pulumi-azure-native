@@ -70,9 +70,11 @@ export interface GetTagDescriptionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Contract details.
+ */
 export function getTagDescriptionOutput(args: GetTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagDescriptionResult> {
-    return pulumi.output(args).apply(a => getTagDescription(a, opts))
+    return pulumi.output(args).apply((a: any) => getTagDescription(a, opts))
 }
 
 export interface GetTagDescriptionOutputArgs {

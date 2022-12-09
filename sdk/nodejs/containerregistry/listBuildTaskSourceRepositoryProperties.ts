@@ -57,9 +57,12 @@ export interface ListBuildTaskSourceRepositoryPropertiesResult {
      */
     readonly sourceControlType: string;
 }
-
+/**
+ * The properties of the source code repository.
+ * API Version: 2018-02-01-preview.
+ */
 export function listBuildTaskSourceRepositoryPropertiesOutput(args: ListBuildTaskSourceRepositoryPropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildTaskSourceRepositoryPropertiesResult> {
-    return pulumi.output(args).apply(a => listBuildTaskSourceRepositoryProperties(a, opts))
+    return pulumi.output(args).apply((a: any) => listBuildTaskSourceRepositoryProperties(a, opts))
 }
 
 export interface ListBuildTaskSourceRepositoryPropertiesOutputArgs {

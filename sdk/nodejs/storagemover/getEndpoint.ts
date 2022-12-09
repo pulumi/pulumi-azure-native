@@ -61,9 +61,12 @@ export interface GetEndpointResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Endpoint resource, which contains information about file sources and targets.
+ * API Version: 2022-07-01-preview.
+ */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply(a => getEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
 }
 
 export interface GetEndpointOutputArgs {

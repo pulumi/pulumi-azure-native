@@ -79,9 +79,11 @@ export interface GetOrganizationResult {
      */
     readonly userDetail?: outputs.confluent.v20200301preview.OrganizationResourcePropertiesResponseUserDetail;
 }
-
+/**
+ * Organization resource.
+ */
 export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
-    return pulumi.output(args).apply(a => getOrganization(a, opts))
+    return pulumi.output(args).apply((a: any) => getOrganization(a, opts))
 }
 
 export interface GetOrganizationOutputArgs {

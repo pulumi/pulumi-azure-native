@@ -72,9 +72,11 @@ export interface GetVirtualWANResult {
     readonly virtualHubs: outputs.network.v20180601.SubResourceResponse[];
     readonly vpnSites: outputs.network.v20180601.SubResourceResponse[];
 }
-
+/**
+ * VirtualWAN Resource.
+ */
 export function getVirtualWANOutput(args: GetVirtualWANOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWANResult> {
-    return pulumi.output(args).apply(a => getVirtualWAN(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualWAN(a, opts))
 }
 
 export interface GetVirtualWANOutputArgs {

@@ -74,9 +74,12 @@ export interface GetSubnetResult {
      */
     readonly routeTable?: outputs.network.v20150501preview.SubResourceResponse;
 }
-
+/**
+ * Subnet in a VirtualNetwork resource
+ */
+/** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
-    return pulumi.output(args).apply(a => getSubnet(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
 }
 
 export interface GetSubnetOutputArgs {

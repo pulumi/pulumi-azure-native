@@ -40,9 +40,11 @@ export interface GetWorkspaceSharedKeysResult {
      */
     readonly secondarySharedKey?: string;
 }
-
+/**
+ * The shared keys for a workspace.
+ */
 export function getWorkspaceSharedKeysOutput(args: GetWorkspaceSharedKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSharedKeysResult> {
-    return pulumi.output(args).apply(a => getWorkspaceSharedKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspaceSharedKeys(a, opts))
 }
 
 export interface GetWorkspaceSharedKeysOutputArgs {

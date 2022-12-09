@@ -64,9 +64,12 @@ export interface GetLedgerResult {
      */
     readonly type: string;
 }
-
+/**
+ * Confidential Ledger. Contains the properties of Confidential Ledger Resource.
+ * API Version: 2020-12-01-preview.
+ */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
-    return pulumi.output(args).apply(a => getLedger(a, opts))
+    return pulumi.output(args).apply((a: any) => getLedger(a, opts))
 }
 
 export interface GetLedgerOutputArgs {

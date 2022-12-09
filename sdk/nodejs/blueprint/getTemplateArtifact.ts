@@ -82,9 +82,12 @@ export interface GetTemplateArtifactResult {
      */
     readonly type: string;
 }
-
+/**
+ * Blueprint artifact that deploys a Resource Manager template.
+ * API Version: 2018-11-01-preview.
+ */
 export function getTemplateArtifactOutput(args: GetTemplateArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateArtifactResult> {
-    return pulumi.output(args).apply(a => getTemplateArtifact(a, opts))
+    return pulumi.output(args).apply((a: any) => getTemplateArtifact(a, opts))
 }
 
 export interface GetTemplateArtifactOutputArgs {

@@ -64,9 +64,11 @@ export interface GetNotificationHubPnsCredentialsResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Description of a NotificationHub Resource.
+ */
 export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
-    return pulumi.output(args).apply(a => getNotificationHubPnsCredentials(a, opts))
+    return pulumi.output(args).apply((a: any) => getNotificationHubPnsCredentials(a, opts))
 }
 
 export interface GetNotificationHubPnsCredentialsOutputArgs {

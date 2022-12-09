@@ -40,9 +40,12 @@ export interface ListBitLockerKeyResult {
      */
     readonly value?: outputs.importexport.DriveBitLockerKeyResponse[];
 }
-
+/**
+ * GetBitLockerKeys response
+ * API Version: 2020-08-01.
+ */
 export function listBitLockerKeyOutput(args: ListBitLockerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBitLockerKeyResult> {
-    return pulumi.output(args).apply(a => listBitLockerKey(a, opts))
+    return pulumi.output(args).apply((a: any) => listBitLockerKey(a, opts))
 }
 
 export interface ListBitLockerKeyOutputArgs {

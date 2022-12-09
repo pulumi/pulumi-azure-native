@@ -81,9 +81,12 @@ export interface GetLabAccountResult {
      */
     readonly uniqueIdentifier?: string;
 }
-
+/**
+ * Represents a lab account.
+ * API Version: 2018-10-15.
+ */
 export function getLabAccountOutput(args: GetLabAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountResult> {
-    return pulumi.output(args).apply(a => getLabAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getLabAccount(a, opts))
 }
 
 export interface GetLabAccountOutputArgs {

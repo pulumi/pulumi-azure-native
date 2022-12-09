@@ -130,9 +130,11 @@ export interface GetWebAppSiteExtensionResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Site Extension Information.
+ */
 export function getWebAppSiteExtensionOutput(args: GetWebAppSiteExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionResult> {
-    return pulumi.output(args).apply(a => getWebAppSiteExtension(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppSiteExtension(a, opts))
 }
 
 export interface GetWebAppSiteExtensionOutputArgs {

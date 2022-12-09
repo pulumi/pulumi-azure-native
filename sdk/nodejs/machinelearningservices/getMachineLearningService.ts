@@ -84,9 +84,13 @@ export interface GetMachineLearningServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Machine Learning service object wrapped into ARM resource envelope.
+ * API Version: 2021-01-01.
+ */
+/** @deprecated Please use one of the variants: ACIService, AKSService, EndpointVariant. */
 export function getMachineLearningServiceOutput(args: GetMachineLearningServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningServiceResult> {
-    return pulumi.output(args).apply(a => getMachineLearningService(a, opts))
+    return pulumi.output(args).apply((a: any) => getMachineLearningService(a, opts))
 }
 
 export interface GetMachineLearningServiceOutputArgs {

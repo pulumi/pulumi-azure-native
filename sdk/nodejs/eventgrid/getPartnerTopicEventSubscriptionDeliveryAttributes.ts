@@ -45,9 +45,12 @@ export interface GetPartnerTopicEventSubscriptionDeliveryAttributesResult {
      */
     readonly value?: (outputs.eventgrid.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.StaticDeliveryAttributeMappingResponse)[];
 }
-
+/**
+ * Result of the Get delivery attributes operation.
+ * API Version: 2021-06-01-preview.
+ */
 export function getPartnerTopicEventSubscriptionDeliveryAttributesOutput(args: GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> {
-    return pulumi.output(args).apply(a => getPartnerTopicEventSubscriptionDeliveryAttributes(a, opts))
+    return pulumi.output(args).apply((a: any) => getPartnerTopicEventSubscriptionDeliveryAttributes(a, opts))
 }
 
 export interface GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs {

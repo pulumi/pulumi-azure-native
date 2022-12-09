@@ -46,9 +46,12 @@ export interface ListNotebookWorkspaceConnectionInfoResult {
      */
     readonly notebookServerEndpoint: string;
 }
-
+/**
+ * The connection info for the given notebook workspace
+ * API Version: 2021-03-15.
+ */
 export function listNotebookWorkspaceConnectionInfoOutput(args: ListNotebookWorkspaceConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookWorkspaceConnectionInfoResult> {
-    return pulumi.output(args).apply(a => listNotebookWorkspaceConnectionInfo(a, opts))
+    return pulumi.output(args).apply((a: any) => listNotebookWorkspaceConnectionInfo(a, opts))
 }
 
 export interface ListNotebookWorkspaceConnectionInfoOutputArgs {

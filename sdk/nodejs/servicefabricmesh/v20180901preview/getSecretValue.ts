@@ -65,9 +65,11 @@ export interface GetSecretValueResult {
      */
     readonly value?: string;
 }
-
+/**
+ * This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+ */
 export function getSecretValueOutput(args: GetSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretValueResult> {
-    return pulumi.output(args).apply(a => getSecretValue(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecretValue(a, opts))
 }
 
 export interface GetSecretValueOutputArgs {

@@ -34,9 +34,11 @@ export interface GetBillingHubServiceFreeHourBalanceResult {
     readonly incrementEntries?: outputs.testbase.BillingHubFreeHourIncrementEntryResponse[];
     readonly totalRemainingFreeHours?: number;
 }
-
+/**
+ * API Version: 2022-04-01-preview.
+ */
 export function getBillingHubServiceFreeHourBalanceOutput(args: GetBillingHubServiceFreeHourBalanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingHubServiceFreeHourBalanceResult> {
-    return pulumi.output(args).apply(a => getBillingHubServiceFreeHourBalance(a, opts))
+    return pulumi.output(args).apply((a: any) => getBillingHubServiceFreeHourBalance(a, opts))
 }
 
 export interface GetBillingHubServiceFreeHourBalanceOutputArgs {

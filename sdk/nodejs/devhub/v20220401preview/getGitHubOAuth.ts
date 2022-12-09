@@ -40,9 +40,11 @@ export interface GetGitHubOAuthResult {
      */
     readonly token?: string;
 }
-
+/**
+ * URL used to authorize the Developer Hub GitHub App
+ */
 export function getGitHubOAuthOutput(args: GetGitHubOAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubOAuthResult> {
-    return pulumi.output(args).apply(a => getGitHubOAuth(a, opts))
+    return pulumi.output(args).apply((a: any) => getGitHubOAuth(a, opts))
 }
 
 export interface GetGitHubOAuthOutputArgs {

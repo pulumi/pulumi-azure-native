@@ -35,9 +35,8 @@ export interface ListIntegrationAccountCallbackUrlResult {
      */
     readonly value?: string;
 }
-
 export function listIntegrationAccountCallbackUrlOutput(args: ListIntegrationAccountCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listIntegrationAccountCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listIntegrationAccountCallbackUrl(a, opts))
 }
 
 export interface ListIntegrationAccountCallbackUrlOutputArgs {

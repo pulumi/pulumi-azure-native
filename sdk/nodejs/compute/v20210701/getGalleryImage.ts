@@ -116,9 +116,11 @@ export interface GetGalleryImageResult {
      */
     readonly type: string;
 }
-
+/**
+ * Specifies information about the gallery image definition that you want to create or update.
+ */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
-    return pulumi.output(args).apply(a => getGalleryImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getGalleryImage(a, opts))
 }
 
 export interface GetGalleryImageOutputArgs {

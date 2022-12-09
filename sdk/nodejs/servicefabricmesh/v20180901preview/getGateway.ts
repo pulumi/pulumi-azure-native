@@ -91,9 +91,11 @@ export interface GetGatewayResult {
      */
     readonly type: string;
 }
-
+/**
+ * This type describes a gateway resource.
+ */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    return pulumi.output(args).apply(a => getGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
 }
 
 export interface GetGatewayOutputArgs {

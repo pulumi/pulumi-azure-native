@@ -86,9 +86,11 @@ export interface GetAnalyticsItemResult {
      */
     readonly version: string;
 }
-
+/**
+ * Properties that define an Analytics item that is associated to an Application Insights component.
+ */
 export function getAnalyticsItemOutput(args: GetAnalyticsItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsItemResult> {
-    return pulumi.output(args).apply(a => getAnalyticsItem(a, opts))
+    return pulumi.output(args).apply((a: any) => getAnalyticsItem(a, opts))
 }
 
 export interface GetAnalyticsItemOutputArgs {

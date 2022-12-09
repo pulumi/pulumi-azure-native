@@ -69,9 +69,11 @@ export interface GetWorkspaceConnectionResult {
      */
     readonly valueFormat?: string;
 }
-
+/**
+ * Workspace connection.
+ */
 export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceConnectionResult> {
-    return pulumi.output(args).apply(a => getWorkspaceConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspaceConnection(a, opts))
 }
 
 export interface GetWorkspaceConnectionOutputArgs {

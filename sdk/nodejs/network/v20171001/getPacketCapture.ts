@@ -76,9 +76,12 @@ export interface GetPacketCaptureResult {
      */
     readonly totalBytesPerSession?: number;
 }
-
+/**
+ * Information about packet capture session.
+ */
+/** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
-    return pulumi.output(args).apply(a => getPacketCapture(a, opts))
+    return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))
 }
 
 export interface GetPacketCaptureOutputArgs {

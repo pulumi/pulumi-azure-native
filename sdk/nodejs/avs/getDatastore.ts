@@ -70,9 +70,12 @@ export interface GetDatastoreResult {
      */
     readonly type: string;
 }
-
+/**
+ * A datastore resource
+ * API Version: 2021-01-01-preview.
+ */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
-    return pulumi.output(args).apply(a => getDatastore(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatastore(a, opts))
 }
 
 export interface GetDatastoreOutputArgs {

@@ -48,9 +48,11 @@ export interface ListComputeNodesResult {
      */
     readonly nodes: outputs.machinelearningservices.v20220601preview.AmlComputeNodeInformationResponse[];
 }
-
+/**
+ * Result of AmlCompute Nodes
+ */
 export function listComputeNodesOutput(args: ListComputeNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListComputeNodesResult> {
-    return pulumi.output(args).apply(a => listComputeNodes(a, opts))
+    return pulumi.output(args).apply((a: any) => listComputeNodes(a, opts))
 }
 
 export interface ListComputeNodesOutputArgs {

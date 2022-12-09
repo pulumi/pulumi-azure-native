@@ -102,9 +102,12 @@ export interface GetJobResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+ * API Version: 2020-05-01.
+ */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
-    return pulumi.output(args).apply(a => getJob(a, opts))
+    return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }
 
 export interface GetJobOutputArgs {

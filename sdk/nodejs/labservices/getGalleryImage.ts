@@ -114,9 +114,12 @@ export interface GetGalleryImageResult {
      */
     readonly uniqueIdentifier?: string;
 }
-
+/**
+ * Represents an image from the Azure Marketplace
+ * API Version: 2018-10-15.
+ */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
-    return pulumi.output(args).apply(a => getGalleryImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getGalleryImage(a, opts))
 }
 
 export interface GetGalleryImageOutputArgs {

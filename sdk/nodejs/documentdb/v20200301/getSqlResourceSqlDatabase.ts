@@ -64,9 +64,12 @@ export interface GetSqlResourceSqlDatabaseResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB SQL database.
+ */
+/** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
 export function getSqlResourceSqlDatabaseOutput(args: GetSqlResourceSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlDatabaseResult> {
-    return pulumi.output(args).apply(a => getSqlResourceSqlDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlResourceSqlDatabase(a, opts))
 }
 
 export interface GetSqlResourceSqlDatabaseOutputArgs {

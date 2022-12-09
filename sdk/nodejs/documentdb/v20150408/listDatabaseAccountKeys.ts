@@ -48,9 +48,11 @@ export interface ListDatabaseAccountKeysResult {
      */
     readonly secondaryReadonlyMasterKey: string;
 }
-
+/**
+ * The access keys for the given database account.
+ */
 export function listDatabaseAccountKeysOutput(args: ListDatabaseAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountKeysResult> {
-    return pulumi.output(args).apply(a => listDatabaseAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listDatabaseAccountKeys(a, opts))
 }
 
 export interface ListDatabaseAccountKeysOutputArgs {

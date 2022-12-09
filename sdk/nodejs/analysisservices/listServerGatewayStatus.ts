@@ -37,9 +37,12 @@ export interface ListServerGatewayStatusResult {
      */
     readonly status?: number;
 }
-
+/**
+ * Status of gateway is live.
+ * API Version: 2017-08-01.
+ */
 export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerGatewayStatusResult> {
-    return pulumi.output(args).apply(a => listServerGatewayStatus(a, opts))
+    return pulumi.output(args).apply((a: any) => listServerGatewayStatus(a, opts))
 }
 
 export interface ListServerGatewayStatusOutputArgs {

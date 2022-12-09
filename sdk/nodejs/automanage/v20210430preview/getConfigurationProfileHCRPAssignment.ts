@@ -60,9 +60,11 @@ export interface GetConfigurationProfileHCRPAssignmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Configuration profile assignment is an association between a VM and automanage profile configuration.
+ */
 export function getConfigurationProfileHCRPAssignmentOutput(args: GetConfigurationProfileHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCRPAssignmentResult> {
-    return pulumi.output(args).apply(a => getConfigurationProfileHCRPAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationProfileHCRPAssignment(a, opts))
 }
 
 export interface GetConfigurationProfileHCRPAssignmentOutputArgs {

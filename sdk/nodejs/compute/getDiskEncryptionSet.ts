@@ -84,9 +84,12 @@ export interface GetDiskEncryptionSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * disk encryption set resource.
+ * API Version: 2020-12-01.
+ */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
-    return pulumi.output(args).apply(a => getDiskEncryptionSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getDiskEncryptionSet(a, opts))
 }
 
 export interface GetDiskEncryptionSetOutputArgs {

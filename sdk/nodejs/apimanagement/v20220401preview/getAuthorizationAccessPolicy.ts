@@ -67,9 +67,11 @@ export interface GetAuthorizationAccessPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * Authorization access policy contract.
+ */
 export function getAuthorizationAccessPolicyOutput(args: GetAuthorizationAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationAccessPolicyResult> {
-    return pulumi.output(args).apply(a => getAuthorizationAccessPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getAuthorizationAccessPolicy(a, opts))
 }
 
 export interface GetAuthorizationAccessPolicyOutputArgs {

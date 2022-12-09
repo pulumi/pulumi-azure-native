@@ -82,9 +82,12 @@ export interface GetDisasterRecoveryConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a disaster recovery configuration.
+ * API Version: 2014-04-01.
+ */
 export function getDisasterRecoveryConfigurationOutput(args: GetDisasterRecoveryConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigurationResult> {
-    return pulumi.output(args).apply(a => getDisasterRecoveryConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getDisasterRecoveryConfiguration(a, opts))
 }
 
 export interface GetDisasterRecoveryConfigurationOutputArgs {

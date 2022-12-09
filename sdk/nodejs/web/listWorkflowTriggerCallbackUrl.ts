@@ -70,9 +70,12 @@ export interface ListWorkflowTriggerCallbackUrlResult {
      */
     readonly value: string;
 }
-
+/**
+ * The workflow trigger callback URL.
+ * API Version: 2022-03-01.
+ */
 export function listWorkflowTriggerCallbackUrlOutput(args: ListWorkflowTriggerCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowTriggerCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listWorkflowTriggerCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listWorkflowTriggerCallbackUrl(a, opts))
 }
 
 export interface ListWorkflowTriggerCallbackUrlOutputArgs {

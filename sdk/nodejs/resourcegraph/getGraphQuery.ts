@@ -73,9 +73,12 @@ export interface GetGraphQueryResult {
      */
     readonly type: string;
 }
-
+/**
+ * Graph Query entity definition.
+ * API Version: 2018-09-01-preview.
+ */
 export function getGraphQueryOutput(args: GetGraphQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQueryResult> {
-    return pulumi.output(args).apply(a => getGraphQuery(a, opts))
+    return pulumi.output(args).apply((a: any) => getGraphQuery(a, opts))
 }
 
 export interface GetGraphQueryOutputArgs {

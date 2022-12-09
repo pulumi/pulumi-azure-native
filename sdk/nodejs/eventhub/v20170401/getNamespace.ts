@@ -91,9 +91,11 @@ export interface GetNamespaceResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Single Namespace item in List or Get Operation
+ */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
-    return pulumi.output(args).apply(a => getNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }
 
 export interface GetNamespaceOutputArgs {

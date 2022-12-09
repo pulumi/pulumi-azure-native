@@ -60,9 +60,12 @@ export interface GetHybridConnectionAuthorizationRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of a Namespace AuthorizationRules.
+ */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getHybridConnectionAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getHybridConnectionAuthorizationRule(a, opts))
 }
 
 export interface GetHybridConnectionAuthorizationRuleOutputArgs {

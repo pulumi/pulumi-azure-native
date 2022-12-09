@@ -65,9 +65,12 @@ export interface GetEnvironmentTypeResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents an environment type.
+ * API Version: 2022-09-01-preview.
+ */
 export function getEnvironmentTypeOutput(args: GetEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentTypeResult> {
-    return pulumi.output(args).apply(a => getEnvironmentType(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironmentType(a, opts))
 }
 
 export interface GetEnvironmentTypeOutputArgs {

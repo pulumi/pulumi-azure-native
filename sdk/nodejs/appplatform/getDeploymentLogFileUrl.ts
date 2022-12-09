@@ -47,9 +47,12 @@ export interface GetDeploymentLogFileUrlResult {
      */
     readonly url: string;
 }
-
+/**
+ * Log file URL payload
+ * API Version: 2020-07-01.
+ */
 export function getDeploymentLogFileUrlOutput(args: GetDeploymentLogFileUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentLogFileUrlResult> {
-    return pulumi.output(args).apply(a => getDeploymentLogFileUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeploymentLogFileUrl(a, opts))
 }
 
 export interface GetDeploymentLogFileUrlOutputArgs {

@@ -112,9 +112,12 @@ export interface GetDedicatedCloudNodeResult {
      */
     readonly vmwareClusterName: string;
 }
-
+/**
+ * Dedicated cloud node model
+ * API Version: 2019-04-01.
+ */
 export function getDedicatedCloudNodeOutput(args: GetDedicatedCloudNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedCloudNodeResult> {
-    return pulumi.output(args).apply(a => getDedicatedCloudNode(a, opts))
+    return pulumi.output(args).apply((a: any) => getDedicatedCloudNode(a, opts))
 }
 
 export interface GetDedicatedCloudNodeOutputArgs {

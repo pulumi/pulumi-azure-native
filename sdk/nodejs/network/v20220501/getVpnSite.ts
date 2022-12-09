@@ -99,9 +99,11 @@ export interface GetVpnSiteResult {
      */
     readonly vpnSiteLinks?: outputs.network.v20220501.VpnSiteLinkResponse[];
 }
-
+/**
+ * VpnSite Resource.
+ */
 export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {
-    return pulumi.output(args).apply(a => getVpnSite(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpnSite(a, opts))
 }
 
 export interface GetVpnSiteOutputArgs {

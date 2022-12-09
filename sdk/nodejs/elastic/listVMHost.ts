@@ -44,9 +44,12 @@ export interface ListVMHostResult {
      */
     readonly value?: outputs.elastic.VMResourcesResponse[];
 }
-
+/**
+ * Response of a list operation.
+ * API Version: 2020-07-01.
+ */
 export function listVMHostOutput(args: ListVMHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVMHostResult> {
-    return pulumi.output(args).apply(a => listVMHost(a, opts))
+    return pulumi.output(args).apply((a: any) => listVMHost(a, opts))
 }
 
 export interface ListVMHostOutputArgs {

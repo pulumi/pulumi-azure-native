@@ -80,9 +80,12 @@ export interface GetServiceResult {
      */
     readonly virtualSubnetId: string;
 }
-
+/**
+ * A Database Migration Service resource
+ * API Version: 2018-04-19.
+ */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

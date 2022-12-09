@@ -104,9 +104,12 @@ export interface GetAssignmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Security Assignment on a resource group over a given scope
+ * API Version: 2021-08-01-preview.
+ */
 export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
-    return pulumi.output(args).apply(a => getAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssignment(a, opts))
 }
 
 export interface GetAssignmentOutputArgs {

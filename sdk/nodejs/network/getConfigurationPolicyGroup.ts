@@ -77,9 +77,12 @@ export interface GetConfigurationPolicyGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * VpnServerConfigurationPolicyGroup Resource.
+ * API Version: 2022-01-01.
+ */
 export function getConfigurationPolicyGroupOutput(args: GetConfigurationPolicyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationPolicyGroupResult> {
-    return pulumi.output(args).apply(a => getConfigurationPolicyGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationPolicyGroup(a, opts))
 }
 
 export interface GetConfigurationPolicyGroupOutputArgs {

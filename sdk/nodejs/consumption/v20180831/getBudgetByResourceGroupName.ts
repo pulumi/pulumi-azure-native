@@ -81,9 +81,12 @@ export interface GetBudgetByResourceGroupNameResult {
      */
     readonly type: string;
 }
-
+/**
+ * A budget resource.
+ */
+/** @deprecated Version 2018-08-31 will be removed in v2 of the provider. */
 export function getBudgetByResourceGroupNameOutput(args: GetBudgetByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetByResourceGroupNameResult> {
-    return pulumi.output(args).apply(a => getBudgetByResourceGroupName(a, opts))
+    return pulumi.output(args).apply((a: any) => getBudgetByResourceGroupName(a, opts))
 }
 
 export interface GetBudgetByResourceGroupNameOutputArgs {

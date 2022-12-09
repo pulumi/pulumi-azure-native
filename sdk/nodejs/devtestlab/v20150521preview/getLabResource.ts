@@ -86,9 +86,12 @@ export interface GetLabResourceResult {
      */
     readonly vaultName?: string;
 }
-
+/**
+ * A lab.
+ */
+/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getLabResourceOutput(args: GetLabResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResourceResult> {
-    return pulumi.output(args).apply(a => getLabResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getLabResource(a, opts))
 }
 
 export interface GetLabResourceOutputArgs {

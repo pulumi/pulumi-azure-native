@@ -82,9 +82,12 @@ export interface GetAFDCustomDomainResult {
      */
     readonly validationProperties: outputs.cdn.DomainValidationPropertiesResponse;
 }
-
+/**
+ * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ * API Version: 2020-09-01.
+ */
 export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
-    return pulumi.output(args).apply(a => getAFDCustomDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getAFDCustomDomain(a, opts))
 }
 
 export interface GetAFDCustomDomainOutputArgs {

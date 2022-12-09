@@ -81,9 +81,12 @@ export interface GetIntegrationAccountCertificateResult {
      */
     readonly type: string;
 }
-
+/**
+ * The integration account certificate.
+ * API Version: 2019-05-01.
+ */
 export function getIntegrationAccountCertificateOutput(args: GetIntegrationAccountCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountCertificateResult> {
-    return pulumi.output(args).apply(a => getIntegrationAccountCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountCertificate(a, opts))
 }
 
 export interface GetIntegrationAccountCertificateOutputArgs {

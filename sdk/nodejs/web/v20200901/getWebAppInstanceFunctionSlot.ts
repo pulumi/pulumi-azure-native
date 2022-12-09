@@ -117,9 +117,11 @@ export interface GetWebAppInstanceFunctionSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * Function information.
+ */
 export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
-    return pulumi.output(args).apply(a => getWebAppInstanceFunctionSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppInstanceFunctionSlot(a, opts))
 }
 
 export interface GetWebAppInstanceFunctionSlotOutputArgs {

@@ -86,9 +86,11 @@ export interface GetRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Friendly Rules name mapping to the any Rules or secret related information.
+ */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    return pulumi.output(args).apply(a => getRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getRule(a, opts))
 }
 
 export interface GetRuleOutputArgs {

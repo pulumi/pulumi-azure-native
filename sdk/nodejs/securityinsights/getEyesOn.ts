@@ -75,9 +75,12 @@ export interface GetEyesOnResult {
      */
     readonly type: string;
 }
-
+/**
+ * Settings with single toggle.
+ * API Version: 2021-03-01-preview.
+ */
 export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEyesOnResult> {
-    return pulumi.output(args).apply(a => getEyesOn(a, opts))
+    return pulumi.output(args).apply((a: any) => getEyesOn(a, opts))
 }
 
 export interface GetEyesOnOutputArgs {

@@ -52,9 +52,12 @@ export interface GetDeploymentAtSubscriptionScopeResult {
      */
     readonly type: string;
 }
-
+/**
+ * Deployment information.
+ */
+/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
-    return pulumi.output(args).apply(a => getDeploymentAtSubscriptionScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeploymentAtSubscriptionScope(a, opts))
 }
 
 export interface GetDeploymentAtSubscriptionScopeOutputArgs {

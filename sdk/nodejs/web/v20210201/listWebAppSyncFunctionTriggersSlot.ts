@@ -45,9 +45,11 @@ export interface ListWebAppSyncFunctionTriggersSlotResult {
      */
     readonly triggerUrl?: string;
 }
-
+/**
+ * Function secrets.
+ */
 export function listWebAppSyncFunctionTriggersSlotOutput(args: ListWebAppSyncFunctionTriggersSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppSyncFunctionTriggersSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppSyncFunctionTriggersSlot(a, opts))
 }
 
 export interface ListWebAppSyncFunctionTriggersSlotOutputArgs {

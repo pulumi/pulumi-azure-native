@@ -108,9 +108,11 @@ export interface GetFileImportResult {
      */
     readonly validRecordCount: number;
 }
-
+/**
+ * Represents a file import in Azure Security Insights.
+ */
 export function getFileImportOutput(args: GetFileImportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileImportResult> {
-    return pulumi.output(args).apply(a => getFileImport(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileImport(a, opts))
 }
 
 export interface GetFileImportOutputArgs {

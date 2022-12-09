@@ -63,9 +63,11 @@ export interface GetPrivateLinkScopeResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Arc PrivateLinkScope definition.
+ */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
-    return pulumi.output(args).apply(a => getPrivateLinkScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))
 }
 
 export interface GetPrivateLinkScopeOutputArgs {

@@ -31,9 +31,11 @@ export interface ListNotebookKeysResult {
     readonly primaryAccessKey: string;
     readonly secondaryAccessKey: string;
 }
-
+/**
+ * API Version: 2021-01-01.
+ */
 export function listNotebookKeysOutput(args: ListNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookKeysResult> {
-    return pulumi.output(args).apply(a => listNotebookKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listNotebookKeys(a, opts))
 }
 
 export interface ListNotebookKeysOutputArgs {

@@ -53,9 +53,11 @@ export interface GetComponentLinkedStorageAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Application Insights component linked storage accounts
+ */
 export function getComponentLinkedStorageAccountOutput(args: GetComponentLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentLinkedStorageAccountResult> {
-    return pulumi.output(args).apply(a => getComponentLinkedStorageAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getComponentLinkedStorageAccount(a, opts))
 }
 
 export interface GetComponentLinkedStorageAccountOutputArgs {

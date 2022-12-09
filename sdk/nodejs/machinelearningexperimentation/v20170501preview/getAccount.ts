@@ -95,9 +95,11 @@ export interface GetAccountResult {
      */
     readonly vsoAccountId: string;
 }
-
+/**
+ * An object that represents a machine learning team account.
+ */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply(a => getAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

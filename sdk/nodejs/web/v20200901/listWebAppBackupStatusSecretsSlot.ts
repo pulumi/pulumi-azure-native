@@ -147,9 +147,11 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
      */
     readonly websiteSizeInBytes: number;
 }
-
+/**
+ * Backup description.
+ */
 export function listWebAppBackupStatusSecretsSlotOutput(args: ListWebAppBackupStatusSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupStatusSecretsSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppBackupStatusSecretsSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppBackupStatusSecretsSlot(a, opts))
 }
 
 export interface ListWebAppBackupStatusSecretsSlotOutputArgs {

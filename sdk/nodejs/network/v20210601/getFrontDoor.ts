@@ -111,9 +111,11 @@ export interface GetFrontDoorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+ */
 export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontDoorResult> {
-    return pulumi.output(args).apply(a => getFrontDoor(a, opts))
+    return pulumi.output(args).apply((a: any) => getFrontDoor(a, opts))
 }
 
 export interface GetFrontDoorOutputArgs {

@@ -73,9 +73,11 @@ export interface GetSyncAgentResult {
      */
     readonly version: string;
 }
-
+/**
+ * An Azure SQL Database sync agent.
+ */
 export function getSyncAgentOutput(args: GetSyncAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncAgentResult> {
-    return pulumi.output(args).apply(a => getSyncAgent(a, opts))
+    return pulumi.output(args).apply((a: any) => getSyncAgent(a, opts))
 }
 
 export interface GetSyncAgentOutputArgs {

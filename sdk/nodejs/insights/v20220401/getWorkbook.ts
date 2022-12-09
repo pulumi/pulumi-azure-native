@@ -116,9 +116,11 @@ export interface GetWorkbookResult {
      */
     readonly version?: string;
 }
-
+/**
+ * A workbook definition.
+ */
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
-    return pulumi.output(args).apply(a => getWorkbook(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkbook(a, opts))
 }
 
 export interface GetWorkbookOutputArgs {

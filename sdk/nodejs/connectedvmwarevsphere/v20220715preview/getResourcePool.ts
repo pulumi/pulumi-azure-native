@@ -137,9 +137,11 @@ export interface GetResourcePoolResult {
      */
     readonly vCenterId?: string;
 }
-
+/**
+ * Define the resourcePool.
+ */
 export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePoolResult> {
-    return pulumi.output(args).apply(a => getResourcePool(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourcePool(a, opts))
 }
 
 export interface GetResourcePoolOutputArgs {

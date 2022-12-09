@@ -92,9 +92,12 @@ export interface GetSpacecraftResult {
      */
     readonly type: string;
 }
-
+/**
+ * Customer creates a spacecraft resource to schedule a contact.
+ * API Version: 2021-04-04-preview.
+ */
 export function getSpacecraftOutput(args: GetSpacecraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpacecraftResult> {
-    return pulumi.output(args).apply(a => getSpacecraft(a, opts))
+    return pulumi.output(args).apply((a: any) => getSpacecraft(a, opts))
 }
 
 export interface GetSpacecraftOutputArgs {

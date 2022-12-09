@@ -67,9 +67,12 @@ export interface GetDataSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * A DataSet data transfer object.
+ */
+/** @deprecated Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet. */
 export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {
-    return pulumi.output(args).apply(a => getDataSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataSet(a, opts))
 }
 
 export interface GetDataSetOutputArgs {

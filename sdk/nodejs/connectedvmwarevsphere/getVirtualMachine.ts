@@ -161,9 +161,12 @@ export interface GetVirtualMachineResult {
      */
     readonly vmId: string;
 }
-
+/**
+ * Define the virtualMachine.
+ * API Version: 2020-10-01-preview.
+ */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
 }
 
 export interface GetVirtualMachineOutputArgs {

@@ -60,9 +60,11 @@ export interface GetServiceRegistryResult {
      */
     readonly type: string;
 }
-
+/**
+ * Service Registry resource
+ */
 export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRegistryResult> {
-    return pulumi.output(args).apply(a => getServiceRegistry(a, opts))
+    return pulumi.output(args).apply((a: any) => getServiceRegistry(a, opts))
 }
 
 export interface GetServiceRegistryOutputArgs {

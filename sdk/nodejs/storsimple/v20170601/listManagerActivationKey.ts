@@ -36,9 +36,11 @@ export interface ListManagerActivationKeyResult {
      */
     readonly activationKey: string;
 }
-
+/**
+ * The key.
+ */
 export function listManagerActivationKeyOutput(args: ListManagerActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerActivationKeyResult> {
-    return pulumi.output(args).apply(a => listManagerActivationKey(a, opts))
+    return pulumi.output(args).apply((a: any) => listManagerActivationKey(a, opts))
 }
 
 export interface ListManagerActivationKeyOutputArgs {

@@ -103,9 +103,12 @@ export interface GetBlobDataSetMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Blob data set mapping.
+ * API Version: 2020-09-01.
+ */
 export function getBlobDataSetMappingOutput(args: GetBlobDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobDataSetMappingResult> {
-    return pulumi.output(args).apply(a => getBlobDataSetMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getBlobDataSetMapping(a, opts))
 }
 
 export interface GetBlobDataSetMappingOutputArgs {

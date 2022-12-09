@@ -106,9 +106,11 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
      */
     readonly userPrincipalName: string;
 }
-
+/**
+ * Access Review History Definition.
+ */
 export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
-    return pulumi.output(args).apply(a => getAccessReviewHistoryDefinitionById(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccessReviewHistoryDefinitionById(a, opts))
 }
 
 export interface GetAccessReviewHistoryDefinitionByIdOutputArgs {

@@ -95,9 +95,12 @@ export interface GetWebAppDeploymentSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * User credentials used for publishing activity.
+ * API Version: 2020-12-01.
+ */
 export function getWebAppDeploymentSlotOutput(args: GetWebAppDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentSlotResult> {
-    return pulumi.output(args).apply(a => getWebAppDeploymentSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppDeploymentSlot(a, opts))
 }
 
 export interface GetWebAppDeploymentSlotOutputArgs {

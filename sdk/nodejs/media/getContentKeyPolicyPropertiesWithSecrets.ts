@@ -61,9 +61,12 @@ export interface GetContentKeyPolicyPropertiesWithSecretsResult {
      */
     readonly policyId: string;
 }
-
+/**
+ * The properties of the Content Key Policy.
+ * API Version: 2020-05-01.
+ */
 export function getContentKeyPolicyPropertiesWithSecretsOutput(args: GetContentKeyPolicyPropertiesWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyPropertiesWithSecretsResult> {
-    return pulumi.output(args).apply(a => getContentKeyPolicyPropertiesWithSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => getContentKeyPolicyPropertiesWithSecrets(a, opts))
 }
 
 export interface GetContentKeyPolicyPropertiesWithSecretsOutputArgs {

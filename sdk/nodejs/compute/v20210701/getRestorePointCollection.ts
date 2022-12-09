@@ -76,9 +76,11 @@ export interface GetRestorePointCollectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Create or update Restore Point collection parameters.
+ */
 export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointCollectionResult> {
-    return pulumi.output(args).apply(a => getRestorePointCollection(a, opts))
+    return pulumi.output(args).apply((a: any) => getRestorePointCollection(a, opts))
 }
 
 export interface GetRestorePointCollectionOutputArgs {

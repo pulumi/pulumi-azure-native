@@ -49,9 +49,12 @@ export interface ListLocalUserKeysResult {
      */
     readonly sshAuthorizedKeys?: outputs.storage.SshPublicKeyResponse[];
 }
-
+/**
+ * The Storage Account Local User keys.
+ * API Version: 2021-08-01.
+ */
 export function listLocalUserKeysOutput(args: ListLocalUserKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalUserKeysResult> {
-    return pulumi.output(args).apply(a => listLocalUserKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listLocalUserKeys(a, opts))
 }
 
 export interface ListLocalUserKeysOutputArgs {

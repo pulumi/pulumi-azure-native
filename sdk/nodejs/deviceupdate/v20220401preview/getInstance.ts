@@ -84,9 +84,11 @@ export interface GetInstanceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Device Update instance details.
+ */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    return pulumi.output(args).apply(a => getInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
 }
 
 export interface GetInstanceOutputArgs {

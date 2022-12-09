@@ -137,9 +137,12 @@ export interface GetQueueResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Description of queue Resource.
+ * API Version: 2017-04-01.
+ */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
-    return pulumi.output(args).apply(a => getQueue(a, opts))
+    return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }
 
 export interface GetQueueOutputArgs {

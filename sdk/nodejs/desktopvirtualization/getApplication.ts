@@ -106,9 +106,12 @@ export interface GetApplicationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Schema for Application properties.
+ * API Version: 2021-02-01-preview.
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

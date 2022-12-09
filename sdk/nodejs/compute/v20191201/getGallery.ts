@@ -69,9 +69,12 @@ export interface GetGalleryResult {
      */
     readonly type: string;
 }
-
+/**
+ * Specifies information about the Shared Image Gallery that you want to create or update.
+ */
+/** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
-    return pulumi.output(args).apply(a => getGallery(a, opts))
+    return pulumi.output(args).apply((a: any) => getGallery(a, opts))
 }
 
 export interface GetGalleryOutputArgs {

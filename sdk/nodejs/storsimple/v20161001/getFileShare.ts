@@ -93,9 +93,12 @@ export interface GetFileShareResult {
      */
     readonly usedCapacityInBytes: number;
 }
-
+/**
+ * The File Share.
+ */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
-    return pulumi.output(args).apply(a => getFileShare(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileShare(a, opts))
 }
 
 export interface GetFileShareOutputArgs {

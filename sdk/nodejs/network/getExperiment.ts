@@ -89,9 +89,12 @@ export interface GetExperimentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Defines the properties of an Experiment
+ * API Version: 2019-11-01.
+ */
 export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
-    return pulumi.output(args).apply(a => getExperiment(a, opts))
+    return pulumi.output(args).apply((a: any) => getExperiment(a, opts))
 }
 
 export interface GetExperimentOutputArgs {

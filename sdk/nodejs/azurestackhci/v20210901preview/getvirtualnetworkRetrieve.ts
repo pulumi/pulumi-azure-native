@@ -77,9 +77,11 @@ export interface GetvirtualnetworkRetrieveResult {
      */
     readonly type: string;
 }
-
+/**
+ * The virtual network resource definition.
+ */
 export function getvirtualnetworkRetrieveOutput(args: GetvirtualnetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualnetworkRetrieveResult> {
-    return pulumi.output(args).apply(a => getvirtualnetworkRetrieve(a, opts))
+    return pulumi.output(args).apply((a: any) => getvirtualnetworkRetrieve(a, opts))
 }
 
 export interface GetvirtualnetworkRetrieveOutputArgs {

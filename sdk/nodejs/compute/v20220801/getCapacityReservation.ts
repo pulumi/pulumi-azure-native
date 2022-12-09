@@ -101,9 +101,11 @@ export interface GetCapacityReservationResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Specifies information about the capacity reservation.
+ */
 export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
-    return pulumi.output(args).apply(a => getCapacityReservation(a, opts))
+    return pulumi.output(args).apply((a: any) => getCapacityReservation(a, opts))
 }
 
 export interface GetCapacityReservationOutputArgs {

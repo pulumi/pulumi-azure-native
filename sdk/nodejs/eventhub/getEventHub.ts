@@ -81,9 +81,12 @@ export interface GetEventHubResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Single item in List or Get Event Hub operation
+ * API Version: 2017-04-01.
+ */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
-    return pulumi.output(args).apply(a => getEventHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventHub(a, opts))
 }
 
 export interface GetEventHubOutputArgs {

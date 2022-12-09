@@ -87,9 +87,11 @@ export interface GetBlobContainerDataSetMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Blob container data set mapping.
+ */
 export function getBlobContainerDataSetMappingOutput(args: GetBlobContainerDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetMappingResult> {
-    return pulumi.output(args).apply(a => getBlobContainerDataSetMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getBlobContainerDataSetMapping(a, opts))
 }
 
 export interface GetBlobContainerDataSetMappingOutputArgs {

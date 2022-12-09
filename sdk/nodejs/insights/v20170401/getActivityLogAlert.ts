@@ -75,9 +75,11 @@ export interface GetActivityLogAlertResult {
      */
     readonly type: string;
 }
-
+/**
+ * An activity log alert resource.
+ */
 export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityLogAlertResult> {
-    return pulumi.output(args).apply(a => getActivityLogAlert(a, opts))
+    return pulumi.output(args).apply((a: any) => getActivityLogAlert(a, opts))
 }
 
 export interface GetActivityLogAlertOutputArgs {

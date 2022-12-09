@@ -78,9 +78,12 @@ export interface GetRouteFilterResult {
      */
     readonly type: string;
 }
-
+/**
+ * Route Filter Resource.
+ */
+/** @deprecated Version 2017-11-01 will be removed in v2 of the provider. */
 export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
-    return pulumi.output(args).apply(a => getRouteFilter(a, opts))
+    return pulumi.output(args).apply((a: any) => getRouteFilter(a, opts))
 }
 
 export interface GetRouteFilterOutputArgs {

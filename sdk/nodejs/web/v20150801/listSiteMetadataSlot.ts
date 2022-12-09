@@ -65,9 +65,11 @@ export interface ListSiteMetadataSlotResult {
      */
     readonly type?: string;
 }
-
+/**
+ * String dictionary resource
+ */
 export function listSiteMetadataSlotOutput(args: ListSiteMetadataSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteMetadataSlotResult> {
-    return pulumi.output(args).apply(a => listSiteMetadataSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listSiteMetadataSlot(a, opts))
 }
 
 export interface ListSiteMetadataSlotOutputArgs {

@@ -42,9 +42,11 @@ export interface GetServerCollectorResult {
     readonly properties: outputs.migrate.CollectorPropertiesResponse;
     readonly type: string;
 }
-
+/**
+ * API Version: 2019-10-01.
+ */
 export function getServerCollectorOutput(args: GetServerCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCollectorResult> {
-    return pulumi.output(args).apply(a => getServerCollector(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerCollector(a, opts))
 }
 
 export interface GetServerCollectorOutputArgs {

@@ -116,9 +116,11 @@ export interface GetShareSubscriptionResult {
      */
     readonly userName: string;
 }
-
+/**
+ * A share subscription data transfer object.
+ */
 export function getShareSubscriptionOutput(args: GetShareSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareSubscriptionResult> {
-    return pulumi.output(args).apply(a => getShareSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getShareSubscription(a, opts))
 }
 
 export interface GetShareSubscriptionOutputArgs {

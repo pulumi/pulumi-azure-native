@@ -51,9 +51,8 @@ export interface GetQueueResult {
      */
     readonly type: string;
 }
-
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
-    return pulumi.output(args).apply(a => getQueue(a, opts))
+    return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }
 
 export interface GetQueueOutputArgs {

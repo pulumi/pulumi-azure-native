@@ -157,9 +157,11 @@ export interface ListSiteBackupStatusSecretsResult {
      */
     readonly websiteSizeInBytes?: number;
 }
-
+/**
+ * Backup description
+ */
 export function listSiteBackupStatusSecretsOutput(args: ListSiteBackupStatusSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteBackupStatusSecretsResult> {
-    return pulumi.output(args).apply(a => listSiteBackupStatusSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => listSiteBackupStatusSecrets(a, opts))
 }
 
 export interface ListSiteBackupStatusSecretsOutputArgs {

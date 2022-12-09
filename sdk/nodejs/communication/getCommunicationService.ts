@@ -84,9 +84,12 @@ export interface GetCommunicationServiceResult {
      */
     readonly version: string;
 }
-
+/**
+ * A class representing a CommunicationService resource.
+ * API Version: 2020-08-20.
+ */
 export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationServiceResult> {
-    return pulumi.output(args).apply(a => getCommunicationService(a, opts))
+    return pulumi.output(args).apply((a: any) => getCommunicationService(a, opts))
 }
 
 export interface GetCommunicationServiceOutputArgs {

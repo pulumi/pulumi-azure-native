@@ -70,9 +70,11 @@ export interface GetManagedInstanceLongTermRetentionPolicyResult {
      */
     readonly yearlyRetention?: string;
 }
-
+/**
+ * A long term retention policy.
+ */
 export function getManagedInstanceLongTermRetentionPolicyOutput(args: GetManagedInstanceLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceLongTermRetentionPolicyResult> {
-    return pulumi.output(args).apply(a => getManagedInstanceLongTermRetentionPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedInstanceLongTermRetentionPolicy(a, opts))
 }
 
 export interface GetManagedInstanceLongTermRetentionPolicyOutputArgs {

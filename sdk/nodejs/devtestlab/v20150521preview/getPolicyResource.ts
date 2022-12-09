@@ -92,9 +92,12 @@ export interface GetPolicyResourceResult {
      */
     readonly type?: string;
 }
-
+/**
+ * A Policy.
+ */
+/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getPolicyResourceOutput(args: GetPolicyResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResourceResult> {
-    return pulumi.output(args).apply(a => getPolicyResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicyResource(a, opts))
 }
 
 export interface GetPolicyResourceOutputArgs {

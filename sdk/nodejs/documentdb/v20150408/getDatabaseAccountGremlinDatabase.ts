@@ -71,9 +71,12 @@ export interface GetDatabaseAccountGremlinDatabaseResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB Gremlin database.
+ */
+/** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinDatabaseOutput(args: GetDatabaseAccountGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountGremlinDatabaseResult> {
-    return pulumi.output(args).apply(a => getDatabaseAccountGremlinDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabaseAccountGremlinDatabase(a, opts))
 }
 
 export interface GetDatabaseAccountGremlinDatabaseOutputArgs {

@@ -94,9 +94,11 @@ export interface GetEnvironmentResult {
      */
     readonly uniqueIdentifier: string;
 }
-
+/**
+ * An environment, which is essentially an ARM template deployment.
+ */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply(a => getEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {

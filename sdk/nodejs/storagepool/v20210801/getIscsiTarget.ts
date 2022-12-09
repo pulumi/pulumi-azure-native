@@ -100,9 +100,11 @@ export interface GetIscsiTargetResult {
      */
     readonly type: string;
 }
-
+/**
+ * Response for iSCSI Target requests.
+ */
 export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiTargetResult> {
-    return pulumi.output(args).apply(a => getIscsiTarget(a, opts))
+    return pulumi.output(args).apply((a: any) => getIscsiTarget(a, opts))
 }
 
 export interface GetIscsiTargetOutputArgs {

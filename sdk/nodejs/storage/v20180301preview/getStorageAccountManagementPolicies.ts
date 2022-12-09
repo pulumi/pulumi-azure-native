@@ -59,9 +59,12 @@ export interface GetStorageAccountManagementPoliciesResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Get Storage Account ManagementPolicies operation response.
+ */
+/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
 export function getStorageAccountManagementPoliciesOutput(args: GetStorageAccountManagementPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountManagementPoliciesResult> {
-    return pulumi.output(args).apply(a => getStorageAccountManagementPolicies(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageAccountManagementPolicies(a, opts))
 }
 
 export interface GetStorageAccountManagementPoliciesOutputArgs {

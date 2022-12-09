@@ -125,9 +125,12 @@ export interface GetApplicationGatewayResult {
      */
     readonly urlPathMaps?: outputs.network.v20160601.ApplicationGatewayUrlPathMapResponse[];
 }
-
+/**
+ * ApplicationGateways resource
+ */
+/** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
-    return pulumi.output(args).apply(a => getApplicationGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))
 }
 
 export interface GetApplicationGatewayOutputArgs {

@@ -90,9 +90,12 @@ export interface GetNetworkSecurityGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * NetworkSecurityGroup resource.
+ */
+/** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
 export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
-    return pulumi.output(args).apply(a => getNetworkSecurityGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkSecurityGroup(a, opts))
 }
 
 export interface GetNetworkSecurityGroupOutputArgs {

@@ -62,9 +62,11 @@ export interface GetResourceGuardProxyResult {
      */
     readonly type: string;
 }
-
+/**
+ * API Version: 2021-02-01-preview.
+ */
 export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {
-    return pulumi.output(args).apply(a => getResourceGuardProxy(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceGuardProxy(a, opts))
 }
 
 export interface GetResourceGuardProxyOutputArgs {

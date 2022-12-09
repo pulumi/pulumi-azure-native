@@ -65,9 +65,11 @@ export interface GetApiPortalCustomDomainResult {
      */
     readonly type: string;
 }
-
+/**
+ * Custom domain of the API portal
+ */
 export function getApiPortalCustomDomainOutput(args: GetApiPortalCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalCustomDomainResult> {
-    return pulumi.output(args).apply(a => getApiPortalCustomDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiPortalCustomDomain(a, opts))
 }
 
 export interface GetApiPortalCustomDomainOutputArgs {

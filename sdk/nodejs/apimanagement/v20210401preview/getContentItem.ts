@@ -58,9 +58,11 @@ export interface GetContentItemResult {
      */
     readonly type: string;
 }
-
+/**
+ * Content type contract details.
+ */
 export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentItemResult> {
-    return pulumi.output(args).apply(a => getContentItem(a, opts))
+    return pulumi.output(args).apply((a: any) => getContentItem(a, opts))
 }
 
 export interface GetContentItemOutputArgs {

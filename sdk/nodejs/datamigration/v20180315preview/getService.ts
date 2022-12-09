@@ -81,9 +81,12 @@ export interface GetServiceResult {
      */
     readonly virtualSubnetId: string;
 }
-
+/**
+ * A Data Migration Service resource
+ */
+/** @deprecated Version 2018-03-15-preview will be removed in v2 of the provider. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

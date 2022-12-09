@@ -91,9 +91,11 @@ export interface GetADLSGen2FolderDataSetMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * An ADLS Gen2 folder data set mapping.
+ */
 export function getADLSGen2FolderDataSetMappingOutput(args: GetADLSGen2FolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetMappingResult> {
-    return pulumi.output(args).apply(a => getADLSGen2FolderDataSetMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getADLSGen2FolderDataSetMapping(a, opts))
 }
 
 export interface GetADLSGen2FolderDataSetMappingOutputArgs {

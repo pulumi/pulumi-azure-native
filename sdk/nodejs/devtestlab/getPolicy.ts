@@ -104,9 +104,12 @@ export interface GetPolicyResult {
      */
     readonly uniqueIdentifier: string;
 }
-
+/**
+ * A Policy.
+ * API Version: 2018-09-15.
+ */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply(a => getPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }
 
 export interface GetPolicyOutputArgs {

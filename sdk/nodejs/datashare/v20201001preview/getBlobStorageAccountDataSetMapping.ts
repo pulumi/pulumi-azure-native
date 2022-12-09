@@ -98,9 +98,11 @@ export interface GetBlobStorageAccountDataSetMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * A blob storage account data set mapping.
+ */
 export function getBlobStorageAccountDataSetMappingOutput(args: GetBlobStorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobStorageAccountDataSetMappingResult> {
-    return pulumi.output(args).apply(a => getBlobStorageAccountDataSetMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getBlobStorageAccountDataSetMapping(a, opts))
 }
 
 export interface GetBlobStorageAccountDataSetMappingOutputArgs {

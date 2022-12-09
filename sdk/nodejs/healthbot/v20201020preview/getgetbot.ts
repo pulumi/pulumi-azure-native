@@ -69,9 +69,12 @@ export interface GetgetbotResult {
      */
     readonly type: string;
 }
-
+/**
+ * HealthBot resource definition
+ */
+/** @deprecated Version 2020-10-20-preview will be removed in v2 of the provider. */
 export function getgetbotOutput(args: GetgetbotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgetbotResult> {
-    return pulumi.output(args).apply(a => getgetbot(a, opts))
+    return pulumi.output(args).apply((a: any) => getgetbot(a, opts))
 }
 
 export interface GetgetbotOutputArgs {

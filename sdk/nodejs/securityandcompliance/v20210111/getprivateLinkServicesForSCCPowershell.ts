@@ -75,9 +75,11 @@ export interface GetprivateLinkServicesForSCCPowershellResult {
      */
     readonly type: string;
 }
-
+/**
+ * The description of the service.
+ */
 export function getprivateLinkServicesForSCCPowershellOutput(args: GetprivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForSCCPowershellResult> {
-    return pulumi.output(args).apply(a => getprivateLinkServicesForSCCPowershell(a, opts))
+    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForSCCPowershell(a, opts))
 }
 
 export interface GetprivateLinkServicesForSCCPowershellOutputArgs {

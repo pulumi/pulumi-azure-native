@@ -106,9 +106,12 @@ export interface GetSyncGroupResult {
      */
     readonly usePrivateLinkConnection?: boolean;
 }
-
+/**
+ * An Azure SQL Database sync group.
+ * API Version: 2020-11-01-preview.
+ */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
-    return pulumi.output(args).apply(a => getSyncGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))
 }
 
 export interface GetSyncGroupOutputArgs {

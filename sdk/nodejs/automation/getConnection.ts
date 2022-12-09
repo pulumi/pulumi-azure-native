@@ -73,9 +73,12 @@ export interface GetConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the connection.
+ * API Version: 2019-06-01.
+ */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
-    return pulumi.output(args).apply(a => getConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }
 
 export interface GetConnectionOutputArgs {

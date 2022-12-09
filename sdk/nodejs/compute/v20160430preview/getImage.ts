@@ -74,9 +74,12 @@ export interface GetImageResult {
      */
     readonly type: string;
 }
-
+/**
+ * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+ */
+/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply(a => getImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }
 
 export interface GetImageOutputArgs {

@@ -39,9 +39,11 @@ export interface ListGlobalUserEnvironmentsResult {
      */
     readonly environments?: outputs.labservices.v20181015.EnvironmentDetailsResponse[];
 }
-
+/**
+ * Represents the list of environments owned by a user
+ */
 export function listGlobalUserEnvironmentsOutput(args: ListGlobalUserEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserEnvironmentsResult> {
-    return pulumi.output(args).apply(a => listGlobalUserEnvironments(a, opts))
+    return pulumi.output(args).apply((a: any) => listGlobalUserEnvironments(a, opts))
 }
 
 export interface ListGlobalUserEnvironmentsOutputArgs {

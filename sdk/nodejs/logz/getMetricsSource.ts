@@ -60,9 +60,11 @@ export interface GetMetricsSourceResult {
      */
     readonly type: string;
 }
-
+/**
+ * API Version: 2022-01-01-preview.
+ */
 export function getMetricsSourceOutput(args: GetMetricsSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsSourceResult> {
-    return pulumi.output(args).apply(a => getMetricsSource(a, opts))
+    return pulumi.output(args).apply((a: any) => getMetricsSource(a, opts))
 }
 
 export interface GetMetricsSourceOutputArgs {

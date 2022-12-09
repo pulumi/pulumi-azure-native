@@ -78,9 +78,11 @@ export interface GetApiIssueResult {
      */
     readonly userId: string;
 }
-
+/**
+ * Issue Contract details.
+ */
 export function getApiIssueOutput(args: GetApiIssueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueResult> {
-    return pulumi.output(args).apply(a => getApiIssue(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiIssue(a, opts))
 }
 
 export interface GetApiIssueOutputArgs {

@@ -43,9 +43,11 @@ export interface GetComponentCurrentBillingFeatureResult {
      */
     readonly dataVolumeCap?: outputs.insights.v20150501.ApplicationInsightsComponentDataVolumeCapResponse;
 }
-
+/**
+ * An Application Insights component billing features
+ */
 export function getComponentCurrentBillingFeatureOutput(args: GetComponentCurrentBillingFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentCurrentBillingFeatureResult> {
-    return pulumi.output(args).apply(a => getComponentCurrentBillingFeature(a, opts))
+    return pulumi.output(args).apply((a: any) => getComponentCurrentBillingFeature(a, opts))
 }
 
 export interface GetComponentCurrentBillingFeatureOutputArgs {

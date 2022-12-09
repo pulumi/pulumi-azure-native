@@ -72,9 +72,11 @@ export interface GetRouteMapResult {
      */
     readonly type: string;
 }
-
+/**
+ * The RouteMap child resource of a Virtual hub.
+ */
 export function getRouteMapOutput(args: GetRouteMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteMapResult> {
-    return pulumi.output(args).apply(a => getRouteMap(a, opts))
+    return pulumi.output(args).apply((a: any) => getRouteMap(a, opts))
 }
 
 export interface GetRouteMapOutputArgs {

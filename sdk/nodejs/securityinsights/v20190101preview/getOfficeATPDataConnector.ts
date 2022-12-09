@@ -74,9 +74,11 @@ export interface GetOfficeATPDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+ */
 export function getOfficeATPDataConnectorOutput(args: GetOfficeATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeATPDataConnectorResult> {
-    return pulumi.output(args).apply(a => getOfficeATPDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getOfficeATPDataConnector(a, opts))
 }
 
 export interface GetOfficeATPDataConnectorOutputArgs {

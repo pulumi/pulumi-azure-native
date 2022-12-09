@@ -72,9 +72,11 @@ export interface GetJobScheduleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the job schedule.
+ */
 export function getJobScheduleOutput(args: GetJobScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobScheduleResult> {
-    return pulumi.output(args).apply(a => getJobSchedule(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobSchedule(a, opts))
 }
 
 export interface GetJobScheduleOutputArgs {

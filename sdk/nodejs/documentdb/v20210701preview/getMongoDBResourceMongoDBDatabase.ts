@@ -66,9 +66,11 @@ export interface GetMongoDBResourceMongoDBDatabaseResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB MongoDB database.
+ */
 export function getMongoDBResourceMongoDBDatabaseOutput(args: GetMongoDBResourceMongoDBDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoDBDatabaseResult> {
-    return pulumi.output(args).apply(a => getMongoDBResourceMongoDBDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoDBDatabase(a, opts))
 }
 
 export interface GetMongoDBResourceMongoDBDatabaseOutputArgs {

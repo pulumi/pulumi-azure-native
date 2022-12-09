@@ -59,9 +59,11 @@ export interface GetFactoryGitHubAccessTokenResult {
      */
     readonly gitHubAccessToken?: string;
 }
-
+/**
+ * Get GitHub access token response definition.
+ */
 export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
-    return pulumi.output(args).apply(a => getFactoryGitHubAccessToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getFactoryGitHubAccessToken(a, opts))
 }
 
 export interface GetFactoryGitHubAccessTokenOutputArgs {

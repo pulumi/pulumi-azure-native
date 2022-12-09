@@ -90,9 +90,12 @@ export interface GetReadOnlyFollowingDatabaseResult {
      */
     readonly type: string;
 }
-
+/**
+ * Class representing a read only following database.
+ * API Version: 2021-01-01.
+ */
 export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
-    return pulumi.output(args).apply(a => getReadOnlyFollowingDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getReadOnlyFollowingDatabase(a, opts))
 }
 
 export interface GetReadOnlyFollowingDatabaseOutputArgs {

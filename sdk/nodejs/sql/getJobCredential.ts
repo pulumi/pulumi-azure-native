@@ -59,9 +59,12 @@ export interface GetJobCredentialResult {
      */
     readonly username: string;
 }
-
+/**
+ * A stored credential that can be used by a job to connect to target databases.
+ * API Version: 2020-11-01-preview.
+ */
 export function getJobCredentialOutput(args: GetJobCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCredentialResult> {
-    return pulumi.output(args).apply(a => getJobCredential(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobCredential(a, opts))
 }
 
 export interface GetJobCredentialOutputArgs {

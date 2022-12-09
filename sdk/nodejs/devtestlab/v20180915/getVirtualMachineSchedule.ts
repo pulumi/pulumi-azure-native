@@ -114,9 +114,11 @@ export interface GetVirtualMachineScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20180915.WeekDetailsResponse;
 }
-
+/**
+ * A schedule.
+ */
 export function getVirtualMachineScheduleOutput(args: GetVirtualMachineScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScheduleResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineSchedule(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineSchedule(a, opts))
 }
 
 export interface GetVirtualMachineScheduleOutputArgs {

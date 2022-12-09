@@ -72,9 +72,12 @@ export interface GetCassandraResourceCassandraViewResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB Cassandra view.
+ * API Version: 2021-07-01-preview.
+ */
 export function getCassandraResourceCassandraViewOutput(args: GetCassandraResourceCassandraViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraViewResult> {
-    return pulumi.output(args).apply(a => getCassandraResourceCassandraView(a, opts))
+    return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraView(a, opts))
 }
 
 export interface GetCassandraResourceCassandraViewOutputArgs {

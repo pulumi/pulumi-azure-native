@@ -129,9 +129,12 @@ export interface GetVpnConnectionResult {
      */
     readonly vpnLinkConnections?: outputs.network.VpnSiteLinkConnectionResponse[];
 }
-
+/**
+ * VpnConnection Resource.
+ * API Version: 2020-11-01.
+ */
 export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
-    return pulumi.output(args).apply(a => getVpnConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpnConnection(a, opts))
 }
 
 export interface GetVpnConnectionOutputArgs {

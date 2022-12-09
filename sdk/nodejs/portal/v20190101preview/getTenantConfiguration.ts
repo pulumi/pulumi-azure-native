@@ -43,9 +43,11 @@ export interface GetTenantConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Tenant configuration.
+ */
 export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantConfigurationResult> {
-    return pulumi.output(args).apply(a => getTenantConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getTenantConfiguration(a, opts))
 }
 
 export interface GetTenantConfigurationOutputArgs {

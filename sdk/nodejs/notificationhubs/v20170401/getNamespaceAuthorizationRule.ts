@@ -100,9 +100,11 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of a Namespace AuthorizationRules.
+ */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getNamespaceAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }
 
 export interface GetNamespaceAuthorizationRuleOutputArgs {

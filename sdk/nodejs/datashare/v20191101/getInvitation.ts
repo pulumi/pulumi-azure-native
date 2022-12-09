@@ -94,9 +94,12 @@ export interface GetInvitationResult {
      */
     readonly userName: string;
 }
-
+/**
+ * A Invitation data transfer object.
+ */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
-    return pulumi.output(args).apply(a => getInvitation(a, opts))
+    return pulumi.output(args).apply((a: any) => getInvitation(a, opts))
 }
 
 export interface GetInvitationOutputArgs {

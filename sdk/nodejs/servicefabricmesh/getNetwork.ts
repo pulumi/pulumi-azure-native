@@ -60,9 +60,12 @@ export interface GetNetworkResult {
      */
     readonly type: string;
 }
-
+/**
+ * This type describes a network resource.
+ * API Version: 2018-09-01-preview.
+ */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
-    return pulumi.output(args).apply(a => getNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
 }
 
 export interface GetNetworkOutputArgs {

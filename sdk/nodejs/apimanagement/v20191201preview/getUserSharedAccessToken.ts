@@ -54,9 +54,11 @@ export interface GetUserSharedAccessTokenResult {
      */
     readonly value?: string;
 }
-
+/**
+ * Get User Token response details.
+ */
 export function getUserSharedAccessTokenOutput(args: GetUserSharedAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSharedAccessTokenResult> {
-    return pulumi.output(args).apply(a => getUserSharedAccessToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserSharedAccessToken(a, opts))
 }
 
 export interface GetUserSharedAccessTokenOutputArgs {

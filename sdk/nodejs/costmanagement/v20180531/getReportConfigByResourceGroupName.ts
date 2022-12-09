@@ -69,9 +69,12 @@ export interface GetReportConfigByResourceGroupNameResult {
      */
     readonly type: string;
 }
-
+/**
+ * A report config resource.
+ */
+/** @deprecated Version 2018-05-31 will be removed in v2 of the provider. */
 export function getReportConfigByResourceGroupNameOutput(args: GetReportConfigByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportConfigByResourceGroupNameResult> {
-    return pulumi.output(args).apply(a => getReportConfigByResourceGroupName(a, opts))
+    return pulumi.output(args).apply((a: any) => getReportConfigByResourceGroupName(a, opts))
 }
 
 export interface GetReportConfigByResourceGroupNameOutputArgs {

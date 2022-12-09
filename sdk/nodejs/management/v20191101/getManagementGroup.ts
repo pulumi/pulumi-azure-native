@@ -83,9 +83,12 @@ export interface GetManagementGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * The management group details.
+ */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
-    return pulumi.output(args).apply(a => getManagementGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))
 }
 
 export interface GetManagementGroupOutputArgs {

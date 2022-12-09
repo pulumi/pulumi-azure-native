@@ -75,9 +75,12 @@ export interface GetStaticSiteLinkedBackendForBuildResult {
      */
     readonly type: string;
 }
-
+/**
+ * Static Site Linked Backend ARM resource.
+ * API Version: 2022-03-01.
+ */
 export function getStaticSiteLinkedBackendForBuildOutput(args: GetStaticSiteLinkedBackendForBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteLinkedBackendForBuildResult> {
-    return pulumi.output(args).apply(a => getStaticSiteLinkedBackendForBuild(a, opts))
+    return pulumi.output(args).apply((a: any) => getStaticSiteLinkedBackendForBuild(a, opts))
 }
 
 export interface GetStaticSiteLinkedBackendForBuildOutputArgs {

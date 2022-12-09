@@ -40,9 +40,11 @@ export interface GetProjectKeysResult {
      */
     readonly workspaceKey: string;
 }
-
+/**
+ * ID and Key for Migration Project.
+ */
 export function getProjectKeysOutput(args: GetProjectKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectKeysResult> {
-    return pulumi.output(args).apply(a => getProjectKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => getProjectKeys(a, opts))
 }
 
 export interface GetProjectKeysOutputArgs {

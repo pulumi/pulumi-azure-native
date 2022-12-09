@@ -91,9 +91,12 @@ export interface GetVolumeQuotaRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Quota Rule of a Volume
+ * API Version: 2022-01-01.
+ */
 export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
-    return pulumi.output(args).apply(a => getVolumeQuotaRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolumeQuotaRule(a, opts))
 }
 
 export interface GetVolumeQuotaRuleOutputArgs {

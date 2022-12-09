@@ -74,9 +74,11 @@ export interface ListAgreementContentCallbackUrlResult {
      */
     readonly value: string;
 }
-
+/**
+ * The workflow trigger callback URL.
+ */
 export function listAgreementContentCallbackUrlOutput(args: ListAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgreementContentCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listAgreementContentCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listAgreementContentCallbackUrl(a, opts))
 }
 
 export interface ListAgreementContentCallbackUrlOutputArgs {

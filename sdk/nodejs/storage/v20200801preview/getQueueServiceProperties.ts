@@ -58,9 +58,12 @@ export interface GetQueueServicePropertiesResult {
      */
     readonly type: string;
 }
-
+/**
+ * The properties of a storage account’s Queue service.
+ */
+/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getQueueServicePropertiesOutput(args: GetQueueServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueServicePropertiesResult> {
-    return pulumi.output(args).apply(a => getQueueServiceProperties(a, opts))
+    return pulumi.output(args).apply((a: any) => getQueueServiceProperties(a, opts))
 }
 
 export interface GetQueueServicePropertiesOutputArgs {

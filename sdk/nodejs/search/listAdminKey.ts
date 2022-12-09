@@ -41,9 +41,12 @@ export interface ListAdminKeyResult {
      */
     readonly secondaryKey: string;
 }
-
+/**
+ * Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+ * API Version: 2020-08-01.
+ */
 export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAdminKeyResult> {
-    return pulumi.output(args).apply(a => listAdminKey(a, opts))
+    return pulumi.output(args).apply((a: any) => listAdminKey(a, opts))
 }
 
 export interface ListAdminKeyOutputArgs {

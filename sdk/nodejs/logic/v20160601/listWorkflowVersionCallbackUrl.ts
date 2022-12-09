@@ -79,9 +79,11 @@ export interface ListWorkflowVersionCallbackUrlResult {
      */
     readonly value: string;
 }
-
+/**
+ * The workflow trigger callback URL.
+ */
 export function listWorkflowVersionCallbackUrlOutput(args: ListWorkflowVersionCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowVersionCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listWorkflowVersionCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listWorkflowVersionCallbackUrl(a, opts))
 }
 
 export interface ListWorkflowVersionCallbackUrlOutputArgs {

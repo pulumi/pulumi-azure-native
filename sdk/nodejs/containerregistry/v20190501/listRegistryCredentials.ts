@@ -43,9 +43,11 @@ export interface ListRegistryCredentialsResult {
      */
     readonly username?: string;
 }
-
+/**
+ * The response from the ListCredentials operation.
+ */
 export function listRegistryCredentialsOutput(args: ListRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryCredentialsResult> {
-    return pulumi.output(args).apply(a => listRegistryCredentials(a, opts))
+    return pulumi.output(args).apply((a: any) => listRegistryCredentials(a, opts))
 }
 
 export interface ListRegistryCredentialsOutputArgs {

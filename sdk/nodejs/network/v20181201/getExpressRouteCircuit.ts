@@ -123,9 +123,11 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly type: string;
 }
-
+/**
+ * ExpressRouteCircuit resource
+ */
 export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitResult> {
-    return pulumi.output(args).apply(a => getExpressRouteCircuit(a, opts))
+    return pulumi.output(args).apply((a: any) => getExpressRouteCircuit(a, opts))
 }
 
 export interface GetExpressRouteCircuitOutputArgs {

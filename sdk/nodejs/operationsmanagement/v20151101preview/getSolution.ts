@@ -63,9 +63,11 @@ export interface GetSolutionResult {
      */
     readonly type: string;
 }
-
+/**
+ * The container for solution.
+ */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
-    return pulumi.output(args).apply(a => getSolution(a, opts))
+    return pulumi.output(args).apply((a: any) => getSolution(a, opts))
 }
 
 export interface GetSolutionOutputArgs {

@@ -63,9 +63,12 @@ export interface GetBackupScheduleGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Backup Schedule Group
+ */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getBackupScheduleGroupOutput(args: GetBackupScheduleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleGroupResult> {
-    return pulumi.output(args).apply(a => getBackupScheduleGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getBackupScheduleGroup(a, opts))
 }
 
 export interface GetBackupScheduleGroupOutputArgs {

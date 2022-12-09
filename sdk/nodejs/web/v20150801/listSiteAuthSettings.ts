@@ -168,9 +168,11 @@ export interface ListSiteAuthSettingsResult {
      */
     readonly unauthenticatedClientAction?: string;
 }
-
+/**
+ * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ */
 export function listSiteAuthSettingsOutput(args: ListSiteAuthSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteAuthSettingsResult> {
-    return pulumi.output(args).apply(a => listSiteAuthSettings(a, opts))
+    return pulumi.output(args).apply((a: any) => listSiteAuthSettings(a, opts))
 }
 
 export interface ListSiteAuthSettingsOutputArgs {

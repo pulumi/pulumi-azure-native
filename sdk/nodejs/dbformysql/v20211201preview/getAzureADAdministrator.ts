@@ -76,9 +76,11 @@ export interface GetAzureADAdministratorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a Administrator.
+ */
 export function getAzureADAdministratorOutput(args: GetAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADAdministratorResult> {
-    return pulumi.output(args).apply(a => getAzureADAdministrator(a, opts))
+    return pulumi.output(args).apply((a: any) => getAzureADAdministrator(a, opts))
 }
 
 export interface GetAzureADAdministratorOutputArgs {

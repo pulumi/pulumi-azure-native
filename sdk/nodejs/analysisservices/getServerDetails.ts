@@ -100,9 +100,12 @@ export interface GetServerDetailsResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents an instance of an Analysis Services resource.
+ * API Version: 2017-08-01.
+ */
 export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDetailsResult> {
-    return pulumi.output(args).apply(a => getServerDetails(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerDetails(a, opts))
 }
 
 export interface GetServerDetailsOutputArgs {

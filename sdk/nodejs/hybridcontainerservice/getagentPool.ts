@@ -119,9 +119,12 @@ export interface GetagentPoolResult {
      */
     readonly vmSize?: string;
 }
-
+/**
+ * The agentPool resource definition
+ * API Version: 2022-05-01-preview.
+ */
 export function getagentPoolOutput(args: GetagentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetagentPoolResult> {
-    return pulumi.output(args).apply(a => getagentPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getagentPool(a, opts))
 }
 
 export interface GetagentPoolOutputArgs {

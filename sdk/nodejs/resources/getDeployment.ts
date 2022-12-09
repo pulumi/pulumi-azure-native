@@ -60,9 +60,12 @@ export interface GetDeploymentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Deployment information.
+ * API Version: 2021-01-01.
+ */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
-    return pulumi.output(args).apply(a => getDeployment(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }
 
 export interface GetDeploymentOutputArgs {

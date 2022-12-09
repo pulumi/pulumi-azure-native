@@ -87,9 +87,11 @@ export interface GetSqlVirtualMachineGroupResult {
      */
     readonly wsfcDomainProfile?: outputs.sqlvirtualmachine.v20220701preview.WsfcDomainProfileResponse;
 }
-
+/**
+ * A SQL virtual machine group.
+ */
 export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
-    return pulumi.output(args).apply(a => getSqlVirtualMachineGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlVirtualMachineGroup(a, opts))
 }
 
 export interface GetSqlVirtualMachineGroupOutputArgs {

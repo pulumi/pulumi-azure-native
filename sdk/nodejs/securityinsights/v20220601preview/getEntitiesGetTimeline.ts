@@ -68,9 +68,11 @@ export interface GetEntitiesGetTimelineResult {
      */
     readonly value?: (outputs.securityinsights.v20220601preview.ActivityTimelineItemResponse | outputs.securityinsights.v20220601preview.AnomalyTimelineItemResponse | outputs.securityinsights.v20220601preview.BookmarkTimelineItemResponse | outputs.securityinsights.v20220601preview.SecurityAlertTimelineItemResponse)[];
 }
-
+/**
+ * The entity timeline result operation response.
+ */
 export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
-    return pulumi.output(args).apply(a => getEntitiesGetTimeline(a, opts))
+    return pulumi.output(args).apply((a: any) => getEntitiesGetTimeline(a, opts))
 }
 
 export interface GetEntitiesGetTimelineOutputArgs {

@@ -70,9 +70,12 @@ export interface ListAccountSasResult {
      */
     readonly accountSasToken: string;
 }
-
+/**
+ * A new Sas token which can be used to access the Maps REST APIs and is controlled by the specified Managed identity permissions on Azure (IAM) Role Based Access Control.
+ * API Version: 2021-12-01-preview.
+ */
 export function listAccountSasOutput(args: ListAccountSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountSasResult> {
-    return pulumi.output(args).apply(a => listAccountSas(a, opts))
+    return pulumi.output(args).apply((a: any) => listAccountSas(a, opts))
 }
 
 export interface ListAccountSasOutputArgs {

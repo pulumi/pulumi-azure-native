@@ -63,9 +63,11 @@ export interface GetMigrateProjectsControllerMigrateProjectResult {
      */
     readonly type: string;
 }
-
+/**
+ * Migrate project.
+ */
 export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
-    return pulumi.output(args).apply(a => getMigrateProjectsControllerMigrateProject(a, opts))
+    return pulumi.output(args).apply((a: any) => getMigrateProjectsControllerMigrateProject(a, opts))
 }
 
 export interface GetMigrateProjectsControllerMigrateProjectOutputArgs {

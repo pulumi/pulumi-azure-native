@@ -39,9 +39,11 @@ export interface ListSiteIdentifiersAssignedToHostNameResult {
      */
     readonly value: outputs.web.v20210115.IdentifierResponse[];
 }
-
+/**
+ * Collection of identifiers.
+ */
 export function listSiteIdentifiersAssignedToHostNameOutput(args?: ListSiteIdentifiersAssignedToHostNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteIdentifiersAssignedToHostNameResult> {
-    return pulumi.output(args).apply(a => listSiteIdentifiersAssignedToHostName(a, opts))
+    return pulumi.output(args).apply((a: any) => listSiteIdentifiersAssignedToHostName(a, opts))
 }
 
 export interface ListSiteIdentifiersAssignedToHostNameOutputArgs {

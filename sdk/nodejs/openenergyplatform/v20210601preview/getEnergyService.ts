@@ -54,9 +54,8 @@ export interface GetEnergyServiceResult {
      */
     readonly type: string;
 }
-
 export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {
-    return pulumi.output(args).apply(a => getEnergyService(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnergyService(a, opts))
 }
 
 export interface GetEnergyServiceOutputArgs {

@@ -64,9 +64,12 @@ export interface ListShareSubscriptionSynchronizationsResult {
      */
     readonly value: outputs.datashare.ShareSubscriptionSynchronizationResponse[];
 }
-
+/**
+ * A consumer side list of share subscription synchronizations
+ * API Version: 2020-09-01.
+ */
 export function listShareSubscriptionSynchronizationsOutput(args: ListShareSubscriptionSynchronizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSynchronizationsResult> {
-    return pulumi.output(args).apply(a => listShareSubscriptionSynchronizations(a, opts))
+    return pulumi.output(args).apply((a: any) => listShareSubscriptionSynchronizations(a, opts))
 }
 
 export interface ListShareSubscriptionSynchronizationsOutputArgs {

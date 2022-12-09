@@ -44,9 +44,11 @@ export interface ListBatchAccountKeysResult {
      */
     readonly secondary: string;
 }
-
+/**
+ * A set of Azure Batch account keys.
+ */
 export function listBatchAccountKeysOutput(args: ListBatchAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchAccountKeysResult> {
-    return pulumi.output(args).apply(a => listBatchAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listBatchAccountKeys(a, opts))
 }
 
 export interface ListBatchAccountKeysOutputArgs {

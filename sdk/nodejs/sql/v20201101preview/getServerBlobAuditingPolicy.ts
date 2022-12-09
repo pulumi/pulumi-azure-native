@@ -161,9 +161,11 @@ export interface GetServerBlobAuditingPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * A server blob auditing policy.
+ */
 export function getServerBlobAuditingPolicyOutput(args: GetServerBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerBlobAuditingPolicyResult> {
-    return pulumi.output(args).apply(a => getServerBlobAuditingPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerBlobAuditingPolicy(a, opts))
 }
 
 export interface GetServerBlobAuditingPolicyOutputArgs {

@@ -81,9 +81,12 @@ export interface GetOutboundEndpointResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes an outbound endpoint for a DNS resolver.
+ * API Version: 2020-04-01-preview.
+ */
 export function getOutboundEndpointOutput(args: GetOutboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundEndpointResult> {
-    return pulumi.output(args).apply(a => getOutboundEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getOutboundEndpoint(a, opts))
 }
 
 export interface GetOutboundEndpointOutputArgs {

@@ -86,9 +86,11 @@ export interface GetEventChannelResult {
      */
     readonly type: string;
 }
-
+/**
+ * Event Channel.
+ */
 export function getEventChannelOutput(args: GetEventChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventChannelResult> {
-    return pulumi.output(args).apply(a => getEventChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventChannel(a, opts))
 }
 
 export interface GetEventChannelOutputArgs {

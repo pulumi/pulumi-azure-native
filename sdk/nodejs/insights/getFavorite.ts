@@ -82,9 +82,12 @@ export interface GetFavoriteResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Properties that define a favorite that is associated to an Application Insights component.
+ * API Version: 2015-05-01.
+ */
 export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteResult> {
-    return pulumi.output(args).apply(a => getFavorite(a, opts))
+    return pulumi.output(args).apply((a: any) => getFavorite(a, opts))
 }
 
 export interface GetFavoriteOutputArgs {

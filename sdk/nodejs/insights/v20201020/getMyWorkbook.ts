@@ -99,9 +99,11 @@ export interface GetMyWorkbookResult {
      */
     readonly version?: string;
 }
-
+/**
+ * An Application Insights private workbook definition.
+ */
 export function getMyWorkbookOutput(args: GetMyWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMyWorkbookResult> {
-    return pulumi.output(args).apply(a => getMyWorkbook(a, opts))
+    return pulumi.output(args).apply((a: any) => getMyWorkbook(a, opts))
 }
 
 export interface GetMyWorkbookOutputArgs {

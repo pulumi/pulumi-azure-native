@@ -66,9 +66,12 @@ export interface GetStorageDomainResult {
      */
     readonly type: string;
 }
-
+/**
+ * The storage domain.
+ */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getStorageDomainOutput(args: GetStorageDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageDomainResult> {
-    return pulumi.output(args).apply(a => getStorageDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageDomain(a, opts))
 }
 
 export interface GetStorageDomainOutputArgs {

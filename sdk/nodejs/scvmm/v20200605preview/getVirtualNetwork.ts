@@ -83,9 +83,11 @@ export interface GetVirtualNetworkResult {
      */
     readonly vmmServerId?: string;
 }
-
+/**
+ * The VirtualNetworks resource definition.
+ */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
 }
 
 export interface GetVirtualNetworkOutputArgs {

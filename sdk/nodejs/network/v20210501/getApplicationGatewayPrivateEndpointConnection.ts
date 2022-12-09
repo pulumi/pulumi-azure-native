@@ -72,9 +72,11 @@ export interface GetApplicationGatewayPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Private Endpoint connection on an application gateway.
+ */
 export function getApplicationGatewayPrivateEndpointConnectionOutput(args: GetApplicationGatewayPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getApplicationGatewayPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationGatewayPrivateEndpointConnection(a, opts))
 }
 
 export interface GetApplicationGatewayPrivateEndpointConnectionOutputArgs {

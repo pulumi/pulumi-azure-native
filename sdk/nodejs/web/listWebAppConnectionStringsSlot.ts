@@ -61,9 +61,12 @@ export interface ListWebAppConnectionStringsSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * String dictionary resource.
+ * API Version: 2020-12-01.
+ */
 export function listWebAppConnectionStringsSlotOutput(args: ListWebAppConnectionStringsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppConnectionStringsSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppConnectionStringsSlot(a, opts))
 }
 
 export interface ListWebAppConnectionStringsSlotOutputArgs {

@@ -68,9 +68,11 @@ export interface GetPrivateEndpointConnectionsAdtAPIResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Private Endpoint Connection resource.
+ */
 export function getPrivateEndpointConnectionsAdtAPIOutput(args: GetPrivateEndpointConnectionsAdtAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsAdtAPIResult> {
-    return pulumi.output(args).apply(a => getPrivateEndpointConnectionsAdtAPI(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsAdtAPI(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionsAdtAPIOutputArgs {

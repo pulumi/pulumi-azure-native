@@ -112,9 +112,11 @@ export interface GetExpressRouteCrossConnectionPeeringResult {
      */
     readonly vlanId?: number;
 }
-
+/**
+ * Peering in an ExpressRoute Cross Connection resource.
+ */
 export function getExpressRouteCrossConnectionPeeringOutput(args: GetExpressRouteCrossConnectionPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCrossConnectionPeeringResult> {
-    return pulumi.output(args).apply(a => getExpressRouteCrossConnectionPeering(a, opts))
+    return pulumi.output(args).apply((a: any) => getExpressRouteCrossConnectionPeering(a, opts))
 }
 
 export interface GetExpressRouteCrossConnectionPeeringOutputArgs {

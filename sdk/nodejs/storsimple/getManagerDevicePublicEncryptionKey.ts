@@ -42,9 +42,12 @@ export interface GetManagerDevicePublicEncryptionKeyResult {
      */
     readonly key: string;
 }
-
+/**
+ * The public key.
+ * API Version: 2017-06-01.
+ */
 export function getManagerDevicePublicEncryptionKeyOutput(args: GetManagerDevicePublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerDevicePublicEncryptionKeyResult> {
-    return pulumi.output(args).apply(a => getManagerDevicePublicEncryptionKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagerDevicePublicEncryptionKey(a, opts))
 }
 
 export interface GetManagerDevicePublicEncryptionKeyOutputArgs {

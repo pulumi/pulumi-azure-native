@@ -80,9 +80,11 @@ export interface GetHybridConnectionResult {
      */
     readonly userMetadata?: string;
 }
-
+/**
+ * Description of hybrid connection resource.
+ */
 export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
-    return pulumi.output(args).apply(a => getHybridConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getHybridConnection(a, opts))
 }
 
 export interface GetHybridConnectionOutputArgs {

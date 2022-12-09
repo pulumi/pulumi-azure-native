@@ -66,9 +66,12 @@ export interface GetProvisionedClusterResult {
      */
     readonly type: string;
 }
-
+/**
+ * The provisionedClusters resource definition.
+ * API Version: 2022-05-01-preview.
+ */
 export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisionedClusterResult> {
-    return pulumi.output(args).apply(a => getProvisionedCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getProvisionedCluster(a, opts))
 }
 
 export interface GetProvisionedClusterOutputArgs {

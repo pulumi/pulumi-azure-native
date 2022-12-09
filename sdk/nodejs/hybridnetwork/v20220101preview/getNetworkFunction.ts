@@ -107,9 +107,11 @@ export interface GetNetworkFunctionResult {
      */
     readonly vendorProvisioningState: string;
 }
-
+/**
+ * Network function resource response.
+ */
 export function getNetworkFunctionOutput(args: GetNetworkFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionResult> {
-    return pulumi.output(args).apply(a => getNetworkFunction(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkFunction(a, opts))
 }
 
 export interface GetNetworkFunctionOutputArgs {

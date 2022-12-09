@@ -68,9 +68,13 @@ export interface GetTriggerResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Trigger data transfer object.
+ * API Version: 2020-09-01.
+ */
+/** @deprecated Please use one of the variants: ScheduledTrigger. */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
-    return pulumi.output(args).apply(a => getTrigger(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrigger(a, opts))
 }
 
 export interface GetTriggerOutputArgs {

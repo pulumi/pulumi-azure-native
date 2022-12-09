@@ -29,9 +29,12 @@ export interface ListPrivateStoreSubscriptionsContextArgs {
 export interface ListPrivateStoreSubscriptionsContextResult {
     readonly subscriptionsIds?: string[];
 }
-
+/**
+ * List of subscription Ids in the private store
+ * API Version: 2021-12-01.
+ */
 export function listPrivateStoreSubscriptionsContextOutput(args: ListPrivateStoreSubscriptionsContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreSubscriptionsContextResult> {
-    return pulumi.output(args).apply(a => listPrivateStoreSubscriptionsContext(a, opts))
+    return pulumi.output(args).apply((a: any) => listPrivateStoreSubscriptionsContext(a, opts))
 }
 
 export interface ListPrivateStoreSubscriptionsContextOutputArgs {

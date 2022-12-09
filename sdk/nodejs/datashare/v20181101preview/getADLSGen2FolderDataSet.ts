@@ -83,9 +83,11 @@ export interface GetADLSGen2FolderDataSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * An ADLS Gen 2 folder data set.
+ */
 export function getADLSGen2FolderDataSetOutput(args: GetADLSGen2FolderDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetResult> {
-    return pulumi.output(args).apply(a => getADLSGen2FolderDataSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getADLSGen2FolderDataSet(a, opts))
 }
 
 export interface GetADLSGen2FolderDataSetOutputArgs {

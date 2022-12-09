@@ -77,9 +77,12 @@ export interface GetHubRouteTableResult {
      */
     readonly type: string;
 }
-
+/**
+ * RouteTable resource in a virtual hub.
+ * API Version: 2020-11-01.
+ */
 export function getHubRouteTableOutput(args: GetHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubRouteTableResult> {
-    return pulumi.output(args).apply(a => getHubRouteTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getHubRouteTable(a, opts))
 }
 
 export interface GetHubRouteTableOutputArgs {

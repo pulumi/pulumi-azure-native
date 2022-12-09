@@ -77,9 +77,12 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes a Shared Private Link Resource
+ * API Version: 2021-04-01-preview.
+ */
 export function getWebPubSubSharedPrivateLinkResourceOutput(args: GetWebPubSubSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubSharedPrivateLinkResourceResult> {
-    return pulumi.output(args).apply(a => getWebPubSubSharedPrivateLinkResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebPubSubSharedPrivateLinkResource(a, opts))
 }
 
 export interface GetWebPubSubSharedPrivateLinkResourceOutputArgs {

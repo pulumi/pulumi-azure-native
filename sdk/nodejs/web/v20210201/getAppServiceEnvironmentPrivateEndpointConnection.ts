@@ -69,9 +69,11 @@ export interface GetAppServiceEnvironmentPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Remote Private Endpoint Connection ARM resource.
+ */
 export function getAppServiceEnvironmentPrivateEndpointConnectionOutput(args: GetAppServiceEnvironmentPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getAppServiceEnvironmentPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppServiceEnvironmentPrivateEndpointConnection(a, opts))
 }
 
 export interface GetAppServiceEnvironmentPrivateEndpointConnectionOutputArgs {

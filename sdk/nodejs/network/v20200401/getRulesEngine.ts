@@ -60,9 +60,11 @@ export interface GetRulesEngineResult {
      */
     readonly type: string;
 }
-
+/**
+ * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+ */
 export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesEngineResult> {
-    return pulumi.output(args).apply(a => getRulesEngine(a, opts))
+    return pulumi.output(args).apply((a: any) => getRulesEngine(a, opts))
 }
 
 export interface GetRulesEngineOutputArgs {

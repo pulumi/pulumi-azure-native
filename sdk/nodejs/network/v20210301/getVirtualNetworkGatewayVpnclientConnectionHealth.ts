@@ -39,9 +39,11 @@ export interface GetVirtualNetworkGatewayVpnclientConnectionHealthResult {
      */
     readonly value?: outputs.network.v20210301.VpnClientConnectionHealthDetailResponse[];
 }
-
+/**
+ * List of virtual network gateway vpn client connection health.
+ */
 export function getVirtualNetworkGatewayVpnclientConnectionHealthOutput(args: GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
-    return pulumi.output(args).apply(a => getVirtualNetworkGatewayVpnclientConnectionHealth(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnclientConnectionHealth(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs {

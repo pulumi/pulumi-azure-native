@@ -64,9 +64,11 @@ export interface GetIntegrationAccountAssemblyResult {
      */
     readonly type: string;
 }
-
+/**
+ * The assembly definition.
+ */
 export function getIntegrationAccountAssemblyOutput(args: GetIntegrationAccountAssemblyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAssemblyResult> {
-    return pulumi.output(args).apply(a => getIntegrationAccountAssembly(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountAssembly(a, opts))
 }
 
 export interface GetIntegrationAccountAssemblyOutputArgs {

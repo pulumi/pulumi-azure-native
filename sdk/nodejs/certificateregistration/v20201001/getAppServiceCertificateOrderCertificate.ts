@@ -80,9 +80,11 @@ export interface GetAppServiceCertificateOrderCertificateResult {
      */
     readonly type: string;
 }
-
+/**
+ * Key Vault container ARM resource for a certificate that is purchased through Azure.
+ */
 export function getAppServiceCertificateOrderCertificateOutput(args: GetAppServiceCertificateOrderCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderCertificateResult> {
-    return pulumi.output(args).apply(a => getAppServiceCertificateOrderCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrderCertificate(a, opts))
 }
 
 export interface GetAppServiceCertificateOrderCertificateOutputArgs {

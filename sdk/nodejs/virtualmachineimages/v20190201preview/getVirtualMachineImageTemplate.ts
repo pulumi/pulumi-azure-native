@@ -75,9 +75,9 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly type: string;
 }
-
+/** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider. */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineImageTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))
 }
 
 export interface GetVirtualMachineImageTemplateOutputArgs {

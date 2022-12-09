@@ -102,9 +102,12 @@ export interface GetSqlPoolsV3Result {
      */
     readonly type: string;
 }
-
+/**
+ * A sql pool resource.
+ */
+/** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolsV3Output(args: GetSqlPoolsV3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolsV3Result> {
-    return pulumi.output(args).apply(a => getSqlPoolsV3(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlPoolsV3(a, opts))
 }
 
 export interface GetSqlPoolsV3OutputArgs {

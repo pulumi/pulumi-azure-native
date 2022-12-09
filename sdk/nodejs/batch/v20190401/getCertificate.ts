@@ -85,9 +85,12 @@ export interface GetCertificateResult {
      */
     readonly type: string;
 }
-
+/**
+ * Contains information about a certificate.
+ */
+/** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply(a => getCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {

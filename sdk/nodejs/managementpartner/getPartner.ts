@@ -72,9 +72,12 @@ export interface GetPartnerResult {
      */
     readonly version?: number;
 }
-
+/**
+ * this is the management partner operations response
+ * API Version: 2018-02-01.
+ */
 export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
-    return pulumi.output(args).apply(a => getPartner(a, opts))
+    return pulumi.output(args).apply((a: any) => getPartner(a, opts))
 }
 
 export interface GetPartnerOutputArgs {

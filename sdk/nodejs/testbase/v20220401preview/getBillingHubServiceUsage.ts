@@ -42,9 +42,8 @@ export interface GetBillingHubServiceUsageResult {
     readonly totalUsedBillableHours?: number;
     readonly totalUsedFreeHours?: number;
 }
-
 export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingHubServiceUsageResult> {
-    return pulumi.output(args).apply(a => getBillingHubServiceUsage(a, opts))
+    return pulumi.output(args).apply((a: any) => getBillingHubServiceUsage(a, opts))
 }
 
 export interface GetBillingHubServiceUsageOutputArgs {

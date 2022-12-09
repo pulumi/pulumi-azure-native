@@ -64,9 +64,11 @@ export interface GetCreatorResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+ */
 export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCreatorResult> {
-    return pulumi.output(args).apply(a => getCreator(a, opts))
+    return pulumi.output(args).apply((a: any) => getCreator(a, opts))
 }
 
 export interface GetCreatorOutputArgs {

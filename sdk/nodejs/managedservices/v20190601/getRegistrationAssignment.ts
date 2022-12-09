@@ -58,9 +58,12 @@ export interface GetRegistrationAssignmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Registration assignment.
+ */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
-    return pulumi.output(args).apply(a => getRegistrationAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistrationAssignment(a, opts))
 }
 
 export interface GetRegistrationAssignmentOutputArgs {

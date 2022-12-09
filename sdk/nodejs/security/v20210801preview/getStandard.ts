@@ -91,9 +91,11 @@ export interface GetStandardResult {
      */
     readonly type: string;
 }
-
+/**
+ * Security Standard on a resource
+ */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
-    return pulumi.output(args).apply(a => getStandard(a, opts))
+    return pulumi.output(args).apply((a: any) => getStandard(a, opts))
 }
 
 export interface GetStandardOutputArgs {

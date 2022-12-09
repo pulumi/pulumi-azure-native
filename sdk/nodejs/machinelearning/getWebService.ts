@@ -65,9 +65,12 @@ export interface GetWebServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Instance of an Azure ML web service resource.
+ * API Version: 2017-01-01.
+ */
 export function getWebServiceOutput(args: GetWebServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebServiceResult> {
-    return pulumi.output(args).apply(a => getWebService(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebService(a, opts))
 }
 
 export interface GetWebServiceOutputArgs {

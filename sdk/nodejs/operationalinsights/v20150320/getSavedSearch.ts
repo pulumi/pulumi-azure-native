@@ -78,9 +78,12 @@ export interface GetSavedSearchResult {
      */
     readonly version?: number;
 }
-
+/**
+ * Value object for saved search results.
+ */
+/** @deprecated Version 2015-03-20 will be removed in v2 of the provider. */
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
-    return pulumi.output(args).apply(a => getSavedSearch(a, opts))
+    return pulumi.output(args).apply((a: any) => getSavedSearch(a, opts))
 }
 
 export interface GetSavedSearchOutputArgs {

@@ -72,9 +72,11 @@ export interface GetApplicationGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Application Group object
+ */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
-    return pulumi.output(args).apply(a => getApplicationGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationGroup(a, opts))
 }
 
 export interface GetApplicationGroupOutputArgs {

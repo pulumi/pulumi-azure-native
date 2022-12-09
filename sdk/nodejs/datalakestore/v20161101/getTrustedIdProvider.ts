@@ -53,9 +53,11 @@ export interface GetTrustedIdProviderResult {
      */
     readonly type: string;
 }
-
+/**
+ * Data Lake Store trusted identity provider information.
+ */
 export function getTrustedIdProviderOutput(args: GetTrustedIdProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedIdProviderResult> {
-    return pulumi.output(args).apply(a => getTrustedIdProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrustedIdProvider(a, opts))
 }
 
 export interface GetTrustedIdProviderOutputArgs {

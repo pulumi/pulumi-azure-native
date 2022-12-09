@@ -117,9 +117,12 @@ export interface GetTopicResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Description of topic resource.
+ * API Version: 2017-04-01.
+ */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
-    return pulumi.output(args).apply(a => getTopic(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }
 
 export interface GetTopicOutputArgs {

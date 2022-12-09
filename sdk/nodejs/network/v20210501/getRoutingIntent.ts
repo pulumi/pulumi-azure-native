@@ -64,9 +64,11 @@ export interface GetRoutingIntentResult {
      */
     readonly type: string;
 }
-
+/**
+ * The routing intent child resource of a Virtual hub.
+ */
 export function getRoutingIntentOutput(args: GetRoutingIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingIntentResult> {
-    return pulumi.output(args).apply(a => getRoutingIntent(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoutingIntent(a, opts))
 }
 
 export interface GetRoutingIntentOutputArgs {

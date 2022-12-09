@@ -68,9 +68,11 @@ export interface GetLabelByWorkspaceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Label details
+ */
 export function getLabelByWorkspaceOutput(args: GetLabelByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelByWorkspaceResult> {
-    return pulumi.output(args).apply(a => getLabelByWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getLabelByWorkspace(a, opts))
 }
 
 export interface GetLabelByWorkspaceOutputArgs {

@@ -95,9 +95,11 @@ export interface GetApplicationResult {
      */
     readonly unhealthyEvaluation: string;
 }
-
+/**
+ * This type describes an application resource.
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

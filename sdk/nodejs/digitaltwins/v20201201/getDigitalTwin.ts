@@ -80,9 +80,11 @@ export interface GetDigitalTwinResult {
      */
     readonly type: string;
 }
-
+/**
+ * The description of the DigitalTwins service.
+ */
 export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
-    return pulumi.output(args).apply(a => getDigitalTwin(a, opts))
+    return pulumi.output(args).apply((a: any) => getDigitalTwin(a, opts))
 }
 
 export interface GetDigitalTwinOutputArgs {

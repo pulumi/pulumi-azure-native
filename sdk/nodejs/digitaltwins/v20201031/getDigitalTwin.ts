@@ -70,9 +70,12 @@ export interface GetDigitalTwinResult {
      */
     readonly type: string;
 }
-
+/**
+ * The description of the DigitalTwins service.
+ */
+/** @deprecated Version 2020-10-31 will be removed in v2 of the provider. */
 export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
-    return pulumi.output(args).apply(a => getDigitalTwin(a, opts))
+    return pulumi.output(args).apply((a: any) => getDigitalTwin(a, opts))
 }
 
 export interface GetDigitalTwinOutputArgs {

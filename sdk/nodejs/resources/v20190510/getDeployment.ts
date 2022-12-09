@@ -55,9 +55,11 @@ export interface GetDeploymentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Deployment information.
+ */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
-    return pulumi.output(args).apply(a => getDeployment(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }
 
 export interface GetDeploymentOutputArgs {

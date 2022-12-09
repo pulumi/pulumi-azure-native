@@ -91,9 +91,12 @@ export interface GetWorkspaceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a Workspace definition.
+ * API Version: 2021-02-01-preview.
+ */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }
 
 export interface GetWorkspaceOutputArgs {

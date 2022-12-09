@@ -96,9 +96,12 @@ export interface GetNetworkConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Network related settings
+ * API Version: 2022-09-01-preview.
+ */
 export function getNetworkConnectionOutput(args: GetNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkConnectionResult> {
-    return pulumi.output(args).apply(a => getNetworkConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkConnection(a, opts))
 }
 
 export interface GetNetworkConnectionOutputArgs {

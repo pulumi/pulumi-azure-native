@@ -63,9 +63,12 @@ export interface GetTransparentDataEncryptionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a database transparent data encryption configuration.
+ * API Version: 2014-04-01.
+ */
 export function getTransparentDataEncryptionOutput(args: GetTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransparentDataEncryptionResult> {
-    return pulumi.output(args).apply(a => getTransparentDataEncryption(a, opts))
+    return pulumi.output(args).apply((a: any) => getTransparentDataEncryption(a, opts))
 }
 
 export interface GetTransparentDataEncryptionOutputArgs {

@@ -71,9 +71,11 @@ export interface ListWebAppHybridConnectionKeysSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+ */
 export function listWebAppHybridConnectionKeysSlotOutput(args: ListWebAppHybridConnectionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHybridConnectionKeysSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppHybridConnectionKeysSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppHybridConnectionKeysSlot(a, opts))
 }
 
 export interface ListWebAppHybridConnectionKeysSlotOutputArgs {

@@ -44,9 +44,11 @@ export interface GetVirtualNetworkGatewayBgpPeerStatusResult {
      */
     readonly value?: outputs.network.v20180101.BgpPeerStatusResponse[];
 }
-
+/**
+ * Response for list BGP peer status API service call
+ */
 export function getVirtualNetworkGatewayBgpPeerStatusOutput(args: GetVirtualNetworkGatewayBgpPeerStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayBgpPeerStatusResult> {
-    return pulumi.output(args).apply(a => getVirtualNetworkGatewayBgpPeerStatus(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayBgpPeerStatus(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayBgpPeerStatusOutputArgs {

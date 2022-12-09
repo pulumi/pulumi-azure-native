@@ -67,9 +67,11 @@ export interface GetIPSyncerResult {
      */
     readonly type: string;
 }
-
+/**
+ * Settings with single toggle.
+ */
 export function getIPSyncerOutput(args: GetIPSyncerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSyncerResult> {
-    return pulumi.output(args).apply(a => getIPSyncer(a, opts))
+    return pulumi.output(args).apply((a: any) => getIPSyncer(a, opts))
 }
 
 export interface GetIPSyncerOutputArgs {

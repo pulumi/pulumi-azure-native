@@ -70,9 +70,12 @@ export interface GetIntegrationAccountSessionResult {
      */
     readonly type: string;
 }
-
+/**
+ * The integration account session.
+ * API Version: 2019-05-01.
+ */
 export function getIntegrationAccountSessionOutput(args: GetIntegrationAccountSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountSessionResult> {
-    return pulumi.output(args).apply(a => getIntegrationAccountSession(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountSession(a, opts))
 }
 
 export interface GetIntegrationAccountSessionOutputArgs {

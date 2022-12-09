@@ -81,9 +81,11 @@ export interface GetIotConnectorFhirDestinationResult {
      */
     readonly type: string;
 }
-
+/**
+ * IoT Connector FHIR destination definition.
+ */
 export function getIotConnectorFhirDestinationOutput(args: GetIotConnectorFhirDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorFhirDestinationResult> {
-    return pulumi.output(args).apply(a => getIotConnectorFhirDestination(a, opts))
+    return pulumi.output(args).apply((a: any) => getIotConnectorFhirDestination(a, opts))
 }
 
 export interface GetIotConnectorFhirDestinationOutputArgs {

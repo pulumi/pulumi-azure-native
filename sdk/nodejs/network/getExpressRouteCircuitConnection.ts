@@ -90,9 +90,12 @@ export interface GetExpressRouteCircuitConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+ * API Version: 2020-11-01.
+ */
 export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
-    return pulumi.output(args).apply(a => getExpressRouteCircuitConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getExpressRouteCircuitConnection(a, opts))
 }
 
 export interface GetExpressRouteCircuitConnectionOutputArgs {

@@ -67,9 +67,11 @@ export interface GetManagedEnvironmentAuthTokenResult {
      */
     readonly type: string;
 }
-
+/**
+ * Environment Auth Token.
+ */
 export function getManagedEnvironmentAuthTokenOutput(args: GetManagedEnvironmentAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentAuthTokenResult> {
-    return pulumi.output(args).apply(a => getManagedEnvironmentAuthToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedEnvironmentAuthToken(a, opts))
 }
 
 export interface GetManagedEnvironmentAuthTokenOutputArgs {

@@ -93,9 +93,12 @@ export interface GetDevBoxDefinitionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a definition for a Developer Machine.
+ * API Version: 2022-09-01-preview.
+ */
 export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevBoxDefinitionResult> {
-    return pulumi.output(args).apply(a => getDevBoxDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getDevBoxDefinition(a, opts))
 }
 
 export interface GetDevBoxDefinitionOutputArgs {

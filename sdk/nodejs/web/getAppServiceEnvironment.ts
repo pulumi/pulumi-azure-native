@@ -121,9 +121,12 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly virtualNetwork: outputs.web.VirtualNetworkProfileResponse;
 }
-
+/**
+ * App Service Environment ARM resource.
+ * API Version: 2020-12-01.
+ */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
-    return pulumi.output(args).apply(a => getAppServiceEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))
 }
 
 export interface GetAppServiceEnvironmentOutputArgs {

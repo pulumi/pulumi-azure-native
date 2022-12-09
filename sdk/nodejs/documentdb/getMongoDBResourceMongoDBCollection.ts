@@ -68,9 +68,12 @@ export interface GetMongoDBResourceMongoDBCollectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB MongoDB collection.
+ * API Version: 2021-03-15.
+ */
 export function getMongoDBResourceMongoDBCollectionOutput(args: GetMongoDBResourceMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoDBCollectionResult> {
-    return pulumi.output(args).apply(a => getMongoDBResourceMongoDBCollection(a, opts))
+    return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoDBCollection(a, opts))
 }
 
 export interface GetMongoDBResourceMongoDBCollectionOutputArgs {

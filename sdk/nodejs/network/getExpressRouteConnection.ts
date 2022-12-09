@@ -77,9 +77,12 @@ export interface GetExpressRouteConnectionResult {
      */
     readonly routingWeight?: number;
 }
-
+/**
+ * ExpressRouteConnection resource.
+ * API Version: 2020-11-01.
+ */
 export function getExpressRouteConnectionOutput(args: GetExpressRouteConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteConnectionResult> {
-    return pulumi.output(args).apply(a => getExpressRouteConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getExpressRouteConnection(a, opts))
 }
 
 export interface GetExpressRouteConnectionOutputArgs {

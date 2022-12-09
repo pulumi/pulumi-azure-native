@@ -45,9 +45,11 @@ export interface ListBatchEndpointKeysResult {
      */
     readonly secondaryKey?: string;
 }
-
+/**
+ * Keys for endpoint authentication.
+ */
 export function listBatchEndpointKeysOutput(args: ListBatchEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchEndpointKeysResult> {
-    return pulumi.output(args).apply(a => listBatchEndpointKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listBatchEndpointKeys(a, opts))
 }
 
 export interface ListBatchEndpointKeysOutputArgs {

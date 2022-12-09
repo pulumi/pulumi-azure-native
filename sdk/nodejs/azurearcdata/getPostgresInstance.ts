@@ -72,9 +72,12 @@ export interface GetPostgresInstanceResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Postgres Instance.
+ * API Version: 2021-06-01-preview.
+ */
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {
-    return pulumi.output(args).apply(a => getPostgresInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getPostgresInstance(a, opts))
 }
 
 export interface GetPostgresInstanceOutputArgs {

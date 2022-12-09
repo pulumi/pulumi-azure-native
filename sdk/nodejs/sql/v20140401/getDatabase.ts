@@ -171,9 +171,11 @@ export interface GetDatabaseResult {
      */
     readonly zoneRedundant?: boolean;
 }
-
+/**
+ * Represents a database.
+ */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    return pulumi.output(args).apply(a => getDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }
 
 export interface GetDatabaseOutputArgs {

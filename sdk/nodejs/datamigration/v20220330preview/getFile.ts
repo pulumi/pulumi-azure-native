@@ -69,9 +69,11 @@ export interface GetFileResult {
      */
     readonly type: string;
 }
-
+/**
+ * A file resource
+ */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
-    return pulumi.output(args).apply(a => getFile(a, opts))
+    return pulumi.output(args).apply((a: any) => getFile(a, opts))
 }
 
 export interface GetFileOutputArgs {

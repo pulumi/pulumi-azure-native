@@ -60,9 +60,11 @@ export interface GetDatastoreResult {
      */
     readonly type: string;
 }
-
+/**
+ * Azure Resource Manager resource envelope.
+ */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
-    return pulumi.output(args).apply(a => getDatastore(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatastore(a, opts))
 }
 
 export interface GetDatastoreOutputArgs {

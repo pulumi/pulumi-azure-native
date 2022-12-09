@@ -63,9 +63,12 @@ export interface ListWebAppFunctionKeysSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * String dictionary resource.
+ * API Version: 2020-12-01.
+ */
 export function listWebAppFunctionKeysSlotOutput(args: ListWebAppFunctionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppFunctionKeysSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppFunctionKeysSlot(a, opts))
 }
 
 export interface ListWebAppFunctionKeysSlotOutputArgs {

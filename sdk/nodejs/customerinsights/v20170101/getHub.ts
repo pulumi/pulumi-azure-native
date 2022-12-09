@@ -77,9 +77,12 @@ export interface GetHubResult {
      */
     readonly webEndpoint: string;
 }
-
+/**
+ * Hub resource.
+ */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
-    return pulumi.output(args).apply(a => getHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getHub(a, opts))
 }
 
 export interface GetHubOutputArgs {

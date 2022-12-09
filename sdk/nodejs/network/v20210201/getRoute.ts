@@ -73,9 +73,11 @@ export interface GetRouteResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Route resource.
+ */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
-    return pulumi.output(args).apply(a => getRoute(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoute(a, opts))
 }
 
 export interface GetRouteOutputArgs {

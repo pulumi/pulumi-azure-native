@@ -129,9 +129,12 @@ export interface GetApiManagementServiceResult {
      */
     readonly vpnconfiguration?: outputs.apimanagement.v20160707.VirtualNetworkConfigurationResponse;
 }
-
+/**
+ * Description of an API Management service resource.
+ */
+/** @deprecated Version 2016-07-07 will be removed in v2 of the provider. */
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {
-    return pulumi.output(args).apply(a => getApiManagementService(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiManagementService(a, opts))
 }
 
 export interface GetApiManagementServiceOutputArgs {

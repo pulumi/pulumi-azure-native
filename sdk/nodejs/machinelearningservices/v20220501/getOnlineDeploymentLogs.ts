@@ -53,9 +53,8 @@ export interface GetOnlineDeploymentLogsResult {
      */
     readonly content?: string;
 }
-
 export function getOnlineDeploymentLogsOutput(args: GetOnlineDeploymentLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentLogsResult> {
-    return pulumi.output(args).apply(a => getOnlineDeploymentLogs(a, opts))
+    return pulumi.output(args).apply((a: any) => getOnlineDeploymentLogs(a, opts))
 }
 
 export interface GetOnlineDeploymentLogsOutputArgs {

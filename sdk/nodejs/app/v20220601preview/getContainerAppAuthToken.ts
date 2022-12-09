@@ -67,9 +67,11 @@ export interface GetContainerAppAuthTokenResult {
      */
     readonly type: string;
 }
-
+/**
+ * Container App Auth Token.
+ */
 export function getContainerAppAuthTokenOutput(args: GetContainerAppAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppAuthTokenResult> {
-    return pulumi.output(args).apply(a => getContainerAppAuthToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getContainerAppAuthToken(a, opts))
 }
 
 export interface GetContainerAppAuthTokenOutputArgs {

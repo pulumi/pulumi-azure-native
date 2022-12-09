@@ -66,9 +66,12 @@ export interface GetBuildServiceBuilderResult {
      */
     readonly type: string;
 }
-
+/**
+ * KPack Builder resource
+ * API Version: 2022-01-01-preview.
+ */
 export function getBuildServiceBuilderOutput(args: GetBuildServiceBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuilderResult> {
-    return pulumi.output(args).apply(a => getBuildServiceBuilder(a, opts))
+    return pulumi.output(args).apply((a: any) => getBuildServiceBuilder(a, opts))
 }
 
 export interface GetBuildServiceBuilderOutputArgs {

@@ -113,9 +113,11 @@ export interface GetCustomImageResult {
      */
     readonly vm?: outputs.devtestlab.v20180915.CustomImagePropertiesFromVmResponse;
 }
-
+/**
+ * A custom image.
+ */
 export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomImageResult> {
-    return pulumi.output(args).apply(a => getCustomImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomImage(a, opts))
 }
 
 export interface GetCustomImageOutputArgs {

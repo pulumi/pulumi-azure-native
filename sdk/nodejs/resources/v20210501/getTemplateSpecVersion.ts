@@ -84,9 +84,11 @@ export interface GetTemplateSpecVersionResult {
      */
     readonly uiFormDefinition?: any;
 }
-
+/**
+ * Template Spec Version object.
+ */
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
-    return pulumi.output(args).apply(a => getTemplateSpecVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getTemplateSpecVersion(a, opts))
 }
 
 export interface GetTemplateSpecVersionOutputArgs {

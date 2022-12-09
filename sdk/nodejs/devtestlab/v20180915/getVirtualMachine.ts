@@ -205,9 +205,11 @@ export interface GetVirtualMachineResult {
      */
     readonly virtualMachineCreationSource: string;
 }
-
+/**
+ * A virtual machine.
+ */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
 }
 
 export interface GetVirtualMachineOutputArgs {

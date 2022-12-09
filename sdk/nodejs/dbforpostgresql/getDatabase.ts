@@ -58,9 +58,12 @@ export interface GetDatabaseResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a Database.
+ * API Version: 2017-12-01.
+ */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    return pulumi.output(args).apply(a => getDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }
 
 export interface GetDatabaseOutputArgs {

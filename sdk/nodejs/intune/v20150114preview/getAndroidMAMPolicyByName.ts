@@ -77,9 +77,11 @@ export interface GetAndroidMAMPolicyByNameResult {
      */
     readonly type: string;
 }
-
+/**
+ * Android Policy entity for Intune MAM.
+ */
 export function getAndroidMAMPolicyByNameOutput(args: GetAndroidMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAndroidMAMPolicyByNameResult> {
-    return pulumi.output(args).apply(a => getAndroidMAMPolicyByName(a, opts))
+    return pulumi.output(args).apply((a: any) => getAndroidMAMPolicyByName(a, opts))
 }
 
 export interface GetAndroidMAMPolicyByNameOutputArgs {

@@ -111,9 +111,12 @@ export interface GetVolumeResult {
      */
     readonly usageThreshold: number;
 }
-
+/**
+ * Volume resource
+ */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply(a => getVolume(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }
 
 export interface GetVolumeOutputArgs {

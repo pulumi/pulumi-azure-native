@@ -108,9 +108,11 @@ export interface GetSecurityConnectorGovernanceRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Governance rule over a given scope
+ */
 export function getSecurityConnectorGovernanceRuleOutput(args: GetSecurityConnectorGovernanceRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorGovernanceRuleResult> {
-    return pulumi.output(args).apply(a => getSecurityConnectorGovernanceRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityConnectorGovernanceRule(a, opts))
 }
 
 export interface GetSecurityConnectorGovernanceRuleOutputArgs {

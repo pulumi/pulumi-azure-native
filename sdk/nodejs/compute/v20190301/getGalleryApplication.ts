@@ -83,9 +83,12 @@ export interface GetGalleryApplicationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Specifies information about the gallery Application Definition that you want to create or update.
+ */
+/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {
-    return pulumi.output(args).apply(a => getGalleryApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getGalleryApplication(a, opts))
 }
 
 export interface GetGalleryApplicationOutputArgs {

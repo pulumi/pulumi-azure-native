@@ -85,9 +85,11 @@ export interface GetManagedDatabaseResult {
      */
     readonly type: string;
 }
-
+/**
+ * A managed database resource.
+ */
 export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseResult> {
-    return pulumi.output(args).apply(a => getManagedDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedDatabase(a, opts))
 }
 
 export interface GetManagedDatabaseOutputArgs {

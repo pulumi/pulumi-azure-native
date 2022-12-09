@@ -70,9 +70,12 @@ export interface GetSentinelOnboardingStateResult {
      */
     readonly type: string;
 }
-
+/**
+ * Sentinel onboarding state
+ * API Version: 2021-03-01-preview.
+ */
 export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSentinelOnboardingStateResult> {
-    return pulumi.output(args).apply(a => getSentinelOnboardingState(a, opts))
+    return pulumi.output(args).apply((a: any) => getSentinelOnboardingState(a, opts))
 }
 
 export interface GetSentinelOnboardingStateOutputArgs {

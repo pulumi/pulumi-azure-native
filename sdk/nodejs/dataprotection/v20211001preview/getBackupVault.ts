@@ -71,9 +71,11 @@ export interface GetBackupVaultResult {
      */
     readonly type: string;
 }
-
+/**
+ * Backup Vault Resource
+ */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
-    return pulumi.output(args).apply(a => getBackupVault(a, opts))
+    return pulumi.output(args).apply((a: any) => getBackupVault(a, opts))
 }
 
 export interface GetBackupVaultOutputArgs {
