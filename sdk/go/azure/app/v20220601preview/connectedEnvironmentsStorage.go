@@ -33,6 +33,12 @@ func NewConnectedEnvironmentsStorage(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:app/v20221001:ConnectedEnvironmentsStorage"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConnectedEnvironmentsStorage
 	err := ctx.RegisterResource("azure-native:app/v20220601preview:ConnectedEnvironmentsStorage", name, args, &resource, opts...)
 	if err != nil {

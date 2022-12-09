@@ -7,6 +7,7 @@ import * as v20211101preview from "./v20211101preview";
 import * as v20220201 from "./v20220201";
 import * as v20220201preview from "./v20220201preview";
 import * as v20220701preview from "./v20220701preview";
+import * as v20220801preview from "./v20220801preview";
 
 export {
     v20170301preview,
@@ -14,6 +15,7 @@ export {
     v20220201,
     v20220201preview,
     v20220701preview,
+    v20220801preview,
 };
 
 export const BackupScheduleType = {

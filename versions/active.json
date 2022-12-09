@@ -23488,7 +23488,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "alertruletemplates": [
       "2019-01-01-preview",
@@ -23507,7 +23508,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "automationrules": [
       "2019-01-01-preview",
@@ -23544,7 +23546,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "cases": [
       "2019-01-01-preview"
@@ -23555,18 +23558,22 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "contentpackages": [
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "contenttemplates": [
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "dataconnectordefinitions": [
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "dataconnectors": [
       "2019-01-01-preview",
@@ -23585,7 +23592,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "dataconnectorscheckrequirements": [
       "2019-01-01-preview",
@@ -23599,7 +23607,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "dynamicsummaries": [
       "2023-03-01-preview"
@@ -23616,7 +23625,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "entities": [
       "2019-01-01-preview",
@@ -23630,7 +23640,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "entityqueries": [
       "2019-01-01-preview",
@@ -23645,7 +23656,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "entityquerytemplates": [
       "2019-01-01-preview",
@@ -23660,18 +23672,21 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "fileimports": [
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "huntsessions": [
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "incidents": [
       "2019-01-01-preview",
@@ -23707,7 +23722,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "metadata": [
       "2021-03-01-preview",
@@ -23721,7 +23737,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "mitrecoveragerecords": [
       "2022-01-01-preview",
@@ -23732,7 +23749,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "officeconsents": [
       "2019-01-01-preview",
@@ -23746,7 +23764,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "onboardingstates": [
       "2021-03-01-preview",
@@ -23763,7 +23782,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "operations": [
       "2019-01-01-preview",
@@ -23783,15 +23803,18 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "overview": [
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "recommendations": [
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "securitymlanalyticssettings": [
       "2022-05-01-preview",
@@ -23801,7 +23824,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "settings": [
       "2019-01-01-preview",
@@ -23816,7 +23840,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "sourcecontrols": [
       "2021-03-01-preview",
@@ -23830,7 +23855,8 @@
       "2022-08-01-preview",
       "2022-09-01-preview",
       "2022-10-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "threatintelligence": [
       "2019-01-01-preview",
@@ -23848,7 +23874,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
     ],
     "watchlists": [
       "2019-01-01-preview",
@@ -23867,7 +23894,20 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01-preview"
+    ],
+    "workspacemanagerassignments": [
+      "2023-03-01-preview"
+    ],
+    "workspacemanagerconfigurations": [
+      "2023-03-01-preview"
+    ],
+    "workspacemanagergroups": [
+      "2023-03-01-preview"
+    ],
+    "workspacemanagermembers": [
+      "2023-03-01-preview"
     ]
   },
   "serialconsole": {

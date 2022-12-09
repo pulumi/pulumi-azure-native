@@ -98,11 +98,13 @@ export * from "../types/enums/app";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220301 from "./v20220301";
 import * as v20220601preview from "./v20220601preview";
+import * as v20221001 from "./v20221001";
 
 export {
     v20220101preview,
     v20220301,
     v20220601preview,
+    v20221001,
 };
 
 const _module = {

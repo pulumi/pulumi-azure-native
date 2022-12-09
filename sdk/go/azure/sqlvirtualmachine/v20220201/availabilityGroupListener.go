@@ -55,6 +55,9 @@ func NewAvailabilityGroupListener(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener"),
 		},
+		{
+			Type: pulumi.String("azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AvailabilityGroupListener

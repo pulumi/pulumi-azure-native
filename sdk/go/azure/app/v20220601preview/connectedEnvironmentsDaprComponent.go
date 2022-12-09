@@ -43,6 +43,12 @@ func NewConnectedEnvironmentsDaprComponent(ctx *pulumi.Context,
 	if isZero(args.IgnoreErrors) {
 		args.IgnoreErrors = pulumi.BoolPtr(false)
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConnectedEnvironmentsDaprComponent
 	err := ctx.RegisterResource("azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent", name, args, &resource, opts...)
 	if err != nil {

@@ -123,7 +123,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
             resourceInputs["wsfcDomainProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlVirtualMachineGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.App.V20220601Preview
                     new global::Pulumi.Alias { Type = "azure-native:app:ContainerAppsSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerAppsSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ContainerAppsSourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -1720,6 +1720,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "app/v20221001",
+  "fqn": "pulumi_azure_native.app.v20221001",
+  "classes": {
+   "azure-native:app/v20221001:Certificate": "Certificate",
+   "azure-native:app/v20221001:ConnectedEnvironment": "ConnectedEnvironment",
+   "azure-native:app/v20221001:ConnectedEnvironmentsCertificate": "ConnectedEnvironmentsCertificate",
+   "azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent": "ConnectedEnvironmentsDaprComponent",
+   "azure-native:app/v20221001:ConnectedEnvironmentsStorage": "ConnectedEnvironmentsStorage",
+   "azure-native:app/v20221001:ContainerApp": "ContainerApp",
+   "azure-native:app/v20221001:ContainerAppsAuthConfig": "ContainerAppsAuthConfig",
+   "azure-native:app/v20221001:ContainerAppsSourceControl": "ContainerAppsSourceControl",
+   "azure-native:app/v20221001:DaprComponent": "DaprComponent",
+   "azure-native:app/v20221001:ManagedEnvironment": "ManagedEnvironment",
+   "azure-native:app/v20221001:ManagedEnvironmentsStorage": "ManagedEnvironmentsStorage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "appcomplianceautomation",
   "fqn": "pulumi_azure_native.appcomplianceautomation",
   "classes": {
@@ -21631,6 +21649,16 @@ _utilities.register(
    "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener": "AvailabilityGroupListener",
    "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine": "SqlVirtualMachine",
    "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "sqlvirtualmachine/v20220801preview",
+  "fqn": "pulumi_azure_native.sqlvirtualmachine.v20220801preview",
+  "classes": {
+   "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener": "AvailabilityGroupListener",
+   "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine": "SqlVirtualMachine",
+   "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
   }
  },
  {
