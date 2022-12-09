@@ -76,9 +76,12 @@ export interface GetAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+ * API Version: 2017-04-18.
+ */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply(a => getAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

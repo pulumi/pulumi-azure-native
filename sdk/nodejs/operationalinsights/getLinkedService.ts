@@ -66,9 +66,12 @@ export interface GetLinkedServiceResult {
      */
     readonly writeAccessResourceId?: string;
 }
-
+/**
+ * The top level Linked service resource container.
+ * API Version: 2020-08-01.
+ */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
-    return pulumi.output(args).apply(a => getLinkedService(a, opts))
+    return pulumi.output(args).apply((a: any) => getLinkedService(a, opts))
 }
 
 export interface GetLinkedServiceOutputArgs {

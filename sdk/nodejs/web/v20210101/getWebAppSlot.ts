@@ -240,9 +240,11 @@ export interface GetWebAppSlotResult {
      */
     readonly virtualNetworkSubnetId?: string;
 }
-
+/**
+ * A web app, a mobile app backend, or an API app.
+ */
 export function getWebAppSlotOutput(args: GetWebAppSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotResult> {
-    return pulumi.output(args).apply(a => getWebAppSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppSlot(a, opts))
 }
 
 export interface GetWebAppSlotOutputArgs {

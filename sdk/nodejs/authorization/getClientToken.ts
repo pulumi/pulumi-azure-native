@@ -32,9 +32,11 @@ export interface GetClientTokenResult {
      */
     readonly token: string;
 }
-
+/**
+ * Use this function to get an Azure authentication token for the current login context.
+ */
 export function getClientTokenOutput(args?: GetClientTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientTokenResult> {
-    return pulumi.output(args).apply(a => getClientToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getClientToken(a, opts))
 }
 
 export interface GetClientTokenOutputArgs {

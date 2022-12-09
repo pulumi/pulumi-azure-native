@@ -60,9 +60,11 @@ export interface GetStorageResult {
      */
     readonly type: string;
 }
-
+/**
+ * Storage resource payload.
+ */
 export function getStorageOutput(args: GetStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageResult> {
-    return pulumi.output(args).apply(a => getStorage(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorage(a, opts))
 }
 
 export interface GetStorageOutputArgs {

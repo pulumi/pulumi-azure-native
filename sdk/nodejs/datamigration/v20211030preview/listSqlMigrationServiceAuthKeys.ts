@@ -40,9 +40,11 @@ export interface ListSqlMigrationServiceAuthKeysResult {
      */
     readonly authKey2?: string;
 }
-
+/**
+ * An authentication key.
+ */
 export function listSqlMigrationServiceAuthKeysOutput(args: ListSqlMigrationServiceAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceAuthKeysResult> {
-    return pulumi.output(args).apply(a => listSqlMigrationServiceAuthKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listSqlMigrationServiceAuthKeys(a, opts))
 }
 
 export interface ListSqlMigrationServiceAuthKeysOutputArgs {

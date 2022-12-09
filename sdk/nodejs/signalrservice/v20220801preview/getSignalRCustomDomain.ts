@@ -68,9 +68,11 @@ export interface GetSignalRCustomDomainResult {
      */
     readonly type: string;
 }
-
+/**
+ * A custom domain
+ */
 export function getSignalRCustomDomainOutput(args: GetSignalRCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomDomainResult> {
-    return pulumi.output(args).apply(a => getSignalRCustomDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getSignalRCustomDomain(a, opts))
 }
 
 export interface GetSignalRCustomDomainOutputArgs {

@@ -64,9 +64,11 @@ export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnection
      */
     readonly type: string;
 }
-
+/**
+ * REST model used to encapsulate the user visible state of a PrivateEndpoint.
+ */
 export function getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getPrivateEndpointConnectionControllerPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionControllerPrivateEndpointConnection(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs {

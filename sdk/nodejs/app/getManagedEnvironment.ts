@@ -98,9 +98,12 @@ export interface GetManagedEnvironmentResult {
      */
     readonly zoneRedundant?: boolean;
 }
-
+/**
+ * An environment for hosting container apps
+ * API Version: 2022-03-01.
+ */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {
-    return pulumi.output(args).apply(a => getManagedEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedEnvironment(a, opts))
 }
 
 export interface GetManagedEnvironmentOutputArgs {

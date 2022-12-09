@@ -95,9 +95,11 @@ export interface GetMobileNetworkResult {
      */
     readonly type: string;
 }
-
+/**
+ * Mobile network resource.
+ */
 export function getMobileNetworkOutput(args: GetMobileNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMobileNetworkResult> {
-    return pulumi.output(args).apply(a => getMobileNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getMobileNetwork(a, opts))
 }
 
 export interface GetMobileNetworkOutputArgs {

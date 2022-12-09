@@ -128,9 +128,11 @@ export interface GetUpdateResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Update details
+ */
 export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateResult> {
-    return pulumi.output(args).apply(a => getUpdate(a, opts))
+    return pulumi.output(args).apply((a: any) => getUpdate(a, opts))
 }
 
 export interface GetUpdateOutputArgs {

@@ -69,9 +69,12 @@ export interface GetDedicatedCloudServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Dedicated cloud service model
+ * API Version: 2019-04-01.
+ */
 export function getDedicatedCloudServiceOutput(args: GetDedicatedCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedCloudServiceResult> {
-    return pulumi.output(args).apply(a => getDedicatedCloudService(a, opts))
+    return pulumi.output(args).apply((a: any) => getDedicatedCloudService(a, opts))
 }
 
 export interface GetDedicatedCloudServiceOutputArgs {

@@ -64,9 +64,12 @@ export interface GetMigrateProjectResult {
      */
     readonly type: string;
 }
-
+/**
+ * Migrate Project REST Resource.
+ * API Version: 2018-09-01-preview.
+ */
 export function getMigrateProjectOutput(args: GetMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectResult> {
-    return pulumi.output(args).apply(a => getMigrateProject(a, opts))
+    return pulumi.output(args).apply((a: any) => getMigrateProject(a, opts))
 }
 
 export interface GetMigrateProjectOutputArgs {

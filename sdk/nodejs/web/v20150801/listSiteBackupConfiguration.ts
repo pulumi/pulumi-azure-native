@@ -75,9 +75,11 @@ export interface ListSiteBackupConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of a backup which will be performed
+ */
 export function listSiteBackupConfigurationOutput(args: ListSiteBackupConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteBackupConfigurationResult> {
-    return pulumi.output(args).apply(a => listSiteBackupConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => listSiteBackupConfiguration(a, opts))
 }
 
 export interface ListSiteBackupConfigurationOutputArgs {

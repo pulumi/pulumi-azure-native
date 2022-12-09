@@ -62,9 +62,12 @@ export interface GetPlacementPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * A vSphere Distributed Resource Scheduler (DRS) placement policy
+ * API Version: 2021-12-01.
+ */
 export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementPolicyResult> {
-    return pulumi.output(args).apply(a => getPlacementPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPlacementPolicy(a, opts))
 }
 
 export interface GetPlacementPolicyOutputArgs {

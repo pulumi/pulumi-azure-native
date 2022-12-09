@@ -84,9 +84,11 @@ export interface GetPoolResult {
      */
     readonly type: string;
 }
-
+/**
+ * A pool of Virtual Machines.
+ */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    return pulumi.output(args).apply(a => getPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }
 
 export interface GetPoolOutputArgs {

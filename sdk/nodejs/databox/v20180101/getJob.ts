@@ -98,9 +98,12 @@ export interface GetJobResult {
      */
     readonly type: string;
 }
-
+/**
+ * Job Resource.
+ */
+/** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
-    return pulumi.output(args).apply(a => getJob(a, opts))
+    return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }
 
 export interface GetJobOutputArgs {

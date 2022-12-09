@@ -65,9 +65,11 @@ export interface GetRegistryModelVersionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Azure Resource Manager resource envelope.
+ */
 export function getRegistryModelVersionOutput(args: GetRegistryModelVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryModelVersionResult> {
-    return pulumi.output(args).apply(a => getRegistryModelVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistryModelVersion(a, opts))
 }
 
 export interface GetRegistryModelVersionOutputArgs {

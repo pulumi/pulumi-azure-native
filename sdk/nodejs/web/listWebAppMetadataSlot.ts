@@ -58,9 +58,12 @@ export interface ListWebAppMetadataSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * String dictionary resource.
+ * API Version: 2020-12-01.
+ */
 export function listWebAppMetadataSlotOutput(args: ListWebAppMetadataSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppMetadataSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppMetadataSlot(a, opts))
 }
 
 export interface ListWebAppMetadataSlotOutputArgs {

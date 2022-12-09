@@ -56,9 +56,11 @@ export interface GetLinkedWorkspaceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Linked workspace.
+ */
 export function getLinkedWorkspaceOutput(args: GetLinkedWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedWorkspaceResult> {
-    return pulumi.output(args).apply(a => getLinkedWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getLinkedWorkspace(a, opts))
 }
 
 export interface GetLinkedWorkspaceOutputArgs {

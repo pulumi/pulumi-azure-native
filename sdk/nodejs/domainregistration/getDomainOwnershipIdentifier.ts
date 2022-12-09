@@ -65,9 +65,12 @@ export interface GetDomainOwnershipIdentifierResult {
      */
     readonly type: string;
 }
-
+/**
+ * Domain ownership Identifier.
+ * API Version: 2020-10-01.
+ */
 export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
-    return pulumi.output(args).apply(a => getDomainOwnershipIdentifier(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainOwnershipIdentifier(a, opts))
 }
 
 export interface GetDomainOwnershipIdentifierOutputArgs {

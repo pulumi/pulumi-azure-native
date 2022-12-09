@@ -72,9 +72,11 @@ export interface GetVirtualNetworkLinkResult {
      */
     readonly virtualNetwork: outputs.network.v20220701.SubResourceResponse;
 }
-
+/**
+ * Describes a virtual network link.
+ */
 export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
-    return pulumi.output(args).apply(a => getVirtualNetworkLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkLink(a, opts))
 }
 
 export interface GetVirtualNetworkLinkOutputArgs {

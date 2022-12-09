@@ -45,9 +45,11 @@ export interface ListVideoStreamingTokenResult {
      */
     readonly token: string;
 }
-
+/**
+ * Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+ */
 export function listVideoStreamingTokenOutput(args: ListVideoStreamingTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoStreamingTokenResult> {
-    return pulumi.output(args).apply(a => listVideoStreamingToken(a, opts))
+    return pulumi.output(args).apply((a: any) => listVideoStreamingToken(a, opts))
 }
 
 export interface ListVideoStreamingTokenOutputArgs {

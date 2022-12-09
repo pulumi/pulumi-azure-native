@@ -79,9 +79,11 @@ export interface GetCustomAssessmentAutomationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Custom Assessment Automation
+ */
 export function getCustomAssessmentAutomationOutput(args: GetCustomAssessmentAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomAssessmentAutomationResult> {
-    return pulumi.output(args).apply(a => getCustomAssessmentAutomation(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomAssessmentAutomation(a, opts))
 }
 
 export interface GetCustomAssessmentAutomationOutputArgs {

@@ -43,9 +43,11 @@ export interface ListLabVhdsResult {
      */
     readonly value?: outputs.devtestlab.v20150521preview.LabVhdResponse[];
 }
-
+/**
+ * The response of a list operation.
+ */
 export function listLabVhdsOutput(args: ListLabVhdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLabVhdsResult> {
-    return pulumi.output(args).apply(a => listLabVhds(a, opts))
+    return pulumi.output(args).apply((a: any) => listLabVhds(a, opts))
 }
 
 export interface ListLabVhdsOutputArgs {

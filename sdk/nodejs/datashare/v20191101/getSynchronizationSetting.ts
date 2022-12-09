@@ -60,9 +60,12 @@ export interface GetSynchronizationSettingResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Synchronization Setting data transfer object.
+ */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getSynchronizationSettingOutput(args: GetSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynchronizationSettingResult> {
-    return pulumi.output(args).apply(a => getSynchronizationSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getSynchronizationSetting(a, opts))
 }
 
 export interface GetSynchronizationSettingOutputArgs {

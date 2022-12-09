@@ -73,9 +73,11 @@ export interface GetOutputResult {
      */
     readonly type: string;
 }
-
+/**
+ * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+ */
 export function getOutputOutput(args: GetOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutputResult> {
-    return pulumi.output(args).apply(a => getOutput(a, opts))
+    return pulumi.output(args).apply((a: any) => getOutput(a, opts))
 }
 
 export interface GetOutputOutputArgs {

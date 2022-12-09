@@ -113,9 +113,12 @@ export interface GetIntegrationServiceEnvironmentManagedApiResult {
      */
     readonly type: string;
 }
-
+/**
+ * The integration service environment managed api.
+ * API Version: 2019-05-01.
+ */
 export function getIntegrationServiceEnvironmentManagedApiOutput(args: GetIntegrationServiceEnvironmentManagedApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentManagedApiResult> {
-    return pulumi.output(args).apply(a => getIntegrationServiceEnvironmentManagedApi(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationServiceEnvironmentManagedApi(a, opts))
 }
 
 export interface GetIntegrationServiceEnvironmentManagedApiOutputArgs {

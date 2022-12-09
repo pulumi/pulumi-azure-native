@@ -101,9 +101,12 @@ export interface GetOuContainerResult {
      */
     readonly type: string;
 }
-
+/**
+ * Resource for OuContainer.
+ * API Version: 2021-03-01.
+ */
 export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOuContainerResult> {
-    return pulumi.output(args).apply(a => getOuContainer(a, opts))
+    return pulumi.output(args).apply((a: any) => getOuContainer(a, opts))
 }
 
 export interface GetOuContainerOutputArgs {

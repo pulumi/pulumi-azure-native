@@ -105,9 +105,11 @@ export interface GetGen1EnvironmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
+ */
 export function getGen1EnvironmentOutput(args: GetGen1EnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGen1EnvironmentResult> {
-    return pulumi.output(args).apply(a => getGen1Environment(a, opts))
+    return pulumi.output(args).apply((a: any) => getGen1Environment(a, opts))
 }
 
 export interface GetGen1EnvironmentOutputArgs {

@@ -72,9 +72,12 @@ export interface GetReplicationStorageClassificationMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * Storage mapping object.
+ */
+/** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
 export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {
-    return pulumi.output(args).apply(a => getReplicationStorageClassificationMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationStorageClassificationMapping(a, opts))
 }
 
 export interface GetReplicationStorageClassificationMappingOutputArgs {

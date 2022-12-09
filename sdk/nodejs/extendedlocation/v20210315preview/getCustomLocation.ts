@@ -87,9 +87,11 @@ export interface GetCustomLocationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Custom Locations definition.
+ */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
-    return pulumi.output(args).apply(a => getCustomLocation(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomLocation(a, opts))
 }
 
 export interface GetCustomLocationOutputArgs {

@@ -64,9 +64,11 @@ export interface GetNetworkInterfaceTapConfigurationResult {
      */
     readonly virtualNetworkTap?: outputs.network.v20220501.VirtualNetworkTapResponse;
 }
-
+/**
+ * Tap configuration in a Network Interface.
+ */
 export function getNetworkInterfaceTapConfigurationOutput(args: GetNetworkInterfaceTapConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceTapConfigurationResult> {
-    return pulumi.output(args).apply(a => getNetworkInterfaceTapConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkInterfaceTapConfiguration(a, opts))
 }
 
 export interface GetNetworkInterfaceTapConfigurationOutputArgs {

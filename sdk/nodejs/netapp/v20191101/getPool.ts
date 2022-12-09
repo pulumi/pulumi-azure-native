@@ -75,9 +75,12 @@ export interface GetPoolResult {
      */
     readonly type: string;
 }
-
+/**
+ * Capacity pool resource
+ */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    return pulumi.output(args).apply(a => getPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }
 
 export interface GetPoolOutputArgs {

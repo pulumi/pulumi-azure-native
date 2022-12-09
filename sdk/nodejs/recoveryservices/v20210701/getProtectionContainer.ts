@@ -73,9 +73,11 @@ export interface GetProtectionContainerResult {
      */
     readonly type: string;
 }
-
+/**
+ * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
-    return pulumi.output(args).apply(a => getProtectionContainer(a, opts))
+    return pulumi.output(args).apply((a: any) => getProtectionContainer(a, opts))
 }
 
 export interface GetProtectionContainerOutputArgs {

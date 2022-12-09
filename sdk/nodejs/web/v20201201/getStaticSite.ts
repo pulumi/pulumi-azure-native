@@ -123,9 +123,11 @@ export interface GetStaticSiteResult {
      */
     readonly userProvidedFunctionApps: outputs.web.v20201201.StaticSiteUserProvidedFunctionAppResponse[];
 }
-
+/**
+ * Static Site ARM resource.
+ */
 export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteResult> {
-    return pulumi.output(args).apply(a => getStaticSite(a, opts))
+    return pulumi.output(args).apply((a: any) => getStaticSite(a, opts))
 }
 
 export interface GetStaticSiteOutputArgs {

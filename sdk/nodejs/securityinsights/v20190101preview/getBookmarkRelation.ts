@@ -79,9 +79,11 @@ export interface GetBookmarkRelationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a relation between two resources
+ */
 export function getBookmarkRelationOutput(args: GetBookmarkRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkRelationResult> {
-    return pulumi.output(args).apply(a => getBookmarkRelation(a, opts))
+    return pulumi.output(args).apply((a: any) => getBookmarkRelation(a, opts))
 }
 
 export interface GetBookmarkRelationOutputArgs {

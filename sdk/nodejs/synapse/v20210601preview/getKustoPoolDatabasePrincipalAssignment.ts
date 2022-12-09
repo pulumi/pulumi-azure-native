@@ -98,9 +98,11 @@ export interface GetKustoPoolDatabasePrincipalAssignmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Class representing a database principal assignment.
+ */
 export function getKustoPoolDatabasePrincipalAssignmentOutput(args: GetKustoPoolDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolDatabasePrincipalAssignmentResult> {
-    return pulumi.output(args).apply(a => getKustoPoolDatabasePrincipalAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getKustoPoolDatabasePrincipalAssignment(a, opts))
 }
 
 export interface GetKustoPoolDatabasePrincipalAssignmentOutputArgs {

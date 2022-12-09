@@ -41,9 +41,12 @@ export interface ListSpatialAnchorsAccountKeysResult {
      */
     readonly secondaryKey: string;
 }
-
+/**
+ * Developer Keys of account
+ * API Version: 2021-01-01.
+ */
 export function listSpatialAnchorsAccountKeysOutput(args: ListSpatialAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpatialAnchorsAccountKeysResult> {
-    return pulumi.output(args).apply(a => listSpatialAnchorsAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listSpatialAnchorsAccountKeys(a, opts))
 }
 
 export interface ListSpatialAnchorsAccountKeysOutputArgs {

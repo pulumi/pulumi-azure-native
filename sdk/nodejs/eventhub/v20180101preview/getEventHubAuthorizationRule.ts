@@ -58,9 +58,11 @@ export interface GetEventHubAuthorizationRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Single item in a List or Get AuthorizationRule operation
+ */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getEventHubAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))
 }
 
 export interface GetEventHubAuthorizationRuleOutputArgs {

@@ -68,9 +68,11 @@ export interface GetDataPoolResult {
      */
     readonly type: string;
 }
-
+/**
+ * ADP Data Pool
+ */
 export function getDataPoolOutput(args: GetDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataPoolResult> {
-    return pulumi.output(args).apply(a => getDataPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataPool(a, opts))
 }
 
 export interface GetDataPoolOutputArgs {

@@ -68,9 +68,11 @@ export interface GetExtensionResult {
      */
     readonly type: string;
 }
-
+/**
+ * The response to an extension resource GET request.
+ */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    return pulumi.output(args).apply(a => getExtension(a, opts))
+    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }
 
 export interface GetExtensionOutputArgs {

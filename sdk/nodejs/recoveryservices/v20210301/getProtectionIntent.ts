@@ -73,9 +73,11 @@ export interface GetProtectionIntentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Base class for backup ProtectionIntent.
+ */
 export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionIntentResult> {
-    return pulumi.output(args).apply(a => getProtectionIntent(a, opts))
+    return pulumi.output(args).apply((a: any) => getProtectionIntent(a, opts))
 }
 
 export interface GetProtectionIntentOutputArgs {

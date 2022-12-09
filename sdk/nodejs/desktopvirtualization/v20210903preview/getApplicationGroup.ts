@@ -106,9 +106,11 @@ export interface GetApplicationGroupResult {
      */
     readonly workspaceArmPath: string;
 }
-
+/**
+ * Represents a ApplicationGroup definition.
+ */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
-    return pulumi.output(args).apply(a => getApplicationGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationGroup(a, opts))
 }
 
 export interface GetApplicationGroupOutputArgs {

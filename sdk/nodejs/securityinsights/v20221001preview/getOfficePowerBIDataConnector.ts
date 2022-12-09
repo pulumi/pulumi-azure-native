@@ -73,9 +73,11 @@ export interface GetOfficePowerBIDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents Office Microsoft PowerBI data connector.
+ */
 export function getOfficePowerBIDataConnectorOutput(args: GetOfficePowerBIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficePowerBIDataConnectorResult> {
-    return pulumi.output(args).apply(a => getOfficePowerBIDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getOfficePowerBIDataConnector(a, opts))
 }
 
 export interface GetOfficePowerBIDataConnectorOutputArgs {

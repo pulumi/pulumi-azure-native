@@ -121,9 +121,11 @@ export interface GetAnomalySecurityMLAnalyticsSettingsResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents Anomaly Security ML Analytics Settings
+ */
 export function getAnomalySecurityMLAnalyticsSettingsOutput(args: GetAnomalySecurityMLAnalyticsSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalySecurityMLAnalyticsSettingsResult> {
-    return pulumi.output(args).apply(a => getAnomalySecurityMLAnalyticsSettings(a, opts))
+    return pulumi.output(args).apply((a: any) => getAnomalySecurityMLAnalyticsSettings(a, opts))
 }
 
 export interface GetAnomalySecurityMLAnalyticsSettingsOutputArgs {

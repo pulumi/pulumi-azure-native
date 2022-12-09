@@ -81,9 +81,11 @@ export interface GetnetworkinterfaceRetrieveResult {
      */
     readonly type: string;
 }
-
+/**
+ * The networkinterfaces resource definition.
+ */
 export function getnetworkinterfaceRetrieveOutput(args: GetnetworkinterfaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetnetworkinterfaceRetrieveResult> {
-    return pulumi.output(args).apply(a => getnetworkinterfaceRetrieve(a, opts))
+    return pulumi.output(args).apply((a: any) => getnetworkinterfaceRetrieve(a, opts))
 }
 
 export interface GetnetworkinterfaceRetrieveOutputArgs {

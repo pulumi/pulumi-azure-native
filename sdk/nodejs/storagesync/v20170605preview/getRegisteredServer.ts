@@ -99,9 +99,12 @@ export interface GetRegisteredServerResult {
      */
     readonly type: string;
 }
-
+/**
+ * Registered Server resource.
+ */
+/** @deprecated Version 2017-06-05-preview will be removed in v2 of the provider. */
 export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
-    return pulumi.output(args).apply(a => getRegisteredServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegisteredServer(a, opts))
 }
 
 export interface GetRegisteredServerOutputArgs {

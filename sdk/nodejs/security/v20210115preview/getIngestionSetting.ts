@@ -39,9 +39,11 @@ export interface GetIngestionSettingResult {
      */
     readonly type: string;
 }
-
+/**
+ * Configures how to correlate scan data and logs with resources associated with the subscription.
+ */
 export function getIngestionSettingOutput(args: GetIngestionSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIngestionSettingResult> {
-    return pulumi.output(args).apply(a => getIngestionSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getIngestionSetting(a, opts))
 }
 
 export interface GetIngestionSettingOutputArgs {

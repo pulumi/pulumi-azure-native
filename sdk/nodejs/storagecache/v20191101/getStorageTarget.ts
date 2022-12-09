@@ -78,9 +78,12 @@ export interface GetStorageTargetResult {
      */
     readonly unknown?: outputs.storagecache.v20191101.UnknownTargetResponse;
 }
-
+/**
+ * A storage system being cached by a Cache.
+ */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
-    return pulumi.output(args).apply(a => getStorageTarget(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageTarget(a, opts))
 }
 
 export interface GetStorageTargetOutputArgs {

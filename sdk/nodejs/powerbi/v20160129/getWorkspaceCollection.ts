@@ -51,9 +51,8 @@ export interface GetWorkspaceCollectionResult {
      */
     readonly type?: string;
 }
-
 export function getWorkspaceCollectionOutput(args: GetWorkspaceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCollectionResult> {
-    return pulumi.output(args).apply(a => getWorkspaceCollection(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspaceCollection(a, opts))
 }
 
 export interface GetWorkspaceCollectionOutputArgs {

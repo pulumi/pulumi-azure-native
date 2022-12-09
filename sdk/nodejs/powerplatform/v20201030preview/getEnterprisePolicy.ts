@@ -83,9 +83,11 @@ export interface GetEnterprisePolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the EnterprisePolicy.
+ */
 export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePolicyResult> {
-    return pulumi.output(args).apply(a => getEnterprisePolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnterprisePolicy(a, opts))
 }
 
 export interface GetEnterprisePolicyOutputArgs {

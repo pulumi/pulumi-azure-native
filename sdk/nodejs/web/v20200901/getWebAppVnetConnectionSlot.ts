@@ -94,9 +94,11 @@ export interface GetWebAppVnetConnectionSlotResult {
      */
     readonly vnetResourceId?: string;
 }
-
+/**
+ * Virtual Network information contract.
+ */
 export function getWebAppVnetConnectionSlotOutput(args: GetWebAppVnetConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionSlotResult> {
-    return pulumi.output(args).apply(a => getWebAppVnetConnectionSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppVnetConnectionSlot(a, opts))
 }
 
 export interface GetWebAppVnetConnectionSlotOutputArgs {

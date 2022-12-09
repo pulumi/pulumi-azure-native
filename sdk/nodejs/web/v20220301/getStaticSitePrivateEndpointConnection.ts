@@ -69,9 +69,11 @@ export interface GetStaticSitePrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Remote Private Endpoint Connection ARM resource.
+ */
 export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getStaticSitePrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getStaticSitePrivateEndpointConnection(a, opts))
 }
 
 export interface GetStaticSitePrivateEndpointConnectionOutputArgs {

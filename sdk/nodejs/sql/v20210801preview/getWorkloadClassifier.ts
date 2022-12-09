@@ -83,9 +83,11 @@ export interface GetWorkloadClassifierResult {
      */
     readonly type: string;
 }
-
+/**
+ * Workload classifier operations for a data warehouse
+ */
 export function getWorkloadClassifierOutput(args: GetWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadClassifierResult> {
-    return pulumi.output(args).apply(a => getWorkloadClassifier(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkloadClassifier(a, opts))
 }
 
 export interface GetWorkloadClassifierOutputArgs {

@@ -83,9 +83,12 @@ export interface GetWCFRelayResult {
      */
     readonly userMetadata?: string;
 }
-
+/**
+ * Description of WcfRelays Resource.
+ */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
-    return pulumi.output(args).apply(a => getWCFRelay(a, opts))
+    return pulumi.output(args).apply((a: any) => getWCFRelay(a, opts))
 }
 
 export interface GetWCFRelayOutputArgs {

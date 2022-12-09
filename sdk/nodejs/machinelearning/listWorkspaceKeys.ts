@@ -41,9 +41,12 @@ export interface ListWorkspaceKeysResult {
      */
     readonly secondaryToken?: string;
 }
-
+/**
+ * Workspace authorization keys for a workspace.
+ * API Version: 2016-04-01.
+ */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
-    return pulumi.output(args).apply(a => listWorkspaceKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))
 }
 
 export interface ListWorkspaceKeysOutputArgs {

@@ -39,9 +39,11 @@ export interface ListBlockchainMemberApiKeysResult {
      */
     readonly keys?: outputs.blockchain.v20180601preview.ApiKeyResponse[];
 }
-
+/**
+ * Collection of the API key payload which is exposed in the response of the resource provider.
+ */
 export function listBlockchainMemberApiKeysOutput(args: ListBlockchainMemberApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBlockchainMemberApiKeysResult> {
-    return pulumi.output(args).apply(a => listBlockchainMemberApiKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listBlockchainMemberApiKeys(a, opts))
 }
 
 export interface ListBlockchainMemberApiKeysOutputArgs {

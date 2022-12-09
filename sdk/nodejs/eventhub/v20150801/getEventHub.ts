@@ -79,9 +79,12 @@ export interface GetEventHubResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Single item in List or Get Event Hub operation
+ */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
-    return pulumi.output(args).apply(a => getEventHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventHub(a, opts))
 }
 
 export interface GetEventHubOutputArgs {

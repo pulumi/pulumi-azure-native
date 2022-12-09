@@ -54,9 +54,11 @@ export interface GetGetCachedServerNameExecuteResult {
      */
     readonly name: string;
 }
-
+/**
+ * Represents a resource name of a cached server
+ */
 export function getGetCachedServerNameExecuteOutput(args: GetGetCachedServerNameExecuteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGetCachedServerNameExecuteResult> {
-    return pulumi.output(args).apply(a => getGetCachedServerNameExecute(a, opts))
+    return pulumi.output(args).apply((a: any) => getGetCachedServerNameExecute(a, opts))
 }
 
 export interface GetGetCachedServerNameExecuteOutputArgs {

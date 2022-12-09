@@ -64,9 +64,11 @@ export interface GetIntegrationAccountBatchConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * The batch configuration resource definition.
+ */
 export function getIntegrationAccountBatchConfigurationOutput(args: GetIntegrationAccountBatchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountBatchConfigurationResult> {
-    return pulumi.output(args).apply(a => getIntegrationAccountBatchConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountBatchConfiguration(a, opts))
 }
 
 export interface GetIntegrationAccountBatchConfigurationOutputArgs {

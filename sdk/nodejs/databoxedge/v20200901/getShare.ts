@@ -98,9 +98,12 @@ export interface GetShareResult {
      */
     readonly userAccessRights?: outputs.databoxedge.v20200901.UserAccessRightResponse[];
 }
-
+/**
+ * Represents a share on the  Data Box Edge/Gateway device.
+ */
+/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
-    return pulumi.output(args).apply(a => getShare(a, opts))
+    return pulumi.output(args).apply((a: any) => getShare(a, opts))
 }
 
 export interface GetShareOutputArgs {

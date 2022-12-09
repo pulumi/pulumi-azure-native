@@ -53,9 +53,11 @@ export interface GetNamespaceVirtualNetworkRuleResult {
      */
     readonly virtualNetworkSubnetId?: string;
 }
-
+/**
+ * Single item in a List or Get VirtualNetworkRules operation
+ */
 export function getNamespaceVirtualNetworkRuleOutput(args: GetNamespaceVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceVirtualNetworkRuleResult> {
-    return pulumi.output(args).apply(a => getNamespaceVirtualNetworkRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespaceVirtualNetworkRule(a, opts))
 }
 
 export interface GetNamespaceVirtualNetworkRuleOutputArgs {

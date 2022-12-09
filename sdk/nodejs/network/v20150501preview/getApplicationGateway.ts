@@ -109,9 +109,12 @@ export interface GetApplicationGatewayResult {
      */
     readonly type: string;
 }
-
+/**
+ * ApplicationGateways resource
+ */
+/** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
-    return pulumi.output(args).apply(a => getApplicationGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))
 }
 
 export interface GetApplicationGatewayOutputArgs {

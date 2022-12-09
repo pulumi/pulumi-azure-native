@@ -40,9 +40,12 @@ export interface ListAccountKeysResult {
      */
     readonly value: outputs.engagementfabric.KeyDescriptionResponse[];
 }
-
+/**
+ * The list of the EngagementFabric account keys
+ * API Version: 2018-09-01-preview.
+ */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
-    return pulumi.output(args).apply(a => listAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))
 }
 
 export interface ListAccountKeysOutputArgs {

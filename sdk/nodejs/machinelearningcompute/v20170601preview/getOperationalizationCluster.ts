@@ -97,9 +97,12 @@ export interface GetOperationalizationClusterResult {
      */
     readonly type: string;
 }
-
+/**
+ * Instance of an Azure ML Operationalization Cluster resource.
+ */
+/** @deprecated Version 2017-06-01-preview will be removed in v2 of the provider. */
 export function getOperationalizationClusterOutput(args: GetOperationalizationClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperationalizationClusterResult> {
-    return pulumi.output(args).apply(a => getOperationalizationCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getOperationalizationCluster(a, opts))
 }
 
 export interface GetOperationalizationClusterOutputArgs {

@@ -87,9 +87,12 @@ export interface GetSubnetResult {
      */
     readonly serviceEndpoints?: outputs.network.v20170801.ServiceEndpointPropertiesFormatResponse[];
 }
-
+/**
+ * Subnet in a virtual network resource.
+ */
+/** @deprecated Version 2017-08-01 will be removed in v2 of the provider. */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
-    return pulumi.output(args).apply(a => getSubnet(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
 }
 
 export interface GetSubnetOutputArgs {

@@ -43,9 +43,11 @@ export interface ListIotHubResourceKeysResult {
      */
     readonly value?: outputs.devices.v20180122.SharedAccessSignatureAuthorizationRuleResponse[];
 }
-
+/**
+ * The list of shared access policies with a next link.
+ */
 export function listIotHubResourceKeysOutput(args: ListIotHubResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysResult> {
-    return pulumi.output(args).apply(a => listIotHubResourceKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listIotHubResourceKeys(a, opts))
 }
 
 export interface ListIotHubResourceKeysOutputArgs {

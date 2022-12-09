@@ -101,9 +101,11 @@ export interface GetLongTermEnvironmentResult {
      */
     readonly warmStoreConfiguration?: outputs.timeseriesinsights.v20180815preview.WarmStoreConfigurationPropertiesResponse;
 }
-
+/**
+ * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
+ */
 export function getLongTermEnvironmentOutput(args: GetLongTermEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLongTermEnvironmentResult> {
-    return pulumi.output(args).apply(a => getLongTermEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getLongTermEnvironment(a, opts))
 }
 
 export interface GetLongTermEnvironmentOutputArgs {

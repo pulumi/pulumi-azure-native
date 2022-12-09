@@ -77,9 +77,12 @@ export interface GetRemediationAtResourceResult {
      */
     readonly type: string;
 }
-
+/**
+ * The remediation definition.
+ */
+/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceResult> {
-    return pulumi.output(args).apply(a => getRemediationAtResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getRemediationAtResource(a, opts))
 }
 
 export interface GetRemediationAtResourceOutputArgs {

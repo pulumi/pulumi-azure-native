@@ -91,9 +91,12 @@ export interface GetArtifactSourceResourceResult {
      */
     readonly uri?: string;
 }
-
+/**
+ * Properties of an artifact source.
+ */
+/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getArtifactSourceResourceOutput(args: GetArtifactSourceResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResourceResult> {
-    return pulumi.output(args).apply(a => getArtifactSourceResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getArtifactSourceResource(a, opts))
 }
 
 export interface GetArtifactSourceResourceOutputArgs {

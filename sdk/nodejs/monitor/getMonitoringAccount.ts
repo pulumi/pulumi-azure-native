@@ -80,9 +80,12 @@ export interface GetMonitoringAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Monitoring Account definition
+ * API Version: 2021-06-03-preview.
+ */
 export function getMonitoringAccountOutput(args: GetMonitoringAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringAccountResult> {
-    return pulumi.output(args).apply(a => getMonitoringAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getMonitoringAccount(a, opts))
 }
 
 export interface GetMonitoringAccountOutputArgs {

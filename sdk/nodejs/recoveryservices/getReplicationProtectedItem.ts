@@ -71,9 +71,12 @@ export interface GetReplicationProtectedItemResult {
      */
     readonly type: string;
 }
-
+/**
+ * Replication protected item.
+ * API Version: 2018-07-10.
+ */
 export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectedItemResult> {
-    return pulumi.output(args).apply(a => getReplicationProtectedItem(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationProtectedItem(a, opts))
 }
 
 export interface GetReplicationProtectedItemOutputArgs {

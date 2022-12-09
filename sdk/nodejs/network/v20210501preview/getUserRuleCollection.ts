@@ -81,9 +81,11 @@ export interface GetUserRuleCollectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Defines the rule collection.
+ */
 export function getUserRuleCollectionOutput(args: GetUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleCollectionResult> {
-    return pulumi.output(args).apply(a => getUserRuleCollection(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserRuleCollection(a, opts))
 }
 
 export interface GetUserRuleCollectionOutputArgs {

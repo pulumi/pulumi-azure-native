@@ -69,9 +69,11 @@ export interface GetCustomizedAcceleratorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Customized accelerator resource
+ */
 export function getCustomizedAcceleratorOutput(args: GetCustomizedAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizedAcceleratorResult> {
-    return pulumi.output(args).apply(a => getCustomizedAccelerator(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomizedAccelerator(a, opts))
 }
 
 export interface GetCustomizedAcceleratorOutputArgs {

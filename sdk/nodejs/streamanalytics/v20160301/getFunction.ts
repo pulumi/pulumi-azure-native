@@ -56,9 +56,11 @@ export interface GetFunctionResult {
      */
     readonly type: string;
 }
-
+/**
+ * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+ */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
-    return pulumi.output(args).apply(a => getFunction(a, opts))
+    return pulumi.output(args).apply((a: any) => getFunction(a, opts))
 }
 
 export interface GetFunctionOutputArgs {

@@ -82,9 +82,12 @@ export interface GetOrderItemByNameResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents order item contract
+ */
+/** @deprecated Version 2020-12-01-preview will be removed in v2 of the provider. */
 export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemByNameResult> {
-    return pulumi.output(args).apply(a => getOrderItemByName(a, opts))
+    return pulumi.output(args).apply((a: any) => getOrderItemByName(a, opts))
 }
 
 export interface GetOrderItemByNameOutputArgs {

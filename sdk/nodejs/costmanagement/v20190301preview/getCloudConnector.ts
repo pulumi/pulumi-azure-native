@@ -107,9 +107,11 @@ export interface GetCloudConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Connector model definition
+ */
 export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudConnectorResult> {
-    return pulumi.output(args).apply(a => getCloudConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getCloudConnector(a, opts))
 }
 
 export interface GetCloudConnectorOutputArgs {

@@ -73,9 +73,11 @@ export interface GetOnlineEndpointResult {
      */
     readonly type: string;
 }
-
+/**
+ * API Version: 2021-03-01-preview.
+ */
 export function getOnlineEndpointOutput(args: GetOnlineEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointResult> {
-    return pulumi.output(args).apply(a => getOnlineEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getOnlineEndpoint(a, opts))
 }
 
 export interface GetOnlineEndpointOutputArgs {

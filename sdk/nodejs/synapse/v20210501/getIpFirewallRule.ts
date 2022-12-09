@@ -61,9 +61,11 @@ export interface GetIpFirewallRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * IP firewall rule
+ */
 export function getIpFirewallRuleOutput(args: GetIpFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpFirewallRuleResult> {
-    return pulumi.output(args).apply(a => getIpFirewallRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getIpFirewallRule(a, opts))
 }
 
 export interface GetIpFirewallRuleOutputArgs {

@@ -60,9 +60,11 @@ export interface GetApplicationLiveViewResult {
      */
     readonly type: string;
 }
-
+/**
+ * Application Live View resource
+ */
 export function getApplicationLiveViewOutput(args: GetApplicationLiveViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationLiveViewResult> {
-    return pulumi.output(args).apply(a => getApplicationLiveView(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationLiveView(a, opts))
 }
 
 export interface GetApplicationLiveViewOutputArgs {

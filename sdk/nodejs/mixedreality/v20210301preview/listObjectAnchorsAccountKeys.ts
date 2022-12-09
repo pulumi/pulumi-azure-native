@@ -40,9 +40,11 @@ export interface ListObjectAnchorsAccountKeysResult {
      */
     readonly secondaryKey: string;
 }
-
+/**
+ * Developer Keys of account
+ */
 export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
-    return pulumi.output(args).apply(a => listObjectAnchorsAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listObjectAnchorsAccountKeys(a, opts))
 }
 
 export interface ListObjectAnchorsAccountKeysOutputArgs {

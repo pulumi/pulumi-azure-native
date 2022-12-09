@@ -57,9 +57,12 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+ * API Version: 2020-08-01.
+ */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionOutputArgs {

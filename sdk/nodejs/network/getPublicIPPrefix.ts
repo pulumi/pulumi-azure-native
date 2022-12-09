@@ -117,9 +117,12 @@ export interface GetPublicIPPrefixResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Public IP prefix resource.
+ * API Version: 2020-11-01.
+ */
 export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {
-    return pulumi.output(args).apply(a => getPublicIPPrefix(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicIPPrefix(a, opts))
 }
 
 export interface GetPublicIPPrefixOutputArgs {

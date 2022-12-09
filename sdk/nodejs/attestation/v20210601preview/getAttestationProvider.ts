@@ -79,9 +79,11 @@ export interface GetAttestationProviderResult {
      */
     readonly type: string;
 }
-
+/**
+ * Attestation service response message.
+ */
 export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {
-    return pulumi.output(args).apply(a => getAttestationProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getAttestationProvider(a, opts))
 }
 
 export interface GetAttestationProviderOutputArgs {

@@ -99,9 +99,11 @@ export interface GetmarketplacegalleryimageResult {
      */
     readonly version?: outputs.azurestackhci.v20210901preview.GalleryImageVersionResponse;
 }
-
+/**
+ * The marketplace gallery image resource definition.
+ */
 export function getmarketplacegalleryimageOutput(args: GetmarketplacegalleryimageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmarketplacegalleryimageResult> {
-    return pulumi.output(args).apply(a => getmarketplacegalleryimage(a, opts))
+    return pulumi.output(args).apply((a: any) => getmarketplacegalleryimage(a, opts))
 }
 
 export interface GetmarketplacegalleryimageOutputArgs {

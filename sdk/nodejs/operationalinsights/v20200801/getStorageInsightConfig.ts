@@ -76,9 +76,11 @@ export interface GetStorageInsightConfigResult {
      */
     readonly type: string;
 }
-
+/**
+ * The top level storage insight resource container.
+ */
 export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {
-    return pulumi.output(args).apply(a => getStorageInsightConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageInsightConfig(a, opts))
 }
 
 export interface GetStorageInsightConfigOutputArgs {

@@ -97,9 +97,12 @@ export interface GetTableResult {
      */
     readonly type: string;
 }
-
+/**
+ * Workspace data table definition.
+ * API Version: 2021-12-01-preview.
+ */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    return pulumi.output(args).apply(a => getTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }
 
 export interface GetTableOutputArgs {

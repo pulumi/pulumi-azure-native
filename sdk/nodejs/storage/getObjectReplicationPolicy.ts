@@ -73,9 +73,12 @@ export interface GetObjectReplicationPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+ * API Version: 2021-02-01.
+ */
 export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
-    return pulumi.output(args).apply(a => getObjectReplicationPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getObjectReplicationPolicy(a, opts))
 }
 
 export interface GetObjectReplicationPolicyOutputArgs {

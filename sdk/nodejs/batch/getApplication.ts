@@ -66,9 +66,12 @@ export interface GetApplicationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Contains information about an application in a Batch account.
+ * API Version: 2021-01-01.
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

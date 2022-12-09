@@ -62,9 +62,12 @@ export interface GetStorageSyncServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Storage Sync Service object.
+ */
+/** @deprecated Version 2018-07-01 will be removed in v2 of the provider. */
 export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {
-    return pulumi.output(args).apply(a => getStorageSyncService(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageSyncService(a, opts))
 }
 
 export interface GetStorageSyncServiceOutputArgs {

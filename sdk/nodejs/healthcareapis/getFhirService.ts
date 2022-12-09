@@ -117,9 +117,12 @@ export interface GetFhirServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * The description of Fhir Service
+ * API Version: 2022-05-15.
+ */
 export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirServiceResult> {
-    return pulumi.output(args).apply(a => getFhirService(a, opts))
+    return pulumi.output(args).apply((a: any) => getFhirService(a, opts))
 }
 
 export interface GetFhirServiceOutputArgs {

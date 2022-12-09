@@ -38,9 +38,11 @@ export interface ListMediaServiceEdgePoliciesArgs {
 export interface ListMediaServiceEdgePoliciesResult {
     readonly usageDataCollectionPolicy?: outputs.media.EdgeUsageDataCollectionPolicyResponse;
 }
-
+/**
+ * API Version: 2020-05-01.
+ */
 export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
-    return pulumi.output(args).apply(a => listMediaServiceEdgePolicies(a, opts))
+    return pulumi.output(args).apply((a: any) => listMediaServiceEdgePolicies(a, opts))
 }
 
 export interface ListMediaServiceEdgePoliciesOutputArgs {

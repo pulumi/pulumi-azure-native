@@ -36,9 +36,12 @@ export interface GetDnsResourceReferenceByTarResourcesResult {
      */
     readonly dnsResourceReferences?: outputs.network.DnsResourceReferenceResponse[];
 }
-
+/**
+ * Represents the properties of the Dns Resource Reference Result.
+ * API Version: 2018-05-01.
+ */
 export function getDnsResourceReferenceByTarResourcesOutput(args?: GetDnsResourceReferenceByTarResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResourceReferenceByTarResourcesResult> {
-    return pulumi.output(args).apply(a => getDnsResourceReferenceByTarResources(a, opts))
+    return pulumi.output(args).apply((a: any) => getDnsResourceReferenceByTarResources(a, opts))
 }
 
 export interface GetDnsResourceReferenceByTarResourcesOutputArgs {

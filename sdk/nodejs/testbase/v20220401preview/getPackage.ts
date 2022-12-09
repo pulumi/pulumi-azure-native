@@ -116,9 +116,11 @@ export interface GetPackageResult {
      */
     readonly version: string;
 }
-
+/**
+ * The Test Base Package resource.
+ */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
-    return pulumi.output(args).apply(a => getPackage(a, opts))
+    return pulumi.output(args).apply((a: any) => getPackage(a, opts))
 }
 
 export interface GetPackageOutputArgs {

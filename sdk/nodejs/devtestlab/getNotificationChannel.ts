@@ -98,9 +98,12 @@ export interface GetNotificationChannelResult {
      */
     readonly webHookUrl?: string;
 }
-
+/**
+ * A notification.
+ * API Version: 2018-09-15.
+ */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
-    return pulumi.output(args).apply(a => getNotificationChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))
 }
 
 export interface GetNotificationChannelOutputArgs {

@@ -77,9 +77,11 @@ export interface GetAssessmentsMetadataSubscriptionResult {
      */
     readonly userImpact?: string;
 }
-
+/**
+ * Security assessment metadata
+ */
 export function getAssessmentsMetadataSubscriptionOutput(args: GetAssessmentsMetadataSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentsMetadataSubscriptionResult> {
-    return pulumi.output(args).apply(a => getAssessmentsMetadataSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssessmentsMetadataSubscription(a, opts))
 }
 
 export interface GetAssessmentsMetadataSubscriptionOutputArgs {

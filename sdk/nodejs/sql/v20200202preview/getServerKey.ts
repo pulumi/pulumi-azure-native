@@ -69,9 +69,11 @@ export interface GetServerKeyResult {
      */
     readonly type: string;
 }
-
+/**
+ * A server key.
+ */
 export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
-    return pulumi.output(args).apply(a => getServerKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerKey(a, opts))
 }
 
 export interface GetServerKeyOutputArgs {

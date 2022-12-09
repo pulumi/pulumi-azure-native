@@ -48,9 +48,11 @@ export interface ListSignalRKeysResult {
      */
     readonly secondaryKey?: string;
 }
-
+/**
+ * A class represents the access keys of SignalR service.
+ */
 export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSignalRKeysResult> {
-    return pulumi.output(args).apply(a => listSignalRKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listSignalRKeys(a, opts))
 }
 
 export interface ListSignalRKeysOutputArgs {

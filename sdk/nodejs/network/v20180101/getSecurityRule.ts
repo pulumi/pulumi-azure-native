@@ -118,9 +118,12 @@ export interface GetSecurityRuleResult {
      */
     readonly sourcePortRanges?: string[];
 }
-
+/**
+ * Network security rule.
+ */
+/** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
-    return pulumi.output(args).apply(a => getSecurityRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityRule(a, opts))
 }
 
 export interface GetSecurityRuleOutputArgs {

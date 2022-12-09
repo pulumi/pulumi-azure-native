@@ -70,9 +70,11 @@ export interface GetTaskResult {
      */
     readonly type: string;
 }
-
+/**
+ * A task resource
+ */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
-    return pulumi.output(args).apply(a => getTask(a, opts))
+    return pulumi.output(args).apply((a: any) => getTask(a, opts))
 }
 
 export interface GetTaskOutputArgs {

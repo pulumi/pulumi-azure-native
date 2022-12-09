@@ -67,9 +67,12 @@ export interface GetReplicationRecoveryServicesProviderResult {
      */
     readonly type: string;
 }
-
+/**
+ * Provider details.
+ */
+/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
 export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
-    return pulumi.output(args).apply(a => getReplicationRecoveryServicesProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationRecoveryServicesProvider(a, opts))
 }
 
 export interface GetReplicationRecoveryServicesProviderOutputArgs {

@@ -112,9 +112,12 @@ export interface GetWorkflowResult {
      */
     readonly version: string;
 }
-
+/**
+ * The workflow type.
+ * API Version: 2019-05-01.
+ */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
-    return pulumi.output(args).apply(a => getWorkflow(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))
 }
 
 export interface GetWorkflowOutputArgs {

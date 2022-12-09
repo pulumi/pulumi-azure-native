@@ -94,9 +94,12 @@ export interface GetJobDefinitionResult {
      */
     readonly userConfirmation?: string;
 }
-
+/**
+ * Job Definition.
+ * API Version: 2019-06-01.
+ */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
-    return pulumi.output(args).apply(a => getJobDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))
 }
 
 export interface GetJobDefinitionOutputArgs {

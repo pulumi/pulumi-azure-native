@@ -96,9 +96,11 @@ export interface GetPacketCoreDataPlaneResult {
      */
     readonly userPlaneAccessInterface: outputs.mobilenetwork.v20220301preview.InterfacePropertiesResponse;
 }
-
+/**
+ * Packet core data plane resource.
+ */
 export function getPacketCoreDataPlaneOutput(args: GetPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreDataPlaneResult> {
-    return pulumi.output(args).apply(a => getPacketCoreDataPlane(a, opts))
+    return pulumi.output(args).apply((a: any) => getPacketCoreDataPlane(a, opts))
 }
 
 export interface GetPacketCoreDataPlaneOutputArgs {

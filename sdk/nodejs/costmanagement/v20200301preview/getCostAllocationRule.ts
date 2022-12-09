@@ -51,9 +51,11 @@ export interface GetCostAllocationRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * The cost allocation rule model definition
+ */
 export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostAllocationRuleResult> {
-    return pulumi.output(args).apply(a => getCostAllocationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getCostAllocationRule(a, opts))
 }
 
 export interface GetCostAllocationRuleOutputArgs {

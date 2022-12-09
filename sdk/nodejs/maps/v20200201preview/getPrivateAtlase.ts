@@ -64,9 +64,11 @@ export interface GetPrivateAtlaseResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure resource which represents which will provision the ability to create private location data.
+ */
 export function getPrivateAtlaseOutput(args: GetPrivateAtlaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAtlaseResult> {
-    return pulumi.output(args).apply(a => getPrivateAtlase(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateAtlase(a, opts))
 }
 
 export interface GetPrivateAtlaseOutputArgs {

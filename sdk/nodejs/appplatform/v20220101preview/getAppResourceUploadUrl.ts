@@ -45,9 +45,11 @@ export interface GetAppResourceUploadUrlResult {
      */
     readonly uploadUrl?: string;
 }
-
+/**
+ * Resource upload definition payload
+ */
 export function getAppResourceUploadUrlOutput(args: GetAppResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResourceUploadUrlResult> {
-    return pulumi.output(args).apply(a => getAppResourceUploadUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppResourceUploadUrl(a, opts))
 }
 
 export interface GetAppResourceUploadUrlOutputArgs {

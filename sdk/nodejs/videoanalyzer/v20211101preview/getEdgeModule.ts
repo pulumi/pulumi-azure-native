@@ -60,9 +60,11 @@ export interface GetEdgeModuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * The representation of an edge module.
+ */
 export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeModuleResult> {
-    return pulumi.output(args).apply(a => getEdgeModule(a, opts))
+    return pulumi.output(args).apply((a: any) => getEdgeModule(a, opts))
 }
 
 export interface GetEdgeModuleOutputArgs {

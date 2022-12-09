@@ -72,9 +72,11 @@ export interface ListConnectionKeysResult {
      */
     readonly parameterValues?: {[key: string]: any};
 }
-
+/**
+ * API Version: 2015-08-01-preview.
+ */
 export function listConnectionKeysOutput(args: ListConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionKeysResult> {
-    return pulumi.output(args).apply(a => listConnectionKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listConnectionKeys(a, opts))
 }
 
 export interface ListConnectionKeysOutputArgs {

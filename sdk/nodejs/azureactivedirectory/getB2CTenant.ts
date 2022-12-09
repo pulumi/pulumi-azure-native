@@ -64,9 +64,11 @@ export interface GetB2CTenantResult {
      */
     readonly type: string;
 }
-
+/**
+ * API Version: 2019-01-01-preview.
+ */
 export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
-    return pulumi.output(args).apply(a => getB2CTenant(a, opts))
+    return pulumi.output(args).apply((a: any) => getB2CTenant(a, opts))
 }
 
 export interface GetB2CTenantOutputArgs {

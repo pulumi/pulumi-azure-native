@@ -80,9 +80,12 @@ export interface GetDiagnosticSettingResult {
      */
     readonly workspaceId?: string;
 }
-
+/**
+ * The diagnostic setting resource.
+ * API Version: 2017-05-01-preview.
+ */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
-    return pulumi.output(args).apply(a => getDiagnosticSetting(a, opts))
+    return pulumi.output(args).apply((a: any) => getDiagnosticSetting(a, opts))
 }
 
 export interface GetDiagnosticSettingOutputArgs {

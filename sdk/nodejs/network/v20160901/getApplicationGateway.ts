@@ -129,9 +129,12 @@ export interface GetApplicationGatewayResult {
      */
     readonly webApplicationFirewallConfiguration?: outputs.network.v20160901.ApplicationGatewayWebApplicationFirewallConfigurationResponse;
 }
-
+/**
+ * Application gateway resource
+ */
+/** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
-    return pulumi.output(args).apply(a => getApplicationGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))
 }
 
 export interface GetApplicationGatewayOutputArgs {

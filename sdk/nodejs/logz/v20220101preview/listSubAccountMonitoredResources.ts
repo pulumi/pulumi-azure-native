@@ -48,9 +48,11 @@ export interface ListSubAccountMonitoredResourcesResult {
      */
     readonly value?: outputs.logz.v20220101preview.MonitoredResourceResponse[];
 }
-
+/**
+ * Response of a list operation.
+ */
 export function listSubAccountMonitoredResourcesOutput(args: ListSubAccountMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountMonitoredResourcesResult> {
-    return pulumi.output(args).apply(a => listSubAccountMonitoredResources(a, opts))
+    return pulumi.output(args).apply((a: any) => listSubAccountMonitoredResources(a, opts))
 }
 
 export interface ListSubAccountMonitoredResourcesOutputArgs {

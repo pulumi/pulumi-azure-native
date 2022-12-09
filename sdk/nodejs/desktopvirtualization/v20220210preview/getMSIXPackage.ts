@@ -100,9 +100,11 @@ export interface GetMSIXPackageResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Schema for MSIX Package properties.
+ */
 export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSIXPackageResult> {
-    return pulumi.output(args).apply(a => getMSIXPackage(a, opts))
+    return pulumi.output(args).apply((a: any) => getMSIXPackage(a, opts))
 }
 
 export interface GetMSIXPackageOutputArgs {

@@ -80,9 +80,11 @@ export interface GetWebhookResult {
      */
     readonly type: string;
 }
-
+/**
+ * An object that represents a webhook for a container registry.
+ */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
-    return pulumi.output(args).apply(a => getWebhook(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebhook(a, opts))
 }
 
 export interface GetWebhookOutputArgs {

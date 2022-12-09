@@ -60,9 +60,12 @@ export interface GetDataSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * A DataSet data transfer object.
+ */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {
-    return pulumi.output(args).apply(a => getDataSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataSet(a, opts))
 }
 
 export interface GetDataSetOutputArgs {

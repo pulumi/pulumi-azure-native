@@ -121,9 +121,12 @@ export interface GetCertificateResult {
      */
     readonly valid?: boolean;
 }
-
+/**
+ * App certificate
+ */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply(a => getCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {

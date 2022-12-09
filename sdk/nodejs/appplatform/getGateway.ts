@@ -65,9 +65,12 @@ export interface GetGatewayResult {
      */
     readonly type: string;
 }
-
+/**
+ * Spring Cloud Gateway resource
+ * API Version: 2022-01-01-preview.
+ */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    return pulumi.output(args).apply(a => getGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
 }
 
 export interface GetGatewayOutputArgs {

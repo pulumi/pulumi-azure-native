@@ -76,9 +76,11 @@ export interface GetTemplateSpecResult {
      */
     readonly versions: {[key: string]: outputs.resources.v20190601preview.TemplateSpecVersionInfoResponse};
 }
-
+/**
+ * Template Spec object.
+ */
 export function getTemplateSpecOutput(args: GetTemplateSpecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecResult> {
-    return pulumi.output(args).apply(a => getTemplateSpec(a, opts))
+    return pulumi.output(args).apply((a: any) => getTemplateSpec(a, opts))
 }
 
 export interface GetTemplateSpecOutputArgs {

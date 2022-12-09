@@ -61,9 +61,12 @@ export interface GetManagedNetworkPeeringPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Managed Network Peering Policy resource
+ * API Version: 2019-06-01-preview.
+ */
 export function getManagedNetworkPeeringPolicyOutput(args: GetManagedNetworkPeeringPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkPeeringPolicyResult> {
-    return pulumi.output(args).apply(a => getManagedNetworkPeeringPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedNetworkPeeringPolicy(a, opts))
 }
 
 export interface GetManagedNetworkPeeringPolicyOutputArgs {

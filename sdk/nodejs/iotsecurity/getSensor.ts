@@ -92,9 +92,12 @@ export interface GetSensorResult {
      */
     readonly zone?: string;
 }
-
+/**
+ * IoT sensor model
+ * API Version: 2021-02-01-preview.
+ */
 export function getSensorOutput(args: GetSensorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensorResult> {
-    return pulumi.output(args).apply(a => getSensor(a, opts))
+    return pulumi.output(args).apply((a: any) => getSensor(a, opts))
 }
 
 export interface GetSensorOutputArgs {

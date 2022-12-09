@@ -82,9 +82,11 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Synapse Workspace Sql Pool Table data set mapping
+ */
 export function getSynapseWorkspaceSqlPoolTableDataSetMappingOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
-    return pulumi.output(args).apply(a => getSynapseWorkspaceSqlPoolTableDataSetMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getSynapseWorkspaceSqlPoolTableDataSetMapping(a, opts))
 }
 
 export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs {

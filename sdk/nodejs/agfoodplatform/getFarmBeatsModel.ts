@@ -72,9 +72,12 @@ export interface GetFarmBeatsModelResult {
      */
     readonly type: string;
 }
-
+/**
+ * FarmBeats ARM Resource.
+ * API Version: 2020-05-12-preview.
+ */
 export function getFarmBeatsModelOutput(args: GetFarmBeatsModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFarmBeatsModelResult> {
-    return pulumi.output(args).apply(a => getFarmBeatsModel(a, opts))
+    return pulumi.output(args).apply((a: any) => getFarmBeatsModel(a, opts))
 }
 
 export interface GetFarmBeatsModelOutputArgs {

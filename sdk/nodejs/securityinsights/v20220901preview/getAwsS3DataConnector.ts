@@ -81,9 +81,11 @@ export interface GetAwsS3DataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents Amazon Web Services S3 data connector.
+ */
 export function getAwsS3DataConnectorOutput(args: GetAwsS3DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsS3DataConnectorResult> {
-    return pulumi.output(args).apply(a => getAwsS3DataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getAwsS3DataConnector(a, opts))
 }
 
 export interface GetAwsS3DataConnectorOutputArgs {

@@ -119,9 +119,11 @@ export interface GetPrivateCloudResult {
      */
     readonly vmotionNetwork: string;
 }
-
+/**
+ * A private cloud resource
+ */
 export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
-    return pulumi.output(args).apply(a => getPrivateCloud(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateCloud(a, opts))
 }
 
 export interface GetPrivateCloudOutputArgs {

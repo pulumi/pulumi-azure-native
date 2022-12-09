@@ -85,9 +85,12 @@ export interface GetMHSMPrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Private endpoint connection resource.
+ * API Version: 2021-06-01-preview.
+ */
 export function getMHSMPrivateEndpointConnectionOutput(args: GetMHSMPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMHSMPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getMHSMPrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getMHSMPrivateEndpointConnection(a, opts))
 }
 
 export interface GetMHSMPrivateEndpointConnectionOutputArgs {

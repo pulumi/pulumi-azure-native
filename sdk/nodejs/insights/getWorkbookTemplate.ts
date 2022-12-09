@@ -76,9 +76,12 @@ export interface GetWorkbookTemplateResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Application Insights workbook template definition.
+ * API Version: 2019-10-17-preview.
+ */
 export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookTemplateResult> {
-    return pulumi.output(args).apply(a => getWorkbookTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkbookTemplate(a, opts))
 }
 
 export interface GetWorkbookTemplateOutputArgs {

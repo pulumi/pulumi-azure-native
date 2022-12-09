@@ -65,9 +65,11 @@ export interface GetSecurityPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * SecurityPolicy association for AzureFrontDoor profile
+ */
 export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPolicyResult> {
-    return pulumi.output(args).apply(a => getSecurityPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityPolicy(a, opts))
 }
 
 export interface GetSecurityPolicyOutputArgs {

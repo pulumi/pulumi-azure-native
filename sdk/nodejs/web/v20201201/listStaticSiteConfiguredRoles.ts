@@ -52,9 +52,11 @@ export interface ListStaticSiteConfiguredRolesResult {
      */
     readonly type: string;
 }
-
+/**
+ * String list resource.
+ */
 export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {
-    return pulumi.output(args).apply(a => listStaticSiteConfiguredRoles(a, opts))
+    return pulumi.output(args).apply((a: any) => listStaticSiteConfiguredRoles(a, opts))
 }
 
 export interface ListStaticSiteConfiguredRolesOutputArgs {

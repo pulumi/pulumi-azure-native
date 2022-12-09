@@ -101,9 +101,11 @@ export interface GetConnectionResult {
      */
     readonly type?: string;
 }
-
+/**
+ * API Connection
+ */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
-    return pulumi.output(args).apply(a => getConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }
 
 export interface GetConnectionOutputArgs {

@@ -102,9 +102,12 @@ export interface GetMachineExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
-
+/**
+ * Describes a Machine Extension.
+ */
+/** @deprecated Version 2019-08-02-preview will be removed in v2 of the provider. */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
-    return pulumi.output(args).apply(a => getMachineExtension(a, opts))
+    return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
 }
 
 export interface GetMachineExtensionOutputArgs {

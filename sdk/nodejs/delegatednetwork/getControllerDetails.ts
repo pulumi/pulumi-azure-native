@@ -73,9 +73,12 @@ export interface GetControllerDetailsResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents an instance of a DNC controller.
+ * API Version: 2021-03-15.
+ */
 export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerDetailsResult> {
-    return pulumi.output(args).apply(a => getControllerDetails(a, opts))
+    return pulumi.output(args).apply((a: any) => getControllerDetails(a, opts))
 }
 
 export interface GetControllerDetailsOutputArgs {

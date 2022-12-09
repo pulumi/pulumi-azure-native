@@ -59,9 +59,12 @@ export interface GetWCFRelayAuthorizationRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of a namespace authorization rule.
+ * API Version: 2017-04-01.
+ */
 export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getWCFRelayAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getWCFRelayAuthorizationRule(a, opts))
 }
 
 export interface GetWCFRelayAuthorizationRuleOutputArgs {

@@ -75,9 +75,12 @@ export interface GetDatabaseAccountCassandraTableResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB Cassandra table.
+ */
+/** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
 export function getDatabaseAccountCassandraTableOutput(args: GetDatabaseAccountCassandraTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountCassandraTableResult> {
-    return pulumi.output(args).apply(a => getDatabaseAccountCassandraTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabaseAccountCassandraTable(a, opts))
 }
 
 export interface GetDatabaseAccountCassandraTableOutputArgs {

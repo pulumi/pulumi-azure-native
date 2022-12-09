@@ -86,9 +86,12 @@ export interface GetIdentityProviderResult {
      */
     readonly type: string;
 }
-
+/**
+ * Identity Provider details.
+ * API Version: 2020-12-01.
+ */
 export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
-    return pulumi.output(args).apply(a => getIdentityProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getIdentityProvider(a, opts))
 }
 
 export interface GetIdentityProviderOutputArgs {

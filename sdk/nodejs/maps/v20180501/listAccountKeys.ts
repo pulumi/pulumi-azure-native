@@ -44,9 +44,11 @@ export interface ListAccountKeysResult {
      */
     readonly secondaryKey: string;
 }
-
+/**
+ * The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+ */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
-    return pulumi.output(args).apply(a => listAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))
 }
 
 export interface ListAccountKeysOutputArgs {

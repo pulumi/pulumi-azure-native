@@ -73,9 +73,11 @@ export interface GetOfficeIRMDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
+ */
 export function getOfficeIRMDataConnectorOutput(args: GetOfficeIRMDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeIRMDataConnectorResult> {
-    return pulumi.output(args).apply(a => getOfficeIRMDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getOfficeIRMDataConnector(a, opts))
 }
 
 export interface GetOfficeIRMDataConnectorOutputArgs {

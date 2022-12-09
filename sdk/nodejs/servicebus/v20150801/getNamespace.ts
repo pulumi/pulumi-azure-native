@@ -89,9 +89,12 @@ export interface GetNamespaceResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Description of a namespace resource.
+ */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
-    return pulumi.output(args).apply(a => getNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }
 
 export interface GetNamespaceOutputArgs {

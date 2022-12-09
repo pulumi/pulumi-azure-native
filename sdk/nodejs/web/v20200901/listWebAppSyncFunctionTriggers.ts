@@ -40,9 +40,11 @@ export interface ListWebAppSyncFunctionTriggersResult {
      */
     readonly triggerUrl?: string;
 }
-
+/**
+ * Function secrets.
+ */
 export function listWebAppSyncFunctionTriggersOutput(args: ListWebAppSyncFunctionTriggersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersResult> {
-    return pulumi.output(args).apply(a => listWebAppSyncFunctionTriggers(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppSyncFunctionTriggers(a, opts))
 }
 
 export interface ListWebAppSyncFunctionTriggersOutputArgs {

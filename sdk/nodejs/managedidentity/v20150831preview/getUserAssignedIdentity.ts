@@ -70,9 +70,12 @@ export interface GetUserAssignedIdentityResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes an identity resource.
+ */
+/** @deprecated Version 2015-08-31-preview will be removed in v2 of the provider. */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
-    return pulumi.output(args).apply(a => getUserAssignedIdentity(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserAssignedIdentity(a, opts))
 }
 
 export interface GetUserAssignedIdentityOutputArgs {

@@ -138,9 +138,12 @@ export interface GetSubnetResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Subnet in a virtual network resource.
+ * API Version: 2020-11-01.
+ */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
-    return pulumi.output(args).apply(a => getSubnet(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
 }
 
 export interface GetSubnetOutputArgs {

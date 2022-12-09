@@ -55,9 +55,12 @@ export interface GetTableResult {
      */
     readonly type: string;
 }
-
+/**
+ * Properties of the table, including Id, resource name, resource type.
+ */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    return pulumi.output(args).apply(a => getTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }
 
 export interface GetTableOutputArgs {

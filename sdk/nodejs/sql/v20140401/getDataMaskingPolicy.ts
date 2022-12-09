@@ -78,9 +78,11 @@ export interface GetDataMaskingPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a database data masking policy.
+ */
 export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataMaskingPolicyResult> {
-    return pulumi.output(args).apply(a => getDataMaskingPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataMaskingPolicy(a, opts))
 }
 
 export interface GetDataMaskingPolicyOutputArgs {

@@ -85,9 +85,12 @@ export interface GetSapMonitorResult {
      */
     readonly type: string;
 }
-
+/**
+ * SAP monitor info on Azure (ARM properties and SAP monitor properties)
+ * API Version: 2020-02-07-preview.
+ */
 export function getSapMonitorOutput(args: GetSapMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapMonitorResult> {
-    return pulumi.output(args).apply(a => getSapMonitor(a, opts))
+    return pulumi.output(args).apply((a: any) => getSapMonitor(a, opts))
 }
 
 export interface GetSapMonitorOutputArgs {

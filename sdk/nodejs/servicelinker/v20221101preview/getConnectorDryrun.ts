@@ -77,9 +77,11 @@ export interface GetConnectorDryrunResult {
      */
     readonly type: string;
 }
-
+/**
+ * a dryrun job resource
+ */
 export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorDryrunResult> {
-    return pulumi.output(args).apply(a => getConnectorDryrun(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectorDryrun(a, opts))
 }
 
 export interface GetConnectorDryrunOutputArgs {

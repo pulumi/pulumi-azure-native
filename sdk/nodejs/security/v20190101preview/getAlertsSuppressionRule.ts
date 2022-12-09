@@ -70,9 +70,11 @@ export interface GetAlertsSuppressionRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes the suppression rule
+ */
 export function getAlertsSuppressionRuleOutput(args: GetAlertsSuppressionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertsSuppressionRuleResult> {
-    return pulumi.output(args).apply(a => getAlertsSuppressionRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getAlertsSuppressionRule(a, opts))
 }
 
 export interface GetAlertsSuppressionRuleOutputArgs {

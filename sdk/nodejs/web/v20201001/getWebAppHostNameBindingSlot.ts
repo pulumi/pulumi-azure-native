@@ -101,9 +101,11 @@ export interface GetWebAppHostNameBindingSlotResult {
      */
     readonly virtualIP: string;
 }
-
+/**
+ * A hostname binding object.
+ */
 export function getWebAppHostNameBindingSlotOutput(args: GetWebAppHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingSlotResult> {
-    return pulumi.output(args).apply(a => getWebAppHostNameBindingSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppHostNameBindingSlot(a, opts))
 }
 
 export interface GetWebAppHostNameBindingSlotOutputArgs {

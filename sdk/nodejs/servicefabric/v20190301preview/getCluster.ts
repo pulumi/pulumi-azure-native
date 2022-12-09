@@ -173,9 +173,12 @@ export interface GetClusterResult {
      */
     readonly vmImage?: string;
 }
-
+/**
+ * The cluster resource
+ */
+/** @deprecated Version 2019-03-01-preview will be removed in v2 of the provider. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

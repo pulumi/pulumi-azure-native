@@ -135,9 +135,11 @@ export interface GetCertificateResult {
      */
     readonly valid: boolean;
 }
-
+/**
+ * SSL certificate for an app.
+ */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply(a => getCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {

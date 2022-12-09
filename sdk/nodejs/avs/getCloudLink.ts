@@ -58,9 +58,12 @@ export interface GetCloudLinkResult {
      */
     readonly type: string;
 }
-
+/**
+ * A cloud link resource
+ * API Version: 2021-06-01.
+ */
 export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudLinkResult> {
-    return pulumi.output(args).apply(a => getCloudLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getCloudLink(a, opts))
 }
 
 export interface GetCloudLinkOutputArgs {

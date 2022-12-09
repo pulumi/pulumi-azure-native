@@ -71,9 +71,11 @@ export interface GetGrafanaResult {
      */
     readonly type: string;
 }
-
+/**
+ * The grafana resource type.
+ */
 export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
-    return pulumi.output(args).apply(a => getGrafana(a, opts))
+    return pulumi.output(args).apply((a: any) => getGrafana(a, opts))
 }
 
 export interface GetGrafanaOutputArgs {

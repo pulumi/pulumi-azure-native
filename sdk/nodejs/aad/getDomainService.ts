@@ -124,9 +124,12 @@ export interface GetDomainServiceResult {
      */
     readonly version: number;
 }
-
+/**
+ * Domain service.
+ * API Version: 2021-03-01.
+ */
 export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
-    return pulumi.output(args).apply(a => getDomainService(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainService(a, opts))
 }
 
 export interface GetDomainServiceOutputArgs {

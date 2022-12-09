@@ -81,9 +81,12 @@ export interface GetStorageAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a Storage Account on the  Data Box Edge/Gateway device.
+ * API Version: 2020-12-01.
+ */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
-    return pulumi.output(args).apply(a => getStorageAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
 }
 
 export interface GetStorageAccountOutputArgs {

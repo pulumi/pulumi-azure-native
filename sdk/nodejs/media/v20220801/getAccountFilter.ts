@@ -68,9 +68,11 @@ export interface GetAccountFilterResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Account Filter.
+ */
 export function getAccountFilterOutput(args: GetAccountFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountFilterResult> {
-    return pulumi.output(args).apply(a => getAccountFilter(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccountFilter(a, opts))
 }
 
 export interface GetAccountFilterOutputArgs {

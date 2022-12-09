@@ -62,9 +62,12 @@ export interface GetTriggerResult {
      */
     readonly type: string;
 }
-
+/**
+ * Trigger details.
+ */
+/** @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger. */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
-    return pulumi.output(args).apply(a => getTrigger(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrigger(a, opts))
 }
 
 export interface GetTriggerOutputArgs {

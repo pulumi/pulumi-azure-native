@@ -83,9 +83,11 @@ export interface GetPrometheusRuleGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Prometheus rule group resource.
+ */
 export function getPrometheusRuleGroupOutput(args: GetPrometheusRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrometheusRuleGroupResult> {
-    return pulumi.output(args).apply(a => getPrometheusRuleGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrometheusRuleGroup(a, opts))
 }
 
 export interface GetPrometheusRuleGroupOutputArgs {

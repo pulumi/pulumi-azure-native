@@ -79,9 +79,11 @@ export interface GetMonitoringAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Monitoring Account definition
+ */
 export function getMonitoringAccountOutput(args: GetMonitoringAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringAccountResult> {
-    return pulumi.output(args).apply(a => getMonitoringAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getMonitoringAccount(a, opts))
 }
 
 export interface GetMonitoringAccountOutputArgs {

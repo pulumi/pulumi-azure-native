@@ -68,9 +68,11 @@ export interface GetFileServicePropertiesResult {
      */
     readonly type: string;
 }
-
+/**
+ * The properties of File services in storage account.
+ */
 export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServicePropertiesResult> {
-    return pulumi.output(args).apply(a => getFileServiceProperties(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileServiceProperties(a, opts))
 }
 
 export interface GetFileServicePropertiesOutputArgs {

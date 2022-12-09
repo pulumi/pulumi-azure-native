@@ -71,9 +71,11 @@ export interface GetVaultResult {
      */
     readonly type: string;
 }
-
+/**
+ * Resource information, as returned by the resource provider.
+ */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
-    return pulumi.output(args).apply(a => getVault(a, opts))
+    return pulumi.output(args).apply((a: any) => getVault(a, opts))
 }
 
 export interface GetVaultOutputArgs {

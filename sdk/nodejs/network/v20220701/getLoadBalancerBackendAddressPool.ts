@@ -100,9 +100,11 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly virtualNetwork?: outputs.network.v20220701.SubResourceResponse;
 }
-
+/**
+ * Pool of backend IP addresses.
+ */
 export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {
-    return pulumi.output(args).apply(a => getLoadBalancerBackendAddressPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoadBalancerBackendAddressPool(a, opts))
 }
 
 export interface GetLoadBalancerBackendAddressPoolOutputArgs {

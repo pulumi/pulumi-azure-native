@@ -35,9 +35,12 @@ export interface ListGlobalUserLabsResult {
      */
     readonly labs?: outputs.labservices.LabDetailsResponse[];
 }
-
+/**
+ * Lists the labs owned by a user
+ * API Version: 2018-10-15.
+ */
 export function listGlobalUserLabsOutput(args: ListGlobalUserLabsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserLabsResult> {
-    return pulumi.output(args).apply(a => listGlobalUserLabs(a, opts))
+    return pulumi.output(args).apply((a: any) => listGlobalUserLabs(a, opts))
 }
 
 export interface ListGlobalUserLabsOutputArgs {

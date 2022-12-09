@@ -119,9 +119,11 @@ export interface GetDefaultAdminRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Network default admin rule.
+ */
 export function getDefaultAdminRuleOutput(args: GetDefaultAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultAdminRuleResult> {
-    return pulumi.output(args).apply(a => getDefaultAdminRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getDefaultAdminRule(a, opts))
 }
 
 export interface GetDefaultAdminRuleOutputArgs {

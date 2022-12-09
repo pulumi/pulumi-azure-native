@@ -92,9 +92,12 @@ export interface GetServerEndpointResult {
      */
     readonly volumeFreeSpacePercent?: number;
 }
-
+/**
+ * Server Endpoint object.
+ */
+/** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerEndpointResult> {
-    return pulumi.output(args).apply(a => getServerEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerEndpoint(a, opts))
 }
 
 export interface GetServerEndpointOutputArgs {

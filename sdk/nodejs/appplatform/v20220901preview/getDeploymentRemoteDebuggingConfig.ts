@@ -50,9 +50,11 @@ export interface GetDeploymentRemoteDebuggingConfigResult {
      */
     readonly port?: number;
 }
-
+/**
+ * Remote debugging config.
+ */
 export function getDeploymentRemoteDebuggingConfigOutput(args: GetDeploymentRemoteDebuggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentRemoteDebuggingConfigResult> {
-    return pulumi.output(args).apply(a => getDeploymentRemoteDebuggingConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeploymentRemoteDebuggingConfig(a, opts))
 }
 
 export interface GetDeploymentRemoteDebuggingConfigOutputArgs {

@@ -73,9 +73,12 @@ export interface GetCollectorPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * Collector policy resource.
+ * API Version: 2022-05-01.
+ */
 export function getCollectorPolicyOutput(args: GetCollectorPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectorPolicyResult> {
-    return pulumi.output(args).apply(a => getCollectorPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getCollectorPolicy(a, opts))
 }
 
 export interface GetCollectorPolicyOutputArgs {

@@ -37,9 +37,11 @@ export interface ListWorkspaceCollectionAccessKeysResult {
      */
     readonly key2?: string;
 }
-
+/**
+ * API Version: 2016-01-29.
+ */
 export function listWorkspaceCollectionAccessKeysOutput(args: ListWorkspaceCollectionAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceCollectionAccessKeysResult> {
-    return pulumi.output(args).apply(a => listWorkspaceCollectionAccessKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listWorkspaceCollectionAccessKeys(a, opts))
 }
 
 export interface ListWorkspaceCollectionAccessKeysOutputArgs {

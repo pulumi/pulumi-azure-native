@@ -70,9 +70,11 @@ export interface ListTopicKeysResult {
      */
     readonly secondaryKey: string;
 }
-
+/**
+ * Namespace/ServiceBus Connection String
+ */
 export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicKeysResult> {
-    return pulumi.output(args).apply(a => listTopicKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listTopicKeys(a, opts))
 }
 
 export interface ListTopicKeysOutputArgs {

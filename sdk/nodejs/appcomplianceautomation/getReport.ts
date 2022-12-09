@@ -51,9 +51,12 @@ export interface GetReportResult {
      */
     readonly type: string;
 }
-
+/**
+ * A class represent an AppComplianceAutomation report resource.
+ * API Version: 2022-11-16-preview.
+ */
 export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {
-    return pulumi.output(args).apply(a => getReport(a, opts))
+    return pulumi.output(args).apply((a: any) => getReport(a, opts))
 }
 
 export interface GetReportOutputArgs {

@@ -69,9 +69,11 @@ export interface GetTopicAuthorizationRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of a namespace authorization rule.
+ */
 export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getTopicAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopicAuthorizationRule(a, opts))
 }
 
 export interface GetTopicAuthorizationRuleOutputArgs {

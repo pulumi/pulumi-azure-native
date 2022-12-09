@@ -71,9 +71,12 @@ export interface GetApiReleaseResult {
      */
     readonly updatedDateTime: string;
 }
-
+/**
+ * ApiRelease details.
+ * API Version: 2020-12-01.
+ */
 export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
-    return pulumi.output(args).apply(a => getApiRelease(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiRelease(a, opts))
 }
 
 export interface GetApiReleaseOutputArgs {

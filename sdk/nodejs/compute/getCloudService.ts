@@ -60,9 +60,12 @@ export interface GetCloudServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes the cloud service.
+ * API Version: 2021-03-01.
+ */
 export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServiceResult> {
-    return pulumi.output(args).apply(a => getCloudService(a, opts))
+    return pulumi.output(args).apply((a: any) => getCloudService(a, opts))
 }
 
 export interface GetCloudServiceOutputArgs {

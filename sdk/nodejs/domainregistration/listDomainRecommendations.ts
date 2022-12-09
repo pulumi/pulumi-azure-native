@@ -45,9 +45,12 @@ export interface ListDomainRecommendationsResult {
      */
     readonly value: outputs.domainregistration.NameIdentifierResponse[];
 }
-
+/**
+ * Collection of domain name identifiers.
+ * API Version: 2020-10-01.
+ */
 export function listDomainRecommendationsOutput(args?: ListDomainRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainRecommendationsResult> {
-    return pulumi.output(args).apply(a => listDomainRecommendations(a, opts))
+    return pulumi.output(args).apply((a: any) => listDomainRecommendations(a, opts))
 }
 
 export interface ListDomainRecommendationsOutputArgs {

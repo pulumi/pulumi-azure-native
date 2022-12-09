@@ -45,9 +45,11 @@ export interface ListIntegrationRuntimeAuthKeysResult {
      */
     readonly authKey2?: string;
 }
-
+/**
+ * The integration runtime authentication keys.
+ */
 export function listIntegrationRuntimeAuthKeysOutput(args: ListIntegrationRuntimeAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationRuntimeAuthKeysResult> {
-    return pulumi.output(args).apply(a => listIntegrationRuntimeAuthKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listIntegrationRuntimeAuthKeys(a, opts))
 }
 
 export interface ListIntegrationRuntimeAuthKeysOutputArgs {

@@ -54,9 +54,12 @@ export interface ListMachineLearningComputeNodesResult {
      */
     readonly nodes: outputs.machinelearningservices.AmlComputeNodeInformationResponse[];
 }
-
+/**
+ * Compute node information related to a AmlCompute.
+ * API Version: 2021-01-01.
+ */
 export function listMachineLearningComputeNodesOutput(args: ListMachineLearningComputeNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMachineLearningComputeNodesResult> {
-    return pulumi.output(args).apply(a => listMachineLearningComputeNodes(a, opts))
+    return pulumi.output(args).apply((a: any) => listMachineLearningComputeNodes(a, opts))
 }
 
 export interface ListMachineLearningComputeNodesOutputArgs {

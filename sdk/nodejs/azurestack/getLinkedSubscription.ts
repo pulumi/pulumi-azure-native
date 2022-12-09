@@ -96,9 +96,12 @@ export interface GetLinkedSubscriptionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Linked Subscription information.
+ * API Version: 2020-06-01-preview.
+ */
 export function getLinkedSubscriptionOutput(args: GetLinkedSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedSubscriptionResult> {
-    return pulumi.output(args).apply(a => getLinkedSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getLinkedSubscription(a, opts))
 }
 
 export interface GetLinkedSubscriptionOutputArgs {

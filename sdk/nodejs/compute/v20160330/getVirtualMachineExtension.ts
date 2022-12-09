@@ -99,9 +99,12 @@ export interface GetVirtualMachineExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
-
+/**
+ * Describes a Virtual Machine Extension.
+ */
+/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getVirtualMachineExtensionOutput(args: GetVirtualMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineExtensionResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineExtension(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineExtension(a, opts))
 }
 
 export interface GetVirtualMachineExtensionOutputArgs {

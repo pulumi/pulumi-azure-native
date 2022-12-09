@@ -59,9 +59,12 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of a namespace authorization rule.
+ */
+/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getNamespaceAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }
 
 export interface GetNamespaceAuthorizationRuleOutputArgs {

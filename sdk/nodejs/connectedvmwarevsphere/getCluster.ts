@@ -108,9 +108,12 @@ export interface GetClusterResult {
      */
     readonly vCenterId?: string;
 }
-
+/**
+ * Define the cluster.
+ * API Version: 2020-10-01-preview.
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

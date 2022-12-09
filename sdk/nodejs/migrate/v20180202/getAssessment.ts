@@ -142,9 +142,11 @@ export interface GetAssessmentResult {
      */
     readonly updatedTimestamp: string;
 }
-
+/**
+ * An assessment created for a group in the Migration project.
+ */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
-    return pulumi.output(args).apply(a => getAssessment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssessment(a, opts))
 }
 
 export interface GetAssessmentOutputArgs {

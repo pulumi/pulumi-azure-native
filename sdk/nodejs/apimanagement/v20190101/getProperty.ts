@@ -65,9 +65,11 @@ export interface GetPropertyResult {
      */
     readonly value: string;
 }
-
+/**
+ * Property details.
+ */
 export function getPropertyOutput(args: GetPropertyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPropertyResult> {
-    return pulumi.output(args).apply(a => getProperty(a, opts))
+    return pulumi.output(args).apply((a: any) => getProperty(a, opts))
 }
 
 export interface GetPropertyOutputArgs {

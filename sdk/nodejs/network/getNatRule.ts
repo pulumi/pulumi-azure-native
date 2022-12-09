@@ -85,9 +85,12 @@ export interface GetNatRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * VpnGatewayNatRule Resource.
+ * API Version: 2020-11-01.
+ */
 export function getNatRuleOutput(args: GetNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatRuleResult> {
-    return pulumi.output(args).apply(a => getNatRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getNatRule(a, opts))
 }
 
 export interface GetNatRuleOutputArgs {

@@ -61,9 +61,11 @@ export interface GetServerTrustCertificateResult {
      */
     readonly type: string;
 }
-
+/**
+ * Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+ */
 export function getServerTrustCertificateOutput(args: GetServerTrustCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustCertificateResult> {
-    return pulumi.output(args).apply(a => getServerTrustCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerTrustCertificate(a, opts))
 }
 
 export interface GetServerTrustCertificateOutputArgs {

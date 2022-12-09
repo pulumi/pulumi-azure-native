@@ -82,9 +82,11 @@ export interface GetKustoDatabaseDataSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * A kusto database data set.
+ */
 export function getKustoDatabaseDataSetOutput(args: GetKustoDatabaseDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoDatabaseDataSetResult> {
-    return pulumi.output(args).apply(a => getKustoDatabaseDataSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getKustoDatabaseDataSet(a, opts))
 }
 
 export interface GetKustoDatabaseDataSetOutputArgs {

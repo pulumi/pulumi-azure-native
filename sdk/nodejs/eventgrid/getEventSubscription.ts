@@ -88,9 +88,12 @@ export interface GetEventSubscriptionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Event Subscription
+ * API Version: 2020-06-01.
+ */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
-    return pulumi.output(args).apply(a => getEventSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventSubscription(a, opts))
 }
 
 export interface GetEventSubscriptionOutputArgs {

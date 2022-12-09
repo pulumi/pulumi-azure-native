@@ -45,9 +45,12 @@ export interface ListStorageAccountKeysResult {
      */
     readonly keys: outputs.storage.StorageAccountKeyResponse[];
 }
-
+/**
+ * The response from the ListKeys operation.
+ * API Version: 2021-02-01.
+ */
 export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
-    return pulumi.output(args).apply(a => listStorageAccountKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listStorageAccountKeys(a, opts))
 }
 
 export interface ListStorageAccountKeysOutputArgs {

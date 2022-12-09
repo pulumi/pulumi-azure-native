@@ -91,9 +91,11 @@ export interface GetPrivateStoreOfferResult {
      */
     readonly updateSuppressedDueIdempotence?: boolean;
 }
-
+/**
+ * The privateStore offer data structure.
+ */
 export function getPrivateStoreOfferOutput(args: GetPrivateStoreOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreOfferResult> {
-    return pulumi.output(args).apply(a => getPrivateStoreOffer(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateStoreOffer(a, opts))
 }
 
 export interface GetPrivateStoreOfferOutputArgs {

@@ -97,9 +97,12 @@ export interface GetFlowLogResult {
      */
     readonly type: string;
 }
-
+/**
+ * A flow log resource.
+ * API Version: 2020-11-01.
+ */
 export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {
-    return pulumi.output(args).apply(a => getFlowLog(a, opts))
+    return pulumi.output(args).apply((a: any) => getFlowLog(a, opts))
 }
 
 export interface GetFlowLogOutputArgs {

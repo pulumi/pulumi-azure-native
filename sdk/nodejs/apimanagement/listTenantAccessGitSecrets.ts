@@ -54,9 +54,12 @@ export interface ListTenantAccessGitSecretsResult {
      */
     readonly secondaryKey?: string;
 }
-
+/**
+ * Tenant access information contract of the API Management service.
+ * API Version: 2019-12-01.
+ */
 export function listTenantAccessGitSecretsOutput(args: ListTenantAccessGitSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessGitSecretsResult> {
-    return pulumi.output(args).apply(a => listTenantAccessGitSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => listTenantAccessGitSecrets(a, opts))
 }
 
 export interface ListTenantAccessGitSecretsOutputArgs {

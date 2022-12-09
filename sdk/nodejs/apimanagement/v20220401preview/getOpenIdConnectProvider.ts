@@ -77,9 +77,11 @@ export interface GetOpenIdConnectProviderResult {
      */
     readonly useInTestConsole?: boolean;
 }
-
+/**
+ * OpenId Connect Provider details.
+ */
 export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
-    return pulumi.output(args).apply(a => getOpenIdConnectProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getOpenIdConnectProvider(a, opts))
 }
 
 export interface GetOpenIdConnectProviderOutputArgs {

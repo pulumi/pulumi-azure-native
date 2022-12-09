@@ -119,9 +119,11 @@ export interface GetServiceFabricScheduleResult {
      */
     readonly weeklyRecurrence?: outputs.devtestlab.v20180915.WeekDetailsResponse;
 }
-
+/**
+ * A schedule.
+ */
 export function getServiceFabricScheduleOutput(args: GetServiceFabricScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricScheduleResult> {
-    return pulumi.output(args).apply(a => getServiceFabricSchedule(a, opts))
+    return pulumi.output(args).apply((a: any) => getServiceFabricSchedule(a, opts))
 }
 
 export interface GetServiceFabricScheduleOutputArgs {

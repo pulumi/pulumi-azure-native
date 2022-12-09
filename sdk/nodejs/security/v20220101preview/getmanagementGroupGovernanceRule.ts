@@ -103,9 +103,11 @@ export interface GetmanagementGroupGovernanceRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Governance rule over a given scope
+ */
 export function getmanagementGroupGovernanceRuleOutput(args: GetmanagementGroupGovernanceRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagementGroupGovernanceRuleResult> {
-    return pulumi.output(args).apply(a => getmanagementGroupGovernanceRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getmanagementGroupGovernanceRule(a, opts))
 }
 
 export interface GetmanagementGroupGovernanceRuleOutputArgs {

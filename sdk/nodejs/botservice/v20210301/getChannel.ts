@@ -80,9 +80,11 @@ export interface GetChannelResult {
      */
     readonly zones: string[];
 }
-
+/**
+ * Bot channel resource definition
+ */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    return pulumi.output(args).apply(a => getChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {

@@ -119,9 +119,12 @@ export interface GetSourceControlConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * The SourceControl Configuration object returned in Get & Put response.
+ * API Version: 2021-03-01.
+ */
 export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlConfigurationResult> {
-    return pulumi.output(args).apply(a => getSourceControlConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getSourceControlConfiguration(a, opts))
 }
 
 export interface GetSourceControlConfigurationOutputArgs {

@@ -71,9 +71,12 @@ export interface GetGeoBackupPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * A database geo backup policy.
+ * API Version: 2014-04-01.
+ */
 export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoBackupPolicyResult> {
-    return pulumi.output(args).apply(a => getGeoBackupPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getGeoBackupPolicy(a, opts))
 }
 
 export interface GetGeoBackupPolicyOutputArgs {

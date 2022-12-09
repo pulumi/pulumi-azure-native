@@ -86,9 +86,12 @@ export interface GetKeyValueResult {
      */
     readonly value?: string;
 }
-
+/**
+ * The key-value resource along with all resource properties.
+ * API Version: 2020-07-01-preview.
+ */
 export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueResult> {
-    return pulumi.output(args).apply(a => getKeyValue(a, opts))
+    return pulumi.output(args).apply((a: any) => getKeyValue(a, opts))
 }
 
 export interface GetKeyValueOutputArgs {

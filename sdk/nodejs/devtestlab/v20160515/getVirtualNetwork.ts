@@ -99,9 +99,12 @@ export interface GetVirtualNetworkResult {
      */
     readonly uniqueIdentifier?: string;
 }
-
+/**
+ * A virtual network.
+ */
+/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
 }
 
 export interface GetVirtualNetworkOutputArgs {

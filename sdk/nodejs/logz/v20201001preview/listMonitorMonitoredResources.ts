@@ -43,9 +43,11 @@ export interface ListMonitorMonitoredResourcesResult {
      */
     readonly value?: outputs.logz.v20201001preview.MonitoredResourceResponse[];
 }
-
+/**
+ * Response of a list operation.
+ */
 export function listMonitorMonitoredResourcesOutput(args: ListMonitorMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorMonitoredResourcesResult> {
-    return pulumi.output(args).apply(a => listMonitorMonitoredResources(a, opts))
+    return pulumi.output(args).apply((a: any) => listMonitorMonitoredResources(a, opts))
 }
 
 export interface ListMonitorMonitoredResourcesOutputArgs {

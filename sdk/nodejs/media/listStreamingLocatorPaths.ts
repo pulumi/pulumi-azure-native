@@ -49,9 +49,12 @@ export interface ListStreamingLocatorPathsResult {
      */
     readonly streamingPaths?: outputs.media.StreamingPathResponse[];
 }
-
+/**
+ * Class of response for listPaths action
+ * API Version: 2020-05-01.
+ */
 export function listStreamingLocatorPathsOutput(args: ListStreamingLocatorPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorPathsResult> {
-    return pulumi.output(args).apply(a => listStreamingLocatorPaths(a, opts))
+    return pulumi.output(args).apply((a: any) => listStreamingLocatorPaths(a, opts))
 }
 
 export interface ListStreamingLocatorPathsOutputArgs {

@@ -49,9 +49,12 @@ export interface ListSourceControlRepositoriesResult {
      */
     readonly value: outputs.securityinsights.RepoResponse[];
 }
-
+/**
+ * List all the source controls.
+ * API Version: 2021-03-01-preview.
+ */
 export function listSourceControlRepositoriesOutput(args: ListSourceControlRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSourceControlRepositoriesResult> {
-    return pulumi.output(args).apply(a => listSourceControlRepositories(a, opts))
+    return pulumi.output(args).apply((a: any) => listSourceControlRepositories(a, opts))
 }
 
 export interface ListSourceControlRepositoriesOutputArgs {

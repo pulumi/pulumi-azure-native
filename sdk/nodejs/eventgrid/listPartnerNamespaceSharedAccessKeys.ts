@@ -41,9 +41,12 @@ export interface ListPartnerNamespaceSharedAccessKeysResult {
      */
     readonly key2?: string;
 }
-
+/**
+ * Shared access keys of the partner namespace.
+ * API Version: 2021-06-01-preview.
+ */
 export function listPartnerNamespaceSharedAccessKeysOutput(args: ListPartnerNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPartnerNamespaceSharedAccessKeysResult> {
-    return pulumi.output(args).apply(a => listPartnerNamespaceSharedAccessKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listPartnerNamespaceSharedAccessKeys(a, opts))
 }
 
 export interface ListPartnerNamespaceSharedAccessKeysOutputArgs {

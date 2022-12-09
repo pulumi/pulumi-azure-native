@@ -43,9 +43,11 @@ export interface ListMonitorApiKeysResult {
      */
     readonly value?: outputs.datadog.v20210301.DatadogApiKeyResponse[];
 }
-
+/**
+ * Response of a list operation.
+ */
 export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorApiKeysResult> {
-    return pulumi.output(args).apply(a => listMonitorApiKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listMonitorApiKeys(a, opts))
 }
 
 export interface ListMonitorApiKeysOutputArgs {

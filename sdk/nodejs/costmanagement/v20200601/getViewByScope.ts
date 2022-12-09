@@ -99,9 +99,11 @@ export interface GetViewByScopeResult {
      */
     readonly type: string;
 }
-
+/**
+ * States and configurations of Cost Analysis.
+ */
 export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewByScopeResult> {
-    return pulumi.output(args).apply(a => getViewByScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getViewByScope(a, opts))
 }
 
 export interface GetViewByScopeOutputArgs {

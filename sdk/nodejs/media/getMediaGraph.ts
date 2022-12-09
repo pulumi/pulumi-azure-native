@@ -77,9 +77,12 @@ export interface GetMediaGraphResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Media Graph.
+ * API Version: 2020-02-01-preview.
+ */
 export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaGraphResult> {
-    return pulumi.output(args).apply(a => getMediaGraph(a, opts))
+    return pulumi.output(args).apply((a: any) => getMediaGraph(a, opts))
 }
 
 export interface GetMediaGraphOutputArgs {

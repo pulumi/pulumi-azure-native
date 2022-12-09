@@ -51,9 +51,8 @@ export interface GetWorkflowAccessKeyResult {
      */
     readonly type: string;
 }
-
 export function getWorkflowAccessKeyOutput(args: GetWorkflowAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowAccessKeyResult> {
-    return pulumi.output(args).apply(a => getWorkflowAccessKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkflowAccessKey(a, opts))
 }
 
 export interface GetWorkflowAccessKeyOutputArgs {

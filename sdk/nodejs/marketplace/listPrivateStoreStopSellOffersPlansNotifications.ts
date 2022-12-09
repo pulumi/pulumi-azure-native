@@ -34,9 +34,12 @@ export interface ListPrivateStoreStopSellOffersPlansNotificationsArgs {
 export interface ListPrivateStoreStopSellOffersPlansNotificationsResult {
     readonly stopSellNotifications?: outputs.marketplace.StopSellOffersPlansNotificationsListPropertiesResponse[];
 }
-
+/**
+ * List of stop sell offers and plans notifications.
+ * API Version: 2021-12-01.
+ */
 export function listPrivateStoreStopSellOffersPlansNotificationsOutput(args: ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
-    return pulumi.output(args).apply(a => listPrivateStoreStopSellOffersPlansNotifications(a, opts))
+    return pulumi.output(args).apply((a: any) => listPrivateStoreStopSellOffersPlansNotifications(a, opts))
 }
 
 export interface ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs {

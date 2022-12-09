@@ -76,9 +76,11 @@ export interface GetContainerAppsAuthConfigResult {
      */
     readonly type: string;
 }
-
+/**
+ * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
+ */
 export function getContainerAppsAuthConfigOutput(args: GetContainerAppsAuthConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsAuthConfigResult> {
-    return pulumi.output(args).apply(a => getContainerAppsAuthConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getContainerAppsAuthConfig(a, opts))
 }
 
 export interface GetContainerAppsAuthConfigOutputArgs {

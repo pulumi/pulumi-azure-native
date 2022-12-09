@@ -75,9 +75,12 @@ export interface ListIntegrationAccountSchemaContentCallbackUrlResult {
      */
     readonly value: string;
 }
-
+/**
+ * The workflow trigger callback URL.
+ * API Version: 2019-05-01.
+ */
 export function listIntegrationAccountSchemaContentCallbackUrlOutput(args: ListIntegrationAccountSchemaContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountSchemaContentCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listIntegrationAccountSchemaContentCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listIntegrationAccountSchemaContentCallbackUrl(a, opts))
 }
 
 export interface ListIntegrationAccountSchemaContentCallbackUrlOutputArgs {

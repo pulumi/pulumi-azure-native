@@ -77,9 +77,12 @@ export interface ListWebAppBackupConfigurationSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of a backup which will be performed.
+ * API Version: 2020-12-01.
+ */
 export function listWebAppBackupConfigurationSlotOutput(args: ListWebAppBackupConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupConfigurationSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppBackupConfigurationSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppBackupConfigurationSlot(a, opts))
 }
 
 export interface ListWebAppBackupConfigurationSlotOutputArgs {

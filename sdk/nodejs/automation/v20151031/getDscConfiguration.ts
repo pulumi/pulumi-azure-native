@@ -104,9 +104,11 @@ export interface GetDscConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the configuration type.
+ */
 export function getDscConfigurationOutput(args: GetDscConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscConfigurationResult> {
-    return pulumi.output(args).apply(a => getDscConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getDscConfiguration(a, opts))
 }
 
 export interface GetDscConfigurationOutputArgs {

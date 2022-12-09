@@ -66,9 +66,12 @@ export interface GetConnectionGatewayResult {
      */
     readonly type: string;
 }
-
+/**
+ * The gateway definition
+ * API Version: 2016-06-01.
+ */
 export function getConnectionGatewayOutput(args: GetConnectionGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionGatewayResult> {
-    return pulumi.output(args).apply(a => getConnectionGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectionGateway(a, opts))
 }
 
 export interface GetConnectionGatewayOutputArgs {

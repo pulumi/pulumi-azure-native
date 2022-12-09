@@ -161,9 +161,11 @@ export interface GetAppServicePlanResult {
      */
     readonly zoneRedundant?: boolean;
 }
-
+/**
+ * App Service plan.
+ */
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
-    return pulumi.output(args).apply(a => getAppServicePlan(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppServicePlan(a, opts))
 }
 
 export interface GetAppServicePlanOutputArgs {

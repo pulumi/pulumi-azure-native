@@ -66,9 +66,12 @@ export interface GetNotificationHubResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Description of a NotificationHub Resource.
+ */
+/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {
-    return pulumi.output(args).apply(a => getNotificationHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getNotificationHub(a, opts))
 }
 
 export interface GetNotificationHubOutputArgs {

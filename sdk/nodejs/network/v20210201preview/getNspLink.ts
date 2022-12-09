@@ -93,9 +93,11 @@ export interface GetNspLinkResult {
      */
     readonly type: string;
 }
-
+/**
+ * The network security perimeter link resource
+ */
 export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspLinkResult> {
-    return pulumi.output(args).apply(a => getNspLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getNspLink(a, opts))
 }
 
 export interface GetNspLinkOutputArgs {

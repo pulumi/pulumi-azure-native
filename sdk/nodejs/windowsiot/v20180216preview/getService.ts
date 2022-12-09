@@ -78,9 +78,12 @@ export interface GetServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * The description of the Windows IoT Device Service.
+ */
+/** @deprecated Version 2018-02-16-preview will be removed in v2 of the provider. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

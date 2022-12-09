@@ -77,9 +77,12 @@ export interface GetLivePipelineResult {
      */
     readonly type: string;
 }
-
+/**
+ * Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
+ * API Version: 2021-11-01-preview.
+ */
 export function getLivePipelineOutput(args: GetLivePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLivePipelineResult> {
-    return pulumi.output(args).apply(a => getLivePipeline(a, opts))
+    return pulumi.output(args).apply((a: any) => getLivePipeline(a, opts))
 }
 
 export interface GetLivePipelineOutputArgs {

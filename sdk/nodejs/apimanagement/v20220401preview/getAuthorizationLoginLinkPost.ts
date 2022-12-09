@@ -51,9 +51,11 @@ export interface GetAuthorizationLoginLinkPostResult {
      */
     readonly loginLink?: string;
 }
-
+/**
+ * Authorization login response contract.
+ */
 export function getAuthorizationLoginLinkPostOutput(args: GetAuthorizationLoginLinkPostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationLoginLinkPostResult> {
-    return pulumi.output(args).apply(a => getAuthorizationLoginLinkPost(a, opts))
+    return pulumi.output(args).apply((a: any) => getAuthorizationLoginLinkPost(a, opts))
 }
 
 export interface GetAuthorizationLoginLinkPostOutputArgs {

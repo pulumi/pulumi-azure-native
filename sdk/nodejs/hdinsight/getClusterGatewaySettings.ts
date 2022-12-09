@@ -45,9 +45,12 @@ export interface GetClusterGatewaySettingsResult {
      */
     readonly userName: string;
 }
-
+/**
+ * Gateway settings.
+ * API Version: 2018-06-01-preview.
+ */
 export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
-    return pulumi.output(args).apply(a => getClusterGatewaySettings(a, opts))
+    return pulumi.output(args).apply((a: any) => getClusterGatewaySettings(a, opts))
 }
 
 export interface GetClusterGatewaySettingsOutputArgs {

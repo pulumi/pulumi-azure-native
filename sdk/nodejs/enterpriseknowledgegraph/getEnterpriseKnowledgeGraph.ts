@@ -64,9 +64,12 @@ export interface GetEnterpriseKnowledgeGraphResult {
      */
     readonly type: string;
 }
-
+/**
+ * EnterpriseKnowledgeGraph resource definition
+ * API Version: 2018-12-03.
+ */
 export function getEnterpriseKnowledgeGraphOutput(args: GetEnterpriseKnowledgeGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseKnowledgeGraphResult> {
-    return pulumi.output(args).apply(a => getEnterpriseKnowledgeGraph(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnterpriseKnowledgeGraph(a, opts))
 }
 
 export interface GetEnterpriseKnowledgeGraphOutputArgs {

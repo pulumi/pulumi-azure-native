@@ -142,9 +142,11 @@ export interface GetLabResult {
      */
     readonly vmCreationResourceGroup: string;
 }
-
+/**
+ * A lab.
+ */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
-    return pulumi.output(args).apply(a => getLab(a, opts))
+    return pulumi.output(args).apply((a: any) => getLab(a, opts))
 }
 
 export interface GetLabOutputArgs {

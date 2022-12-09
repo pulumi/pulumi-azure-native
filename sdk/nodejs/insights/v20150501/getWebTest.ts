@@ -103,9 +103,11 @@ export interface GetWebTestResult {
      */
     readonly webTestName: string;
 }
-
+/**
+ * An Application Insights web test definition.
+ */
 export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebTestResult> {
-    return pulumi.output(args).apply(a => getWebTest(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebTest(a, opts))
 }
 
 export interface GetWebTestOutputArgs {

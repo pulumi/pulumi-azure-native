@@ -84,9 +84,11 @@ export interface GetExportResult {
      */
     readonly type: string;
 }
-
+/**
+ * An export resource.
+ */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
-    return pulumi.output(args).apply(a => getExport(a, opts))
+    return pulumi.output(args).apply((a: any) => getExport(a, opts))
 }
 
 export interface GetExportOutputArgs {

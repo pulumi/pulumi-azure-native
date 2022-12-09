@@ -61,9 +61,11 @@ export interface GetGlobalSchemaResult {
      */
     readonly value?: any;
 }
-
+/**
+ * Global Schema Contract details.
+ */
 export function getGlobalSchemaOutput(args: GetGlobalSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalSchemaResult> {
-    return pulumi.output(args).apply(a => getGlobalSchema(a, opts))
+    return pulumi.output(args).apply((a: any) => getGlobalSchema(a, opts))
 }
 
 export interface GetGlobalSchemaOutputArgs {

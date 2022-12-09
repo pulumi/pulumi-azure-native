@@ -86,9 +86,12 @@ export interface GetAgentPoolResult {
      */
     readonly virtualNetworkSubnetResourceId?: string;
 }
-
+/**
+ * The agentpool that has the ARM resource and properties.
+ * The agentpool will have all information to create an agent pool.
+ */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
-    return pulumi.output(args).apply(a => getAgentPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
 }
 
 export interface GetAgentPoolOutputArgs {

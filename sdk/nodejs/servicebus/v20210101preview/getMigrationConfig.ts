@@ -76,9 +76,11 @@ export interface GetMigrationConfigResult {
      */
     readonly type: string;
 }
-
+/**
+ * Single item in List or Get Migration Config operation
+ */
 export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationConfigResult> {
-    return pulumi.output(args).apply(a => getMigrationConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getMigrationConfig(a, opts))
 }
 
 export interface GetMigrationConfigOutputArgs {

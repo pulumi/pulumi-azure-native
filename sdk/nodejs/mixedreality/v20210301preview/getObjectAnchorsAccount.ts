@@ -84,9 +84,11 @@ export interface GetObjectAnchorsAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * ObjectAnchorsAccount Response.
+ */
 export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
-    return pulumi.output(args).apply(a => getObjectAnchorsAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getObjectAnchorsAccount(a, opts))
 }
 
 export interface GetObjectAnchorsAccountOutputArgs {

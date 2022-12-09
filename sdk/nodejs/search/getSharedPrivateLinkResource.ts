@@ -57,9 +57,12 @@ export interface GetSharedPrivateLinkResourceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+ * API Version: 2020-08-01.
+ */
 export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
-    return pulumi.output(args).apply(a => getSharedPrivateLinkResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getSharedPrivateLinkResource(a, opts))
 }
 
 export interface GetSharedPrivateLinkResourceOutputArgs {

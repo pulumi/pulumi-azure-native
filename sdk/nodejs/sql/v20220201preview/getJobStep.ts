@@ -86,9 +86,11 @@ export interface GetJobStepResult {
      */
     readonly type: string;
 }
-
+/**
+ * A job step.
+ */
 export function getJobStepOutput(args: GetJobStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobStepResult> {
-    return pulumi.output(args).apply(a => getJobStep(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobStep(a, opts))
 }
 
 export interface GetJobStepOutputArgs {

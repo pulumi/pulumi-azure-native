@@ -77,9 +77,11 @@ export interface GetIoTRoleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Compute role.
+ */
 export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
-    return pulumi.output(args).apply(a => getIoTRole(a, opts))
+    return pulumi.output(args).apply((a: any) => getIoTRole(a, opts))
 }
 
 export interface GetIoTRoleOutputArgs {

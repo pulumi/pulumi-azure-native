@@ -79,9 +79,11 @@ export interface GetPeeringResult {
      */
     readonly type: string;
 }
-
+/**
+ * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+ */
 export function getPeeringOutput(args: GetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringResult> {
-    return pulumi.output(args).apply(a => getPeering(a, opts))
+    return pulumi.output(args).apply((a: any) => getPeering(a, opts))
 }
 
 export interface GetPeeringOutputArgs {

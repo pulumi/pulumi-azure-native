@@ -58,9 +58,11 @@ export interface GetSecurityContactResult {
      */
     readonly type: string;
 }
-
+/**
+ * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
+ */
 export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityContactResult> {
-    return pulumi.output(args).apply(a => getSecurityContact(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityContact(a, opts))
 }
 
 export interface GetSecurityContactOutputArgs {

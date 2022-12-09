@@ -85,9 +85,12 @@ export interface GetContainerServiceResult {
      */
     readonly windowsProfile?: outputs.containerservice.v20160330.ContainerServiceWindowsProfileResponse;
 }
-
+/**
+ * Container service.
+ */
+/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getContainerServiceOutput(args: GetContainerServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerServiceResult> {
-    return pulumi.output(args).apply(a => getContainerService(a, opts))
+    return pulumi.output(args).apply((a: any) => getContainerService(a, opts))
 }
 
 export interface GetContainerServiceOutputArgs {

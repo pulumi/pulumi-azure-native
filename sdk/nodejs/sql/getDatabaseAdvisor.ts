@@ -90,9 +90,12 @@ export interface GetDatabaseAdvisorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Database, Server or Elastic Pool Advisor.
+ * API Version: 2020-11-01-preview.
+ */
 export function getDatabaseAdvisorOutput(args: GetDatabaseAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAdvisorResult> {
-    return pulumi.output(args).apply(a => getDatabaseAdvisor(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabaseAdvisor(a, opts))
 }
 
 export interface GetDatabaseAdvisorOutputArgs {

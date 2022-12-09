@@ -124,9 +124,12 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Packet core control plane resource.
+ * API Version: 2022-04-01-preview.
+ */
 export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
-    return pulumi.output(args).apply(a => getPacketCoreControlPlane(a, opts))
+    return pulumi.output(args).apply((a: any) => getPacketCoreControlPlane(a, opts))
 }
 
 export interface GetPacketCoreControlPlaneOutputArgs {

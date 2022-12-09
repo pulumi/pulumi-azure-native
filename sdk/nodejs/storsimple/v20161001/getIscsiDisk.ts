@@ -93,9 +93,12 @@ export interface GetIscsiDiskResult {
      */
     readonly usedCapacityInBytes: number;
 }
-
+/**
+ * The iSCSI disk.
+ */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiDiskOutput(args: GetIscsiDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiDiskResult> {
-    return pulumi.output(args).apply(a => getIscsiDisk(a, opts))
+    return pulumi.output(args).apply((a: any) => getIscsiDisk(a, opts))
 }
 
 export interface GetIscsiDiskOutputArgs {

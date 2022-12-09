@@ -117,9 +117,12 @@ export interface GetSqlVirtualMachineResult {
      */
     readonly wsfcDomainCredentials?: outputs.sqlvirtualmachine.WsfcDomainCredentialsResponse;
 }
-
+/**
+ * A SQL virtual machine.
+ * API Version: 2017-03-01-preview.
+ */
 export function getSqlVirtualMachineOutput(args: GetSqlVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineResult> {
-    return pulumi.output(args).apply(a => getSqlVirtualMachine(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlVirtualMachine(a, opts))
 }
 
 export interface GetSqlVirtualMachineOutputArgs {

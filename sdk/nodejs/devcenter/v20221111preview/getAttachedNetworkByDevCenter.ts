@@ -76,9 +76,11 @@ export interface GetAttachedNetworkByDevCenterResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents an attached NetworkConnection.
+ */
 export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
-    return pulumi.output(args).apply(a => getAttachedNetworkByDevCenter(a, opts))
+    return pulumi.output(args).apply((a: any) => getAttachedNetworkByDevCenter(a, opts))
 }
 
 export interface GetAttachedNetworkByDevCenterOutputArgs {

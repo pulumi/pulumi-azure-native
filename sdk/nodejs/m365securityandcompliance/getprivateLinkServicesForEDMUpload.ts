@@ -76,9 +76,12 @@ export interface GetprivateLinkServicesForEDMUploadResult {
      */
     readonly type: string;
 }
-
+/**
+ * The description of the service.
+ * API Version: 2021-03-25-preview.
+ */
 export function getprivateLinkServicesForEDMUploadOutput(args: GetprivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForEDMUploadResult> {
-    return pulumi.output(args).apply(a => getprivateLinkServicesForEDMUpload(a, opts))
+    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForEDMUpload(a, opts))
 }
 
 export interface GetprivateLinkServicesForEDMUploadOutputArgs {

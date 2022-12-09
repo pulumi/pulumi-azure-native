@@ -87,9 +87,12 @@ export interface GetSiteHostNameBindingResult {
      */
     readonly type?: string;
 }
-
+/**
+ * A host name binding object
+ */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteHostNameBindingOutput(args: GetSiteHostNameBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteHostNameBindingResult> {
-    return pulumi.output(args).apply(a => getSiteHostNameBinding(a, opts))
+    return pulumi.output(args).apply((a: any) => getSiteHostNameBinding(a, opts))
 }
 
 export interface GetSiteHostNameBindingOutputArgs {

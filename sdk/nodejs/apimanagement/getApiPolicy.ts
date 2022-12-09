@@ -68,9 +68,12 @@ export interface GetApiPolicyResult {
      */
     readonly value: string;
 }
-
+/**
+ * Policy Contract details.
+ * API Version: 2020-12-01.
+ */
 export function getApiPolicyOutput(args: GetApiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPolicyResult> {
-    return pulumi.output(args).apply(a => getApiPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiPolicy(a, opts))
 }
 
 export interface GetApiPolicyOutputArgs {

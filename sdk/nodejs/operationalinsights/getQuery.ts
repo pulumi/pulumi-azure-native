@@ -93,9 +93,12 @@ export interface GetQueryResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Log Analytics QueryPack-Query definition.
+ * API Version: 2019-09-01.
+ */
 export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryResult> {
-    return pulumi.output(args).apply(a => getQuery(a, opts))
+    return pulumi.output(args).apply((a: any) => getQuery(a, opts))
 }
 
 export interface GetQueryOutputArgs {

@@ -76,9 +76,12 @@ export interface GetDdosCustomPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * A DDoS custom policy in a resource group.
+ * API Version: 2020-11-01.
+ */
 export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
-    return pulumi.output(args).apply(a => getDdosCustomPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getDdosCustomPolicy(a, opts))
 }
 
 export interface GetDdosCustomPolicyOutputArgs {

@@ -66,9 +66,12 @@ export interface GetDataVersionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Azure Resource Manager resource envelope.
+ * API Version: 2021-03-01-preview.
+ */
 export function getDataVersionOutput(args: GetDataVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataVersionResult> {
-    return pulumi.output(args).apply(a => getDataVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataVersion(a, opts))
 }
 
 export interface GetDataVersionOutputArgs {

@@ -68,9 +68,11 @@ export interface GetConfigurationProfilesVersionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the configuration profile.
+ */
 export function getConfigurationProfilesVersionOutput(args: GetConfigurationProfilesVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesVersionResult> {
-    return pulumi.output(args).apply(a => getConfigurationProfilesVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationProfilesVersion(a, opts))
 }
 
 export interface GetConfigurationProfilesVersionOutputArgs {

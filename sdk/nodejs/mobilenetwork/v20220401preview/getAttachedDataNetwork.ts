@@ -122,9 +122,11 @@ export interface GetAttachedDataNetworkResult {
      */
     readonly userPlaneDataInterface: outputs.mobilenetwork.v20220401preview.InterfacePropertiesResponse;
 }
-
+/**
+ * Attached data network resource.
+ */
 export function getAttachedDataNetworkOutput(args: GetAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDataNetworkResult> {
-    return pulumi.output(args).apply(a => getAttachedDataNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getAttachedDataNetwork(a, opts))
 }
 
 export interface GetAttachedDataNetworkOutputArgs {

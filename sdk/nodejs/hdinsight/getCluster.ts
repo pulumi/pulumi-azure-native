@@ -68,9 +68,12 @@ export interface GetClusterResult {
      */
     readonly type: string;
 }
-
+/**
+ * The HDInsight cluster.
+ * API Version: 2018-06-01-preview.
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

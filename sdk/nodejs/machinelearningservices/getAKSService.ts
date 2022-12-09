@@ -82,9 +82,12 @@ export interface GetAKSServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Machine Learning service object wrapped into ARM resource envelope.
+ * API Version: 2021-01-01.
+ */
 export function getAKSServiceOutput(args: GetAKSServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAKSServiceResult> {
-    return pulumi.output(args).apply(a => getAKSService(a, opts))
+    return pulumi.output(args).apply((a: any) => getAKSService(a, opts))
 }
 
 export interface GetAKSServiceOutputArgs {

@@ -72,9 +72,11 @@ export interface GetPrivateEndpointConnectionProxyResult {
      */
     readonly type: string;
 }
-
+/**
+ * Private endpoint connection proxy details.
+ */
 export function getPrivateEndpointConnectionProxyOutput(args: GetPrivateEndpointConnectionProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionProxyResult> {
-    return pulumi.output(args).apply(a => getPrivateEndpointConnectionProxy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionProxy(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionProxyOutputArgs {

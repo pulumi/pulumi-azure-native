@@ -71,9 +71,11 @@ export interface GetBotResult {
      */
     readonly type: string;
 }
-
+/**
+ * Bot resource definition
+ */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
-    return pulumi.output(args).apply(a => getBot(a, opts))
+    return pulumi.output(args).apply((a: any) => getBot(a, opts))
 }
 
 export interface GetBotOutputArgs {

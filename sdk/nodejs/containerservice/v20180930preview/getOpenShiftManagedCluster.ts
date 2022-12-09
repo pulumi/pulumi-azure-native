@@ -97,9 +97,12 @@ export interface GetOpenShiftManagedClusterResult {
      */
     readonly type: string;
 }
-
+/**
+ * OpenShift Managed cluster.
+ */
+/** @deprecated Version 2018-09-30-preview will be removed in v2 of the provider. */
 export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
-    return pulumi.output(args).apply(a => getOpenShiftManagedCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getOpenShiftManagedCluster(a, opts))
 }
 
 export interface GetOpenShiftManagedClusterOutputArgs {

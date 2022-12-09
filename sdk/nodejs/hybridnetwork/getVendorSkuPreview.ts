@@ -50,9 +50,12 @@ export interface GetVendorSkuPreviewResult {
      */
     readonly type: string;
 }
-
+/**
+ * Customer subscription which can use a sku.
+ * API Version: 2020-01-01-preview.
+ */
 export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
-    return pulumi.output(args).apply(a => getVendorSkuPreview(a, opts))
+    return pulumi.output(args).apply((a: any) => getVendorSkuPreview(a, opts))
 }
 
 export interface GetVendorSkuPreviewOutputArgs {

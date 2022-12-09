@@ -72,9 +72,12 @@ export interface GetReplicationNetworkMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+ */
+/** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
 export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationNetworkMappingResult> {
-    return pulumi.output(args).apply(a => getReplicationNetworkMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationNetworkMapping(a, opts))
 }
 
 export interface GetReplicationNetworkMappingOutputArgs {

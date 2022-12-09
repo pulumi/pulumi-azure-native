@@ -81,9 +81,12 @@ export interface GetNspAssociationResult {
      */
     readonly type: string;
 }
-
+/**
+ * The NSP resource association resource
+ * API Version: 2021-02-01-preview.
+ */
 export function getNspAssociationOutput(args: GetNspAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspAssociationResult> {
-    return pulumi.output(args).apply(a => getNspAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getNspAssociation(a, opts))
 }
 
 export interface GetNspAssociationOutputArgs {

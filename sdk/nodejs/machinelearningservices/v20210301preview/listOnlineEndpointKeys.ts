@@ -45,9 +45,11 @@ export interface ListOnlineEndpointKeysResult {
      */
     readonly secondaryKey?: string;
 }
-
+/**
+ * Keys for endpoint authentication.
+ */
 export function listOnlineEndpointKeysOutput(args: ListOnlineEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOnlineEndpointKeysResult> {
-    return pulumi.output(args).apply(a => listOnlineEndpointKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listOnlineEndpointKeys(a, opts))
 }
 
 export interface ListOnlineEndpointKeysOutputArgs {

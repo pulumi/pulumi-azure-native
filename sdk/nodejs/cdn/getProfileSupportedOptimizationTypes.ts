@@ -37,9 +37,12 @@ export interface GetProfileSupportedOptimizationTypesResult {
      */
     readonly supportedOptimizationTypes: string[];
 }
-
+/**
+ * The result of the GetSupportedOptimizationTypes API
+ * API Version: 2020-09-01.
+ */
 export function getProfileSupportedOptimizationTypesOutput(args: GetProfileSupportedOptimizationTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileSupportedOptimizationTypesResult> {
-    return pulumi.output(args).apply(a => getProfileSupportedOptimizationTypes(a, opts))
+    return pulumi.output(args).apply((a: any) => getProfileSupportedOptimizationTypes(a, opts))
 }
 
 export interface GetProfileSupportedOptimizationTypesOutputArgs {

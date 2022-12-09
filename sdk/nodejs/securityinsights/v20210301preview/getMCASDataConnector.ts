@@ -78,9 +78,11 @@ export interface GetMCASDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents MCAS (Microsoft Cloud App Security) data connector.
+ */
 export function getMCASDataConnectorOutput(args: GetMCASDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMCASDataConnectorResult> {
-    return pulumi.output(args).apply(a => getMCASDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getMCASDataConnector(a, opts))
 }
 
 export interface GetMCASDataConnectorOutputArgs {

@@ -48,9 +48,11 @@ export interface GetIntegrationRuntimeStatusResult {
      */
     readonly properties: outputs.datafactory.v20170901preview.ManagedIntegrationRuntimeStatusResponse | outputs.datafactory.v20170901preview.SelfHostedIntegrationRuntimeStatusResponse;
 }
-
+/**
+ * Integration runtime status response.
+ */
 export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
-    return pulumi.output(args).apply(a => getIntegrationRuntimeStatus(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationRuntimeStatus(a, opts))
 }
 
 export interface GetIntegrationRuntimeStatusOutputArgs {

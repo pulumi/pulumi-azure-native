@@ -60,9 +60,12 @@ export interface GetDataSetMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * A data set mapping data transfer object.
+ */
+/** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getDataSetMappingOutput(args: GetDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetMappingResult> {
-    return pulumi.output(args).apply(a => getDataSetMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataSetMapping(a, opts))
 }
 
 export interface GetDataSetMappingOutputArgs {

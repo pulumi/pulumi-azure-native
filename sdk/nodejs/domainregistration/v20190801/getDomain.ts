@@ -119,9 +119,12 @@ export interface GetDomainResult {
      */
     readonly type: string;
 }
-
+/**
+ * Information about a domain.
+ */
+/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply(a => getDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

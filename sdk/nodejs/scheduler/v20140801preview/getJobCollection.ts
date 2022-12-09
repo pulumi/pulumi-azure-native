@@ -55,9 +55,9 @@ export interface GetJobCollectionResult {
      */
     readonly type: string;
 }
-
+/** @deprecated Version 2014-08-01-preview will be removed in v2 of the provider. */
 export function getJobCollectionOutput(args: GetJobCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCollectionResult> {
-    return pulumi.output(args).apply(a => getJobCollection(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobCollection(a, opts))
 }
 
 export interface GetJobCollectionOutputArgs {

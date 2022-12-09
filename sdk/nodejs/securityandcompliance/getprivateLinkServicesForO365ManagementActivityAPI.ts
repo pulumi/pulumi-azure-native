@@ -76,9 +76,12 @@ export interface GetprivateLinkServicesForO365ManagementActivityAPIResult {
      */
     readonly type: string;
 }
-
+/**
+ * The description of the service.
+ * API Version: 2021-03-08.
+ */
 export function getprivateLinkServicesForO365ManagementActivityAPIOutput(args: GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
-    return pulumi.output(args).apply(a => getprivateLinkServicesForO365ManagementActivityAPI(a, opts))
+    return pulumi.output(args).apply((a: any) => getprivateLinkServicesForO365ManagementActivityAPI(a, opts))
 }
 
 export interface GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs {

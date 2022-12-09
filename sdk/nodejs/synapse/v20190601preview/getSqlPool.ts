@@ -110,9 +110,12 @@ export interface GetSqlPoolResult {
      */
     readonly type: string;
 }
-
+/**
+ * A SQL Analytics pool
+ */
+/** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {
-    return pulumi.output(args).apply(a => getSqlPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlPool(a, opts))
 }
 
 export interface GetSqlPoolOutputArgs {

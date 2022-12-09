@@ -209,9 +209,11 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly workerPools: outputs.web.v20180201.WorkerPoolResponse[];
 }
-
+/**
+ * App Service Environment ARM resource.
+ */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
-    return pulumi.output(args).apply(a => getAppServiceEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))
 }
 
 export interface GetAppServiceEnvironmentOutputArgs {

@@ -48,9 +48,11 @@ export interface ListCommunicationServiceKeysResult {
      */
     readonly secondaryKey?: string;
 }
-
+/**
+ * A class representing the access keys of a CommunicationService.
+ */
 export function listCommunicationServiceKeysOutput(args: ListCommunicationServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCommunicationServiceKeysResult> {
-    return pulumi.output(args).apply(a => listCommunicationServiceKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listCommunicationServiceKeys(a, opts))
 }
 
 export interface ListCommunicationServiceKeysOutputArgs {

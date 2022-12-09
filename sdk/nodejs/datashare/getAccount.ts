@@ -80,9 +80,12 @@ export interface GetAccountResult {
      */
     readonly userName: string;
 }
-
+/**
+ * An account data transfer object.
+ * API Version: 2020-09-01.
+ */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply(a => getAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

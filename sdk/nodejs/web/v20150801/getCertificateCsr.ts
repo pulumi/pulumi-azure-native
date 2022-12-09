@@ -82,9 +82,12 @@ export interface GetCertificateCsrResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Certificate signing request object
+ */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getCertificateCsrOutput(args: GetCertificateCsrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateCsrResult> {
-    return pulumi.output(args).apply(a => getCertificateCsr(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificateCsr(a, opts))
 }
 
 export interface GetCertificateCsrOutputArgs {

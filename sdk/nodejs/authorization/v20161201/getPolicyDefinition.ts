@@ -65,9 +65,12 @@ export interface GetPolicyDefinitionResult {
      */
     readonly policyType?: string;
 }
-
+/**
+ * The policy definition.
+ */
+/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
 export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {
-    return pulumi.output(args).apply(a => getPolicyDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicyDefinition(a, opts))
 }
 
 export interface GetPolicyDefinitionOutputArgs {

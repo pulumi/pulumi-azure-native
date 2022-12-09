@@ -59,9 +59,11 @@ export interface GetDeploymentAtManagementGroupScopeResult {
      */
     readonly type: string;
 }
-
+/**
+ * Deployment information.
+ */
 export function getDeploymentAtManagementGroupScopeOutput(args: GetDeploymentAtManagementGroupScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtManagementGroupScopeResult> {
-    return pulumi.output(args).apply(a => getDeploymentAtManagementGroupScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeploymentAtManagementGroupScope(a, opts))
 }
 
 export interface GetDeploymentAtManagementGroupScopeOutputArgs {

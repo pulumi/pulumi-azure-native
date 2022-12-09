@@ -74,9 +74,8 @@ export interface GetBatchEndpointResult {
      */
     readonly type: string;
 }
-
 export function getBatchEndpointOutput(args: GetBatchEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchEndpointResult> {
-    return pulumi.output(args).apply(a => getBatchEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getBatchEndpoint(a, opts))
 }
 
 export interface GetBatchEndpointOutputArgs {

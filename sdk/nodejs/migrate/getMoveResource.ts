@@ -57,9 +57,12 @@ export interface GetMoveResourceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Defines the move resource.
+ * API Version: 2021-01-01.
+ */
 export function getMoveResourceOutput(args: GetMoveResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveResourceResult> {
-    return pulumi.output(args).apply(a => getMoveResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getMoveResource(a, opts))
 }
 
 export interface GetMoveResourceOutputArgs {

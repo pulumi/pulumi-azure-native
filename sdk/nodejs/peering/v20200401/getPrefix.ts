@@ -87,9 +87,12 @@ export interface GetPrefixResult {
      */
     readonly type: string;
 }
-
+/**
+ * The peering service prefix class.
+ */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
 export function getPrefixOutput(args: GetPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixResult> {
-    return pulumi.output(args).apply(a => getPrefix(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrefix(a, opts))
 }
 
 export interface GetPrefixOutputArgs {

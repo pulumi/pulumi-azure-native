@@ -78,9 +78,12 @@ export interface GetWorkloadNetworkDnsZoneResult {
      */
     readonly type: string;
 }
-
+/**
+ * NSX DNS Zone
+ * API Version: 2020-07-17-preview.
+ */
 export function getWorkloadNetworkDnsZoneOutput(args: GetWorkloadNetworkDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsZoneResult> {
-    return pulumi.output(args).apply(a => getWorkloadNetworkDnsZone(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsZone(a, opts))
 }
 
 export interface GetWorkloadNetworkDnsZoneOutputArgs {

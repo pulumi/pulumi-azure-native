@@ -69,9 +69,12 @@ export interface GetHybridRunbookWorkerGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of hybrid runbook worker group.
+ * API Version: 2021-06-22.
+ */
 export function getHybridRunbookWorkerGroupOutput(args: GetHybridRunbookWorkerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerGroupResult> {
-    return pulumi.output(args).apply(a => getHybridRunbookWorkerGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getHybridRunbookWorkerGroup(a, opts))
 }
 
 export interface GetHybridRunbookWorkerGroupOutputArgs {

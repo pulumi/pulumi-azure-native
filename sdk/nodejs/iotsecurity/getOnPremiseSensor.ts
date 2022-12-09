@@ -47,9 +47,12 @@ export interface GetOnPremiseSensorResult {
      */
     readonly type: string;
 }
-
+/**
+ * On-premise IoT sensor
+ * API Version: 2021-02-01-preview.
+ */
 export function getOnPremiseSensorOutput(args: GetOnPremiseSensorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnPremiseSensorResult> {
-    return pulumi.output(args).apply(a => getOnPremiseSensor(a, opts))
+    return pulumi.output(args).apply((a: any) => getOnPremiseSensor(a, opts))
 }
 
 export interface GetOnPremiseSensorOutputArgs {

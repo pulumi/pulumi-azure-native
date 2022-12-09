@@ -44,9 +44,12 @@ export interface ListSqlMigrationServiceMonitoringDataResult {
      */
     readonly nodes: outputs.datamigration.NodeMonitoringDataResponse[];
 }
-
+/**
+ * Integration Runtime Monitoring Data.
+ * API Version: 2021-10-30-preview.
+ */
 export function listSqlMigrationServiceMonitoringDataOutput(args: ListSqlMigrationServiceMonitoringDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceMonitoringDataResult> {
-    return pulumi.output(args).apply(a => listSqlMigrationServiceMonitoringData(a, opts))
+    return pulumi.output(args).apply((a: any) => listSqlMigrationServiceMonitoringData(a, opts))
 }
 
 export interface ListSqlMigrationServiceMonitoringDataOutputArgs {

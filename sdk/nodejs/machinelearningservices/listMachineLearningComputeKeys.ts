@@ -42,9 +42,12 @@ export interface ListMachineLearningComputeKeysResult {
      */
     readonly computeType: string;
 }
-
+/**
+ * Secrets related to a Machine Learning compute. Might differ for every type of compute.
+ * API Version: 2021-01-01.
+ */
 export function listMachineLearningComputeKeysOutput(args: ListMachineLearningComputeKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMachineLearningComputeKeysResult> {
-    return pulumi.output(args).apply(a => listMachineLearningComputeKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listMachineLearningComputeKeys(a, opts))
 }
 
 export interface ListMachineLearningComputeKeysOutputArgs {

@@ -62,9 +62,12 @@ export interface GetFederatedIdentityCredentialResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes a federated identity credential.
+ * API Version: 2022-01-31-preview.
+ */
 export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
-    return pulumi.output(args).apply(a => getFederatedIdentityCredential(a, opts))
+    return pulumi.output(args).apply((a: any) => getFederatedIdentityCredential(a, opts))
 }
 
 export interface GetFederatedIdentityCredentialOutputArgs {

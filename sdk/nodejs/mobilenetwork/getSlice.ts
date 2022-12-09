@@ -101,9 +101,12 @@ export interface GetSliceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Network slice resource.
+ * API Version: 2022-04-01-preview.
+ */
 export function getSliceOutput(args: GetSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSliceResult> {
-    return pulumi.output(args).apply(a => getSlice(a, opts))
+    return pulumi.output(args).apply((a: any) => getSlice(a, opts))
 }
 
 export interface GetSliceOutputArgs {

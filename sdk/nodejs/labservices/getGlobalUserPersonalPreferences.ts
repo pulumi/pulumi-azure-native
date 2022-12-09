@@ -54,9 +54,12 @@ export interface GetGlobalUserPersonalPreferencesResult {
      */
     readonly id?: string;
 }
-
+/**
+ * Represents the PersonalPreferences for the user
+ * API Version: 2018-10-15.
+ */
 export function getGlobalUserPersonalPreferencesOutput(args: GetGlobalUserPersonalPreferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserPersonalPreferencesResult> {
-    return pulumi.output(args).apply(a => getGlobalUserPersonalPreferences(a, opts))
+    return pulumi.output(args).apply((a: any) => getGlobalUserPersonalPreferences(a, opts))
 }
 
 export interface GetGlobalUserPersonalPreferencesOutputArgs {

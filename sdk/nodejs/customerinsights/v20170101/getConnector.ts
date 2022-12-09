@@ -95,9 +95,12 @@ export interface GetConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * The connector resource format.
+ */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
-    return pulumi.output(args).apply(a => getConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnector(a, opts))
 }
 
 export interface GetConnectorOutputArgs {

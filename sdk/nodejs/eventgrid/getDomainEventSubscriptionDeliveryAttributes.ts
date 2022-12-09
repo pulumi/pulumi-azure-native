@@ -45,9 +45,12 @@ export interface GetDomainEventSubscriptionDeliveryAttributesResult {
      */
     readonly value?: (outputs.eventgrid.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.StaticDeliveryAttributeMappingResponse)[];
 }
-
+/**
+ * Result of the Get delivery attributes operation.
+ * API Version: 2021-10-15-preview.
+ */
 export function getDomainEventSubscriptionDeliveryAttributesOutput(args: GetDomainEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainEventSubscriptionDeliveryAttributesResult> {
-    return pulumi.output(args).apply(a => getDomainEventSubscriptionDeliveryAttributes(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainEventSubscriptionDeliveryAttributes(a, opts))
 }
 
 export interface GetDomainEventSubscriptionDeliveryAttributesOutputArgs {

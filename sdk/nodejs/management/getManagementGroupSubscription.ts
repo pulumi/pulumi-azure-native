@@ -64,9 +64,12 @@ export interface GetManagementGroupSubscriptionResult {
      */
     readonly type: string;
 }
-
+/**
+ * The details of subscription under management group.
+ * API Version: 2020-05-01.
+ */
 export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupSubscriptionResult> {
-    return pulumi.output(args).apply(a => getManagementGroupSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagementGroupSubscription(a, opts))
 }
 
 export interface GetManagementGroupSubscriptionOutputArgs {

@@ -57,9 +57,12 @@ export interface GetPatchScheduleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Response to put/get patch schedules for Redis cache.
+ */
+/** @deprecated Version 2017-02-01 will be removed in v2 of the provider. */
 export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchScheduleResult> {
-    return pulumi.output(args).apply(a => getPatchSchedule(a, opts))
+    return pulumi.output(args).apply((a: any) => getPatchSchedule(a, opts))
 }
 
 export interface GetPatchScheduleOutputArgs {

@@ -65,9 +65,11 @@ export interface GetCredentialResult {
      */
     readonly userName: string;
 }
-
+/**
+ * Definition of the credential.
+ */
 export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialResult> {
-    return pulumi.output(args).apply(a => getCredential(a, opts))
+    return pulumi.output(args).apply((a: any) => getCredential(a, opts))
 }
 
 export interface GetCredentialOutputArgs {

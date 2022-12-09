@@ -93,9 +93,11 @@ export interface GetVolumeContainerResult {
      */
     readonly volumeCount: number;
 }
-
+/**
+ * The volume container.
+ */
 export function getVolumeContainerOutput(args: GetVolumeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeContainerResult> {
-    return pulumi.output(args).apply(a => getVolumeContainer(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolumeContainer(a, opts))
 }
 
 export interface GetVolumeContainerOutputArgs {

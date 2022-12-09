@@ -76,9 +76,11 @@ export interface GetEmailTemplateResult {
      */
     readonly type: string;
 }
-
+/**
+ * Email Template details.
+ */
 export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
-    return pulumi.output(args).apply(a => getEmailTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getEmailTemplate(a, opts))
 }
 
 export interface GetEmailTemplateOutputArgs {

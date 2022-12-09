@@ -61,9 +61,12 @@ export interface GetConfigurationServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Application Configuration Service resource
+ * API Version: 2022-01-01-preview.
+ */
 export function getConfigurationServiceOutput(args: GetConfigurationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationServiceResult> {
-    return pulumi.output(args).apply(a => getConfigurationService(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationService(a, opts))
 }
 
 export interface GetConfigurationServiceOutputArgs {

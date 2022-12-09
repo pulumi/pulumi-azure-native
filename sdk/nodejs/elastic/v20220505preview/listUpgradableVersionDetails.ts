@@ -40,9 +40,11 @@ export interface ListUpgradableVersionDetailsResult {
      */
     readonly upgradableVersions?: string[];
 }
-
+/**
+ * Stack Versions that this version can upgrade to
+ */
 export function listUpgradableVersionDetailsOutput(args: ListUpgradableVersionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUpgradableVersionDetailsResult> {
-    return pulumi.output(args).apply(a => listUpgradableVersionDetails(a, opts))
+    return pulumi.output(args).apply((a: any) => listUpgradableVersionDetails(a, opts))
 }
 
 export interface ListUpgradableVersionDetailsOutputArgs {

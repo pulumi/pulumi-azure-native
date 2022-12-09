@@ -61,9 +61,11 @@ export interface GetSecurityConnectorApplicationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Security Application over a given scope
+ */
 export function getSecurityConnectorApplicationOutput(args: GetSecurityConnectorApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorApplicationResult> {
-    return pulumi.output(args).apply(a => getSecurityConnectorApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityConnectorApplication(a, opts))
 }
 
 export interface GetSecurityConnectorApplicationOutputArgs {

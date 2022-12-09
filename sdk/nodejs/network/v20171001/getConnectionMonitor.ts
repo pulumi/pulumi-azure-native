@@ -91,9 +91,12 @@ export interface GetConnectionMonitorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Information about the connection monitor.
+ */
+/** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {
-    return pulumi.output(args).apply(a => getConnectionMonitor(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectionMonitor(a, opts))
 }
 
 export interface GetConnectionMonitorOutputArgs {

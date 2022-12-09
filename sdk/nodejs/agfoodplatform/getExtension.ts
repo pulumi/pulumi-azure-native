@@ -81,9 +81,12 @@ export interface GetExtensionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Extension resource.
+ * API Version: 2020-05-12-preview.
+ */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    return pulumi.output(args).apply(a => getExtension(a, opts))
+    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }
 
 export interface GetExtensionOutputArgs {

@@ -81,9 +81,12 @@ export interface GetForwardingRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes a forwarding rule within a DNS forwarding ruleset.
+ * API Version: 2020-04-01-preview.
+ */
 export function getForwardingRuleOutput(args: GetForwardingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetForwardingRuleResult> {
-    return pulumi.output(args).apply(a => getForwardingRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getForwardingRule(a, opts))
 }
 
 export interface GetForwardingRuleOutputArgs {

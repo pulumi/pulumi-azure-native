@@ -63,9 +63,12 @@ export interface GetSqlResourceSqlRoleAssignmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Cosmos DB Role Assignment
+ */
+/** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
 export function getSqlResourceSqlRoleAssignmentOutput(args: GetSqlResourceSqlRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleAssignmentResult> {
-    return pulumi.output(args).apply(a => getSqlResourceSqlRoleAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlResourceSqlRoleAssignment(a, opts))
 }
 
 export interface GetSqlResourceSqlRoleAssignmentOutputArgs {

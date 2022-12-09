@@ -61,9 +61,12 @@ export interface GetWebAppRelayServiceConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Hybrid Connection for an App Service app.
+ * API Version: 2020-12-01.
+ */
 export function getWebAppRelayServiceConnectionOutput(args: GetWebAppRelayServiceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionResult> {
-    return pulumi.output(args).apply(a => getWebAppRelayServiceConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppRelayServiceConnection(a, opts))
 }
 
 export interface GetWebAppRelayServiceConnectionOutputArgs {

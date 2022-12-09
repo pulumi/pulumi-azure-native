@@ -76,9 +76,12 @@ export interface GetTestBaseAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Test Base Account resource.
+ * API Version: 2022-04-01-preview.
+ */
 export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountResult> {
-    return pulumi.output(args).apply(a => getTestBaseAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getTestBaseAccount(a, opts))
 }
 
 export interface GetTestBaseAccountOutputArgs {

@@ -32,9 +32,12 @@ export interface ListIngestionSettingTokensResult {
      */
     readonly token: string;
 }
-
+/**
+ * Configures how to correlate scan data and logs with resources associated with the subscription.
+ * API Version: 2021-01-15-preview.
+ */
 export function listIngestionSettingTokensOutput(args: ListIngestionSettingTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIngestionSettingTokensResult> {
-    return pulumi.output(args).apply(a => listIngestionSettingTokens(a, opts))
+    return pulumi.output(args).apply((a: any) => listIngestionSettingTokens(a, opts))
 }
 
 export interface ListIngestionSettingTokensOutputArgs {

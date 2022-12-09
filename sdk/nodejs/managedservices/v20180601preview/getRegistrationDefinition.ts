@@ -57,9 +57,12 @@ export interface GetRegistrationDefinitionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Registration definition.
+ */
+/** @deprecated Version 2018-06-01-preview will be removed in v2 of the provider. */
 export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {
-    return pulumi.output(args).apply(a => getRegistrationDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistrationDefinition(a, opts))
 }
 
 export interface GetRegistrationDefinitionOutputArgs {

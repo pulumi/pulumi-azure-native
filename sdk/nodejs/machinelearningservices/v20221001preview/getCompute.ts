@@ -76,9 +76,11 @@ export interface GetComputeResult {
      */
     readonly type: string;
 }
-
+/**
+ * Machine Learning compute object wrapped into ARM resource envelope.
+ */
 export function getComputeOutput(args: GetComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeResult> {
-    return pulumi.output(args).apply(a => getCompute(a, opts))
+    return pulumi.output(args).apply((a: any) => getCompute(a, opts))
 }
 
 export interface GetComputeOutputArgs {

@@ -68,9 +68,12 @@ export interface GetStorageMoverResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+ * API Version: 2022-07-01-preview.
+ */
 export function getStorageMoverOutput(args: GetStorageMoverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageMoverResult> {
-    return pulumi.output(args).apply(a => getStorageMover(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageMover(a, opts))
 }
 
 export interface GetStorageMoverOutputArgs {

@@ -101,9 +101,12 @@ export interface GetWorkspaceResult {
      */
     readonly workspaceId: string;
 }
-
+/**
+ * An object that represents a machine learning workspace.
+ */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }
 
 export interface GetWorkspaceOutputArgs {

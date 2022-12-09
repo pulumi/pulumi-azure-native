@@ -75,9 +75,11 @@ export interface GetAutoScaleVCoreResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents an instance of an auto scale v-core resource.
+ */
 export function getAutoScaleVCoreOutput(args: GetAutoScaleVCoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScaleVCoreResult> {
-    return pulumi.output(args).apply(a => getAutoScaleVCore(a, opts))
+    return pulumi.output(args).apply((a: any) => getAutoScaleVCore(a, opts))
 }
 
 export interface GetAutoScaleVCoreOutputArgs {

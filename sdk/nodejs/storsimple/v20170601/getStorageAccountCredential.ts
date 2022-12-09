@@ -72,9 +72,11 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly volumesCount: number;
 }
-
+/**
+ * The storage account credential.
+ */
 export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {
-    return pulumi.output(args).apply(a => getStorageAccountCredential(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageAccountCredential(a, opts))
 }
 
 export interface GetStorageAccountCredentialOutputArgs {

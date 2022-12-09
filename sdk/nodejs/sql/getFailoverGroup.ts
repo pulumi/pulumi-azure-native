@@ -85,9 +85,12 @@ export interface GetFailoverGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * A failover group.
+ * API Version: 2020-11-01-preview.
+ */
 export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupResult> {
-    return pulumi.output(args).apply(a => getFailoverGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getFailoverGroup(a, opts))
 }
 
 export interface GetFailoverGroupOutputArgs {

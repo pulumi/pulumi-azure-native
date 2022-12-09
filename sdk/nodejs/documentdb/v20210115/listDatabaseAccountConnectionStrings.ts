@@ -39,9 +39,11 @@ export interface ListDatabaseAccountConnectionStringsResult {
      */
     readonly connectionStrings?: outputs.documentdb.v20210115.DatabaseAccountConnectionStringResponse[];
 }
-
+/**
+ * The connection strings for the given database account.
+ */
 export function listDatabaseAccountConnectionStringsOutput(args: ListDatabaseAccountConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountConnectionStringsResult> {
-    return pulumi.output(args).apply(a => listDatabaseAccountConnectionStrings(a, opts))
+    return pulumi.output(args).apply((a: any) => listDatabaseAccountConnectionStrings(a, opts))
 }
 
 export interface ListDatabaseAccountConnectionStringsOutputArgs {

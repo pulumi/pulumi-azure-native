@@ -53,9 +53,11 @@ export interface GetDiagnosticResult {
      */
     readonly type: string;
 }
-
+/**
+ * Diagnostic details.
+ */
 export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticResult> {
-    return pulumi.output(args).apply(a => getDiagnostic(a, opts))
+    return pulumi.output(args).apply((a: any) => getDiagnostic(a, opts))
 }
 
 export interface GetDiagnosticOutputArgs {

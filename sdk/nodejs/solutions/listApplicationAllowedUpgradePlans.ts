@@ -40,9 +40,12 @@ export interface ListApplicationAllowedUpgradePlansResult {
      */
     readonly value?: outputs.solutions.PlanResponse[];
 }
-
+/**
+ * The array of plan.
+ * API Version: 2021-07-01.
+ */
 export function listApplicationAllowedUpgradePlansOutput(args: ListApplicationAllowedUpgradePlansOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationAllowedUpgradePlansResult> {
-    return pulumi.output(args).apply(a => listApplicationAllowedUpgradePlans(a, opts))
+    return pulumi.output(args).apply((a: any) => listApplicationAllowedUpgradePlans(a, opts))
 }
 
 export interface ListApplicationAllowedUpgradePlansOutputArgs {

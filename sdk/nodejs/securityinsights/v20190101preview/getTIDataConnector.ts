@@ -78,9 +78,11 @@ export interface GetTIDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Data connector to pull threat intelligence data from TIP products.
+ */
 export function getTIDataConnectorOutput(args: GetTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTIDataConnectorResult> {
-    return pulumi.output(args).apply(a => getTIDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getTIDataConnector(a, opts))
 }
 
 export interface GetTIDataConnectorOutputArgs {

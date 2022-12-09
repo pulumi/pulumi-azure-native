@@ -80,9 +80,11 @@ export interface ListSiteBackupConfigurationSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of a backup which will be performed
+ */
 export function listSiteBackupConfigurationSlotOutput(args: ListSiteBackupConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteBackupConfigurationSlotResult> {
-    return pulumi.output(args).apply(a => listSiteBackupConfigurationSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listSiteBackupConfigurationSlot(a, opts))
 }
 
 export interface ListSiteBackupConfigurationSlotOutputArgs {

@@ -70,9 +70,11 @@ export interface ListDisasterRecoveryConfigKeysResult {
      */
     readonly secondaryKey: string;
 }
-
+/**
+ * Namespace/EventHub Connection String
+ */
 export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
-    return pulumi.output(args).apply(a => listDisasterRecoveryConfigKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listDisasterRecoveryConfigKeys(a, opts))
 }
 
 export interface ListDisasterRecoveryConfigKeysOutputArgs {

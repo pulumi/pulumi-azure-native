@@ -54,9 +54,12 @@ export interface ListShareSubscriptionSourceShareSynchronizationSettingsResult {
      */
     readonly value: outputs.datashare.ScheduledSourceSynchronizationSettingResponse[];
 }
-
+/**
+ * List response for get source share Synchronization settings
+ * API Version: 2020-09-01.
+ */
 export function listShareSubscriptionSourceShareSynchronizationSettingsOutput(args: ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSourceShareSynchronizationSettingsResult> {
-    return pulumi.output(args).apply(a => listShareSubscriptionSourceShareSynchronizationSettings(a, opts))
+    return pulumi.output(args).apply((a: any) => listShareSubscriptionSourceShareSynchronizationSettings(a, opts))
 }
 
 export interface ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs {

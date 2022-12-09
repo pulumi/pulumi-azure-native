@@ -44,9 +44,11 @@ export interface ListDaprComponentSecretsResult {
      */
     readonly value: outputs.app.v20220601preview.DaprSecretResponse[];
 }
-
+/**
+ * Dapr component Secrets Collection for ListSecrets Action.
+ */
 export function listDaprComponentSecretsOutput(args: ListDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDaprComponentSecretsResult> {
-    return pulumi.output(args).apply(a => listDaprComponentSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => listDaprComponentSecrets(a, opts))
 }
 
 export interface ListDaprComponentSecretsOutputArgs {

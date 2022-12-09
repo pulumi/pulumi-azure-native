@@ -107,9 +107,12 @@ export interface GetScalingPlanResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a scaling plan definition.
+ * API Version: 2021-02-01-preview.
+ */
 export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
-    return pulumi.output(args).apply(a => getScalingPlan(a, opts))
+    return pulumi.output(args).apply((a: any) => getScalingPlan(a, opts))
 }
 
 export interface GetScalingPlanOutputArgs {

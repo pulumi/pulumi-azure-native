@@ -92,9 +92,11 @@ export interface GetP2sVpnServerConfigurationResult {
      */
     readonly vpnProtocols?: string[];
 }
-
+/**
+ * P2SVpnServerConfiguration Resource.
+ */
 export function getP2sVpnServerConfigurationOutput(args: GetP2sVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnServerConfigurationResult> {
-    return pulumi.output(args).apply(a => getP2sVpnServerConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getP2sVpnServerConfiguration(a, opts))
 }
 
 export interface GetP2sVpnServerConfigurationOutputArgs {

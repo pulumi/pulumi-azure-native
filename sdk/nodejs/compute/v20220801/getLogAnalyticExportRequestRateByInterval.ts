@@ -79,9 +79,11 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
      */
     readonly properties: outputs.compute.v20220801.LogAnalyticsOutputResponse;
 }
-
+/**
+ * LogAnalytics operation status response
+ */
 export function getLogAnalyticExportRequestRateByIntervalOutput(args: GetLogAnalyticExportRequestRateByIntervalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportRequestRateByIntervalResult> {
-    return pulumi.output(args).apply(a => getLogAnalyticExportRequestRateByInterval(a, opts))
+    return pulumi.output(args).apply((a: any) => getLogAnalyticExportRequestRateByInterval(a, opts))
 }
 
 export interface GetLogAnalyticExportRequestRateByIntervalOutputArgs {

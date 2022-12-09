@@ -76,9 +76,11 @@ export interface GetGovernanceAssignmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Governance assignment over a given scope
+ */
 export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGovernanceAssignmentResult> {
-    return pulumi.output(args).apply(a => getGovernanceAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getGovernanceAssignment(a, opts))
 }
 
 export interface GetGovernanceAssignmentOutputArgs {

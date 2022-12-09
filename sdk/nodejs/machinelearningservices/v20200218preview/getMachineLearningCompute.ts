@@ -74,9 +74,12 @@ export interface GetMachineLearningComputeResult {
      */
     readonly type: string;
 }
-
+/**
+ * Machine Learning compute object wrapped into ARM resource envelope.
+ */
+/** @deprecated Version 2020-02-18-preview will be removed in v2 of the provider. */
 export function getMachineLearningComputeOutput(args: GetMachineLearningComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningComputeResult> {
-    return pulumi.output(args).apply(a => getMachineLearningCompute(a, opts))
+    return pulumi.output(args).apply((a: any) => getMachineLearningCompute(a, opts))
 }
 
 export interface GetMachineLearningComputeOutputArgs {

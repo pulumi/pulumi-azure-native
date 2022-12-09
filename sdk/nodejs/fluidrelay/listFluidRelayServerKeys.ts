@@ -41,9 +41,12 @@ export interface ListFluidRelayServerKeysResult {
      */
     readonly key2: string;
 }
-
+/**
+ * The set of available keys for this server.
+ * API Version: 2022-04-21.
+ */
 export function listFluidRelayServerKeysOutput(args: ListFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFluidRelayServerKeysResult> {
-    return pulumi.output(args).apply(a => listFluidRelayServerKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listFluidRelayServerKeys(a, opts))
 }
 
 export interface ListFluidRelayServerKeysOutputArgs {

@@ -100,9 +100,12 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      */
     readonly typeHandlerVersion?: string;
 }
-
+/**
+ * Describes a VMSS VM Extension.
+ */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSetVMExtensionOutput(args: GetVirtualMachineScaleSetVMExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMExtensionResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineScaleSetVMExtension(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMExtension(a, opts))
 }
 
 export interface GetVirtualMachineScaleSetVMExtensionOutputArgs {

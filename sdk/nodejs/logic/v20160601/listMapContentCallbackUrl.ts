@@ -74,9 +74,11 @@ export interface ListMapContentCallbackUrlResult {
      */
     readonly value: string;
 }
-
+/**
+ * The workflow trigger callback URL.
+ */
 export function listMapContentCallbackUrlOutput(args: ListMapContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMapContentCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listMapContentCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listMapContentCallbackUrl(a, opts))
 }
 
 export interface ListMapContentCallbackUrlOutputArgs {

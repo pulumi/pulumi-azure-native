@@ -98,9 +98,12 @@ export interface GetFormulaResult {
      */
     readonly vm?: outputs.devtestlab.FormulaPropertiesFromVmResponse;
 }
-
+/**
+ * A formula for creating a VM, specifying an image base and other parameters
+ * API Version: 2018-09-15.
+ */
 export function getFormulaOutput(args: GetFormulaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormulaResult> {
-    return pulumi.output(args).apply(a => getFormula(a, opts))
+    return pulumi.output(args).apply((a: any) => getFormula(a, opts))
 }
 
 export interface GetFormulaOutputArgs {

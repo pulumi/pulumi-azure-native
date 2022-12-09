@@ -68,9 +68,11 @@ export interface GetMachineExtensionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Describes a Machine Extension.
+ */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
-    return pulumi.output(args).apply(a => getMachineExtension(a, opts))
+    return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
 }
 
 export interface GetMachineExtensionOutputArgs {

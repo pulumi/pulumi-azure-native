@@ -92,9 +92,11 @@ export interface GetMapResult {
      */
     readonly type: string;
 }
-
+/**
+ * The integration account map.
+ */
 export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMapResult> {
-    return pulumi.output(args).apply(a => getMap(a, opts))
+    return pulumi.output(args).apply((a: any) => getMap(a, opts))
 }
 
 export interface GetMapOutputArgs {

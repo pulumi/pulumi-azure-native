@@ -78,9 +78,12 @@ export interface GetProductResult {
      */
     readonly type: string;
 }
-
+/**
+ * Product details.
+ * API Version: 2020-12-01.
+ */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
-    return pulumi.output(args).apply(a => getProduct(a, opts))
+    return pulumi.output(args).apply((a: any) => getProduct(a, opts))
 }
 
 export interface GetProductOutputArgs {

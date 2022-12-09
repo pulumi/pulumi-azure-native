@@ -58,9 +58,12 @@ export interface ListWebAppApplicationSettingsSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * String dictionary resource.
+ * API Version: 2020-12-01.
+ */
 export function listWebAppApplicationSettingsSlotOutput(args: ListWebAppApplicationSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsSlotResult> {
-    return pulumi.output(args).apply(a => listWebAppApplicationSettingsSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppApplicationSettingsSlot(a, opts))
 }
 
 export interface ListWebAppApplicationSettingsSlotOutputArgs {

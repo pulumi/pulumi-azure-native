@@ -178,9 +178,12 @@ export interface GetStorageAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * The storage account.
+ */
+/** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
-    return pulumi.output(args).apply(a => getStorageAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
 }
 
 export interface GetStorageAccountOutputArgs {

@@ -88,9 +88,11 @@ export interface GetConnectivityConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * The network manager connectivity configuration resource
+ */
 export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectivityConfigurationResult> {
-    return pulumi.output(args).apply(a => getConnectivityConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectivityConfiguration(a, opts))
 }
 
 export interface GetConnectivityConfigurationOutputArgs {

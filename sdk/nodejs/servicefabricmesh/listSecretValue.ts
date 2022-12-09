@@ -42,9 +42,12 @@ export interface ListSecretValueResult {
      */
     readonly value?: string;
 }
-
+/**
+ * This type represents the unencrypted value of the secret.
+ * API Version: 2018-09-01-preview.
+ */
 export function listSecretValueOutput(args: ListSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecretValueResult> {
-    return pulumi.output(args).apply(a => listSecretValue(a, opts))
+    return pulumi.output(args).apply((a: any) => listSecretValue(a, opts))
 }
 
 export interface ListSecretValueOutputArgs {

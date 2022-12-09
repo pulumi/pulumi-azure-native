@@ -85,9 +85,11 @@ export interface GetWebAppPremierAddOnResult {
      */
     readonly vendor?: string;
 }
-
+/**
+ * Premier add-on.
+ */
 export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
-    return pulumi.output(args).apply(a => getWebAppPremierAddOn(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppPremierAddOn(a, opts))
 }
 
 export interface GetWebAppPremierAddOnOutputArgs {

@@ -79,9 +79,12 @@ export interface ListConfigurationStoreKeyValueResult {
      */
     readonly value: string;
 }
-
+/**
+ * The result of a request to retrieve a key-value from the specified configuration store.
+ * API Version: 2020-06-01.
+ */
 export function listConfigurationStoreKeyValueOutput(args: ListConfigurationStoreKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeyValueResult> {
-    return pulumi.output(args).apply(a => listConfigurationStoreKeyValue(a, opts))
+    return pulumi.output(args).apply((a: any) => listConfigurationStoreKeyValue(a, opts))
 }
 
 export interface ListConfigurationStoreKeyValueOutputArgs {

@@ -88,9 +88,12 @@ export interface GetMachineGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * A user-defined logical grouping of machines.
+ * API Version: 2015-11-01-preview.
+ */
 export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineGroupResult> {
-    return pulumi.output(args).apply(a => getMachineGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getMachineGroup(a, opts))
 }
 
 export interface GetMachineGroupOutputArgs {

@@ -41,9 +41,11 @@ export interface GetSolutionConfigResult {
      */
     readonly publisherSasUri?: string;
 }
-
+/**
+ * Class representing the config for the solution in the migrate project.
+ */
 export function getSolutionConfigOutput(args: GetSolutionConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionConfigResult> {
-    return pulumi.output(args).apply(a => getSolutionConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getSolutionConfig(a, opts))
 }
 
 export interface GetSolutionConfigOutputArgs {

@@ -54,9 +54,11 @@ export interface GetSiteResult {
      */
     readonly type: string;
 }
-
+/**
+ * IoT site model
+ */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
-    return pulumi.output(args).apply(a => getSite(a, opts))
+    return pulumi.output(args).apply((a: any) => getSite(a, opts))
 }
 
 export interface GetSiteOutputArgs {

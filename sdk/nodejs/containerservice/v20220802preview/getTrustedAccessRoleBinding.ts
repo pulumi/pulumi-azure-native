@@ -68,9 +68,11 @@ export interface GetTrustedAccessRoleBindingResult {
      */
     readonly type: string;
 }
-
+/**
+ * Defines binding between a resource and role
+ */
 export function getTrustedAccessRoleBindingOutput(args: GetTrustedAccessRoleBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedAccessRoleBindingResult> {
-    return pulumi.output(args).apply(a => getTrustedAccessRoleBinding(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrustedAccessRoleBinding(a, opts))
 }
 
 export interface GetTrustedAccessRoleBindingOutputArgs {

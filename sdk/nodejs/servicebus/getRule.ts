@@ -79,9 +79,12 @@ export interface GetRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Description of Rule Resource.
+ * API Version: 2017-04-01.
+ */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    return pulumi.output(args).apply(a => getRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getRule(a, opts))
 }
 
 export interface GetRuleOutputArgs {

@@ -128,9 +128,11 @@ export interface GetAzurePowerShellScriptResult {
      */
     readonly type: string;
 }
-
+/**
+ * Object model for the Azure PowerShell script.
+ */
 export function getAzurePowerShellScriptOutput(args: GetAzurePowerShellScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzurePowerShellScriptResult> {
-    return pulumi.output(args).apply(a => getAzurePowerShellScript(a, opts))
+    return pulumi.output(args).apply((a: any) => getAzurePowerShellScript(a, opts))
 }
 
 export interface GetAzurePowerShellScriptOutputArgs {

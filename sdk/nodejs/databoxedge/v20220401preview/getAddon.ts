@@ -67,9 +67,12 @@ export interface GetAddonResult {
      */
     readonly type: string;
 }
-
+/**
+ * Role Addon
+ */
+/** @deprecated Please use one of the variants: ArcAddon. */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
-    return pulumi.output(args).apply(a => getAddon(a, opts))
+    return pulumi.output(args).apply((a: any) => getAddon(a, opts))
 }
 
 export interface GetAddonOutputArgs {

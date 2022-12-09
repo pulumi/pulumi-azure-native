@@ -54,9 +54,12 @@ export interface ListIotHubResourceKeysForKeyNameResult {
      */
     readonly secondaryKey?: string;
 }
-
+/**
+ * The properties of an IoT hub shared access policy.
+ * API Version: 2020-08-31.
+ */
 export function listIotHubResourceKeysForKeyNameOutput(args: ListIotHubResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysForKeyNameResult> {
-    return pulumi.output(args).apply(a => listIotHubResourceKeysForKeyName(a, opts))
+    return pulumi.output(args).apply((a: any) => listIotHubResourceKeysForKeyName(a, opts))
 }
 
 export interface ListIotHubResourceKeysForKeyNameOutputArgs {

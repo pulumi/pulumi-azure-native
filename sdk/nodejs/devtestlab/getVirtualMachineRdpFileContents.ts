@@ -42,9 +42,12 @@ export interface GetVirtualMachineRdpFileContentsResult {
      */
     readonly contents?: string;
 }
-
+/**
+ * Represents a .rdp file
+ * API Version: 2018-09-15.
+ */
 export function getVirtualMachineRdpFileContentsOutput(args: GetVirtualMachineRdpFileContentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRdpFileContentsResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineRdpFileContents(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineRdpFileContents(a, opts))
 }
 
 export interface GetVirtualMachineRdpFileContentsOutputArgs {

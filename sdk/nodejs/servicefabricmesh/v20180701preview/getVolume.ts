@@ -73,9 +73,12 @@ export interface GetVolumeResult {
      */
     readonly type: string;
 }
-
+/**
+ * This type describes a volume resource.
+ */
+/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply(a => getVolume(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }
 
 export interface GetVolumeOutputArgs {

@@ -75,9 +75,12 @@ export interface GetContainerAppsSourceControlResult {
      */
     readonly type: string;
 }
-
+/**
+ * Container App SourceControl.
+ * API Version: 2022-03-01.
+ */
 export function getContainerAppsSourceControlOutput(args: GetContainerAppsSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsSourceControlResult> {
-    return pulumi.output(args).apply(a => getContainerAppsSourceControl(a, opts))
+    return pulumi.output(args).apply((a: any) => getContainerAppsSourceControl(a, opts))
 }
 
 export interface GetContainerAppsSourceControlOutputArgs {

@@ -79,9 +79,11 @@ export interface GetBlobContainerDataSetResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure storage blob container data set.
+ */
 export function getBlobContainerDataSetOutput(args: GetBlobContainerDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetResult> {
-    return pulumi.output(args).apply(a => getBlobContainerDataSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getBlobContainerDataSet(a, opts))
 }
 
 export interface GetBlobContainerDataSetOutputArgs {

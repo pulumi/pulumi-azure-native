@@ -68,9 +68,11 @@ export interface GetVirtualApplianceSiteResult {
      */
     readonly type: string;
 }
-
+/**
+ * Virtual Appliance Site resource.
+ */
 export function getVirtualApplianceSiteOutput(args: GetVirtualApplianceSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualApplianceSiteResult> {
-    return pulumi.output(args).apply(a => getVirtualApplianceSite(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualApplianceSite(a, opts))
 }
 
 export interface GetVirtualApplianceSiteOutputArgs {

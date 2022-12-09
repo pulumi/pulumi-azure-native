@@ -77,9 +77,11 @@ export interface GetMECRoleResult {
      */
     readonly type: string;
 }
-
+/**
+ * MEC role.
+ */
 export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMECRoleResult> {
-    return pulumi.output(args).apply(a => getMECRole(a, opts))
+    return pulumi.output(args).apply((a: any) => getMECRole(a, opts))
 }
 
 export interface GetMECRoleOutputArgs {

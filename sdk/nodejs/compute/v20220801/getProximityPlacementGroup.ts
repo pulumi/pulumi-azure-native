@@ -88,9 +88,11 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Specifies information about the proximity placement group.
+ */
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
-    return pulumi.output(args).apply(a => getProximityPlacementGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))
 }
 
 export interface GetProximityPlacementGroupOutputArgs {

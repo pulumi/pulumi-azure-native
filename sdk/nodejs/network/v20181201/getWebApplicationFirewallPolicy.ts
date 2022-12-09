@@ -76,9 +76,11 @@ export interface GetWebApplicationFirewallPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * Defines web application firewall policy.
+ */
 export function getWebApplicationFirewallPolicyOutput(args: GetWebApplicationFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebApplicationFirewallPolicyResult> {
-    return pulumi.output(args).apply(a => getWebApplicationFirewallPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebApplicationFirewallPolicy(a, opts))
 }
 
 export interface GetWebApplicationFirewallPolicyOutputArgs {

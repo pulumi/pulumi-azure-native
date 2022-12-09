@@ -56,9 +56,12 @@ export interface GetSaasSubscriptionLevelResult {
      */
     readonly type: string;
 }
-
+/**
+ * SaaS REST API resource definition.
+ * API Version: 2018-03-01-beta.
+ */
 export function getSaasSubscriptionLevelOutput(args: GetSaasSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSaasSubscriptionLevelResult> {
-    return pulumi.output(args).apply(a => getSaasSubscriptionLevel(a, opts))
+    return pulumi.output(args).apply((a: any) => getSaasSubscriptionLevel(a, opts))
 }
 
 export interface GetSaasSubscriptionLevelOutputArgs {

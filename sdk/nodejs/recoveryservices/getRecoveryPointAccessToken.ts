@@ -100,9 +100,11 @@ export interface GetRecoveryPointAccessTokenResult {
      */
     readonly type: string;
 }
-
+/**
+ * API Version: 2018-12-20.
+ */
 export function getRecoveryPointAccessTokenOutput(args: GetRecoveryPointAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryPointAccessTokenResult> {
-    return pulumi.output(args).apply(a => getRecoveryPointAccessToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getRecoveryPointAccessToken(a, opts))
 }
 
 export interface GetRecoveryPointAccessTokenOutputArgs {

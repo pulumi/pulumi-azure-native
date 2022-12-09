@@ -77,9 +77,11 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * PrivateEndpointConnection resource.
+ */
 export function getPrivateLinkServicePrivateEndpointConnectionOutput(args: GetPrivateLinkServicePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicePrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getPrivateLinkServicePrivateEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateLinkServicePrivateEndpointConnection(a, opts))
 }
 
 export interface GetPrivateLinkServicePrivateEndpointConnectionOutputArgs {

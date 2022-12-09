@@ -86,9 +86,11 @@ export interface GetFusionAlertRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents Fusion alert rule.
+ */
 export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {
-    return pulumi.output(args).apply(a => getFusionAlertRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getFusionAlertRule(a, opts))
 }
 
 export interface GetFusionAlertRuleOutputArgs {

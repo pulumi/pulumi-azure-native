@@ -36,9 +36,11 @@ export interface ListDelegationSettingSecretsResult {
      */
     readonly validationKey?: string;
 }
-
+/**
+ * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ */
 export function listDelegationSettingSecretsOutput(args: ListDelegationSettingSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDelegationSettingSecretsResult> {
-    return pulumi.output(args).apply(a => listDelegationSettingSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => listDelegationSettingSecrets(a, opts))
 }
 
 export interface ListDelegationSettingSecretsOutputArgs {

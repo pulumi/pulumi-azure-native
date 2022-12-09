@@ -58,9 +58,12 @@ export interface GetFirewallRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a server firewall rule.
+ * API Version: 2018-06-01.
+ */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
-    return pulumi.output(args).apply(a => getFirewallRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }
 
 export interface GetFirewallRuleOutputArgs {

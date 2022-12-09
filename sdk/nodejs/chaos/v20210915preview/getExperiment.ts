@@ -67,9 +67,11 @@ export interface GetExperimentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Model that represents a Experiment resource.
+ */
 export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
-    return pulumi.output(args).apply(a => getExperiment(a, opts))
+    return pulumi.output(args).apply((a: any) => getExperiment(a, opts))
 }
 
 export interface GetExperimentOutputArgs {

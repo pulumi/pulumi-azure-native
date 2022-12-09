@@ -66,9 +66,12 @@ export interface GetFavoriteProcessResult {
      */
     readonly type: string;
 }
-
+/**
+ * A favorite process identifier.
+ * API Version: 2022-04-01-preview.
+ */
 export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteProcessResult> {
-    return pulumi.output(args).apply(a => getFavoriteProcess(a, opts))
+    return pulumi.output(args).apply((a: any) => getFavoriteProcess(a, opts))
 }
 
 export interface GetFavoriteProcessOutputArgs {

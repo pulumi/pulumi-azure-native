@@ -39,9 +39,11 @@ export interface GetLabAccountRegionalAvailabilityResult {
      */
     readonly regionalAvailability?: outputs.labservices.v20181015.RegionalAvailabilityResponse[];
 }
-
+/**
+ * The response model from the GetRegionalAvailability action
+ */
 export function getLabAccountRegionalAvailabilityOutput(args: GetLabAccountRegionalAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountRegionalAvailabilityResult> {
-    return pulumi.output(args).apply(a => getLabAccountRegionalAvailability(a, opts))
+    return pulumi.output(args).apply((a: any) => getLabAccountRegionalAvailability(a, opts))
 }
 
 export interface GetLabAccountRegionalAvailabilityOutputArgs {

@@ -89,9 +89,11 @@ export interface GetManagedEnvironmentResult {
      */
     readonly vnetConfiguration?: outputs.app.v20220101preview.VnetConfigurationResponse;
 }
-
+/**
+ * An environment for hosting container apps
+ */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {
-    return pulumi.output(args).apply(a => getManagedEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedEnvironment(a, opts))
 }
 
 export interface GetManagedEnvironmentOutputArgs {

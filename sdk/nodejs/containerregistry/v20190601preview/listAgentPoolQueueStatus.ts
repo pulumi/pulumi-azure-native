@@ -41,9 +41,11 @@ export interface ListAgentPoolQueueStatusResult {
      */
     readonly count?: number;
 }
-
+/**
+ * The QueueStatus of Agent Pool
+ */
 export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
-    return pulumi.output(args).apply(a => listAgentPoolQueueStatus(a, opts))
+    return pulumi.output(args).apply((a: any) => listAgentPoolQueueStatus(a, opts))
 }
 
 export interface ListAgentPoolQueueStatusOutputArgs {

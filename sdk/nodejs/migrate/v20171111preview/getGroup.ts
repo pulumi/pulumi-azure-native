@@ -71,9 +71,12 @@ export interface GetGroupResult {
      */
     readonly updatedTimestamp: string;
 }
-
+/**
+ * A group created in a Migration project.
+ */
+/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    return pulumi.output(args).apply(a => getGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
 }
 
 export interface GetGroupOutputArgs {

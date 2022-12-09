@@ -69,9 +69,12 @@ export interface GetEventSubscriptionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Event Subscription
+ */
+/** @deprecated Version 2017-06-15-preview will be removed in v2 of the provider. */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
-    return pulumi.output(args).apply(a => getEventSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventSubscription(a, opts))
 }
 
 export interface GetEventSubscriptionOutputArgs {

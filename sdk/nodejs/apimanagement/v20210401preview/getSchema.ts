@@ -61,9 +61,11 @@ export interface GetSchemaResult {
      */
     readonly value?: string;
 }
-
+/**
+ * Schema Contract details.
+ */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
-    return pulumi.output(args).apply(a => getSchema(a, opts))
+    return pulumi.output(args).apply((a: any) => getSchema(a, opts))
 }
 
 export interface GetSchemaOutputArgs {

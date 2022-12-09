@@ -60,9 +60,11 @@ export interface GetActiveDirectoryConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Active directory connector resource
+ */
 export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
-    return pulumi.output(args).apply(a => getActiveDirectoryConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getActiveDirectoryConnector(a, opts))
 }
 
 export interface GetActiveDirectoryConnectorOutputArgs {

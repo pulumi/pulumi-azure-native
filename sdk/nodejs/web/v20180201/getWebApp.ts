@@ -211,9 +211,11 @@ export interface GetWebAppResult {
      */
     readonly usageState: string;
 }
-
+/**
+ * A web app, a mobile app backend, or an API app.
+ */
 export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppResult> {
-    return pulumi.output(args).apply(a => getWebApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebApp(a, opts))
 }
 
 export interface GetWebAppOutputArgs {

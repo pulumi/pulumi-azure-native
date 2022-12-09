@@ -88,9 +88,11 @@ export interface GetConnectedEnvironmentsDaprComponentResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Dapr Component.
+ */
 export function getConnectedEnvironmentsDaprComponentOutput(args: GetConnectedEnvironmentsDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsDaprComponentResult> {
-    return pulumi.output(args).apply(a => getConnectedEnvironmentsDaprComponent(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsDaprComponent(a, opts))
 }
 
 export interface GetConnectedEnvironmentsDaprComponentOutputArgs {

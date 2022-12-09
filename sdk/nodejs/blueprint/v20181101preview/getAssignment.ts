@@ -91,9 +91,11 @@ export interface GetAssignmentResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a blueprint assignment.
+ */
 export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
-    return pulumi.output(args).apply(a => getAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssignment(a, opts))
 }
 
 export interface GetAssignmentOutputArgs {

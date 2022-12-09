@@ -104,9 +104,11 @@ export interface GetPublicIPPrefixResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Public IP prefix resource.
+ */
 export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {
-    return pulumi.output(args).apply(a => getPublicIPPrefix(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicIPPrefix(a, opts))
 }
 
 export interface GetPublicIPPrefixOutputArgs {

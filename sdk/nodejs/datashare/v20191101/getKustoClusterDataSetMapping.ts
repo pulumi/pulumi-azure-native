@@ -79,9 +79,11 @@ export interface GetKustoClusterDataSetMappingResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Kusto cluster data set mapping
+ */
 export function getKustoClusterDataSetMappingOutput(args: GetKustoClusterDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetMappingResult> {
-    return pulumi.output(args).apply(a => getKustoClusterDataSetMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getKustoClusterDataSetMapping(a, opts))
 }
 
 export interface GetKustoClusterDataSetMappingOutputArgs {

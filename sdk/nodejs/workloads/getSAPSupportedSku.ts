@@ -65,9 +65,12 @@ export interface GetSAPSupportedSkuResult {
      */
     readonly supportedSkus?: outputs.workloads.SAPSupportedSkuResponse[];
 }
-
+/**
+ * The list of supported SKUs for different resources which are part of SAP deployment.
+ * API Version: 2021-12-01-preview.
+ */
 export function getSAPSupportedSkuOutput(args: GetSAPSupportedSkuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSupportedSkuResult> {
-    return pulumi.output(args).apply(a => getSAPSupportedSku(a, opts))
+    return pulumi.output(args).apply((a: any) => getSAPSupportedSku(a, opts))
 }
 
 export interface GetSAPSupportedSkuOutputArgs {

@@ -41,9 +41,12 @@ export interface ListDomainSharedAccessKeysResult {
      */
     readonly key2?: string;
 }
-
+/**
+ * Shared access keys of the Domain.
+ * API Version: 2020-06-01.
+ */
 export function listDomainSharedAccessKeysOutput(args: ListDomainSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainSharedAccessKeysResult> {
-    return pulumi.output(args).apply(a => listDomainSharedAccessKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listDomainSharedAccessKeys(a, opts))
 }
 
 export interface ListDomainSharedAccessKeysOutputArgs {

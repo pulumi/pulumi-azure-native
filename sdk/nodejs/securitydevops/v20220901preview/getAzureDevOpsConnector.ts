@@ -54,9 +54,8 @@ export interface GetAzureDevOpsConnectorResult {
      */
     readonly type: string;
 }
-
 export function getAzureDevOpsConnectorOutput(args: GetAzureDevOpsConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureDevOpsConnectorResult> {
-    return pulumi.output(args).apply(a => getAzureDevOpsConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getAzureDevOpsConnector(a, opts))
 }
 
 export interface GetAzureDevOpsConnectorOutputArgs {

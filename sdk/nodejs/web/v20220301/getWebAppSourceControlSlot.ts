@@ -84,9 +84,11 @@ export interface GetWebAppSourceControlSlotResult {
      */
     readonly type: string;
 }
-
+/**
+ * Source control configuration for an app.
+ */
 export function getWebAppSourceControlSlotOutput(args: GetWebAppSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlSlotResult> {
-    return pulumi.output(args).apply(a => getWebAppSourceControlSlot(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAppSourceControlSlot(a, opts))
 }
 
 export interface GetWebAppSourceControlSlotOutputArgs {

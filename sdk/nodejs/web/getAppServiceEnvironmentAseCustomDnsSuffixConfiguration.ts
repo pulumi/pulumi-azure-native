@@ -63,9 +63,12 @@ export interface GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Full view of the custom domain suffix configuration for ASEv3.
+ * API Version: 2022-03-01.
+ */
 export function getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput(args: GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> {
-    return pulumi.output(args).apply(a => getAppServiceEnvironmentAseCustomDnsSuffixConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppServiceEnvironmentAseCustomDnsSuffixConfiguration(a, opts))
 }
 
 export interface GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutputArgs {

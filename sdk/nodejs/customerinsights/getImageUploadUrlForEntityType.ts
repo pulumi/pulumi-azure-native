@@ -60,9 +60,12 @@ export interface GetImageUploadUrlForEntityTypeResult {
      */
     readonly relativePath?: string;
 }
-
+/**
+ * The image definition.
+ * API Version: 2017-04-26.
+ */
 export function getImageUploadUrlForEntityTypeOutput(args: GetImageUploadUrlForEntityTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForEntityTypeResult> {
-    return pulumi.output(args).apply(a => getImageUploadUrlForEntityType(a, opts))
+    return pulumi.output(args).apply((a: any) => getImageUploadUrlForEntityType(a, opts))
 }
 
 export interface GetImageUploadUrlForEntityTypeOutputArgs {

@@ -53,9 +53,11 @@ export interface GetManagedInstanceAzureADOnlyAuthenticationResult {
      */
     readonly type: string;
 }
-
+/**
+ * Azure Active Directory only authentication.
+ */
 export function getManagedInstanceAzureADOnlyAuthenticationOutput(args: GetManagedInstanceAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAzureADOnlyAuthenticationResult> {
-    return pulumi.output(args).apply(a => getManagedInstanceAzureADOnlyAuthentication(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedInstanceAzureADOnlyAuthentication(a, opts))
 }
 
 export interface GetManagedInstanceAzureADOnlyAuthenticationOutputArgs {

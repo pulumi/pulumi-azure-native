@@ -39,9 +39,11 @@ export interface GetVirtualNetworkGatewayLearnedRoutesResult {
      */
     readonly value?: outputs.network.v20180201.GatewayRouteResponse[];
 }
-
+/**
+ * List of virtual network gateway routes
+ */
 export function getVirtualNetworkGatewayLearnedRoutesOutput(args: GetVirtualNetworkGatewayLearnedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayLearnedRoutesResult> {
-    return pulumi.output(args).apply(a => getVirtualNetworkGatewayLearnedRoutes(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayLearnedRoutes(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayLearnedRoutesOutputArgs {

@@ -81,9 +81,12 @@ export interface GetNetworkProfileResult {
      */
     readonly type: string;
 }
-
+/**
+ * Network profile resource.
+ * API Version: 2020-11-01.
+ */
 export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
-    return pulumi.output(args).apply(a => getNetworkProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkProfile(a, opts))
 }
 
 export interface GetNetworkProfileOutputArgs {

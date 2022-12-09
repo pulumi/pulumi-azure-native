@@ -109,9 +109,11 @@ export interface GetGen2EnvironmentResult {
      */
     readonly warmStoreConfiguration?: outputs.timeseriesinsights.v20210331preview.WarmStoreConfigurationPropertiesResponse;
 }
-
+/**
+ * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
+ */
 export function getGen2EnvironmentOutput(args: GetGen2EnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGen2EnvironmentResult> {
-    return pulumi.output(args).apply(a => getGen2Environment(a, opts))
+    return pulumi.output(args).apply((a: any) => getGen2Environment(a, opts))
 }
 
 export interface GetGen2EnvironmentOutputArgs {

@@ -113,9 +113,12 @@ export interface GetServerResult {
      */
     readonly workspaceFeature: string;
 }
-
+/**
+ * An Azure SQL Database server.
+ * API Version: 2020-11-01-preview.
+ */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    return pulumi.output(args).apply(a => getServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }
 
 export interface GetServerOutputArgs {

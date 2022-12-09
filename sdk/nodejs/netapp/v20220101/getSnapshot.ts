@@ -75,9 +75,11 @@ export interface GetSnapshotResult {
      */
     readonly type: string;
 }
-
+/**
+ * Snapshot of a Volume
+ */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply(a => getSnapshot(a, opts))
+    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }
 
 export interface GetSnapshotOutputArgs {

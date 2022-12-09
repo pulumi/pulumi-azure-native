@@ -84,9 +84,12 @@ export interface GetAppResult {
      */
     readonly type: string;
 }
-
+/**
+ * The IoT Central application.
+ * API Version: 2021-06-01.
+ */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    return pulumi.output(args).apply(a => getApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getApp(a, opts))
 }
 
 export interface GetAppOutputArgs {

@@ -69,9 +69,12 @@ export interface GetReplicationResult {
      */
     readonly type: string;
 }
-
+/**
+ * An object that represents a replication for a container registry.
+ * API Version: 2019-05-01.
+ */
 export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
-    return pulumi.output(args).apply(a => getReplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplication(a, opts))
 }
 
 export interface GetReplicationOutputArgs {

@@ -44,9 +44,11 @@ export interface ListAssetStreamingLocatorsResult {
      */
     readonly streamingLocators: outputs.media.v20210601.AssetStreamingLocatorResponse[];
 }
-
+/**
+ * The Streaming Locators associated with this Asset.
+ */
 export function listAssetStreamingLocatorsOutput(args: ListAssetStreamingLocatorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetStreamingLocatorsResult> {
-    return pulumi.output(args).apply(a => listAssetStreamingLocators(a, opts))
+    return pulumi.output(args).apply((a: any) => listAssetStreamingLocators(a, opts))
 }
 
 export interface ListAssetStreamingLocatorsOutputArgs {

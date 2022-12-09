@@ -85,9 +85,11 @@ export interface GetSourceControlResult {
      */
     readonly type: string;
 }
-
+/**
+ * Definition of the source control.
+ */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
-    return pulumi.output(args).apply(a => getSourceControl(a, opts))
+    return pulumi.output(args).apply((a: any) => getSourceControl(a, opts))
 }
 
 export interface GetSourceControlOutputArgs {

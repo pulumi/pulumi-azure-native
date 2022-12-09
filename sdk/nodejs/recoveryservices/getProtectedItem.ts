@@ -84,9 +84,12 @@ export interface GetProtectedItemResult {
      */
     readonly type: string;
 }
-
+/**
+ * Base class for backup items.
+ * API Version: 2021-02-01.
+ */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
-    return pulumi.output(args).apply(a => getProtectedItem(a, opts))
+    return pulumi.output(args).apply((a: any) => getProtectedItem(a, opts))
 }
 
 export interface GetProtectedItemOutputArgs {

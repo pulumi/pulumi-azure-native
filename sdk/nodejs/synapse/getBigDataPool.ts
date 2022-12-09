@@ -133,9 +133,12 @@ export interface GetBigDataPoolResult {
      */
     readonly type: string;
 }
-
+/**
+ * A Big Data pool
+ * API Version: 2021-03-01.
+ */
 export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBigDataPoolResult> {
-    return pulumi.output(args).apply(a => getBigDataPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getBigDataPool(a, opts))
 }
 
 export interface GetBigDataPoolOutputArgs {

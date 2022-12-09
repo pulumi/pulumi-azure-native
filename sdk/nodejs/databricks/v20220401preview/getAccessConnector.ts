@@ -63,9 +63,11 @@ export interface GetAccessConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Information about azure databricks accessConnector.
+ */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
-    return pulumi.output(args).apply(a => getAccessConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccessConnector(a, opts))
 }
 
 export interface GetAccessConnectorOutputArgs {

@@ -65,9 +65,11 @@ export interface GetServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * The resource representation of a service in a service topology.
+ */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

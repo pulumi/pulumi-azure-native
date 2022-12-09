@@ -187,9 +187,11 @@ export interface GetManagedClusterResult {
      */
     readonly windowsProfile?: outputs.containerservice.v20220101.ManagedClusterWindowsProfileResponse;
 }
-
+/**
+ * Managed cluster.
+ */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
-    return pulumi.output(args).apply(a => getManagedCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))
 }
 
 export interface GetManagedClusterOutputArgs {

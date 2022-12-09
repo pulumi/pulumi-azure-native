@@ -49,9 +49,11 @@ export interface ListQnAMakerEndpointKeyResult {
      */
     readonly secondaryEndpointKey?: string;
 }
-
+/**
+ * Schema for EndpointKeys generate/refresh operations.
+ */
 export function listQnAMakerEndpointKeyOutput(args?: ListQnAMakerEndpointKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQnAMakerEndpointKeyResult> {
-    return pulumi.output(args).apply(a => listQnAMakerEndpointKey(a, opts))
+    return pulumi.output(args).apply((a: any) => listQnAMakerEndpointKey(a, opts))
 }
 
 export interface ListQnAMakerEndpointKeyOutputArgs {

@@ -39,9 +39,11 @@ export interface ListAllTrafficFilterResult {
      */
     readonly rulesets?: outputs.elastic.v20220505preview.ElasticTrafficFilterResponse[];
 }
-
+/**
+ * List of elastic traffic filters in the account
+ */
 export function listAllTrafficFilterOutput(args: ListAllTrafficFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAllTrafficFilterResult> {
-    return pulumi.output(args).apply(a => listAllTrafficFilter(a, opts))
+    return pulumi.output(args).apply((a: any) => listAllTrafficFilter(a, opts))
 }
 
 export interface ListAllTrafficFilterOutputArgs {

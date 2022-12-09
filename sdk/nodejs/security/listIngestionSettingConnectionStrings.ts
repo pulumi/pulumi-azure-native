@@ -35,9 +35,12 @@ export interface ListIngestionSettingConnectionStringsResult {
      */
     readonly value: outputs.security.IngestionConnectionStringResponse[];
 }
-
+/**
+ * Connection string for ingesting security data and logs
+ * API Version: 2021-01-15-preview.
+ */
 export function listIngestionSettingConnectionStringsOutput(args: ListIngestionSettingConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIngestionSettingConnectionStringsResult> {
-    return pulumi.output(args).apply(a => listIngestionSettingConnectionStrings(a, opts))
+    return pulumi.output(args).apply((a: any) => listIngestionSettingConnectionStrings(a, opts))
 }
 
 export interface ListIngestionSettingConnectionStringsOutputArgs {

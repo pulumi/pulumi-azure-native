@@ -55,9 +55,12 @@ export interface GetArtifactResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents a Blueprint artifact.
+ */
+/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getArtifactOutput(args: GetArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactResult> {
-    return pulumi.output(args).apply(a => getArtifact(a, opts))
+    return pulumi.output(args).apply((a: any) => getArtifact(a, opts))
 }
 
 export interface GetArtifactOutputArgs {

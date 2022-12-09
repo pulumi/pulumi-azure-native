@@ -76,9 +76,11 @@ export interface GetProactiveDetectionConfigurationResult {
      */
     readonly type: string;
 }
-
+/**
+ * A ProactiveDetection configuration definition.
+ */
 export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
-    return pulumi.output(args).apply(a => getProactiveDetectionConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getProactiveDetectionConfiguration(a, opts))
 }
 
 export interface GetProactiveDetectionConfigurationOutputArgs {

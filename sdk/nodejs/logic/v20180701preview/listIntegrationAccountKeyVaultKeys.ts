@@ -53,9 +53,11 @@ export interface ListIntegrationAccountKeyVaultKeysResult {
      */
     readonly value?: outputs.logic.v20180701preview.KeyVaultKeyResponse[];
 }
-
+/**
+ * Collection of key vault keys.
+ */
 export function listIntegrationAccountKeyVaultKeysOutput(args: ListIntegrationAccountKeyVaultKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountKeyVaultKeysResult> {
-    return pulumi.output(args).apply(a => listIntegrationAccountKeyVaultKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listIntegrationAccountKeyVaultKeys(a, opts))
 }
 
 export interface ListIntegrationAccountKeyVaultKeysOutputArgs {

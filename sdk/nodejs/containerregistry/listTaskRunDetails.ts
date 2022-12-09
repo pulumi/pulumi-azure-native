@@ -83,9 +83,13 @@ export interface ListTaskRunDetailsResult {
      */
     readonly type: string;
 }
-
+/**
+ * The task run that has the ARM resource and properties.
+ * The task run will have the information of request and result of a run.
+ * API Version: 2019-06-01-preview.
+ */
 export function listTaskRunDetailsOutput(args: ListTaskRunDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskRunDetailsResult> {
-    return pulumi.output(args).apply(a => listTaskRunDetails(a, opts))
+    return pulumi.output(args).apply((a: any) => listTaskRunDetails(a, opts))
 }
 
 export interface ListTaskRunDetailsOutputArgs {

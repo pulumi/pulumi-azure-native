@@ -69,9 +69,11 @@ export interface GetStaticMemberResult {
      */
     readonly type: string;
 }
-
+/**
+ * StaticMember Item.
+ */
 export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticMemberResult> {
-    return pulumi.output(args).apply(a => getStaticMember(a, opts))
+    return pulumi.output(args).apply((a: any) => getStaticMember(a, opts))
 }
 
 export interface GetStaticMemberOutputArgs {

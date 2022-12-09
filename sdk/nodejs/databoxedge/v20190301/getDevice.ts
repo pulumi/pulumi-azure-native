@@ -117,9 +117,12 @@ export interface GetDeviceResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Data Box Edge/Gateway device.
+ */
+/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
-    return pulumi.output(args).apply(a => getDevice(a, opts))
+    return pulumi.output(args).apply((a: any) => getDevice(a, opts))
 }
 
 export interface GetDeviceOutputArgs {

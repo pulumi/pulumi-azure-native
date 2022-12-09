@@ -90,9 +90,12 @@ export interface GetBillingRoleAssignmentByDepartmentResult {
      */
     readonly userEmailAddress?: string;
 }
-
+/**
+ * The role assignment
+ * API Version: 2019-10-01-preview.
+ */
 export function getBillingRoleAssignmentByDepartmentOutput(args: GetBillingRoleAssignmentByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByDepartmentResult> {
-    return pulumi.output(args).apply(a => getBillingRoleAssignmentByDepartment(a, opts))
+    return pulumi.output(args).apply((a: any) => getBillingRoleAssignmentByDepartment(a, opts))
 }
 
 export interface GetBillingRoleAssignmentByDepartmentOutputArgs {

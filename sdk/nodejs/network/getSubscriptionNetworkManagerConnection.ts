@@ -59,9 +59,12 @@ export interface GetSubscriptionNetworkManagerConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * The Network Manager Connection resource
+ * API Version: 2022-02-01-preview.
+ */
 export function getSubscriptionNetworkManagerConnectionOutput(args: GetSubscriptionNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionNetworkManagerConnectionResult> {
-    return pulumi.output(args).apply(a => getSubscriptionNetworkManagerConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubscriptionNetworkManagerConnection(a, opts))
 }
 
 export interface GetSubscriptionNetworkManagerConnectionOutputArgs {

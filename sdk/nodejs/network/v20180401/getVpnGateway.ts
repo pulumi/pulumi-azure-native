@@ -81,9 +81,12 @@ export interface GetVpnGatewayResult {
      */
     readonly virtualHub?: outputs.network.v20180401.SubResourceResponse;
 }
-
+/**
+ * VpnGateway Resource.
+ */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
-    return pulumi.output(args).apply(a => getVpnGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))
 }
 
 export interface GetVpnGatewayOutputArgs {

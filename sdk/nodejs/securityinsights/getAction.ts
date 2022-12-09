@@ -67,9 +67,12 @@ export interface GetActionResult {
      */
     readonly workflowId?: string;
 }
-
+/**
+ * Action for alert rule.
+ * API Version: 2020-01-01.
+ */
 export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionResult> {
-    return pulumi.output(args).apply(a => getAction(a, opts))
+    return pulumi.output(args).apply((a: any) => getAction(a, opts))
 }
 
 export interface GetActionOutputArgs {

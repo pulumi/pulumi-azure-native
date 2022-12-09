@@ -66,9 +66,12 @@ export interface GetManagedPrivateEndpointResult {
      */
     readonly type: string;
 }
-
+/**
+ * Managed private endpoint resource type.
+ * API Version: 2018-06-01.
+ */
 export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
-    return pulumi.output(args).apply(a => getManagedPrivateEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedPrivateEndpoint(a, opts))
 }
 
 export interface GetManagedPrivateEndpointOutputArgs {

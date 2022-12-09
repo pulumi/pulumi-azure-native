@@ -163,9 +163,11 @@ export interface GetClusterResult {
      */
     readonly userAssignedIdentities?: {[key: string]: outputs.azurestackhci.v20221001.UserAssignedIdentityResponse};
 }
-
+/**
+ * Cluster details.
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

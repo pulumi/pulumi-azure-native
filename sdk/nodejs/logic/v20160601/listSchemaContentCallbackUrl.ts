@@ -74,9 +74,11 @@ export interface ListSchemaContentCallbackUrlResult {
      */
     readonly value: string;
 }
-
+/**
+ * The workflow trigger callback URL.
+ */
 export function listSchemaContentCallbackUrlOutput(args: ListSchemaContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSchemaContentCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listSchemaContentCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listSchemaContentCallbackUrl(a, opts))
 }
 
 export interface ListSchemaContentCallbackUrlOutputArgs {

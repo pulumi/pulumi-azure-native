@@ -48,9 +48,11 @@ export interface ListTopLevelDomainAgreementsResult {
      */
     readonly value: outputs.domainregistration.v20210101.TldLegalAgreementResponse[];
 }
-
+/**
+ * Collection of top-level domain legal agreements.
+ */
 export function listTopLevelDomainAgreementsOutput(args: ListTopLevelDomainAgreementsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopLevelDomainAgreementsResult> {
-    return pulumi.output(args).apply(a => listTopLevelDomainAgreements(a, opts))
+    return pulumi.output(args).apply((a: any) => listTopLevelDomainAgreements(a, opts))
 }
 
 export interface ListTopLevelDomainAgreementsOutputArgs {

@@ -74,9 +74,12 @@ export interface GetFileEventTriggerResult {
      */
     readonly type: string;
 }
-
+/**
+ * Trigger details.
+ * API Version: 2020-12-01.
+ */
 export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileEventTriggerResult> {
-    return pulumi.output(args).apply(a => getFileEventTrigger(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileEventTrigger(a, opts))
 }
 
 export interface GetFileEventTriggerOutputArgs {

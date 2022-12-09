@@ -93,9 +93,12 @@ export interface GetBackupResult {
      */
     readonly type: string;
 }
-
+/**
+ * Backup of a Volume
+ */
+/** @deprecated Version 2020-11-01 will be removed in v2 of the provider. */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
-    return pulumi.output(args).apply(a => getBackup(a, opts))
+    return pulumi.output(args).apply((a: any) => getBackup(a, opts))
 }
 
 export interface GetBackupOutputArgs {

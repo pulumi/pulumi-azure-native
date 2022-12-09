@@ -66,9 +66,12 @@ export interface GetSqlServerRegistrationResult {
      */
     readonly type: string;
 }
-
+/**
+ * A SQL server registration.
+ */
+/** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider. */
 export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerRegistrationResult> {
-    return pulumi.output(args).apply(a => getSqlServerRegistration(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlServerRegistration(a, opts))
 }
 
 export interface GetSqlServerRegistrationOutputArgs {

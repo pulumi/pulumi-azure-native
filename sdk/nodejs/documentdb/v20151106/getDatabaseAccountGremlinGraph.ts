@@ -99,9 +99,12 @@ export interface GetDatabaseAccountGremlinGraphResult {
      */
     readonly uniqueKeyPolicy?: outputs.documentdb.v20151106.UniqueKeyPolicyResponse;
 }
-
+/**
+ * An Azure Cosmos DB Gremlin graph.
+ */
+/** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinGraphOutput(args: GetDatabaseAccountGremlinGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountGremlinGraphResult> {
-    return pulumi.output(args).apply(a => getDatabaseAccountGremlinGraph(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabaseAccountGremlinGraph(a, opts))
 }
 
 export interface GetDatabaseAccountGremlinGraphOutputArgs {

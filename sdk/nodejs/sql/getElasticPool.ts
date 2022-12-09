@@ -103,9 +103,12 @@ export interface GetElasticPoolResult {
      */
     readonly zoneRedundant?: boolean;
 }
-
+/**
+ * An elastic pool.
+ * API Version: 2020-11-01-preview.
+ */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
-    return pulumi.output(args).apply(a => getElasticPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))
 }
 
 export interface GetElasticPoolOutputArgs {

@@ -40,9 +40,11 @@ export interface GetRegistryCredentialsResult {
      */
     readonly username?: string;
 }
-
+/**
+ * The result of a request to get the administrator login credentials for a container registry.
+ */
 export function getRegistryCredentialsOutput(args: GetRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryCredentialsResult> {
-    return pulumi.output(args).apply(a => getRegistryCredentials(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistryCredentials(a, opts))
 }
 
 export interface GetRegistryCredentialsOutputArgs {

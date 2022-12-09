@@ -100,9 +100,12 @@ export interface GetVirtualNetworkResult {
      */
     readonly vCenterId?: string;
 }
-
+/**
+ * Define the virtualNetwork.
+ * API Version: 2020-10-01-preview.
+ */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply(a => getVirtualNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
 }
 
 export interface GetVirtualNetworkOutputArgs {

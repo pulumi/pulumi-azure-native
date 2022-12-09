@@ -63,9 +63,12 @@ export interface ListWCFRelayKeysResult {
      */
     readonly secondaryKey?: string;
 }
-
+/**
+ * Namespace/Relay Connection String
+ * API Version: 2017-04-01.
+ */
 export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWCFRelayKeysResult> {
-    return pulumi.output(args).apply(a => listWCFRelayKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listWCFRelayKeys(a, opts))
 }
 
 export interface ListWCFRelayKeysOutputArgs {

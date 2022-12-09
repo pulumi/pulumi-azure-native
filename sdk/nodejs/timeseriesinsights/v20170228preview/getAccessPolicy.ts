@@ -63,9 +63,12 @@ export interface GetAccessPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+ */
+/** @deprecated Version 2017-02-28-preview will be removed in v2 of the provider. */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
-    return pulumi.output(args).apply(a => getAccessPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
 }
 
 export interface GetAccessPolicyOutputArgs {

@@ -77,9 +77,11 @@ export interface GetIoMAMPolicyByNameResult {
      */
     readonly type: string;
 }
-
+/**
+ * iOS Policy entity for Intune MAM.
+ */
 export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
-    return pulumi.output(args).apply(a => getIoMAMPolicyByName(a, opts))
+    return pulumi.output(args).apply((a: any) => getIoMAMPolicyByName(a, opts))
 }
 
 export interface GetIoMAMPolicyByNameOutputArgs {

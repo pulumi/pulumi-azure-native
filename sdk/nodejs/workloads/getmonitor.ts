@@ -104,9 +104,12 @@ export interface GetmonitorResult {
      */
     readonly zoneRedundancyPreference?: string;
 }
-
+/**
+ * SAP monitor info on Azure (ARM properties and SAP monitor properties)
+ * API Version: 2021-12-01-preview.
+ */
 export function getmonitorOutput(args: GetmonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmonitorResult> {
-    return pulumi.output(args).apply(a => getmonitor(a, opts))
+    return pulumi.output(args).apply((a: any) => getmonitor(a, opts))
 }
 
 export interface GetmonitorOutputArgs {

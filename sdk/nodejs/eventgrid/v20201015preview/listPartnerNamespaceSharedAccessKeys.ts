@@ -40,9 +40,11 @@ export interface ListPartnerNamespaceSharedAccessKeysResult {
      */
     readonly key2?: string;
 }
-
+/**
+ * Shared access keys of the partner namespace.
+ */
 export function listPartnerNamespaceSharedAccessKeysOutput(args: ListPartnerNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPartnerNamespaceSharedAccessKeysResult> {
-    return pulumi.output(args).apply(a => listPartnerNamespaceSharedAccessKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => listPartnerNamespaceSharedAccessKeys(a, opts))
 }
 
 export interface ListPartnerNamespaceSharedAccessKeysOutputArgs {

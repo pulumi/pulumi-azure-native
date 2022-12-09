@@ -98,9 +98,12 @@ export interface GetInboundNatRuleResult {
      */
     readonly type: string;
 }
-
+/**
+ * Inbound NAT rule of the load balancer.
+ * API Version: 2020-11-01.
+ */
 export function getInboundNatRuleOutput(args: GetInboundNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundNatRuleResult> {
-    return pulumi.output(args).apply(a => getInboundNatRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getInboundNatRule(a, opts))
 }
 
 export interface GetInboundNatRuleOutputArgs {

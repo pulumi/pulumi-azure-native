@@ -73,9 +73,12 @@ export interface GetPeeringServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Peering Service
+ */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
 export function getPeeringServiceOutput(args: GetPeeringServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringServiceResult> {
-    return pulumi.output(args).apply(a => getPeeringService(a, opts))
+    return pulumi.output(args).apply((a: any) => getPeeringService(a, opts))
 }
 
 export interface GetPeeringServiceOutputArgs {

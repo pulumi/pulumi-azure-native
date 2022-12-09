@@ -74,9 +74,11 @@ export interface ListIntegrationAccountAgreementContentCallbackUrlResult {
      */
     readonly value: string;
 }
-
+/**
+ * The workflow trigger callback URL.
+ */
 export function listIntegrationAccountAgreementContentCallbackUrlOutput(args: ListIntegrationAccountAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountAgreementContentCallbackUrlResult> {
-    return pulumi.output(args).apply(a => listIntegrationAccountAgreementContentCallbackUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => listIntegrationAccountAgreementContentCallbackUrl(a, opts))
 }
 
 export interface ListIntegrationAccountAgreementContentCallbackUrlOutputArgs {

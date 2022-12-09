@@ -72,9 +72,12 @@ export interface GetDelegatedSubnetServiceDetailsResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents an instance of a orchestrator.
+ * API Version: 2021-03-15.
+ */
 export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
-    return pulumi.output(args).apply(a => getDelegatedSubnetServiceDetails(a, opts))
+    return pulumi.output(args).apply((a: any) => getDelegatedSubnetServiceDetails(a, opts))
 }
 
 export interface GetDelegatedSubnetServiceDetailsOutputArgs {

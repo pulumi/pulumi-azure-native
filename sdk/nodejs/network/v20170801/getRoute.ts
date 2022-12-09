@@ -67,9 +67,12 @@ export interface GetRouteResult {
      */
     readonly provisioningState?: string;
 }
-
+/**
+ * Route resource
+ */
+/** @deprecated Version 2017-08-01 will be removed in v2 of the provider. */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
-    return pulumi.output(args).apply(a => getRoute(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoute(a, opts))
 }
 
 export interface GetRouteOutputArgs {

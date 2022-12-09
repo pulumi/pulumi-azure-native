@@ -55,9 +55,11 @@ export interface ListWebAppConnectionStringsResult {
      */
     readonly type: string;
 }
-
+/**
+ * String dictionary resource.
+ */
 export function listWebAppConnectionStringsOutput(args: ListWebAppConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsResult> {
-    return pulumi.output(args).apply(a => listWebAppConnectionStrings(a, opts))
+    return pulumi.output(args).apply((a: any) => listWebAppConnectionStrings(a, opts))
 }
 
 export interface ListWebAppConnectionStringsOutputArgs {

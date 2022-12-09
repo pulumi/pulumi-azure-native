@@ -35,9 +35,12 @@ export interface ListLocationConsortiumsResult {
      */
     readonly value?: outputs.blockchain.ConsortiumResponse[];
 }
-
+/**
+ * Collection of the consortium payload.
+ * API Version: 2018-06-01-preview.
+ */
 export function listLocationConsortiumsOutput(args: ListLocationConsortiumsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocationConsortiumsResult> {
-    return pulumi.output(args).apply(a => listLocationConsortiums(a, opts))
+    return pulumi.output(args).apply((a: any) => listLocationConsortiums(a, opts))
 }
 
 export interface ListLocationConsortiumsOutputArgs {

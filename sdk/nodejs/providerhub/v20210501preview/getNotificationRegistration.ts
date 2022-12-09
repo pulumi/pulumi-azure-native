@@ -48,9 +48,11 @@ export interface GetNotificationRegistrationResult {
      */
     readonly type: string;
 }
-
+/**
+ * The notification registration definition.
+ */
 export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRegistrationResult> {
-    return pulumi.output(args).apply(a => getNotificationRegistration(a, opts))
+    return pulumi.output(args).apply((a: any) => getNotificationRegistration(a, opts))
 }
 
 export interface GetNotificationRegistrationOutputArgs {

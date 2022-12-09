@@ -129,9 +129,11 @@ export interface ListStorageAccountServiceSASResult {
      */
     readonly serviceSasToken: string;
 }
-
+/**
+ * The List service SAS credentials operation response.
+ */
 export function listStorageAccountServiceSASOutput(args: ListStorageAccountServiceSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountServiceSASResult> {
-    return pulumi.output(args).apply(a => listStorageAccountServiceSAS(a, opts))
+    return pulumi.output(args).apply((a: any) => listStorageAccountServiceSAS(a, opts))
 }
 
 export interface ListStorageAccountServiceSASOutputArgs {

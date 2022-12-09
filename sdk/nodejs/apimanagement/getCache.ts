@@ -66,9 +66,12 @@ export interface GetCacheResult {
      */
     readonly useFromLocation: string;
 }
-
+/**
+ * Cache details.
+ * API Version: 2020-12-01.
+ */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
-    return pulumi.output(args).apply(a => getCache(a, opts))
+    return pulumi.output(args).apply((a: any) => getCache(a, opts))
 }
 
 export interface GetCacheOutputArgs {

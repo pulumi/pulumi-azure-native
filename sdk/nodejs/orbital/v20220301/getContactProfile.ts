@@ -87,9 +87,11 @@ export interface GetContactProfileResult {
      */
     readonly type: string;
 }
-
+/**
+ * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+ */
 export function getContactProfileOutput(args: GetContactProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactProfileResult> {
-    return pulumi.output(args).apply(a => getContactProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getContactProfile(a, opts))
 }
 
 export interface GetContactProfileOutputArgs {

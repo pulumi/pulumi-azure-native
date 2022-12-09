@@ -95,9 +95,11 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Class representing an event hub data connection.
+ */
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
-    return pulumi.output(args).apply(a => getEventHubDataConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventHubDataConnection(a, opts))
 }
 
 export interface GetEventHubDataConnectionOutputArgs {

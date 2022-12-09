@@ -87,9 +87,11 @@ export interface GetAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * An Azure Video Indexer account.
+ */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply(a => getAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

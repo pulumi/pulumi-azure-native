@@ -89,9 +89,12 @@ export interface GetNotificationHubPnsCredentialsResult {
      */
     readonly wnsCredential?: outputs.notificationhubs.WnsCredentialResponse;
 }
-
+/**
+ * Description of a NotificationHub PNS Credentials.
+ * API Version: 2017-04-01.
+ */
 export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
-    return pulumi.output(args).apply(a => getNotificationHubPnsCredentials(a, opts))
+    return pulumi.output(args).apply((a: any) => getNotificationHubPnsCredentials(a, opts))
 }
 
 export interface GetNotificationHubPnsCredentialsOutputArgs {

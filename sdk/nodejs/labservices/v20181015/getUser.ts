@@ -102,9 +102,11 @@ export interface GetUserResult {
      */
     readonly uniqueIdentifier?: string;
 }
-
+/**
+ * The User registered to a lab
+ */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply(a => getUser(a, opts))
+    return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {

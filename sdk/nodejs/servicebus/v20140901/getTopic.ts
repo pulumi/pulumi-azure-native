@@ -135,9 +135,12 @@ export interface GetTopicResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Description of topic resource.
+ */
+/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
-    return pulumi.output(args).apply(a => getTopic(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }
 
 export interface GetTopicOutputArgs {

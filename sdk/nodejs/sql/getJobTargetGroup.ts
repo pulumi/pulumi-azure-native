@@ -62,9 +62,12 @@ export interface GetJobTargetGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * A group of job targets.
+ * API Version: 2020-11-01-preview.
+ */
 export function getJobTargetGroupOutput(args: GetJobTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTargetGroupResult> {
-    return pulumi.output(args).apply(a => getJobTargetGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobTargetGroup(a, opts))
 }
 
 export interface GetJobTargetGroupOutputArgs {

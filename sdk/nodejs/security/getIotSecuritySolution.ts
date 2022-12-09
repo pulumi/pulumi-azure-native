@@ -104,9 +104,12 @@ export interface GetIotSecuritySolutionResult {
      */
     readonly workspace?: string;
 }
-
+/**
+ * IoT Security solution configuration and resource information.
+ * API Version: 2019-08-01.
+ */
 export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotSecuritySolutionResult> {
-    return pulumi.output(args).apply(a => getIotSecuritySolution(a, opts))
+    return pulumi.output(args).apply((a: any) => getIotSecuritySolution(a, opts))
 }
 
 export interface GetIotSecuritySolutionOutputArgs {

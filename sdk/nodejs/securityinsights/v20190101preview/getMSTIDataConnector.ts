@@ -74,9 +74,11 @@ export interface GetMSTIDataConnectorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Represents Microsoft Threat Intelligence data connector.
+ */
 export function getMSTIDataConnectorOutput(args: GetMSTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSTIDataConnectorResult> {
-    return pulumi.output(args).apply(a => getMSTIDataConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getMSTIDataConnector(a, opts))
 }
 
 export interface GetMSTIDataConnectorOutputArgs {

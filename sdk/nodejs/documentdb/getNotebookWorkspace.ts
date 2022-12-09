@@ -58,9 +58,12 @@ export interface GetNotebookWorkspaceResult {
      */
     readonly type: string;
 }
-
+/**
+ * A notebook workspace resource
+ * API Version: 2021-03-15.
+ */
 export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookWorkspaceResult> {
-    return pulumi.output(args).apply(a => getNotebookWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getNotebookWorkspace(a, opts))
 }
 
 export interface GetNotebookWorkspaceOutputArgs {

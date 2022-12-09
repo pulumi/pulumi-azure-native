@@ -75,9 +75,11 @@ export interface GetAzureTrafficCollectorResult {
      */
     readonly virtualHub?: outputs.networkfunction.v20210901preview.ResourceReferenceResponse;
 }
-
+/**
+ * Azure Traffic Collector resource.
+ */
 export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureTrafficCollectorResult> {
-    return pulumi.output(args).apply(a => getAzureTrafficCollector(a, opts))
+    return pulumi.output(args).apply((a: any) => getAzureTrafficCollector(a, opts))
 }
 
 export interface GetAzureTrafficCollectorOutputArgs {

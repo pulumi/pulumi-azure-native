@@ -48,9 +48,11 @@ export interface ListScheduleApplicableResult {
      */
     readonly value?: outputs.devtestlab.v20180915.ScheduleResponse[];
 }
-
+/**
+ * The response of a list operation.
+ */
 export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListScheduleApplicableResult> {
-    return pulumi.output(args).apply(a => listScheduleApplicable(a, opts))
+    return pulumi.output(args).apply((a: any) => listScheduleApplicable(a, opts))
 }
 
 export interface ListScheduleApplicableOutputArgs {

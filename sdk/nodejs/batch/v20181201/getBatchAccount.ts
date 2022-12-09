@@ -81,9 +81,12 @@ export interface GetBatchAccountResult {
      */
     readonly type: string;
 }
-
+/**
+ * Contains information about an Azure Batch account.
+ */
+/** @deprecated Version 2018-12-01 will be removed in v2 of the provider. */
 export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchAccountResult> {
-    return pulumi.output(args).apply(a => getBatchAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getBatchAccount(a, opts))
 }
 
 export interface GetBatchAccountOutputArgs {

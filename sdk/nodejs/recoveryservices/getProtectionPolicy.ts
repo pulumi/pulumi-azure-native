@@ -69,9 +69,12 @@ export interface GetProtectionPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * Base class for backup policy. Workload-specific backup policies are derived from this class.
+ * API Version: 2021-02-01.
+ */
 export function getProtectionPolicyOutput(args: GetProtectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionPolicyResult> {
-    return pulumi.output(args).apply(a => getProtectionPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getProtectionPolicy(a, opts))
 }
 
 export interface GetProtectionPolicyOutputArgs {

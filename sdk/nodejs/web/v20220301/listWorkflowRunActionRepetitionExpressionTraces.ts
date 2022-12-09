@@ -61,9 +61,11 @@ export interface ListWorkflowRunActionRepetitionExpressionTracesResult {
     readonly nextLink?: string;
     readonly value?: any;
 }
-
+/**
+ * The expression traces.
+ */
 export function listWorkflowRunActionRepetitionExpressionTracesOutput(args: ListWorkflowRunActionRepetitionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionRepetitionExpressionTracesResult> {
-    return pulumi.output(args).apply(a => listWorkflowRunActionRepetitionExpressionTraces(a, opts))
+    return pulumi.output(args).apply((a: any) => listWorkflowRunActionRepetitionExpressionTraces(a, opts))
 }
 
 export interface ListWorkflowRunActionRepetitionExpressionTracesOutputArgs {

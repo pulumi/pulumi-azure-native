@@ -66,9 +66,11 @@ export interface GetPolicyFragmentResult {
      */
     readonly value: string;
 }
-
+/**
+ * Policy fragment contract details.
+ */
 export function getPolicyFragmentOutput(args: GetPolicyFragmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFragmentResult> {
-    return pulumi.output(args).apply(a => getPolicyFragment(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicyFragment(a, opts))
 }
 
 export interface GetPolicyFragmentOutputArgs {

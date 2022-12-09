@@ -77,9 +77,11 @@ export interface GetScriptResult {
      */
     readonly type: string;
 }
-
+/**
+ * Class representing a database script.
+ */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
-    return pulumi.output(args).apply(a => getScript(a, opts))
+    return pulumi.output(args).apply((a: any) => getScript(a, opts))
 }
 
 export interface GetScriptOutputArgs {

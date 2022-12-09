@@ -76,9 +76,11 @@ export interface GetControllerResult {
      */
     readonly type: string;
 }
-
+/**
+ * API Version: 2019-04-01.
+ */
 export function getControllerOutput(args: GetControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerResult> {
-    return pulumi.output(args).apply(a => getController(a, opts))
+    return pulumi.output(args).apply((a: any) => getController(a, opts))
 }
 
 export interface GetControllerOutputArgs {

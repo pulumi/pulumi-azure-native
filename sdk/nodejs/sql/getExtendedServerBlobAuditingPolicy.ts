@@ -166,9 +166,12 @@ export interface GetExtendedServerBlobAuditingPolicyResult {
      */
     readonly type: string;
 }
-
+/**
+ * An extended server blob auditing policy.
+ * API Version: 2020-11-01-preview.
+ */
 export function getExtendedServerBlobAuditingPolicyOutput(args: GetExtendedServerBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedServerBlobAuditingPolicyResult> {
-    return pulumi.output(args).apply(a => getExtendedServerBlobAuditingPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getExtendedServerBlobAuditingPolicy(a, opts))
 }
 
 export interface GetExtendedServerBlobAuditingPolicyOutputArgs {
