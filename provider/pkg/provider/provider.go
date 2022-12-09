@@ -1265,6 +1265,12 @@ func (k *azureNativeProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*r
 	}, nil
 }
 
+// GetMapping eturns plugin specific mapping data for the given provider name. This implementation
+// is a stub to satisfy the new convert.Mapper interface from pulumi/pulumi#11510.
+func (k *azureNativeProvider) GetMapping(context.Context, *rpc.GetMappingRequest) (*rpc.GetMappingResponse, error) {
+	return nil, nil
+}
+
 // Cancel signals the provider to gracefully shut down and abort any ongoing resource operations.
 // Operations aborted in this way will return an error (e.g., `Update` and `Create` will either a
 // creation error or an initialization error). Since Cancel is advisory and non-blocking, it is up
