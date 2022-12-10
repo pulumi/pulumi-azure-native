@@ -63,6 +63,8 @@ const (
 )
 
 type azureNativeProvider struct {
+	rpc.UnimplementedResourceProviderServer
+
 	host            *provider.HostClient
 	name            string
 	version         string
