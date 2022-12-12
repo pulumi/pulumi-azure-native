@@ -88,7 +88,7 @@ export class CloudService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201001preview:CloudService" }, { type: "azure-native:compute/v20210301:CloudService" }, { type: "azure-native:compute/v20220404:CloudService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201001preview:CloudService" }, { type: "azure-native:compute/v20210301:CloudService" }, { type: "azure-native:compute/v20220404:CloudService" }, { type: "azure-native:compute/v20220904:CloudService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudService.__pulumiType, name, resourceInputs, opts);
     }

@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Security.V20150601Preview.Outputs
         /// </summary>
         public readonly string? FileType;
         /// <summary>
-        /// The full path to whitelist
+        /// The full path to the application to allow
         /// </summary>
         public readonly string? Path;
         /// <summary>

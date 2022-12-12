@@ -170,7 +170,7 @@ class CloudService(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:CloudService"), pulumi.Alias(type_="azure-native:compute/v20210301:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220404:CloudService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:CloudService"), pulumi.Alias(type_="azure-native:compute/v20210301:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220404:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220904:CloudService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudService, __self__).__init__(
             'azure-native:compute/v20201001preview:CloudService',

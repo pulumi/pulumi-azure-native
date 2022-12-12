@@ -67,7 +67,7 @@ class AppServiceEnvironmentArgs:
         :param pulumi.Input[bool] suspended: <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
                 (most likely because NSG blocked the incoming traffic).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added list of IP Ranges allowed on ASE db
         :param pulumi.Input[str] vnet_name: Name of the Virtual Network for the App Service Environment.
         :param pulumi.Input[str] vnet_resource_group_name: Resource group of the Virtual Network.
         :param pulumi.Input[str] vnet_subnet_name: Subnet of the Virtual Network.
@@ -378,7 +378,7 @@ class AppServiceEnvironmentArgs:
     @pulumi.getter(name="userWhitelistedIpRanges")
     def user_whitelisted_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        User added ip ranges to whitelist on ASE db
+        User added list of IP Ranges allowed on ASE db
         """
         return pulumi.get(self, "user_whitelisted_ip_ranges")
 
@@ -480,7 +480,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[bool] suspended: <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
                 (most likely because NSG blocked the incoming traffic).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added list of IP Ranges allowed on ASE db
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network: Description of the Virtual Network.
         :param pulumi.Input[str] vnet_name: Name of the Virtual Network for the App Service Environment.
         :param pulumi.Input[str] vnet_resource_group_name: Resource group of the Virtual Network.
@@ -948,7 +948,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="userWhitelistedIpRanges")
     def user_whitelisted_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        User added ip ranges to whitelist on ASE db
+        User added list of IP Ranges allowed on ASE db
         """
         return pulumi.get(self, "user_whitelisted_ip_ranges")
 

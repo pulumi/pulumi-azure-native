@@ -228,7 +228,7 @@ namespace Pulumi.AzureNative.Web.V20190801
         public Output<int> UpgradeDomains { get; private set; } = null!;
 
         /// <summary>
-        /// User added ip ranges to whitelist on ASE db
+        /// User added list of IP Ranges allowed on ASE db
         /// </summary>
         [Output("userWhitelistedIpRanges")]
         public Output<ImmutableArray<string>> UserWhitelistedIpRanges { get; private set; } = null!;
@@ -468,7 +468,7 @@ namespace Pulumi.AzureNative.Web.V20190801
         private InputList<string>? _userWhitelistedIpRanges;
 
         /// <summary>
-        /// User added ip ranges to whitelist on ASE db
+        /// User added list of IP Ranges allowed on ASE db
         /// </summary>
         public InputList<string> UserWhitelistedIpRanges
         {

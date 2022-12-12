@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.Web.V20160901
         /// </summary>
         public readonly int UpgradeDomains;
         /// <summary>
-        /// User added ip ranges to whitelist on ASE db
+        /// User added list of IP Ranges allowed on ASE db
         /// </summary>
         public readonly ImmutableArray<string> UserWhitelistedIpRanges;
         /// <summary>

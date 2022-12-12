@@ -41,7 +41,7 @@ class ClusterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the resource belongs or get created
         :param pulumi.Input['AzureActiveDirectoryArgs'] azure_active_directory: The settings to enable AAD authentication on the cluster
         :param pulumi.Input['CertificateDescriptionArgs'] certificate: This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
-        :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateCommonNameArgs']]] client_certificate_common_names:  List of client certificates to whitelist based on common names
+        :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateCommonNameArgs']]] client_certificate_common_names:  List of client certificates to trust based on common names
         :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateThumbprintArgs']]] client_certificate_thumbprints: The client thumbprint details ,it is used for client access for cluster operation
         :param pulumi.Input[str] cluster_code_version: The ServiceFabric code version running in your cluster
         :param pulumi.Input[str] cluster_name: The name of the cluster resource
@@ -153,7 +153,7 @@ class ClusterArgs:
     @pulumi.getter(name="clientCertificateCommonNames")
     def client_certificate_common_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateCommonNameArgs']]]]:
         """
-         List of client certificates to whitelist based on common names
+         List of client certificates to trust based on common names
         """
         return pulumi.get(self, "client_certificate_common_names")
 
@@ -342,7 +342,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: The settings to enable AAD authentication on the cluster
         :param pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']] certificate: This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]] client_certificate_common_names:  List of client certificates to whitelist based on common names
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]] client_certificate_common_names:  List of client certificates to trust based on common names
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: The client thumbprint details ,it is used for client access for cluster operation
         :param pulumi.Input[str] cluster_code_version: The ServiceFabric code version running in your cluster
         :param pulumi.Input[str] cluster_name: The name of the cluster resource
@@ -519,7 +519,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateCommonNames")
     def client_certificate_common_names(self) -> pulumi.Output[Optional[Sequence['outputs.ClientCertificateCommonNameResponse']]]:
         """
-         List of client certificates to whitelist based on common names
+         List of client certificates to trust based on common names
         """
         return pulumi.get(self, "client_certificate_common_names")
 

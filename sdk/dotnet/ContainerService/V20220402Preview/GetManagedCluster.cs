@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview
         /// </summary>
         public readonly string? DnsPrefix;
         /// <summary>
-        /// The default value is false. It can be enabled/disabled on creation and updation of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
+        /// The default value is false. It can be enabled/disabled on creation and updating of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
         /// </summary>
         public readonly bool? EnableNamespaceResources;
         /// <summary>

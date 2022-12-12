@@ -1686,6 +1686,14 @@
       "PostgresInstance",
       "SqlManagedInstance",
       "SqlServerInstance"
+    ],
+    "2022-06-15-preview": [
+      "ActiveDirectoryConnector",
+      "DataController",
+      "PostgresInstance",
+      "SqlManagedInstance",
+      "SqlServerDatabase",
+      "SqlServerInstance"
     ]
   },
   "AzureData": {
@@ -2839,6 +2847,9 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2022-09-04": [
+      "CloudService"
     ]
   },
   "ConfidentialLedger": {

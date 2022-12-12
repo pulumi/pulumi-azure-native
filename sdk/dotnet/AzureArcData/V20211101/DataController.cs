@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:DataController"},
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:DataController"},
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:DataController"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:DataController"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

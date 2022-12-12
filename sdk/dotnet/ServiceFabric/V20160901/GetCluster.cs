@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901
         /// </summary>
         public readonly Outputs.CertificateDescriptionResponse? Certificate;
         /// <summary>
-        ///  List of client certificates to whitelist based on common names
+        ///  List of client certificates to trust based on common names
         /// </summary>
         public readonly ImmutableArray<Outputs.ClientCertificateCommonNameResponse> ClientCertificateCommonNames;
         /// <summary>

@@ -53,7 +53,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly certificate!: pulumi.Output<outputs.servicefabric.v20160901.CertificateDescriptionResponse | undefined>;
     /**
-     *  List of client certificates to whitelist based on common names
+     *  List of client certificates to trust based on common names
      */
     public readonly clientCertificateCommonNames!: pulumi.Output<outputs.servicefabric.v20160901.ClientCertificateCommonNameResponse[] | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface ClusterArgs {
      */
     certificate?: pulumi.Input<inputs.servicefabric.v20160901.CertificateDescriptionArgs>;
     /**
-     *  List of client certificates to whitelist based on common names
+     *  List of client certificates to trust based on common names
      */
     clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.ClientCertificateCommonNameArgs>[]>;
     /**

@@ -57,7 +57,7 @@ export interface ListWebAppSitePushSettingsSlotResult {
      */
     readonly name: string;
     /**
-     * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+     * Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
      */
     readonly tagWhitelistJson?: string;
     /**

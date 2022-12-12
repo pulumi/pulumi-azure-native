@@ -47,7 +47,7 @@ class AppServiceEnvironmentArgs:
         :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large".
         :param pulumi.Input[str] name: Name of the App Service Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added list of IP Ranges allowed on ASE db
         :param pulumi.Input[bool] zone_redundant: Whether or not this App Service Environment is zone-redundant.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -239,7 +239,7 @@ class AppServiceEnvironmentArgs:
     @pulumi.getter(name="userWhitelistedIpRanges")
     def user_whitelisted_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        User added ip ranges to whitelist on ASE db
+        User added list of IP Ranges allowed on ASE db
         """
         return pulumi.get(self, "user_whitelisted_ip_ranges")
 
@@ -298,7 +298,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the App Service Environment.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added list of IP Ranges allowed on ASE db
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network: Description of the Virtual Network.
         :param pulumi.Input[bool] zone_redundant: Whether or not this App Service Environment is zone-redundant.
         """
@@ -572,7 +572,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="userWhitelistedIpRanges")
     def user_whitelisted_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        User added ip ranges to whitelist on ASE db
+        User added list of IP Ranges allowed on ASE db
         """
         return pulumi.get(self, "user_whitelisted_ip_ranges")
 

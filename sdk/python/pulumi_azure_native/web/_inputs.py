@@ -6303,7 +6303,7 @@ class PushSettingsArgs:
         :param pulumi.Input[bool] is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
         :param pulumi.Input[str] dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         :param pulumi.Input[str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
                '_', '@', '#', '.', ':', '-'. 
@@ -6359,7 +6359,7 @@ class PushSettingsArgs:
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 

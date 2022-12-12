@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901
         public Output<Outputs.CertificateDescriptionResponse?> Certificate { get; private set; } = null!;
 
         /// <summary>
-        ///  List of client certificates to whitelist based on common names
+        ///  List of client certificates to trust based on common names
         /// </summary>
         [Output("clientCertificateCommonNames")]
         public Output<ImmutableArray<Outputs.ClientCertificateCommonNameResponse>> ClientCertificateCommonNames { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20160901
         private InputList<Inputs.ClientCertificateCommonNameArgs>? _clientCertificateCommonNames;
 
         /// <summary>
-        ///  List of client certificates to whitelist based on common names
+        ///  List of client certificates to trust based on common names
         /// </summary>
         public InputList<Inputs.ClientCertificateCommonNameArgs> ClientCertificateCommonNames
         {

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Security.V20150601Preview.Inputs
         public Input<string>? FileType { get; set; }
 
         /// <summary>
-        /// The full path to whitelist
+        /// The full path to the application to allow
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

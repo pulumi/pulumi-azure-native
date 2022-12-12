@@ -91,7 +91,7 @@ class ListWebAppSitePushSettingsSlotResult:
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> Optional[str]:
         """
-        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 

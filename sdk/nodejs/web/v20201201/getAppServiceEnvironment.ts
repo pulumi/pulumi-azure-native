@@ -112,7 +112,7 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly type: string;
     /**
-     * User added ip ranges to whitelist on ASE db
+     * User added list of IP Ranges allowed on ASE db
      */
     readonly userWhitelistedIpRanges?: string[];
     /**

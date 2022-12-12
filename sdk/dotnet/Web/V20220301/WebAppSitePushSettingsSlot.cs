@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        /// Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         /// </summary>
         [Output("tagWhitelistJson")]
         public Output<string?> TagWhitelistJson { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Web.V20220301
         public Input<string> Slot { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        /// Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         /// </summary>
         [Input("tagWhitelistJson")]
         public Input<string>? TagWhitelistJson { get; set; }

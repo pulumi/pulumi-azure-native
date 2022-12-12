@@ -187,7 +187,7 @@ class DataController(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:DataController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:DataController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataController, __self__).__init__(
             'azure-native:azurearcdata/v20210601preview:DataController',

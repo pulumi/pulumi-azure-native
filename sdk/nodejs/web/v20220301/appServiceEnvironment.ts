@@ -127,7 +127,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly upgradePreference!: pulumi.Output<string | undefined>;
     /**
-     * User added ip ranges to whitelist on ASE db
+     * User added list of IP Ranges allowed on ASE db
      */
     public readonly userWhitelistedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
@@ -281,7 +281,7 @@ export interface AppServiceEnvironmentArgs {
      */
     upgradePreference?: pulumi.Input<string | enums.web.v20220301.UpgradePreference>;
     /**
-     * User added ip ranges to whitelist on ASE db
+     * User added list of IP Ranges allowed on ASE db
      */
     userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**

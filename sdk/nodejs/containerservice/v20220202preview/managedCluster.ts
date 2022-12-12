@@ -82,7 +82,7 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly dnsPrefix!: pulumi.Output<string | undefined>;
     /**
-     * The default value is false. It can be enabled/disabled on creation and updation of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
+     * The default value is false. It can be enabled/disabled on creation and updating of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
      */
     public readonly enableNamespaceResources!: pulumi.Output<boolean | undefined>;
     /**
@@ -350,7 +350,7 @@ export interface ManagedClusterArgs {
      */
     dnsPrefix?: pulumi.Input<string>;
     /**
-     * The default value is false. It can be enabled/disabled on creation and updation of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
+     * The default value is false. It can be enabled/disabled on creation and updating of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
      */
     enableNamespaceResources?: pulumi.Input<boolean>;
     /**

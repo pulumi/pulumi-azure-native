@@ -3003,6 +3003,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurearcdata/v20220615preview",
+  "fqn": "pulumi_azure_native.azurearcdata.v20220615preview",
+  "classes": {
+   "azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector": "ActiveDirectoryConnector",
+   "azure-native:azurearcdata/v20220615preview:DataController": "DataController",
+   "azure-native:azurearcdata/v20220615preview:PostgresInstance": "PostgresInstance",
+   "azure-native:azurearcdata/v20220615preview:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata/v20220615preview:SqlServerDatabase": "SqlServerDatabase",
+   "azure-native:azurearcdata/v20220615preview:SqlServerInstance": "SqlServerInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azuredata",
   "fqn": "pulumi_azure_native.azuredata",
   "classes": {
@@ -4851,6 +4864,14 @@ _utilities.register(
    "azure-native:compute/v20220801:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
    "azure-native:compute/v20220801:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
    "azure-native:compute/v20220801:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "compute/v20220904",
+  "fqn": "pulumi_azure_native.compute.v20220904",
+  "classes": {
+   "azure-native:compute/v20220904:CloudService": "CloudService"
   }
  },
  {

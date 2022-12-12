@@ -49,7 +49,7 @@ export interface GetClusterResult {
      */
     readonly certificate?: outputs.servicefabric.v20160901.CertificateDescriptionResponse;
     /**
-     *  List of client certificates to whitelist based on common names
+     *  List of client certificates to trust based on common names
      */
     readonly clientCertificateCommonNames?: outputs.servicefabric.v20160901.ClientCertificateCommonNameResponse[];
     /**

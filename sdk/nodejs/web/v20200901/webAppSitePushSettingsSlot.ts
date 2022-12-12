@@ -58,7 +58,7 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.web.v20200901.SystemDataResponse>;
     /**
-     * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+     * Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
      */
     public readonly tagWhitelistJson!: pulumi.Output<string | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface WebAppSitePushSettingsSlotArgs {
      */
     slot: pulumi.Input<string>;
     /**
-     * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+     * Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
      */
     tagWhitelistJson?: pulumi.Input<string>;
     /**

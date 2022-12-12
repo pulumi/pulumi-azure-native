@@ -382,7 +382,7 @@ class PathRecommendationArgs:
         :param pulumi.Input[bool] common: Whether the path is commonly run on the machine
         :param pulumi.Input[str] configuration_status: The configuration status of the VM/server group or machine or rule on the machine
         :param pulumi.Input[str] file_type: The type of the file (for Linux files - Executable is used)
-        :param pulumi.Input[str] path: The full path to whitelist
+        :param pulumi.Input[str] path: The full path to the application to allow
         :param pulumi.Input['PublisherInfoArgs'] publisher_info: Represents the publisher information of a process/rule
         :param pulumi.Input[str] type: The type of the rule to be allowed
         """
@@ -457,7 +457,7 @@ class PathRecommendationArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        The full path to whitelist
+        The full path to the application to allow
         """
         return pulumi.get(self, "path")
 

@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        /// Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         /// </summary>
         public readonly string? TagWhitelistJson;
         /// <summary>

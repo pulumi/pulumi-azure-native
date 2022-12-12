@@ -30,7 +30,7 @@ class WebAppSitePushSettingsSlotArgs:
         :param pulumi.Input[str] slot: Name of web app slot. If not specified then will default to production slot.
         :param pulumi.Input[str] dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         :param pulumi.Input[str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
                '_', '@', '#', '.', ':', '-'. 
@@ -125,7 +125,7 @@ class WebAppSitePushSettingsSlotArgs:
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 
@@ -175,7 +175,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of web app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of web app slot. If not specified then will default to production slot.
-        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         :param pulumi.Input[str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
                '_', '@', '#', '.', ':', '-'. 
@@ -309,7 +309,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 

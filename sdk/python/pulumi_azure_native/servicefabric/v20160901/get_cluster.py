@@ -126,7 +126,7 @@ class GetClusterResult:
     @pulumi.getter(name="clientCertificateCommonNames")
     def client_certificate_common_names(self) -> Optional[Sequence['outputs.ClientCertificateCommonNameResponse']]:
         """
-         List of client certificates to whitelist based on common names
+         List of client certificates to trust based on common names
         """
         return pulumi.get(self, "client_certificate_common_names")
 
