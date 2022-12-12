@@ -1,0 +1,227 @@
+
+
+
+package v20220501
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type StorageTarget struct {
+	pulumi.CustomResourceState
+
+	AllocationPercentage pulumi.IntOutput                     `pulumi:"allocationPercentage"`
+	BlobNfs              BlobNfsTargetResponsePtrOutput       `pulumi:"blobNfs"`
+	Clfs                 ClfsTargetResponsePtrOutput          `pulumi:"clfs"`
+	Junctions            NamespaceJunctionResponseArrayOutput `pulumi:"junctions"`
+	Location             pulumi.StringOutput                  `pulumi:"location"`
+	Name                 pulumi.StringOutput                  `pulumi:"name"`
+	Nfs3                 Nfs3TargetResponsePtrOutput          `pulumi:"nfs3"`
+	ProvisioningState    pulumi.StringOutput                  `pulumi:"provisioningState"`
+	State                pulumi.StringPtrOutput               `pulumi:"state"`
+	SystemData           SystemDataResponseOutput             `pulumi:"systemData"`
+	TargetType           pulumi.StringOutput                  `pulumi:"targetType"`
+	Type                 pulumi.StringOutput                  `pulumi:"type"`
+	Unknown              UnknownTargetResponsePtrOutput       `pulumi:"unknown"`
+}
+
+
+func NewStorageTarget(ctx *pulumi.Context,
+	name string, args *StorageTargetArgs, opts ...pulumi.ResourceOption) (*StorageTarget, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CacheName == nil {
+		return nil, errors.New("invalid value for required argument 'CacheName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TargetType == nil {
+		return nil, errors.New("invalid value for required argument 'TargetType'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:storagecache:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20190801preview:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20191101:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20200301:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20201001:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20210301:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20210501:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20210901:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagecache/v20220101:StorageTarget"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource StorageTarget
+	err := ctx.RegisterResource("azure-native:storagecache/v20220501:StorageTarget", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetStorageTarget(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *StorageTargetState, opts ...pulumi.ResourceOption) (*StorageTarget, error) {
+	var resource StorageTarget
+	err := ctx.ReadResource("azure-native:storagecache/v20220501:StorageTarget", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type storageTargetState struct {
+}
+
+type StorageTargetState struct {
+}
+
+func (StorageTargetState) ElementType() reflect.Type {
+	return reflect.TypeOf((*storageTargetState)(nil)).Elem()
+}
+
+type storageTargetArgs struct {
+	BlobNfs           *BlobNfsTarget      `pulumi:"blobNfs"`
+	CacheName         string              `pulumi:"cacheName"`
+	Clfs              *ClfsTarget         `pulumi:"clfs"`
+	Junctions         []NamespaceJunction `pulumi:"junctions"`
+	Nfs3              *Nfs3Target         `pulumi:"nfs3"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	State             *string             `pulumi:"state"`
+	StorageTargetName *string             `pulumi:"storageTargetName"`
+	TargetType        string              `pulumi:"targetType"`
+	Unknown           *UnknownTarget      `pulumi:"unknown"`
+}
+
+
+type StorageTargetArgs struct {
+	BlobNfs           BlobNfsTargetPtrInput
+	CacheName         pulumi.StringInput
+	Clfs              ClfsTargetPtrInput
+	Junctions         NamespaceJunctionArrayInput
+	Nfs3              Nfs3TargetPtrInput
+	ResourceGroupName pulumi.StringInput
+	State             pulumi.StringPtrInput
+	StorageTargetName pulumi.StringPtrInput
+	TargetType        pulumi.StringInput
+	Unknown           UnknownTargetPtrInput
+}
+
+func (StorageTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*storageTargetArgs)(nil)).Elem()
+}
+
+type StorageTargetInput interface {
+	pulumi.Input
+
+	ToStorageTargetOutput() StorageTargetOutput
+	ToStorageTargetOutputWithContext(ctx context.Context) StorageTargetOutput
+}
+
+func (*StorageTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageTarget)(nil)).Elem()
+}
+
+func (i *StorageTarget) ToStorageTargetOutput() StorageTargetOutput {
+	return i.ToStorageTargetOutputWithContext(context.Background())
+}
+
+func (i *StorageTarget) ToStorageTargetOutputWithContext(ctx context.Context) StorageTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetOutput)
+}
+
+type StorageTargetOutput struct{ *pulumi.OutputState }
+
+func (StorageTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageTarget)(nil)).Elem()
+}
+
+func (o StorageTargetOutput) ToStorageTargetOutput() StorageTargetOutput {
+	return o
+}
+
+func (o StorageTargetOutput) ToStorageTargetOutputWithContext(ctx context.Context) StorageTargetOutput {
+	return o
+}
+
+func (o StorageTargetOutput) AllocationPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.IntOutput { return v.AllocationPercentage }).(pulumi.IntOutput)
+}
+
+func (o StorageTargetOutput) BlobNfs() BlobNfsTargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) BlobNfsTargetResponsePtrOutput { return v.BlobNfs }).(BlobNfsTargetResponsePtrOutput)
+}
+
+func (o StorageTargetOutput) Clfs() ClfsTargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) ClfsTargetResponsePtrOutput { return v.Clfs }).(ClfsTargetResponsePtrOutput)
+}
+
+func (o StorageTargetOutput) Junctions() NamespaceJunctionResponseArrayOutput {
+	return o.ApplyT(func(v *StorageTarget) NamespaceJunctionResponseArrayOutput { return v.Junctions }).(NamespaceJunctionResponseArrayOutput)
+}
+
+func (o StorageTargetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o StorageTargetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o StorageTargetOutput) Nfs3() Nfs3TargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) Nfs3TargetResponsePtrOutput { return v.Nfs3 }).(Nfs3TargetResponsePtrOutput)
+}
+
+func (o StorageTargetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o StorageTargetOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageTargetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *StorageTarget) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o StorageTargetOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
+}
+
+func (o StorageTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o StorageTargetOutput) Unknown() UnknownTargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) UnknownTargetResponsePtrOutput { return v.Unknown }).(UnknownTargetResponsePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageTargetOutput{})
+}
