@@ -1829,33 +1829,41 @@
   },
   "AzureArcData": {
     "ActiveDirectoryConnector": [
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-06-15-preview"
     ],
     "DataController": [
       "2021-06-01-preview",
       "2021-07-01-preview",
       "2021-08-01",
       "2021-11-01",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-06-15-preview"
     ],
     "PostgresInstance": [
       "2021-06-01-preview",
       "2021-07-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-06-15-preview"
     ],
     "SqlManagedInstance": [
       "2021-06-01-preview",
       "2021-07-01-preview",
       "2021-08-01",
       "2021-11-01",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-06-15-preview"
+    ],
+    "SqlServerDatabase": [
+      "2022-06-15-preview"
     ],
     "SqlServerInstance": [
       "2021-06-01-preview",
       "2021-07-01-preview",
       "2021-08-01",
       "2021-11-01",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-06-15-preview"
     ]
   },
   "AzureData": {
@@ -2613,7 +2621,8 @@
     "CloudService": [
       "2020-10-01-preview",
       "2021-03-01",
-      "2022-04-04"
+      "2022-04-04",
+      "2022-09-04"
     ],
     "DedicatedHost": [
       "2019-03-01",
