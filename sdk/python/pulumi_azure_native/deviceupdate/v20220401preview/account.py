@@ -242,7 +242,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:deviceupdate/v20220401preview:Account',

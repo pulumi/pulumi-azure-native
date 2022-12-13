@@ -187,7 +187,8 @@
     "2021-09-01-preview": [
       "Extension",
       "FarmBeatsModel",
-      "PrivateEndpointConnection"
+      "PrivateEndpointConnection",
+      "Solution"
     ]
   },
   "AlertsManagement": {
@@ -4846,6 +4847,12 @@
       "PrivateEndpointConnectionProxy"
     ],
     "2022-10-01": [
+      "Account",
+      "Instance",
+      "PrivateEndpointConnection",
+      "PrivateEndpointConnectionProxy"
+    ],
+    "2022-12-01-preview": [
       "Account",
       "Instance",
       "PrivateEndpointConnection",

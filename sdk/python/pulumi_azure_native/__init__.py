@@ -819,7 +819,8 @@ _utilities.register(
   "classes": {
    "azure-native:agfoodplatform/v20210901preview:Extension": "Extension",
    "azure-native:agfoodplatform/v20210901preview:FarmBeatsModel": "FarmBeatsModel",
-   "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:agfoodplatform/v20210901preview:Solution": "Solution"
   }
  },
  {
@@ -8712,6 +8713,17 @@ _utilities.register(
    "azure-native:deviceupdate/v20221001:Instance": "Instance",
    "azure-native:deviceupdate/v20221001:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "deviceupdate/v20221201preview",
+  "fqn": "pulumi_azure_native.deviceupdate.v20221201preview",
+  "classes": {
+   "azure-native:deviceupdate/v20221201preview:Account": "Account",
+   "azure-native:deviceupdate/v20221201preview:Instance": "Instance",
+   "azure-native:deviceupdate/v20221201preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy"
   }
  },
  {

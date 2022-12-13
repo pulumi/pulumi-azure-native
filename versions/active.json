@@ -12164,38 +12164,6 @@
       "2021-07-01"
     ]
   },
-  "fidalgo": {
-    "": [
-      "2021-06-01-privatepreview",
-      "2021-08-01-privatepreview",
-      "2021-12-01-privatepreview",
-      "2022-03-01-privatepreview"
-    ],
-    "locations": [
-      "2021-06-01-privatepreview",
-      "2021-08-01-privatepreview",
-      "2021-12-01-privatepreview",
-      "2022-03-01-privatepreview"
-    ],
-    "locations/operationstatuses": [
-      "2021-06-01-privatepreview",
-      "2021-08-01-privatepreview",
-      "2021-12-01-privatepreview",
-      "2022-03-01-privatepreview"
-    ],
-    "operations": [
-      "2021-06-01-privatepreview",
-      "2021-08-01-privatepreview",
-      "2021-12-01-privatepreview",
-      "2022-03-01-privatepreview"
-    ],
-    "registeredsubscriptions": [
-      "2021-06-01-privatepreview",
-      "2021-08-01-privatepreview",
-      "2021-12-01-privatepreview",
-      "2022-03-01-privatepreview"
-    ]
-  },
   "fluidrelay": {
     "": [
       "2021-03-01-preview",
@@ -12640,7 +12608,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "locations": [
       "2019-08-02-preview",
@@ -12658,7 +12627,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "locations/operationresults": [
       "2019-08-02-preview",
@@ -12676,7 +12646,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "locations/operationstatus": [
       "2019-08-02-preview",
@@ -12694,7 +12665,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "locations/privatelinkscopes": [
       "2021-01-28-preview",
@@ -12706,16 +12678,20 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "locations/publishers": [
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "locations/publishers/extensiontypes": [
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "locations/publishers/extensiontypes/versions": [
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "locations/updatecenteroperationresults": [
       "2020-08-15-preview",
@@ -12728,7 +12704,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "machines": [
       "2019-03-18-preview",
@@ -12747,7 +12724,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "machines/assesspatches": [
       "2020-08-15-preview",
@@ -12760,7 +12738,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "machines/extensions": [
       "2019-08-02-preview",
@@ -12778,7 +12757,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "machines/installpatches": [
       "2020-08-15-preview",
@@ -12791,7 +12771,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "machines/privatelinkscopes": [
       "2021-01-28-preview",
@@ -12803,7 +12784,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "operations": [
       "2019-03-18-preview",
@@ -12822,7 +12804,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "privatelinkscopes": [
       "2020-08-15-preview",
@@ -12835,7 +12818,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "privatelinkscopes/privateendpointconnectionproxies": [
       "2020-08-15-preview",
@@ -12848,7 +12832,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "privatelinkscopes/privateendpointconnections": [
       "2021-01-28-preview",
@@ -12860,7 +12845,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ]
   },
   "hybridconnectivity": {
@@ -24938,13 +24924,35 @@
       "2021-07-01"
     ],
     "applicationdefinitions": [
-      "2021-02-01-preview"
+      "2017-09-01",
+      "2017-12-01",
+      "2018-02-01",
+      "2018-03-01",
+      "2018-06-01",
+      "2018-09-01-preview",
+      "2019-07-01",
+      "2020-08-21-preview",
+      "2021-02-01-preview",
+      "2021-07-01"
     ],
     "applications": [
-      "2021-02-01-preview"
+      "2017-09-01",
+      "2017-12-01",
+      "2018-02-01",
+      "2018-03-01",
+      "2018-06-01",
+      "2018-09-01-preview",
+      "2019-07-01",
+      "2020-08-21-preview",
+      "2021-02-01-preview",
+      "2021-07-01"
     ],
     "jitrequests": [
-      "2021-02-01-preview"
+      "2018-09-01-preview",
+      "2019-07-01",
+      "2020-08-21-preview",
+      "2021-02-01-preview",
+      "2021-07-01"
     ],
     "locations": [
       "2016-09-01-preview",
@@ -24980,6 +24988,7 @@
       "2018-09-01-preview",
       "2019-07-01",
       "2020-08-21-preview",
+      "2021-02-01-preview",
       "2021-07-01"
     ],
     "operations": [

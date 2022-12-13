@@ -15510,47 +15510,6 @@
     ]
   },
   {
-    "namespace": "Microsoft.Fidalgo",
-    "resourceTypes": [
-      {
-        "resourceType": "Locations",
-        "apiVersions": [
-          "2022-03-01-privatepreview",
-          "2021-12-01-privatepreview",
-          "2021-08-01-privatepreview",
-          "2021-06-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "Locations/OperationStatuses",
-        "apiVersions": [
-          "2022-03-01-privatepreview",
-          "2021-12-01-privatepreview",
-          "2021-08-01-privatepreview",
-          "2021-06-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2022-03-01-privatepreview",
-          "2021-12-01-privatepreview",
-          "2021-08-01-privatepreview",
-          "2021-06-01-privatepreview"
-        ]
-      },
-      {
-        "resourceType": "registeredSubscriptions",
-        "apiVersions": [
-          "2022-03-01-privatepreview",
-          "2021-12-01-privatepreview",
-          "2021-08-01-privatepreview",
-          "2021-06-01-privatepreview"
-        ]
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.FluidRelay",
     "resourceTypes": [
       {
@@ -16132,6 +16091,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16153,6 +16113,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16174,6 +16135,7 @@
       {
         "resourceType": "locations/operationStatus",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16195,6 +16157,7 @@
       {
         "resourceType": "locations/privateLinkScopes",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16210,24 +16173,28 @@
       {
         "resourceType": "locations/publishers",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview"
         ]
       },
       {
         "resourceType": "locations/publishers/extensionTypes",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview"
         ]
       },
       {
         "resourceType": "locations/publishers/extensionTypes/versions",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview"
         ]
       },
       {
         "resourceType": "locations/updateCenterOperationResults",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16244,6 +16211,7 @@
       {
         "resourceType": "machines",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16266,6 +16234,7 @@
       {
         "resourceType": "machines/assessPatches",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16282,6 +16251,7 @@
       {
         "resourceType": "machines/extensions",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16303,6 +16273,7 @@
       {
         "resourceType": "machines/installPatches",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16319,6 +16290,7 @@
       {
         "resourceType": "machines/privateLinkScopes",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16334,6 +16306,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16356,6 +16329,7 @@
       {
         "resourceType": "privateLinkScopes",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16372,6 +16346,7 @@
       {
         "resourceType": "privateLinkScopes/privateEndpointConnectionProxies",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -16388,6 +16363,7 @@
       {
         "resourceType": "privateLinkScopes/privateEndpointConnections",
         "apiVersions": [
+          "2022-11-10",
           "2022-08-11-preview",
           "2022-05-10-preview",
           "2022-03-10",
@@ -30351,19 +30327,41 @@
       {
         "resourceType": "applicationDefinitions",
         "apiVersions": [
-          "2021-02-01-preview"
+          "2021-07-01",
+          "2021-02-01-preview",
+          "2020-08-21-preview",
+          "2019-07-01",
+          "2018-09-01-preview",
+          "2018-06-01",
+          "2018-03-01",
+          "2018-02-01",
+          "2017-12-01",
+          "2017-09-01"
         ]
       },
       {
         "resourceType": "applications",
         "apiVersions": [
-          "2021-02-01-preview"
+          "2021-07-01",
+          "2021-02-01-preview",
+          "2020-08-21-preview",
+          "2019-07-01",
+          "2018-09-01-preview",
+          "2018-06-01",
+          "2018-03-01",
+          "2018-02-01",
+          "2017-12-01",
+          "2017-09-01"
         ]
       },
       {
         "resourceType": "jitRequests",
         "apiVersions": [
-          "2021-02-01-preview"
+          "2021-07-01",
+          "2021-02-01-preview",
+          "2020-08-21-preview",
+          "2019-07-01",
+          "2018-09-01-preview"
         ]
       },
       {
@@ -30400,6 +30398,7 @@
         "resourceType": "locations/operationstatuses",
         "apiVersions": [
           "2021-07-01",
+          "2021-02-01-preview",
           "2020-08-21-preview",
           "2019-07-01",
           "2018-09-01-preview",

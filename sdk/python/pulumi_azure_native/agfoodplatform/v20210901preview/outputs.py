@@ -21,6 +21,7 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'SensorIntegrationResponse',
+    'SolutionPropertiesResponse',
     'SystemDataResponse',
 ]
 
@@ -541,6 +542,136 @@ class SensorIntegrationResponse(dict):
         Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
         """
         return pulumi.get(self, "provisioning_info")
+
+
+@pulumi.output_type
+class SolutionPropertiesResponse(dict):
+    """
+    Solution resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marketplacePublisherId":
+            suggest = "marketplace_publisher_id"
+        elif key == "offerId":
+            suggest = "offer_id"
+        elif key == "partnerId":
+            suggest = "partner_id"
+        elif key == "planId":
+            suggest = "plan_id"
+        elif key == "saasSubscriptionId":
+            suggest = "saas_subscription_id"
+        elif key == "saasSubscriptionName":
+            suggest = "saas_subscription_name"
+        elif key == "solutionId":
+            suggest = "solution_id"
+        elif key == "termId":
+            suggest = "term_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SolutionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SolutionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SolutionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 marketplace_publisher_id: str,
+                 offer_id: str,
+                 partner_id: str,
+                 plan_id: str,
+                 saas_subscription_id: str,
+                 saas_subscription_name: str,
+                 solution_id: str,
+                 term_id: str):
+        """
+        Solution resource properties.
+        :param str marketplace_publisher_id: SaaS application Publisher Id.
+        :param str offer_id: SaaS application Offer Id.
+        :param str partner_id: Partner Id of the Solution.
+        :param str plan_id: SaaS application Plan Id.
+        :param str saas_subscription_id: SaaS subscriptionId of the installed SaaS application.
+        :param str saas_subscription_name: SaaS subscription name of the installed SaaS application.
+        :param str solution_id: Solution Id.
+        :param str term_id: SaaS application Term Id.
+        """
+        pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
+        pulumi.set(__self__, "offer_id", offer_id)
+        pulumi.set(__self__, "partner_id", partner_id)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
+        pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
+        pulumi.set(__self__, "solution_id", solution_id)
+        pulumi.set(__self__, "term_id", term_id)
+
+    @property
+    @pulumi.getter(name="marketplacePublisherId")
+    def marketplace_publisher_id(self) -> str:
+        """
+        SaaS application Publisher Id.
+        """
+        return pulumi.get(self, "marketplace_publisher_id")
+
+    @property
+    @pulumi.getter(name="offerId")
+    def offer_id(self) -> str:
+        """
+        SaaS application Offer Id.
+        """
+        return pulumi.get(self, "offer_id")
+
+    @property
+    @pulumi.getter(name="partnerId")
+    def partner_id(self) -> str:
+        """
+        Partner Id of the Solution.
+        """
+        return pulumi.get(self, "partner_id")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> str:
+        """
+        SaaS application Plan Id.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="saasSubscriptionId")
+    def saas_subscription_id(self) -> str:
+        """
+        SaaS subscriptionId of the installed SaaS application.
+        """
+        return pulumi.get(self, "saas_subscription_id")
+
+    @property
+    @pulumi.getter(name="saasSubscriptionName")
+    def saas_subscription_name(self) -> str:
+        """
+        SaaS subscription name of the installed SaaS application.
+        """
+        return pulumi.get(self, "saas_subscription_name")
+
+    @property
+    @pulumi.getter(name="solutionId")
+    def solution_id(self) -> str:
+        """
+        Solution Id.
+        """
+        return pulumi.get(self, "solution_id")
+
+    @property
+    @pulumi.getter(name="termId")
+    def term_id(self) -> str:
+        """
+        SaaS application Term Id.
+        """
+        return pulumi.get(self, "term_id")
 
 
 @pulumi.output_type

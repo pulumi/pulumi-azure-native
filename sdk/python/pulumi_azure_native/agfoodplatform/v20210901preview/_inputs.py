@@ -15,6 +15,7 @@ __all__ = [
     'IdentityArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SensorIntegrationArgs',
+    'SolutionPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -143,5 +144,103 @@ class SensorIntegrationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class SolutionPropertiesArgs:
+    def __init__(__self__, *,
+                 marketplace_publisher_id: pulumi.Input[str],
+                 offer_id: pulumi.Input[str],
+                 plan_id: pulumi.Input[str],
+                 saas_subscription_id: pulumi.Input[str],
+                 saas_subscription_name: pulumi.Input[str],
+                 term_id: pulumi.Input[str]):
+        """
+        Solution resource properties.
+        :param pulumi.Input[str] marketplace_publisher_id: SaaS application Publisher Id.
+        :param pulumi.Input[str] offer_id: SaaS application Offer Id.
+        :param pulumi.Input[str] plan_id: SaaS application Plan Id.
+        :param pulumi.Input[str] saas_subscription_id: SaaS subscriptionId of the installed SaaS application.
+        :param pulumi.Input[str] saas_subscription_name: SaaS subscription name of the installed SaaS application.
+        :param pulumi.Input[str] term_id: SaaS application Term Id.
+        """
+        pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
+        pulumi.set(__self__, "offer_id", offer_id)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
+        pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
+        pulumi.set(__self__, "term_id", term_id)
+
+    @property
+    @pulumi.getter(name="marketplacePublisherId")
+    def marketplace_publisher_id(self) -> pulumi.Input[str]:
+        """
+        SaaS application Publisher Id.
+        """
+        return pulumi.get(self, "marketplace_publisher_id")
+
+    @marketplace_publisher_id.setter
+    def marketplace_publisher_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "marketplace_publisher_id", value)
+
+    @property
+    @pulumi.getter(name="offerId")
+    def offer_id(self) -> pulumi.Input[str]:
+        """
+        SaaS application Offer Id.
+        """
+        return pulumi.get(self, "offer_id")
+
+    @offer_id.setter
+    def offer_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "offer_id", value)
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> pulumi.Input[str]:
+        """
+        SaaS application Plan Id.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "plan_id", value)
+
+    @property
+    @pulumi.getter(name="saasSubscriptionId")
+    def saas_subscription_id(self) -> pulumi.Input[str]:
+        """
+        SaaS subscriptionId of the installed SaaS application.
+        """
+        return pulumi.get(self, "saas_subscription_id")
+
+    @saas_subscription_id.setter
+    def saas_subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "saas_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="saasSubscriptionName")
+    def saas_subscription_name(self) -> pulumi.Input[str]:
+        """
+        SaaS subscription name of the installed SaaS application.
+        """
+        return pulumi.get(self, "saas_subscription_name")
+
+    @saas_subscription_name.setter
+    def saas_subscription_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "saas_subscription_name", value)
+
+    @property
+    @pulumi.getter(name="termId")
+    def term_id(self) -> pulumi.Input[str]:
+        """
+        SaaS application Term Id.
+        """
+        return pulumi.get(self, "term_id")
+
+    @term_id.setter
+    def term_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "term_id", value)
 
 
