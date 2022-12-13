@@ -195,6 +195,9 @@
     ],
     "PrivateEndpointConnection": [
       "2021-09-01-preview"
+    ],
+    "Solution": [
+      "2021-09-01-preview"
     ]
   },
   "AlertsManagement": {
@@ -5014,22 +5017,26 @@
     "Account": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ],
     "Instance": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ],
     "PrivateEndpointConnectionProxy": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ]
   },
   "Devices": {
