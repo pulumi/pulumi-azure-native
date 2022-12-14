@@ -31,6 +31,7 @@ type LookupAccessConnectorResult struct {
 	Location   string                            `pulumi:"location"`
 	Name       string                            `pulumi:"name"`
 	Properties AccessConnectorPropertiesResponse `pulumi:"properties"`
+	SystemData SystemDataResponse                `pulumi:"systemData"`
 	Tags       map[string]string                 `pulumi:"tags"`
 	Type       string                            `pulumi:"type"`
 }
@@ -90,6 +91,10 @@ func (o LookupAccessConnectorResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupAccessConnectorResultOutput) Properties() AccessConnectorPropertiesResponseOutput {
 	return o.ApplyT(func(v LookupAccessConnectorResult) AccessConnectorPropertiesResponse { return v.Properties }).(AccessConnectorPropertiesResponseOutput)
+}
+
+func (o LookupAccessConnectorResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupAccessConnectorResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o LookupAccessConnectorResultOutput) Tags() pulumi.StringMapOutput {

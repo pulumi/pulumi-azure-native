@@ -122,7 +122,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[str]:
+    def disk_encryption_set_id(self) -> str:
         """
         The resource Id of the managed disk encryption set.
         """

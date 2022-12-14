@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         /// The resource Id of the managed disk encryption set.
         /// </summary>
         [Output("diskEncryptionSetId")]
-        public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
+        public Output<string> DiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
         /// Encryption properties for databricks workspace
@@ -215,12 +215,6 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
             get => _authorizations ?? (_authorizations = new InputList<Inputs.WorkspaceProviderAuthorizationArgs>());
             set => _authorizations = value;
         }
-
-        /// <summary>
-        /// The resource Id of the managed disk encryption set.
-        /// </summary>
-        [Input("diskEncryptionSetId")]
-        public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
         /// Encryption properties for databricks workspace

@@ -18,6 +18,7 @@ type AccessConnector struct {
 	Location   pulumi.StringOutput                     `pulumi:"location"`
 	Name       pulumi.StringOutput                     `pulumi:"name"`
 	Properties AccessConnectorPropertiesResponseOutput `pulumi:"properties"`
+	SystemData SystemDataResponseOutput                `pulumi:"systemData"`
 	Tags       pulumi.StringMapOutput                  `pulumi:"tags"`
 	Type       pulumi.StringOutput                     `pulumi:"type"`
 }
@@ -137,6 +138,10 @@ func (o AccessConnectorOutput) Name() pulumi.StringOutput {
 
 func (o AccessConnectorOutput) Properties() AccessConnectorPropertiesResponseOutput {
 	return o.ApplyT(func(v *AccessConnector) AccessConnectorPropertiesResponseOutput { return v.Properties }).(AccessConnectorPropertiesResponseOutput)
+}
+
+func (o AccessConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AccessConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o AccessConnectorOutput) Tags() pulumi.StringMapOutput {

@@ -52,7 +52,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The resource Id of the managed disk encryption set.
      */
-    public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly diskEncryptionSetId!: pulumi.Output<string>;
     /**
      * Encryption properties for databricks workspace
      */
@@ -148,7 +148,6 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
@@ -162,6 +161,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;
+            resourceInputs["diskEncryptionSetId"] = undefined /*out*/;
             resourceInputs["managedDiskIdentity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -212,10 +212,6 @@ export interface WorkspaceArgs {
      * The workspace provider authorizations.
      */
     authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.v20220401preview.WorkspaceProviderAuthorizationArgs>[]>;
-    /**
-     * The resource Id of the managed disk encryption set.
-     */
-    diskEncryptionSetId?: pulumi.Input<string>;
     /**
      * Encryption properties for databricks workspace
      */

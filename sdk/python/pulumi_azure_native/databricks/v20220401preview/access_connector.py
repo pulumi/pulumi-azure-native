@@ -170,6 +170,7 @@ class AccessConnector(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks:AccessConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -199,6 +200,7 @@ class AccessConnector(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return AccessConnector(resource_name, opts=opts, __props__=__props__)
@@ -234,6 +236,14 @@ class AccessConnector(pulumi.CustomResource):
         Azure Databricks accessConnector properties
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

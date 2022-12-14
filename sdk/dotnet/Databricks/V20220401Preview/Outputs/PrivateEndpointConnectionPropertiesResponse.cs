@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Outputs
     public sealed class PrivateEndpointConnectionPropertiesResponse
     {
         /// <summary>
+        /// GroupIds from the private link service resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Private endpoint
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionPropertiesResponse(
+            ImmutableArray<string> groupIds,
+
             Outputs.PrivateEndpointResponse? privateEndpoint,
 
             Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string provisioningState)
         {
+            GroupIds = groupIds;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;

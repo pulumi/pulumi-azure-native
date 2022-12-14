@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly Outputs.AccessConnectorPropertiesResponse Properties;
         /// <summary>
+        /// The system metadata relating to this resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.Databricks
 
             Outputs.AccessConnectorPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.Databricks
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

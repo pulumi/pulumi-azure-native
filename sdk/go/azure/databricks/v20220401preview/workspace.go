@@ -17,7 +17,7 @@ type Workspace struct {
 	Authorizations             WorkspaceProviderAuthorizationResponseArrayOutput `pulumi:"authorizations"`
 	CreatedBy                  CreatedByResponsePtrOutput                        `pulumi:"createdBy"`
 	CreatedDateTime            pulumi.StringOutput                               `pulumi:"createdDateTime"`
-	DiskEncryptionSetId        pulumi.StringPtrOutput                            `pulumi:"diskEncryptionSetId"`
+	DiskEncryptionSetId        pulumi.StringOutput                               `pulumi:"diskEncryptionSetId"`
 	Encryption                 WorkspacePropertiesResponseEncryptionPtrOutput    `pulumi:"encryption"`
 	Location                   pulumi.StringOutput                               `pulumi:"location"`
 	ManagedDiskIdentity        ManagedIdentityConfigurationResponsePtrOutput     `pulumi:"managedDiskIdentity"`
@@ -100,7 +100,6 @@ func (WorkspaceState) ElementType() reflect.Type {
 
 type workspaceArgs struct {
 	Authorizations         []WorkspaceProviderAuthorization `pulumi:"authorizations"`
-	DiskEncryptionSetId    *string                          `pulumi:"diskEncryptionSetId"`
 	Encryption             *WorkspacePropertiesEncryption   `pulumi:"encryption"`
 	Location               *string                          `pulumi:"location"`
 	ManagedResourceGroupId string                           `pulumi:"managedResourceGroupId"`
@@ -117,7 +116,6 @@ type workspaceArgs struct {
 
 type WorkspaceArgs struct {
 	Authorizations         WorkspaceProviderAuthorizationArrayInput
-	DiskEncryptionSetId    pulumi.StringPtrInput
 	Encryption             WorkspacePropertiesEncryptionPtrInput
 	Location               pulumi.StringPtrInput
 	ManagedResourceGroupId pulumi.StringInput
@@ -180,8 +178,8 @@ func (o WorkspaceOutput) CreatedDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.CreatedDateTime }).(pulumi.StringOutput)
 }
 
-func (o WorkspaceOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+func (o WorkspaceOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
 }
 
 func (o WorkspaceOutput) Encryption() WorkspacePropertiesResponseEncryptionPtrOutput {

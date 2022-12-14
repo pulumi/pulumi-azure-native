@@ -29,7 +29,7 @@ type LookupWorkspaceResult struct {
 	Authorizations             []WorkspaceProviderAuthorizationResponse `pulumi:"authorizations"`
 	CreatedBy                  *CreatedByResponse                       `pulumi:"createdBy"`
 	CreatedDateTime            string                                   `pulumi:"createdDateTime"`
-	DiskEncryptionSetId        *string                                  `pulumi:"diskEncryptionSetId"`
+	DiskEncryptionSetId        string                                   `pulumi:"diskEncryptionSetId"`
 	Encryption                 *WorkspacePropertiesResponseEncryption   `pulumi:"encryption"`
 	Id                         string                                   `pulumi:"id"`
 	Location                   string                                   `pulumi:"location"`
@@ -112,8 +112,8 @@ func (o LookupWorkspaceResultOutput) CreatedDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreatedDateTime }).(pulumi.StringOutput)
 }
 
-func (o LookupWorkspaceResultOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+func (o LookupWorkspaceResultOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
 }
 
 func (o LookupWorkspaceResultOutput) Encryption() WorkspacePropertiesResponseEncryptionPtrOutput {

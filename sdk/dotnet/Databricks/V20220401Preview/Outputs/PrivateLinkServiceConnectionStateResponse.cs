@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Outputs
         /// <summary>
         /// Actions required for a private endpoint connection
         /// </summary>
-        public readonly string? ActionRequired;
+        public readonly string? ActionsRequired;
         /// <summary>
         /// The description for the current state of a private endpoint connection
         /// </summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Outputs
 
         [OutputConstructor]
         private PrivateLinkServiceConnectionStateResponse(
-            string? actionRequired,
+            string? actionsRequired,
 
             string? description,
 
             string status)
         {
-            ActionRequired = actionRequired;
+            ActionsRequired = actionsRequired;
             Description = description;
             Status = status;
         }

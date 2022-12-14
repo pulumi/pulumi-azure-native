@@ -55,6 +55,10 @@ export interface GetAccessConnectorResult {
      */
     readonly properties: outputs.databricks.v20220401preview.AccessConnectorPropertiesResponse;
     /**
+     * The system metadata relating to this resource
+     */
+    readonly systemData: outputs.databricks.v20220401preview.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

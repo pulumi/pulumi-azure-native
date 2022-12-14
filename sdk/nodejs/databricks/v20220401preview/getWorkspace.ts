@@ -49,7 +49,7 @@ export interface GetWorkspaceResult {
     /**
      * The resource Id of the managed disk encryption set.
      */
-    readonly diskEncryptionSetId?: string;
+    readonly diskEncryptionSetId: string;
     /**
      * Encryption properties for databricks workspace
      */

@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Databricks.Inputs
     /// </summary>
     public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("groupIds")]
+        private InputList<string>? _groupIds;
+
+        /// <summary>
+        /// GroupIds from the private link service resource.
+        /// </summary>
+        public InputList<string> GroupIds
+        {
+            get => _groupIds ?? (_groupIds = new InputList<string>());
+            set => _groupIds = value;
+        }
+
         /// <summary>
         /// Private endpoint connection state
         /// </summary>

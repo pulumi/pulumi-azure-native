@@ -150,12 +150,16 @@ class IdentityDataArgs:
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The properties of a private endpoint connection
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Private endpoint connection state
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -169,22 +173,34 @@ class PrivateEndpointConnectionPropertiesArgs:
     def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         pulumi.set(self, "private_link_service_connection_state", value)
 
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        GroupIds from the private link service resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_ids", value)
+
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']],
-                 action_required: Optional[pulumi.Input[str]] = None,
+                 actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The current state of a private endpoint connection
         :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection
-        :param pulumi.Input[str] action_required: Actions required for a private endpoint connection
+        :param pulumi.Input[str] actions_required: Actions required for a private endpoint connection
         :param pulumi.Input[str] description: The description for the current state of a private endpoint connection
         """
         pulumi.set(__self__, "status", status)
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -201,16 +217,16 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
         """
         Actions required for a private endpoint connection
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
-    @action_required.setter
-    def action_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action_required", value)
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
 
     @property
     @pulumi.getter

@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview.Inputs
         /// <summary>
         /// Actions required for a private endpoint connection
         /// </summary>
-        [Input("actionRequired")]
-        public Input<string>? ActionRequired { get; set; }
+        [Input("actionsRequired")]
+        public Input<string>? ActionsRequired { get; set; }
 
         /// <summary>
         /// The description for the current state of a private endpoint connection

@@ -55,6 +55,10 @@ export class AccessConnector extends pulumi.CustomResource {
      */
     public /*out*/ readonly properties!: pulumi.Output<outputs.databricks.AccessConnectorPropertiesResponse>;
     /**
+     * The system metadata relating to this resource
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databricks.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -84,12 +88,14 @@ export class AccessConnector extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
         /// <summary>
         /// The resource Id of the managed disk encryption set.
         /// </summary>
-        public readonly string? DiskEncryptionSetId;
+        public readonly string DiskEncryptionSetId;
         /// <summary>
         /// Encryption properties for databricks workspace
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
 
             string createdDateTime,
 
-            string? diskEncryptionSetId,
+            string diskEncryptionSetId,
 
             Outputs.WorkspacePropertiesResponseEncryption? encryption,
 
