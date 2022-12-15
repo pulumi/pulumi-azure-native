@@ -2,6 +2,12 @@
 
 ## HEAD (Unreleased)
 
+## 1.90.0 (2022-12-15)
+
+- Upgrade to latest version of Azure Rest API Specs
+  - `azure-native:securitydevops:ProvisioningState` is removed because it's an output-only property
+  - property `actionRequired` was removed from `azure-native:databricks:PrivateLinkServiceConnectionState`
+
 ## 1.89.0 (2022-12-08)
 
 - Upgrade to latest version of Azure Rest API Specs
