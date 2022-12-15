@@ -1,0 +1,107 @@
+
+
+
+package v20221001
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
+	var rv LookupCertificateResult
+	err := ctx.Invoke("azure-native:app/v20221001:getCertificate", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupCertificateArgs struct {
+	CertificateName   string `pulumi:"certificateName"`
+	EnvironmentName   string `pulumi:"environmentName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupCertificateResult struct {
+	Id         string                        `pulumi:"id"`
+	Location   string                        `pulumi:"location"`
+	Name       string                        `pulumi:"name"`
+	Properties CertificateResponseProperties `pulumi:"properties"`
+	SystemData SystemDataResponse            `pulumi:"systemData"`
+	Tags       map[string]string             `pulumi:"tags"`
+	Type       string                        `pulumi:"type"`
+}
+
+func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+			args := v.(LookupCertificateArgs)
+			r, err := LookupCertificate(ctx, &args, opts...)
+			var s LookupCertificateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(LookupCertificateResultOutput)
+}
+
+type LookupCertificateOutputArgs struct {
+	CertificateName   pulumi.StringInput `pulumi:"certificateName"`
+	EnvironmentName   pulumi.StringInput `pulumi:"environmentName"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+}
+
+func (LookupCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateArgs)(nil)).Elem()
+}
+
+
+type LookupCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateResult)(nil)).Elem()
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Properties() CertificateResponsePropertiesOutput {
+	return o.ApplyT(func(v LookupCertificateResult) CertificateResponseProperties { return v.Properties }).(CertificateResponsePropertiesOutput)
+}
+
+func (o LookupCertificateResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupCertificateResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o LookupCertificateResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCertificateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupCertificateResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCertificateResultOutput{})
+}
