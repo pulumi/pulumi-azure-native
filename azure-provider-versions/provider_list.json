@@ -13902,19 +13902,43 @@
     "namespace": "Microsoft.Diagnostics",
     "resourceTypes": [
       {
-        "resourceType": "AzureKB",
+        "resourceType": "apollo",
         "apiVersions": [
           "2020-07-01-preview"
         ]
       },
       {
-        "resourceType": "Operations",
+        "resourceType": "azureKB",
         "apiVersions": [
           "2020-07-01-preview"
         ]
       },
       {
-        "resourceType": "Solutions",
+        "resourceType": "checkNameAvailability",
+        "apiVersions": [
+          "2020-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "insights",
+        "apiVersions": [
+          "2020-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "operationResults",
+        "apiVersions": [
+          "2020-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2020-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "solutions",
         "apiVersions": [
           "2020-07-01-preview"
         ]

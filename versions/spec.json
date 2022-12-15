@@ -12720,6 +12720,31 @@
       "getEntitiesGetTimeline",
       "getEntityInsights",
       "listSourceControlRepositories"
+    ],
+    "2022-12-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
     ]
   },
   "SerialConsole": {
