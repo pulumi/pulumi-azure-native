@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.SecurityDevOps.V20220901Preview.Outputs
         /// Gets or sets org onboarding information.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureDevOpsOrgMetadataResponse> Orgs;
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private AzureDevOpsConnectorPropertiesResponse(
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.SecurityDevOps.V20220901Preview.Outputs
 
             ImmutableArray<Outputs.AzureDevOpsOrgMetadataResponse> orgs,
 
-            string? provisioningState)
+            string provisioningState)
         {
             Authorization = authorization;
             Orgs = orgs;

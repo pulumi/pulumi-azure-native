@@ -6,16 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AutoDiscovery',
-    'ProvisioningState',
 ]
 
 
 class AutoDiscovery(str, Enum):
     DISABLED = "Disabled"
     ENABLED = "Enabled"
-
-
-class ProvisioningState(str, Enum):
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"

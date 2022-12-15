@@ -14,11 +14,3 @@ export const AutoDiscovery = {
 } as const;
 
 export type AutoDiscovery = (typeof AutoDiscovery)[keyof typeof AutoDiscovery];
-
-export const ProvisioningState = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-} as const;
-
-export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];

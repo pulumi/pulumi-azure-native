@@ -14,6 +14,9 @@ namespace Pulumi.AzureNative.SecurityDevOps.V20220901Preview.Inputs
     {
         /// <summary>
         /// Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+        /// 
+        /// Only used during PUT operations. The secret is cleared during GET.
+        /// In general, RPaaS does not return any property marked as a secret.
         /// </summary>
         [Input("code")]
         public Input<string>? Code { get; set; }

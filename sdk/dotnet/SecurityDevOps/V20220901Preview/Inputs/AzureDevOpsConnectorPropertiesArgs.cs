@@ -27,9 +27,6 @@ namespace Pulumi.AzureNative.SecurityDevOps.V20220901Preview.Inputs
             set => _orgs = value;
         }
 
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityDevOps.V20220901Preview.ProvisioningState>? ProvisioningState { get; set; }
-
         public AzureDevOpsConnectorPropertiesArgs()
         {
         }

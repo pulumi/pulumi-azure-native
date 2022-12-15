@@ -24,6 +24,9 @@ class AuthorizationInfoArgs:
                  code: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] code: Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+               
+               Only used during PUT operations. The secret is cleared during GET.
+               In general, RPaaS does not return any property marked as a secret.
         """
         if code is not None:
             pulumi.set(__self__, "code", code)
@@ -33,6 +36,9 @@ class AuthorizationInfoArgs:
     def code(self) -> Optional[pulumi.Input[str]]:
         """
         Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+        
+        Only used during PUT operations. The secret is cleared during GET.
+        In general, RPaaS does not return any property marked as a secret.
         """
         return pulumi.get(self, "code")
 
@@ -45,8 +51,7 @@ class AuthorizationInfoArgs:
 class AzureDevOpsConnectorPropertiesArgs:
     def __init__(__self__, *,
                  authorization: Optional[pulumi.Input['AuthorizationInfoArgs']] = None,
-                 orgs: Optional[pulumi.Input[Sequence[pulumi.Input['AzureDevOpsOrgMetadataArgs']]]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
+                 orgs: Optional[pulumi.Input[Sequence[pulumi.Input['AzureDevOpsOrgMetadataArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AzureDevOpsOrgMetadataArgs']]] orgs: Gets or sets org onboarding information.
         """
@@ -54,8 +59,6 @@ class AzureDevOpsConnectorPropertiesArgs:
             pulumi.set(__self__, "authorization", authorization)
         if orgs is not None:
             pulumi.set(__self__, "orgs", orgs)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -77,15 +80,6 @@ class AzureDevOpsConnectorPropertiesArgs:
     @orgs.setter
     def orgs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureDevOpsOrgMetadataArgs']]]]):
         pulumi.set(self, "orgs", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -191,36 +185,30 @@ class AzureDevOpsProjectMetadataArgs:
 @pulumi.input_type
 class GitHubConnectorPropertiesArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
+                 code: Optional[pulumi.Input[str]] = None):
         """
         Properties of the ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
         :param pulumi.Input[str] code: Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+               
+               Only used during PUT operations. The secret is cleared during GET.
+               In general, RPaaS does not return any property marked as a secret.
         """
         if code is not None:
             pulumi.set(__self__, "code", code)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input[str]]:
         """
         Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+        
+        Only used during PUT operations. The secret is cleared during GET.
+        In general, RPaaS does not return any property marked as a secret.
         """
         return pulumi.get(self, "code")
 
     @code.setter
     def code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "code", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
 
 

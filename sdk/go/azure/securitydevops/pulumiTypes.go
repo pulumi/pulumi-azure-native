@@ -199,9 +199,8 @@ func (o AuthorizationInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
 }
 
 type AzureDevOpsConnectorProperties struct {
-	Authorization     *AuthorizationInfo       `pulumi:"authorization"`
-	Orgs              []AzureDevOpsOrgMetadata `pulumi:"orgs"`
-	ProvisioningState *string                  `pulumi:"provisioningState"`
+	Authorization *AuthorizationInfo       `pulumi:"authorization"`
+	Orgs          []AzureDevOpsOrgMetadata `pulumi:"orgs"`
 }
 
 
@@ -216,9 +215,8 @@ type AzureDevOpsConnectorPropertiesInput interface {
 }
 
 type AzureDevOpsConnectorPropertiesArgs struct {
-	Authorization     AuthorizationInfoPtrInput        `pulumi:"authorization"`
-	Orgs              AzureDevOpsOrgMetadataArrayInput `pulumi:"orgs"`
-	ProvisioningState pulumi.StringPtrInput            `pulumi:"provisioningState"`
+	Authorization AuthorizationInfoPtrInput        `pulumi:"authorization"`
+	Orgs          AzureDevOpsOrgMetadataArrayInput `pulumi:"orgs"`
 }
 
 func (AzureDevOpsConnectorPropertiesArgs) ElementType() reflect.Type {
@@ -306,10 +304,6 @@ func (o AzureDevOpsConnectorPropertiesOutput) Orgs() AzureDevOpsOrgMetadataArray
 	return o.ApplyT(func(v AzureDevOpsConnectorProperties) []AzureDevOpsOrgMetadata { return v.Orgs }).(AzureDevOpsOrgMetadataArrayOutput)
 }
 
-func (o AzureDevOpsConnectorPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDevOpsConnectorProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 type AzureDevOpsConnectorPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (AzureDevOpsConnectorPropertiesPtrOutput) ElementType() reflect.Type {
@@ -352,19 +346,10 @@ func (o AzureDevOpsConnectorPropertiesPtrOutput) Orgs() AzureDevOpsOrgMetadataAr
 	}).(AzureDevOpsOrgMetadataArrayOutput)
 }
 
-func (o AzureDevOpsConnectorPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureDevOpsConnectorProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
 type AzureDevOpsConnectorPropertiesResponse struct {
 	Authorization     *AuthorizationInfoResponse       `pulumi:"authorization"`
 	Orgs              []AzureDevOpsOrgMetadataResponse `pulumi:"orgs"`
-	ProvisioningState *string                          `pulumi:"provisioningState"`
+	ProvisioningState string                           `pulumi:"provisioningState"`
 }
 
 type AzureDevOpsConnectorPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -389,8 +374,8 @@ func (o AzureDevOpsConnectorPropertiesResponseOutput) Orgs() AzureDevOpsOrgMetad
 	return o.ApplyT(func(v AzureDevOpsConnectorPropertiesResponse) []AzureDevOpsOrgMetadataResponse { return v.Orgs }).(AzureDevOpsOrgMetadataResponseArrayOutput)
 }
 
-func (o AzureDevOpsConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDevOpsConnectorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o AzureDevOpsConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDevOpsConnectorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type AzureDevOpsOrgMetadata struct {
@@ -710,8 +695,7 @@ func (o AzureDevOpsProjectMetadataResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GitHubConnectorProperties struct {
-	Code              *string `pulumi:"code"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Code *string `pulumi:"code"`
 }
 
 
@@ -726,8 +710,7 @@ type GitHubConnectorPropertiesInput interface {
 }
 
 type GitHubConnectorPropertiesArgs struct {
-	Code              pulumi.StringPtrInput `pulumi:"code"`
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	Code pulumi.StringPtrInput `pulumi:"code"`
 }
 
 func (GitHubConnectorPropertiesArgs) ElementType() reflect.Type {
@@ -811,10 +794,6 @@ func (o GitHubConnectorPropertiesOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitHubConnectorProperties) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-func (o GitHubConnectorPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitHubConnectorProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 type GitHubConnectorPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (GitHubConnectorPropertiesPtrOutput) ElementType() reflect.Type {
@@ -848,18 +827,9 @@ func (o GitHubConnectorPropertiesPtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GitHubConnectorPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubConnectorProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
 type GitHubConnectorPropertiesResponse struct {
 	Code              *string `pulumi:"code"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string  `pulumi:"provisioningState"`
 }
 
 type GitHubConnectorPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -880,8 +850,8 @@ func (o GitHubConnectorPropertiesResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitHubConnectorPropertiesResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-func (o GitHubConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitHubConnectorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o GitHubConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v GitHubConnectorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type SystemDataResponse struct {

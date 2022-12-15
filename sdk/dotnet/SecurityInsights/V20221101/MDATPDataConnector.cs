@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:MDATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221001preview:MDATPDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:MDATPDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:MDATPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

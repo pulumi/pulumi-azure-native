@@ -10828,7 +10828,19 @@
     "": [
       "2020-07-01-preview"
     ],
+    "apollo": [
+      "2020-07-01-preview"
+    ],
     "azurekb": [
+      "2020-07-01-preview"
+    ],
+    "checknameavailability": [
+      "2020-07-01-preview"
+    ],
+    "insights": [
+      "2020-07-01-preview"
+    ],
+    "operationresults": [
       "2020-07-01-preview"
     ],
     "operations": [

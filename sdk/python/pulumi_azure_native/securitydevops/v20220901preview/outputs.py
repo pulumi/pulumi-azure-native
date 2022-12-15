@@ -26,6 +26,9 @@ class AuthorizationInfoResponse(dict):
                  code: Optional[str] = None):
         """
         :param str code: Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+               
+               Only used during PUT operations. The secret is cleared during GET.
+               In general, RPaaS does not return any property marked as a secret.
         """
         if code is not None:
             pulumi.set(__self__, "code", code)
@@ -35,6 +38,9 @@ class AuthorizationInfoResponse(dict):
     def code(self) -> Optional[str]:
         """
         Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+        
+        Only used during PUT operations. The secret is cleared during GET.
+        In general, RPaaS does not return any property marked as a secret.
         """
         return pulumi.get(self, "code")
 
@@ -59,18 +65,22 @@ class AzureDevOpsConnectorPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 provisioning_state: str,
                  authorization: Optional['outputs.AuthorizationInfoResponse'] = None,
-                 orgs: Optional[Sequence['outputs.AzureDevOpsOrgMetadataResponse']] = None,
-                 provisioning_state: Optional[str] = None):
+                 orgs: Optional[Sequence['outputs.AzureDevOpsOrgMetadataResponse']] = None):
         """
         :param Sequence['AzureDevOpsOrgMetadataResponse'] orgs: Gets or sets org onboarding information.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
         if orgs is not None:
             pulumi.set(__self__, "orgs", orgs)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -84,11 +94,6 @@ class AzureDevOpsConnectorPropertiesResponse(dict):
         Gets or sets org onboarding information.
         """
         return pulumi.get(self, "orgs")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
@@ -230,29 +235,34 @@ class GitHubConnectorPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 code: Optional[str] = None,
-                 provisioning_state: Optional[str] = None):
+                 provisioning_state: str,
+                 code: Optional[str] = None):
         """
         Properties of the ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
         :param str code: Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+               
+               Only used during PUT operations. The secret is cleared during GET.
+               In general, RPaaS does not return any property marked as a secret.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if code is not None:
             pulumi.set(__self__, "code", code)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
     def code(self) -> Optional[str]:
         """
         Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+        
+        Only used during PUT operations. The secret is cleared during GET.
+        In general, RPaaS does not return any property marked as a secret.
         """
         return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
