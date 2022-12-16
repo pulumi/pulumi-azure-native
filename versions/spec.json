@@ -3946,6 +3946,14 @@
     ],
     "2022-03-08-privatepreview": [
       "getGetCachedServerNameExecute"
+    ],
+    "2022-12-01": [
+      "Administrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
     ]
   },
   "Dashboard": {
@@ -4422,6 +4430,13 @@
       "BackupVault",
       "DppResourceGuardProxy",
       "ResourceGuard"
+    ],
+    "2022-11-01-preview": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "DppResourceGuardProxy",
+      "ResourceGuard"
     ]
   },
   "DataShare": {
@@ -4516,6 +4531,9 @@
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
+    ],
+    "2022-10-01-preview": [
+      "AccessConnector"
     ]
   },
   "Datadog": {
@@ -4700,6 +4718,17 @@
       "ApplicationGroup",
       "HostPool",
       "MSIXPackage",
+      "ScalingPlan",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
+    ],
+    "2022-10-14-preview": [
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
       "ScalingPlan",
       "ScalingPlanPooledSchedule",
       "Workspace"
@@ -6558,6 +6587,12 @@
       "MachineExtension",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2022-11-10": [
+      "Machine",
+      "MachineExtension",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -6792,6 +6827,9 @@
     "2022-06-15": [
       "ScheduledQueryRule",
       "WebTest"
+    ],
+    "2022-08-01-preview": [
+      "ScheduledQueryRule"
     ],
     "2022-10-01": [
       "AutoscaleSetting"
@@ -12866,6 +12904,24 @@
       "listTopicKeys"
     ],
     "2022-01-01-preview": [
+      "DisasterRecoveryConfig",
+      "MigrationConfig",
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "NamespaceNetworkRuleSet",
+      "PrivateEndpointConnection",
+      "Queue",
+      "QueueAuthorizationRule",
+      "Rule",
+      "Subscription",
+      "Topic",
+      "TopicAuthorizationRule",
+      "listDisasterRecoveryConfigKeys",
+      "listNamespaceKeys",
+      "listQueueKeys",
+      "listTopicKeys"
+    ],
+    "2022-10-01-preview": [
       "DisasterRecoveryConfig",
       "MigrationConfig",
       "Namespace",

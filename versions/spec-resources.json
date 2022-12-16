@@ -3932,7 +3932,8 @@
   },
   "DBforPostgreSQL": {
     "Administrator": [
-      "2022-03-08-preview"
+      "2022-03-08-preview",
+      "2022-12-01"
     ],
     "Configuration": [
       "2017-12-01",
@@ -3944,7 +3945,8 @@
       "2021-06-01-preview",
       "2021-06-15-privatepreview",
       "2022-01-20-preview",
-      "2022-03-08-preview"
+      "2022-03-08-preview",
+      "2022-12-01"
     ],
     "Database": [
       "2017-12-01",
@@ -3953,7 +3955,8 @@
       "2021-06-01",
       "2021-06-01-preview",
       "2022-01-20-preview",
-      "2022-03-08-preview"
+      "2022-03-08-preview",
+      "2022-12-01"
     ],
     "FirewallRule": [
       "2017-12-01",
@@ -3966,7 +3969,8 @@
       "2021-06-01-preview",
       "2021-06-15-privatepreview",
       "2022-01-20-preview",
-      "2022-03-08-preview"
+      "2022-03-08-preview",
+      "2022-12-01"
     ],
     "Migration": [
       "2021-06-15-privatepreview"
@@ -3985,7 +3989,8 @@
       "2021-06-01-preview",
       "2021-06-15-privatepreview",
       "2022-01-20-preview",
-      "2022-03-08-preview"
+      "2022-03-08-preview",
+      "2022-12-01"
     ],
     "ServerAdministrator": [
       "2017-12-01",
@@ -4014,7 +4019,8 @@
       "2021-03-31-privatepreview",
       "2021-06-01",
       "2022-01-20-preview",
-      "2022-03-08-preview"
+      "2022-03-08-preview",
+      "2022-12-01"
     ]
   },
   "Dashboard": {
@@ -4460,7 +4466,8 @@
       "2022-04-01",
       "2022-05-01",
       "2022-09-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2022-11-01-preview"
     ],
     "BackupPolicy": [
       "2021-01-01",
@@ -4476,7 +4483,8 @@
       "2022-04-01",
       "2022-05-01",
       "2022-09-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2022-11-01-preview"
     ],
     "BackupVault": [
       "2021-01-01",
@@ -4492,11 +4500,13 @@
       "2022-04-01",
       "2022-05-01",
       "2022-09-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2022-11-01-preview"
     ],
     "DppResourceGuardProxy": [
       "2022-09-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2022-11-01-preview"
     ],
     "ResourceGuard": [
       "2021-07-01",
@@ -4509,7 +4519,8 @@
       "2022-04-01",
       "2022-05-01",
       "2022-09-01-preview",
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2022-11-01-preview"
     ]
   },
   "DataShare": {
@@ -4607,7 +4618,8 @@
   },
   "Databricks": {
     "AccessConnector": [
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-10-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2021-04-01-preview",
@@ -4713,7 +4725,8 @@
       "2021-09-03-preview",
       "2022-02-10-preview",
       "2022-04-01-preview",
-      "2022-09-09"
+      "2022-09-09",
+      "2022-10-14-preview"
     ],
     "ApplicationGroup": [
       "2019-01-23-preview",
@@ -4731,7 +4744,8 @@
       "2021-09-03-preview",
       "2022-02-10-preview",
       "2022-04-01-preview",
-      "2022-09-09"
+      "2022-09-09",
+      "2022-10-14-preview"
     ],
     "HostPool": [
       "2019-01-23-preview",
@@ -4749,7 +4763,8 @@
       "2021-09-03-preview",
       "2022-02-10-preview",
       "2022-04-01-preview",
-      "2022-09-09"
+      "2022-09-09",
+      "2022-10-14-preview"
     ],
     "MSIXPackage": [
       "2020-09-21-preview",
@@ -4764,19 +4779,22 @@
       "2021-09-03-preview",
       "2022-02-10-preview",
       "2022-04-01-preview",
-      "2022-09-09"
+      "2022-09-09",
+      "2022-10-14-preview"
     ],
     "PrivateEndpointConnectionByHostPool": [
       "2021-04-01-preview",
       "2021-09-03-preview",
       "2022-02-10-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-10-14-preview"
     ],
     "PrivateEndpointConnectionByWorkspace": [
       "2021-04-01-preview",
       "2021-09-03-preview",
       "2022-02-10-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-10-14-preview"
     ],
     "ScalingPlan": [
       "2020-11-10-preview",
@@ -4788,11 +4806,13 @@
       "2021-09-03-preview",
       "2022-02-10-preview",
       "2022-04-01-preview",
-      "2022-09-09"
+      "2022-09-09",
+      "2022-10-14-preview"
     ],
     "ScalingPlanPooledSchedule": [
       "2022-04-01-preview",
-      "2022-09-09"
+      "2022-09-09",
+      "2022-10-14-preview"
     ],
     "Workspace": [
       "2019-01-23-preview",
@@ -4810,7 +4830,8 @@
       "2021-09-03-preview",
       "2022-02-10-preview",
       "2022-04-01-preview",
-      "2022-09-09"
+      "2022-09-09",
+      "2022-10-14-preview"
     ]
   },
   "DevCenter": {
@@ -6677,7 +6698,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "MachineExtension": [
       "2019-08-02-preview",
@@ -6694,7 +6716,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "PrivateEndpointConnection": [
       "2020-08-15-preview",
@@ -6707,7 +6730,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "PrivateLinkScope": [
       "2020-08-15-preview",
@@ -6720,7 +6744,8 @@
       "2021-12-10-preview",
       "2022-03-10",
       "2022-05-10-preview",
-      "2022-08-11-preview"
+      "2022-08-11-preview",
+      "2022-11-10"
     ],
     "PrivateLinkScopedResource": [
       "2020-08-15-preview"
@@ -6920,7 +6945,8 @@
       "2020-05-01-preview",
       "2021-02-01-preview",
       "2021-08-01",
-      "2022-06-15"
+      "2022-06-15",
+      "2022-08-01-preview"
     ],
     "SubscriptionDiagnosticSetting": [
       "2017-05-01-preview",
@@ -13332,7 +13358,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "MigrationConfig": [
       "2017-04-01",
@@ -13340,7 +13367,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "Namespace": [
       "2014-09-01",
@@ -13350,7 +13378,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "NamespaceAuthorizationRule": [
       "2014-09-01",
@@ -13360,7 +13389,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "NamespaceIpFilterRule": [
       "2018-01-01-preview"
@@ -13371,7 +13401,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "NamespaceVirtualNetworkRule": [
       "2018-01-01-preview"
@@ -13381,7 +13412,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "Queue": [
       "2014-09-01",
@@ -13391,7 +13423,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "QueueAuthorizationRule": [
       "2014-09-01",
@@ -13401,7 +13434,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "Rule": [
       "2017-04-01",
@@ -13409,7 +13443,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "Subscription": [
       "2014-09-01",
@@ -13419,7 +13454,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "Topic": [
       "2014-09-01",
@@ -13429,7 +13465,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "TopicAuthorizationRule": [
       "2014-09-01",
@@ -13439,7 +13476,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "listDisasterRecoveryConfigKeys": [
       "2017-04-01",
@@ -13447,7 +13485,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "listNamespaceKeys": [
       "2015-08-01",
@@ -13456,7 +13495,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "listQueueKeys": [
       "2015-08-01",
@@ -13465,7 +13505,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ],
     "listTopicKeys": [
       "2015-08-01",
@@ -13474,7 +13515,8 @@
       "2021-01-01-preview",
       "2021-06-01-preview",
       "2021-11-01",
-      "2022-01-01-preview"
+      "2022-01-01-preview",
+      "2022-10-01-preview"
     ]
   },
   "ServiceFabric": {
