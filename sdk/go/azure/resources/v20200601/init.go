@@ -1,0 +1,58 @@
+
+
+
+package v20200601
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:resources/v20200601:Deployment":
+		r = &Deployment{}
+	case "azure-native:resources/v20200601:DeploymentAtManagementGroupScope":
+		r = &DeploymentAtManagementGroupScope{}
+	case "azure-native:resources/v20200601:DeploymentAtScope":
+		r = &DeploymentAtScope{}
+	case "azure-native:resources/v20200601:DeploymentAtSubscriptionScope":
+		r = &DeploymentAtSubscriptionScope{}
+	case "azure-native:resources/v20200601:DeploymentAtTenantScope":
+		r = &DeploymentAtTenantScope{}
+	case "azure-native:resources/v20200601:Resource":
+		r = &Resource{}
+	case "azure-native:resources/v20200601:ResourceGroup":
+		r = &ResourceGroup{}
+	case "azure-native:resources/v20200601:TagAtScope":
+		r = &TagAtScope{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"resources/v20200601",
+		&module{version},
+	)
+}
