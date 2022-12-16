@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview.Inputs
 {
 
     /// <summary>
-    /// Gets or sets the file share configuration for file share created with the VIS case.
+    /// Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow.
     /// </summary>
     public sealed class CreateAndMountFileShareConfigurationArgs : global::Pulumi.ResourceArgs
     {

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.CostManagement.V20221001.Inputs
         /// Has type of the column to group.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20221001.ReportConfigColumnType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20221001.QueryColumnType> Type { get; set; } = null!;
 
         public ReportConfigGroupingArgs()
         {

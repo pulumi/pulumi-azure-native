@@ -145,7 +145,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220120preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220308preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220120preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220308preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20221201:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }

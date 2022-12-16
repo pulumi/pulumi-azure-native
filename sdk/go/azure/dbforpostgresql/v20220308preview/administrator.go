@@ -36,6 +36,12 @@ func NewAdministrator(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20221201:Administrator"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Administrator
 	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20220308preview:Administrator", name, args, &resource, opts...)
 	if err != nil {

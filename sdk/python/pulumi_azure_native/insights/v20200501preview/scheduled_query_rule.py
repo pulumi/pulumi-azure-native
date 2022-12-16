@@ -395,7 +395,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20180416:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210201preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210801:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220615:ScheduledQueryRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20180416:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210201preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210801:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220615:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220801preview:ScheduledQueryRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledQueryRule, __self__).__init__(
             'azure-native:insights/v20200501preview:ScheduledQueryRule',

@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:DisasterRecoveryConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:DisasterRecoveryConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

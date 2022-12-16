@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308Preview
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221201:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

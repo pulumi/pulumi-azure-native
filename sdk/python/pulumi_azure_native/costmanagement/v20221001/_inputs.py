@@ -912,11 +912,11 @@ class ReportConfigFilterArgs:
 class ReportConfigGroupingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: pulumi.Input[Union[str, 'ReportConfigColumnType']]):
+                 type: pulumi.Input[Union[str, 'QueryColumnType']]):
         """
         The group by expression to be used in the report.
         :param pulumi.Input[str] name: The name of the column to group. This version supports subscription lowest possible grain.
-        :param pulumi.Input[Union[str, 'ReportConfigColumnType']] type: Has type of the column to group.
+        :param pulumi.Input[Union[str, 'QueryColumnType']] type: Has type of the column to group.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -935,14 +935,14 @@ class ReportConfigGroupingArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ReportConfigColumnType']]:
+    def type(self) -> pulumi.Input[Union[str, 'QueryColumnType']]:
         """
         Has type of the column to group.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ReportConfigColumnType']]):
+    def type(self, value: pulumi.Input[Union[str, 'QueryColumnType']]):
         pulumi.set(self, "type", value)
 
 

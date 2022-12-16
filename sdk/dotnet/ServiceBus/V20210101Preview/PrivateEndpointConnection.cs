@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

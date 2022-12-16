@@ -69,6 +69,9 @@ func NewRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicebus/v20220101preview:Rule"),
 		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20221001preview:Rule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Rule

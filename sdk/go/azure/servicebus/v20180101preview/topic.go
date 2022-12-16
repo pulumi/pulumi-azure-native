@@ -72,6 +72,9 @@ func NewTopic(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicebus/v20220101preview:Topic"),
 		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20221001preview:Topic"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Topic

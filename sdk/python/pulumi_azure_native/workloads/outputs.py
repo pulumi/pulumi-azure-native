@@ -417,7 +417,7 @@ class CentralServerVmDetailsResponse(dict):
 @pulumi.output_type
 class CreateAndMountFileShareConfigurationResponse(dict):
     """
-    Gets or sets the file share configuration for file share created with the VIS case.
+    Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -445,7 +445,7 @@ class CreateAndMountFileShareConfigurationResponse(dict):
                  resource_group: Optional[str] = None,
                  storage_account_name: Optional[str] = None):
         """
-        Gets or sets the file share configuration for file share created with the VIS case.
+        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow.
         :param str configuration_type: The type of file share config.
                Expected value is 'CreateAndMount'.
         :param str resource_group: The name of file share resource group. The app rg is used in case of missing input.
@@ -2700,7 +2700,7 @@ class MonitorPropertiesResponseErrors(dict):
 @pulumi.output_type
 class MountFileShareConfigurationResponse(dict):
     """
-    Gets or sets the file share configuration for externally mounted cases.
+    Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2726,7 +2726,7 @@ class MountFileShareConfigurationResponse(dict):
                  id: str,
                  private_endpoint_id: str):
         """
-        Gets or sets the file share configuration for externally mounted cases.
+        Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
         :param str configuration_type: The type of file share config.
                Expected value is 'Mount'.
         :param str id: The fileshare resource ID
@@ -4663,7 +4663,7 @@ class SiteProfileResponse(dict):
 @pulumi.output_type
 class SkipFileShareConfigurationResponse(dict):
     """
-    Gets or sets the skip file share configuration
+    Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4685,7 +4685,7 @@ class SkipFileShareConfigurationResponse(dict):
     def __init__(__self__, *,
                  configuration_type: str):
         """
-        Gets or sets the skip file share configuration
+        Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
         :param str configuration_type: The type of file share config.
                Expected value is 'Skip'.
         """

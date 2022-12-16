@@ -386,6 +386,43 @@ namespace Pulumi.AzureNative.CostManagement.V20221001
     }
 
     /// <summary>
+    /// Has type of the column to group.
+    /// </summary>
+    [EnumType]
+    public readonly struct QueryColumnType : IEquatable<QueryColumnType>
+    {
+        private readonly string _value;
+
+        private QueryColumnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The tag associated with the cost data.
+        /// </summary>
+        public static QueryColumnType TagKey { get; } = new QueryColumnType("TagKey");
+        /// <summary>
+        /// The dimension of cost data.
+        /// </summary>
+        public static QueryColumnType Dimension { get; } = new QueryColumnType("Dimension");
+
+        public static bool operator ==(QueryColumnType left, QueryColumnType right) => left.Equals(right);
+        public static bool operator !=(QueryColumnType left, QueryColumnType right) => !left.Equals(right);
+
+        public static explicit operator string(QueryColumnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QueryColumnType other && Equals(other);
+        public bool Equals(QueryColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The schedule recurrence.
     /// </summary>
     [EnumType]
@@ -411,37 +448,6 @@ namespace Pulumi.AzureNative.CostManagement.V20221001
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RecurrenceType other && Equals(other);
         public bool Equals(RecurrenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Has type of the column to group.
-    /// </summary>
-    [EnumType]
-    public readonly struct ReportConfigColumnType : IEquatable<ReportConfigColumnType>
-    {
-        private readonly string _value;
-
-        private ReportConfigColumnType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ReportConfigColumnType Tag { get; } = new ReportConfigColumnType("Tag");
-        public static ReportConfigColumnType Dimension { get; } = new ReportConfigColumnType("Dimension");
-
-        public static bool operator ==(ReportConfigColumnType left, ReportConfigColumnType right) => left.Equals(right);
-        public static bool operator !=(ReportConfigColumnType left, ReportConfigColumnType right) => !left.Equals(right);
-
-        public static explicit operator string(ReportConfigColumnType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReportConfigColumnType other && Equals(other);
-        public bool Equals(ReportConfigColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

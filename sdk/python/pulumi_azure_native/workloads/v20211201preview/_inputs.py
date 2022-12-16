@@ -272,7 +272,7 @@ class CreateAndMountFileShareConfigurationArgs:
                  resource_group: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None):
         """
-        Gets or sets the file share configuration for file share created with the VIS case.
+        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow.
         :param pulumi.Input[str] configuration_type: The type of file share config.
                Expected value is 'CreateAndMount'.
         :param pulumi.Input[str] resource_group: The name of file share resource group. The app rg is used in case of missing input.
@@ -1692,7 +1692,7 @@ class MountFileShareConfigurationArgs:
                  id: pulumi.Input[str],
                  private_endpoint_id: pulumi.Input[str]):
         """
-        Gets or sets the file share configuration for externally mounted cases.
+        Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
         :param pulumi.Input[str] configuration_type: The type of file share config.
                Expected value is 'Mount'.
         :param pulumi.Input[str] id: The fileshare resource ID
@@ -3181,7 +3181,7 @@ class SkipFileShareConfigurationArgs:
     def __init__(__self__, *,
                  configuration_type: pulumi.Input[str]):
         """
-        Gets or sets the skip file share configuration
+        Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
         :param pulumi.Input[str] configuration_type: The type of file share config.
                Expected value is 'Skip'.
         """

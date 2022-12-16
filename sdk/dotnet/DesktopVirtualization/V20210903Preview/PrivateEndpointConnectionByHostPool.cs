@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByHostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

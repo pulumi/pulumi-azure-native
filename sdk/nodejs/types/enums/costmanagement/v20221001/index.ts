@@ -128,6 +128,22 @@ export const PivotTypeType = {
  */
 export type PivotTypeType = (typeof PivotTypeType)[keyof typeof PivotTypeType];
 
+export const QueryColumnType = {
+    /**
+     * The tag associated with the cost data.
+     */
+    TagKey: "TagKey",
+    /**
+     * The dimension of cost data.
+     */
+    Dimension: "Dimension",
+} as const;
+
+/**
+ * Has type of the column to group.
+ */
+export type QueryColumnType = (typeof QueryColumnType)[keyof typeof QueryColumnType];
+
 export const RecurrenceType = {
     Daily: "Daily",
     Weekly: "Weekly",
@@ -139,16 +155,6 @@ export const RecurrenceType = {
  * The schedule recurrence.
  */
 export type RecurrenceType = (typeof RecurrenceType)[keyof typeof RecurrenceType];
-
-export const ReportConfigColumnType = {
-    Tag: "Tag",
-    Dimension: "Dimension",
-} as const;
-
-/**
- * Has type of the column to group.
- */
-export type ReportConfigColumnType = (typeof ReportConfigColumnType)[keyof typeof ReportConfigColumnType];
 
 export const ReportConfigSortingType = {
     Ascending: "Ascending",

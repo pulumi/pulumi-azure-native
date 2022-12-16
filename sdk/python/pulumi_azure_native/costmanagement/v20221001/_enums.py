@@ -17,8 +17,8 @@ __all__ = [
     'MetricType',
     'OperatorType',
     'PivotTypeType',
+    'QueryColumnType',
     'RecurrenceType',
-    'ReportConfigColumnType',
     'ReportConfigSortingType',
     'ReportGranularityType',
     'ReportTimeframeType',
@@ -134,6 +134,20 @@ class PivotTypeType(str, Enum):
     TAG_KEY = "TagKey"
 
 
+class QueryColumnType(str, Enum):
+    """
+    Has type of the column to group.
+    """
+    TAG_KEY = "TagKey"
+    """
+    The tag associated with the cost data.
+    """
+    DIMENSION = "Dimension"
+    """
+    The dimension of cost data.
+    """
+
+
 class RecurrenceType(str, Enum):
     """
     The schedule recurrence.
@@ -142,14 +156,6 @@ class RecurrenceType(str, Enum):
     WEEKLY = "Weekly"
     MONTHLY = "Monthly"
     ANNUALLY = "Annually"
-
-
-class ReportConfigColumnType(str, Enum):
-    """
-    Has type of the column to group.
-    """
-    TAG = "Tag"
-    DIMENSION = "Dimension"
 
 
 class ReportConfigSortingType(str, Enum):

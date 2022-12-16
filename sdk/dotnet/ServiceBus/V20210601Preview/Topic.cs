@@ -168,6 +168,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

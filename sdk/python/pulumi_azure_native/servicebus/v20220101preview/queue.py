@@ -458,7 +458,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20140901:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Queue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20140901:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Queue"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
             'azure-native:servicebus/v20220101preview:Queue',

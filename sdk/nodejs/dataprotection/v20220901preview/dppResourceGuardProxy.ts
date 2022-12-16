@@ -82,7 +82,7 @@ export class DppResourceGuardProxy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20221001preview:DppResourceGuardProxy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20221001preview:DppResourceGuardProxy" }, { type: "azure-native:dataprotection/v20221101preview:DppResourceGuardProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DppResourceGuardProxy.__pulumiType, name, resourceInputs, opts);
     }

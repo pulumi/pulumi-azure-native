@@ -6886,6 +6886,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databricks/v20221001preview",
+  "fqn": "pulumi_azure_native.databricks.v20221001preview",
+  "classes": {
+   "azure-native:databricks/v20221001preview:AccessConnector": "AccessConnector"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datacatalog",
   "fqn": "pulumi_azure_native.datacatalog",
   "classes": {
@@ -7322,6 +7330,18 @@ _utilities.register(
    "azure-native:dataprotection/v20221001preview:BackupVault": "BackupVault",
    "azure-native:dataprotection/v20221001preview:DppResourceGuardProxy": "DppResourceGuardProxy",
    "azure-native:dataprotection/v20221001preview:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dataprotection/v20221101preview",
+  "fqn": "pulumi_azure_native.dataprotection.v20221101preview",
+  "classes": {
+   "azure-native:dataprotection/v20221101preview:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20221101preview:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20221101preview:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20221101preview:DppResourceGuardProxy": "DppResourceGuardProxy",
+   "azure-native:dataprotection/v20221101preview:ResourceGuard": "ResourceGuard"
   }
  },
  {
@@ -7934,6 +7954,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20221201",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20221201",
+  "classes": {
+   "azure-native:dbforpostgresql/v20221201:Administrator": "Administrator",
+   "azure-native:dbforpostgresql/v20221201:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20221201:Database": "Database",
+   "azure-native:dbforpostgresql/v20221201:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20221201:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "delegatednetwork",
   "fqn": "pulumi_azure_native.delegatednetwork",
   "classes": {
@@ -8224,6 +8256,22 @@ _utilities.register(
    "azure-native:desktopvirtualization/v20220909:ScalingPlan": "ScalingPlan",
    "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule": "ScalingPlanPooledSchedule",
    "azure-native:desktopvirtualization/v20220909:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "desktopvirtualization/v20221014preview",
+  "fqn": "pulumi_azure_native.desktopvirtualization.v20221014preview",
+  "classes": {
+   "azure-native:desktopvirtualization/v20221014preview:Application": "Application",
+   "azure-native:desktopvirtualization/v20221014preview:ApplicationGroup": "ApplicationGroup",
+   "azure-native:desktopvirtualization/v20221014preview:HostPool": "HostPool",
+   "azure-native:desktopvirtualization/v20221014preview:MSIXPackage": "MSIXPackage",
+   "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool": "PrivateEndpointConnectionByHostPool",
+   "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
+   "azure-native:desktopvirtualization/v20221014preview:ScalingPlan": "ScalingPlan",
+   "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule": "ScalingPlanPooledSchedule",
+   "azure-native:desktopvirtualization/v20221014preview:Workspace": "Workspace"
   }
  },
  {
@@ -10957,6 +11005,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridcompute/v20221110",
+  "fqn": "pulumi_azure_native.hybridcompute.v20221110",
+  "classes": {
+   "azure-native:hybridcompute/v20221110:Machine": "Machine",
+   "azure-native:hybridcompute/v20221110:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20221110:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20221110:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybridconnectivity",
   "fqn": "pulumi_azure_native.hybridconnectivity",
   "classes": {
@@ -11469,6 +11528,14 @@ _utilities.register(
   "classes": {
    "azure-native:insights/v20220615:ScheduledQueryRule": "ScheduledQueryRule",
    "azure-native:insights/v20220615:WebTest": "WebTest"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "insights/v20220801preview",
+  "fqn": "pulumi_azure_native.insights.v20220801preview",
+  "classes": {
+   "azure-native:insights/v20220801preview:ScheduledQueryRule": "ScheduledQueryRule"
   }
  },
  {
@@ -20293,6 +20360,25 @@ _utilities.register(
    "azure-native:servicebus/v20220101preview:Subscription": "Subscription",
    "azure-native:servicebus/v20220101preview:Topic": "Topic",
    "azure-native:servicebus/v20220101preview:TopicAuthorizationRule": "TopicAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicebus/v20221001preview",
+  "fqn": "pulumi_azure_native.servicebus.v20221001preview",
+  "classes": {
+   "azure-native:servicebus/v20221001preview:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:servicebus/v20221001preview:MigrationConfig": "MigrationConfig",
+   "azure-native:servicebus/v20221001preview:Namespace": "Namespace",
+   "azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:servicebus/v20221001preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:servicebus/v20221001preview:Queue": "Queue",
+   "azure-native:servicebus/v20221001preview:QueueAuthorizationRule": "QueueAuthorizationRule",
+   "azure-native:servicebus/v20221001preview:Rule": "Rule",
+   "azure-native:servicebus/v20221001preview:Subscription": "Subscription",
+   "azure-native:servicebus/v20221001preview:Topic": "Topic",
+   "azure-native:servicebus/v20221001preview:TopicAuthorizationRule": "TopicAuthorizationRule"
   }
  },
  {

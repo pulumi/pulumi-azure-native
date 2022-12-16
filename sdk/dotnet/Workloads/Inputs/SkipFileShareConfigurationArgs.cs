@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
 {
 
     /// <summary>
-    /// Gets or sets the skip file share configuration
+    /// Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
     /// </summary>
     public sealed class SkipFileShareConfigurationArgs : global::Pulumi.ResourceArgs
     {

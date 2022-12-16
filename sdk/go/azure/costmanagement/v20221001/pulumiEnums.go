@@ -93,6 +93,15 @@ const (
 	PivotTypeTypeTagKey    = PivotTypeType("TagKey")
 )
 
+type QueryColumnType string
+
+const (
+	// The tag associated with the cost data.
+	QueryColumnTypeTagKey = QueryColumnType("TagKey")
+	// The dimension of cost data.
+	QueryColumnTypeDimension = QueryColumnType("Dimension")
+)
+
 type RecurrenceType string
 
 const (
@@ -100,13 +109,6 @@ const (
 	RecurrenceTypeWeekly   = RecurrenceType("Weekly")
 	RecurrenceTypeMonthly  = RecurrenceType("Monthly")
 	RecurrenceTypeAnnually = RecurrenceType("Annually")
-)
-
-type ReportConfigColumnType string
-
-const (
-	ReportConfigColumnTypeTag       = ReportConfigColumnType("Tag")
-	ReportConfigColumnTypeDimension = ReportConfigColumnType("Dimension")
 )
 
 type ReportConfigSortingType string
