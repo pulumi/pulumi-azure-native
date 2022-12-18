@@ -2,16 +2,17 @@ package versioning
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-multierror"
-	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	"gopkg.in/yaml.v3"
 	"io/ioutil"
 	"os"
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/hashicorp/go-multierror"
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"gopkg.in/yaml.v3"
 )
 
 type ProviderSpec struct {
@@ -50,7 +51,7 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	return curatedVersion, err
 }
 
-func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) (openapi.CuratedVersion, error) {
+func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig, curation Curations) (openapi.CuratedVersion, error) {
 	var err error
 	curatedVersion := openapi.CuratedVersion{}
 	for providerName, versionResources := range spec {
@@ -59,23 +60,26 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 		if !ok {
 			if len(versionResources) > 0 {
 				var versions []string
-				for version, _ := range versionResources {
+				for version := range versionResources {
 					versions = append(versions, version)
 				}
 				err = multierror.Append(err, fmt.Errorf("no version specified for %s, available versions: %s", providerName, strings.Join(versions, ", ")))
 				continue
 			}
 		}
+
 		if providerSpec.Tracking != nil {
 			for _, resourceName := range versionResources[*providerSpec.Tracking] {
-				definitions[resourceName] = *providerSpec.Tracking
+				if !curation.IsExcluded(providerName, resourceName) {
+					definitions[resourceName] = *providerSpec.Tracking
+				}
 			}
 		}
 		if providerSpec.Additions != nil {
 			for resourceName, apiVersion := range *providerSpec.Additions {
 				if existingVersion, ok := definitions[resourceName]; ok {
 					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", providerName, resourceName, apiVersion, existingVersion))
-				} else {
+				} else if !curation.IsExcluded(providerName, resourceName) {
 					definitions[resourceName] = apiVersion
 				}
 			}
