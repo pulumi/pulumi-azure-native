@@ -2398,6 +2398,14 @@
       "Deployment",
       "PrivateEndpointConnection",
       "listAccountKeys"
+    ],
+    "2022-12-01": [
+      "Account",
+      "CommitmentPlan",
+      "CommitmentPlanAssociation",
+      "Deployment",
+      "PrivateEndpointConnection",
+      "listAccountKeys"
     ]
   },
   "Commerce": {
@@ -4531,9 +4539,6 @@
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
-    ],
-    "2022-10-01-preview": [
-      "AccessConnector"
     ]
   },
   "Datadog": {
