@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221001
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

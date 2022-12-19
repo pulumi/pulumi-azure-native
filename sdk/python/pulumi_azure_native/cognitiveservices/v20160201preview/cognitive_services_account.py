@@ -201,7 +201,7 @@ class CognitiveServicesAccount(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20170418:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20210430:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20211001:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20220301:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221001:CognitiveServicesAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20170418:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20210430:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20211001:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20220301:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221001:CognitiveServicesAccount"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:CognitiveServicesAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CognitiveServicesAccount, __self__).__init__(
             'azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount',

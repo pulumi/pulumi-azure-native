@@ -572,7 +572,8 @@
       "2022-01-01-preview",
       "2022-03-01",
       "2022-06-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-11-01-preview"
     ],
     "connectedenvironments": [
       "2022-06-01-preview",
@@ -645,6 +646,9 @@
       "2022-03-01",
       "2022-06-01-preview",
       "2022-10-01"
+    ],
+    "managedenvironments/managedcertificates": [
+      "2022-11-01-preview"
     ],
     "operations": [
       "2022-01-01-preview",
@@ -2454,7 +2458,11 @@
       "2020-11-01-privatepreview",
       "2020-12-15-beta",
       "2020-12-15-privatepreview",
-      "2021-10-01"
+      "2021-10-01",
+      "2022-10-01-beta",
+      "2022-10-01-privatepreview",
+      "2023-04-01",
+      "2023-04-01-beta"
     ],
     "billingaccounts": [
       "2018-05-31",
@@ -2637,7 +2645,8 @@
     ],
     "billingaccounts/billingprofiles/transactions": [
       "2018-11-01-preview",
-      "2019-10-01-preview"
+      "2019-10-01-preview",
+      "2020-11-01-privatepreview"
     ],
     "billingaccounts/billingprofiles/validatedeletebillingprofileeligibility": [
       "2020-11-01-privatepreview"
@@ -2889,35 +2898,59 @@
     ],
     "billingaccounts/reservationorders": [
       "2020-11-01-beta",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2022-10-01-beta",
+      "2022-10-01-privatepreview",
+      "2023-04-01",
+      "2023-04-01-beta"
     ],
     "billingaccounts/reservationorders/reservations": [
       "2020-11-01-beta",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2022-10-01-beta",
+      "2022-10-01-privatepreview",
+      "2023-04-01",
+      "2023-04-01-beta"
     ],
     "billingaccounts/reservations": [
       "2019-10-01-preview",
       "2020-05-01",
       "2020-11-01-beta",
-      "2020-11-01-privatepreview"
+      "2020-11-01-privatepreview",
+      "2022-10-01-beta",
+      "2022-10-01-privatepreview",
+      "2023-04-01",
+      "2023-04-01-beta"
     ],
     "billingaccounts/savingsplanorders": [
       "2020-11-01-beta",
       "2020-11-01-privatepreview",
       "2020-12-15-beta",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2022-10-01-beta",
+      "2022-10-01-privatepreview",
+      "2023-04-01",
+      "2023-04-01-beta"
     ],
     "billingaccounts/savingsplanorders/savingsplans": [
       "2020-11-01-beta",
       "2020-11-01-privatepreview",
       "2020-12-15-beta",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2022-10-01-beta",
+      "2022-10-01-privatepreview",
+      "2023-04-01",
+      "2023-04-01-beta"
     ],
     "billingaccounts/savingsplans": [
       "2020-11-01-beta",
       "2020-11-01-privatepreview",
       "2020-12-15-beta",
-      "2020-12-15-privatepreview"
+      "2020-12-15-privatepreview",
+      "2022-10-01-beta",
+      "2022-10-01-privatepreview",
+      "2023-04-01",
+      "2023-04-01-beta"
     ],
     "billingaccounts/transactions": [
       "2018-11-01-preview",
@@ -7624,7 +7657,9 @@
       "2022-08-03-preview",
       "2022-09-01",
       "2022-09-02-preview",
-      "2022-10-02-preview"
+      "2022-10-02-preview",
+      "2022-11-01",
+      "2022-11-02-preview"
     ],
     "containerservices": [
       "2016-03-30",
@@ -7660,7 +7695,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-02-preview",
-      "2022-10-02-preview"
+      "2022-10-02-preview",
+      "2022-11-02-preview"
     ],
     "locations/operationresults": [
       "2016-03-30",
@@ -7712,7 +7748,9 @@
       "2022-08-03-preview",
       "2022-09-01",
       "2022-09-02-preview",
-      "2022-10-02-preview"
+      "2022-10-02-preview",
+      "2022-11-01",
+      "2022-11-02-preview"
     ],
     "locations/osoptions": [
       "2021-03-01",
@@ -7740,7 +7778,9 @@
       "2022-08-03-preview",
       "2022-09-01",
       "2022-09-02-preview",
-      "2022-10-02-preview"
+      "2022-10-02-preview",
+      "2022-11-01",
+      "2022-11-02-preview"
     ],
     "managedclusters": [
       "2017-08-31",
@@ -7787,7 +7827,9 @@
       "2022-08-03-preview",
       "2022-09-01",
       "2022-09-02-preview",
-      "2022-10-02-preview"
+      "2022-10-02-preview",
+      "2022-11-01",
+      "2022-11-02-preview"
     ],
     "managedclusters/eventgridfilters": [
       "2021-02-01",
@@ -7816,7 +7858,9 @@
       "2022-08-03-preview",
       "2022-09-01",
       "2022-09-02-preview",
-      "2022-10-02-preview"
+      "2022-10-02-preview",
+      "2022-11-01",
+      "2022-11-02-preview"
     ],
     "managedclustersnapshots": [
       "2022-02-02-preview",
@@ -7828,7 +7872,8 @@
       "2022-08-02-preview",
       "2022-08-03-preview",
       "2022-09-02-preview",
-      "2022-10-02-preview"
+      "2022-10-02-preview",
+      "2022-11-02-preview"
     ],
     "operations": [
       "2015-11-01-preview",
@@ -7863,7 +7908,9 @@
       "2022-08-03-preview",
       "2022-09-01",
       "2022-09-02-preview",
-      "2022-10-02-preview"
+      "2022-10-02-preview",
+      "2022-11-01",
+      "2022-11-02-preview"
     ]
   },
   "costmanagement": {
@@ -9685,7 +9732,8 @@
       "2022-03-08-privatepreview",
       "2022-05-01-privatepreview",
       "2022-11-01-preview",
-      "2022-11-08"
+      "2022-11-08",
+      "2022-12-01"
     ],
     "availableengineversions": [
       "2020-10-05-privatepreview",
@@ -9704,7 +9752,8 @@
       "2022-03-08-preview",
       "2022-03-08-privatepreview",
       "2022-05-01-privatepreview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01"
     ],
     "getprivatednszonesuffix": [],
     "locations": [
@@ -9730,7 +9779,8 @@
       "2022-03-08-preview",
       "2022-03-08-privatepreview",
       "2022-05-01-privatepreview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01"
     ],
     "locations/checknameavailability": [
       "2020-02-14-preview",
@@ -9742,7 +9792,8 @@
       "2022-03-08-preview",
       "2022-03-08-privatepreview",
       "2022-05-01-privatepreview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01"
     ],
     "locations/checkvirtualnetworksubnetusage": [],
     "locations/getcachedservername": [
@@ -9805,7 +9856,8 @@
       "2022-01-20-preview",
       "2022-03-08-preview",
       "2022-05-01-privatepreview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-12-01"
     ],
     "servergroupsv2": [
       "2020-10-05-privatepreview",
@@ -16233,6 +16285,41 @@
     "packetcorecontrolplaneversions": [
       "2022-04-01-preview",
       "2022-11-01"
+    ]
+  },
+  "modsimworkbench": {
+    "": [
+      "2021-03-01-preview"
+    ],
+    "instances": [
+      "2021-03-01-preview"
+    ],
+    "instances/chambers": [
+      "2021-03-01-preview"
+    ],
+    "instances/chambers/accessprofiles": [
+      "2021-03-01-preview"
+    ],
+    "instances/chambers/filerequests": [
+      "2021-03-01-preview"
+    ],
+    "instances/chambers/files": [
+      "2021-03-01-preview"
+    ],
+    "instances/chambers/workloads": [
+      "2021-03-01-preview"
+    ],
+    "instances/consortiums": [
+      "2021-03-01-preview"
+    ],
+    "locations": [
+      "2021-03-01-preview"
+    ],
+    "locations/operationstatuses": [
+      "2021-03-01-preview"
+    ],
+    "operations": [
+      "2021-03-01-preview"
     ]
   },
   "monitor": {
@@ -29375,7 +29462,8 @@
       "2022-05-01-preview",
       "2022-08-01-preview",
       "2022-09-15-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-11-15-preview"
     ],
     "locations": [
       "2020-12-16-preview",
@@ -29386,7 +29474,8 @@
       "2022-05-01-preview",
       "2022-08-01-preview",
       "2022-09-15-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-11-15-preview"
     ],
     "locations/operationstatuses": [
       "2020-12-16-preview",
@@ -29397,7 +29486,8 @@
       "2022-05-01-preview",
       "2022-08-01-preview",
       "2022-09-15-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-11-15-preview"
     ],
     "operations": [
       "2020-12-16-preview",
@@ -29408,7 +29498,8 @@
       "2022-05-01-preview",
       "2022-08-01-preview",
       "2022-09-15-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-11-15-preview"
     ],
     "skus": [
       "2020-12-16-preview",
@@ -29419,7 +29510,8 @@
       "2022-05-01-preview",
       "2022-08-01-preview",
       "2022-09-15-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-11-15-preview"
     ],
     "testbaseaccounts": [
       "2020-12-16-preview",
@@ -29428,7 +29520,8 @@
       "2022-03-01-preview",
       "2022-04-01-preview",
       "2022-08-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2022-11-15-preview"
     ],
     "testbaseaccounts/availableinplaceupgradeoss": [
       "2022-11-01-preview"

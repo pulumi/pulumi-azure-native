@@ -91,7 +91,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:Deployment" }, { type: "azure-native:cognitiveservices/v20211001:Deployment" }, { type: "azure-native:cognitiveservices/v20221001:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:Deployment" }, { type: "azure-native:cognitiveservices/v20211001:Deployment" }, { type: "azure-native:cognitiveservices/v20221001:Deployment" }, { type: "azure-native:cognitiveservices/v20221201:Deployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }

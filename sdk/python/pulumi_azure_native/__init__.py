@@ -4232,6 +4232,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cognitiveservices/v20221201",
+  "fqn": "pulumi_azure_native.cognitiveservices.v20221201",
+  "classes": {
+   "azure-native:cognitiveservices/v20221201:Account": "Account",
+   "azure-native:cognitiveservices/v20221201:CommitmentPlan": "CommitmentPlan",
+   "azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation": "CommitmentPlanAssociation",
+   "azure-native:cognitiveservices/v20221201:Deployment": "Deployment",
+   "azure-native:cognitiveservices/v20221201:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "communication",
   "fqn": "pulumi_azure_native.communication",
   "classes": {
@@ -6882,14 +6894,6 @@ _utilities.register(
    "azure-native:databricks/v20220401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:databricks/v20220401preview:Workspace": "Workspace",
    "azure-native:databricks/v20220401preview:vNetPeering": "VNetPeering"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "databricks/v20221001preview",
-  "fqn": "pulumi_azure_native.databricks.v20221001preview",
-  "classes": {
-   "azure-native:databricks/v20221001preview:AccessConnector": "AccessConnector"
   }
  },
  {

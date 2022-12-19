@@ -173,7 +173,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20170418:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20210430:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20220301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221001:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20170418:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20210430:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20220301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:cognitiveservices/v20211001:PrivateEndpointConnection',
