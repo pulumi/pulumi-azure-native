@@ -31,7 +31,7 @@ _ := $(shell mkdir -p .make)
 
 default: init_submodules provider arm2pulumi local_generate
 
-ensure: .make/init_submodules bin/pulumictl provider/.mod_download.sentinel
+ensure: .make/init_submodules bin/pulumictl .make/provider_mod_download
 init_submodules: .make/init_submodules
 arm2pulumi: bin/arm2pulumi
 codegen: bin/$(CODEGEN)
@@ -91,14 +91,14 @@ update_submodules: init_submodules
 	rm ./azure-provider-versions/provider_list.json
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
 
-arm2pulumi_coverage_report: provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
+arm2pulumi_coverage_report: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
 	(cd provider && go test -v -tags=coverage -run TestQuickstartTemplateCoverage github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi/internal/test)
 
-test_provider: provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
+test_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	cd provider && go test -v $(PROVIDER_PKGS)
 
-lint_provider: provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
+lint_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 clean:
@@ -149,21 +149,21 @@ bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 	@mkdir -p bin
 	bin/pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
-provider/.mod_download.sentinel: provider/go.mod provider/go.sum
+.make/provider_mod_download: provider/go.mod provider/go.sum
 	cd provider && GO111MODULE=on go mod download
-	@touch provider/.mod_download.sentinel
+	@touch $@
 
-bin/arm2pulumi: bin/pulumictl provider/.mod_download.sentinel provider/cmd/arm2pulumi/* $(PROVIDER_PKG)
+bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
 
-bin/$(CODEGEN): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
+bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 
-bin/$(PROVIDER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go provider/cmd/$(PROVIDER)/schema-full.json $(PROVIDER_PKG)
+bin/$(PROVIDER): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go provider/cmd/$(PROVIDER)/schema-full.json $(PROVIDER_PKG)
 	cd provider && \
 	go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
 
-bin/$(VERSIONER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
+bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
 
 .make/generate_docs: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
@@ -332,6 +332,6 @@ sdk/dotnet/install.sentinel: sdk/dotnet/build.sentinel
 	; fi
 	@touch sdk/dotnet/install.sentinel
 
-install_provider.sentinel: bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
+install_provider.sentinel: bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
 	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
 	@touch install_provider.sentinel
