@@ -48,7 +48,7 @@ generate_java: .make/generate_java
 generate_nodejs: .make/generate_nodejs
 generate_python: .make/generate_python
 generate_dotnet: .make/generate_dotnet
-generate_go: sdk/go/gen.sentinel sdk/pulumi-azure-native-sdk/local.sentinel
+generate_go: .make/generate_go sdk/pulumi-azure-native-sdk/local.sentinel
 
 local_generate_code: generate_java
 local_generate_code: generate_nodejs
@@ -239,7 +239,7 @@ export FAKE_MODULE
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch $@
 
-sdk/go/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_go: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/go
 	# Temporary hack: maintain init.go manual changes. Leading '-' ignores exit code.
 	-[ -f "sdk/go/azure/init.go" ] && mv -f "sdk/go/azure/init.go" /tmp/
@@ -248,7 +248,7 @@ sdk/go/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schem
 	@# HACK: Strip all comments to make SDK smaller
 	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	-[ -f "/tmp/init.go" ] && mv -f "/tmp/init.go" sdk/go/azure/
-	@touch sdk/go/gen.sentinel
+	@touch $@
 
 sdk/pulumi-azure-native-sdk/local.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	@mkdir -p sdk/pulumi-azure-native-sdk
@@ -308,7 +308,7 @@ sdk/java/build.sentinel: bin/pulumictl .make/generate_java
 		gradle --console=plain -Pversion=$(VERSION) build
 	@touch sdk/java/build.sentinel
 
-sdk/go/build.sentinel: sdk/go/gen.sentinel
+sdk/go/build.sentinel: .make/generate_go
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk && \
 		GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
