@@ -23273,7 +23273,6 @@ _utilities.register(
    "azure-native:web:Certificate": "Certificate",
    "azure-native:web:Connection": "Connection",
    "azure-native:web:ConnectionGateway": "ConnectionGateway",
-   "azure-native:web:ContainerApp": "ContainerApp",
    "azure-native:web:CustomApi": "CustomApi",
    "azure-native:web:KubeEnvironment": "KubeEnvironment",
    "azure-native:web:StaticSite": "StaticSite",
