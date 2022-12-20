@@ -38,7 +38,8 @@ codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
 install_provider: install_provider.sentinel
 versioner: bin/pulumi-versioner-azure-native
-versions: .make/versions_spec versions/v1.json versions/deprecated.json versions/pending.json versions/active.json
+# We don't include v2 here yet as this is executed on the nightly updates
+versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
 
 generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
 generate_docs: .make/generate_docs
@@ -174,21 +175,27 @@ provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) 
 
 .make/versions_spec: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
 	bin/pulumi-versioner-azure-native spec
+	@touch $@
 
-versions/active.json: bin/pulumi-versioner-azure-native azure-provider-versions/provider_list.json
+.make/versions_active: bin/pulumi-versioner-azure-native azure-provider-versions/provider_list.json
 	bin/pulumi-versioner-azure-native active
+	@touch $@
 
-versions/v1.json: bin/pulumi-versioner-azure-native .make/versions_spec versions/v1-config.yaml
+.make/versions_v1: bin/pulumi-versioner-azure-native .make/versions_spec versions/v1-config.yaml
 	bin/pulumi-versioner-azure-native v1
+	@touch $@
 
-versions/deprecated.json: bin/pulumi-versioner-azure-native .make/versions_spec versions/v1.json
+.make/versions_deprecated: bin/pulumi-versioner-azure-native .make/versions_spec .make/versions_v1
 	bin/pulumi-versioner-azure-native deprecated -version=v1.json
+	@touch $@
 
-versions/pending.json: bin/pulumi-versioner-azure-native .make/versions_spec versions/v1.json
+.make/versions_pending: bin/pulumi-versioner-azure-native .make/versions_spec .make/versions_v1
 	bin/pulumi-versioner-azure-native pending -version=v1.json
+	@touch $@
 
-versions/v2.json: bin/pulumi-versioner-azure-native .make/versions_spec versions/deprecated.json versions/v2-config.yaml
+.make/versions_v2: bin/pulumi-versioner-azure-native .make/versions_spec .make/versions_deprecated versions/v2-config.yaml
 	bin/pulumi-versioner-azure-native v2
+	@touch $@
 
 define FAKE_MODULE
 module fake_module // Exclude this directory from Go tools
