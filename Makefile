@@ -41,7 +41,7 @@ versioner: bin/pulumi-versioner-azure-native
 versions: versions/spec.json versions/v1.json versions/deprecated.json versions/pending.json versions/active.json
 
 generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
-generate_docs: provider/cmd/$(PROVIDER)/schema.json
+generate_docs: .make/generate_docs
 
 generate_java: sdk/java/gen.sentinel
 generate_nodejs: sdk/nodejs/gen.sentinel
@@ -165,8 +165,9 @@ bin/$(PROVIDER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PR
 bin/$(VERSIONER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
 
-provider/cmd/$(PROVIDER)/schema.json: .make/init_submodules bin/$(CODEGEN) $(SPECS)
+.make/generate_docs: .make/init_submodules bin/$(CODEGEN) $(SPECS)
 	bin/$(CODEGEN) docs $(VERSION)
+	@touch $@
 
 provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) $(SPECS)
 	bin/$(CODEGEN) schema $(VERSION)
