@@ -31,8 +31,8 @@ _ := $(shell mkdir -p .make)
 
 default: init_submodules provider arm2pulumi local_generate
 
-ensure: .init_submodules.sentinel bin/pulumictl provider/.mod_download.sentinel
-init_submodules: .init_submodules.sentinel
+ensure: .make/init_submodules bin/pulumictl provider/.mod_download.sentinel
+init_submodules: .make/init_submodules
 arm2pulumi: bin/arm2pulumi
 codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
@@ -123,14 +123,14 @@ test: build install_sdks
 
 # --------- File-based targets --------- #
 
-.init_submodules.sentinel:
+.make/init_submodules:
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
 		if [ ! -f "$$submodule/.git" ]; then \
 			echo "Initializing submodule $$submodule" ; \
 			(cd $$submodule && git submodule update --init); \
 		fi; \
 	done
-	@touch .init_submodules.sentinel
+	@touch $@
 
 # Download local copy of pulumictl based on the version in .pulumictl.version
 # Anywhere which uses VERSION or VERSION_FLAGS should depend on bin/pulumictl
@@ -165,10 +165,10 @@ bin/$(PROVIDER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(PR
 bin/$(VERSIONER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
 
-provider/cmd/$(PROVIDER)/schema.json: .init_submodules.sentinel bin/$(CODEGEN) $(SPECS)
+provider/cmd/$(PROVIDER)/schema.json: .make/init_submodules bin/$(CODEGEN) $(SPECS)
 	bin/$(CODEGEN) docs $(VERSION)
 
-provider/cmd/$(PROVIDER)/schema-full.json: .init_submodules.sentinel bin/$(CODEGEN) $(SPECS)
+provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) $(SPECS)
 	bin/$(CODEGEN) schema $(VERSION)
 
 versions/spec.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
