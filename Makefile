@@ -38,7 +38,7 @@ codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
 install_provider: install_provider.sentinel
 versioner: bin/pulumi-versioner-azure-native
-versions: versions/spec.json versions/v1.json versions/deprecated.json versions/pending.json versions/active.json
+versions: .make/versions_spec versions/v1.json versions/deprecated.json versions/pending.json versions/active.json
 
 generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
 generate_docs: .make/generate_docs
@@ -172,25 +172,22 @@ bin/$(VERSIONER): bin/pulumictl provider/.mod_download.sentinel provider/cmd/$(V
 provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) $(SPECS)
 	bin/$(CODEGEN) schema $(VERSION)
 
-versions/spec.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
-	bin/pulumi-versioner-azure-native spec
-
-versions/spec-resources.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
+.make/versions_spec: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
 	bin/pulumi-versioner-azure-native spec
 
 versions/active.json: bin/pulumi-versioner-azure-native azure-provider-versions/provider_list.json
 	bin/pulumi-versioner-azure-native active
 
-versions/v1.json: bin/pulumi-versioner-azure-native versions/spec.json versions/v1-config.yaml
+versions/v1.json: bin/pulumi-versioner-azure-native .make/versions_spec versions/v1-config.yaml
 	bin/pulumi-versioner-azure-native v1
 
-versions/deprecated.json: bin/pulumi-versioner-azure-native versions/spec.json versions/v1.json
+versions/deprecated.json: bin/pulumi-versioner-azure-native .make/versions_spec versions/v1.json
 	bin/pulumi-versioner-azure-native deprecated -version=v1.json
 
-versions/pending.json: bin/pulumi-versioner-azure-native versions/spec.json versions/v1.json
+versions/pending.json: bin/pulumi-versioner-azure-native .make/versions_spec versions/v1.json
 	bin/pulumi-versioner-azure-native pending -version=v1.json
 
-versions/v2.json: bin/pulumi-versioner-azure-native versions/spec.json versions/deprecated.json versions/v2-config.yaml
+versions/v2.json: bin/pulumi-versioner-azure-native .make/versions_spec versions/deprecated.json versions/v2-config.yaml
 	bin/pulumi-versioner-azure-native v2
 
 define FAKE_MODULE
