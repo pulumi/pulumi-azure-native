@@ -45,7 +45,7 @@ generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
 generate_docs: .make/generate_docs
 
 generate_java: .make/generate_java
-generate_nodejs: sdk/nodejs/gen.sentinel
+generate_nodejs: .make/generate_nodejs
 generate_python: sdk/python/gen.sentinel
 generate_dotnet: sdk/dotnet/gen.sentinel
 generate_go: sdk/go/gen.sentinel sdk/pulumi-azure-native-sdk/local.sentinel
@@ -213,14 +213,14 @@ export FAKE_MODULE
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
-sdk/nodejs/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) nodejs $(VERSION)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > sdk/nodejs/go.mod
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
-	@touch sdk/nodejs/gen.sentinel
+	@touch $@
 
 sdk/python/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/python
@@ -276,7 +276,7 @@ sdk/pulumi-azure-native-sdk/publish.sentinel:
 
 # Used by build* targets
 
-sdk/nodejs/node_modules.sentinel: sdk/nodejs/gen.sentinel sdk/nodejs/package.json
+sdk/nodejs/node_modules.sentinel: .make/generate_nodejs sdk/nodejs/package.json
 	yarn install --cwd sdk/nodejs
 	@touch sdk/nodejs/node_modules.sentinel
 
