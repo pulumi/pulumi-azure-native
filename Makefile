@@ -155,7 +155,7 @@ bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 	cd provider && GO111MODULE=on go mod download
 	@touch $@
 
-bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* $(PROVIDER_PKG)
+bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* provider/cmd/$(PROVIDER)/schema-full.json $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
 
 bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
