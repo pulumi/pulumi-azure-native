@@ -65,7 +65,7 @@ build_nodejs: .make/build_nodejs
 build_python: .make/build_python
 build_dotnet: .make/build_dotnet
 build_java: .make/build_java
-build_go: .make/build_go .make/generate_go_split_local
+build_go: .make/build_go .make/build_go_split
 
 # Required by CI steps - some can be skipped
 install_dotnet_sdk: sdk/dotnet/install.sentinel
