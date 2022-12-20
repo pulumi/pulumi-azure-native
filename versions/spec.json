@@ -7149,6 +7149,20 @@
       "listClusterFollowerDatabases",
       "listClusterLanguageExtensions",
       "listDatabasePrincipals"
+    ],
+    "2022-11-11": [
+      "AttachedDatabaseConfiguration",
+      "Cluster",
+      "ClusterPrincipalAssignment",
+      "DataConnection",
+      "Database",
+      "DatabasePrincipalAssignment",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection",
+      "Script",
+      "listClusterFollowerDatabases",
+      "listClusterLanguageExtensions",
+      "listDatabasePrincipals"
     ]
   },
   "LabServices": {
