@@ -48,7 +48,7 @@ local_generate_code: generate_nodejs
 local_generate_code: generate_python
 local_generate_code: generate_dotnet
 local_generate_code: generate_go
-local_generate: local_generate_code generate_docs generate_schema
+local_generate: generate_schema local_generate_code generate_docs
 
 build: init_submodules codegen local_generate provider build_sdks
 # Required for the codegen action that runs in pulumi/pulumi

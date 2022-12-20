@@ -4,14 +4,16 @@ package openapi
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
+	"regexp"
+	"sort"
+	"strings"
+
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	"os"
-	"path/filepath"
-	"regexp"
-	"strings"
 )
 
 // ProviderName e.g. aad
@@ -104,10 +106,18 @@ func ReadVersions(namespace string) AzureProviders {
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
-		for version, items := range versionMap {
+		versions := []string{}
+		for version := range versionMap {
+			versions = append(versions, version)
+		}
+		sort.Strings(versions)
+		for version := range versionMap {
+			items := versionMap[version]
 			for _, r := range items.Resources {
 				var otherVersions []string
-				for _, otherVersion := range pathVersions[normalizePath(r.Path)].SortedValues() {
+				normalisedPath := normalizePath(r.Path)
+				otherVersionsSorted := pathVersions[normalisedPath].SortedValues()
+				for _, otherVersion := range otherVersionsSorted {
 					if otherVersion != version {
 						otherVersions = append(otherVersions, otherVersion)
 					}
@@ -159,7 +169,12 @@ func SpecVersions(namespace string) (AzureProviders, error) {
 			return nil, errors.Wrapf(err, "failed to parse %q", location)
 		}
 
+		orderedPaths := make([]string, 0, len(swagger.Paths.Paths))
 		for path := range swagger.Paths.Paths {
+			orderedPaths = append(orderedPaths, path)
+		}
+		sort.Strings(orderedPaths)
+		for _, path := range orderedPaths {
 			addAPIPath(providers, location, path, swagger)
 		}
 	}
@@ -295,6 +310,9 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			}
 
 			if typeName != "" && (hasDelete || hasDefault) {
+				if _, ok := version.Resources[typeName]; ok {
+					fmt.Printf("warning: duplicate resource with type name %s at path %s\n", typeName, path)
+				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:        path,
 					PathItem:    &pathItem,
@@ -305,6 +323,9 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
 			typeName := resources.ResourceName(pathItem.Head.ID)
 			if typeName != "" && hasDelete {
+				if _, ok := version.Resources[typeName]; ok {
+					fmt.Printf("warning: duplicate resource with type name %s at path %s\n", typeName, path)
+				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:     path,
 					PathItem: &pathItem,
@@ -330,6 +351,9 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 						"properties": map[string]interface{}{},
 					}
 				}
+				if _, ok := version.Resources[typeName]; ok {
+					fmt.Printf("warning: duplicate resource with type name %s at path %s\n", typeName, path)
+				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:         path,
 					PathItem:     &pathItem,
@@ -346,6 +370,9 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 		defaultBody, hasDefault := defaultResourcesStateNormalized[normalizePath(path)]
 		typeName := resources.ResourceName(pathItem.Get.ID)
 		if typeName != "" && hasDefault {
+			if _, ok := version.Resources[typeName]; ok {
+				fmt.Printf("warning: duplicate resource with type name %s at path %s\n", typeName, path)
+			}
 			version.Resources[typeName] = &ResourceSpec{
 				Path:        path,
 				PathItem:    &pathItem,
