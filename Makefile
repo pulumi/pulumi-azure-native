@@ -105,7 +105,6 @@ clean:
 	if [ -d bin ]; then find bin -maxdepth 1 -type f -delete; fi
 	rm -rf nuget
 	find .make -maxdepth 1 -type f -delete
-	find . -maxdepth 2 -name "*.sentinel" -delete
 	cd provider/cmd/arm2pulumi && rm -f metadata-compact.json schema-full.json
 	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-full.json
 	rm -rf sdk/dotnet/bin
