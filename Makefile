@@ -47,7 +47,7 @@ generate_docs: .make/generate_docs
 generate_java: .make/generate_java
 generate_nodejs: .make/generate_nodejs
 generate_python: .make/generate_python
-generate_dotnet: sdk/dotnet/gen.sentinel
+generate_dotnet: .make/generate_dotnet
 generate_go: sdk/go/gen.sentinel sdk/pulumi-azure-native-sdk/local.sentinel
 
 local_generate_code: generate_java
@@ -230,14 +230,14 @@ export FAKE_MODULE
 	cp README.md sdk/python
 	@touch $@
 
-sdk/dotnet/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) dotnet $(VERSION)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
-	@touch sdk/dotnet/gen.sentinel
+	@touch $@
 
 sdk/go/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/go
@@ -297,7 +297,7 @@ sdk/python/build.sentinel: bin/pulumictl .make/generate_python
 		cd ./bin && python3 setup.py build sdist
 	@touch sdk/python/build.sentinel
 
-sdk/dotnet/build.sentinel: bin/pulumictl sdk/dotnet/gen.sentinel
+sdk/dotnet/build.sentinel: bin/pulumictl .make/generate_dotnet
 	cd sdk/dotnet && \
 		echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
 		dotnet build /p:Version=$(VERSION_DOTNET)
