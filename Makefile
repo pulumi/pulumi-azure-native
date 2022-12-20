@@ -1,3 +1,6 @@
+# Run targets in parallel by default. Override by using `make [target] JOBS=1
+JOBS         ?= $(shell nproc)
+MAKEFLAGS    := --jobs=$(JOBS) --warn-undefined-variables
 PROJECT_NAME := Pulumi Native Azure Resource Provider
 
 PACK            := azure-native
