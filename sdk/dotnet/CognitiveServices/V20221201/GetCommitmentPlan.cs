@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221201
     public sealed class GetCommitmentPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of Cognitive Services account.
-        /// </summary>
-        [Input("accountName", required: true)]
-        public string AccountName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the commitmentPlan associated with the Cognitive Services Account
         /// </summary>
         [Input("commitmentPlanName", required: true)]
@@ -53,12 +47,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221201
 
     public sealed class GetCommitmentPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of Cognitive Services account.
-        /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
-
         /// <summary>
         /// The name of the commitmentPlan associated with the Cognitive Services Account
         /// </summary>
