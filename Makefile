@@ -23,6 +23,12 @@ VERSION_DOTNET  = $(shell bin/pulumictl get version --language dotnet)
 VERSION_PYTHON  = $(shell bin/pulumictl get version --language python)
 VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
 
+# Ensure make directory exists
+# For targets which either don't generate a single file output, or the file is committed, we use a "sentinel"
+# file within `.make/` to track the staleness of the target and only rebuild when needed. At the end of each
+# relevant target we run `@touch $@` to update the file which is the name of the target.
+_ := $(shell mkdir -p .make)
+
 default: init_submodules provider arm2pulumi local_generate
 
 ensure: .init_submodules.sentinel bin/pulumictl provider/.mod_download.sentinel
@@ -97,6 +103,7 @@ lint_provider: provider/.mod_download.sentinel provider/cmd/$(PROVIDER)/*.go $(P
 clean:
 	if [ -d bin ]; then find bin -maxdepth 1 -type f -delete; fi
 	rm -rf nuget
+	find .make -maxdepth 1 -type f -delete
 	find . -maxdepth 2 -name "*.sentinel" -delete
 	cd provider/cmd/arm2pulumi && rm -f metadata-compact.json schema-full.json
 	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-full.json
