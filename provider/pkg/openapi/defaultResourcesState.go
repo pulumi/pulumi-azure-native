@@ -78,7 +78,7 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		"status": "Disabled",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/auditingSettings/{blobAuditingPolicyName}": {
-		"status": "Disabled",
+		"state": "Disabled",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/encryptionProtector/{encryptionProtectorName}": {
 		"serverKeyType": "ServiceManaged",
