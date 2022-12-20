@@ -29,7 +29,7 @@ VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pk
 # relevant target we run `@touch $@` to update the file which is the name of the target.
 _ := $(shell mkdir -p .make)
 
-default: init_submodules provider arm2pulumi local_generate
+default: init_submodules provider arm2pulumi build_sdks
 
 ensure: .make/init_submodules bin/pulumictl .make/provider_mod_download
 init_submodules: .make/init_submodules
