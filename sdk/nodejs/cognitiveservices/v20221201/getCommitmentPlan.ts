@@ -14,12 +14,17 @@ export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20221201:getCommitmentPlan", {
+        "accountName": args.accountName,
         "commitmentPlanName": args.commitmentPlanName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetCommitmentPlanArgs {
+    /**
+     * The name of Cognitive Services account.
+     */
+    accountName: string;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
@@ -83,6 +88,10 @@ export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?
 }
 
 export interface GetCommitmentPlanOutputArgs {
+    /**
+     * The name of Cognitive Services account.
+     */
+    accountName: pulumi.Input<string>;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
