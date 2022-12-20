@@ -36,7 +36,7 @@ init_submodules: .make/init_submodules
 arm2pulumi: bin/arm2pulumi
 codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
-install_provider: install_provider.sentinel
+install_provider: .make/install_provider
 versioner: bin/pulumi-versioner-azure-native
 # We don't include v2 here yet as this is executed on the nightly updates
 versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
@@ -68,11 +68,11 @@ build_java: .make/build_java
 build_go: .make/build_go .make/build_go_split
 
 # Required by CI steps - some can be skipped
-install_dotnet_sdk: sdk/dotnet/install.sentinel
+install_dotnet_sdk: .make/install_dotnet_sdk
 install_python_sdk:
 install_go_sdk:
 install_java_sdk:
-install_nodejs_sdk: sdk/nodejs/install.sentinel
+install_nodejs_sdk: .make/install_nodejs_sdk
 install_sdks: install_dotnet_sdk install_nodejs_sdk
 
 prepublish_go: .make/prepublish_go
@@ -320,18 +320,18 @@ export FAKE_MODULE
 
 # Used by install* targets
 
-sdk/nodejs/install.sentinel: .make/build_nodejs
+.make/install_nodejs_sdk: .make/build_nodejs
 	yarn link --cwd sdk/nodejs/bin
-	@touch sdk/nodejs/install.sentinel
+	@touch $@
 
-sdk/dotnet/install.sentinel: .make/build_dotnet
+.make/install_dotnet_sdk: .make/build_dotnet
 	mkdir -p nuget
 	find sdk/dotnet/bin -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 	if ! dotnet nuget list source | grep ${WORKING_DIR}; then \
 		dotnet nuget add source ${WORKING_DIR}/nuget --name ${WORKING_DIR} \
 	; fi
-	@touch sdk/dotnet/install.sentinel
+	@touch $@
 
-install_provider.sentinel: bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
+.make/install_provider: bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
 	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
-	@touch install_provider.sentinel
+	@touch $@
