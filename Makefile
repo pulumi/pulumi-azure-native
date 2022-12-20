@@ -61,11 +61,11 @@ build: init_submodules codegen local_generate provider build_sdks
 # Required for the codegen action that runs in pulumi/pulumi
 only_build: build
 build_sdks: build_nodejs build_dotnet build_python build_go build_java
-build_nodejs: sdk/nodejs/build.sentinel
-build_python: sdk/python/build.sentinel
-build_dotnet: sdk/dotnet/build.sentinel
-build_java: sdk/java/build.sentinel
-build_go: sdk/go/build.sentinel .make/generate_go_split_local
+build_nodejs: .make/build_nodejs
+build_python: .make/build_python
+build_dotnet: .make/build_dotnet
+build_java: .make/build_java
+build_go: .make/build_go .make/generate_go_split_local
 
 # Required by CI steps - some can be skipped
 install_dotnet_sdk: sdk/dotnet/install.sentinel
@@ -276,18 +276,18 @@ export FAKE_MODULE
 
 # Used by build* targets
 
-sdk/nodejs/node_modules.sentinel: .make/generate_nodejs sdk/nodejs/package.json
+.make/nodejs_yarn_install: .make/generate_nodejs sdk/nodejs/package.json
 	yarn install --cwd sdk/nodejs
-	@touch sdk/nodejs/node_modules.sentinel
+	@touch $@
 
-sdk/nodejs/build.sentinel: bin/pulumictl sdk/nodejs/node_modules.sentinel
+.make/build_nodejs: bin/pulumictl .make/nodejs_yarn_install
 	cd sdk/nodejs/ && \
 	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
 	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 	sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
-	@touch sdk/nodejs/build.sentinel
+	@touch $@
 
-sdk/python/build.sentinel: bin/pulumictl .make/generate_python
+.make/build_python: bin/pulumictl .make/generate_python
 	cd sdk/python && \
 		python3 setup.py clean --all 2>/dev/null && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
@@ -295,36 +295,36 @@ sdk/python/build.sentinel: bin/pulumictl .make/generate_python
 		rm ./bin/setup.py.bak && \
 		rm ./bin/go.mod && \
 		cd ./bin && python3 setup.py build sdist
-	@touch sdk/python/build.sentinel
+	@touch $@
 
-sdk/dotnet/build.sentinel: bin/pulumictl .make/generate_dotnet
+.make/build_dotnet: bin/pulumictl .make/generate_dotnet
 	cd sdk/dotnet && \
 		echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
 		dotnet build /p:Version=$(VERSION_DOTNET)
-	@touch sdk/dotnet/build.sentinel
+	@touch $@
 
-sdk/java/build.sentinel: bin/pulumictl .make/generate_java
+.make/build_java: bin/pulumictl .make/generate_java
 	cd sdk/java/ && \
 		gradle --console=plain -Pversion=$(VERSION) build
-	@touch sdk/java/build.sentinel
+	@touch $@
 
-sdk/go/build.sentinel: .make/generate_go
+.make/build_go: .make/generate_go
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk && \
 		GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
-	@touch sdk/go/build.sentinel
+	@touch $@
 
-sdk/pulumi-azure-native-sdk/build.sentinel: .make/generate_go_split_local
+.make/build_go_split: .make/generate_go_split_local
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go build" \;
-	@touch sdk/pulumi-azure-native-sdk/build.sentinel
+	@touch $@
 
 # Used by install* targets
 
-sdk/nodejs/install.sentinel: sdk/nodejs/build.sentinel
+sdk/nodejs/install.sentinel: .make/build_nodejs
 	yarn link --cwd sdk/nodejs/bin
 	@touch sdk/nodejs/install.sentinel
 
-sdk/dotnet/install.sentinel: sdk/dotnet/build.sentinel
+sdk/dotnet/install.sentinel: .make/build_dotnet
 	mkdir -p nuget
 	find sdk/dotnet/bin -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 	if ! dotnet nuget list source | grep ${WORKING_DIR}; then \
