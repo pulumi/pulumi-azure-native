@@ -46,7 +46,7 @@ generate_docs: .make/generate_docs
 
 generate_java: .make/generate_java
 generate_nodejs: .make/generate_nodejs
-generate_python: sdk/python/gen.sentinel
+generate_python: .make/generate_python
 generate_dotnet: sdk/dotnet/gen.sentinel
 generate_go: sdk/go/gen.sentinel sdk/pulumi-azure-native-sdk/local.sentinel
 
@@ -222,13 +222,13 @@ export FAKE_MODULE
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch $@
 
-sdk/python/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_python: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) python $(VERSION)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > sdk/python/go.mod
 	cp README.md sdk/python
-	@touch sdk/python/gen.sentinel
+	@touch $@
 
 sdk/dotnet/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/dotnet
@@ -287,7 +287,7 @@ sdk/nodejs/build.sentinel: bin/pulumictl sdk/nodejs/node_modules.sentinel
 	sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
 	@touch sdk/nodejs/build.sentinel
 
-sdk/python/build.sentinel: bin/pulumictl sdk/python/gen.sentinel
+sdk/python/build.sentinel: bin/pulumictl .make/generate_python
 	cd sdk/python && \
 		python3 setup.py clean --all 2>/dev/null && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
