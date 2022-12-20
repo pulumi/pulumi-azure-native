@@ -1137,7 +1137,6 @@ Web:
     AppServicePlan: "2020-12-01"
     AppServicePlanRouteForVnet: "2020-12-01"
     Certificate: "2020-12-01"
-    ContainerApp: "2021-03-01"
     KubeEnvironment: "2021-01-01"
     StaticSite: "2020-12-01"
     StaticSiteCustomDomain: "2020-12-01"
