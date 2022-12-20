@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Remove a deprecated resource `web.ContainerApp`. Please use `app.ContainerApp` instead.
+
 ## 1.90.0 (2022-12-15)
 
 - Upgrade to latest version of Azure Rest API Specs
