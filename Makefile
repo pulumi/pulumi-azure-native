@@ -44,7 +44,7 @@ versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/
 generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
 generate_docs: .make/generate_docs
 
-generate_java: sdk/java/gen.sentinel
+generate_java: .make/generate_java
 generate_nodejs: sdk/nodejs/gen.sentinel
 generate_python: sdk/python/gen.sentinel
 generate_dotnet: sdk/dotnet/gen.sentinel
@@ -206,12 +206,12 @@ endef
 export FAKE_MODULE
 
 # We use the docs schema for java but don't depend on it because it changes on every generation
-sdk/java/gen.sentinel: bin/pulumictl bin/pulumi-java-gen
+.make/generate_java: bin/pulumictl bin/pulumi-java-gen
 	@mkdir -p sdk/java
 	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
 	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
-	@touch sdk/java/gen.sentinel
+	@touch $@
 
 sdk/nodejs/gen.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/nodejs
@@ -303,7 +303,7 @@ sdk/dotnet/build.sentinel: bin/pulumictl sdk/dotnet/gen.sentinel
 		dotnet build /p:Version=$(VERSION_DOTNET)
 	@touch sdk/dotnet/build.sentinel
 
-sdk/java/build.sentinel: bin/pulumictl sdk/java/gen.sentinel
+sdk/java/build.sentinel: bin/pulumictl .make/generate_java
 	cd sdk/java/ && \
 		gradle --console=plain -Pversion=$(VERSION) build
 	@touch sdk/java/build.sentinel
