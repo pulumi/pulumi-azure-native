@@ -48,7 +48,7 @@ generate_java: .make/generate_java
 generate_nodejs: .make/generate_nodejs
 generate_python: .make/generate_python
 generate_dotnet: .make/generate_dotnet
-generate_go: .make/generate_go sdk/pulumi-azure-native-sdk/local.sentinel
+generate_go: .make/generate_go .make/generate_go_split_local
 
 local_generate_code: generate_java
 local_generate_code: generate_nodejs
@@ -65,7 +65,7 @@ build_nodejs: sdk/nodejs/build.sentinel
 build_python: sdk/python/build.sentinel
 build_dotnet: sdk/dotnet/build.sentinel
 build_java: sdk/java/build.sentinel
-build_go: sdk/go/build.sentinel sdk/pulumi-azure-native-sdk/local.sentinel
+build_go: sdk/go/build.sentinel .make/generate_go_split_local
 
 # Required by CI steps - some can be skipped
 install_dotnet_sdk: sdk/dotnet/install.sentinel
@@ -75,7 +75,7 @@ install_java_sdk:
 install_nodejs_sdk: sdk/nodejs/install.sentinel
 install_sdks: install_dotnet_sdk install_nodejs_sdk
 
-prepublish_go: sdk/pulumi-azure-native-sdk/publish.sentinel
+prepublish_go: .make/prepublish_go
 
 .PHONY: default ensure init_submodules arm2pulumi codegen provider install_provider versioner versions
 .PHONY: generate_schema generate_docs generate_java generate_nodejs generate_python generate_dotnet generate_go local_generate_code local_generate
@@ -250,19 +250,19 @@ export FAKE_MODULE
 	-[ -f "/tmp/init.go" ] && mv -f "/tmp/init.go" sdk/go/azure/
 	@touch $@
 
-sdk/pulumi-azure-native-sdk/local.sentinel: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_go_split_local: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	@mkdir -p sdk/pulumi-azure-native-sdk
 	@# Unmark this is as an up-to-date local build
-	rm -f sdk/pulumi-azure-native-sdk/publish.sentinel
+	rm -f .make/prepublish_go
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
 	bin/$(CODEGEN) go-split $(VERSION)
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
-	@touch sdk/pulumi-azure-native-sdk/local.sentinel
+	@touch $@
 
-sdk/pulumi-azure-native-sdk/publish.sentinel:
+.make/prepublish_go:
 	@# Unmark this is as an up-to-date local build - fail if not build locally first
-	rm sdk/pulumi-azure-native-sdk/local.sentinel
+	rm .make/generate_go_split_local
 	@# Remove go module replacements which are added for local testing
 	@# Note: must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
@@ -272,7 +272,7 @@ sdk/pulumi-azure-native-sdk/publish.sentinel:
 	@# This is because we depend on the root package which will come from the same release commit, that doesn't yet exist.
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.sum -delete
 	cp README.md LICENSE sdk/pulumi-azure-native-sdk/
-	touch sdk/pulumi-azure-native-sdk/publish.sentinel
+	@touch $@
 
 # Used by build* targets
 
@@ -314,7 +314,7 @@ sdk/go/build.sentinel: .make/generate_go
 		GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 	@touch sdk/go/build.sentinel
 
-sdk/pulumi-azure-native-sdk/build.sentinel: sdk/pulumi-azure-native-sdk/local.sentinel
+sdk/pulumi-azure-native-sdk/build.sentinel: .make/generate_go_split_local
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go build" \;
 	@touch sdk/pulumi-azure-native-sdk/build.sentinel
 
