@@ -72,6 +72,9 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:kusto/v20220707:ClusterPrincipalAssignment"),
 		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20221111:ClusterPrincipalAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ClusterPrincipalAssignment

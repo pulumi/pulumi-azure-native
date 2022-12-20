@@ -12189,6 +12189,28 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "kusto/v20221111",
+  "fqn": "pulumi_azure_native.kusto.v20221111",
+  "classes": {
+   "azure-native:kusto/v20221111:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
+   "azure-native:kusto/v20221111:Cluster": "Cluster",
+   "azure-native:kusto/v20221111:ClusterPrincipalAssignment": "ClusterPrincipalAssignment",
+   "azure-native:kusto/v20221111:CosmosDbDataConnection": "CosmosDbDataConnection",
+   "azure-native:kusto/v20221111:DataConnection": "DataConnection",
+   "azure-native:kusto/v20221111:Database": "Database",
+   "azure-native:kusto/v20221111:DatabasePrincipalAssignment": "DatabasePrincipalAssignment",
+   "azure-native:kusto/v20221111:EventGridDataConnection": "EventGridDataConnection",
+   "azure-native:kusto/v20221111:EventHubDataConnection": "EventHubDataConnection",
+   "azure-native:kusto/v20221111:IotHubDataConnection": "IotHubDataConnection",
+   "azure-native:kusto/v20221111:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:kusto/v20221111:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:kusto/v20221111:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
+   "azure-native:kusto/v20221111:ReadWriteDatabase": "ReadWriteDatabase",
+   "azure-native:kusto/v20221111:Script": "Script"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "labservices",
   "fqn": "pulumi_azure_native.labservices",
   "classes": {

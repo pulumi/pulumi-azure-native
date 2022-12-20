@@ -2722,6 +2722,42 @@
     "namespace": "Microsoft.AzureStackHCI",
     "resourceTypes": [
       {
+        "resourceType": "Locations/operationStatuses",
+        "apiVersions": [
+          "2022-12-01",
+          "2022-10-01",
+          "2022-09-01",
+          "2022-08-01-preview",
+          "2022-05-01",
+          "2022-03-01",
+          "2022-01-01",
+          "2021-09-01-preview",
+          "2021-09-01",
+          "2021-07-01-preview",
+          "2021-01-01-preview",
+          "2020-10-01"
+        ]
+      },
+      {
+        "resourceType": "Operations",
+        "apiVersions": [
+          "2022-12-01",
+          "2022-10-01",
+          "2022-09-01",
+          "2022-08-01-preview",
+          "2022-05-01",
+          "2022-03-01",
+          "2022-01-01",
+          "2021-09-01-preview",
+          "2021-09-01",
+          "2021-07-01-preview",
+          "2021-01-01-preview",
+          "2020-11-01-preview",
+          "2020-10-01",
+          "2020-03-01-preview"
+        ]
+      },
+      {
         "resourceType": "clusters",
         "apiVersions": [
           "2022-12-01",
@@ -2811,23 +2847,6 @@
         ]
       },
       {
-        "resourceType": "locations/operationstatuses",
-        "apiVersions": [
-          "2022-12-01",
-          "2022-10-01",
-          "2022-09-01",
-          "2022-08-01-preview",
-          "2022-05-01",
-          "2022-03-01",
-          "2022-01-01",
-          "2021-09-01-preview",
-          "2021-09-01",
-          "2021-07-01-preview",
-          "2021-01-01-preview",
-          "2020-10-01"
-        ]
-      },
-      {
         "resourceType": "marketplaceGalleryImages",
         "apiVersions": [
           "2021-09-01-preview"
@@ -2838,25 +2857,6 @@
         "apiVersions": [
           "2021-09-01-preview",
           "2021-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2022-12-01",
-          "2022-10-01",
-          "2022-09-01",
-          "2022-08-01-preview",
-          "2022-05-01",
-          "2022-03-01",
-          "2022-01-01",
-          "2021-09-01-preview",
-          "2021-09-01",
-          "2021-07-01-preview",
-          "2021-01-01-preview",
-          "2020-11-01-preview",
-          "2020-10-01",
-          "2020-03-01-preview"
         ]
       },
       {
@@ -2874,12 +2874,6 @@
         ]
       },
       {
-        "resourceType": "virtualMachines/extensions",
-        "apiVersions": [
-          "2021-09-01-preview"
-        ]
-      },
-      {
         "resourceType": "virtualharddisks",
         "apiVersions": [
           "2021-09-01-preview",
@@ -2891,6 +2885,12 @@
         "apiVersions": [
           "2021-09-01-preview",
           "2021-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualmachines/extensions",
+        "apiVersions": [
+          "2021-09-01-preview"
         ]
       },
       {
@@ -12258,6 +12258,7 @@
       {
         "resourceType": "BackupVaults",
         "apiVersions": [
+          "2022-12-01",
           "2022-11-01-preview",
           "2022-10-01-preview",
           "2022-09-01-preview",
@@ -12278,6 +12279,7 @@
       {
         "resourceType": "ResourceGuards",
         "apiVersions": [
+          "2022-12-01",
           "2022-11-01-preview",
           "2022-10-01-preview",
           "2022-09-01-preview",
@@ -12325,6 +12327,7 @@
       {
         "resourceType": "locations/checkFeatureSupport",
         "apiVersions": [
+          "2022-12-01",
           "2022-11-01-preview",
           "2022-10-01-preview",
           "2022-09-01-preview",
@@ -12345,6 +12348,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2022-12-01",
           "2022-11-01-preview",
           "2022-10-01-preview",
           "2022-09-01-preview",
@@ -12365,6 +12369,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2022-12-01",
           "2022-11-01-preview",
           "2022-10-01-preview",
           "2022-09-01-preview",
@@ -12385,6 +12390,7 @@
       {
         "resourceType": "locations/operationStatus",
         "apiVersions": [
+          "2022-12-01",
           "2022-11-01-preview",
           "2022-10-01-preview",
           "2022-09-01-preview",
@@ -12405,6 +12411,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-12-01",
           "2022-11-01-preview",
           "2022-10-01-preview",
           "2022-09-01-preview",
@@ -19104,6 +19111,7 @@
         "apiVersions": [
           "2022-09-01",
           "2022-03-01",
+          "2022-02-02",
           "2021-12-01",
           "2018-03-01-beta"
         ]
@@ -24911,6 +24919,12 @@
       },
       {
         "resourceType": "Operations",
+        "apiVersions": [
+          "2022-11-15-preview"
+        ]
+      },
+      {
+        "resourceType": "dataLakeHouse",
         "apiVersions": [
           "2022-11-15-preview"
         ]

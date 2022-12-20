@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
                     new global::Pulumi.Alias { Type = "azure-native:kusto:ManagedPrivateEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ManagedPrivateEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:ManagedPrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:ManagedPrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
