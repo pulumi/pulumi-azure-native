@@ -20,7 +20,6 @@ func LookupCommitmentPlan(ctx *pulumi.Context, args *LookupCommitmentPlanArgs, o
 }
 
 type LookupCommitmentPlanArgs struct {
-	AccountName        string `pulumi:"accountName"`
 	CommitmentPlanName string `pulumi:"commitmentPlanName"`
 	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
@@ -53,7 +52,6 @@ func LookupCommitmentPlanOutput(ctx *pulumi.Context, args LookupCommitmentPlanOu
 }
 
 type LookupCommitmentPlanOutputArgs struct {
-	AccountName        pulumi.StringInput `pulumi:"accountName"`
 	CommitmentPlanName pulumi.StringInput `pulumi:"commitmentPlanName"`
 	ResourceGroupName  pulumi.StringInput `pulumi:"resourceGroupName"`
 }
