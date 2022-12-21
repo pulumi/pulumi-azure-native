@@ -1991,7 +1991,6 @@
     "Certificate": "2020-12-01",
     "Connection": "2016-06-01",
     "ConnectionGateway": "2016-06-01",
-    "ContainerApp": "2021-03-01",
     "CustomApi": "2016-06-01",
     "KubeEnvironment": "2021-01-01",
     "StaticSite": "2020-12-01",

@@ -10,13 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ActiveRevisionsMode string
-
-const (
-	ActiveRevisionsModeMultiple = ActiveRevisionsMode("multiple")
-	ActiveRevisionsModeSingle   = ActiveRevisionsMode("single")
-)
-
 type ApiType string
 
 const (
@@ -2523,14 +2516,6 @@ func (in *hostTypePtr) ToHostTypePtrOutput() HostTypePtrOutput {
 func (in *hostTypePtr) ToHostTypePtrOutputWithContext(ctx context.Context) HostTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HostTypePtrOutput)
 }
-
-type IngressTransportMethod string
-
-const (
-	IngressTransportMethodAuto  = IngressTransportMethod("auto")
-	IngressTransportMethodHttp  = IngressTransportMethod("http")
-	IngressTransportMethodHttp2 = IngressTransportMethod("http2")
-)
 
 type IpFilterTag string
 

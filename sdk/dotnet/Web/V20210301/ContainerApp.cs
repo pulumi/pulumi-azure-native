@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.Web.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:ContainerApp"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:ContainerApp"},
                 },
             };
