@@ -1,0 +1,60 @@
+
+
+
+package v20211001
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:netapp/v20211001:Account":
+		r = &Account{}
+	case "azure-native:netapp/v20211001:Backup":
+		r = &Backup{}
+	case "azure-native:netapp/v20211001:BackupPolicy":
+		r = &BackupPolicy{}
+	case "azure-native:netapp/v20211001:Pool":
+		r = &Pool{}
+	case "azure-native:netapp/v20211001:Snapshot":
+		r = &Snapshot{}
+	case "azure-native:netapp/v20211001:SnapshotPolicy":
+		r = &SnapshotPolicy{}
+	case "azure-native:netapp/v20211001:Subvolume":
+		r = &Subvolume{}
+	case "azure-native:netapp/v20211001:Volume":
+		r = &Volume{}
+	case "azure-native:netapp/v20211001:VolumeGroup":
+		r = &VolumeGroup{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"netapp/v20211001",
+		&module{version},
+	)
+}
