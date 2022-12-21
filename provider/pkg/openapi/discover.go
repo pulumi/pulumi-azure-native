@@ -311,7 +311,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 
 			if typeName != "" && (hasDelete || hasDefault) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
-					fmt.Printf("warning: duplicate resource with type name %s at paths:\n  - %s\n  - %s\n", typeName, path, version.Resources[typeName].Path)
+					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:        path,
@@ -324,7 +324,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			typeName := resources.ResourceName(pathItem.Head.ID)
 			if typeName != "" && hasDelete {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
-					fmt.Printf("warning: duplicate resource with type name %s at paths:\n  - %s\n  - %s\n", typeName, path, version.Resources[typeName].Path)
+					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:     path,
@@ -352,7 +352,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 					}
 				}
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
-					fmt.Printf("warning: duplicate resource with type name %s at paths:\n  - %s\n  - %s\n", typeName, path, version.Resources[typeName].Path)
+					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:         path,
@@ -371,7 +371,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 		typeName := resources.ResourceName(pathItem.Get.ID)
 		if typeName != "" && hasDefault {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
-				fmt.Printf("warning: duplicate resource with type name %s at paths:\n  - %s\n  - %s\n", typeName, path, version.Resources[typeName].Path)
+				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 			}
 			version.Resources[typeName] = &ResourceSpec{
 				Path:        path,
