@@ -28,20 +28,14 @@ env:
   ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
   GO111MODULE: on
   PULUMI_API: https://api.pulumi-staging.io
+  GOVERSION: 1.19.x
+  NODEVERSION: 16.x
+  PYTHONVERSION: "3.7"
+  DOTNETVERSION: 6.x
+  JAVAVERSION: "11"
 jobs:
   prerequisites:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.19.x
-        dotnetversion:
-        - 3.1.301
-        pythonversion:
-        - "3.7"
-        nodeversion:
-        - 14.x
     name: prerequisites
     steps:
     - name: Checkout Repo
@@ -58,7 +52,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@v2
     - if: github.event_name == 'pull_request'
@@ -126,16 +120,6 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        goversion:
-        - 1.19.x
-        dotnetversion:
-        - 3.1.301
-        pythonversion:
-        - "3.7"
-        nodeversion:
-        - 14.x
-        javaversion:
-        - "11"
         language:
         - nodejs
         - python
@@ -158,26 +142,26 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@v2
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
         distribution: temurin
         cache: gradle
     - name: Download provider + tfgen binaries
@@ -251,10 +235,6 @@ jobs:
   publish:
     runs-on: macos-11
     needs: build_sdks
-    strategy:
-      matrix:
-        goversion:
-        - 1.19.x
     name: publish
     steps:
     - name: Checkout Repo
@@ -266,7 +246,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -302,19 +282,6 @@ jobs:
   publish_sdk:
     runs-on: ubuntu-latest
     needs: publish
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.19.x
-        dotnetversion:
-        - 3.1.301
-        pythonversion:
-        - "3.7"
-        nodeversion:
-        - 14.x
-        javaversion:
-        - "11"
     name: publish_sdk
     steps:
     - name: Checkout Repo
@@ -331,7 +298,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -341,20 +308,20 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
         distribution: temurin
         cache: gradle
     - name: Download python SDK

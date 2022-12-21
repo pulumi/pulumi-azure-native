@@ -1945,14 +1945,14 @@ func withInspection() autorest.PrepareDecorator {
 			if r.Body != nil {
 				defer r.Body.Close()
 
-				r.Body = ioutil.NopCloser(io.TeeReader(r.Body, &body))
+				r.Body = io.NopCloser(io.TeeReader(r.Body, &body))
 				if err := r.Write(&b); err != nil {
 					return nil, fmt.Errorf("failed to write response: %v", err)
 				}
 
 				logging.V(9).Infof(requestFormat, r.Method, r.URL, b.String())
 
-				r.Body = ioutil.NopCloser(&body)
+				r.Body = io.NopCloser(&body)
 			} else {
 				logging.V(9).Infof(requestFormat, r.Method, r.URL, "Empty body")
 			}
@@ -1968,14 +1968,14 @@ func byInspecting() autorest.RespondDecorator {
 		return autorest.ResponderFunc(func(resp *http.Response) error {
 			var body, b bytes.Buffer
 			defer resp.Body.Close()
-			resp.Body = ioutil.NopCloser(io.TeeReader(resp.Body, &body))
+			resp.Body = io.NopCloser(io.TeeReader(resp.Body, &body))
 			if err := resp.Write(&b); err != nil {
 				return fmt.Errorf("failed to write response: %v", err)
 			}
 
 			logging.V(9).Infof(responseFormat, resp.Request.Method, resp.Request.URL, b.String())
 
-			resp.Body = ioutil.NopCloser(&body)
+			resp.Body = io.NopCloser(&body)
 			return r.Respond(resp)
 		})
 	}
