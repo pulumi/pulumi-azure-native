@@ -310,8 +310,8 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			}
 
 			if typeName != "" && (hasDelete || hasDefault) {
-				if _, ok := version.Resources[typeName]; ok {
-					fmt.Printf("warning: duplicate resource with type name %s at path %s\n", typeName, path)
+				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
+					fmt.Printf("warning: duplicate resource with type name %s at paths:\n  - %s\n  - %s\n", typeName, path, version.Resources[typeName].Path)
 				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:        path,
@@ -323,8 +323,8 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
 			typeName := resources.ResourceName(pathItem.Head.ID)
 			if typeName != "" && hasDelete {
-				if _, ok := version.Resources[typeName]; ok {
-					fmt.Printf("warning: duplicate resource with type name %s at path %s\n", typeName, path)
+				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
+					fmt.Printf("warning: duplicate resource with type name %s at paths:\n  - %s\n  - %s\n", typeName, path, version.Resources[typeName].Path)
 				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:     path,
@@ -351,8 +351,8 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 						"properties": map[string]interface{}{},
 					}
 				}
-				if _, ok := version.Resources[typeName]; ok {
-					fmt.Printf("warning: duplicate resource with type name %s at path %s\n", typeName, path)
+				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
+					fmt.Printf("warning: duplicate resource with type name %s at paths:\n  - %s\n  - %s\n", typeName, path, version.Resources[typeName].Path)
 				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:         path,
@@ -370,8 +370,8 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 		defaultBody, hasDefault := defaultResourcesStateNormalized[normalizePath(path)]
 		typeName := resources.ResourceName(pathItem.Get.ID)
 		if typeName != "" && hasDefault {
-			if _, ok := version.Resources[typeName]; ok {
-				fmt.Printf("warning: duplicate resource with type name %s at path %s\n", typeName, path)
+			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
+				fmt.Printf("warning: duplicate resource with type name %s at paths:\n  - %s\n  - %s\n", typeName, path, version.Resources[typeName].Path)
 			}
 			version.Resources[typeName] = &ResourceSpec{
 				Path:        path,
