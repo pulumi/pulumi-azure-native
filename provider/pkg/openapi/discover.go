@@ -111,7 +111,7 @@ func ReadVersions(namespace string) AzureProviders {
 			versions = append(versions, version)
 		}
 		sort.Strings(versions)
-		for version := range versionMap {
+		for _, version := range versions {
 			items := versionMap[version]
 			for _, r := range items.Resources {
 				var otherVersions []string
