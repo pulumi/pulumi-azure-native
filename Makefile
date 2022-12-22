@@ -261,8 +261,8 @@ export FAKE_MODULE
 	@touch $@
 
 .make/prepublish_go:
-	@# Unmark this is as an up-to-date local build - fail if not build locally first
-	rm .make/generate_go_split_local
+	@# Unmark this is as an up-to-date local build
+	rm -f .make/generate_go_split_local
 	@# Remove go module replacements which are added for local testing
 	@# Note: must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
