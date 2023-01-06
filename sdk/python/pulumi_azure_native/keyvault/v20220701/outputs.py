@@ -25,6 +25,7 @@ __all__ = [
     'MHSMPrivateEndpointResponse',
     'MHSMPrivateLinkServiceConnectionStateResponse',
     'MHSMVirtualNetworkRuleResponse',
+    'ManagedHSMSecurityDomainPropertiesResponse',
     'ManagedHsmPropertiesResponse',
     'ManagedHsmSkuResponse',
     'NetworkRuleSetResponse',
@@ -712,6 +713,58 @@ class MHSMVirtualNetworkRuleResponse(dict):
 
 
 @pulumi.output_type
+class ManagedHSMSecurityDomainPropertiesResponse(dict):
+    """
+    The security domain properties of the managed hsm.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activationStatus":
+            suggest = "activation_status"
+        elif key == "activationStatusMessage":
+            suggest = "activation_status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedHSMSecurityDomainPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedHSMSecurityDomainPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedHSMSecurityDomainPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activation_status: str,
+                 activation_status_message: str):
+        """
+        The security domain properties of the managed hsm.
+        :param str activation_status: Activation Status
+        :param str activation_status_message: Activation Status Message.
+        """
+        pulumi.set(__self__, "activation_status", activation_status)
+        pulumi.set(__self__, "activation_status_message", activation_status_message)
+
+    @property
+    @pulumi.getter(name="activationStatus")
+    def activation_status(self) -> str:
+        """
+        Activation Status
+        """
+        return pulumi.get(self, "activation_status")
+
+    @property
+    @pulumi.getter(name="activationStatusMessage")
+    def activation_status_message(self) -> str:
+        """
+        Activation Status Message.
+        """
+        return pulumi.get(self, "activation_status_message")
+
+
+@pulumi.output_type
 class ManagedHsmPropertiesResponse(dict):
     """
     Properties of the managed HSM Pool
@@ -727,10 +780,10 @@ class ManagedHsmPropertiesResponse(dict):
             suggest = "provisioning_state"
         elif key == "scheduledPurgeDate":
             suggest = "scheduled_purge_date"
+        elif key == "securityDomainProperties":
+            suggest = "security_domain_properties"
         elif key == "statusMessage":
             suggest = "status_message"
-        elif key == "createMode":
-            suggest = "create_mode"
         elif key == "enablePurgeProtection":
             suggest = "enable_purge_protection"
         elif key == "enableSoftDelete":
@@ -762,8 +815,8 @@ class ManagedHsmPropertiesResponse(dict):
                  private_endpoint_connections: Sequence['outputs.MHSMPrivateEndpointConnectionItemResponse'],
                  provisioning_state: str,
                  scheduled_purge_date: str,
+                 security_domain_properties: 'outputs.ManagedHSMSecurityDomainPropertiesResponse',
                  status_message: str,
-                 create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_soft_delete: Optional[bool] = None,
                  initial_admin_object_ids: Optional[Sequence[str]] = None,
@@ -777,8 +830,8 @@ class ManagedHsmPropertiesResponse(dict):
         :param Sequence['MHSMPrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the managed hsm pool.
         :param str provisioning_state: Provisioning state.
         :param str scheduled_purge_date: The scheduled purge date in UTC.
+        :param 'ManagedHSMSecurityDomainPropertiesResponse' security_domain_properties: Managed HSM security domain properties.
         :param str status_message: Resource Status Message.
-        :param str create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
@@ -791,9 +844,8 @@ class ManagedHsmPropertiesResponse(dict):
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "scheduled_purge_date", scheduled_purge_date)
+        pulumi.set(__self__, "security_domain_properties", security_domain_properties)
         pulumi.set(__self__, "status_message", status_message)
-        if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
         if enable_purge_protection is None:
             enable_purge_protection = True
         if enable_purge_protection is not None:
@@ -848,20 +900,20 @@ class ManagedHsmPropertiesResponse(dict):
         return pulumi.get(self, "scheduled_purge_date")
 
     @property
+    @pulumi.getter(name="securityDomainProperties")
+    def security_domain_properties(self) -> 'outputs.ManagedHSMSecurityDomainPropertiesResponse':
+        """
+        Managed HSM security domain properties.
+        """
+        return pulumi.get(self, "security_domain_properties")
+
+    @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> str:
         """
         Resource Status Message.
         """
         return pulumi.get(self, "status_message")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="enablePurgeProtection")

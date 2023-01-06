@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     /// <summary>
     /// Governance rule over a given scope
     /// </summary>
-    [AzureNativeResourceType("azure-native:security/v20220101preview:managementGroupGovernanceRule")]
+    [AzureNativeResourceType("azure-native:security/v20220101preview:ManagementGroupGovernanceRule")]
     public partial class ManagementGroupGovernanceRule : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroupGovernanceRule(string name, ManagementGroupGovernanceRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:security/v20220101preview:managementGroupGovernanceRule", name, args ?? new ManagementGroupGovernanceRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/v20220101preview:ManagementGroupGovernanceRule", name, args ?? new ManagementGroupGovernanceRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementGroupGovernanceRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:security/v20220101preview:managementGroupGovernanceRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/v20220101preview:ManagementGroupGovernanceRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -108,16 +108,46 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public Input<string>? ContentTypeId { get; set; }
 
         /// <summary>
+        /// Content type description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Content type identifier
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Content type name. Must be 1 to 250 characters long.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Content type schema.
+        /// </summary>
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
+
+        /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Content type version.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ContentTypeArgs()
         {

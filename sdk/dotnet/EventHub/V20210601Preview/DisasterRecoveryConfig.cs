@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:DisasterRecoveryConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:DisasterRecoveryConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:DisasterRecoveryConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

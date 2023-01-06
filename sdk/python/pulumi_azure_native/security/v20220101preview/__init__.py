@@ -8,8 +8,8 @@ import typing
 from ._enums import *
 from .get_governance_assignment import *
 from .get_governance_rule import *
+from .get_management_group_governance_rule import *
 from .get_security_connector_governance_rule import *
-from .getmanagement_group_governance_rule import *
 from .governance_assignment import *
 from .governance_rule import *
 from .management_group_governance_rule import *

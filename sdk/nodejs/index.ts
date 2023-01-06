@@ -203,6 +203,7 @@ import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as visualstudio from "./visualstudio";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
+import * as voiceservices from "./voiceservices";
 import * as web from "./web";
 import * as webpubsub from "./webpubsub";
 import * as windowsesu from "./windowsesu";
@@ -401,6 +402,7 @@ export {
     virtualmachineimages,
     visualstudio,
     vmwarecloudsimple,
+    voiceservices,
     web,
     webpubsub,
     windowsesu,

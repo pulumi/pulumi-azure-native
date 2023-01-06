@@ -58,7 +58,7 @@ func NewManagementGroupGovernanceRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SourceResourceType'")
 	}
 	var resource ManagementGroupGovernanceRule
-	err := ctx.RegisterResource("azure-native:security/v20220101preview:managementGroupGovernanceRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/v20220101preview:ManagementGroupGovernanceRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func NewManagementGroupGovernanceRule(ctx *pulumi.Context,
 func GetManagementGroupGovernanceRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementGroupGovernanceRuleState, opts ...pulumi.ResourceOption) (*ManagementGroupGovernanceRule, error) {
 	var resource ManagementGroupGovernanceRule
-	err := ctx.ReadResource("azure-native:security/v20220101preview:managementGroupGovernanceRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/v20220101preview:ManagementGroupGovernanceRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

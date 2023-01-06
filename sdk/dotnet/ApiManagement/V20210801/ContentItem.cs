@@ -102,6 +102,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         public Input<string> ContentTypeId { get; set; } = null!;
 
         /// <summary>
+        /// Properties of the content item.
+        /// </summary>
+        [Input("properties")]
+        public Input<object>? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]

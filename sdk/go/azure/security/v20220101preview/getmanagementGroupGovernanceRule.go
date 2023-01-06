@@ -10,22 +10,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetmanagementGroupGovernanceRule(ctx *pulumi.Context, args *GetmanagementGroupGovernanceRuleArgs, opts ...pulumi.InvokeOption) (*GetmanagementGroupGovernanceRuleResult, error) {
-	var rv GetmanagementGroupGovernanceRuleResult
-	err := ctx.Invoke("azure-native:security/v20220101preview:getmanagementGroupGovernanceRule", args, &rv, opts...)
+func LookupManagementGroupGovernanceRule(ctx *pulumi.Context, args *LookupManagementGroupGovernanceRuleArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupGovernanceRuleResult, error) {
+	var rv LookupManagementGroupGovernanceRuleResult
+	err := ctx.Invoke("azure-native:security/v20220101preview:getManagementGroupGovernanceRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type GetmanagementGroupGovernanceRuleArgs struct {
+type LookupManagementGroupGovernanceRuleArgs struct {
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	RuleId            string `pulumi:"ruleId"`
 }
 
 
-type GetmanagementGroupGovernanceRuleResult struct {
+type LookupManagementGroupGovernanceRuleResult struct {
 	Description                 *string                                  `pulumi:"description"`
 	DisplayName                 string                                   `pulumi:"displayName"`
 	ExcludedScopes              []string                                 `pulumi:"excludedScopes"`
@@ -45,113 +45,115 @@ type GetmanagementGroupGovernanceRuleResult struct {
 	Type                        string                                   `pulumi:"type"`
 }
 
-func GetmanagementGroupGovernanceRuleOutput(ctx *pulumi.Context, args GetmanagementGroupGovernanceRuleOutputArgs, opts ...pulumi.InvokeOption) GetmanagementGroupGovernanceRuleResultOutput {
+func LookupManagementGroupGovernanceRuleOutput(ctx *pulumi.Context, args LookupManagementGroupGovernanceRuleOutputArgs, opts ...pulumi.InvokeOption) LookupManagementGroupGovernanceRuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetmanagementGroupGovernanceRuleResult, error) {
-			args := v.(GetmanagementGroupGovernanceRuleArgs)
-			r, err := GetmanagementGroupGovernanceRule(ctx, &args, opts...)
-			var s GetmanagementGroupGovernanceRuleResult
+		ApplyT(func(v interface{}) (LookupManagementGroupGovernanceRuleResult, error) {
+			args := v.(LookupManagementGroupGovernanceRuleArgs)
+			r, err := LookupManagementGroupGovernanceRule(ctx, &args, opts...)
+			var s LookupManagementGroupGovernanceRuleResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetmanagementGroupGovernanceRuleResultOutput)
+		}).(LookupManagementGroupGovernanceRuleResultOutput)
 }
 
-type GetmanagementGroupGovernanceRuleOutputArgs struct {
+type LookupManagementGroupGovernanceRuleOutputArgs struct {
 	ManagementGroupId pulumi.StringInput `pulumi:"managementGroupId"`
 	RuleId            pulumi.StringInput `pulumi:"ruleId"`
 }
 
-func (GetmanagementGroupGovernanceRuleOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetmanagementGroupGovernanceRuleArgs)(nil)).Elem()
+func (LookupManagementGroupGovernanceRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementGroupGovernanceRuleArgs)(nil)).Elem()
 }
 
 
-type GetmanagementGroupGovernanceRuleResultOutput struct{ *pulumi.OutputState }
+type LookupManagementGroupGovernanceRuleResultOutput struct{ *pulumi.OutputState }
 
-func (GetmanagementGroupGovernanceRuleResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetmanagementGroupGovernanceRuleResult)(nil)).Elem()
+func (LookupManagementGroupGovernanceRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupManagementGroupGovernanceRuleResult)(nil)).Elem()
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) ToGetmanagementGroupGovernanceRuleResultOutput() GetmanagementGroupGovernanceRuleResultOutput {
+func (o LookupManagementGroupGovernanceRuleResultOutput) ToLookupManagementGroupGovernanceRuleResultOutput() LookupManagementGroupGovernanceRuleResultOutput {
 	return o
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) ToGetmanagementGroupGovernanceRuleResultOutputWithContext(ctx context.Context) GetmanagementGroupGovernanceRuleResultOutput {
+func (o LookupManagementGroupGovernanceRuleResultOutput) ToLookupManagementGroupGovernanceRuleResultOutputWithContext(ctx context.Context) LookupManagementGroupGovernanceRuleResultOutput {
 	return o
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) ExcludedScopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) []string { return v.ExcludedScopes }).(pulumi.StringArrayOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) ExcludedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) []string { return v.ExcludedScopes }).(pulumi.StringArrayOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) GovernanceEmailNotification() GovernanceRuleEmailNotificationResponsePtrOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) *GovernanceRuleEmailNotificationResponse {
+func (o LookupManagementGroupGovernanceRuleResultOutput) GovernanceEmailNotification() GovernanceRuleEmailNotificationResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) *GovernanceRuleEmailNotificationResponse {
 		return v.GovernanceEmailNotification
 	}).(GovernanceRuleEmailNotificationResponsePtrOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) IncludeMemberScopes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) *bool { return v.IncludeMemberScopes }).(pulumi.BoolPtrOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) IncludeMemberScopes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) *bool { return v.IncludeMemberScopes }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) IsDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) *bool { return v.IsDisabled }).(pulumi.BoolPtrOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) IsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) *bool { return v.IsDisabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) IsGracePeriod() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) *bool { return v.IsGracePeriod }).(pulumi.BoolPtrOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) IsGracePeriod() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) *bool { return v.IsGracePeriod }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) Metadata() GovernanceRuleMetadataResponsePtrOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) *GovernanceRuleMetadataResponse { return v.Metadata }).(GovernanceRuleMetadataResponsePtrOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) Metadata() GovernanceRuleMetadataResponsePtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) *GovernanceRuleMetadataResponse { return v.Metadata }).(GovernanceRuleMetadataResponsePtrOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) OwnerSource() GovernanceRuleOwnerSourceResponseOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) GovernanceRuleOwnerSourceResponse { return v.OwnerSource }).(GovernanceRuleOwnerSourceResponseOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) OwnerSource() GovernanceRuleOwnerSourceResponseOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) GovernanceRuleOwnerSourceResponse {
+		return v.OwnerSource
+	}).(GovernanceRuleOwnerSourceResponseOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) RemediationTimeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) *string { return v.RemediationTimeframe }).(pulumi.StringPtrOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) RemediationTimeframe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) *string { return v.RemediationTimeframe }).(pulumi.StringPtrOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) RulePriority() pulumi.IntOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) int { return v.RulePriority }).(pulumi.IntOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) RulePriority() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) int { return v.RulePriority }).(pulumi.IntOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) RuleType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) string { return v.RuleType }).(pulumi.StringOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) string { return v.RuleType }).(pulumi.StringOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) SourceResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) string { return v.SourceResourceType }).(pulumi.StringOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) SourceResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) string { return v.SourceResourceType }).(pulumi.StringOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) string { return v.TenantId }).(pulumi.StringOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-func (o GetmanagementGroupGovernanceRuleResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetmanagementGroupGovernanceRuleResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupManagementGroupGovernanceRuleResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagementGroupGovernanceRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetmanagementGroupGovernanceRuleResultOutput{})
+	pulumi.RegisterOutputType(LookupManagementGroupGovernanceRuleResultOutput{})
 }

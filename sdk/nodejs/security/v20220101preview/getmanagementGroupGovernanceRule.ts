@@ -10,16 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * Governance rule over a given scope
  */
-export function getmanagementGroupGovernanceRule(args: GetmanagementGroupGovernanceRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagementGroupGovernanceRuleResult> {
+export function getManagementGroupGovernanceRule(args: GetManagementGroupGovernanceRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupGovernanceRuleResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:security/v20220101preview:getmanagementGroupGovernanceRule", {
+    return pulumi.runtime.invoke("azure-native:security/v20220101preview:getManagementGroupGovernanceRule", {
         "managementGroupId": args.managementGroupId,
         "ruleId": args.ruleId,
     }, opts);
 }
 
-export interface GetmanagementGroupGovernanceRuleArgs {
+export interface GetManagementGroupGovernanceRuleArgs {
     /**
      * Azure Management Group ID
      */
@@ -33,7 +33,7 @@ export interface GetmanagementGroupGovernanceRuleArgs {
 /**
  * Governance rule over a given scope
  */
-export interface GetmanagementGroupGovernanceRuleResult {
+export interface GetManagementGroupGovernanceRuleResult {
     /**
      * Description of the governance rule
      */
@@ -106,11 +106,11 @@ export interface GetmanagementGroupGovernanceRuleResult {
 /**
  * Governance rule over a given scope
  */
-export function getmanagementGroupGovernanceRuleOutput(args: GetmanagementGroupGovernanceRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagementGroupGovernanceRuleResult> {
-    return pulumi.output(args).apply((a: any) => getmanagementGroupGovernanceRule(a, opts))
+export function getManagementGroupGovernanceRuleOutput(args: GetManagementGroupGovernanceRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupGovernanceRuleResult> {
+    return pulumi.output(args).apply((a: any) => getManagementGroupGovernanceRule(a, opts))
 }
 
-export interface GetmanagementGroupGovernanceRuleOutputArgs {
+export interface GetManagementGroupGovernanceRuleOutputArgs {
     /**
      * Azure Management Group ID
      */

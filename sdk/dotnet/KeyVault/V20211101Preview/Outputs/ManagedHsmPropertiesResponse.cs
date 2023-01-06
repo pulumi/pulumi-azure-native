@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Outputs
     public sealed class ManagedHsmPropertiesResponse
     {
         /// <summary>
-        /// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
-        /// </summary>
-        public readonly string? CreateMode;
-        /// <summary>
         /// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         /// </summary>
         public readonly bool? EnablePurgeProtection;
@@ -71,8 +67,6 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Outputs
 
         [OutputConstructor]
         private ManagedHsmPropertiesResponse(
-            string? createMode,
-
             bool? enablePurgeProtection,
 
             bool? enableSoftDelete,
@@ -97,7 +91,6 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview.Outputs
 
             string? tenantId)
         {
-            CreateMode = createMode;
             EnablePurgeProtection = enablePurgeProtection;
             EnableSoftDelete = enableSoftDelete;
             HsmUri = hsmUri;

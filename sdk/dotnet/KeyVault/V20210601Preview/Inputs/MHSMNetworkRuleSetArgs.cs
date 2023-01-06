@@ -53,6 +53,8 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Inputs
 
         public MHSMNetworkRuleSetArgs()
         {
+            Bypass = "AzureServices";
+            DefaultAction = "Allow";
         }
         public static new MHSMNetworkRuleSetArgs Empty => new MHSMNetworkRuleSetArgs();
     }

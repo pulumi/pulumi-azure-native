@@ -9,23 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20220101Preview
 {
-    public static class GetmanagementGroupGovernanceRule
+    public static class GetManagementGroupGovernanceRule
     {
         /// <summary>
         /// Governance rule over a given scope
         /// </summary>
-        public static Task<GetmanagementGroupGovernanceRuleResult> InvokeAsync(GetmanagementGroupGovernanceRuleArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetmanagementGroupGovernanceRuleResult>("azure-native:security/v20220101preview:getmanagementGroupGovernanceRule", args ?? new GetmanagementGroupGovernanceRuleArgs(), options.WithDefaults());
+        public static Task<GetManagementGroupGovernanceRuleResult> InvokeAsync(GetManagementGroupGovernanceRuleArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupGovernanceRuleResult>("azure-native:security/v20220101preview:getManagementGroupGovernanceRule", args ?? new GetManagementGroupGovernanceRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Governance rule over a given scope
         /// </summary>
-        public static Output<GetmanagementGroupGovernanceRuleResult> Invoke(GetmanagementGroupGovernanceRuleInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetmanagementGroupGovernanceRuleResult>("azure-native:security/v20220101preview:getmanagementGroupGovernanceRule", args ?? new GetmanagementGroupGovernanceRuleInvokeArgs(), options.WithDefaults());
+        public static Output<GetManagementGroupGovernanceRuleResult> Invoke(GetManagementGroupGovernanceRuleInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupGovernanceRuleResult>("azure-native:security/v20220101preview:getManagementGroupGovernanceRule", args ?? new GetManagementGroupGovernanceRuleInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetmanagementGroupGovernanceRuleArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagementGroupGovernanceRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure Management Group ID
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         [Input("ruleId", required: true)]
         public string RuleId { get; set; } = null!;
 
-        public GetmanagementGroupGovernanceRuleArgs()
+        public GetManagementGroupGovernanceRuleArgs()
         {
         }
-        public static new GetmanagementGroupGovernanceRuleArgs Empty => new GetmanagementGroupGovernanceRuleArgs();
+        public static new GetManagementGroupGovernanceRuleArgs Empty => new GetManagementGroupGovernanceRuleArgs();
     }
 
-    public sealed class GetmanagementGroupGovernanceRuleInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagementGroupGovernanceRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Azure Management Group ID
@@ -59,15 +59,15 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
 
-        public GetmanagementGroupGovernanceRuleInvokeArgs()
+        public GetManagementGroupGovernanceRuleInvokeArgs()
         {
         }
-        public static new GetmanagementGroupGovernanceRuleInvokeArgs Empty => new GetmanagementGroupGovernanceRuleInvokeArgs();
+        public static new GetManagementGroupGovernanceRuleInvokeArgs Empty => new GetManagementGroupGovernanceRuleInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetmanagementGroupGovernanceRuleResult
+    public sealed class GetManagementGroupGovernanceRuleResult
     {
         /// <summary>
         /// Description of the governance rule
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public readonly string Type;
 
         [OutputConstructor]
-        private GetmanagementGroupGovernanceRuleResult(
+        private GetManagementGroupGovernanceRuleResult(
             string? description,
 
             string displayName,

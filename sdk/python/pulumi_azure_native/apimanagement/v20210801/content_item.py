@@ -17,19 +17,23 @@ class ContentItemArgs:
                  content_type_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
-                 content_item_id: Optional[pulumi.Input[str]] = None):
+                 content_item_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[Any] = None):
         """
         The set of arguments for constructing a ContentItem resource.
         :param pulumi.Input[str] content_type_id: Content type identifier.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] content_item_id: Content item identifier.
+        :param Any properties: Properties of the content item.
         """
         pulumi.set(__self__, "content_type_id", content_type_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if content_item_id is not None:
             pulumi.set(__self__, "content_item_id", content_item_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="contentTypeId")
@@ -79,6 +83,18 @@ class ContentItemArgs:
     def content_item_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_item_id", value)
 
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Any]:
+        """
+        Properties of the content item.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[Any]):
+        pulumi.set(self, "properties", value)
+
 
 class ContentItem(pulumi.CustomResource):
     @overload
@@ -87,6 +103,7 @@ class ContentItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_item_id: Optional[pulumi.Input[str]] = None,
                  content_type_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -97,6 +114,7 @@ class ContentItem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_item_id: Content item identifier.
         :param pulumi.Input[str] content_type_id: Content type identifier.
+        :param Any properties: Properties of the content item.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
@@ -126,6 +144,7 @@ class ContentItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_item_id: Optional[pulumi.Input[str]] = None,
                  content_type_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -141,6 +160,7 @@ class ContentItem(pulumi.CustomResource):
             if content_type_id is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type_id'")
             __props__.__dict__["content_type_id"] = content_type_id
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -148,7 +168,6 @@ class ContentItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
-            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ContentItem"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ContentItem"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ContentItem"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ContentItem"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ContentItem"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ContentItem"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ContentItem"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ContentItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

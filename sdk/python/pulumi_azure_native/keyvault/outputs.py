@@ -294,8 +294,12 @@ class MHSMNetworkRuleSetResponse(dict):
         :param Sequence['MHSMIPRuleResponse'] ip_rules: The list of IP address rules.
         :param Sequence['MHSMVirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
+        if bypass is None:
+            bypass = 'AzureServices'
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
+        if default_action is None:
+            default_action = 'Allow'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -553,8 +557,6 @@ class ManagedHsmPropertiesResponse(dict):
             suggest = "scheduled_purge_date"
         elif key == "statusMessage":
             suggest = "status_message"
-        elif key == "createMode":
-            suggest = "create_mode"
         elif key == "enablePurgeProtection":
             suggest = "enable_purge_protection"
         elif key == "enableSoftDelete":
@@ -587,7 +589,6 @@ class ManagedHsmPropertiesResponse(dict):
                  provisioning_state: str,
                  scheduled_purge_date: str,
                  status_message: str,
-                 create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_soft_delete: Optional[bool] = None,
                  initial_admin_object_ids: Optional[Sequence[str]] = None,
@@ -602,7 +603,6 @@ class ManagedHsmPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state.
         :param str scheduled_purge_date: The scheduled purge date in UTC.
         :param str status_message: Resource Status Message.
-        :param str create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
@@ -616,8 +616,6 @@ class ManagedHsmPropertiesResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "scheduled_purge_date", scheduled_purge_date)
         pulumi.set(__self__, "status_message", status_message)
-        if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
         if enable_purge_protection is None:
             enable_purge_protection = True
         if enable_purge_protection is not None:
@@ -678,14 +676,6 @@ class ManagedHsmPropertiesResponse(dict):
         Resource Status Message.
         """
         return pulumi.get(self, "status_message")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="enablePurgeProtection")

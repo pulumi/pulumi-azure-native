@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.EventHub.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:ConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:ConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:ConsumerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:ConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

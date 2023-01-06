@@ -1128,6 +1128,8 @@ VirtualMachineImages:
   tracking: "2020-02-14"
 VisualStudio:
   tracking: 2014-04-01-preview
+VoiceServices:
+  tracking: 2022-12-01-preview
 Web:
   tracking: "2016-06-01"
   additions:

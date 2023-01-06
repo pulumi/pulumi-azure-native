@@ -209,6 +209,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Device"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Device"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Device"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

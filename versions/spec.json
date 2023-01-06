@@ -2859,6 +2859,28 @@
     ],
     "2022-09-04": [
       "CloudService"
+    ],
+    "2022-11-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
     ]
   },
   "ConfidentialLedger": {
@@ -3193,6 +3215,17 @@
       "ExportPipeline",
       "ImportPipeline",
       "PipelineRun",
+      "PrivateEndpointConnection",
+      "Registry",
+      "Replication",
+      "ScopeMap",
+      "Token",
+      "Webhook",
+      "getWebhookCallbackConfig",
+      "listRegistryCredentials",
+      "listWebhookEvents"
+    ],
+    "2022-12-01": [
       "PrivateEndpointConnection",
       "Registry",
       "Replication",
@@ -3634,6 +3667,28 @@
       "listManagedClusterUserCredentials"
     ],
     "2022-10-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2022-11-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2022-11-02-preview": [
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -4211,6 +4266,23 @@
       "User",
       "getDeviceExtendedInformation",
       "listOrderDCAccessCode"
+    ],
+    "2022-12-01-preview": [
+      "Addon",
+      "BandwidthSchedule",
+      "Container",
+      "Device",
+      "MonitoringConfig",
+      "Order",
+      "Role",
+      "Share",
+      "StorageAccount",
+      "StorageAccountCredential",
+      "Trigger",
+      "User",
+      "getDeviceExtendedInformation",
+      "getMarketplaceImageSasTokenSASToken",
+      "listOrderDCAccessCode"
     ]
   },
   "DataCatalog": {
@@ -4444,6 +4516,12 @@
       "BackupPolicy",
       "BackupVault",
       "DppResourceGuardProxy",
+      "ResourceGuard"
+    ],
+    "2022-12-01": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
       "ResourceGuard"
     ]
   },
@@ -6259,6 +6337,22 @@
       "listNamespaceKeys"
     ],
     "2022-01-01-preview": [
+      "ApplicationGroup",
+      "Cluster",
+      "ConsumerGroup",
+      "DisasterRecoveryConfig",
+      "EventHub",
+      "EventHubAuthorizationRule",
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "NamespaceNetworkRuleSet",
+      "PrivateEndpointConnection",
+      "SchemaRegistry",
+      "listDisasterRecoveryConfigKeys",
+      "listEventHubKeys",
+      "listNamespaceKeys"
+    ],
+    "2022-10-01-preview": [
       "ApplicationGroup",
       "Cluster",
       "ConsumerGroup",
@@ -12382,8 +12476,8 @@
     "2022-01-01-preview": [
       "GovernanceAssignment",
       "GovernanceRule",
-      "SecurityConnectorGovernanceRule",
-      "managementGroupGovernanceRule"
+      "ManagementGroupGovernanceRule",
+      "SecurityConnectorGovernanceRule"
     ],
     "2022-05-01-preview": [
       "SecurityConnector"
@@ -14802,6 +14896,13 @@
     "2017-11-01-preview": [
       "Account",
       "Extension"
+    ]
+  },
+  "VoiceServices": {
+    "2022-12-01-preview": [
+      "CommunicationsGateway",
+      "Contact",
+      "TestLine"
     ]
   },
   "Web": {
