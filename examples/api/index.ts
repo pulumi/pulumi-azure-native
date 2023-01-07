@@ -28,6 +28,12 @@ const apiManagement = new apimanagement.ApiManagementService("apim", {
     publisherName: "contoso",
 });
 
+const secrets = apimanagement.listSubscriptionSecretsOutput({
+    resourceGroupName: resourceGroup.name,
+    serviceName: apiManagement.name,
+    sid: "master",
+});
+
 const versionSet = new apimanagement.ApiVersionSet("dronestatusversionset", {
     resourceGroupName: resourceGroup.name,
     serviceName: apiManagement.name,

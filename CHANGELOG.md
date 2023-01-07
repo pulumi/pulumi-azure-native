@@ -3,6 +3,8 @@
 ## HEAD (Unreleased)
 
 - Remove a deprecated resource `web.ContainerApp`. Please use `app.ContainerApp` instead.
+- Fix ApiManagement: ListSubscription fails with status 400
+  [#1602](https://github.com/pulumi/pulumi-azure-native/issues/1602)
 - Fix Unable to destroy a ServerBlobAuditingPolicy
   [#1481](https://github.com/pulumi/pulumi-azure-native/issues/1481)
 - Fix Creation of BlobContainerImmutabilityPolicy fails with 'cannot create already existing resource'

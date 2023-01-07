@@ -303,6 +303,9 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		if res.GetParameters != nil {
 			response, err = k.azureGet(ctx, id, res.APIVersion)
 		} else if res.PostParameters != nil {
+			if body == nil {
+				body = map[string]interface{}{}
+			}
 			response, err = k.azurePost(ctx, id, body, query)
 		} else {
 			return nil, errors.Errorf("neither GET nor POST is defined for %s", label)
