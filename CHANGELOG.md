@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+## 1.91.0 (2023-01-09)
+
 - Remove a deprecated resource `web.ContainerApp`. Please use `app.ContainerApp` instead.
 - Fix ApiManagement: ListSubscription fails with status 400
   [#1602](https://github.com/pulumi/pulumi-azure-native/issues/1602)
@@ -9,6 +11,20 @@
   [#1481](https://github.com/pulumi/pulumi-azure-native/issues/1481)
 - Fix Creation of BlobContainerImmutabilityPolicy fails with 'cannot create already existing resource'
   [#1492](https://github.com/pulumi/pulumi-azure-native/issues/1492)
+
+Breaking changes:
+- Type "azure-native:keyvault:ManagedHsmPropertiesResponse" missing property "createMode"
+
+New resources:
+- `voiceservices.CommunicationsGateway`
+- `voiceservices.Contact`
+- `voiceservices.TestLine`
+
+New functions:
+- `voiceservices.getCommunicationsGateway`
+- `voiceservices.getContact`
+- `voiceservices.getTestLine`
+
 
 ## 1.90.0 (2022-12-15)
 
