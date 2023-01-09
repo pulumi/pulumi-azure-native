@@ -25,10 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GovernanceAssignment{}
 	case "azure-native:security/v20220101preview:GovernanceRule":
 		r = &GovernanceRule{}
+	case "azure-native:security/v20220101preview:ManagementGroupGovernanceRule":
+		r = &ManagementGroupGovernanceRule{}
 	case "azure-native:security/v20220101preview:SecurityConnectorGovernanceRule":
 		r = &SecurityConnectorGovernanceRule{}
-	case "azure-native:security/v20220101preview:managementGroupGovernanceRule":
-		r = &ManagementGroupGovernanceRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

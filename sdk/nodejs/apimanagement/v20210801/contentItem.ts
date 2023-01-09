@@ -41,7 +41,7 @@ export class ContentItem extends pulumi.CustomResource {
     /**
      * Properties of the content item.
      */
-    public /*out*/ readonly properties!: pulumi.Output<any>;
+    public readonly properties!: pulumi.Output<any>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -69,10 +69,10 @@ export class ContentItem extends pulumi.CustomResource {
             }
             resourceInputs["contentItemId"] = args ? args.contentItemId : undefined;
             resourceInputs["contentTypeId"] = args ? args.contentTypeId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
@@ -98,6 +98,10 @@ export interface ContentItemArgs {
      * Content type identifier.
      */
     contentTypeId: pulumi.Input<string>;
+    /**
+     * Properties of the content item.
+     */
+    properties?: any;
     /**
      * The name of the resource group.
      */

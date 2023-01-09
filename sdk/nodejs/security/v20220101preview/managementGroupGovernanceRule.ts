@@ -24,7 +24,7 @@ export class ManagementGroupGovernanceRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:security/v20220101preview:managementGroupGovernanceRule';
+    public static readonly __pulumiType = 'azure-native:security/v20220101preview:ManagementGroupGovernanceRule';
 
     /**
      * Returns true if the given object is an instance of ManagementGroupGovernanceRule.  This is designed to work even

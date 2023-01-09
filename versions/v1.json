@@ -1982,6 +1982,11 @@
     "Account": "2014-04-01-preview",
     "Extension": "2014-04-01-preview"
   },
+  "VoiceServices": {
+    "CommunicationsGateway": "2022-12-01-preview",
+    "Contact": "2022-12-01-preview",
+    "TestLine": "2022-12-01-preview"
+  },
   "Web": {
     "AppServiceEnvironment": "2020-12-01",
     "AppServiceEnvironmentAseCustomDnsSuffixConfiguration": "2022-03-01",

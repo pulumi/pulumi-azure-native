@@ -94,16 +94,18 @@ func (ContentItemState) ElementType() reflect.Type {
 }
 
 type contentItemArgs struct {
-	ContentItemId     *string `pulumi:"contentItemId"`
-	ContentTypeId     string  `pulumi:"contentTypeId"`
-	ResourceGroupName string  `pulumi:"resourceGroupName"`
-	ServiceName       string  `pulumi:"serviceName"`
+	ContentItemId     *string     `pulumi:"contentItemId"`
+	ContentTypeId     string      `pulumi:"contentTypeId"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	ServiceName       string      `pulumi:"serviceName"`
 }
 
 
 type ContentItemArgs struct {
 	ContentItemId     pulumi.StringPtrInput
 	ContentTypeId     pulumi.StringInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
 	ServiceName       pulumi.StringInput
 }

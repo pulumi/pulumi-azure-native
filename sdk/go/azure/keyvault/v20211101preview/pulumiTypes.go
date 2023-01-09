@@ -1686,6 +1686,23 @@ type MHSMNetworkRuleSet struct {
 }
 
 
+func (val *MHSMNetworkRuleSet) Defaults() *MHSMNetworkRuleSet {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Bypass) {
+		bypass_ := "AzureServices"
+		tmp.Bypass = &bypass_
+	}
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Allow"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1703,6 +1720,20 @@ type MHSMNetworkRuleSetArgs struct {
 	VirtualNetworkRules MHSMVirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
+
+func (val *MHSMNetworkRuleSetArgs) Defaults() *MHSMNetworkRuleSetArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Bypass) {
+		tmp.Bypass = pulumi.StringPtr("AzureServices")
+	}
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = pulumi.StringPtr("Allow")
+	}
+	return &tmp
+}
 func (MHSMNetworkRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*MHSMNetworkRuleSet)(nil)).Elem()
 }
@@ -1861,6 +1892,23 @@ type MHSMNetworkRuleSetResponse struct {
 	DefaultAction       *string                          `pulumi:"defaultAction"`
 	IpRules             []MHSMIPRuleResponse             `pulumi:"ipRules"`
 	VirtualNetworkRules []MHSMVirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+}
+
+
+func (val *MHSMNetworkRuleSetResponse) Defaults() *MHSMNetworkRuleSetResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Bypass) {
+		bypass_ := "AzureServices"
+		tmp.Bypass = &bypass_
+	}
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Allow"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
 }
 
 type MHSMNetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
@@ -2481,6 +2529,8 @@ func (val *ManagedHsmProperties) Defaults() *ManagedHsmProperties {
 		enableSoftDelete_ := true
 		tmp.EnableSoftDelete = &enableSoftDelete_
 	}
+	tmp.NetworkAcls = tmp.NetworkAcls.Defaults()
+
 	if isZero(tmp.SoftDeleteRetentionInDays) {
 		softDeleteRetentionInDays_ := 90
 		tmp.SoftDeleteRetentionInDays = &softDeleteRetentionInDays_
@@ -2522,6 +2572,7 @@ func (val *ManagedHsmPropertiesArgs) Defaults() *ManagedHsmPropertiesArgs {
 	if isZero(tmp.EnableSoftDelete) {
 		tmp.EnableSoftDelete = pulumi.BoolPtr(true)
 	}
+
 	if isZero(tmp.SoftDeleteRetentionInDays) {
 		tmp.SoftDeleteRetentionInDays = pulumi.IntPtr(90)
 	}
@@ -2733,7 +2784,6 @@ func (o ManagedHsmPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type ManagedHsmPropertiesResponse struct {
-	CreateMode                 *string                                     `pulumi:"createMode"`
 	EnablePurgeProtection      *bool                                       `pulumi:"enablePurgeProtection"`
 	EnableSoftDelete           *bool                                       `pulumi:"enableSoftDelete"`
 	HsmUri                     string                                      `pulumi:"hsmUri"`
@@ -2762,6 +2812,8 @@ func (val *ManagedHsmPropertiesResponse) Defaults() *ManagedHsmPropertiesRespons
 		enableSoftDelete_ := true
 		tmp.EnableSoftDelete = &enableSoftDelete_
 	}
+	tmp.NetworkAcls = tmp.NetworkAcls.Defaults()
+
 	if isZero(tmp.SoftDeleteRetentionInDays) {
 		softDeleteRetentionInDays_ := 90
 		tmp.SoftDeleteRetentionInDays = &softDeleteRetentionInDays_
@@ -2781,10 +2833,6 @@ func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponseOutput
 
 func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponseOutputWithContext(ctx context.Context) ManagedHsmPropertiesResponseOutput {
 	return o
-}
-
-func (o ManagedHsmPropertiesResponseOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
 func (o ManagedHsmPropertiesResponseOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {

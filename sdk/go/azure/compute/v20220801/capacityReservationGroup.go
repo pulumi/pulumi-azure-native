@@ -50,6 +50,9 @@ func NewCapacityReservationGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:compute/v20220301:CapacityReservationGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20221101:CapacityReservationGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CapacityReservationGroup

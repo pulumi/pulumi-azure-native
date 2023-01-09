@@ -2456,6 +2456,33 @@ func (o MHSMVirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) MHSM
 	}).(MHSMVirtualNetworkRuleResponseOutput)
 }
 
+type ManagedHSMSecurityDomainPropertiesResponse struct {
+	ActivationStatus        string `pulumi:"activationStatus"`
+	ActivationStatusMessage string `pulumi:"activationStatusMessage"`
+}
+
+type ManagedHSMSecurityDomainPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedHSMSecurityDomainPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHSMSecurityDomainPropertiesResponse)(nil)).Elem()
+}
+
+func (o ManagedHSMSecurityDomainPropertiesResponseOutput) ToManagedHSMSecurityDomainPropertiesResponseOutput() ManagedHSMSecurityDomainPropertiesResponseOutput {
+	return o
+}
+
+func (o ManagedHSMSecurityDomainPropertiesResponseOutput) ToManagedHSMSecurityDomainPropertiesResponseOutputWithContext(ctx context.Context) ManagedHSMSecurityDomainPropertiesResponseOutput {
+	return o
+}
+
+func (o ManagedHSMSecurityDomainPropertiesResponseOutput) ActivationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHSMSecurityDomainPropertiesResponse) string { return v.ActivationStatus }).(pulumi.StringOutput)
+}
+
+func (o ManagedHSMSecurityDomainPropertiesResponseOutput) ActivationStatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHSMSecurityDomainPropertiesResponse) string { return v.ActivationStatusMessage }).(pulumi.StringOutput)
+}
+
 type ManagedHsmProperties struct {
 	CreateMode                *CreateMode         `pulumi:"createMode"`
 	EnablePurgeProtection     *bool               `pulumi:"enablePurgeProtection"`
@@ -2733,7 +2760,6 @@ func (o ManagedHsmPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type ManagedHsmPropertiesResponse struct {
-	CreateMode                 *string                                     `pulumi:"createMode"`
 	EnablePurgeProtection      *bool                                       `pulumi:"enablePurgeProtection"`
 	EnableSoftDelete           *bool                                       `pulumi:"enableSoftDelete"`
 	HsmUri                     string                                      `pulumi:"hsmUri"`
@@ -2743,6 +2769,7 @@ type ManagedHsmPropertiesResponse struct {
 	ProvisioningState          string                                      `pulumi:"provisioningState"`
 	PublicNetworkAccess        *string                                     `pulumi:"publicNetworkAccess"`
 	ScheduledPurgeDate         string                                      `pulumi:"scheduledPurgeDate"`
+	SecurityDomainProperties   ManagedHSMSecurityDomainPropertiesResponse  `pulumi:"securityDomainProperties"`
 	SoftDeleteRetentionInDays  *int                                        `pulumi:"softDeleteRetentionInDays"`
 	StatusMessage              string                                      `pulumi:"statusMessage"`
 	TenantId                   *string                                     `pulumi:"tenantId"`
@@ -2783,10 +2810,6 @@ func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponseOutput
 	return o
 }
 
-func (o ManagedHsmPropertiesResponseOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
-}
-
 func (o ManagedHsmPropertiesResponseOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *bool { return v.EnablePurgeProtection }).(pulumi.BoolPtrOutput)
 }
@@ -2823,6 +2846,12 @@ func (o ManagedHsmPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringP
 
 func (o ManagedHsmPropertiesResponseOutput) ScheduledPurgeDate() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedHsmPropertiesResponse) string { return v.ScheduledPurgeDate }).(pulumi.StringOutput)
+}
+
+func (o ManagedHsmPropertiesResponseOutput) SecurityDomainProperties() ManagedHSMSecurityDomainPropertiesResponseOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) ManagedHSMSecurityDomainPropertiesResponse {
+		return v.SecurityDomainProperties
+	}).(ManagedHSMSecurityDomainPropertiesResponseOutput)
 }
 
 func (o ManagedHsmPropertiesResponseOutput) SoftDeleteRetentionInDays() pulumi.IntPtrOutput {
@@ -5237,6 +5266,7 @@ func init() {
 	pulumi.RegisterOutputType(MHSMVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(MHSMVirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(MHSMVirtualNetworkRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedHSMSecurityDomainPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagedHsmPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedHsmPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ManagedHsmPropertiesResponseOutput{})

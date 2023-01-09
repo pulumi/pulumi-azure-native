@@ -109,6 +109,9 @@ func NewRegistry(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20211201preview:Registry"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20221201:Registry"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Registry

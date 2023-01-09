@@ -358,7 +358,7 @@ class ManagementGroupGovernanceRule(pulumi.CustomResource):
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         super(ManagementGroupGovernanceRule, __self__).__init__(
-            'azure-native:security/v20220101preview:managementGroupGovernanceRule',
+            'azure-native:security/v20220101preview:ManagementGroupGovernanceRule',
             resource_name,
             __props__,
             opts)

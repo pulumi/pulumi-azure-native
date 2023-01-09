@@ -406,8 +406,12 @@ class MHSMNetworkRuleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]] ip_rules: The list of IP address rules.
         :param pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
+        if bypass is None:
+            bypass = 'AzureServices'
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
+        if default_action is None:
+            default_action = 'Allow'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:

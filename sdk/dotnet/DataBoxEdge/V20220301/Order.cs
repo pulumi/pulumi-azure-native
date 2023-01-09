@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Order"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Order"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Order"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:Order"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

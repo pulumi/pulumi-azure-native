@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:NamespaceAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:NamespaceAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

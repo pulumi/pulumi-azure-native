@@ -60,6 +60,9 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:eventhub/v20220101preview:NamespaceAuthorizationRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NamespaceAuthorizationRule

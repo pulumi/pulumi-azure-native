@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Compute.V20191201
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:DedicatedHostGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:DedicatedHostGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:DedicatedHostGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20221101:DedicatedHostGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
