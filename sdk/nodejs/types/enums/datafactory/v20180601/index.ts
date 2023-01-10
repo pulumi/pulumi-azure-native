@@ -61,6 +61,17 @@ export const CassandraSourceReadConsistencyLevels = {
  */
 export type CassandraSourceReadConsistencyLevels = (typeof CassandraSourceReadConsistencyLevels)[keyof typeof CassandraSourceReadConsistencyLevels];
 
+export const ConfigurationType = {
+    Default: "Default",
+    Customized: "Customized",
+    Artifact: "Artifact",
+} as const;
+
+/**
+ * The type of the spark config.
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
 export const CosmosDbConnectionMode = {
     Gateway: "Gateway",
     Direct: "Direct",
@@ -620,6 +631,15 @@ export const SparkAuthenticationType = {
  * The authentication method used to access the Spark server.
  */
 export type SparkAuthenticationType = (typeof SparkAuthenticationType)[keyof typeof SparkAuthenticationType];
+
+export const SparkConfigurationReferenceType = {
+    SparkConfigurationReference: "SparkConfigurationReference",
+} as const;
+
+/**
+ * Spark configuration reference type.
+ */
+export type SparkConfigurationReferenceType = (typeof SparkConfigurationReferenceType)[keyof typeof SparkConfigurationReferenceType];
 
 export const SparkJobReferenceType = {
     SparkJobDefinitionReference: "SparkJobDefinitionReference",

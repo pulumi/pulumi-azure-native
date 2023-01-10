@@ -501,6 +501,7 @@ __all__ = [
     'SnowflakeLinkedServiceArgs',
     'SnowflakeSinkArgs',
     'SnowflakeSourceArgs',
+    'SparkConfigurationParametrizationReferenceArgs',
     'SparkLinkedServiceArgs',
     'SparkObjectDatasetArgs',
     'SparkSourceArgs',
@@ -70841,6 +70842,44 @@ class SnowflakeSourceArgs:
 
 
 @pulumi.input_type
+class SparkConfigurationParametrizationReferenceArgs:
+    def __init__(__self__, *,
+                 reference_name: Any,
+                 type: pulumi.Input[Union[str, 'SparkConfigurationReferenceType']]):
+        """
+        Spark configuration reference.
+        :param Any reference_name: Reference spark configuration name. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'SparkConfigurationReferenceType']] type: Spark configuration reference type.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Any:
+        """
+        Reference spark configuration name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: Any):
+        pulumi.set(self, "reference_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'SparkConfigurationReferenceType']]:
+        """
+        Spark configuration reference type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'SparkConfigurationReferenceType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class SparkLinkedServiceArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[Union[str, 'SparkAuthenticationType']],
@@ -75594,6 +75633,7 @@ class SynapseSparkJobDefinitionActivityArgs:
                  arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
                  class_name: Optional[Any] = None,
                  conf: Optional[Any] = None,
+                 configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  driver_size: Optional[Any] = None,
@@ -75602,10 +75642,13 @@ class SynapseSparkJobDefinitionActivityArgs:
                  files: Optional[pulumi.Input[Sequence[Any]]] = None,
                  files_v2: Optional[pulumi.Input[Sequence[Any]]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
-                 num_executors: Optional[pulumi.Input[int]] = None,
+                 num_executors: Optional[Any] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
                  python_code_reference: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 scan_folder: Optional[Any] = None,
+                 spark_config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  target_big_data_pool: Optional[pulumi.Input['BigDataPoolParametrizationReferenceArgs']] = None,
+                 target_spark_configuration: Optional[pulumi.Input['SparkConfigurationParametrizationReferenceArgs']] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         Execute spark job activity.
@@ -75616,6 +75659,7 @@ class SynapseSparkJobDefinitionActivityArgs:
         :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to SynapseSparkJobDefinitionActivity.
         :param Any class_name: The fully-qualified identifier or the main class that is in the main definition file, which will override the 'className' of the spark job definition you provide. Type: string (or Expression with resultType string).
         :param Any conf: Spark configuration properties, which will override the 'conf' of the spark job definition you provide.
+        :param pulumi.Input[Union[str, 'ConfigurationType']] configuration_type: The type of the spark config.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param Any driver_size: Number of core and memory to be used for driver allocated in the specified Spark pool for the job, which will be used for overriding 'driverCores' and 'driverMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).
@@ -75624,10 +75668,13 @@ class SynapseSparkJobDefinitionActivityArgs:
         :param pulumi.Input[Sequence[Any]] files: (Deprecated. Please use pythonCodeReference and filesV2) Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.
         :param pulumi.Input[Sequence[Any]] files_v2: Additional files used for reference in the main definition file, which will override the 'jars' and 'files' of the spark job definition you provide.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[int] num_executors: Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide.
+        :param Any num_executors: Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param pulumi.Input[Sequence[Any]] python_code_reference: Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.
+        :param Any scan_folder: Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).
+        :param pulumi.Input[Mapping[str, Any]] spark_config: Spark configuration property.
         :param pulumi.Input['BigDataPoolParametrizationReferenceArgs'] target_big_data_pool: The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
+        :param pulumi.Input['SparkConfigurationParametrizationReferenceArgs'] target_spark_configuration: The spark configuration of the spark job.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -75639,6 +75686,8 @@ class SynapseSparkJobDefinitionActivityArgs:
             pulumi.set(__self__, "class_name", class_name)
         if conf is not None:
             pulumi.set(__self__, "conf", conf)
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -75661,8 +75710,14 @@ class SynapseSparkJobDefinitionActivityArgs:
             pulumi.set(__self__, "policy", policy)
         if python_code_reference is not None:
             pulumi.set(__self__, "python_code_reference", python_code_reference)
+        if scan_folder is not None:
+            pulumi.set(__self__, "scan_folder", scan_folder)
+        if spark_config is not None:
+            pulumi.set(__self__, "spark_config", spark_config)
         if target_big_data_pool is not None:
             pulumi.set(__self__, "target_big_data_pool", target_big_data_pool)
+        if target_spark_configuration is not None:
+            pulumi.set(__self__, "target_spark_configuration", target_spark_configuration)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -75738,6 +75793,18 @@ class SynapseSparkJobDefinitionActivityArgs:
     @conf.setter
     def conf(self, value: Optional[Any]):
         pulumi.set(self, "conf", value)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[pulumi.Input[Union[str, 'ConfigurationType']]]:
+        """
+        The type of the spark config.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: Optional[pulumi.Input[Union[str, 'ConfigurationType']]]):
+        pulumi.set(self, "configuration_type", value)
 
     @property
     @pulumi.getter(name="dependsOn")
@@ -75837,14 +75904,14 @@ class SynapseSparkJobDefinitionActivityArgs:
 
     @property
     @pulumi.getter(name="numExecutors")
-    def num_executors(self) -> Optional[pulumi.Input[int]]:
+    def num_executors(self) -> Optional[Any]:
         """
-        Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide.
+        Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "num_executors")
 
     @num_executors.setter
-    def num_executors(self, value: Optional[pulumi.Input[int]]):
+    def num_executors(self, value: Optional[Any]):
         pulumi.set(self, "num_executors", value)
 
     @property
@@ -75872,6 +75939,30 @@ class SynapseSparkJobDefinitionActivityArgs:
         pulumi.set(self, "python_code_reference", value)
 
     @property
+    @pulumi.getter(name="scanFolder")
+    def scan_folder(self) -> Optional[Any]:
+        """
+        Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "scan_folder")
+
+    @scan_folder.setter
+    def scan_folder(self, value: Optional[Any]):
+        pulumi.set(self, "scan_folder", value)
+
+    @property
+    @pulumi.getter(name="sparkConfig")
+    def spark_config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Spark configuration property.
+        """
+        return pulumi.get(self, "spark_config")
+
+    @spark_config.setter
+    def spark_config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "spark_config", value)
+
+    @property
     @pulumi.getter(name="targetBigDataPool")
     def target_big_data_pool(self) -> Optional[pulumi.Input['BigDataPoolParametrizationReferenceArgs']]:
         """
@@ -75882,6 +75973,18 @@ class SynapseSparkJobDefinitionActivityArgs:
     @target_big_data_pool.setter
     def target_big_data_pool(self, value: Optional[pulumi.Input['BigDataPoolParametrizationReferenceArgs']]):
         pulumi.set(self, "target_big_data_pool", value)
+
+    @property
+    @pulumi.getter(name="targetSparkConfiguration")
+    def target_spark_configuration(self) -> Optional[pulumi.Input['SparkConfigurationParametrizationReferenceArgs']]:
+        """
+        The spark configuration of the spark job.
+        """
+        return pulumi.get(self, "target_spark_configuration")
+
+    @target_spark_configuration.setter
+    def target_spark_configuration(self, value: Optional[pulumi.Input['SparkConfigurationParametrizationReferenceArgs']]):
+        pulumi.set(self, "target_spark_configuration", value)
 
     @property
     @pulumi.getter(name="userProperties")

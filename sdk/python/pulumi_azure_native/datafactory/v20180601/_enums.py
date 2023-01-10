@@ -10,6 +10,7 @@ __all__ = [
     'BigDataPoolReferenceType',
     'BlobEventTypes',
     'CassandraSourceReadConsistencyLevels',
+    'ConfigurationType',
     'CosmosDbConnectionMode',
     'CosmosDbServicePrincipalCredentialType',
     'CredentialReferenceType',
@@ -61,6 +62,7 @@ __all__ = [
     'ServiceNowAuthenticationType',
     'SftpAuthenticationType',
     'SparkAuthenticationType',
+    'SparkConfigurationReferenceType',
     'SparkJobReferenceType',
     'SparkServerType',
     'SparkThriftTransportProtocol',
@@ -128,6 +130,15 @@ class CassandraSourceReadConsistencyLevels(str, Enum):
     LOCA_L_ONE = "LOCAL_ONE"
     SERIAL = "SERIAL"
     LOCA_L_SERIAL = "LOCAL_SERIAL"
+
+
+class ConfigurationType(str, Enum):
+    """
+    The type of the spark config.
+    """
+    DEFAULT = "Default"
+    CUSTOMIZED = "Customized"
+    ARTIFACT = "Artifact"
 
 
 class CosmosDbConnectionMode(str, Enum):
@@ -586,6 +597,13 @@ class SparkAuthenticationType(str, Enum):
     USERNAME = "Username"
     USERNAME_AND_PASSWORD = "UsernameAndPassword"
     WINDOWS_AZURE_HD_INSIGHT_SERVICE = "WindowsAzureHDInsightService"
+
+
+class SparkConfigurationReferenceType(str, Enum):
+    """
+    Spark configuration reference type.
+    """
+    SPARK_CONFIGURATION_REFERENCE = "SparkConfigurationReference"
 
 
 class SparkJobReferenceType(str, Enum):

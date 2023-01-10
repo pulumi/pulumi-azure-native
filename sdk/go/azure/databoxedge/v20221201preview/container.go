@@ -79,6 +79,9 @@ func NewContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20220401preview:Container"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20230101preview:Container"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Container

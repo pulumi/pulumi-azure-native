@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:MECRole"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:MECRole"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:MECRole"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:MECRole"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

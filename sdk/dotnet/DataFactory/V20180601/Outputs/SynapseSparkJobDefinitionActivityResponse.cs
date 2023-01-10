@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? Conf;
         /// <summary>
+        /// The type of the spark config.
+        /// </summary>
+        public readonly string? ConfigurationType;
+        /// <summary>
         /// Activity depends on condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.ActivityDependencyResponse> DependsOn;
@@ -65,9 +69,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide.
+        /// Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide. Type: integer (or Expression with resultType integer).
         /// </summary>
-        public readonly int? NumExecutors;
+        public readonly object? NumExecutors;
         /// <summary>
         /// Activity policy.
         /// </summary>
@@ -77,6 +81,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> PythonCodeReference;
         /// <summary>
+        /// Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? ScanFolder;
+        /// <summary>
+        /// Spark configuration property.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? SparkConfig;
+        /// <summary>
         /// Synapse spark job reference.
         /// </summary>
         public readonly Outputs.SynapseSparkJobReferenceResponse SparkJob;
@@ -84,6 +96,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
         /// </summary>
         public readonly Outputs.BigDataPoolParametrizationReferenceResponse? TargetBigDataPool;
+        /// <summary>
+        /// The spark configuration of the spark job.
+        /// </summary>
+        public readonly Outputs.SparkConfigurationParametrizationReferenceResponse? TargetSparkConfiguration;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'SparkJob'.
@@ -101,6 +117,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             object? className,
 
             object? conf,
+
+            string? configurationType,
 
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
@@ -120,15 +138,21 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
-            int? numExecutors,
+            object? numExecutors,
 
             Outputs.ActivityPolicyResponse? policy,
 
             ImmutableArray<object> pythonCodeReference,
 
+            object? scanFolder,
+
+            ImmutableDictionary<string, object>? sparkConfig,
+
             Outputs.SynapseSparkJobReferenceResponse sparkJob,
 
             Outputs.BigDataPoolParametrizationReferenceResponse? targetBigDataPool,
+
+            Outputs.SparkConfigurationParametrizationReferenceResponse? targetSparkConfiguration,
 
             string type,
 
@@ -137,6 +161,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Arguments = arguments;
             ClassName = className;
             Conf = conf;
+            ConfigurationType = configurationType;
             DependsOn = dependsOn;
             Description = description;
             DriverSize = driverSize;
@@ -149,8 +174,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             NumExecutors = numExecutors;
             Policy = policy;
             PythonCodeReference = pythonCodeReference;
+            ScanFolder = scanFolder;
+            SparkConfig = sparkConfig;
             SparkJob = sparkJob;
             TargetBigDataPool = targetBigDataPool;
+            TargetSparkConfiguration = targetSparkConfiguration;
             Type = type;
             UserProperties = userProperties;
         }

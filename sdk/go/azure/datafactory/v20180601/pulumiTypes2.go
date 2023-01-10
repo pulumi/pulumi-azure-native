@@ -10,6 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type SqlDWUpsertSettings struct {
+	InterimSchemaName interface{} `pulumi:"interimSchemaName"`
+	Keys              interface{} `pulumi:"keys"`
+}
+
+type SqlDWUpsertSettingsResponse struct {
+	InterimSchemaName interface{} `pulumi:"interimSchemaName"`
+	Keys              interface{} `pulumi:"keys"`
+}
+
 type SqlMISink struct {
 	DisableMetricsCollection              interface{}        `pulumi:"disableMetricsCollection"`
 	MaxConcurrentConnections              interface{}        `pulumi:"maxConcurrentConnections"`
@@ -635,47 +645,55 @@ type SynapseNotebookReferenceResponse struct {
 }
 
 type SynapseSparkJobDefinitionActivity struct {
-	Arguments           []interface{}                        `pulumi:"arguments"`
-	ClassName           interface{}                          `pulumi:"className"`
-	Conf                interface{}                          `pulumi:"conf"`
-	DependsOn           []ActivityDependency                 `pulumi:"dependsOn"`
-	Description         *string                              `pulumi:"description"`
-	DriverSize          interface{}                          `pulumi:"driverSize"`
-	ExecutorSize        interface{}                          `pulumi:"executorSize"`
-	File                interface{}                          `pulumi:"file"`
-	Files               []interface{}                        `pulumi:"files"`
-	FilesV2             []interface{}                        `pulumi:"filesV2"`
-	LinkedServiceName   *LinkedServiceReference              `pulumi:"linkedServiceName"`
-	Name                string                               `pulumi:"name"`
-	NumExecutors        *int                                 `pulumi:"numExecutors"`
-	Policy              *ActivityPolicy                      `pulumi:"policy"`
-	PythonCodeReference []interface{}                        `pulumi:"pythonCodeReference"`
-	SparkJob            SynapseSparkJobReference             `pulumi:"sparkJob"`
-	TargetBigDataPool   *BigDataPoolParametrizationReference `pulumi:"targetBigDataPool"`
-	Type                string                               `pulumi:"type"`
-	UserProperties      []UserProperty                       `pulumi:"userProperties"`
+	Arguments                []interface{}                               `pulumi:"arguments"`
+	ClassName                interface{}                                 `pulumi:"className"`
+	Conf                     interface{}                                 `pulumi:"conf"`
+	ConfigurationType        *string                                     `pulumi:"configurationType"`
+	DependsOn                []ActivityDependency                        `pulumi:"dependsOn"`
+	Description              *string                                     `pulumi:"description"`
+	DriverSize               interface{}                                 `pulumi:"driverSize"`
+	ExecutorSize             interface{}                                 `pulumi:"executorSize"`
+	File                     interface{}                                 `pulumi:"file"`
+	Files                    []interface{}                               `pulumi:"files"`
+	FilesV2                  []interface{}                               `pulumi:"filesV2"`
+	LinkedServiceName        *LinkedServiceReference                     `pulumi:"linkedServiceName"`
+	Name                     string                                      `pulumi:"name"`
+	NumExecutors             interface{}                                 `pulumi:"numExecutors"`
+	Policy                   *ActivityPolicy                             `pulumi:"policy"`
+	PythonCodeReference      []interface{}                               `pulumi:"pythonCodeReference"`
+	ScanFolder               interface{}                                 `pulumi:"scanFolder"`
+	SparkConfig              map[string]interface{}                      `pulumi:"sparkConfig"`
+	SparkJob                 SynapseSparkJobReference                    `pulumi:"sparkJob"`
+	TargetBigDataPool        *BigDataPoolParametrizationReference        `pulumi:"targetBigDataPool"`
+	TargetSparkConfiguration *SparkConfigurationParametrizationReference `pulumi:"targetSparkConfiguration"`
+	Type                     string                                      `pulumi:"type"`
+	UserProperties           []UserProperty                              `pulumi:"userProperties"`
 }
 
 type SynapseSparkJobDefinitionActivityResponse struct {
-	Arguments           []interface{}                                `pulumi:"arguments"`
-	ClassName           interface{}                                  `pulumi:"className"`
-	Conf                interface{}                                  `pulumi:"conf"`
-	DependsOn           []ActivityDependencyResponse                 `pulumi:"dependsOn"`
-	Description         *string                                      `pulumi:"description"`
-	DriverSize          interface{}                                  `pulumi:"driverSize"`
-	ExecutorSize        interface{}                                  `pulumi:"executorSize"`
-	File                interface{}                                  `pulumi:"file"`
-	Files               []interface{}                                `pulumi:"files"`
-	FilesV2             []interface{}                                `pulumi:"filesV2"`
-	LinkedServiceName   *LinkedServiceReferenceResponse              `pulumi:"linkedServiceName"`
-	Name                string                                       `pulumi:"name"`
-	NumExecutors        *int                                         `pulumi:"numExecutors"`
-	Policy              *ActivityPolicyResponse                      `pulumi:"policy"`
-	PythonCodeReference []interface{}                                `pulumi:"pythonCodeReference"`
-	SparkJob            SynapseSparkJobReferenceResponse             `pulumi:"sparkJob"`
-	TargetBigDataPool   *BigDataPoolParametrizationReferenceResponse `pulumi:"targetBigDataPool"`
-	Type                string                                       `pulumi:"type"`
-	UserProperties      []UserPropertyResponse                       `pulumi:"userProperties"`
+	Arguments                []interface{}                                       `pulumi:"arguments"`
+	ClassName                interface{}                                         `pulumi:"className"`
+	Conf                     interface{}                                         `pulumi:"conf"`
+	ConfigurationType        *string                                             `pulumi:"configurationType"`
+	DependsOn                []ActivityDependencyResponse                        `pulumi:"dependsOn"`
+	Description              *string                                             `pulumi:"description"`
+	DriverSize               interface{}                                         `pulumi:"driverSize"`
+	ExecutorSize             interface{}                                         `pulumi:"executorSize"`
+	File                     interface{}                                         `pulumi:"file"`
+	Files                    []interface{}                                       `pulumi:"files"`
+	FilesV2                  []interface{}                                       `pulumi:"filesV2"`
+	LinkedServiceName        *LinkedServiceReferenceResponse                     `pulumi:"linkedServiceName"`
+	Name                     string                                              `pulumi:"name"`
+	NumExecutors             interface{}                                         `pulumi:"numExecutors"`
+	Policy                   *ActivityPolicyResponse                             `pulumi:"policy"`
+	PythonCodeReference      []interface{}                                       `pulumi:"pythonCodeReference"`
+	ScanFolder               interface{}                                         `pulumi:"scanFolder"`
+	SparkConfig              map[string]interface{}                              `pulumi:"sparkConfig"`
+	SparkJob                 SynapseSparkJobReferenceResponse                    `pulumi:"sparkJob"`
+	TargetBigDataPool        *BigDataPoolParametrizationReferenceResponse        `pulumi:"targetBigDataPool"`
+	TargetSparkConfiguration *SparkConfigurationParametrizationReferenceResponse `pulumi:"targetSparkConfiguration"`
+	Type                     string                                              `pulumi:"type"`
+	UserProperties           []UserPropertyResponse                              `pulumi:"userProperties"`
 }
 
 type SynapseSparkJobReference struct {

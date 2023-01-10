@@ -6923,6 +6923,16 @@ type SnowflakeSourceResponse struct {
 	Type                     string                             `pulumi:"type"`
 }
 
+type SparkConfigurationParametrizationReference struct {
+	ReferenceName interface{} `pulumi:"referenceName"`
+	Type          string      `pulumi:"type"`
+}
+
+type SparkConfigurationParametrizationReferenceResponse struct {
+	ReferenceName interface{} `pulumi:"referenceName"`
+	Type          string      `pulumi:"type"`
+}
+
 type SparkLinkedService struct {
 	AllowHostNameCNMismatch   interface{}                       `pulumi:"allowHostNameCNMismatch"`
 	AllowSelfSignedServerCert interface{}                       `pulumi:"allowSelfSignedServerCert"`
@@ -7095,16 +7105,6 @@ type SqlDWSourceResponse struct {
 	SqlReaderStoredProcedureName interface{}                   `pulumi:"sqlReaderStoredProcedureName"`
 	StoredProcedureParameters    interface{}                   `pulumi:"storedProcedureParameters"`
 	Type                         string                        `pulumi:"type"`
-}
-
-type SqlDWUpsertSettings struct {
-	InterimSchemaName interface{} `pulumi:"interimSchemaName"`
-	Keys              interface{} `pulumi:"keys"`
-}
-
-type SqlDWUpsertSettingsResponse struct {
-	InterimSchemaName interface{} `pulumi:"interimSchemaName"`
-	Keys              interface{} `pulumi:"keys"`
 }
 
 func init() {

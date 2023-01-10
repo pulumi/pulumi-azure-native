@@ -405,6 +405,7 @@ namespace Pulumi.AzureNative.Network.V20220701
         public static ApplicationGatewaySkuName WAF_Medium { get; } = new ApplicationGatewaySkuName("WAF_Medium");
         public static ApplicationGatewaySkuName WAF_Large { get; } = new ApplicationGatewaySkuName("WAF_Large");
         public static ApplicationGatewaySkuName Standard_v2 { get; } = new ApplicationGatewaySkuName("Standard_v2");
+        public static ApplicationGatewaySkuName Standard_Basic { get; } = new ApplicationGatewaySkuName("Standard_Basic");
         public static ApplicationGatewaySkuName WAF_v2 { get; } = new ApplicationGatewaySkuName("WAF_v2");
 
         public static bool operator ==(ApplicationGatewaySkuName left, ApplicationGatewaySkuName right) => left.Equals(right);
@@ -595,6 +596,7 @@ namespace Pulumi.AzureNative.Network.V20220701
         public static ApplicationGatewayTier WAF { get; } = new ApplicationGatewayTier("WAF");
         public static ApplicationGatewayTier Standard_v2 { get; } = new ApplicationGatewayTier("Standard_v2");
         public static ApplicationGatewayTier WAF_v2 { get; } = new ApplicationGatewayTier("WAF_v2");
+        public static ApplicationGatewayTier Standard_Basic { get; } = new ApplicationGatewayTier("Standard_Basic");
 
         public static bool operator ==(ApplicationGatewayTier left, ApplicationGatewayTier right) => left.Equals(right);
         public static bool operator !=(ApplicationGatewayTier left, ApplicationGatewayTier right) => !left.Equals(right);

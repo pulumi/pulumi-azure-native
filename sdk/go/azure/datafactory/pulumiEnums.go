@@ -50,6 +50,14 @@ const (
 	CassandraSourceReadConsistencyLevels_LOCAL_SERIAL = CassandraSourceReadConsistencyLevels("LOCAL_SERIAL")
 )
 
+type ConfigurationType string
+
+const (
+	ConfigurationTypeDefault    = ConfigurationType("Default")
+	ConfigurationTypeCustomized = ConfigurationType("Customized")
+	ConfigurationTypeArtifact   = ConfigurationType("Artifact")
+)
+
 type CosmosDbConnectionMode string
 
 const (
@@ -461,6 +469,12 @@ const (
 	SparkAuthenticationTypeUsername                     = SparkAuthenticationType("Username")
 	SparkAuthenticationTypeUsernameAndPassword          = SparkAuthenticationType("UsernameAndPassword")
 	SparkAuthenticationTypeWindowsAzureHDInsightService = SparkAuthenticationType("WindowsAzureHDInsightService")
+)
+
+type SparkConfigurationReferenceType string
+
+const (
+	SparkConfigurationReferenceTypeSparkConfigurationReference = SparkConfigurationReferenceType("SparkConfigurationReference")
 )
 
 type SparkJobReferenceType string

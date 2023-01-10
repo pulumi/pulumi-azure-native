@@ -172,6 +172,38 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
+    /// The type of the spark config.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
+    {
+        private readonly string _value;
+
+        private ConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationType Default { get; } = new ConfigurationType("Default");
+        public static ConfigurationType Customized { get; } = new ConfigurationType("Customized");
+        public static ConfigurationType Artifact { get; } = new ConfigurationType("Artifact");
+
+        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
+        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
     /// </summary>
     [EnumType]
@@ -1795,6 +1827,36 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SparkAuthenticationType other && Equals(other);
         public bool Equals(SparkAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Spark configuration reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SparkConfigurationReferenceType : IEquatable<SparkConfigurationReferenceType>
+    {
+        private readonly string _value;
+
+        private SparkConfigurationReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SparkConfigurationReferenceType SparkConfigurationReference { get; } = new SparkConfigurationReferenceType("SparkConfigurationReference");
+
+        public static bool operator ==(SparkConfigurationReferenceType left, SparkConfigurationReferenceType right) => left.Equals(right);
+        public static bool operator !=(SparkConfigurationReferenceType left, SparkConfigurationReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(SparkConfigurationReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SparkConfigurationReferenceType other && Equals(other);
+        public bool Equals(SparkConfigurationReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

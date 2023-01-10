@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("conf")]
         public Input<object>? Conf { get; set; }
 
+        /// <summary>
+        /// The type of the spark config.
+        /// </summary>
+        [Input("configurationType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ConfigurationType>? ConfigurationType { get; set; }
+
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -112,10 +118,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide.
+        /// Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("numExecutors")]
-        public Input<int>? NumExecutors { get; set; }
+        public Input<object>? NumExecutors { get; set; }
 
         /// <summary>
         /// Activity policy.
@@ -136,6 +142,24 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
+        /// Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("scanFolder")]
+        public Input<object>? ScanFolder { get; set; }
+
+        [Input("sparkConfig")]
+        private InputMap<object>? _sparkConfig;
+
+        /// <summary>
+        /// Spark configuration property.
+        /// </summary>
+        public InputMap<object> SparkConfig
+        {
+            get => _sparkConfig ?? (_sparkConfig = new InputMap<object>());
+            set => _sparkConfig = value;
+        }
+
+        /// <summary>
         /// Synapse spark job reference.
         /// </summary>
         [Input("sparkJob", required: true)]
@@ -146,6 +170,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("targetBigDataPool")]
         public Input<Inputs.BigDataPoolParametrizationReferenceArgs>? TargetBigDataPool { get; set; }
+
+        /// <summary>
+        /// The spark configuration of the spark job.
+        /// </summary>
+        [Input("targetSparkConfiguration")]
+        public Input<Inputs.SparkConfigurationParametrizationReferenceArgs>? TargetSparkConfiguration { get; set; }
 
         /// <summary>
         /// Type of activity.

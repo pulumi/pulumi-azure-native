@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:User"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:User"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

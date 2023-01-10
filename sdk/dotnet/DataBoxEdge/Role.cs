@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Role"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Role"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:Role"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:Role"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

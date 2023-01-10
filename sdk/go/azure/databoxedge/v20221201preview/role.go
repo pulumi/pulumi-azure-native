@@ -80,6 +80,9 @@ func NewRole(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20220401preview:Role"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20230101preview:Role"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Role

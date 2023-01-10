@@ -4283,6 +4283,23 @@
       "getDeviceExtendedInformation",
       "getMarketplaceImageSasTokenSASToken",
       "listOrderDCAccessCode"
+    ],
+    "2023-01-01-preview": [
+      "Addon",
+      "BandwidthSchedule",
+      "Container",
+      "Device",
+      "MonitoringConfig",
+      "Order",
+      "Role",
+      "Share",
+      "StorageAccount",
+      "StorageAccountCredential",
+      "Trigger",
+      "User",
+      "getDeviceExtendedInformation",
+      "getMarketplaceImageSasTokenSASToken",
+      "listOrderDCAccessCode"
     ]
   },
   "DataCatalog": {

@@ -15,19 +15,19 @@ const (
 type BillingSku string
 
 const (
-	// 100 Mbps, 20 active SIMs plan
+	// 100 Mbps, 20 active SIMs plan, 1 RAN
 	BillingSkuG0 = BillingSku("G0")
-	// 1 Gbps, 100 active SIMs plan
+	// 1 Gbps, 100 active SIMs plan, 5 RANs
 	BillingSkuG1 = BillingSku("G1")
-	// 2 Gbps, 200 active SIMs plan
+	// 2 Gbps, 200 active SIMs plan, 10 RANs
 	BillingSkuG2 = BillingSku("G2")
-	// 3 Gbps, 300 active SIMs plan
+	// 3 Gbps, 300 active SIMs plan, 15 RANs
 	BillingSkuG3 = BillingSku("G3")
-	// 4 Gbps, 400 active SIMs plan
+	// 4 Gbps, 400 active SIMs plan, 20 RANs
 	BillingSkuG4 = BillingSku("G4")
-	// 5 Gbps, 500 active SIMs plan
+	// 5 Gbps, 500 active SIMs plan, 25 RANs
 	BillingSkuG5 = BillingSku("G5")
-	// 10 Gbps, 1000 active SIMs plan
+	// 10 Gbps, 1000 active SIMs plan, 50 RANs
 	BillingSkuG10 = BillingSku("G10")
 )
 
