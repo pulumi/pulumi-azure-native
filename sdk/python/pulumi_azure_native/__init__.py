@@ -3574,6 +3574,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "botservice/v20220915",
+  "fqn": "pulumi_azure_native.botservice.v20220915",
+  "classes": {
+   "azure-native:botservice/v20220915:Bot": "Bot",
+   "azure-native:botservice/v20220915:BotConnection": "BotConnection",
+   "azure-native:botservice/v20220915:Channel": "Channel",
+   "azure-native:botservice/v20220915:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cache",
   "fqn": "pulumi_azure_native.cache",
   "classes": {

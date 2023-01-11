@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
     public sealed class ServiceProviderPropertiesResponse
     {
         /// <summary>
-        /// Display Name of the Service Provider
+        /// URL of Dev Portal
         /// </summary>
         public readonly string DevPortalUrl;
         /// <summary>
@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Display Name of the Service Provider
+        /// The URL of icon
         /// </summary>
-        public readonly string IconUrl;
+        public readonly string? IconUrl;
         /// <summary>
         /// Id for Service Provider
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceProviderParameterResponse> Parameters;
         /// <summary>
-        /// Display Name of the Service Provider
+        /// Name of the Service Provider
         /// </summary>
         public readonly string ServiceProviderName;
 
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             string displayName,
 
-            string iconUrl,
+            string? iconUrl,
 
             string id,
 

@@ -38,6 +38,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Group ids
+     */
+    public readonly groupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -78,6 +82,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -87,6 +92,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
@@ -94,7 +100,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice:PrivateEndpointConnection" }, { type: "azure-native:botservice/v20210501preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice:PrivateEndpointConnection" }, { type: "azure-native:botservice/v20210501preview:PrivateEndpointConnection" }, { type: "azure-native:botservice/v20220915:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -104,6 +110,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateEndpointConnection resource.
  */
 export interface PrivateEndpointConnectionArgs {
+    /**
+     * Group ids
+     */
+    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */

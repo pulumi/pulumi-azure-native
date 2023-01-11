@@ -70,10 +70,6 @@ export interface GetBotResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
-    /**
-     * Entity zones
-     */
-    readonly zones: string[];
 }
 /**
  * Bot resource definition

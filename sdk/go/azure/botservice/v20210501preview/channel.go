@@ -14,15 +14,14 @@ import (
 type Channel struct {
 	pulumi.CustomResourceState
 
-	Etag       pulumi.StringPtrOutput   `pulumi:"etag"`
-	Kind       pulumi.StringPtrOutput   `pulumi:"kind"`
-	Location   pulumi.StringPtrOutput   `pulumi:"location"`
-	Name       pulumi.StringOutput      `pulumi:"name"`
-	Properties pulumi.AnyOutput         `pulumi:"properties"`
-	Sku        SkuResponsePtrOutput     `pulumi:"sku"`
-	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
-	Type       pulumi.StringOutput      `pulumi:"type"`
-	Zones      pulumi.StringArrayOutput `pulumi:"zones"`
+	Etag       pulumi.StringPtrOutput `pulumi:"etag"`
+	Kind       pulumi.StringPtrOutput `pulumi:"kind"`
+	Location   pulumi.StringPtrOutput `pulumi:"location"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Properties pulumi.AnyOutput       `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput   `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 
@@ -56,6 +55,9 @@ func NewChannel(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20220615preview:Channel"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20220915:Channel"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -180,10 +182,6 @@ func (o ChannelOutput) Tags() pulumi.StringMapOutput {
 
 func (o ChannelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o ChannelOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

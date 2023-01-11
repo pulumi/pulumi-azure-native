@@ -148,6 +148,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// The storage resourceId for the bot
         /// </summary>
         public readonly string? StorageResourceId;
+        /// <summary>
+        /// The Tenant Id for the bot
+        /// </summary>
+        public readonly string? TenantId;
 
         [OutputConstructor]
         private BotPropertiesResponse(
@@ -215,7 +219,9 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string? schemaTransformationVersion,
 
-            string? storageResourceId)
+            string? storageResourceId,
+
+            string? tenantId)
         {
             AllSettings = allSettings;
             AppPasswordHint = appPasswordHint;
@@ -250,6 +256,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
             PublishingCredentials = publishingCredentials;
             SchemaTransformationVersion = schemaTransformationVersion;
             StorageResourceId = storageResourceId;
+            TenantId = tenantId;
         }
     }
 }

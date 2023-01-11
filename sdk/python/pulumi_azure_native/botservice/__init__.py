@@ -36,6 +36,8 @@ if typing.TYPE_CHECKING:
     v20210501preview = __v20210501preview
     import pulumi_azure_native.botservice.v20220615preview as __v20220615preview
     v20220615preview = __v20220615preview
+    import pulumi_azure_native.botservice.v20220915 as __v20220915
+    v20220915 = __v20220915
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.botservice.v20171201')
     v20180712 = _utilities.lazy_import('pulumi_azure_native.botservice.v20180712')
@@ -43,4 +45,5 @@ else:
     v20210301 = _utilities.lazy_import('pulumi_azure_native.botservice.v20210301')
     v20210501preview = _utilities.lazy_import('pulumi_azure_native.botservice.v20210501preview')
     v20220615preview = _utilities.lazy_import('pulumi_azure_native.botservice.v20220615preview')
+    v20220915 = _utilities.lazy_import('pulumi_azure_native.botservice.v20220915')
 

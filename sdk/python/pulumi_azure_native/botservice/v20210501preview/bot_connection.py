@@ -232,8 +232,7 @@ class BotConnection(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["zones"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20171201:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20180712:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20200602:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20210301:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20220615preview:BotConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20171201:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20180712:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20200602:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20210301:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20220615preview:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20220915:BotConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BotConnection, __self__).__init__(
             'azure-native:botservice/v20210501preview:BotConnection',
@@ -265,7 +264,6 @@ class BotConnection(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["zones"] = None
         return BotConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -331,12 +329,4 @@ class BotConnection(pulumi.CustomResource):
         Specifies the type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def zones(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Entity zones
-        """
-        return pulumi.get(self, "zones")
 

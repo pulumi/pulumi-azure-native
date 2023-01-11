@@ -94,7 +94,7 @@ export class BotConnection extends pulumi.CustomResource {
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.botservice.v20210301.connectionSettingPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -115,7 +115,7 @@ export class BotConnection extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice:BotConnection" }, { type: "azure-native:botservice/v20171201:BotConnection" }, { type: "azure-native:botservice/v20180712:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-native:botservice/v20210501preview:BotConnection" }, { type: "azure-native:botservice/v20220615preview:BotConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice:BotConnection" }, { type: "azure-native:botservice/v20171201:BotConnection" }, { type: "azure-native:botservice/v20180712:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-native:botservice/v20210501preview:BotConnection" }, { type: "azure-native:botservice/v20220615preview:BotConnection" }, { type: "azure-native:botservice/v20220915:BotConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BotConnection.__pulumiType, name, resourceInputs, opts);
     }

@@ -17,9 +17,53 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
     public sealed class WebChatSiteResponse
     {
         /// <summary>
+        /// DirectLine application id
+        /// </summary>
+        public readonly string? AppId;
+        /// <summary>
+        /// Entity Tag
+        /// </summary>
+        public readonly string? ETag;
+        /// <summary>
+        /// Whether this site is enabled for block user upload.
+        /// </summary>
+        public readonly bool? IsBlockUserUploadEnabled;
+        /// <summary>
+        /// Whether this site is disabled detailed logging for
+        /// </summary>
+        public readonly bool? IsDetailedLoggingEnabled;
+        /// <summary>
         /// Whether this site is enabled for DirectLine channel
         /// </summary>
         public readonly bool IsEnabled;
+        /// <summary>
+        /// Whether this site is EndpointParameters enabled for channel
+        /// </summary>
+        public readonly bool? IsEndpointParametersEnabled;
+        /// <summary>
+        /// Whether this no-storage site is disabled detailed logging for
+        /// </summary>
+        public readonly bool? IsNoStorageEnabled;
+        /// <summary>
+        /// Whether this site is enabled for authentication with Bot Framework.
+        /// </summary>
+        public readonly bool? IsSecureSiteEnabled;
+        /// <summary>
+        /// Whether this site is token enabled for channel
+        /// </summary>
+        public readonly bool IsTokenEnabled;
+        /// <summary>
+        /// Whether this site is enabled for Bot Framework V1 protocol.
+        /// </summary>
+        public readonly bool? IsV1Enabled;
+        /// <summary>
+        /// Whether this site is enabled for Bot Framework V3 protocol.
+        /// </summary>
+        public readonly bool? IsV3Enabled;
+        /// <summary>
+        /// Whether this site is enabled for Webchat Speech
+        /// </summary>
+        public readonly bool? IsWebChatSpeechEnabled;
         /// <summary>
         /// Whether this site is enabled for preview versions of Webchat
         /// </summary>
@@ -40,10 +84,40 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// Site name
         /// </summary>
         public readonly string SiteName;
+        /// <summary>
+        /// Tenant Id
+        /// </summary>
+        public readonly string? TenantId;
+        /// <summary>
+        /// List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
+        /// </summary>
+        public readonly ImmutableArray<string> TrustedOrigins;
 
         [OutputConstructor]
         private WebChatSiteResponse(
+            string? appId,
+
+            string? eTag,
+
+            bool? isBlockUserUploadEnabled,
+
+            bool? isDetailedLoggingEnabled,
+
             bool isEnabled,
+
+            bool? isEndpointParametersEnabled,
+
+            bool? isNoStorageEnabled,
+
+            bool? isSecureSiteEnabled,
+
+            bool isTokenEnabled,
+
+            bool? isV1Enabled,
+
+            bool? isV3Enabled,
+
+            bool? isWebChatSpeechEnabled,
 
             bool isWebchatPreviewEnabled,
 
@@ -53,14 +127,31 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             string siteId,
 
-            string siteName)
+            string siteName,
+
+            string? tenantId,
+
+            ImmutableArray<string> trustedOrigins)
         {
+            AppId = appId;
+            ETag = eTag;
+            IsBlockUserUploadEnabled = isBlockUserUploadEnabled;
+            IsDetailedLoggingEnabled = isDetailedLoggingEnabled;
             IsEnabled = isEnabled;
+            IsEndpointParametersEnabled = isEndpointParametersEnabled;
+            IsNoStorageEnabled = isNoStorageEnabled;
+            IsSecureSiteEnabled = isSecureSiteEnabled;
+            IsTokenEnabled = isTokenEnabled;
+            IsV1Enabled = isV1Enabled;
+            IsV3Enabled = isV3Enabled;
+            IsWebChatSpeechEnabled = isWebChatSpeechEnabled;
             IsWebchatPreviewEnabled = isWebchatPreviewEnabled;
             Key = key;
             Key2 = key2;
             SiteId = siteId;
             SiteName = siteName;
+            TenantId = tenantId;
+            TrustedOrigins = trustedOrigins;
         }
     }
 }

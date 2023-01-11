@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.BotService.V20171201
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:Bot"},
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:Bot"},
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20220915:Bot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

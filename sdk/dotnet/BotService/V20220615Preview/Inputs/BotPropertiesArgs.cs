@@ -201,7 +201,6 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
             IsCmekEnabled = false;
             IsStreamingSupported = false;
             PublicNetworkAccess = "Enabled";
-            SchemaTransformationVersion = "0.0";
         }
         public static new BotPropertiesArgs Empty => new BotPropertiesArgs();
     }

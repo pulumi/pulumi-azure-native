@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.BotService.Inputs
 
         public SkypeChannelPropertiesArgs()
         {
+            EnableCalling = false;
         }
         public static new SkypeChannelPropertiesArgs Empty => new SkypeChannelPropertiesArgs();
     }

@@ -22,7 +22,6 @@ type Bot struct {
 	Sku        SkuResponsePtrOutput        `pulumi:"sku"`
 	Tags       pulumi.StringMapOutput      `pulumi:"tags"`
 	Type       pulumi.StringOutput         `pulumi:"type"`
-	Zones      pulumi.StringArrayOutput    `pulumi:"zones"`
 }
 
 
@@ -56,6 +55,9 @@ func NewBot(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20220615preview:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20220915:Bot"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -178,10 +180,6 @@ func (o BotOutput) Tags() pulumi.StringMapOutput {
 
 func (o BotOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o BotOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Bot) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

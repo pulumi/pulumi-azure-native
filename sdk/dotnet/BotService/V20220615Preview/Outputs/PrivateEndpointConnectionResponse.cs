@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
+        /// Group ids
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -43,6 +47,8 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -55,6 +61,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
 
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

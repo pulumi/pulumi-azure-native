@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
     public sealed class EmailChannelPropertiesResponse
     {
         /// <summary>
+        /// Email channel auth method. 0 Password (Default); 1 Graph.
+        /// </summary>
+        public readonly double? AuthMethod;
+        /// <summary>
         /// The email address
         /// </summary>
         public readonly string EmailAddress;
@@ -25,20 +29,30 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly bool IsEnabled;
         /// <summary>
+        /// The magic code for setting up the modern authentication.
+        /// </summary>
+        public readonly string? MagicCode;
+        /// <summary>
         /// The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
         public readonly string? Password;
 
         [OutputConstructor]
         private EmailChannelPropertiesResponse(
+            double? authMethod,
+
             string emailAddress,
 
             bool isEnabled,
 
+            string? magicCode,
+
             string? password)
         {
+            AuthMethod = authMethod;
             EmailAddress = emailAddress;
             IsEnabled = isEnabled;
+            MagicCode = magicCode;
             Password = password;
         }
     }

@@ -35,7 +35,6 @@ type LookupBotResult struct {
 	Sku        *SkuResponse          `pulumi:"sku"`
 	Tags       map[string]string     `pulumi:"tags"`
 	Type       string                `pulumi:"type"`
-	Zones      []string              `pulumi:"zones"`
 }
 
 
@@ -120,10 +119,6 @@ func (o LookupBotResultOutput) Tags() pulumi.StringMapOutput {
 
 func (o LookupBotResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotResult) string { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o LookupBotResultOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupBotResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

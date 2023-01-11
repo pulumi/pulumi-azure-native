@@ -71,7 +71,7 @@ export interface ListChannelWithKeysResult {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties: outputs.botservice.AlexaChannelResponse | outputs.botservice.DirectLineChannelResponse | outputs.botservice.DirectLineSpeechChannelResponse | outputs.botservice.EmailChannelResponse | outputs.botservice.FacebookChannelResponse | outputs.botservice.KikChannelResponse | outputs.botservice.LineChannelResponse | outputs.botservice.MsTeamsChannelResponse | outputs.botservice.SkypeChannelResponse | outputs.botservice.SlackChannelResponse | outputs.botservice.SmsChannelResponse | outputs.botservice.TelegramChannelResponse | outputs.botservice.WebChatChannelResponse;
+    readonly properties: outputs.botservice.AcsChatChannelResponse | outputs.botservice.AlexaChannelResponse | outputs.botservice.DirectLineChannelResponse | outputs.botservice.DirectLineSpeechChannelResponse | outputs.botservice.EmailChannelResponse | outputs.botservice.FacebookChannelResponse | outputs.botservice.KikChannelResponse | outputs.botservice.LineChannelResponse | outputs.botservice.M365ExtensionsResponse | outputs.botservice.MsTeamsChannelResponse | outputs.botservice.OmnichannelResponse | outputs.botservice.OutlookChannelResponse | outputs.botservice.SearchAssistantResponse | outputs.botservice.SkypeChannelResponse | outputs.botservice.SlackChannelResponse | outputs.botservice.SmsChannelResponse | outputs.botservice.TelegramChannelResponse | outputs.botservice.TelephonyChannelResponse | outputs.botservice.WebChatChannelResponse;
     /**
      * Provisioning state of the resource
      */
@@ -79,7 +79,7 @@ export interface ListChannelWithKeysResult {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly resource?: outputs.botservice.AlexaChannelResponse | outputs.botservice.DirectLineChannelResponse | outputs.botservice.DirectLineSpeechChannelResponse | outputs.botservice.EmailChannelResponse | outputs.botservice.FacebookChannelResponse | outputs.botservice.KikChannelResponse | outputs.botservice.LineChannelResponse | outputs.botservice.MsTeamsChannelResponse | outputs.botservice.SkypeChannelResponse | outputs.botservice.SlackChannelResponse | outputs.botservice.SmsChannelResponse | outputs.botservice.TelegramChannelResponse | outputs.botservice.WebChatChannelResponse;
+    readonly resource?: outputs.botservice.AcsChatChannelResponse | outputs.botservice.AlexaChannelResponse | outputs.botservice.DirectLineChannelResponse | outputs.botservice.DirectLineSpeechChannelResponse | outputs.botservice.EmailChannelResponse | outputs.botservice.FacebookChannelResponse | outputs.botservice.KikChannelResponse | outputs.botservice.LineChannelResponse | outputs.botservice.M365ExtensionsResponse | outputs.botservice.MsTeamsChannelResponse | outputs.botservice.OmnichannelResponse | outputs.botservice.OutlookChannelResponse | outputs.botservice.SearchAssistantResponse | outputs.botservice.SkypeChannelResponse | outputs.botservice.SlackChannelResponse | outputs.botservice.SmsChannelResponse | outputs.botservice.TelegramChannelResponse | outputs.botservice.TelephonyChannelResponse | outputs.botservice.WebChatChannelResponse;
     /**
      * Channel settings
      */

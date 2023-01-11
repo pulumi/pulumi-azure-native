@@ -63,12 +63,6 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// Entity zones
-        /// </summary>
-        [Output("zones")]
-        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Channel resource with the given unique name, arguments, and options.
@@ -100,6 +94,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20200602:Channel"},
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:Channel"},
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20220915:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

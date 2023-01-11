@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     public sealed class EmailChannelPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Email channel auth method. 0 Password (Default); 1 Graph.
+        /// </summary>
+        [Input("authMethod")]
+        public Input<double>? AuthMethod { get; set; }
+
+        /// <summary>
         /// The email address
         /// </summary>
         [Input("emailAddress", required: true)]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
+
+        /// <summary>
+        /// The magic code for setting up the modern authentication.
+        /// </summary>
+        [Input("magicCode")]
+        public Input<string>? MagicCode { get; set; }
 
         /// <summary>
         /// The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.

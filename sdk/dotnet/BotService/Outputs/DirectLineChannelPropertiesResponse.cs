@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly string? DirectLineEmbedCode;
         /// <summary>
+        /// The extensionKey1
+        /// </summary>
+        public readonly string? ExtensionKey1;
+        /// <summary>
+        /// The extensionKey2
+        /// </summary>
+        public readonly string? ExtensionKey2;
+        /// <summary>
         /// The list of Direct Line sites
         /// </summary>
         public readonly ImmutableArray<Outputs.DirectLineSiteResponse> Sites;
@@ -29,9 +37,15 @@ namespace Pulumi.AzureNative.BotService.Outputs
         private DirectLineChannelPropertiesResponse(
             string? directLineEmbedCode,
 
+            string? extensionKey1,
+
+            string? extensionKey2,
+
             ImmutableArray<Outputs.DirectLineSiteResponse> sites)
         {
             DirectLineEmbedCode = directLineEmbedCode;
+            ExtensionKey1 = extensionKey1;
+            ExtensionKey2 = extensionKey2;
             Sites = sites;
         }
     }

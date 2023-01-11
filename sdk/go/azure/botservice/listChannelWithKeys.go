@@ -16,7 +16,7 @@ func ListChannelWithKeys(ctx *pulumi.Context, args *ListChannelWithKeysArgs, opt
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListChannelWithKeysArgs struct {
@@ -42,6 +42,17 @@ type ListChannelWithKeysResult struct {
 	Tags              map[string]string        `pulumi:"tags"`
 	Type              string                   `pulumi:"type"`
 	Zones             []string                 `pulumi:"zones"`
+}
+
+
+func (val *ListChannelWithKeysResult) Defaults() *ListChannelWithKeysResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Setting = tmp.Setting.Defaults()
+
+	return &tmp
 }
 
 func ListChannelWithKeysOutput(ctx *pulumi.Context, args ListChannelWithKeysOutputArgs, opts ...pulumi.InvokeOption) ListChannelWithKeysResultOutput {

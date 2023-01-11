@@ -189,8 +189,16 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         [Input("storageResourceId")]
         public Input<string>? StorageResourceId { get; set; }
 
+        /// <summary>
+        /// The Tenant Id for the bot
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
         public BotPropertiesArgs()
         {
+            IconUrl = "";
+            IsCmekEnabled = false;
             IsStreamingSupported = false;
             PublicNetworkAccess = "Enabled";
         }

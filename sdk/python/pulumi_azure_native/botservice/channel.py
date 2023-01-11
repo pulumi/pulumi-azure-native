@@ -22,7 +22,7 @@ class ChannelArgs:
                  channel_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'MsTeamsChannelArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'WebChatChannelArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AcsChatChannelArgs', 'AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'M365ExtensionsArgs', 'MsTeamsChannelArgs', 'OmnichannelArgs', 'OutlookChannelArgs', 'SearchAssistantArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'TelephonyChannelArgs', 'WebChatChannelArgs']]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -32,7 +32,7 @@ class ChannelArgs:
         :param pulumi.Input[str] channel_name: The name of the Channel resource.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[Union['AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'MsTeamsChannelArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'WebChatChannelArgs']] properties: The set of properties specific to bot channel resource
+        :param pulumi.Input[Union['AcsChatChannelArgs', 'AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'M365ExtensionsArgs', 'MsTeamsChannelArgs', 'OmnichannelArgs', 'OutlookChannelArgs', 'SearchAssistantArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'TelephonyChannelArgs', 'WebChatChannelArgs']] properties: The set of properties specific to bot channel resource
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
@@ -113,14 +113,14 @@ class ChannelArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'MsTeamsChannelArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'WebChatChannelArgs']]]:
+    def properties(self) -> Optional[pulumi.Input[Union['AcsChatChannelArgs', 'AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'M365ExtensionsArgs', 'MsTeamsChannelArgs', 'OmnichannelArgs', 'OutlookChannelArgs', 'SearchAssistantArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'TelephonyChannelArgs', 'WebChatChannelArgs']]]:
         """
         The set of properties specific to bot channel resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'MsTeamsChannelArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'WebChatChannelArgs']]]):
+    def properties(self, value: Optional[pulumi.Input[Union['AcsChatChannelArgs', 'AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'M365ExtensionsArgs', 'MsTeamsChannelArgs', 'OmnichannelArgs', 'OutlookChannelArgs', 'SearchAssistantArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'TelephonyChannelArgs', 'WebChatChannelArgs']]]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -156,7 +156,7 @@ class Channel(pulumi.CustomResource):
                  channel_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['WebChatChannelArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AcsChatChannelArgs'], pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['M365ExtensionsArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['OmnichannelArgs'], pulumi.InputType['OutlookChannelArgs'], pulumi.InputType['SearchAssistantArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['TelephonyChannelArgs'], pulumi.InputType['WebChatChannelArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -171,7 +171,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] channel_name: The name of the Channel resource.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['WebChatChannelArgs']]] properties: The set of properties specific to bot channel resource
+        :param pulumi.Input[Union[pulumi.InputType['AcsChatChannelArgs'], pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['M365ExtensionsArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['OmnichannelArgs'], pulumi.InputType['OutlookChannelArgs'], pulumi.InputType['SearchAssistantArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['TelephonyChannelArgs'], pulumi.InputType['WebChatChannelArgs']]] properties: The set of properties specific to bot channel resource
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
         :param pulumi.Input[str] resource_name_: The name of the Bot resource.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
@@ -205,7 +205,7 @@ class Channel(pulumi.CustomResource):
                  channel_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['WebChatChannelArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AcsChatChannelArgs'], pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['M365ExtensionsArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['OmnichannelArgs'], pulumi.InputType['OutlookChannelArgs'], pulumi.InputType['SearchAssistantArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['TelephonyChannelArgs'], pulumi.InputType['WebChatChannelArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -235,7 +235,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["zones"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice/v20171201:Channel"), pulumi.Alias(type_="azure-native:botservice/v20180712:Channel"), pulumi.Alias(type_="azure-native:botservice/v20200602:Channel"), pulumi.Alias(type_="azure-native:botservice/v20210301:Channel"), pulumi.Alias(type_="azure-native:botservice/v20210501preview:Channel"), pulumi.Alias(type_="azure-native:botservice/v20220615preview:Channel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice/v20171201:Channel"), pulumi.Alias(type_="azure-native:botservice/v20180712:Channel"), pulumi.Alias(type_="azure-native:botservice/v20200602:Channel"), pulumi.Alias(type_="azure-native:botservice/v20210301:Channel"), pulumi.Alias(type_="azure-native:botservice/v20210501preview:Channel"), pulumi.Alias(type_="azure-native:botservice/v20220615preview:Channel"), pulumi.Alias(type_="azure-native:botservice/v20220915:Channel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Channel, __self__).__init__(
             'azure-native:botservice:Channel',

@@ -2025,6 +2025,16 @@
       "listBotConnectionWithSecrets",
       "listChannelWithKeys",
       "listQnAMakerEndpointKey"
+    ],
+    "2022-09-15": [
+      "Bot",
+      "BotConnection",
+      "Channel",
+      "PrivateEndpointConnection",
+      "listBotConnectionServiceProviders",
+      "listBotConnectionWithSecrets",
+      "listChannelWithKeys",
+      "listQnAMakerEndpointKey"
     ]
   },
   "Cache": {

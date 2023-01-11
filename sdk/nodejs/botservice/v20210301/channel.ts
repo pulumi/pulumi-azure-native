@@ -56,7 +56,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The set of properties specific to bot channel resource
      */
-    public readonly properties!: pulumi.Output<outputs.botservice.v20210301.AlexaChannelResponse | outputs.botservice.v20210301.DirectLineChannelResponse | outputs.botservice.v20210301.DirectLineSpeechChannelResponse | outputs.botservice.v20210301.EmailChannelResponse | outputs.botservice.v20210301.FacebookChannelResponse | outputs.botservice.v20210301.KikChannelResponse | outputs.botservice.v20210301.LineChannelResponse | outputs.botservice.v20210301.MsTeamsChannelResponse | outputs.botservice.v20210301.SkypeChannelResponse | outputs.botservice.v20210301.SlackChannelResponse | outputs.botservice.v20210301.SmsChannelResponse | outputs.botservice.v20210301.TelegramChannelResponse | outputs.botservice.v20210301.WebChatChannelResponse>;
+    public readonly properties!: pulumi.Output<outputs.botservice.v20210301.AcsChatChannelResponse | outputs.botservice.v20210301.AlexaChannelResponse | outputs.botservice.v20210301.DirectLineChannelResponse | outputs.botservice.v20210301.DirectLineSpeechChannelResponse | outputs.botservice.v20210301.EmailChannelResponse | outputs.botservice.v20210301.FacebookChannelResponse | outputs.botservice.v20210301.KikChannelResponse | outputs.botservice.v20210301.LineChannelResponse | outputs.botservice.v20210301.M365ExtensionsResponse | outputs.botservice.v20210301.MsTeamsChannelResponse | outputs.botservice.v20210301.OmnichannelResponse | outputs.botservice.v20210301.OutlookChannelResponse | outputs.botservice.v20210301.SearchAssistantResponse | outputs.botservice.v20210301.SkypeChannelResponse | outputs.botservice.v20210301.SlackChannelResponse | outputs.botservice.v20210301.SmsChannelResponse | outputs.botservice.v20210301.TelegramChannelResponse | outputs.botservice.v20210301.TelephonyChannelResponse | outputs.botservice.v20210301.WebChatChannelResponse>;
     /**
      * Gets or sets the SKU of the resource.
      */
@@ -115,7 +115,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice:Channel" }, { type: "azure-native:botservice/v20171201:Channel" }, { type: "azure-native:botservice/v20180712:Channel" }, { type: "azure-native:botservice/v20200602:Channel" }, { type: "azure-native:botservice/v20210501preview:Channel" }, { type: "azure-native:botservice/v20220615preview:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice:Channel" }, { type: "azure-native:botservice/v20171201:Channel" }, { type: "azure-native:botservice/v20180712:Channel" }, { type: "azure-native:botservice/v20200602:Channel" }, { type: "azure-native:botservice/v20210501preview:Channel" }, { type: "azure-native:botservice/v20220615preview:Channel" }, { type: "azure-native:botservice/v20220915:Channel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
@@ -140,7 +140,7 @@ export interface ChannelArgs {
     /**
      * The set of properties specific to bot channel resource
      */
-    properties?: pulumi.Input<inputs.botservice.v20210301.AlexaChannelArgs | inputs.botservice.v20210301.DirectLineChannelArgs | inputs.botservice.v20210301.DirectLineSpeechChannelArgs | inputs.botservice.v20210301.EmailChannelArgs | inputs.botservice.v20210301.FacebookChannelArgs | inputs.botservice.v20210301.KikChannelArgs | inputs.botservice.v20210301.LineChannelArgs | inputs.botservice.v20210301.MsTeamsChannelArgs | inputs.botservice.v20210301.SkypeChannelArgs | inputs.botservice.v20210301.SlackChannelArgs | inputs.botservice.v20210301.SmsChannelArgs | inputs.botservice.v20210301.TelegramChannelArgs | inputs.botservice.v20210301.WebChatChannelArgs>;
+    properties?: pulumi.Input<inputs.botservice.v20210301.AcsChatChannelArgs | inputs.botservice.v20210301.AlexaChannelArgs | inputs.botservice.v20210301.DirectLineChannelArgs | inputs.botservice.v20210301.DirectLineSpeechChannelArgs | inputs.botservice.v20210301.EmailChannelArgs | inputs.botservice.v20210301.FacebookChannelArgs | inputs.botservice.v20210301.KikChannelArgs | inputs.botservice.v20210301.LineChannelArgs | inputs.botservice.v20210301.M365ExtensionsArgs | inputs.botservice.v20210301.MsTeamsChannelArgs | inputs.botservice.v20210301.OmnichannelArgs | inputs.botservice.v20210301.OutlookChannelArgs | inputs.botservice.v20210301.SearchAssistantArgs | inputs.botservice.v20210301.SkypeChannelArgs | inputs.botservice.v20210301.SlackChannelArgs | inputs.botservice.v20210301.SmsChannelArgs | inputs.botservice.v20210301.TelegramChannelArgs | inputs.botservice.v20210301.TelephonyChannelArgs | inputs.botservice.v20210301.WebChatChannelArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */

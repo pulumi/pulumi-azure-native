@@ -18,14 +18,20 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         /// <summary>
         /// The cognitive service region with this channel registration.
         /// </summary>
-        [Input("cognitiveServiceRegion", required: true)]
-        public Input<string> CognitiveServiceRegion { get; set; } = null!;
+        [Input("cognitiveServiceRegion")]
+        public Input<string>? CognitiveServiceRegion { get; set; }
+
+        /// <summary>
+        /// The cognitive service id with this channel registration.
+        /// </summary>
+        [Input("cognitiveServiceResourceId")]
+        public Input<string>? CognitiveServiceResourceId { get; set; }
 
         /// <summary>
         /// The cognitive service subscription key to use with this channel registration.
         /// </summary>
-        [Input("cognitiveServiceSubscriptionKey", required: true)]
-        public Input<string> CognitiveServiceSubscriptionKey { get; set; } = null!;
+        [Input("cognitiveServiceSubscriptionKey")]
+        public Input<string>? CognitiveServiceSubscriptionKey { get; set; }
 
         /// <summary>
         /// Custom voice deployment id (optional).

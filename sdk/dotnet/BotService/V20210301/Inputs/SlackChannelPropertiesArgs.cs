@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public Input<string>? LandingPageUrl { get; set; }
 
         /// <summary>
+        /// The Slack permission scopes.
+        /// </summary>
+        [Input("scopes")]
+        public Input<string>? Scopes { get; set; }
+
+        /// <summary>
         /// The Slack signing secret.
         /// </summary>
         [Input("signingSecret")]

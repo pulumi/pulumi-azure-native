@@ -75,10 +75,6 @@ export interface ListBotConnectionWithSecretsResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
-    /**
-     * Entity zones
-     */
-    readonly zones: string[];
 }
 /**
  * Bot channel resource definition

@@ -57,7 +57,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The set of properties specific to bot channel resource
      */
-    public readonly properties!: pulumi.Output<outputs.botservice.AlexaChannelResponse | outputs.botservice.DirectLineChannelResponse | outputs.botservice.DirectLineSpeechChannelResponse | outputs.botservice.EmailChannelResponse | outputs.botservice.FacebookChannelResponse | outputs.botservice.KikChannelResponse | outputs.botservice.LineChannelResponse | outputs.botservice.MsTeamsChannelResponse | outputs.botservice.SkypeChannelResponse | outputs.botservice.SlackChannelResponse | outputs.botservice.SmsChannelResponse | outputs.botservice.TelegramChannelResponse | outputs.botservice.WebChatChannelResponse>;
+    public readonly properties!: pulumi.Output<outputs.botservice.AcsChatChannelResponse | outputs.botservice.AlexaChannelResponse | outputs.botservice.DirectLineChannelResponse | outputs.botservice.DirectLineSpeechChannelResponse | outputs.botservice.EmailChannelResponse | outputs.botservice.FacebookChannelResponse | outputs.botservice.KikChannelResponse | outputs.botservice.LineChannelResponse | outputs.botservice.M365ExtensionsResponse | outputs.botservice.MsTeamsChannelResponse | outputs.botservice.OmnichannelResponse | outputs.botservice.OutlookChannelResponse | outputs.botservice.SearchAssistantResponse | outputs.botservice.SkypeChannelResponse | outputs.botservice.SlackChannelResponse | outputs.botservice.SmsChannelResponse | outputs.botservice.TelegramChannelResponse | outputs.botservice.TelephonyChannelResponse | outputs.botservice.WebChatChannelResponse>;
     /**
      * Gets or sets the SKU of the resource.
      */
@@ -116,7 +116,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice/v20171201:Channel" }, { type: "azure-native:botservice/v20180712:Channel" }, { type: "azure-native:botservice/v20200602:Channel" }, { type: "azure-native:botservice/v20210301:Channel" }, { type: "azure-native:botservice/v20210501preview:Channel" }, { type: "azure-native:botservice/v20220615preview:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice/v20171201:Channel" }, { type: "azure-native:botservice/v20180712:Channel" }, { type: "azure-native:botservice/v20200602:Channel" }, { type: "azure-native:botservice/v20210301:Channel" }, { type: "azure-native:botservice/v20210501preview:Channel" }, { type: "azure-native:botservice/v20220615preview:Channel" }, { type: "azure-native:botservice/v20220915:Channel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
@@ -141,7 +141,7 @@ export interface ChannelArgs {
     /**
      * The set of properties specific to bot channel resource
      */
-    properties?: pulumi.Input<inputs.botservice.AlexaChannelArgs | inputs.botservice.DirectLineChannelArgs | inputs.botservice.DirectLineSpeechChannelArgs | inputs.botservice.EmailChannelArgs | inputs.botservice.FacebookChannelArgs | inputs.botservice.KikChannelArgs | inputs.botservice.LineChannelArgs | inputs.botservice.MsTeamsChannelArgs | inputs.botservice.SkypeChannelArgs | inputs.botservice.SlackChannelArgs | inputs.botservice.SmsChannelArgs | inputs.botservice.TelegramChannelArgs | inputs.botservice.WebChatChannelArgs>;
+    properties?: pulumi.Input<inputs.botservice.AcsChatChannelArgs | inputs.botservice.AlexaChannelArgs | inputs.botservice.DirectLineChannelArgs | inputs.botservice.DirectLineSpeechChannelArgs | inputs.botservice.EmailChannelArgs | inputs.botservice.FacebookChannelArgs | inputs.botservice.KikChannelArgs | inputs.botservice.LineChannelArgs | inputs.botservice.M365ExtensionsArgs | inputs.botservice.MsTeamsChannelArgs | inputs.botservice.OmnichannelArgs | inputs.botservice.OutlookChannelArgs | inputs.botservice.SearchAssistantArgs | inputs.botservice.SkypeChannelArgs | inputs.botservice.SlackChannelArgs | inputs.botservice.SmsChannelArgs | inputs.botservice.TelegramChannelArgs | inputs.botservice.TelephonyChannelArgs | inputs.botservice.WebChatChannelArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */

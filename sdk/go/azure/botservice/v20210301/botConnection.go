@@ -38,6 +38,9 @@ func NewBotConnection(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToConnectionSettingPropertiesPtrOutput().ApplyT(func(v *ConnectionSettingProperties) *ConnectionSettingProperties { return v.Defaults() }).(ConnectionSettingPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:botservice:BotConnection"),
@@ -56,6 +59,9 @@ func NewBotConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20220615preview:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20220915:BotConnection"),
 		},
 	})
 	opts = append(opts, aliases)

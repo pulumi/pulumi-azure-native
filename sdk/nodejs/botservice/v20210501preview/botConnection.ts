@@ -69,10 +69,6 @@ export class BotConnection extends pulumi.CustomResource {
      * Specifies the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Entity zones
-     */
-    public /*out*/ readonly zones!: pulumi.Output<string[]>;
 
     /**
      * Create a BotConnection resource with the given unique name, arguments, and options.
@@ -94,7 +90,7 @@ export class BotConnection extends pulumi.CustomResource {
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.botservice.v20210501preview.connectionSettingPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -102,7 +98,6 @@ export class BotConnection extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["zones"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -112,10 +107,9 @@ export class BotConnection extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice:BotConnection" }, { type: "azure-native:botservice/v20171201:BotConnection" }, { type: "azure-native:botservice/v20180712:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-native:botservice/v20210301:BotConnection" }, { type: "azure-native:botservice/v20220615preview:BotConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice:BotConnection" }, { type: "azure-native:botservice/v20171201:BotConnection" }, { type: "azure-native:botservice/v20180712:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-native:botservice/v20210301:BotConnection" }, { type: "azure-native:botservice/v20220615preview:BotConnection" }, { type: "azure-native:botservice/v20220915:BotConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BotConnection.__pulumiType, name, resourceInputs, opts);
     }

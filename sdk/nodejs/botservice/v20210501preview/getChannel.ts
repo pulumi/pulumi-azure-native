@@ -62,7 +62,7 @@ export interface GetChannelResult {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties: outputs.botservice.v20210501preview.AlexaChannelResponse | outputs.botservice.v20210501preview.DirectLineChannelResponse | outputs.botservice.v20210501preview.DirectLineSpeechChannelResponse | outputs.botservice.v20210501preview.EmailChannelResponse | outputs.botservice.v20210501preview.FacebookChannelResponse | outputs.botservice.v20210501preview.KikChannelResponse | outputs.botservice.v20210501preview.LineChannelResponse | outputs.botservice.v20210501preview.MsTeamsChannelResponse | outputs.botservice.v20210501preview.SkypeChannelResponse | outputs.botservice.v20210501preview.SlackChannelResponse | outputs.botservice.v20210501preview.SmsChannelResponse | outputs.botservice.v20210501preview.TelegramChannelResponse | outputs.botservice.v20210501preview.WebChatChannelResponse;
+    readonly properties: outputs.botservice.v20210501preview.AcsChatChannelResponse | outputs.botservice.v20210501preview.AlexaChannelResponse | outputs.botservice.v20210501preview.DirectLineChannelResponse | outputs.botservice.v20210501preview.DirectLineSpeechChannelResponse | outputs.botservice.v20210501preview.EmailChannelResponse | outputs.botservice.v20210501preview.FacebookChannelResponse | outputs.botservice.v20210501preview.KikChannelResponse | outputs.botservice.v20210501preview.LineChannelResponse | outputs.botservice.v20210501preview.M365ExtensionsResponse | outputs.botservice.v20210501preview.MsTeamsChannelResponse | outputs.botservice.v20210501preview.OmnichannelResponse | outputs.botservice.v20210501preview.OutlookChannelResponse | outputs.botservice.v20210501preview.SearchAssistantResponse | outputs.botservice.v20210501preview.SkypeChannelResponse | outputs.botservice.v20210501preview.SlackChannelResponse | outputs.botservice.v20210501preview.SmsChannelResponse | outputs.botservice.v20210501preview.TelegramChannelResponse | outputs.botservice.v20210501preview.TelephonyChannelResponse | outputs.botservice.v20210501preview.WebChatChannelResponse;
     /**
      * Gets or sets the SKU of the resource.
      */
@@ -75,10 +75,6 @@ export interface GetChannelResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
-    /**
-     * Entity zones
-     */
-    readonly zones: string[];
 }
 /**
  * Bot channel resource definition

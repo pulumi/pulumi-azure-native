@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Group ids
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:botservice:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20220915:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,6 +102,18 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
 
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("groupIds")]
+        private InputList<string>? _groupIds;
+
+        /// <summary>
+        /// Group ids
+        /// </summary>
+        public InputList<string> GroupIds
+        {
+            get => _groupIds ?? (_groupIds = new InputList<string>());
+            set => _groupIds = value;
+        }
+
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
         /// </summary>

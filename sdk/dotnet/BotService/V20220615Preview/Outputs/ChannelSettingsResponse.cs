@@ -39,15 +39,19 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
         /// <summary>
         /// The extensionKey1
         /// </summary>
-        public readonly string ExtensionKey1;
+        public readonly string? ExtensionKey1;
         /// <summary>
         /// The extensionKey2
         /// </summary>
-        public readonly string ExtensionKey2;
+        public readonly string? ExtensionKey2;
         /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// Whether customer needs to agree to new terms.
+        /// </summary>
+        public readonly bool? RequireTermsAgreement;
         /// <summary>
         /// The list of sites
         /// </summary>
@@ -65,11 +69,13 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
 
             bool? disableLocalAuth,
 
-            string extensionKey1,
+            string? extensionKey1,
 
-            string extensionKey2,
+            string? extensionKey2,
 
             bool? isEnabled,
+
+            bool? requireTermsAgreement,
 
             ImmutableArray<Outputs.SiteResponse> sites)
         {
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
             ExtensionKey1 = extensionKey1;
             ExtensionKey2 = extensionKey2;
             IsEnabled = isEnabled;
+            RequireTermsAgreement = requireTermsAgreement;
             Sites = sites;
         }
     }

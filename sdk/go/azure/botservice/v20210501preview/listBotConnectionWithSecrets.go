@@ -16,7 +16,7 @@ func ListBotConnectionWithSecrets(ctx *pulumi.Context, args *ListBotConnectionWi
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListBotConnectionWithSecretsArgs struct {
@@ -36,7 +36,17 @@ type ListBotConnectionWithSecretsResult struct {
 	Sku        *SkuResponse                        `pulumi:"sku"`
 	Tags       map[string]string                   `pulumi:"tags"`
 	Type       string                              `pulumi:"type"`
-	Zones      []string                            `pulumi:"zones"`
+}
+
+
+func (val *ListBotConnectionWithSecretsResult) Defaults() *ListBotConnectionWithSecretsResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 func ListBotConnectionWithSecretsOutput(ctx *pulumi.Context, args ListBotConnectionWithSecretsOutputArgs, opts ...pulumi.InvokeOption) ListBotConnectionWithSecretsResultOutput {
@@ -111,10 +121,6 @@ func (o ListBotConnectionWithSecretsResultOutput) Tags() pulumi.StringMapOutput 
 
 func (o ListBotConnectionWithSecretsResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ListBotConnectionWithSecretsResult) string { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o ListBotConnectionWithSecretsResultOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ListBotConnectionWithSecretsResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

@@ -22,7 +22,6 @@ type BotConnection struct {
 	Sku        SkuResponsePtrOutput                      `pulumi:"sku"`
 	Tags       pulumi.StringMapOutput                    `pulumi:"tags"`
 	Type       pulumi.StringOutput                       `pulumi:"type"`
-	Zones      pulumi.StringArrayOutput                  `pulumi:"zones"`
 }
 
 
@@ -37,6 +36,9 @@ func NewBotConnection(ctx *pulumi.Context,
 	}
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToConnectionSettingPropertiesPtrOutput().ApplyT(func(v *ConnectionSettingProperties) *ConnectionSettingProperties { return v.Defaults() }).(ConnectionSettingPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -56,6 +58,9 @@ func NewBotConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20220615preview:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20220915:BotConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -180,10 +185,6 @@ func (o BotConnectionOutput) Tags() pulumi.StringMapOutput {
 
 func (o BotConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o BotConnectionOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BotConnection) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

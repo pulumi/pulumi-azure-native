@@ -24,8 +24,8 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         /// <summary>
         /// Webhook for Microsoft Teams channel calls
         /// </summary>
-        [Input("callingWebHook")]
-        public Input<string>? CallingWebHook { get; set; }
+        [Input("callingWebhook")]
+        public Input<string>? CallingWebhook { get; set; }
 
         /// <summary>
         /// Deployment environment for Microsoft Teams channel calls
@@ -53,6 +53,8 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
 
         public MsTeamsChannelPropertiesArgs()
         {
+            DeploymentEnvironment = "FallbackDeploymentEnvironment";
+            EnableCalling = false;
         }
         public static new MsTeamsChannelPropertiesArgs Empty => new MsTeamsChannelPropertiesArgs();
     }

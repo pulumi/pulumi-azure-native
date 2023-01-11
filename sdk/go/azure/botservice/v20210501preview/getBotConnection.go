@@ -16,7 +16,7 @@ func LookupBotConnection(ctx *pulumi.Context, args *LookupBotConnectionArgs, opt
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBotConnectionArgs struct {
@@ -36,7 +36,17 @@ type LookupBotConnectionResult struct {
 	Sku        *SkuResponse                        `pulumi:"sku"`
 	Tags       map[string]string                   `pulumi:"tags"`
 	Type       string                              `pulumi:"type"`
-	Zones      []string                            `pulumi:"zones"`
+}
+
+
+func (val *LookupBotConnectionResult) Defaults() *LookupBotConnectionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 func LookupBotConnectionOutput(ctx *pulumi.Context, args LookupBotConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupBotConnectionResultOutput {
@@ -111,10 +121,6 @@ func (o LookupBotConnectionResultOutput) Tags() pulumi.StringMapOutput {
 
 func (o LookupBotConnectionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotConnectionResult) string { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o LookupBotConnectionResultOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupBotConnectionResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

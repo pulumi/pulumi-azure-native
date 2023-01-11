@@ -22,7 +22,7 @@ class ListChannelWithKeysResult:
     """
     The ARM channel of list channel with keys operation response.
     """
-    def __init__(__self__, changed_time=None, entity_tag=None, etag=None, id=None, kind=None, location=None, name=None, properties=None, provisioning_state=None, resource=None, setting=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, changed_time=None, entity_tag=None, etag=None, id=None, kind=None, location=None, name=None, properties=None, provisioning_state=None, resource=None, setting=None, sku=None, tags=None, type=None):
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -65,9 +65,6 @@ class ListChannelWithKeysResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="changedTime")
@@ -181,14 +178,6 @@ class ListChannelWithKeysResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def zones(self) -> Sequence[str]:
-        """
-        Entity zones
-        """
-        return pulumi.get(self, "zones")
-
 
 class AwaitableListChannelWithKeysResult(ListChannelWithKeysResult):
     # pylint: disable=using-constant-test
@@ -209,8 +198,7 @@ class AwaitableListChannelWithKeysResult(ListChannelWithKeysResult):
             setting=self.setting,
             sku=self.sku,
             tags=self.tags,
-            type=self.type,
-            zones=self.zones)
+            type=self.type)
 
 
 def list_channel_with_keys(channel_name: Optional[str] = None,
@@ -246,8 +234,7 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
         setting=__ret__.setting,
         sku=__ret__.sku,
         tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(list_channel_with_keys)

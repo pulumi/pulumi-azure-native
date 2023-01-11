@@ -22,7 +22,7 @@ class GetBotConnectionResult:
     """
     Bot channel resource definition
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -50,9 +50,6 @@ class GetBotConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -126,14 +123,6 @@ class GetBotConnectionResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def zones(self) -> Sequence[str]:
-        """
-        Entity zones
-        """
-        return pulumi.get(self, "zones")
-
 
 class AwaitableGetBotConnectionResult(GetBotConnectionResult):
     # pylint: disable=using-constant-test
@@ -149,8 +138,7 @@ class AwaitableGetBotConnectionResult(GetBotConnectionResult):
             properties=self.properties,
             sku=self.sku,
             tags=self.tags,
-            type=self.type,
-            zones=self.zones)
+            type=self.type)
 
 
 def get_bot_connection(connection_name: Optional[str] = None,
@@ -181,8 +169,7 @@ def get_bot_connection(connection_name: Optional[str] = None,
         properties=__ret__.properties,
         sku=__ret__.sku,
         tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_bot_connection)

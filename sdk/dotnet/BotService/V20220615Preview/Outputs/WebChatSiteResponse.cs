@@ -57,9 +57,13 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
         /// </summary>
         public readonly bool? IsV1Enabled;
         /// <summary>
-        /// Whether this site is enabled for Bot Framework V1 protocol.
+        /// Whether this site is enabled for Bot Framework V3 protocol.
         /// </summary>
         public readonly bool? IsV3Enabled;
+        /// <summary>
+        /// Whether this site is enabled for Webchat Speech
+        /// </summary>
+        public readonly bool? IsWebChatSpeechEnabled;
         /// <summary>
         /// Whether this site is enabled for preview versions of Webchat
         /// </summary>
@@ -80,6 +84,10 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
         /// Site name
         /// </summary>
         public readonly string SiteName;
+        /// <summary>
+        /// Tenant Id
+        /// </summary>
+        public readonly string? TenantId;
         /// <summary>
         /// List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         /// </summary>
@@ -109,6 +117,8 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
 
             bool? isV3Enabled,
 
+            bool? isWebChatSpeechEnabled,
+
             bool isWebchatPreviewEnabled,
 
             string key,
@@ -118,6 +128,8 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
             string siteId,
 
             string siteName,
+
+            string? tenantId,
 
             ImmutableArray<string> trustedOrigins)
         {
@@ -132,11 +144,13 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Outputs
             IsTokenEnabled = isTokenEnabled;
             IsV1Enabled = isV1Enabled;
             IsV3Enabled = isV3Enabled;
+            IsWebChatSpeechEnabled = isWebChatSpeechEnabled;
             IsWebchatPreviewEnabled = isWebchatPreviewEnabled;
             Key = key;
             Key2 = key2;
             SiteId = siteId;
             SiteName = siteName;
+            TenantId = tenantId;
             TrustedOrigins = trustedOrigins;
         }
     }

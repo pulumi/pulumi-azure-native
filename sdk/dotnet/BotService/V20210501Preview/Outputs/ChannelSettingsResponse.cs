@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
+        /// Whether customer needs to agree to new terms.
+        /// </summary>
+        public readonly bool? RequireTermsAgreement;
+        /// <summary>
         /// The list of sites
         /// </summary>
         public readonly ImmutableArray<Outputs.SiteResponse> Sites;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             bool? isEnabled,
 
+            bool? requireTermsAgreement,
+
             ImmutableArray<Outputs.SiteResponse> sites)
         {
             BotIconUrl = botIconUrl;
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
             ExtensionKey1 = extensionKey1;
             ExtensionKey2 = extensionKey2;
             IsEnabled = isEnabled;
+            RequireTermsAgreement = requireTermsAgreement;
             Sites = sites;
         }
     }

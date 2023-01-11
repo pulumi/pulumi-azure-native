@@ -70,10 +70,16 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         public Input<bool> IsV1Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Whether this site is enabled for Bot Framework V1 protocol.
+        /// Whether this site is enabled for Bot Framework V3 protocol.
         /// </summary>
         [Input("isV3Enabled", required: true)]
         public Input<bool> IsV3Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// Whether this site is enabled for Webchat Speech
+        /// </summary>
+        [Input("isWebChatSpeechEnabled")]
+        public Input<bool>? IsWebChatSpeechEnabled { get; set; }
 
         /// <summary>
         /// Whether this site is enabled for preview versions of Webchat
@@ -86,6 +92,12 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         /// </summary>
         [Input("siteName", required: true)]
         public Input<string> SiteName { get; set; } = null!;
+
+        /// <summary>
+        /// Tenant Id
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         [Input("trustedOrigins")]
         private InputList<string>? _trustedOrigins;
@@ -101,6 +113,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
 
         public DirectLineSiteArgs()
         {
+            IsWebChatSpeechEnabled = false;
             IsWebchatPreviewEnabled = false;
         }
         public static new DirectLineSiteArgs Empty => new DirectLineSiteArgs();

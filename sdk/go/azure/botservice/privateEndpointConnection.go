@@ -14,6 +14,7 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
+	GroupIds                          pulumi.StringArrayOutput                        `pulumi:"groupIds"`
 	Name                              pulumi.StringOutput                             `pulumi:"name"`
 	PrivateEndpoint                   PrivateEndpointResponsePtrOutput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
@@ -43,6 +44,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20220615preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20220915:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -78,6 +82,7 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
+	GroupIds                          []string                          `pulumi:"groupIds"`
 	PrivateEndpointConnectionName     *string                           `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	ResourceGroupName                 string                            `pulumi:"resourceGroupName"`
@@ -86,6 +91,7 @@ type privateEndpointConnectionArgs struct {
 
 
 type PrivateEndpointConnectionArgs struct {
+	GroupIds                          pulumi.StringArrayInput
 	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	ResourceGroupName                 pulumi.StringInput
@@ -127,6 +133,10 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() Pri
 
 func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
 	return o
+}
+
+func (o PrivateEndpointConnectionOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringArrayOutput { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o PrivateEndpointConnectionOutput) Name() pulumi.StringOutput {

@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
         [Input("directLineEmbedCode")]
         public Input<string>? DirectLineEmbedCode { get; set; }
 
+        /// <summary>
+        /// The extensionKey1
+        /// </summary>
+        [Input("extensionKey1")]
+        public Input<string>? ExtensionKey1 { get; set; }
+
+        /// <summary>
+        /// The extensionKey2
+        /// </summary>
+        [Input("extensionKey2")]
+        public Input<string>? ExtensionKey2 { get; set; }
+
         [Input("sites")]
         private InputList<Inputs.DirectLineSiteArgs>? _sites;
 
@@ -35,6 +47,8 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview.Inputs
 
         public DirectLineChannelPropertiesArgs()
         {
+            ExtensionKey1 = "";
+            ExtensionKey2 = "";
         }
         public static new DirectLineChannelPropertiesArgs Empty => new DirectLineChannelPropertiesArgs();
     }

@@ -16,16 +16,46 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     public sealed class DirectLineSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// DirectLine application id
+        /// </summary>
+        [Input("appId")]
+        public Input<string>? AppId { get; set; }
+
+        /// <summary>
+        /// Entity Tag
+        /// </summary>
+        [Input("eTag")]
+        public Input<string>? ETag { get; set; }
+
+        /// <summary>
         /// Whether this site is enabled for block user upload.
         /// </summary>
         [Input("isBlockUserUploadEnabled")]
         public Input<bool>? IsBlockUserUploadEnabled { get; set; }
 
         /// <summary>
-        /// Whether this site is enabled for DirectLine channel.
+        /// Whether this site is disabled detailed logging for
+        /// </summary>
+        [Input("isDetailedLoggingEnabled")]
+        public Input<bool>? IsDetailedLoggingEnabled { get; set; }
+
+        /// <summary>
+        /// Whether this site is enabled for DirectLine channel
         /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
+
+        /// <summary>
+        /// Whether this site is EndpointParameters enabled for channel
+        /// </summary>
+        [Input("isEndpointParametersEnabled")]
+        public Input<bool>? IsEndpointParametersEnabled { get; set; }
+
+        /// <summary>
+        /// Whether this no-storage site is disabled detailed logging for
+        /// </summary>
+        [Input("isNoStorageEnabled")]
+        public Input<bool>? IsNoStorageEnabled { get; set; }
 
         /// <summary>
         /// Whether this site is enabled for authentication with Bot Framework.
@@ -40,16 +70,34 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public Input<bool> IsV1Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Whether this site is enabled for Bot Framework V1 protocol.
+        /// Whether this site is enabled for Bot Framework V3 protocol.
         /// </summary>
         [Input("isV3Enabled", required: true)]
         public Input<bool> IsV3Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// Whether this site is enabled for Webchat Speech
+        /// </summary>
+        [Input("isWebChatSpeechEnabled")]
+        public Input<bool>? IsWebChatSpeechEnabled { get; set; }
+
+        /// <summary>
+        /// Whether this site is enabled for preview versions of Webchat
+        /// </summary>
+        [Input("isWebchatPreviewEnabled")]
+        public Input<bool>? IsWebchatPreviewEnabled { get; set; }
 
         /// <summary>
         /// Site name
         /// </summary>
         [Input("siteName", required: true)]
         public Input<string> SiteName { get; set; } = null!;
+
+        /// <summary>
+        /// Tenant Id
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         [Input("trustedOrigins")]
         private InputList<string>? _trustedOrigins;
@@ -65,6 +113,8 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
 
         public DirectLineSiteArgs()
         {
+            IsWebChatSpeechEnabled = false;
+            IsWebchatPreviewEnabled = false;
         }
         public static new DirectLineSiteArgs Empty => new DirectLineSiteArgs();
     }
