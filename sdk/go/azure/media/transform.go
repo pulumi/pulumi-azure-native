@@ -58,6 +58,9 @@ func NewTransform(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:media/v20211101:Transform"),
 		},
+		{
+			Type: pulumi.String("azure-native:media/v20220701:Transform"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Transform

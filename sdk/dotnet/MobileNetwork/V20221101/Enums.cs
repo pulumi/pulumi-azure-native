@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         }
 
         /// <summary>
-        /// 100 Mbps, 20 active SIMs plan, 1 RAN
+        /// 100 Mbps, 20 active SIMs plan, 2 RANs
         /// </summary>
         public static BillingSku G0 { get; } = new BillingSku("G0");
         /// <summary>
@@ -70,19 +70,19 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public static BillingSku G2 { get; } = new BillingSku("G2");
         /// <summary>
-        /// 3 Gbps, 300 active SIMs plan, 15 RANs
+        /// 3 Gbps, 300 active SIMs plan
         /// </summary>
         public static BillingSku G3 { get; } = new BillingSku("G3");
         /// <summary>
-        /// 4 Gbps, 400 active SIMs plan, 20 RANs
+        /// 4 Gbps, 400 active SIMs plan
         /// </summary>
         public static BillingSku G4 { get; } = new BillingSku("G4");
         /// <summary>
-        /// 5 Gbps, 500 active SIMs plan, 25 RANs
+        /// 5 Gbps, 500 active SIMs plan
         /// </summary>
         public static BillingSku G5 { get; } = new BillingSku("G5");
         /// <summary>
-        /// 10 Gbps, 1000 active SIMs plan, 50 RANs
+        /// 10 Gbps, 1000 active SIMs plan
         /// </summary>
         public static BillingSku G10 { get; } = new BillingSku("G10");
 

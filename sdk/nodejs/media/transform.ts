@@ -107,7 +107,7 @@ export class Transform extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media/v20180330preview:Transform" }, { type: "azure-native:media/v20180601preview:Transform" }, { type: "azure-native:media/v20180701:Transform" }, { type: "azure-native:media/v20200501:Transform" }, { type: "azure-native:media/v20210601:Transform" }, { type: "azure-native:media/v20211101:Transform" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media/v20180330preview:Transform" }, { type: "azure-native:media/v20180601preview:Transform" }, { type: "azure-native:media/v20180701:Transform" }, { type: "azure-native:media/v20200501:Transform" }, { type: "azure-native:media/v20210601:Transform" }, { type: "azure-native:media/v20211101:Transform" }, { type: "azure-native:media/v20220701:Transform" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Transform.__pulumiType, name, resourceInputs, opts);
     }

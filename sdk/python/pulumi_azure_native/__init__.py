@@ -13753,6 +13753,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "media/v20220701",
+  "fqn": "pulumi_azure_native.media.v20220701",
+  "classes": {
+   "azure-native:media/v20220701:Job": "Job",
+   "azure-native:media/v20220701:Transform": "Transform"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "media/v20220801",
   "fqn": "pulumi_azure_native.media.v20220801",
   "classes": {

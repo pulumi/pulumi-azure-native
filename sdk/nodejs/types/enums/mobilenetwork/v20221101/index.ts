@@ -20,7 +20,7 @@ export type AuthenticationType = (typeof AuthenticationType)[keyof typeof Authen
 
 export const BillingSku = {
     /**
-     * 100 Mbps, 20 active SIMs plan, 1 RAN
+     * 100 Mbps, 20 active SIMs plan, 2 RANs
      */
     G0: "G0",
     /**
@@ -32,19 +32,19 @@ export const BillingSku = {
      */
     G2: "G2",
     /**
-     * 3 Gbps, 300 active SIMs plan, 15 RANs
+     * 3 Gbps, 300 active SIMs plan
      */
     G3: "G3",
     /**
-     * 4 Gbps, 400 active SIMs plan, 20 RANs
+     * 4 Gbps, 400 active SIMs plan
      */
     G4: "G4",
     /**
-     * 5 Gbps, 500 active SIMs plan, 25 RANs
+     * 5 Gbps, 500 active SIMs plan
      */
     G5: "G5",
     /**
-     * 10 Gbps, 1000 active SIMs plan, 50 RANs
+     * 10 Gbps, 1000 active SIMs plan
      */
     G10: "G10",
 } as const;

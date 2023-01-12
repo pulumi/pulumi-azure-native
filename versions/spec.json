@@ -8243,6 +8243,10 @@
       "listStreamingLocatorContentKeys",
       "listStreamingLocatorPaths"
     ],
+    "2022-07-01": [
+      "Job",
+      "Transform"
+    ],
     "2022-08-01": [
       "AccountFilter",
       "Asset",
