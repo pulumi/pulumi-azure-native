@@ -1,0 +1,66 @@
+
+
+
+package securityandcompliance
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:securityandcompliance:PrivateEndpointConnectionsAdtAPI":
+		r = &PrivateEndpointConnectionsAdtAPI{}
+	case "azure-native:securityandcompliance:PrivateEndpointConnectionsComp":
+		r = &PrivateEndpointConnectionsComp{}
+	case "azure-native:securityandcompliance:PrivateEndpointConnectionsForEDM":
+		r = &PrivateEndpointConnectionsForEDM{}
+	case "azure-native:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync":
+		r = &PrivateEndpointConnectionsForMIPPolicySync{}
+	case "azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell":
+		r = &PrivateEndpointConnectionsForSCCPowershell{}
+	case "azure-native:securityandcompliance:PrivateEndpointConnectionsSec":
+		r = &PrivateEndpointConnectionsSec{}
+	case "azure-native:securityandcompliance:privateLinkServicesForEDMUpload":
+		r = &PrivateLinkServicesForEDMUpload{}
+	case "azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter":
+		r = &PrivateLinkServicesForM365ComplianceCenter{}
+	case "azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter":
+		r = &PrivateLinkServicesForM365SecurityCenter{}
+	case "azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync":
+		r = &PrivateLinkServicesForMIPPolicySync{}
+	case "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI":
+		r = &PrivateLinkServicesForO365ManagementActivityAPI{}
+	case "azure-native:securityandcompliance:privateLinkServicesForSCCPowershell":
+		r = &PrivateLinkServicesForSCCPowershell{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"securityandcompliance",
+		&module{version},
+	)
+}
