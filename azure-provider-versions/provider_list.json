@@ -11178,7 +11178,19 @@
       },
       {
         "resourceType": "checkNameAvailability",
-        "apiVersions": []
+        "apiVersions": [
+          "2022-12-01",
+          "2022-11-01-preview",
+          "2022-05-01-privatepreview",
+          "2022-03-08-privatepreview",
+          "2022-03-08-preview",
+          "2022-01-20-preview",
+          "2021-06-01-preview",
+          "2021-06-01",
+          "2020-11-05-preview",
+          "2020-02-14-privatepreview",
+          "2020-02-14-preview"
+        ]
       },
       {
         "resourceType": "flexibleServers",
@@ -27999,6 +28011,18 @@
         "resourceType": "VirtualMachines",
         "apiVersions": [
           "2020-06-05-preview"
+        ]
+      },
+      {
+        "resourceType": "VirtualMachines/Extensions",
+        "apiVersions": [
+          "2022-05-21-preview"
+        ]
+      },
+      {
+        "resourceType": "VirtualMachines/GuestAgents",
+        "apiVersions": [
+          "2022-05-21-preview"
         ]
       },
       {

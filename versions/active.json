@@ -9767,7 +9767,19 @@
       "2020-10-05-privatepreview",
       "2022-11-08"
     ],
-    "checknameavailability": [],
+    "checknameavailability": [
+      "2020-02-14-preview",
+      "2020-02-14-privatepreview",
+      "2020-11-05-preview",
+      "2021-06-01",
+      "2021-06-01-preview",
+      "2022-01-20-preview",
+      "2022-03-08-preview",
+      "2022-03-08-privatepreview",
+      "2022-05-01-privatepreview",
+      "2022-11-01-preview",
+      "2022-12-01"
+    ],
     "flexibleservers": [
       "2020-02-14-preview",
       "2020-02-14-privatepreview",
@@ -23194,6 +23206,12 @@
     ],
     "virtualmachines": [
       "2020-06-05-preview"
+    ],
+    "virtualmachines/extensions": [
+      "2022-05-21-preview"
+    ],
+    "virtualmachines/guestagents": [
+      "2022-05-21-preview"
     ],
     "virtualmachines/hybrididentitymetadata": [
       "2022-05-21-preview"
