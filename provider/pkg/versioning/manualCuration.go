@@ -8,12 +8,19 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// providerCuration contains manual  edits to the automatically determined API versions for a resource provider
 type providerCuration struct {
-	Exclusions    []string
-	Explicit      bool
+	// Exclude these resources from the provider. Used when generating the final vN.json from vN-config.yaml.
+	Exclusions []string
+	// Don't use a tracking version, list all resources with their API version instead. Used when generating vN-config.yaml.
+	// NOT IMPLEMENTED YET.
+	Explicit bool
+	// Prefer the latest preview version over stable.
+	// NOT IMPLEMENTED YET.
 	PreferPreview bool
 }
 
+// Curations contains manual edits to the automatically determined API versions
 type Curations map[openapi.ProviderName]providerCuration
 
 func (c *providerCuration) IsExcluded(resource string) bool {
