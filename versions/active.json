@@ -9767,19 +9767,7 @@
       "2020-10-05-privatepreview",
       "2022-11-08"
     ],
-    "checknameavailability": [
-      "2020-02-14-preview",
-      "2020-02-14-privatepreview",
-      "2020-11-05-preview",
-      "2021-06-01",
-      "2021-06-01-preview",
-      "2022-01-20-preview",
-      "2022-03-08-preview",
-      "2022-03-08-privatepreview",
-      "2022-05-01-privatepreview",
-      "2022-11-01-preview",
-      "2022-12-01"
-    ],
+    "checknameavailability": [],
     "flexibleservers": [
       "2020-02-14-preview",
       "2020-02-14-privatepreview",
@@ -23333,7 +23321,8 @@
       "2022-05-01-preview",
       "2022-07-01-preview",
       "2022-08-01-preview",
-      "2023-01-01"
+      "2023-01-01",
+      "2023-01-01-preview"
     ],
     "adaptivenetworkhardenings": [
       "2015-06-01-preview",
@@ -23530,6 +23519,9 @@
       "2018-06-01",
       "2022-03-01",
       "2023-01-01"
+    ],
+    "pricings/securityoperators": [
+      "2023-01-01-preview"
     ],
     "query": [
       "2022-04-01-alpha",
