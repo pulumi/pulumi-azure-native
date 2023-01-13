@@ -2,6 +2,31 @@
 
 ## HEAD (Unreleased)
 
+## 1.92.0 (2023-01-13)
+
+- Fixes #1602
+- Upgrade to latest version of Azure Rest API Specs
+  - Removed properties that are output-only:
+    - Type `azure-native:botservice:MsTeamsChannelPropertiesResponse` missing property `callingWebHook`
+    - Type `azure-native:botservice:ConnectionSettingProperties` missing property `id`
+    - Type `azure-native:botservice:ConnectionSettingProperties` missing property `name`
+    - Type `azure-native:botservice:ConnectionSettingPropertiesResponse` missing property `id`
+    - Type `azure-native:botservice:ConnectionSettingPropertiesResponse` missing property `name`
+    - Type `azure-native:botservice:MsTeamsChannelProperties` missing property `callingWebHook`
+    - Type `azure-native:keyvault:ManagedHsmPropertiesResponse` missing property `createMode`
+  - Breaking changes:
+    - Type `azure-native:datafactory:SynapseSparkJobDefinitionActivity` input `numExecutors` type changed from `integer` to `pulumi.json#/Any`
+    - Type `azure-native:datafactory:SynapseSparkJobDefinitionActivityResponse` input `numExecutors` type changed from `integer` to `pulumi.json#/Any`
+  - New resources:
+    - `voiceservices.CommunicationsGateway`
+    - `voiceservices.Contact`
+    - `voiceservices.TestLine`
+  - New functions:
+    - `voiceservices.getCommunicationsGateway`
+    - `voiceservices.getContact`
+    - `voiceservices.getTestLine`
+
+
 ## 1.91.0 (2023-01-09)
 
 - Remove a deprecated resource `web.ContainerApp`. Please use `app.ContainerApp` instead.
