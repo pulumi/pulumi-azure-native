@@ -11178,19 +11178,7 @@
       },
       {
         "resourceType": "checkNameAvailability",
-        "apiVersions": [
-          "2022-12-01",
-          "2022-11-01-preview",
-          "2022-05-01-privatepreview",
-          "2022-03-08-privatepreview",
-          "2022-03-08-preview",
-          "2022-01-20-preview",
-          "2021-06-01-preview",
-          "2021-06-01",
-          "2020-11-05-preview",
-          "2020-02-14-privatepreview",
-          "2020-02-14-preview"
-        ]
+        "apiVersions": []
       },
       {
         "resourceType": "flexibleServers",
@@ -28525,6 +28513,12 @@
           "2022-03-01",
           "2018-06-01",
           "2017-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "pricings/securityOperators",
+        "apiVersions": [
+          "2023-01-01-preview"
         ]
       },
       {
