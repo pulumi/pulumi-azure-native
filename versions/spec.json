@@ -3245,6 +3245,23 @@
       "getWebhookCallbackConfig",
       "listRegistryCredentials",
       "listWebhookEvents"
+    ],
+    "2023-01-01-preview": [
+      "CacheRule",
+      "ConnectedRegistry",
+      "CredentialSet",
+      "ExportPipeline",
+      "ImportPipeline",
+      "PipelineRun",
+      "PrivateEndpointConnection",
+      "Registry",
+      "Replication",
+      "ScopeMap",
+      "Token",
+      "Webhook",
+      "getWebhookCallbackConfig",
+      "listRegistryCredentials",
+      "listWebhookEvents"
     ]
   },
   "ContainerService": {
@@ -12440,6 +12457,13 @@
       "listQueryKeyBySearchService"
     ],
     "2021-04-01-preview": [
+      "PrivateEndpointConnection",
+      "Service",
+      "SharedPrivateLinkResource",
+      "listAdminKey",
+      "listQueryKeyBySearchService"
+    ],
+    "2022-09-01": [
       "PrivateEndpointConnection",
       "Service",
       "SharedPrivateLinkResource",

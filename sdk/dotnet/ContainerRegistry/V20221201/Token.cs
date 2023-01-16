@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20221201
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Token"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Token"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Token"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:Token"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

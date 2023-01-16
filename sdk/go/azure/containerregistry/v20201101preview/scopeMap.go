@@ -61,6 +61,9 @@ func NewScopeMap(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20221201:ScopeMap"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20230101preview:ScopeMap"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ScopeMap

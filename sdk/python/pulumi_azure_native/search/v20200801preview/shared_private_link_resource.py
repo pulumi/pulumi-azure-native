@@ -151,7 +151,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             __props__.__dict__["shared_private_link_resource_name"] = shared_private_link_resource_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20200801:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20210401preview:SharedPrivateLinkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20200801:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20210401preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20220901:SharedPrivateLinkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SharedPrivateLinkResource, __self__).__init__(
             'azure-native:search/v20200801preview:SharedPrivateLinkResource',

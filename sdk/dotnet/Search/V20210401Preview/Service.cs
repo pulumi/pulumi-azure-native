@@ -178,6 +178,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20220901:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

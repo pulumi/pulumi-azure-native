@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ScopeMap"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ScopeMap"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:ScopeMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:ScopeMap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

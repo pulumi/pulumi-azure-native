@@ -47,6 +47,7 @@ export const EventSerializationType = {
     Json: "Json",
     CustomClr: "CustomClr",
     Parquet: "Parquet",
+    Delta: "Delta",
 } as const;
 
 /**

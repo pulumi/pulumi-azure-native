@@ -56,7 +56,7 @@ export class Output extends pulumi.CustomResource {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly serialization!: pulumi.Output<outputs.streamanalytics.v20170401preview.AvroSerializationResponse | outputs.streamanalytics.v20170401preview.CsvSerializationResponse | outputs.streamanalytics.v20170401preview.CustomClrSerializationResponse | outputs.streamanalytics.v20170401preview.JsonSerializationResponse | outputs.streamanalytics.v20170401preview.ParquetSerializationResponse | undefined>;
+    public readonly serialization!: pulumi.Output<outputs.streamanalytics.v20170401preview.AvroSerializationResponse | outputs.streamanalytics.v20170401preview.CsvSerializationResponse | outputs.streamanalytics.v20170401preview.CustomClrSerializationResponse | outputs.streamanalytics.v20170401preview.DeltaSerializationResponse | outputs.streamanalytics.v20170401preview.JsonSerializationResponse | outputs.streamanalytics.v20170401preview.ParquetSerializationResponse | undefined>;
     /**
      * The size window to constrain a Stream Analytics output to.
      */
@@ -139,7 +139,7 @@ export interface OutputArgs {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    serialization?: pulumi.Input<inputs.streamanalytics.v20170401preview.AvroSerializationArgs | inputs.streamanalytics.v20170401preview.CsvSerializationArgs | inputs.streamanalytics.v20170401preview.CustomClrSerializationArgs | inputs.streamanalytics.v20170401preview.JsonSerializationArgs | inputs.streamanalytics.v20170401preview.ParquetSerializationArgs>;
+    serialization?: pulumi.Input<inputs.streamanalytics.v20170401preview.AvroSerializationArgs | inputs.streamanalytics.v20170401preview.CsvSerializationArgs | inputs.streamanalytics.v20170401preview.CustomClrSerializationArgs | inputs.streamanalytics.v20170401preview.DeltaSerializationArgs | inputs.streamanalytics.v20170401preview.JsonSerializationArgs | inputs.streamanalytics.v20170401preview.ParquetSerializationArgs>;
     /**
      * The size window to constrain a Stream Analytics output to.
      */

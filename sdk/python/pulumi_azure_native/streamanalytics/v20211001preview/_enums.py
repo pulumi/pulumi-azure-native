@@ -93,6 +93,7 @@ class EventSerializationType(str, Enum):
     JSON = "Json"
     CUSTOM_CLR = "CustomClr"
     PARQUET = "Parquet"
+    DELTA = "Delta"
 
 
 class EventsOutOfOrderPolicy(str, Enum):

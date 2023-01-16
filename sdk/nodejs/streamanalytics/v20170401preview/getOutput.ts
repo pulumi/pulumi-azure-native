@@ -62,7 +62,7 @@ export interface GetOutputResult {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: outputs.streamanalytics.v20170401preview.AvroSerializationResponse | outputs.streamanalytics.v20170401preview.CsvSerializationResponse | outputs.streamanalytics.v20170401preview.CustomClrSerializationResponse | outputs.streamanalytics.v20170401preview.JsonSerializationResponse | outputs.streamanalytics.v20170401preview.ParquetSerializationResponse;
+    readonly serialization?: outputs.streamanalytics.v20170401preview.AvroSerializationResponse | outputs.streamanalytics.v20170401preview.CsvSerializationResponse | outputs.streamanalytics.v20170401preview.CustomClrSerializationResponse | outputs.streamanalytics.v20170401preview.DeltaSerializationResponse | outputs.streamanalytics.v20170401preview.JsonSerializationResponse | outputs.streamanalytics.v20170401preview.ParquetSerializationResponse;
     /**
      * The size window to constrain a Stream Analytics output to.
      */

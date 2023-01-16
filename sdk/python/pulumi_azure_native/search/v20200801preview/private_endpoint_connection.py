@@ -151,7 +151,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["search_service_name"] = search_service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20191001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20200313:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20210401preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20191001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20200313:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20210401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20220901:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:search/v20200801preview:PrivateEndpointConnection',

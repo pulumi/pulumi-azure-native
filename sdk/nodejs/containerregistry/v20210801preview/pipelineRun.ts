@@ -103,7 +103,7 @@ export class PipelineRun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:PipelineRun" }, { type: "azure-native:containerregistry/v20191201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20201101preview:PipelineRun" }, { type: "azure-native:containerregistry/v20210601preview:PipelineRun" }, { type: "azure-native:containerregistry/v20211201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20220201preview:PipelineRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:PipelineRun" }, { type: "azure-native:containerregistry/v20191201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20201101preview:PipelineRun" }, { type: "azure-native:containerregistry/v20210601preview:PipelineRun" }, { type: "azure-native:containerregistry/v20211201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20220201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20230101preview:PipelineRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PipelineRun.__pulumiType, name, resourceInputs, opts);
     }

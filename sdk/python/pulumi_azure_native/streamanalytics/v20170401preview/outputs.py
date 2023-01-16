@@ -36,6 +36,7 @@ __all__ = [
     'CompressionResponse',
     'CsvSerializationResponse',
     'CustomClrSerializationResponse',
+    'DeltaSerializationResponse',
     'DiagnosticConditionResponse',
     'DiagnosticsResponse',
     'DocumentDbOutputDataSourceResponse',
@@ -2136,6 +2137,72 @@ class CustomClrSerializationResponse(dict):
 
 
 @pulumi.output_type
+class DeltaSerializationResponse(dict):
+    """
+    Describes how data from an input is serialized or how data is serialized when written to an output in Delta Lake format.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deltaTablePath":
+            suggest = "delta_table_path"
+        elif key == "partitionColumns":
+            suggest = "partition_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeltaSerializationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeltaSerializationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeltaSerializationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delta_table_path: str,
+                 type: str,
+                 partition_columns: Optional[Sequence[str]] = None):
+        """
+        Describes how data from an input is serialized or how data is serialized when written to an output in Delta Lake format.
+        :param str delta_table_path: Specifies the path of the Delta Lake table that the output will be written to.
+        :param str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Delta'.
+        :param Sequence[str] partition_columns: Specifies the names of the columns for which the Delta Lake table will be partitioned. We are only supporting 1 partition column, but keeping it as an array for extensibility.
+        """
+        pulumi.set(__self__, "delta_table_path", delta_table_path)
+        pulumi.set(__self__, "type", 'Delta')
+        if partition_columns is not None:
+            pulumi.set(__self__, "partition_columns", partition_columns)
+
+    @property
+    @pulumi.getter(name="deltaTablePath")
+    def delta_table_path(self) -> str:
+        """
+        Specifies the path of the Delta Lake table that the output will be written to.
+        """
+        return pulumi.get(self, "delta_table_path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Delta'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="partitionColumns")
+    def partition_columns(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the names of the columns for which the Delta Lake table will be partitioned. We are only supporting 1 partition column, but keeping it as an array for extensibility.
+        """
+        return pulumi.get(self, "partition_columns")
+
+
+@pulumi.output_type
 class DiagnosticConditionResponse(dict):
     """
     Condition applicable to the resource, or to the job overall, that warrant customer attention.
@@ -3453,7 +3520,7 @@ class OutputResponse(dict):
         :param str type: Resource type
         :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureFunctionOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'RawOutputDatasourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param str name: Resource name
-        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'DeltaSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param int size_window: The size window to constrain a Stream Analytics output to.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
@@ -3934,7 +4001,7 @@ class ReferenceInputPropertiesResponse(dict):
         :param 'CompressionResponse' compression: Describes how input data is compressed
         :param Union['AzureSqlReferenceInputDataSourceResponse', 'BlobReferenceInputDataSourceResponse', 'RawReferenceInputDataSourceResponse'] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         :param str partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
-        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'DeltaSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)
@@ -4432,7 +4499,7 @@ class StreamInputPropertiesResponse(dict):
         :param 'CompressionResponse' compression: Describes how input data is compressed
         :param Union['BlobStreamInputDataSourceResponse', 'EventHubStreamInputDataSourceResponse', 'EventHubV2StreamInputDataSourceResponse', 'IoTHubStreamInputDataSourceResponse', 'RawStreamInputDataSourceResponse'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         :param str partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
-        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'DeltaSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)

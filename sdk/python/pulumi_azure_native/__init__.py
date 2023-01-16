@@ -5595,6 +5595,25 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerregistry/v20230101preview",
+  "fqn": "pulumi_azure_native.containerregistry.v20230101preview",
+  "classes": {
+   "azure-native:containerregistry/v20230101preview:CacheRule": "CacheRule",
+   "azure-native:containerregistry/v20230101preview:ConnectedRegistry": "ConnectedRegistry",
+   "azure-native:containerregistry/v20230101preview:CredentialSet": "CredentialSet",
+   "azure-native:containerregistry/v20230101preview:ExportPipeline": "ExportPipeline",
+   "azure-native:containerregistry/v20230101preview:ImportPipeline": "ImportPipeline",
+   "azure-native:containerregistry/v20230101preview:PipelineRun": "PipelineRun",
+   "azure-native:containerregistry/v20230101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerregistry/v20230101preview:Registry": "Registry",
+   "azure-native:containerregistry/v20230101preview:Replication": "Replication",
+   "azure-native:containerregistry/v20230101preview:ScopeMap": "ScopeMap",
+   "azure-native:containerregistry/v20230101preview:Token": "Token",
+   "azure-native:containerregistry/v20230101preview:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerservice",
   "fqn": "pulumi_azure_native.containerservice",
   "classes": {
@@ -19180,6 +19199,16 @@ _utilities.register(
    "azure-native:search/v20210401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:search/v20210401preview:Service": "Service",
    "azure-native:search/v20210401preview:SharedPrivateLinkResource": "SharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "search/v20220901",
+  "fqn": "pulumi_azure_native.search.v20220901",
+  "classes": {
+   "azure-native:search/v20220901:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:search/v20220901:Service": "Service",
+   "azure-native:search/v20220901:SharedPrivateLinkResource": "SharedPrivateLinkResource"
   }
  },
  {

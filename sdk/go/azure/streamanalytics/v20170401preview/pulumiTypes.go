@@ -567,6 +567,18 @@ type CustomClrSerializationResponse struct {
 	Type                   string  `pulumi:"type"`
 }
 
+type DeltaSerialization struct {
+	DeltaTablePath   string   `pulumi:"deltaTablePath"`
+	PartitionColumns []string `pulumi:"partitionColumns"`
+	Type             string   `pulumi:"type"`
+}
+
+type DeltaSerializationResponse struct {
+	DeltaTablePath   string   `pulumi:"deltaTablePath"`
+	PartitionColumns []string `pulumi:"partitionColumns"`
+	Type             string   `pulumi:"type"`
+}
+
 type DiagnosticConditionResponse struct {
 	Code    string `pulumi:"code"`
 	Message string `pulumi:"message"`
