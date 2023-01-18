@@ -65,15 +65,12 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          lfs: true
           ref: ${{ env.PR_COMMIT_SHA }}
       - name: Checkout Scripts Repo
         uses: actions/checkout@v2
         with:
           path: ci-scripts
           repository: pulumi/scripts
-      - name: Unshallow clone for tags
-        run: git fetch --prune --unshallow --tags
       - name: Install Go
         uses: actions/setup-go@v2
         with:
@@ -85,10 +82,6 @@ jobs:
         uses: jaxxstorm/action-install-gh-release@v1.5.0
         with:
           repo: pulumi/schema-tools
-      - name: Calculate Version
-        run: |
-          make bin/pulumictl
-          echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
       - name: Initialize submodules
         run: make init_submodules
       - name: Build codegen binaries
@@ -163,15 +156,12 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          lfs: true
           ref: ${{ env.PR_COMMIT_SHA }}
       - name: Checkout Scripts Repo
         uses: actions/checkout@v2
         with:
           path: ci-scripts
           repository: pulumi/scripts
-      - name: Unshallow clone for tags
-        run: git fetch --prune --unshallow --tags
       - name: Install Go
         uses: actions/setup-go@v2
         with:
@@ -212,10 +202,6 @@ jobs:
         run:
           find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
           -exec chmod +x {} \;
-      - name: Calculate Version
-        run: |
-          make bin/pulumictl
-          echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
       - name: Initialize submodules
         run: make init_submodules
       - name: Build Codegen & Provider
