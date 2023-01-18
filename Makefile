@@ -16,13 +16,12 @@ SPECS           = $(shell find azure-rest-api-specs/specification/*/resource-man
 
 JAVA_GEN        := pulumi-java-gen
 
-# These are lazy variables which are only computed when requested
-# When using any version variable, depend on bin/pulumictl
-VERSION         = $(shell bin/pulumictl get version)
-VERSION_JS      = $(shell bin/pulumictl get version --language javascript)
-VERSION_DOTNET  = $(shell bin/pulumictl get version --language dotnet)
-VERSION_PYTHON  = $(shell bin/pulumictl get version --language python)
-VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
+# Input during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
+# Local builds will just used this fixed default version unless specified
+PROVIDER_VERSION ?=  "1.0.0-alpha.0+dev"
+# Ensure the leading "v" is removed - use this normalised version everywhere rather than the raw input to ensure consistency.
+VERSION_GENERIC := $(shell bin/pulumictl convert-version -l generic -v "$(PROVIDER_VERSION)")
+VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION_GENERIC}"
 
 # Ensure make directory exists
 # For targets which either don't generate a single file output, or the file is committed, we use a "sentinel"
@@ -134,7 +133,7 @@ test: build install_sdks
 	@touch $@
 
 # Download local copy of pulumictl based on the version in .pulumictl.version
-# Anywhere which uses VERSION or VERSION_FLAGS should depend on bin/pulumictl
+# Anywhere which uses VERSION_GENERIC or VERSION_FLAGS should depend on bin/pulumictl
 bin/pulumictl: PULUMICTL_VERSION := $(shell cat .pulumictl.version)
 bin/pulumictl: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*)/\1-\2/p")
 bin/pulumictl: PULUMICTL_URL := "https://github.com/pulumi/pulumictl/releases/download/v$(PULUMICTL_VERSION)/pulumictl-v$(PULUMICTL_VERSION)-$(PLAT).tar.gz"
@@ -167,11 +166,11 @@ bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSI
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
 
 .make/generate_docs: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
-	bin/$(CODEGEN) docs $(VERSION)
+	bin/$(CODEGEN) docs $(VERSION_GENERIC)
 	@touch $@
 
 provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
-	bin/$(CODEGEN) schema $(VERSION)
+	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 .make/versions_spec: bin/pulumi-versioner-azure-native $(SPECS)
 	bin/pulumi-versioner-azure-native spec
@@ -216,7 +215,7 @@ export FAKE_MODULE
 .make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) nodejs $(VERSION)
+	bin/$(CODEGEN) nodejs $(VERSION_GENERIC)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > sdk/nodejs/go.mod
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
@@ -225,7 +224,7 @@ export FAKE_MODULE
 .make/generate_python: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) python $(VERSION)
+	bin/$(CODEGEN) python $(VERSION_GENERIC)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > sdk/python/go.mod
 	cp README.md sdk/python
 	@touch $@
@@ -233,7 +232,7 @@ export FAKE_MODULE
 .make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) dotnet $(VERSION)
+	bin/$(CODEGEN) dotnet $(VERSION_GENERIC)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
@@ -244,7 +243,7 @@ export FAKE_MODULE
 	# Temporary hack: maintain init.go manual changes. Leading '-' ignores exit code.
 	-[ -f "sdk/go/azure/init.go" ] && mv -f "sdk/go/azure/init.go" /tmp/
 	rm -rf sdk/go/azure
-	bin/$(CODEGEN) go $(VERSION)
+	bin/$(CODEGEN) go $(VERSION_GENERIC)
 	@# HACK: Strip all comments to make SDK smaller
 	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	-[ -f "/tmp/init.go" ] && mv -f "/tmp/init.go" sdk/go/azure/
@@ -255,7 +254,7 @@ export FAKE_MODULE
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
-	bin/$(CODEGEN) go-split $(VERSION)
+	bin/$(CODEGEN) go-split $(VERSION_GENERIC)
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
 	@touch $@
@@ -280,6 +279,7 @@ export FAKE_MODULE
 	yarn install --cwd sdk/nodejs
 	@touch $@
 
+.make/build_nodejs: VERSION_JS = $(shell bin/pulumictl convert-version -l javascript -v "$(VERSION_GENERIC)")
 .make/build_nodejs: bin/pulumictl .make/nodejs_yarn_install
 	cd sdk/nodejs/ && \
 	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
@@ -287,16 +287,18 @@ export FAKE_MODULE
 	sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
 	@touch $@
 
+.make/build_python: VERSION_PYTHON  = $(shell bin/pulumictl convert-version -l python -v "$(VERSION_GENERIC)")
 .make/build_python: bin/pulumictl .make/generate_python
 	cd sdk/python && \
 		python3 setup.py clean --all 2>/dev/null && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		sed -i.bak -e 's/^VERSION = .*/VERSION = "$(VERSION_PYTHON)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
+		sed -i.bak -e 's/^VERSION = .*/VERSION = "$(VERSION_PYTHON)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION_GENERIC)"/g' ./bin/setup.py && \
 		rm ./bin/setup.py.bak && \
 		rm ./bin/go.mod && \
 		cd ./bin && python3 setup.py build sdist
 	@touch $@
 
+.make/build_dotnet: VERSION_DOTNET  = $(shell bin/pulumictl convert-version -l dotnet -v "$(PROVIDER_VERSION)")
 .make/build_dotnet: bin/pulumictl .make/generate_dotnet
 	cd sdk/dotnet && \
 		echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
@@ -305,7 +307,7 @@ export FAKE_MODULE
 
 .make/build_java: bin/pulumictl .make/generate_java
 	cd sdk/java/ && \
-		gradle --console=plain -Pversion=$(VERSION) build
+		gradle --console=plain -Pversion=$(VERSION_GENERIC) build
 	@touch $@
 
 .make/build_go: .make/generate_go

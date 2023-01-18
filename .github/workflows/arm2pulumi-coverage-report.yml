@@ -49,6 +49,10 @@ jobs:
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
+    - name: Calculate Version
+      run: |
+        make bin/pulumictl
+        echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
     - name: Cleanup SDK Folder
       run: make clean
     - name: Initialize submodules

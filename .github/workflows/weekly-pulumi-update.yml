@@ -106,6 +106,10 @@ jobs:
         if ! git diff-files --quiet; then 
         	echo ::set-output name=changes::1 
         fi
+    - name: Calculate Version
+      run: |
+        make bin/pulumictl
+        echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
     - name: Initialize submodules
       run: make init_submodules
     - name: Provider with Pulumi Upgrade

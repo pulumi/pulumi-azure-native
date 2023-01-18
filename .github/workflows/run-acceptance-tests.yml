@@ -85,6 +85,10 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: mikhailshilkov/schema-tools
+    - name: Calculate Version
+      run: |
+        make bin/pulumictl
+        echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
     - name: Initialize submodules
       run: make init_submodules
     - name: Build codegen binaries
@@ -208,6 +212,10 @@ jobs:
       if: ${{ matrix.language != 'dotnet' }}
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
+    - name: Calculate Version
+      run: |
+        make bin/pulumictl
+        echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
     - name: Initialize submodules
       run: make init_submodules
     - name: Build Codegen & Provider
