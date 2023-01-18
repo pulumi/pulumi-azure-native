@@ -2,13 +2,13 @@ name: run-acceptance-tests
 on:
   repository_dispatch:
     types:
-    - run-acceptance-tests-command
+      - run-acceptance-tests-command
   pull_request:
     branches:
-    - master
-    - main
+      - master
+      - main
     paths-ignore:
-    - CHANGELOG.md
+      - CHANGELOG.md
   workflow_dispatch: {}
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -46,103 +46,104 @@ jobs:
     runs-on: ubuntu-latest
     name: comment-notification
     steps:
-    - name: Create URL to the run output
-      id: vars
-      run: echo ::set-output
-        name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-    - name: Update with Result
-      uses: peter-evans/create-or-update-comment@v1
-      with:
-        token: ${{ secrets.PULUMI_BOT_TOKEN }}
-        repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
-        issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
-        body: "Please view the PR build: ${{ steps.vars.outputs.run-url }}"
+      - name: Create URL to the run output
+        id: vars
+        run: echo ::set-output
+          name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+      - name: Update with Result
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
+          issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
+          body: "Please view the PR build: ${{ steps.vars.outputs.run-url }}"
     if: github.event_name == 'repository_dispatch'
   prerequisites:
     runs-on: ubuntu-latest
     name: prerequisites
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        lfs: true
-        ref: ${{ env.PR_COMMIT_SHA }}
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v2
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: ${{ env.GOVERSION }}
-    - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
-    - if: github.event_name == 'pull_request'
-      name: Install Schema Tools
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
-      with:
-        repo: pulumi/schema-tools
-    - name: Calculate Version
-      run: |
-        make bin/pulumictl
-        echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
-    - name: Initialize submodules
-      run: make init_submodules
-    - name: Build codegen binaries
-      run: make codegen
-    - name: Build Schema
-      run: make generate_schema
-    - if: github.event_name == 'pull_request'
-      name: Check Schema is Valid
-      run: |
-        echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
-        schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
-    - if: github.event_name == 'pull_request'
-      name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@v1
-      with:
-        message: |
-          ### Does the PR have any schema changes?
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+          ref: ${{ env.PR_COMMIT_SHA }}
+      - name: Checkout Scripts Repo
+        uses: actions/checkout@v2
+        with:
+          path: ci-scripts
+          repository: pulumi/scripts
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ env.GOVERSION }}
+      - name: Install Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@v2
+      - if: github.event_name == 'pull_request'
+        name: Install Schema Tools
+        uses: jaxxstorm/action-install-gh-release@v1.5.0
+        with:
+          repo: pulumi/schema-tools
+      - name: Calculate Version
+        run: |
+          make bin/pulumictl
+          echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
+      - name: Initialize submodules
+        run: make init_submodules
+      - name: Build codegen binaries
+        run: make codegen
+      - name: Build Schema
+        run: make generate_schema
+      - if: github.event_name == 'pull_request'
+        name: Check Schema is Valid
+        run: |
+          echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
+          schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+      - if: github.event_name == 'pull_request'
+        name: Comment on PR with Details of Schema Check
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            ### Does the PR have any schema changes?
 
-          ${{ env.SCHEMA_CHANGES }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - if: contains(env.SCHEMA_CHANGES, 'Looking good! No breaking changes found.') &&
-        github.actor == 'pulumi-bot'
-      name: Add label if no breaking changes
-      uses: actions-ecosystem/action-add-labels@v1.1.0
-      with:
-        labels: impact/no-changelog-required
-        number: ${{ github.event.issue.number }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build Provider
-      run: make provider
-    - name: Build Versioner
-      run: make versioner
-    - name: Check worktree clean
-      run: ./ci-scripts/ci/check-worktree-is-clean
-    - run: git status --porcelain
-    - name: Tar provider binaries
-      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin/ pulumi-resource-${{ env.PROVIDER }}
-        pulumi-gen-${{ env.PROVIDER}}
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: pulumi-${{ env.PROVIDER }}-provider.tar.gz
-        path: ${{ github.workspace }}/bin/provider.tar.gz
-    - name: Test Provider Library
-      run: make test_provider
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in building provider prerequisites
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
+            ${{ env.SCHEMA_CHANGES }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - if:
+          contains(env.SCHEMA_CHANGES, 'Looking good! No breaking changes found.') &&
+          github.actor == 'pulumi-bot'
+        name: Add label if no breaking changes
+        uses: actions-ecosystem/action-add-labels@v1.1.0
+        with:
+          labels: impact/no-changelog-required
+          number: ${{ github.event.issue.number }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Provider
+        run: make provider
+      - name: Build Versioner
+        run: make versioner
+      - name: Check worktree clean
+        run: ./ci-scripts/ci/check-worktree-is-clean
+      - run: git status --porcelain
+      - name: Tar provider binaries
+        run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+          github.workspace}}/bin/ pulumi-resource-${{ env.PROVIDER }}
+          pulumi-gen-${{ env.PROVIDER}}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: pulumi-${{ env.PROVIDER }}-provider.tar.gz
+          path: ${{ github.workspace }}/bin/provider.tar.gz
+      - name: Test Provider Library
+        run: make test_provider
+      - if: failure() && github.event_name == 'push'
+        name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          author_name: Failure in building provider prerequisites
+          fields: repo,commit,author,action
+          status: ${{ job.status }}
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
   build_sdks:
@@ -152,131 +153,132 @@ jobs:
       fail-fast: true
       matrix:
         language:
-        - nodejs
-        - python
-        - dotnet
-        - go
-        - java
+          - nodejs
+          - python
+          - dotnet
+          - go
+          - java
     name: Build & Test SDKs
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        lfs: true
-        ref: ${{ env.PR_COMMIT_SHA }}
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v2
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: ${{ env.GOVERSION }}
-    - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
-    - name: Setup Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ env.NODEVERSION }}
-        registry-url: https://registry.npmjs.org
-    - name: Setup DotNet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.DOTNETVERSION }}
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ env.PYTHONVERSION }}
-    - name: Setup Java
-      uses: actions/setup-java@v3
-      with:
-        java-version: ${{ env.JAVAVERSION }}
-        distribution: temurin
-        cache: gradle
-    - name: Download provider + tfgen binaries
-      if: ${{ matrix.language != 'dotnet' }}
-      uses: actions/download-artifact@v2
-      with:
-        name: pulumi-${{ env.PROVIDER }}-provider.tar.gz
-        path: ${{ github.workspace }}/bin
-    - name: UnTar provider binaries
-      if: ${{ matrix.language != 'dotnet' }}
-      run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin
-    - name: Restore Binary Permissions
-      if: ${{ matrix.language != 'dotnet' }}
-      run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
-        -exec chmod +x {} \;
-    - name: Calculate Version
-      run: |
-        make bin/pulumictl
-        echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
-    - name: Initialize submodules
-      run: make init_submodules
-    - name: Build Codegen & Provider
-      if: ${{ matrix.language == 'dotnet' }}
-      run: make codegen provider
-    - name: Generate SDK
-      run: make generate_${{ matrix.language }}
-    - name: Build SDK
-      run: make build_${{ matrix.language }}
-    - name: Check worktree clean
-      run: ./ci-scripts/ci/check-worktree-is-clean
-    - run: git status --porcelain
-    - name: Update path
-      run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
-    - name: Install Node dependencies
-      run: yarn global add typescript
-    - name: Install Python deps
-      run: |-
-        pip3 install virtualenv==20.0.23
-        pip3 install pipenv
-    - name: Install dependencies
-      run: make install_${{ matrix.language}}_sdk
-    - name: Install gotestfmt
-      uses: jaxxstorm/action-install-gh-release@v1.7.1
-      with:
-        tag: v2.4.0
-        repo: GoTestTools/gotestfmt
-    - name: Run tests
-      run: |
-        set -euo pipefail
-        cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - name: Tar SDK folder
-      run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ matrix.language  }}-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
-    - name: Tar split Go SDK folder
-      if: ${{ matrix.language == 'go' }}
-      run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
-    - name: Upload split Go artifacts
-      uses: actions/upload-artifact@v2
-      if: ${{ matrix.language == 'go' }}
-      with:
-        name: pulumi-azure-native-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure while building SDKs
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+          ref: ${{ env.PR_COMMIT_SHA }}
+      - name: Checkout Scripts Repo
+        uses: actions/checkout@v2
+        with:
+          path: ci-scripts
+          repository: pulumi/scripts
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ env.GOVERSION }}
+      - name: Install Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODEVERSION }}
+          registry-url: https://registry.npmjs.org
+      - name: Setup DotNet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNETVERSION }}
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHONVERSION }}
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ env.JAVAVERSION }}
+          distribution: temurin
+          cache: gradle
+      - name: Download provider + tfgen binaries
+        if: ${{ matrix.language != 'dotnet' }}
+        uses: actions/download-artifact@v2
+        with:
+          name: pulumi-${{ env.PROVIDER }}-provider.tar.gz
+          path: ${{ github.workspace }}/bin
+      - name: UnTar provider binaries
+        if: ${{ matrix.language != 'dotnet' }}
+        run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+          github.workspace}}/bin
+      - name: Restore Binary Permissions
+        if: ${{ matrix.language != 'dotnet' }}
+        run:
+          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
+          -exec chmod +x {} \;
+      - name: Calculate Version
+        run: |
+          make bin/pulumictl
+          echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
+      - name: Initialize submodules
+        run: make init_submodules
+      - name: Build Codegen & Provider
+        if: ${{ matrix.language == 'dotnet' }}
+        run: make codegen provider
+      - name: Generate SDK
+        run: make generate_${{ matrix.language }}
+      - name: Build SDK
+        run: make build_${{ matrix.language }}
+      - name: Check worktree clean
+        run: ./ci-scripts/ci/check-worktree-is-clean
+      - run: git status --porcelain
+      - name: Update path
+        run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+      - name: Install Node dependencies
+        run: yarn global add typescript
+      - name: Install Python deps
+        run: |-
+          pip3 install virtualenv==20.0.23
+          pip3 install pipenv
+      - name: Install dependencies
+        run: make install_${{ matrix.language}}_sdk
+      - name: Install gotestfmt
+        uses: jaxxstorm/action-install-gh-release@v1.7.1
+        with:
+          tag: v2.4.0
+          repo: GoTestTools/gotestfmt
+      - name: Run tests
+        run: |
+          set -euo pipefail
+          cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      - name: Tar SDK folder
+        run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.language  }}-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+      - name: Tar split Go SDK folder
+        if: ${{ matrix.language == 'go' }}
+        run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
+      - name: Upload split Go artifacts
+        uses: actions/upload-artifact@v2
+        if: ${{ matrix.language == 'go' }}
+        with:
+          name: pulumi-azure-native-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
+      - if: failure() && github.event_name == 'push'
+        name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          author_name: Failure while building SDKs
+          fields: repo,commit,author,action
+          status: ${{ job.status }}
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
   sentinel:
     runs-on: ubuntu-latest
     name: sentinel
     steps:
-    - name: Is workflow a success
-      run: echo yes
+      - name: Is workflow a success
+        run: echo yes
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
     needs:
-    - build_sdks
+      - build_sdks

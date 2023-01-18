@@ -31,16 +31,16 @@ jobs:
     runs-on: ubuntu-latest
     name: comment-on-pr
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        lfs: true
-    - name: Comment PR
-      uses: thollander/actions-comment-pull-request@v1
-      with:
-        message: >
-          PR is now waiting for a maintainer to run the acceptance tests.
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: >
+            PR is now waiting for a maintainer to run the acceptance tests.
 
-          **Note for the maintainer:** To run the acceptance tests, please comment */run-acceptance-tests* on the PR
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            **Note for the maintainer:** To run the acceptance tests, please comment */run-acceptance-tests* on the PR
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     if: github.event.pull_request.head.repo.full_name != github.repository

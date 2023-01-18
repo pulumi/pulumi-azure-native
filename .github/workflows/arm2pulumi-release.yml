@@ -2,12 +2,13 @@ name: arm2pulumi-release
 on:
   push:
     tags:
-    - v*.*.*
-    - "!v*.*.*-**"
+      - v*.*.*
+      - "!v*.*.*-**"
   workflow_dispatch:
     inputs:
       version:
-        description: The version of the binary to deploy - do not include the pulumi
+        description:
+          The version of the binary to deploy - do not include the pulumi
           prefix in the name.
         required: true
         type: string
@@ -40,27 +41,28 @@ jobs:
   release:
     runs-on: macos-11
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        lfs: true
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
-      with:
-        repo: pulumi/pulumictl
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.19.x
-    - name: Set Version if Parameter available
-      if: github.event.inputs.version != ''
-      run: echo "GORELEASER_CURRENT_TAG=v${{ github.event.inputs.message }}" >>
-        $GITHUB_ENV
-    - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v2
-      with:
-        args: -p 1 -f .goreleaser.arm2pulumi.yml release --rm-dist --timeout 60m0s
-        version: latest
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.5.0
+        with:
+          repo: pulumi/pulumictl
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.19.x
+      - name: Set Version if Parameter available
+        if: github.event.inputs.version != ''
+        run:
+          echo "GORELEASER_CURRENT_TAG=v${{ github.event.inputs.message }}" >>
+          $GITHUB_ENV
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          args: -p 1 -f .goreleaser.arm2pulumi.yml release --rm-dist --timeout 60m0s
+          version: latest
     name: release
