@@ -68,7 +68,7 @@ jobs:
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
-        repo: mikhailshilkov/schema-tools
+        repo: pulumi/schema-tools
     - name: Calculate Version
       run: |
         make bin/pulumictl
@@ -81,11 +81,9 @@ jobs:
       run: make generate_schema
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
-      run: >-
+      run: |
         echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
-
-        schema-tools compare ${{ env.PROVIDER }} master --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> $GITHUB_ENV
-
+        schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - if: github.event_name == 'pull_request'
       name: Comment on PR with Details of Schema Check
