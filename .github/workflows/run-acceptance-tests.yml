@@ -258,13 +258,3 @@ jobs:
           status: ${{ job.status }}
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
-  sentinel:
-    runs-on: ubuntu-latest
-    name: sentinel
-    steps:
-      - name: Is workflow a success
-        run: echo yes
-    if: github.event_name == 'repository_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository
-    needs:
-      - build_sdks
