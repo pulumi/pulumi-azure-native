@@ -1,11 +1,9 @@
 MAKEFLAGS    := --warn-undefined-variables
-PROJECT_NAME := Pulumi Native Azure Resource Provider
 
-PACK            := azure-native
 PROJECT         := github.com/pulumi/pulumi-azure-native
-PROVIDER        := pulumi-resource-${PACK}
-CODEGEN         := pulumi-gen-${PACK}
-VERSIONER       := pulumi-versioner-${PACK}
+PROVIDER        := pulumi-resource-azure-native
+CODEGEN         := pulumi-gen-azure-native
+VERSIONER       := pulumi-versioner-azure-native
 
 PROVIDER_PKGS   := $(shell cd ./provider && go list ./pkg/...)
 WORKING_DIR     := $(shell pwd)
