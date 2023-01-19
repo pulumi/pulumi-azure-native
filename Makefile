@@ -121,15 +121,6 @@ test: build install_sdks
 
 # --------- File-based targets --------- #
 
-.make/init_submodules:
-	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
-		if [ ! -f "$$submodule/.git" ]; then \
-			echo "Initializing submodule $$submodule" ; \
-			(cd $$submodule && git submodule update --init); \
-		fi; \
-	done
-	@touch $@
-
 # Download local copy of pulumictl based on the version in .pulumictl.version
 # Anywhere which uses VERSION_GENERIC or VERSION_FLAGS should depend on bin/pulumictl
 bin/pulumictl: PULUMICTL_VERSION := $(shell cat .pulumictl.version)
@@ -146,10 +137,6 @@ bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 	@mkdir -p bin
 	bin/pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
-.make/provider_mod_download: provider/go.mod provider/go.sum
-	cd provider && GO111MODULE=on go mod download
-	@touch $@
-
 bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* provider/cmd/$(PROVIDER)/schema-full.json $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
 
@@ -163,12 +150,28 @@ bin/$(PROVIDER): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVID
 bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
 
+provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
+	bin/$(CODEGEN) schema $(VERSION_GENERIC)
+
+# --------- Sentinel targets --------- #
+
+# This should be depended on before anywhere we depend on $(SPECS) so that we restore the files back before accessing them
+.make/init_submodules:
+	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
+		if [ ! -f "$$submodule/.git" ]; then \
+			echo "Initializing submodule $$submodule" ; \
+			(cd $$submodule && git submodule update --init); \
+		fi; \
+	done
+	@touch $@
+
+.make/provider_mod_download: provider/go.mod provider/go.sum
+	cd provider && GO111MODULE=on go mod download
+	@touch $@
+
 .make/generate_docs: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
 	bin/$(CODEGEN) docs $(VERSION_GENERIC)
 	@touch $@
-
-provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
-	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 .make/versions_spec: bin/pulumi-versioner-azure-native $(SPECS)
 	bin/pulumi-versioner-azure-native spec
