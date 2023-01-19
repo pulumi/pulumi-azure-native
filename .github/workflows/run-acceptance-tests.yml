@@ -39,7 +39,10 @@ env:
   GOVERSION: 1.19.x
   NODEVERSION: 16.x
   PYTHONVERSION: "3.7"
-  DOTNETVERSION: 6.x
+  # Codegen still emits 3.1 projects. Once codegen is updated, this can be removed.
+  DOTNETVERSION: |
+    3.1.301
+    6.0.x
   JAVAVERSION: "11"
 jobs:
   comment-notification:
