@@ -17,7 +17,7 @@ func TestFlattenParams(t *testing.T) {
 	var metadata resources.AzureAPIMetadata
 	// TODO - Requires `make generate_schema` to be run first
 	// turn this into a proper unit test instead
-	f, err := os.Open("../../cmd/pulumi-resource-azure-native/metadata.json")
+	f, err := os.Open("../../../bin/metadata-compact.json")
 	require.NoError(t, err)
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
 	f.Close()

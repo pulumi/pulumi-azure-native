@@ -72,8 +72,8 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
-		if err = emitSchema(*pkgSpec, version, outdir, "main", true); err != nil {
+
+		if err = emitSchema(*pkgSpec, version, "bin", "main", true); err != nil {
 			panic(err)
 		}
 		if languages == "schema" {
@@ -82,20 +82,13 @@ func main() {
 			fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")
 		}
 		// Also, emit the resource metadata for the provider.
-		if err = emitMetadata(meta, outdir, "main"); err != nil {
+		if err = emitMetadata(meta, "bin", "main"); err != nil {
 			panic(err)
 		}
 
-		// Now emit schema and metadata as byte encoded files for arm2pulumi
-		arm2pulumiDir := path.Join(".", "provider", "cmd", "arm2pulumi")
-		if err = emitSchema(*pkgSpec, version, arm2pulumiDir, "main", false); err != nil {
-			panic(err)
-		}
-		// Also, emit the resource metadata for the provider.
-		err = emitMetadata(meta, arm2pulumiDir, "main")
 	} else if languageSet.Subtract(codegen.NewStringSet("docs")).Any() {
 		// Just read existing schema if we're not re-generating
-		schemaPath := path.Join("provider", "cmd", "pulumi-resource-azure-native", "schema-full.json")
+		schemaPath := path.Join("bin", "schema-full.json")
 		schemaBytes, err := os.ReadFile(schemaPath)
 		if err != nil {
 			panic(err)

@@ -24,7 +24,7 @@ var renderOptionsOverride = map[string][]arm2pulumi.RenderOption{
 }
 
 func loadMetadata(t *testing.T) *resources.AzureAPIMetadata {
-	bytes, err := ioutil.ReadFile("../../../../cmd/pulumi-resource-azure-native/metadata.json")
+	bytes, err := ioutil.ReadFile("../../../../../bin/metadata-compact.json")
 	require.NoError(t, err)
 	var metadata resources.AzureAPIMetadata
 	require.NoError(t, json.Unmarshal(bytes, &metadata))
@@ -32,7 +32,7 @@ func loadMetadata(t *testing.T) *resources.AzureAPIMetadata {
 }
 
 func loadSchema(t *testing.T) *schema.PackageSpec {
-	bytes, err := ioutil.ReadFile("../../../../cmd/pulumi-resource-azure-native/schema-full.json")
+	bytes, err := ioutil.ReadFile("../../../../../bin/schema-full.json")
 	require.NoError(t, err)
 	var pkgSpec schema.PackageSpec
 	require.NoError(t, json.Unmarshal(bytes, &pkgSpec))

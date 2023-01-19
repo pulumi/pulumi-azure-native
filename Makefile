@@ -39,7 +39,8 @@ versioner: bin/pulumi-versioner-azure-native
 # We don't include v2 here yet as this is executed on the nightly updates
 versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
 
-generate_schema: provider/cmd/$(PROVIDER)/schema-full.json
+schema: .make/schema
+generate_schema: .make/schema
 generate_docs: .make/generate_docs
 
 generate_java: .make/generate_java
@@ -76,7 +77,7 @@ install_sdks: install_dotnet_sdk install_nodejs_sdk
 prepublish_go: .make/prepublish_go
 
 .PHONY: default ensure init_submodules arm2pulumi codegen provider install_provider versioner versions
-.PHONY: generate_schema generate_docs generate_java generate_nodejs generate_python generate_dotnet generate_go local_generate_code local_generate
+.PHONY: schema generate_schema generate_docs generate_java generate_nodejs generate_python generate_dotnet generate_go local_generate_code local_generate
 .PHONY: build only_build build_sdks build_nodejs build_python build_dotnet build_java build_go 
 .PHONY: install_dotnet_sdk install_python_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_sdks
 .PHONY: update_submodules arm2pulumi_coverage_report test_provider lint_provider clean test
@@ -93,7 +94,7 @@ arm2pulumi_coverage_report: .make/provider_mod_download provider/cmd/$(PROVIDER)
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
 	(cd provider && go test -v -tags=coverage -run TestQuickstartTemplateCoverage github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi/internal/test)
 
-test_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
+test_provider: .make/provider_mod_download .make/schema provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	cd provider && go test -v $(PROVIDER_PKGS)
 
 lint_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
@@ -137,21 +138,22 @@ bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 	@mkdir -p bin
 	bin/pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
-bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* provider/cmd/$(PROVIDER)/schema-full.json $(PROVIDER_PKG)
+bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* .make/schema $(PROVIDER_PKG)
+	cp bin/schema-full.json provider/cmd/arm2pulumi
+	cp bin/metadata-compact.json provider/cmd/arm2pulumi
 	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
 
 bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 
-bin/$(PROVIDER): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go provider/cmd/$(PROVIDER)/schema-full.json $(PROVIDER_PKG)
+bin/$(PROVIDER): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/schema $(PROVIDER_PKG)
+	cp bin/schema-full.json provider/cmd/$(PROVIDER)
+	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	cd provider && \
-	go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
+		go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
 
 bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
-
-provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
-	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 # --------- Sentinel targets --------- #
 
@@ -167,6 +169,11 @@ provider/cmd/$(PROVIDER)/schema-full.json: .make/init_submodules bin/$(CODEGEN) 
 
 .make/provider_mod_download: provider/go.mod provider/go.sum
 	cd provider && GO111MODULE=on go mod download
+	@touch $@
+
+# Writes schema-full.json and metadata-compact.json to bin/
+.make/schema: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
+	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 	@touch $@
 
 .make/generate_docs: .make/init_submodules bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
@@ -213,7 +220,7 @@ export FAKE_MODULE
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
-.make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) .make/schema
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) nodejs $(VERSION_GENERIC)
@@ -222,7 +229,7 @@ export FAKE_MODULE
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch $@
 
-.make/generate_python: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_python: bin/pulumictl bin/$(CODEGEN) .make/schema
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) python $(VERSION_GENERIC)
@@ -230,7 +237,7 @@ export FAKE_MODULE
 	cp README.md sdk/python
 	@touch $@
 
-.make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) .make/schema
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) dotnet $(VERSION_GENERIC)
@@ -239,7 +246,7 @@ export FAKE_MODULE
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch $@
 
-.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) .make/schema
 	@mkdir -p sdk/pulumi-azure-native-sdk
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
