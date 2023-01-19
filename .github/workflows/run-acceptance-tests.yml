@@ -86,12 +86,22 @@ jobs:
         uses: jaxxstorm/action-install-gh-release@v1.5.0
         with:
           repo: pulumi/schema-tools
-      - name: Initialize submodules
-        run: make init_submodules
-      - name: Build codegen binaries
-        run: make codegen
-      - name: Build Schema
-        run: make generate_schema
+      - name: Build versions, schema and binaries
+        run: make versioner versions codegen schema provider --jobs=2
+      # We manually compress the artifacts because it saves around 30 seconds per run
+      - name: Tar artifacts
+        run: >
+          tar -zcf bin/artifacts.tar.gz -C bin
+          pulumi-resource-azure-native
+          pulumi-gen-azure-native
+          pulumi-versioner-azure-native
+          schema-full.json
+          metadata-compact.json
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts.tar.gz
+          path: bin/artifacts.tar.gz
       - if: github.event_name == 'pull_request'
         name: Check Schema is Valid
         run: |
@@ -116,22 +126,9 @@ jobs:
           labels: impact/no-changelog-required
           number: ${{ github.event.issue.number }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build Provider
-        run: make provider
-      - name: Build Versioner
-        run: make versioner
       - name: Check worktree clean
         run: ./ci-scripts/ci/check-worktree-is-clean
       - run: git status --porcelain
-      - name: Tar provider binaries
-        run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-          github.workspace}}/bin/ pulumi-resource-${{ env.PROVIDER }}
-          pulumi-gen-${{ env.PROVIDER}}
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: pulumi-${{ env.PROVIDER }}-provider.tar.gz
-          path: ${{ github.workspace }}/bin/provider.tar.gz
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
         uses: 8398a7/action-slack@v3
@@ -191,22 +188,21 @@ jobs:
           java-version: ${{ env.JAVAVERSION }}
           distribution: temurin
           cache: gradle
-      - name: Download provider + tfgen binaries
+      - run: make ensure
+      - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
-          name: pulumi-${{ env.PROVIDER }}-provider.tar.gz
+          name: artifacts.tar.gz
           path: ${{ github.workspace }}/bin
-      - name: UnTar provider binaries
-        run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-          github.workspace}}/bin
+      - name: Unpack artifacts
+        run: tar -zxf bin/artifacts.tar.gz -C bin
       - name: Restore Binary Permissions
-        run:
-          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
-          -exec chmod +x {} \;
-      - name: Initialize submodules
-        run: make init_submodules
-      - name: Mark Codegen & Provider as up-to-date
-        run: make --touch codegen provider
+        run: |
+          chmod +x bin/pulumi-resource-azure-native
+          chmod +x bin/pulumi-gen-azure-native
+          chmod +x bin/pulumi-versioner-azure-native
+      - name: Mark prerequisites as up-to-date
+        run: make --touch versioner versions codegen schema provider
       - name: Generate SDK
         run: make generate_${{ matrix.language }}
       - name: Build SDK
@@ -262,6 +258,7 @@ jobs:
   test_provider:
     runs-on: ubuntu-latest
     name: Test Provider
+    needs: prerequisites
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -271,8 +268,21 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: ${{ env.GOVERSION }}
-      - name: Initialize submodules
-        run: make ensure
+      - run: make ensure
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: artifacts.tar.gz
+          path: ${{ github.workspace }}/bin
+      - name: Unpack artifacts
+        run: tar -zxf bin/artifacts.tar.gz -C bin
+      - name: Restore Binary Permissions
+        run: |
+          chmod +x bin/pulumi-resource-azure-native
+          chmod +x bin/pulumi-gen-azure-native
+          chmod +x bin/pulumi-versioner-azure-native
+      - name: Mark prerequisites as up-to-date
+        run: make --touch versioner versions codegen schema provider
       - name: Test Provider Library
         run: make test_provider
     if: github.event_name == 'repository_dispatch' ||
