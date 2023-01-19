@@ -46,7 +46,7 @@ generate_java: .make/generate_java
 generate_nodejs: .make/generate_nodejs
 generate_python: .make/generate_python
 generate_dotnet: .make/generate_dotnet
-generate_go: .make/generate_go .make/generate_go_split_local
+generate_go: .make/generate_go_local
 
 local_generate_code: generate_java
 local_generate_code: generate_nodejs
@@ -63,7 +63,7 @@ build_nodejs: .make/build_nodejs
 build_python: .make/build_python
 build_dotnet: .make/build_dotnet
 build_java: .make/build_java
-build_go: .make/build_go .make/build_go_split
+build_go: .make/build_go
 
 # Required by CI steps - some can be skipped
 install_dotnet_sdk: .make/install_dotnet_sdk
@@ -239,30 +239,19 @@ export FAKE_MODULE
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch $@
 
-.make/generate_go: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
-	mkdir -p sdk/go
-	# Temporary hack: maintain init.go manual changes. Leading '-' ignores exit code.
-	-[ -f "sdk/go/azure/init.go" ] && mv -f "sdk/go/azure/init.go" /tmp/
-	rm -rf sdk/go/azure
-	bin/$(CODEGEN) go $(VERSION_GENERIC)
-	@# HACK: Strip all comments to make SDK smaller
-	find sdk/go -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
-	-[ -f "/tmp/init.go" ] && mv -f "/tmp/init.go" sdk/go/azure/
-	@touch $@
-
-.make/generate_go_split_local: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
+.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) provider/cmd/$(PROVIDER)/schema-full.json
 	@mkdir -p sdk/pulumi-azure-native-sdk
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
-	bin/$(CODEGEN) go-split $(VERSION_GENERIC)
+	bin/$(CODEGEN) go $(VERSION_GENERIC)
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
 	@touch $@
 
 .make/prepublish_go:
 	@# Unmark this is as an up-to-date local build
-	rm -f .make/generate_go_split_local
+	rm -f .make/generate_go_local
 	@# Remove go module replacements which are added for local testing
 	@# Note: must use `sed -i -e` to be portable - but leaves go.mod-e behind on macos
 	find sdk/pulumi-azure-native-sdk -maxdepth 2 -type f -name go.mod -exec sed -i -e '/replace github\.com\/pulumi\/pulumi-azure-native-sdk /d' {} \;
@@ -311,13 +300,8 @@ export FAKE_MODULE
 		gradle --console=plain -Pversion=$(VERSION_GENERIC) build
 	@touch $@
 
-.make/build_go: .make/generate_go
-	# Only building the top level packages and building 1 package at a time to avoid OOMing
-	cd sdk && \
-		GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
-	@touch $@
 
-.make/build_go_split: .make/generate_go_split_local
+.make/build_go: .make/generate_go_local
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go build" \;
 	@touch $@
 
