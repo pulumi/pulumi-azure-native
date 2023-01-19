@@ -61,9 +61,10 @@ jobs:
           issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
           body: "Please view the PR build: ${{ steps.vars.outputs.run-url }}"
     if: github.event_name == 'repository_dispatch'
+
   prerequisites:
     runs-on: ubuntu-latest
-    name: prerequisites
+    name: Build binaries and schema
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -131,8 +132,6 @@ jobs:
         with:
           name: pulumi-${{ env.PROVIDER }}-provider.tar.gz
           path: ${{ github.workspace }}/bin/provider.tar.gz
-      - name: Test Provider Library
-        run: make test_provider
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
         uses: 8398a7/action-slack@v3
@@ -142,6 +141,7 @@ jobs:
           status: ${{ job.status }}
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
+
   build_sdks:
     needs: prerequisites
     # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
@@ -256,5 +256,24 @@ jobs:
           author_name: Failure while building SDKs
           fields: repo,commit,author,action
           status: ${{ job.status }}
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+
+  test_provider:
+    runs-on: ubuntu-latest
+    name: Test Provider
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.PR_COMMIT_SHA }}
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ env.GOVERSION }}
+      - name: Initialize submodules
+        run: make ensure
+      - name: Test Provider Library
+        run: make test_provider
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
