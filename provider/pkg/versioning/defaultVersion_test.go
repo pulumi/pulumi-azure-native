@@ -1,9 +1,10 @@
 package versioning
 
 import (
+	"testing"
+
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestDefaultVersion(t *testing.T) {
@@ -152,4 +153,69 @@ func TestFilterCandidateVersions(t *testing.T) {
 		expected := []string{"2015-01-14-preview"}
 		assert.Equal(t, expected, actual)
 	})
+}
+
+func TestCuratedExclusions(t *testing.T) {
+	provider := "Provider"
+	tracking := "2021-02-02"
+
+	var spec SpecVersions = map[openapi.ProviderName]VersionResources{
+		provider: {
+			"2020-01-01": []openapi.ResourceName{
+				"TenantPolicy",
+			},
+			tracking: []openapi.ResourceName{
+				"Tenant",
+				"TenantCert",
+			},
+		},
+	}
+
+	config := DefaultConfig{
+		provider: {
+			Tracking: &tracking,
+			Additions: &map[string]string{
+				"TenantPolicy": "2020-01-01",
+			},
+		},
+	}
+
+	// no exlusions, no change
+	assertContainsResourcesAfterCuration(t, spec, config, []string{}, map[string]string{
+		"TenantPolicy": "2020-01-01",
+		"Tenant":       tracking,
+		"TenantCert":   tracking,
+	})
+
+	// excluded addition
+	assertContainsResourcesAfterCuration(t, spec, config, []string{"TenantPolicy"}, map[string]string{
+		"Tenant":     tracking,
+		"TenantCert": tracking,
+	})
+
+	// excluded tracking
+	assertContainsResourcesAfterCuration(t, spec, config, []string{"Tenant"}, map[string]string{
+		"TenantPolicy": "2020-01-01",
+		"TenantCert":   tracking,
+	})
+}
+
+func assertContainsResourcesAfterCuration(t *testing.T, spec SpecVersions, config DefaultConfig, exclusions []string, shouldContain map[string]string) {
+	curations := Curations{
+		"Provider": providerCuration{
+			Exclusions: exclusions,
+		},
+	}
+
+	curatedVersion, err := DefaultConfigToCuratedVersion(spec, config, curations)
+	assert.Nil(t, err)
+	curatedProvider := curatedVersion["Provider"]
+
+	assert.Equal(t, len(shouldContain), len(curatedProvider))
+
+	for resource, version := range shouldContain {
+		actualVersion, ok := curatedProvider[resource]
+		assert.True(t, ok)
+		assert.Equal(t, version, actualVersion)
+	}
 }

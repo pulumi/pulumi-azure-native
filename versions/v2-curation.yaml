@@ -1,0 +1,77 @@
+META: # not great to be in same namespace than the RPs
+  AzureSpecVersion: 55dd4f72d2b2769c1e02f2b952e597f806d40f9a
+
+# Empty entries mean we've checked and these providers don't need curation.
+# Semantics are the same as if the entry was missing.
+
+# Properties:
+#   - "exclusions": ignore these resources
+#   - "explicit": (boolean) if true, don't use a tracking version, only explicit versions for each resource
+#   - "preferPreview": use the latest -preview version rather than latest stable
+#   - "folders": folder(s) of the Azure spec GH repo containing this RP, purely informational
+#   - "notes": misc. information for future readers
+
+Aad:
+  folders:
+    - domainservices
+AadIam:
+  folders:
+    - azureactivedirectory
+ADHybridHealthService:
+  notes: "POST-based"
+Addons:
+Advisor:
+AgFoodPlatform:
+AlertsManagement:
+AnalysisServices:
+ApiManagement:
+  exclusions:
+    - ApiDiagnosticLogger # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
+    - ApiOperationsPolicy # renamed to ApiOperationPolicy
+    - DiagnosticLogger # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
+    - Property # replaced by NamedValue
+    - TagDescription # renamed to ApiTagDescription
+    - TenantPolicy # obsolete
+    - listTenantAccessGitSecrets # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
+App:
+AppComplianceAutomation:
+AppConfiguration:
+  exclusions:
+    - listConfigurationStoreKeyValue # was renamed to KeyValues_ListByConfigurationStore, endpoint from listKeyValue to keyValues
+AppPlatform:
+Attestation:
+Authorization:
+  folders: ["authorization", "resources"]
+  notes: "For ManagementLocks, the docs say 2016-09-01 which is not the latest stable https://learn.microsoft.com/en-us/rest/api/resources/management-locks"
+Automanage:
+Automation:
+AutonomousDevelopmentPlatform:
+AVS:
+  folders: ["vmware"]
+AzureActiveDirectory:
+AzureArcData:
+AzureData:
+AzureStack:
+AzureStackHCI:
+BareMetalInfrastructure:
+Batch:
+  exclusions:
+    - Certificate # deprecated
+Billing:
+BillingBenefits:
+Blockchain:
+Blueprint:
+BotService:
+  exclusions:
+    - EnterpriseChannel # Deprecated https://learn.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.channels.enterprisechannel?view=botbuilder-dotnet-stable
+Cache:
+  folders: ["redisenterprise", "redis", "eventgrid"]
+Capacity:
+Cdn:
+CertificateRegistration:
+ChangeAnalysis:
+Chaos:
+CognitiveServices:
+Commerce:
+Communication:
+---

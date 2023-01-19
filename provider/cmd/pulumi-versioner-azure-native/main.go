@@ -4,6 +4,11 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"os"
+	"path"
+	"regexp"
+	"strings"
+
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
@@ -11,10 +16,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"gopkg.in/yaml.v3"
-	"os"
-	"path"
-	"regexp"
-	"strings"
 )
 
 func main() {
@@ -99,20 +100,24 @@ func writeAll(outputDir string) error {
 	if err != nil {
 		return err
 	}
-
-	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
+	// No separate V1 curation yet
+	v1Curation := make(versioning.Curations)
+	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config, v1Curation)
 	if err != nil {
 		return err
 	}
 
 	deprecated := versioning.FindDeprecations(specVersions, v1)
-	pending := versioning.FindNewerVersions(specVersions, v1)
 	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
 	v2Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v2-config.yaml"))
 	if err != nil {
 		return err
 	}
-	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
+	v2Curation, err := versioning.ReadManualCurations(path.Join(outputDir, "v2-curation.yaml"))
+	if err != nil {
+		return err
+	}
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config, v2Curation)
 	if err != nil {
 		return err
 	}
@@ -123,7 +128,7 @@ func writeAll(outputDir string) error {
 		"v1.json":             v1,
 		"deprecated.json":     deprecated,
 		"active.json":         activePathVersionsJson,
-		"pending.json":        pending,
+		"pending.json":        versioning.FindNewerVersions(specVersions, v1),
 		"v2.json":             v2,
 	})
 }
@@ -203,7 +208,9 @@ func v1(outputDir string) error {
 		return err
 	}
 
-	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config)
+	// No separate V1 curation yet
+	v1Curation := make(versioning.Curations)
+	v1, err := versioning.DefaultConfigToCuratedVersion(specVersions, v1Config, v1Curation)
 	if err != nil {
 		return err
 	}
@@ -229,8 +236,13 @@ func v2(outputDir string) error {
 		return err
 	}
 
+	curations, err := versioning.ReadManualCurations(path.Join(outputDir, "v2-curation.yaml"))
+	if err != nil {
+		return err
+	}
+
 	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
-	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config, curations)
 	if err != nil {
 		return err
 	}
