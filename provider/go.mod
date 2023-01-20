@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-azure-native/provider
 go 1.18
 
 require (
-	github.com/Azure/azure-sdk-for-go v66.0.0+incompatible
+	github.com/Azure/azure-sdk-for-go v68.0.0+incompatible
 	github.com/Azure/go-autorest/autorest v0.11.28
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/brianvoe/gofakeit/v6 v6.16.0
@@ -13,9 +13,11 @@ require (
 	github.com/go-openapi/swag v0.21.1
 	github.com/golang/protobuf v1.5.2
 	github.com/google/uuid v1.3.0
-	github.com/hashicorp/go-azure-helpers v0.40.0
+	github.com/hashicorp/go-azure-helpers v0.47.0
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/hashicorp/hcl/v2 v2.15.0
+	github.com/manicminer/hamilton v0.54.0
+	github.com/manicminer/hamilton-autorest v0.3.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-java/pkg v0.7.1
@@ -154,8 +156,6 @@ require (
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/kevinburke/ssh_config v1.1.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/manicminer/hamilton v0.50.0
-	github.com/manicminer/hamilton-autorest v0.2.0
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
