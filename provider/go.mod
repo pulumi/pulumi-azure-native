@@ -16,8 +16,8 @@ require (
 	github.com/hashicorp/go-azure-helpers v0.47.0
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/hashicorp/hcl/v2 v2.15.0
-	github.com/manicminer/hamilton v0.54.0
-	github.com/manicminer/hamilton-autorest v0.3.0
+	github.com/manicminer/hamilton v0.50.0
+	github.com/manicminer/hamilton-autorest v0.2.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-java/pkg v0.7.1
