@@ -231,10 +231,21 @@ func swaggerLocations(namespace string) ([]string, error) {
 
 	pattern2 := filepath.Join(dir, "/azure-rest-api-specs*/specification/*/resource-manager/Microsoft."+namespace+"/*/*/20*/*.json")
 	files2, err := filepath.Glob(pattern2)
+	if err != nil {
+		return nil, err
+	}
+
+	fileSet := codegen.NewStringSet()
+	for _, file := range append(files, files2...) {
+		// In December 2022, Azure started authoring some API specs in https://github.com/microsoft/cadl.
+		// pattern2 above matches some of these folders, like
+		// voiceservices/resource-manager/Microsoft.VoiceServices/cadl/examples/2023-01-31, so we exclude them.
+		if !strings.Contains(file, "/cadl/") {
+			fileSet.Add(file)
+		}
+	}
 
 	// Sorting alphabetically means the schemas with the latest API version are the last.
-	fileSet := codegen.NewStringSet(append(files, files2...)...)
-
 	return fileSet.SortedValues(), nil
 }
 
