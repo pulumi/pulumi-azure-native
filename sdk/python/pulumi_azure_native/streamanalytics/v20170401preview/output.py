@@ -22,7 +22,7 @@ class OutputInitArgs:
                  datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None):
         """
@@ -32,7 +32,7 @@ class OutputInitArgs:
         :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] output_name: The name of the output.
-        :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[int] size_window: The size window to constrain a Stream Analytics output to.
         """
         pulumi.set(__self__, "job_name", job_name)
@@ -112,14 +112,14 @@ class OutputInitArgs:
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
+    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
+    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -154,7 +154,7 @@ class Output(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['DeltaSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]]] = None,
+                 serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]]] = None,
                  size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -168,7 +168,7 @@ class Output(pulumi.CustomResource):
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] output_name: The name of the output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['DeltaSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[int] size_window: The size window to constrain a Stream Analytics output to.
         """
         ...
@@ -200,7 +200,7 @@ class Output(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['DeltaSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]]] = None,
+                 serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]]] = None,
                  size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
                  __props__=None):

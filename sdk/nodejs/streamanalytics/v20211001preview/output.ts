@@ -60,7 +60,7 @@ export class Output extends pulumi.CustomResource {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly serialization!: pulumi.Output<outputs.streamanalytics.v20211001preview.AvroSerializationResponse | outputs.streamanalytics.v20211001preview.CsvSerializationResponse | outputs.streamanalytics.v20211001preview.CustomClrSerializationResponse | outputs.streamanalytics.v20211001preview.DeltaSerializationResponse | outputs.streamanalytics.v20211001preview.JsonSerializationResponse | outputs.streamanalytics.v20211001preview.ParquetSerializationResponse | undefined>;
+    public readonly serialization!: pulumi.Output<outputs.streamanalytics.v20211001preview.AvroSerializationResponse | outputs.streamanalytics.v20211001preview.CsvSerializationResponse | outputs.streamanalytics.v20211001preview.CustomClrSerializationResponse | outputs.streamanalytics.v20211001preview.JsonSerializationResponse | outputs.streamanalytics.v20211001preview.ParquetSerializationResponse | undefined>;
     /**
      * The size window to constrain a Stream Analytics output to.
      */
@@ -154,7 +154,7 @@ export interface OutputArgs {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    serialization?: pulumi.Input<inputs.streamanalytics.v20211001preview.AvroSerializationArgs | inputs.streamanalytics.v20211001preview.CsvSerializationArgs | inputs.streamanalytics.v20211001preview.CustomClrSerializationArgs | inputs.streamanalytics.v20211001preview.DeltaSerializationArgs | inputs.streamanalytics.v20211001preview.JsonSerializationArgs | inputs.streamanalytics.v20211001preview.ParquetSerializationArgs>;
+    serialization?: pulumi.Input<inputs.streamanalytics.v20211001preview.AvroSerializationArgs | inputs.streamanalytics.v20211001preview.CsvSerializationArgs | inputs.streamanalytics.v20211001preview.CustomClrSerializationArgs | inputs.streamanalytics.v20211001preview.JsonSerializationArgs | inputs.streamanalytics.v20211001preview.ParquetSerializationArgs>;
     /**
      * The size window to constrain a Stream Analytics output to.
      */

@@ -8,7 +8,6 @@ import * as v20200313 from "./v20200313";
 import * as v20200801 from "./v20200801";
 import * as v20200801preview from "./v20200801preview";
 import * as v20210401preview from "./v20210401preview";
-import * as v20220901 from "./v20220901";
 
 export {
     v20150819,
@@ -17,7 +16,6 @@ export {
     v20200801,
     v20200801preview,
     v20210401preview,
-    v20220901,
 };
 
 export const HostingMode = {

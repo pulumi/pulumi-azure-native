@@ -148,7 +148,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
         public static EventSerializationType Json { get; } = new EventSerializationType("Json");
         public static EventSerializationType CustomClr { get; } = new EventSerializationType("CustomClr");
         public static EventSerializationType Parquet { get; } = new EventSerializationType("Parquet");
-        public static EventSerializationType Delta { get; } = new EventSerializationType("Delta");
 
         public static bool operator ==(EventSerializationType left, EventSerializationType right) => left.Equals(right);
         public static bool operator !=(EventSerializationType left, EventSerializationType right) => !left.Equals(right);

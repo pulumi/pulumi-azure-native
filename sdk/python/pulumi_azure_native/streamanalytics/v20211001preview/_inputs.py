@@ -34,7 +34,6 @@ __all__ = [
     'CompressionArgs',
     'CsvSerializationArgs',
     'CustomClrSerializationArgs',
-    'DeltaSerializationArgs',
     'DocumentDbOutputDataSourceArgs',
     'EventGridStreamInputDataSourceArgs',
     'EventHubOutputDataSourceArgs',
@@ -2270,62 +2269,6 @@ class CustomClrSerializationArgs:
 
 
 @pulumi.input_type
-class DeltaSerializationArgs:
-    def __init__(__self__, *,
-                 delta_table_path: pulumi.Input[str],
-                 type: pulumi.Input[str],
-                 partition_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Describes how data from an input is serialized or how data is serialized when written to an output in Delta Lake format.
-        :param pulumi.Input[str] delta_table_path: Specifies the path of the Delta Lake table that the output will be written to.
-        :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-               Expected value is 'Delta'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_columns: Specifies the names of the columns for which the Delta Lake table will be partitioned. We are only supporting 1 partition column, but keeping it as an array for extensibility.
-        """
-        pulumi.set(__self__, "delta_table_path", delta_table_path)
-        pulumi.set(__self__, "type", 'Delta')
-        if partition_columns is not None:
-            pulumi.set(__self__, "partition_columns", partition_columns)
-
-    @property
-    @pulumi.getter(name="deltaTablePath")
-    def delta_table_path(self) -> pulumi.Input[str]:
-        """
-        Specifies the path of the Delta Lake table that the output will be written to.
-        """
-        return pulumi.get(self, "delta_table_path")
-
-    @delta_table_path.setter
-    def delta_table_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "delta_table_path", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Delta'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="partitionColumns")
-    def partition_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies the names of the columns for which the Delta Lake table will be partitioned. We are only supporting 1 partition column, but keeping it as an array for extensibility.
-        """
-        return pulumi.get(self, "partition_columns")
-
-    @partition_columns.setter
-    def partition_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "partition_columns", value)
-
-
-@pulumi.input_type
 class DocumentDbOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -3870,7 +3813,7 @@ class OutputArgs:
     def __init__(__self__, *,
                  datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  size_window: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
                  watermark_settings: Optional[pulumi.Input['OutputWatermarkPropertiesArgs']] = None):
@@ -3878,7 +3821,7 @@ class OutputArgs:
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
         :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[int] size_window: The size window to constrain a Stream Analytics output to.
         :param pulumi.Input[str] time_window: The time frame for filtering Stream Analytics job outputs.
         :param pulumi.Input['OutputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to send watermarks to downstream.
@@ -3922,14 +3865,14 @@ class OutputArgs:
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
+    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
+    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -4446,7 +4389,7 @@ class ReferenceInputPropertiesArgs:
                  compression: Optional[pulumi.Input['CompressionArgs']] = None,
                  datasource: Optional[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs', 'FileReferenceInputDataSourceArgs', 'RawReferenceInputDataSourceArgs']]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  watermark_settings: Optional[pulumi.Input['InputWatermarkPropertiesArgs']] = None):
         """
         The properties that are associated with an input containing reference data.
@@ -4455,7 +4398,7 @@ class ReferenceInputPropertiesArgs:
         :param pulumi.Input['CompressionArgs'] compression: Describes how input data is compressed
         :param pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs', 'FileReferenceInputDataSourceArgs', 'RawReferenceInputDataSourceArgs']] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
-        :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input['InputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to read watermark events.
         """
         pulumi.set(__self__, "type", 'Reference')
@@ -4521,14 +4464,14 @@ class ReferenceInputPropertiesArgs:
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
+    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
+    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -5078,7 +5021,7 @@ class StreamInputPropertiesArgs:
                  compression: Optional[pulumi.Input['CompressionArgs']] = None,
                  datasource: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventGridStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'GatewayMessageBusStreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  watermark_settings: Optional[pulumi.Input['InputWatermarkPropertiesArgs']] = None):
         """
         The properties that are associated with an input containing stream data.
@@ -5087,7 +5030,7 @@ class StreamInputPropertiesArgs:
         :param pulumi.Input['CompressionArgs'] compression: Describes how input data is compressed
         :param pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventGridStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'GatewayMessageBusStreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
-        :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input['InputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to read watermark events.
         """
         pulumi.set(__self__, "type", 'Stream')
@@ -5153,14 +5096,14 @@ class StreamInputPropertiesArgs:
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
+    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
+    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
         pulumi.set(self, "serialization", value)
 
     @property

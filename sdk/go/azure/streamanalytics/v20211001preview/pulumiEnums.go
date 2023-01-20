@@ -61,7 +61,6 @@ const (
 	EventSerializationTypeJson      = EventSerializationType("Json")
 	EventSerializationTypeCustomClr = EventSerializationType("CustomClr")
 	EventSerializationTypeParquet   = EventSerializationType("Parquet")
-	EventSerializationTypeDelta     = EventSerializationType("Delta")
 )
 
 type EventsOutOfOrderPolicy string
