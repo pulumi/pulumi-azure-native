@@ -45,7 +45,7 @@ jobs:
           LAST_VERSION=$(gh release list --repo pulumi/pulumi-azure-native --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1)
           NEXT_VERSION=$(npx -y semver --increment minor $LAST_VERSION)
           TIMESTAMP=$(date +%s)
-          SHORTHASH=$(echo ${{ github.event.client_payload.pull_request.head.sha }} | cut -c1-8)
+          SHORTHASH=$(echo $GITHUB_SHA | cut -c1-8)
           VERSION=$NEXT_VERSION-alpha.$TIMESTAMP+$SHORTHASH
           echo $VERSION
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
@@ -57,6 +57,6 @@ jobs:
     uses: ./.github/workflows/build-test.yml
     needs: version
     with:
-      ref: ${{ github.event.client_payload.pull_request.head.sha }}
+      ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}
     secrets: inherit
