@@ -12,6 +12,9 @@ on:
       - CHANGELOG.md
   workflow_dispatch: {}
 
+env:
+  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+
 jobs:
   comment-notification:
     runs-on: ubuntu-latest
@@ -30,9 +33,30 @@ jobs:
           body: "Please view the PR build: ${{ steps.vars.outputs.run-url }}"
     if: github.event_name == 'repository_dispatch'
 
+  version:
+    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    name: Calculate Version
+    steps:
+      # Calculate version without checking out code
+      - id: version
+        name: Calculate build version
+        run: |
+          LAST_VERSION=$(gh release list --repo pulumi/pulumi-azure-native --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1)
+          NEXT_VERSION=$(npx -y semver --increment minor $LAST_VERSION)
+          TIMESTAMP=$(date +%s)
+          SHORTHASH=$(echo ${{ github.event.client_payload.pull_request.head.sha }} | cut -c1-8)
+          VERSION=$NEXT_VERSION-alpha.$TIMESTAMP+$SHORTHASH
+          echo $VERSION
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+    outputs:
+      version: ${{ steps.version.outputs.VERSION }}
+
   build_test:
     if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     uses: ./.github/workflows/build-test.yml
+    needs: version
     with:
       ref: ${{ github.event.client_payload.pull_request.head.sha }}
+      version: ${{ needs.version.outputs.version }}
     secrets: inherit

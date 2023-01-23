@@ -6,10 +6,15 @@ on:
       ref:
         required: true
         type: string
+      version:
+        type: string
+        description: Version to be used to build the binaries, schema and SDKs
+        required: true
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   PROVIDER: azure-native
+  PROVIDER_VERSION: ${{ inputs.version }}
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
