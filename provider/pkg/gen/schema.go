@@ -1442,6 +1442,11 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		fmt.Printf("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
 		defaultValue = nil
 	}
+	// #2187 - there are array properties with default value '[]' in the schema which we don't support
+	if defaultValue != nil && typeSpec.Type == "array" {
+		fmt.Printf("Default value '%v' can't be specified for an array property %q\n", schema.Default, name)
+		defaultValue = nil
+	}
 
 	// Convert default values which are represented using strings instead of their actual types
 	switch schema.Default.(type) {
