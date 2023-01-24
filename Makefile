@@ -101,9 +101,9 @@ lint_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVI
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 clean:
-	if [ -d bin ]; then find bin -maxdepth 1 -type f -delete; fi
 	rm -rf nuget
-	find .make -maxdepth 1 -type f -delete
+	rm -rf .make
+	rm -rf bin
 	cd provider/cmd/arm2pulumi && rm -f metadata-compact.json schema-full.json
 	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-full.json
 	rm -rf sdk/dotnet/bin
