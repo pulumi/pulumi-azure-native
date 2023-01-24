@@ -27,28 +27,36 @@ VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/p
 # relevant target we run `@touch $@` to update the file which is the name of the target.
 _ := $(shell mkdir -p .make)
 
+.PHONY: default ensure init_submodules
 default: init_submodules provider arm2pulumi build_sdks
-
 ensure: .make/init_submodules bin/pulumictl .make/provider_mod_download
 init_submodules: .make/init_submodules
-arm2pulumi: bin/arm2pulumi
+
+# Binaries
+.PHONY: versioner codegen provider arm2pulumi
+versioner: bin/pulumi-versioner-azure-native
 codegen: bin/$(CODEGEN)
 provider: bin/$(PROVIDER)
-install_provider: .make/install_provider
-versioner: bin/pulumi-versioner-azure-native
-# We don't include v2 here yet as this is executed on the nightly updates
-versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
+arm2pulumi: bin/arm2pulumi
 
+.PHONY: install_provider
+install_provider: .make/install_provider
+
+# We don't include v2 here yet as this is executed on the nightly updates
+.PHONY: versions schema generate_schema generate_docs
+versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
 schema: .make/schema
 generate_schema: .make/schema
 generate_docs: .make/generate_docs
 
+.PHONY: versions generate_java generate_nodejs generate_python generate_dotnet generate_go
 generate_java: .make/generate_java
 generate_nodejs: .make/generate_nodejs
 generate_python: .make/generate_python
 generate_dotnet: .make/generate_dotnet
 generate_go: .make/generate_go_local
 
+.PHONY: local_generate_code
 local_generate_code: generate_java
 local_generate_code: generate_nodejs
 local_generate_code: generate_python
@@ -56,6 +64,7 @@ local_generate_code: generate_dotnet
 local_generate_code: generate_go
 local_generate: generate_schema local_generate_code generate_docs
 
+.PHONY: build only_build build_sdks build_nodejs build_python build_dotnet build_java build_go
 build: init_submodules codegen local_generate provider build_sdks
 # Required for the codegen action that runs in pulumi/pulumi
 only_build: build
@@ -66,6 +75,7 @@ build_dotnet: .make/build_dotnet
 build_java: .make/build_java
 build_go: .make/build_go
 
+.PHONY: install_dotnet_sdk install_python_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_sdks
 # Required by CI steps - some can be skipped
 install_dotnet_sdk: .make/install_dotnet_sdk
 install_python_sdk:
@@ -74,14 +84,10 @@ install_java_sdk:
 install_nodejs_sdk: .make/install_nodejs_sdk
 install_sdks: install_dotnet_sdk install_nodejs_sdk
 
+.PHONY: prepublish_go
 prepublish_go: .make/prepublish_go
 
-.PHONY: default ensure init_submodules arm2pulumi codegen provider install_provider versioner versions
-.PHONY: schema generate_schema generate_docs generate_java generate_nodejs generate_python generate_dotnet generate_go local_generate_code local_generate
-.PHONY: build only_build build_sdks build_nodejs build_python build_dotnet build_java build_go 
-.PHONY: install_dotnet_sdk install_python_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_sdks
-.PHONY: update_submodules arm2pulumi_coverage_report test_provider lint_provider clean test
-
+.PHONY: update_submodules
 update_submodules: init_submodules
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
 		echo "Updating submodule $$submodule" ; \
@@ -90,16 +96,20 @@ update_submodules: init_submodules
 	rm ./azure-provider-versions/provider_list.json
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
 
+.PHONY: arm2pulumi_coverage_report
 arm2pulumi_coverage_report: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	(cd provider/pkg/arm2pulumi/internal/testdata && if [ ! -d azure-quickstart-templates ]; then git clone https://github.com/Azure/azure-quickstart-templates && cd azure-quickstart-templates && git checkout 3b2757465c2de537e333f5e2d1c3776c349b8483; fi)
 	(cd provider && go test -v -tags=coverage -run TestQuickstartTemplateCoverage github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi/internal/test)
 
+.PHONY: test_provider
 test_provider: .make/provider_mod_download .make/schema provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	cd provider && go test -v $(PROVIDER_PKGS)
 
+.PHONY: lint_provider
 lint_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
+.PHONY: clean
 clean:
 	rm -rf nuget
 	rm -rf .make
@@ -116,6 +126,7 @@ clean:
 		dotnet nuget remove source "$(WORKING_DIR)" \
 	; fi
 
+.PHONY: test
 test: export PULUMI_LOCAL_NUGET=$(WORKING_DIR)/nuget
 test: build install_sdks
 	cd examples && go test -v -tags=all -timeout 2h
@@ -284,7 +295,7 @@ export FAKE_MODULE
 	sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
 	@touch $@
 
-.make/build_python: VERSION_PYTHON  = $(shell bin/pulumictl convert-version -l python -v "$(VERSION_GENERIC)")
+.make/build_python: VERSION_PYTHON = $(shell bin/pulumictl convert-version -l python -v "$(VERSION_GENERIC)")
 .make/build_python: bin/pulumictl .make/generate_python
 	cd sdk/python && \
 		python3 setup.py clean --all 2>/dev/null && \
