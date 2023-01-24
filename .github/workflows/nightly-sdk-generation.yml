@@ -37,15 +37,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
-          fetch-depth: 0
+          depth: 0
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
         with:
           skip_dotnet_and_java: "true"
-      - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@v1.5.0
-        with:
-          repo: pulumi/pulumictl
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}

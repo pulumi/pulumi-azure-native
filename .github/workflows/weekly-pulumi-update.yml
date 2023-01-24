@@ -36,14 +36,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Unshallow clone for tags
-        run: git fetch --prune --unshallow --tags
+          # We need a full checkout so we can push commits back
+          depth: 0
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
-      - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@v1.5.0
-        with:
-          repo: pulumi/pulumictl
       - name: Update Pulumi/Pulumi
         id: gomod
         run: >-
@@ -78,10 +74,6 @@ jobs:
           if ! git diff-files --quiet; then 
           	echo ::set-output name=changes::1 
           fi
-      - name: Calculate Version
-        run: |
-          make bin/pulumictl
-          echo "PROVIDER_VERSION=$(bin/pulumictl get version --language generic)" >> $GITHUB_ENV
       - name: Initialize submodules
         run: make init_submodules
       - name: Provider with Pulumi Upgrade

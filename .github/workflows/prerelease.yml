@@ -43,21 +43,17 @@ jobs:
     runs-on: macos-11
     needs: build_sdks
     name: publish
+    env:
+      GORELEASER_CURRENT_TAG: ${{ github.ref_name }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Unshallow clone for tags
-        run: git fetch --prune --unshallow --tags
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
         with:
           skip_dotnet_and_java: "true"
-      - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@v1.5.0
-        with:
-          repo: pulumi/pulumictl
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -68,9 +64,6 @@ jobs:
           role-session-name: ${{ env.PROVIDER }}@githubActions
           role-external-id: upload-pulumi-release
           role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
-      - name: Set PreRelease Version
-        run:
-          echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)" >> $GITHUB_ENV
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
@@ -90,6 +83,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish
     name: publish_sdk
+    env:
+      PACKAGE_VERSION: ${{ github.ref_name }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -100,14 +95,8 @@ jobs:
         with:
           path: ci-scripts
           repository: pulumi/scripts
-      - name: Unshallow clone for tags
-        run: git fetch --prune --unshallow --tags
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
-      - name: Install pulumictl
-        uses: jaxxstorm/action-install-gh-release@v1.5.0
-        with:
-          repo: pulumi/pulumictl
       - name: Download python SDK
         uses: actions/download-artifact@v2
         with:
@@ -146,10 +135,6 @@ jobs:
         run: ./ci-scripts/ci/publish-tfgen-package ${{ github.workspace }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Set PACKAGE_VERSION to Env
-        run:
-          echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
-          $GITHUB_ENV
       - name: Publish Java SDK
         uses: gradle/gradle-build-action@9b814496b50909128c6a52622b416c5ffa04db49
         with:
