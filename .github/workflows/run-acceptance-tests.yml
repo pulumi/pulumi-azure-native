@@ -202,6 +202,8 @@ jobs:
           -exec chmod +x {} \;
       - name: Initialize submodules
         run: make init_submodules
+      - name: Mark Codegen & Provider as up-to-date
+        run: make --touch codegen provider
       - name: Generate SDK
         run: make generate_${{ matrix.language }}
       - name: Build SDK
