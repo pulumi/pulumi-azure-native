@@ -53,7 +53,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          lfs: true
+          submodules: true
       - name: Unshallow clone for tags
         run: git fetch --prune --unshallow --tags
       - name: Install Go
@@ -99,7 +99,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          lfs: true
+          submodules: true
       - name: Checkout Scripts Repo
         uses: actions/checkout@v2
         with:
