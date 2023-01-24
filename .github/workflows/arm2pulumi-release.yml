@@ -51,10 +51,10 @@ jobs:
         uses: jaxxstorm/action-install-gh-release@v1.5.0
         with:
           repo: pulumi/pulumictl
-      - name: Install Go
-        uses: actions/setup-go@v2
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
         with:
-          go-version: 1.19.x
+          skip_dotnet_and_java: "true"
       - name: Set Version if Parameter available
         if: github.event.inputs.version != ''
         run:

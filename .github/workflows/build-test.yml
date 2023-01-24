@@ -38,14 +38,6 @@ env:
   ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
   GO111MODULE: on
   PULUMI_API: https://api.pulumi-staging.io
-  GOVERSION: 1.19.x
-  NODEVERSION: 16.x
-  PYTHONVERSION: "3.7"
-  # Codegen still emits 3.1 projects. Once codegen is updated, this can be removed.
-  DOTNETVERSION: |
-    3.1.301
-    6.0.x
-  JAVAVERSION: "11"
 
 jobs:
   prerequisites:
@@ -62,12 +54,10 @@ jobs:
         with:
           path: ci-scripts
           repository: pulumi/scripts
-      - name: Install Go
-        uses: actions/setup-go@v2
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
         with:
-          go-version: ${{ env.GOVERSION }}
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@v2
+          skip_dotnet_and_java: "true"
       - if: github.event_name == 'pull_request'
         name: Install Schema Tools
         uses: jaxxstorm/action-install-gh-release@v1.5.0
@@ -149,31 +139,8 @@ jobs:
         with:
           path: ci-scripts
           repository: pulumi/scripts
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ env.GOVERSION }}
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODEVERSION }}
-          registry-url: https://registry.npmjs.org
-      - name: Setup DotNet
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{ env.DOTNETVERSION }}
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ env.PYTHONVERSION }}
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: ${{ env.JAVAVERSION }}
-          distribution: temurin
-          cache: gradle
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
       - run: make ensure
       - name: Download artifacts
         uses: actions/download-artifact@v2
@@ -249,10 +216,10 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
           submodules: true
-      - name: Install Go
-        uses: actions/setup-go@v2
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
         with:
-          go-version: ${{ env.GOVERSION }}
+          skip_dotnet_and_java: "true"
       - run: make ensure
       - name: Download artifacts
         uses: actions/download-artifact@v2

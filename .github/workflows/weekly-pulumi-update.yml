@@ -31,17 +31,6 @@ env:
 jobs:
   weekly-pulumi-update:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-          - 1.19.x
-        dotnetversion:
-          - 3.1.301
-        pythonversion:
-          - "3.7"
-        nodeversion:
-          - 14.x
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -49,29 +38,12 @@ jobs:
           submodules: true
       - name: Unshallow clone for tags
         run: git fetch --prune --unshallow --tags
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{matrix.goversion}}
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
       - name: Install pulumictl
         uses: jaxxstorm/action-install-gh-release@v1.5.0
         with:
           repo: pulumi/pulumictl
-      - name: Install Pulumi CLI
-        uses: pulumi/action-install-pulumi-cli@v2
-      - name: Setup DotNet
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{matrix.dotnetversion}}
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{matrix.nodeversion}}
-          registry-url: https://registry.npmjs.org
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{matrix.pythonversion}}
       - name: Update Pulumi/Pulumi
         id: gomod
         run: >-
