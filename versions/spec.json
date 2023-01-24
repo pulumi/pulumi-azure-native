@@ -7940,6 +7940,11 @@
       "ConfigurationAssignment",
       "ConfigurationAssignmentParent",
       "MaintenanceConfiguration"
+    ],
+    "2022-11-01-preview": [
+      "ConfigurationAssignment",
+      "ConfigurationAssignmentParent",
+      "MaintenanceConfiguration"
     ]
   },
   "ManagedIdentity": {
@@ -8407,7 +8412,7 @@
   },
   "Monitor": {
     "2021-06-03-preview": [
-      "MonitoringAccount"
+      "AzureMonitorWorkspace"
     ]
   },
   "NetApp": {
@@ -12127,6 +12132,14 @@
       "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
+    ],
+    "2023-01-01": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy"
     ]
   },
   "RedHatOpenShift": {
@@ -14961,6 +14974,10 @@
     "2022-12-01-preview": [
       "CommunicationsGateway",
       "Contact",
+      "TestLine"
+    ],
+    "2023-01-31": [
+      "CommunicationsGateway",
       "TestLine"
     ]
   },
