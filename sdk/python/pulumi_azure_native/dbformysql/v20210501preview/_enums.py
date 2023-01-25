@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ConfigurationSource',
     'CreateMode',
     'EnableStatusEnum',
     'HighAvailabilityMode',
@@ -13,6 +14,14 @@ __all__ = [
     'ServerVersion',
     'SkuTier',
 ]
+
+
+class ConfigurationSource(str, Enum):
+    """
+    Source of the configuration.
+    """
+    SYSTEM_DEFAULT = "system-default"
+    USER_OVERRIDE = "user-override"
 
 
 class CreateMode(str, Enum):
