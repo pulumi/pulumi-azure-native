@@ -58,11 +58,6 @@ jobs:
         uses: ./.github/actions/install
         with:
           skip_dotnet_and_java: "true"
-      - if: github.event_name == 'pull_request'
-        name: Install Schema Tools
-        uses: jaxxstorm/action-install-gh-release@v1.5.0
-        with:
-          repo: pulumi/schema-tools
       - name: Build versions, schema and binaries
         run: make versioner versions codegen schema provider --jobs=2
       # We manually compress the artifacts because it saves around 30 seconds per run
@@ -79,30 +74,11 @@ jobs:
         with:
           name: artifacts.tar.gz
           path: bin/artifacts.tar.gz
-      - if: github.event_name == 'pull_request'
-        name: Check Schema is Valid
-        run: |
-          echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
-          schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-      - if: github.event_name == 'pull_request'
-        name: Comment on PR with Details of Schema Check
-        uses: thollander/actions-comment-pull-request@v1
+      - name: Schema Check
+        if: github.event_name == 'pull_request'
+        uses: ./.github/actions/schema-check
         with:
-          message: |
-            ### Does the PR have any schema changes?
-
-            ${{ env.SCHEMA_CHANGES }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - if:
-          contains(env.SCHEMA_CHANGES, 'Looking good! No breaking changes found.') &&
-          github.actor == 'pulumi-bot'
-        name: Add label if no breaking changes
-        uses: actions-ecosystem/action-add-labels@v1.1.0
-        with:
-          labels: impact/no-changelog-required
-          number: ${{ github.event.issue.number }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check worktree clean
         run: ./ci-scripts/ci/check-worktree-is-clean
       - run: git status --porcelain
