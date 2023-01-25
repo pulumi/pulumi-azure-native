@@ -1,4 +1,4 @@
-name: run-acceptance-tests
+name: acceptance-test
 
 on:
   repository_dispatch:
