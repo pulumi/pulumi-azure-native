@@ -511,6 +511,19 @@ type KeyAttributes struct {
 }
 
 
+func (val *KeyAttributes) Defaults() *KeyAttributes {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Exportable) {
+		exportable_ := false
+		tmp.Exportable = &exportable_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -528,6 +541,17 @@ type KeyAttributesArgs struct {
 	NotBefore  pulumi.Float64PtrInput `pulumi:"notBefore"`
 }
 
+
+func (val *KeyAttributesArgs) Defaults() *KeyAttributesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Exportable) {
+		tmp.Exportable = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (KeyAttributesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*KeyAttributes)(nil)).Elem()
 }
@@ -691,6 +715,19 @@ type KeyAttributesResponse struct {
 	Updated       float64  `pulumi:"updated"`
 }
 
+
+func (val *KeyAttributesResponse) Defaults() *KeyAttributesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Exportable) {
+		exportable_ := false
+		tmp.Exportable = &exportable_
+	}
+	return &tmp
+}
+
 type KeyAttributesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyAttributesResponseOutput) ElementType() reflect.Type {
@@ -836,6 +873,8 @@ func (val *KeyProperties) Defaults() *KeyProperties {
 		return nil
 	}
 	tmp := *val
+	tmp.Attributes = tmp.Attributes.Defaults()
+
 	tmp.ReleasePolicy = tmp.ReleasePolicy.Defaults()
 
 	return &tmp

@@ -5,8 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from .get_monitoring_account import *
-from .monitoring_account import *
+from .azure_monitor_workspace import *
+from .get_azure_monitor_workspace import *
 from . import outputs
 
 # Make subpackages available:

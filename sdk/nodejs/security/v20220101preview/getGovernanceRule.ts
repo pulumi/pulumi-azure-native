@@ -15,6 +15,7 @@ export function getGovernanceRule(args: GetGovernanceRuleArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20220101preview:getGovernanceRule", {
         "ruleId": args.ruleId,
+        "scope": args.scope,
     }, opts);
 }
 
@@ -23,6 +24,10 @@ export interface GetGovernanceRuleArgs {
      * The governance rule key - unique key for the standard governance rule (GUID)
      */
     ruleId: string;
+    /**
+     * The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+     */
+    scope: string;
 }
 
 /**
@@ -78,7 +83,7 @@ export interface GetGovernanceRuleResult {
      */
     readonly remediationTimeframe?: string;
     /**
-     * The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+     * The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
      */
     readonly rulePriority: number;
     /**
@@ -110,4 +115,8 @@ export interface GetGovernanceRuleOutputArgs {
      * The governance rule key - unique key for the standard governance rule (GUID)
      */
     ruleId: pulumi.Input<string>;
+    /**
+     * The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+     */
+    scope: pulumi.Input<string>;
 }

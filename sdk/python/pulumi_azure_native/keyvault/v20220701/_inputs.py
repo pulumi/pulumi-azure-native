@@ -170,6 +170,8 @@ class KeyAttributesArgs:
             pulumi.set(__self__, "enabled", enabled)
         if expires is not None:
             pulumi.set(__self__, "expires", expires)
+        if exportable is None:
+            exportable = False
         if exportable is not None:
             pulumi.set(__self__, "exportable", exportable)
         if not_before is not None:

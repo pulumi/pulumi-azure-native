@@ -147,7 +147,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["visibility"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210501:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210901preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20220701preview:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210501:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210901preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20220701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20221101preview:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MaintenanceConfiguration.__pulumiType, name, resourceInputs, opts);
     }

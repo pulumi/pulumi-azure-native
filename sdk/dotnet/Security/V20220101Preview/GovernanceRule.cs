@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public Output<string?> RemediationTimeframe { get; private set; } = null!;
 
         /// <summary>
-        /// The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+        /// The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         /// </summary>
         [Output("rulePriority")]
         public Output<int> RulePriority { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public Input<string>? RuleId { get; set; }
 
         /// <summary>
-        /// The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+        /// The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         /// </summary>
         [Input("rulePriority", required: true)]
         public Input<int> RulePriority { get; set; } = null!;
@@ -233,6 +233,12 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// </summary>
         [Input("ruleType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Security.V20220101Preview.GovernanceRuleType> RuleType { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
         /// The governance rule source, what the rule affects, e.g. Assessments

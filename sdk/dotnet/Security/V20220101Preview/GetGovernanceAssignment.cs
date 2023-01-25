@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public string AssignmentKey { get; set; } = null!;
 
         /// <summary>
-        /// Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
+        /// The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         public Input<string> AssignmentKey { get; set; } = null!;
 
         /// <summary>
-        /// Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
+        /// The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

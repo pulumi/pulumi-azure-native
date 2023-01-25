@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Monitor.Outputs
     public sealed class MonitoringAccountResponseDefaultIngestionSettings
     {
         /// <summary>
-        /// The Azure resource Id of the default data collection endpoint for this monitoring account.
+        /// The Azure resource Id of the default data collection endpoint for this workspace.
         /// </summary>
         public readonly string DataCollectionEndpointResourceId;
         /// <summary>
-        /// The Azure resource Id of the default data collection rule for this monitoring account.
+        /// The Azure resource Id of the default data collection rule for this workspace.
         /// </summary>
         public readonly string DataCollectionRuleResourceId;
 

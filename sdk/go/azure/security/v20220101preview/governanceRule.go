@@ -51,6 +51,9 @@ func NewGovernanceRule(ctx *pulumi.Context,
 	if args.RuleType == nil {
 		return nil, errors.New("invalid value for required argument 'RuleType'")
 	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
 	if args.SourceResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceResourceType'")
 	}
@@ -98,6 +101,7 @@ type governanceRuleArgs struct {
 	RuleId                      *string                          `pulumi:"ruleId"`
 	RulePriority                int                              `pulumi:"rulePriority"`
 	RuleType                    string                           `pulumi:"ruleType"`
+	Scope                       string                           `pulumi:"scope"`
 	SourceResourceType          string                           `pulumi:"sourceResourceType"`
 }
 
@@ -115,6 +119,7 @@ type GovernanceRuleArgs struct {
 	RuleId                      pulumi.StringPtrInput
 	RulePriority                pulumi.IntInput
 	RuleType                    pulumi.StringInput
+	Scope                       pulumi.StringInput
 	SourceResourceType          pulumi.StringInput
 }
 

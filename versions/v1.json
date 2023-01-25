@@ -1261,7 +1261,7 @@
     "listMobileNetworkSimIds": "2022-04-01-preview"
   },
   "Monitor": {
-    "MonitoringAccount": "2021-06-03-preview"
+    "AzureMonitorWorkspace": "2021-06-03-preview"
   },
   "NetApp": {
     "Account": "2020-12-01",

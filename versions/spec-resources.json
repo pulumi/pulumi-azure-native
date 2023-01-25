@@ -4582,7 +4582,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01-preview",
-      "2022-12-01"
+      "2022-12-01",
+      "2023-01-01"
     ],
     "BackupPolicy": [
       "2021-01-01",
@@ -4600,7 +4601,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01-preview",
-      "2022-12-01"
+      "2022-12-01",
+      "2023-01-01"
     ],
     "BackupVault": [
       "2021-01-01",
@@ -4618,7 +4620,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01-preview",
-      "2022-12-01"
+      "2022-12-01",
+      "2023-01-01"
     ],
     "DppResourceGuardProxy": [
       "2022-09-01-preview",
@@ -4638,7 +4641,8 @@
       "2022-09-01-preview",
       "2022-10-01-preview",
       "2022-11-01-preview",
-      "2022-12-01"
+      "2022-12-01",
+      "2023-01-01"
     ]
   },
   "DataShare": {
@@ -8219,12 +8223,14 @@
     "ConfigurationAssignment": [
       "2021-04-01-preview",
       "2021-09-01-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-11-01-preview"
     ],
     "ConfigurationAssignmentParent": [
       "2021-04-01-preview",
       "2021-09-01-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-11-01-preview"
     ],
     "MaintenanceConfiguration": [
       "2018-06-01-preview",
@@ -8233,7 +8239,8 @@
       "2021-04-01-preview",
       "2021-05-01",
       "2021-09-01-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-11-01-preview"
     ]
   },
   "ManagedIdentity": {
@@ -8734,7 +8741,7 @@
     ]
   },
   "Monitor": {
-    "MonitoringAccount": [
+    "AzureMonitorWorkspace": [
       "2021-06-03-preview"
     ]
   },
@@ -12267,7 +12274,8 @@
       "2022-04-01",
       "2022-06-01-preview",
       "2022-09-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-01-01"
     ],
     "ProtectedItem": [
       "2016-06-01",
@@ -12292,7 +12300,8 @@
       "2022-04-01",
       "2022-06-01-preview",
       "2022-09-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-01-01"
     ],
     "ProtectionContainer": [
       "2016-12-01",
@@ -12315,7 +12324,8 @@
       "2022-04-01",
       "2022-06-01-preview",
       "2022-09-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-01-01"
     ],
     "ProtectionIntent": [
       "2017-07-01",
@@ -12335,7 +12345,8 @@
       "2022-04-01",
       "2022-06-01-preview",
       "2022-09-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-01-01"
     ],
     "ProtectionPolicy": [
       "2016-06-01",
@@ -12358,7 +12369,8 @@
       "2022-04-01",
       "2022-06-01-preview",
       "2022-09-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-01-01"
     ],
     "ReplicationFabric": [
       "2016-08-10",
@@ -12590,7 +12602,8 @@
       "2022-04-01",
       "2022-06-01-preview",
       "2022-09-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-01-01"
     ],
     "Vault": [
       "2016-06-01",
@@ -12614,7 +12627,8 @@
       "2022-08-01",
       "2022-09-10",
       "2022-09-30-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-01-01"
     ],
     "getRecoveryPointAccessToken": [
       "2018-12-20",
@@ -13025,9 +13039,6 @@
       "2015-06-01-preview",
       "2020-01-01"
     ],
-    "ManagementGroupGovernanceRule": [
-      "2022-01-01-preview"
-    ],
     "SecurityConnector": [
       "2021-07-01-preview",
       "2021-12-01-preview",
@@ -13036,9 +13047,6 @@
     ],
     "SecurityConnectorApplication": [
       "2022-07-01-preview"
-    ],
-    "SecurityConnectorGovernanceRule": [
-      "2022-01-01-preview"
     ],
     "SecurityContact": [
       "2017-08-01-preview",
@@ -15677,13 +15685,15 @@
   },
   "VoiceServices": {
     "CommunicationsGateway": [
-      "2022-12-01-preview"
+      "2022-12-01-preview",
+      "2023-01-31"
     ],
     "Contact": [
       "2022-12-01-preview"
     ],
     "TestLine": [
-      "2022-12-01-preview"
+      "2022-12-01-preview",
+      "2023-01-31"
     ]
   },
   "Web": {

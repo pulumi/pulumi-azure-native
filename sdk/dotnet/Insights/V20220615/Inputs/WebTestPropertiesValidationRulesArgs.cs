@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.Insights.V20220615.Inputs
         /// <summary>
         /// When set, validation will ignore the status code.
         /// </summary>
-        [Input("ignoreHttpsStatusCode")]
-        public Input<bool>? IgnoreHttpsStatusCode { get; set; }
+        [Input("ignoreHttpStatusCode")]
+        public Input<bool>? IgnoreHttpStatusCode { get; set; }
 
         /// <summary>
         /// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.

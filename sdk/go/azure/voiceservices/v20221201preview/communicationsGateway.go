@@ -58,6 +58,9 @@ func NewCommunicationsGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:voiceservices:CommunicationsGateway"),
 		},
+		{
+			Type: pulumi.String("azure-native:voiceservices/v20230131:CommunicationsGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CommunicationsGateway

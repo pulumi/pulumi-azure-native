@@ -175,7 +175,7 @@ class GetGovernanceRuleResult:
     @pulumi.getter(name="rulePriority")
     def rule_priority(self) -> int:
         """
-        The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+        The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         """
         return pulumi.get(self, "rule_priority")
 
@@ -238,15 +238,18 @@ class AwaitableGetGovernanceRuleResult(GetGovernanceRuleResult):
 
 
 def get_governance_rule(rule_id: Optional[str] = None,
+                        scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGovernanceRuleResult:
     """
     Governance rule over a given scope
 
 
     :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
+    :param str scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
     """
     __args__ = dict()
     __args__['ruleId'] = rule_id
+    __args__['scope'] = scope
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20220101preview:getGovernanceRule', __args__, opts=opts, typ=GetGovernanceRuleResult).value
 
@@ -272,11 +275,13 @@ def get_governance_rule(rule_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_governance_rule)
 def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
+                               scope: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceRuleResult]:
     """
     Governance rule over a given scope
 
 
     :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
+    :param str scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
     """
     ...

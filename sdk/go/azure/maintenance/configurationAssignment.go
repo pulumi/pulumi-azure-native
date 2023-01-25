@@ -51,6 +51,9 @@ func NewConfigurationAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:maintenance/v20220701preview:ConfigurationAssignment"),
 		},
+		{
+			Type: pulumi.String("azure-native:maintenance/v20221101preview:ConfigurationAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationAssignment

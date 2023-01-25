@@ -82,7 +82,7 @@ export class GovernanceRule extends pulumi.CustomResource {
      */
     public readonly remediationTimeframe!: pulumi.Output<string | undefined>;
     /**
-     * The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+     * The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
      */
     public readonly rulePriority!: pulumi.Output<number>;
     /**
@@ -125,6 +125,9 @@ export class GovernanceRule extends pulumi.CustomResource {
             if ((!args || args.ruleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
+            if ((!args || args.scope === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'scope'");
+            }
             if ((!args || args.sourceResourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceType'");
             }
@@ -140,6 +143,7 @@ export class GovernanceRule extends pulumi.CustomResource {
             resourceInputs["ruleId"] = args ? args.ruleId : undefined;
             resourceInputs["rulePriority"] = args ? args.rulePriority : undefined;
             resourceInputs["ruleType"] = args ? args.ruleType : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["sourceResourceType"] = args ? args.sourceResourceType : undefined;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -213,13 +217,17 @@ export interface GovernanceRuleArgs {
      */
     ruleId?: pulumi.Input<string>;
     /**
-     * The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+     * The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
      */
     rulePriority: pulumi.Input<number>;
     /**
      * The rule type of the governance rule, defines the source of the rule e.g. Integrated
      */
     ruleType: pulumi.Input<string | enums.security.v20220101preview.GovernanceRuleType>;
+    /**
+     * The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+     */
+    scope: pulumi.Input<string>;
     /**
      * The governance rule source, what the rule affects, e.g. Assessments
      */

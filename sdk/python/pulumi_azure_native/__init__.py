@@ -7510,6 +7510,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dataprotection/v20230101",
+  "fqn": "pulumi_azure_native.dataprotection.v20230101",
+  "classes": {
+   "azure-native:dataprotection/v20230101:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20230101:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20230101:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20230101:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datashare",
   "fqn": "pulumi_azure_native.datashare",
   "classes": {
@@ -13243,6 +13254,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "maintenance/v20221101preview",
+  "fqn": "pulumi_azure_native.maintenance.v20221101preview",
+  "classes": {
+   "azure-native:maintenance/v20221101preview:ConfigurationAssignment": "ConfigurationAssignment",
+   "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent": "ConfigurationAssignmentParent",
+   "azure-native:maintenance/v20221101preview:MaintenanceConfiguration": "MaintenanceConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "managedidentity",
   "fqn": "pulumi_azure_native.managedidentity",
   "classes": {
@@ -14042,7 +14063,7 @@ _utilities.register(
   "mod": "monitor",
   "fqn": "pulumi_azure_native.monitor",
   "classes": {
-   "azure-native:monitor:MonitoringAccount": "MonitoringAccount"
+   "azure-native:monitor:AzureMonitorWorkspace": "AzureMonitorWorkspace"
   }
  },
  {
@@ -14050,7 +14071,7 @@ _utilities.register(
   "mod": "monitor/v20210603preview",
   "fqn": "pulumi_azure_native.monitor.v20210603preview",
   "classes": {
-   "azure-native:monitor/v20210603preview:MonitoringAccount": "MonitoringAccount"
+   "azure-native:monitor/v20210603preview:AzureMonitorWorkspace": "AzureMonitorWorkspace"
   }
  },
  {
@@ -18586,6 +18607,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20230101",
+  "fqn": "pulumi_azure_native.recoveryservices.v20230101",
+  "classes": {
+   "azure-native:recoveryservices/v20230101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20230101:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20230101:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20230101:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20230101:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20230101:ResourceGuardProxy": "ResourceGuardProxy",
+   "azure-native:recoveryservices/v20230101:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "redhatopenshift",
   "fqn": "pulumi_azure_native.redhatopenshift",
   "classes": {
@@ -19368,9 +19403,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20220101preview",
   "classes": {
    "azure-native:security/v20220101preview:GovernanceAssignment": "GovernanceAssignment",
-   "azure-native:security/v20220101preview:GovernanceRule": "GovernanceRule",
-   "azure-native:security/v20220101preview:ManagementGroupGovernanceRule": "ManagementGroupGovernanceRule",
-   "azure-native:security/v20220101preview:SecurityConnectorGovernanceRule": "SecurityConnectorGovernanceRule"
+   "azure-native:security/v20220101preview:GovernanceRule": "GovernanceRule"
   }
  },
  {
@@ -23484,6 +23517,15 @@ _utilities.register(
    "azure-native:voiceservices/v20221201preview:CommunicationsGateway": "CommunicationsGateway",
    "azure-native:voiceservices/v20221201preview:Contact": "Contact",
    "azure-native:voiceservices/v20221201preview:TestLine": "TestLine"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "voiceservices/v20230131",
+  "fqn": "pulumi_azure_native.voiceservices.v20230131",
+  "classes": {
+   "azure-native:voiceservices/v20230131:CommunicationsGateway": "CommunicationsGateway",
+   "azure-native:voiceservices/v20230131:TestLine": "TestLine"
   }
  },
  {

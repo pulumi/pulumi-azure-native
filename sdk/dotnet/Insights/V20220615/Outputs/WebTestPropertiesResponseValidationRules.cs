@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights.V20220615.Outputs
         /// <summary>
         /// When set, validation will ignore the status code.
         /// </summary>
-        public readonly bool? IgnoreHttpsStatusCode;
+        public readonly bool? IgnoreHttpStatusCode;
         /// <summary>
         /// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Insights.V20220615.Outputs
 
             int? expectedHttpStatusCode,
 
-            bool? ignoreHttpsStatusCode,
+            bool? ignoreHttpStatusCode,
 
             int? sSLCertRemainingLifetimeCheck,
 
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Insights.V20220615.Outputs
         {
             ContentValidation = contentValidation;
             ExpectedHttpStatusCode = expectedHttpStatusCode;
-            IgnoreHttpsStatusCode = ignoreHttpsStatusCode;
+            IgnoreHttpStatusCode = ignoreHttpStatusCode;
             SSLCertRemainingLifetimeCheck = sSLCertRemainingLifetimeCheck;
             SSLCheck = sSLCheck;
         }

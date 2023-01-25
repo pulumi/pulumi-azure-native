@@ -116,7 +116,7 @@ export class TestLine extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:TestLine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:TestLine" }, { type: "azure-native:voiceservices/v20230131:TestLine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TestLine.__pulumiType, name, resourceInputs, opts);
     }

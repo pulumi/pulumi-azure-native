@@ -590,14 +590,14 @@ class WebTestPropertiesValidationRulesArgs:
     def __init__(__self__, *,
                  content_validation: Optional[pulumi.Input['WebTestPropertiesContentValidationArgs']] = None,
                  expected_http_status_code: Optional[pulumi.Input[int]] = None,
-                 ignore_https_status_code: Optional[pulumi.Input[bool]] = None,
+                 ignore_http_status_code: Optional[pulumi.Input[bool]] = None,
                  s_sl_cert_remaining_lifetime_check: Optional[pulumi.Input[int]] = None,
                  s_sl_check: Optional[pulumi.Input[bool]] = None):
         """
         The collection of validation rule properties
         :param pulumi.Input['WebTestPropertiesContentValidationArgs'] content_validation: The collection of content validation properties
         :param pulumi.Input[int] expected_http_status_code: Validate that the WebTest returns the http status code provided.
-        :param pulumi.Input[bool] ignore_https_status_code: When set, validation will ignore the status code.
+        :param pulumi.Input[bool] ignore_http_status_code: When set, validation will ignore the status code.
         :param pulumi.Input[int] s_sl_cert_remaining_lifetime_check: A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
         :param pulumi.Input[bool] s_sl_check: Checks to see if the SSL cert is still valid.
         """
@@ -605,8 +605,8 @@ class WebTestPropertiesValidationRulesArgs:
             pulumi.set(__self__, "content_validation", content_validation)
         if expected_http_status_code is not None:
             pulumi.set(__self__, "expected_http_status_code", expected_http_status_code)
-        if ignore_https_status_code is not None:
-            pulumi.set(__self__, "ignore_https_status_code", ignore_https_status_code)
+        if ignore_http_status_code is not None:
+            pulumi.set(__self__, "ignore_http_status_code", ignore_http_status_code)
         if s_sl_cert_remaining_lifetime_check is not None:
             pulumi.set(__self__, "s_sl_cert_remaining_lifetime_check", s_sl_cert_remaining_lifetime_check)
         if s_sl_check is not None:
@@ -637,16 +637,16 @@ class WebTestPropertiesValidationRulesArgs:
         pulumi.set(self, "expected_http_status_code", value)
 
     @property
-    @pulumi.getter(name="ignoreHttpsStatusCode")
-    def ignore_https_status_code(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="ignoreHttpStatusCode")
+    def ignore_http_status_code(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, validation will ignore the status code.
         """
-        return pulumi.get(self, "ignore_https_status_code")
+        return pulumi.get(self, "ignore_http_status_code")
 
-    @ignore_https_status_code.setter
-    def ignore_https_status_code(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ignore_https_status_code", value)
+    @ignore_http_status_code.setter
+    def ignore_http_status_code(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_http_status_code", value)
 
     @property
     @pulumi.getter(name="sSLCertRemainingLifetimeCheck")

@@ -2076,7 +2076,7 @@ func (o WebTestPropertiesResponseRequestPtrOutput) RequestUrl() pulumi.StringPtr
 type WebTestPropertiesResponseValidationRules struct {
 	ContentValidation             *WebTestPropertiesResponseContentValidation `pulumi:"contentValidation"`
 	ExpectedHttpStatusCode        *int                                        `pulumi:"expectedHttpStatusCode"`
-	IgnoreHttpsStatusCode         *bool                                       `pulumi:"ignoreHttpsStatusCode"`
+	IgnoreHttpStatusCode          *bool                                       `pulumi:"ignoreHttpStatusCode"`
 	SSLCertRemainingLifetimeCheck *int                                        `pulumi:"sSLCertRemainingLifetimeCheck"`
 	SSLCheck                      *bool                                       `pulumi:"sSLCheck"`
 }
@@ -2105,8 +2105,8 @@ func (o WebTestPropertiesResponseValidationRulesOutput) ExpectedHttpStatusCode()
 	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *int { return v.ExpectedHttpStatusCode }).(pulumi.IntPtrOutput)
 }
 
-func (o WebTestPropertiesResponseValidationRulesOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *bool { return v.IgnoreHttpsStatusCode }).(pulumi.BoolPtrOutput)
+func (o WebTestPropertiesResponseValidationRulesOutput) IgnoreHttpStatusCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *bool { return v.IgnoreHttpStatusCode }).(pulumi.BoolPtrOutput)
 }
 
 func (o WebTestPropertiesResponseValidationRulesOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
@@ -2159,12 +2159,12 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) ExpectedHttpStatusCod
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o WebTestPropertiesResponseValidationRulesPtrOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
+func (o WebTestPropertiesResponseValidationRulesPtrOutput) IgnoreHttpStatusCode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.IgnoreHttpsStatusCode
+		return v.IgnoreHttpStatusCode
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2189,7 +2189,7 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) SSLCheck() pulumi.Boo
 type WebTestPropertiesValidationRules struct {
 	ContentValidation             *WebTestPropertiesContentValidation `pulumi:"contentValidation"`
 	ExpectedHttpStatusCode        *int                                `pulumi:"expectedHttpStatusCode"`
-	IgnoreHttpsStatusCode         *bool                               `pulumi:"ignoreHttpsStatusCode"`
+	IgnoreHttpStatusCode          *bool                               `pulumi:"ignoreHttpStatusCode"`
 	SSLCertRemainingLifetimeCheck *int                                `pulumi:"sSLCertRemainingLifetimeCheck"`
 	SSLCheck                      *bool                               `pulumi:"sSLCheck"`
 }
@@ -2208,7 +2208,7 @@ type WebTestPropertiesValidationRulesInput interface {
 type WebTestPropertiesValidationRulesArgs struct {
 	ContentValidation             WebTestPropertiesContentValidationPtrInput `pulumi:"contentValidation"`
 	ExpectedHttpStatusCode        pulumi.IntPtrInput                         `pulumi:"expectedHttpStatusCode"`
-	IgnoreHttpsStatusCode         pulumi.BoolPtrInput                        `pulumi:"ignoreHttpsStatusCode"`
+	IgnoreHttpStatusCode          pulumi.BoolPtrInput                        `pulumi:"ignoreHttpStatusCode"`
 	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput                         `pulumi:"sSLCertRemainingLifetimeCheck"`
 	SSLCheck                      pulumi.BoolPtrInput                        `pulumi:"sSLCheck"`
 }
@@ -2300,8 +2300,8 @@ func (o WebTestPropertiesValidationRulesOutput) ExpectedHttpStatusCode() pulumi.
 	return o.ApplyT(func(v WebTestPropertiesValidationRules) *int { return v.ExpectedHttpStatusCode }).(pulumi.IntPtrOutput)
 }
 
-func (o WebTestPropertiesValidationRulesOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesValidationRules) *bool { return v.IgnoreHttpsStatusCode }).(pulumi.BoolPtrOutput)
+func (o WebTestPropertiesValidationRulesOutput) IgnoreHttpStatusCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesValidationRules) *bool { return v.IgnoreHttpStatusCode }).(pulumi.BoolPtrOutput)
 }
 
 func (o WebTestPropertiesValidationRulesOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
@@ -2354,12 +2354,12 @@ func (o WebTestPropertiesValidationRulesPtrOutput) ExpectedHttpStatusCode() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o WebTestPropertiesValidationRulesPtrOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
+func (o WebTestPropertiesValidationRulesPtrOutput) IgnoreHttpStatusCode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.IgnoreHttpsStatusCode
+		return v.IgnoreHttpStatusCode
 	}).(pulumi.BoolPtrOutput)
 }
 

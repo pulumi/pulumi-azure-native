@@ -327,7 +327,7 @@ class ScheduledActionByScope(pulumi.CustomResource):
     @pulumi.getter(name="eTag")
     def e_tag(self) -> pulumi.Output[str]:
         """
-        Resource Etag.
+        Resource Etag. For update calls, eTag is mandatory. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
         """
         return pulumi.get(self, "e_tag")
 

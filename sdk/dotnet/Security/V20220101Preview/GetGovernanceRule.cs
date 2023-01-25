@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         [Input("ruleId", required: true)]
         public string RuleId { get; set; } = null!;
 
+        /// <summary>
+        /// The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// </summary>
+        [Input("scope", required: true)]
+        public string Scope { get; set; } = null!;
+
         public GetGovernanceRuleArgs()
         {
         }
@@ -46,6 +52,12 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
 
         public GetGovernanceRuleInvokeArgs()
         {
@@ -106,7 +118,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// </summary>
         public readonly string? RemediationTimeframe;
         /// <summary>
-        /// The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+        /// The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         /// </summary>
         public readonly int RulePriority;
         /// <summary>

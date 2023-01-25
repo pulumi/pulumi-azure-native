@@ -49,6 +49,8 @@ func (val *LookupKeyResult) Defaults() *LookupKeyResult {
 		return nil
 	}
 	tmp := *val
+	tmp.Attributes = tmp.Attributes.Defaults()
+
 	tmp.ReleasePolicy = tmp.ReleasePolicy.Defaults()
 
 	return &tmp

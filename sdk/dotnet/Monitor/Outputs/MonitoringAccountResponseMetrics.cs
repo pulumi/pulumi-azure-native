@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 {
 
     /// <summary>
-    /// Information about metrics for the monitoring account
+    /// Information about metrics for the Azure Monitor workspace
     /// </summary>
     [OutputType]
     public sealed class MonitoringAccountResponseMetrics
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// </summary>
         public readonly string InternalId;
         /// <summary>
-        /// The Prometheus query endpoint for the monitoring account
+        /// The Prometheus query endpoint for the workspace
         /// </summary>
         public readonly string PrometheusQueryEndpoint;
 

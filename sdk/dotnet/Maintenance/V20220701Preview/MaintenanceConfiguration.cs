@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.Maintenance.V20220701Preview
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210501:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20221101preview:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

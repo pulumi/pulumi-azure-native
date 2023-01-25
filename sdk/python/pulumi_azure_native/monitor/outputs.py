@@ -44,8 +44,8 @@ class MonitoringAccountResponseDefaultIngestionSettings(dict):
                  data_collection_rule_resource_id: str):
         """
         The Data Collection Rule and Endpoint used for ingestion by default.
-        :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this monitoring account.
-        :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this monitoring account.
+        :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this workspace.
+        :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this workspace.
         """
         pulumi.set(__self__, "data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
         pulumi.set(__self__, "data_collection_rule_resource_id", data_collection_rule_resource_id)
@@ -54,7 +54,7 @@ class MonitoringAccountResponseDefaultIngestionSettings(dict):
     @pulumi.getter(name="dataCollectionEndpointResourceId")
     def data_collection_endpoint_resource_id(self) -> str:
         """
-        The Azure resource Id of the default data collection endpoint for this monitoring account.
+        The Azure resource Id of the default data collection endpoint for this workspace.
         """
         return pulumi.get(self, "data_collection_endpoint_resource_id")
 
@@ -62,7 +62,7 @@ class MonitoringAccountResponseDefaultIngestionSettings(dict):
     @pulumi.getter(name="dataCollectionRuleResourceId")
     def data_collection_rule_resource_id(self) -> str:
         """
-        The Azure resource Id of the default data collection rule for this monitoring account.
+        The Azure resource Id of the default data collection rule for this workspace.
         """
         return pulumi.get(self, "data_collection_rule_resource_id")
 
@@ -70,7 +70,7 @@ class MonitoringAccountResponseDefaultIngestionSettings(dict):
 @pulumi.output_type
 class MonitoringAccountResponseMetrics(dict):
     """
-    Information about metrics for the monitoring account
+    Information about metrics for the Azure Monitor workspace
     """
     @staticmethod
     def __key_warning(key: str):
@@ -95,9 +95,9 @@ class MonitoringAccountResponseMetrics(dict):
                  internal_id: str,
                  prometheus_query_endpoint: str):
         """
-        Information about metrics for the monitoring account
+        Information about metrics for the Azure Monitor workspace
         :param str internal_id: An internal identifier for the metrics container. Only to be used by the system
-        :param str prometheus_query_endpoint: The Prometheus query endpoint for the monitoring account
+        :param str prometheus_query_endpoint: The Prometheus query endpoint for the workspace
         """
         pulumi.set(__self__, "internal_id", internal_id)
         pulumi.set(__self__, "prometheus_query_endpoint", prometheus_query_endpoint)
@@ -114,7 +114,7 @@ class MonitoringAccountResponseMetrics(dict):
     @pulumi.getter(name="prometheusQueryEndpoint")
     def prometheus_query_endpoint(self) -> str:
         """
-        The Prometheus query endpoint for the monitoring account
+        The Prometheus query endpoint for the workspace
         """
         return pulumi.get(self, "prometheus_query_endpoint")
 

@@ -151,7 +151,7 @@ def get_governance_assignment(assessment_name: Optional[str] = None,
 
     :param str assessment_name: The Assessment Key - A unique key for the assessment type
     :param str assignment_key: The governance assignment key - the assessment key of the required governance assignment
-    :param str scope: Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
+    :param str scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
     """
     __args__ = dict()
     __args__['assessmentName'] = assessment_name
@@ -183,6 +183,6 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]
 
     :param str assessment_name: The Assessment Key - A unique key for the assessment type
     :param str assignment_key: The governance assignment key - the assessment key of the required governance assignment
-    :param str scope: Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
+    :param str scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
     """
     ...

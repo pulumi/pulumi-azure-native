@@ -21,6 +21,7 @@ class GovernanceRuleArgs:
                  owner_source: pulumi.Input['GovernanceRuleOwnerSourceArgs'],
                  rule_priority: pulumi.Input[int],
                  rule_type: pulumi.Input[Union[str, 'GovernanceRuleType']],
+                 scope: pulumi.Input[str],
                  source_resource_type: pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']],
                  description: Optional[pulumi.Input[str]] = None,
                  excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -34,8 +35,9 @@ class GovernanceRuleArgs:
         The set of arguments for constructing a GovernanceRule resource.
         :param pulumi.Input[str] display_name: Display name of the governance rule
         :param pulumi.Input['GovernanceRuleOwnerSourceArgs'] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
-        :param pulumi.Input[int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+        :param pulumi.Input[int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         :param pulumi.Input[Union[str, 'GovernanceRuleType']] rule_type: The rule type of the governance rule, defines the source of the rule e.g. Integrated
+        :param pulumi.Input[str] scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         :param pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']] source_resource_type: The governance rule source, what the rule affects, e.g. Assessments
         :param pulumi.Input[str] description: Description of the governance rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_scopes: Excluded scopes, filter out the descendants of the scope (on management scopes)
@@ -50,6 +52,7 @@ class GovernanceRuleArgs:
         pulumi.set(__self__, "owner_source", owner_source)
         pulumi.set(__self__, "rule_priority", rule_priority)
         pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "source_resource_type", source_resource_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -96,7 +99,7 @@ class GovernanceRuleArgs:
     @pulumi.getter(name="rulePriority")
     def rule_priority(self) -> pulumi.Input[int]:
         """
-        The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+        The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         """
         return pulumi.get(self, "rule_priority")
 
@@ -115,6 +118,18 @@ class GovernanceRuleArgs:
     @rule_type.setter
     def rule_type(self, value: pulumi.Input[Union[str, 'GovernanceRuleType']]):
         pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
 
     @property
     @pulumi.getter(name="sourceResourceType")
@@ -242,6 +257,7 @@ class GovernanceRule(pulumi.CustomResource):
                  rule_id: Optional[pulumi.Input[str]] = None,
                  rule_priority: Optional[pulumi.Input[int]] = None,
                  rule_type: Optional[pulumi.Input[Union[str, 'GovernanceRuleType']]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  source_resource_type: Optional[pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']]] = None,
                  __props__=None):
         """
@@ -259,8 +275,9 @@ class GovernanceRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GovernanceRuleOwnerSourceArgs']] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         :param pulumi.Input[str] remediation_timeframe: Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
         :param pulumi.Input[str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
-        :param pulumi.Input[int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+        :param pulumi.Input[int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         :param pulumi.Input[Union[str, 'GovernanceRuleType']] rule_type: The rule type of the governance rule, defines the source of the rule e.g. Integrated
+        :param pulumi.Input[str] scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         :param pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']] source_resource_type: The governance rule source, what the rule affects, e.g. Assessments
         """
         ...
@@ -299,6 +316,7 @@ class GovernanceRule(pulumi.CustomResource):
                  rule_id: Optional[pulumi.Input[str]] = None,
                  rule_priority: Optional[pulumi.Input[int]] = None,
                  rule_type: Optional[pulumi.Input[Union[str, 'GovernanceRuleType']]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  source_resource_type: Optional[pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -329,6 +347,9 @@ class GovernanceRule(pulumi.CustomResource):
             if rule_type is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_type'")
             __props__.__dict__["rule_type"] = rule_type
+            if scope is None and not opts.urn:
+                raise TypeError("Missing required property 'scope'")
+            __props__.__dict__["scope"] = scope
             if source_resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'source_resource_type'")
             __props__.__dict__["source_resource_type"] = source_resource_type
@@ -468,7 +489,7 @@ class GovernanceRule(pulumi.CustomResource):
     @pulumi.getter(name="rulePriority")
     def rule_priority(self) -> pulumi.Output[int]:
         """
-        The governance rule priority, priority to the lower number. Rules with the same priority on the same subscription will not be allowed
+        The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         """
         return pulumi.get(self, "rule_priority")
 

@@ -41,6 +41,7 @@ namespace Pulumi.AzureNative.KeyVault.V20220701.Inputs
 
         public KeyAttributesArgs()
         {
+            Exportable = false;
         }
         public static new KeyAttributesArgs Empty => new KeyAttributesArgs();
     }

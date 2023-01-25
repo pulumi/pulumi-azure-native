@@ -21,6 +21,7 @@ func LookupGovernanceRule(ctx *pulumi.Context, args *LookupGovernanceRuleArgs, o
 
 type LookupGovernanceRuleArgs struct {
 	RuleId string `pulumi:"ruleId"`
+	Scope  string `pulumi:"scope"`
 }
 
 
@@ -59,6 +60,7 @@ func LookupGovernanceRuleOutput(ctx *pulumi.Context, args LookupGovernanceRuleOu
 
 type LookupGovernanceRuleOutputArgs struct {
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	Scope  pulumi.StringInput `pulumi:"scope"`
 }
 
 func (LookupGovernanceRuleOutputArgs) ElementType() reflect.Type {

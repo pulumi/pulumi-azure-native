@@ -359,7 +359,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// A simple secret resource whose plaintext value is provided by the user.
         /// </summary>
-        public static SecretKind InlinedValue { get; } = new SecretKind("InlinedValue");
+        public static SecretKind InlinedValue { get; } = new SecretKind("inlinedValue");
 
         public static bool operator ==(SecretKind left, SecretKind right) => left.Equals(right);
         public static bool operator !=(SecretKind left, SecretKind right) => !left.Equals(right);

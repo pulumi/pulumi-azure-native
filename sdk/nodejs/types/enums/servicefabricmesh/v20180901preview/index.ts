@@ -132,7 +132,7 @@ export const SecretKind = {
     /**
      * A simple secret resource whose plaintext value is provided by the user.
      */
-    InlinedValue: "InlinedValue",
+    InlinedValue: "inlinedValue",
 } as const;
 
 /**

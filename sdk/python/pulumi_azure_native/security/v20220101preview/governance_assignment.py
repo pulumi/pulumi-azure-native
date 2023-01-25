@@ -29,7 +29,7 @@ class GovernanceAssignmentArgs:
         The set of arguments for constructing a GovernanceAssignment resource.
         :param pulumi.Input[str] assessment_name: The Assessment Key - A unique key for the assessment type
         :param pulumi.Input[str] remediation_due_date: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
-        :param pulumi.Input[str] scope: Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
+        :param pulumi.Input[str] scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         :param pulumi.Input['GovernanceAssignmentAdditionalDataArgs'] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
         :param pulumi.Input[str] assignment_key: The governance assignment key - the assessment key of the required governance assignment
         :param pulumi.Input['GovernanceEmailNotificationArgs'] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
@@ -81,7 +81,7 @@ class GovernanceAssignmentArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
+        The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         """
         return pulumi.get(self, "scope")
 
@@ -190,7 +190,7 @@ class GovernanceAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] owner: The Owner for the governance assignment - e.g. user@contoso.com - see example
         :param pulumi.Input[str] remediation_due_date: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
         :param pulumi.Input[pulumi.InputType['RemediationEtaArgs']] remediation_eta: The ETA (estimated time of arrival) for remediation (optional), see example
-        :param pulumi.Input[str] scope: Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
+        :param pulumi.Input[str] scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         """
         ...
     @overload
