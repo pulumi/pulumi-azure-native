@@ -49,17 +49,15 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
           submodules: true
-      - name: Checkout Scripts Repo
-        uses: actions/checkout@v2
-        with:
-          path: ci-scripts
-          repository: pulumi/scripts
+
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
         with:
           skip_dotnet_and_java: "true"
+
       - name: Build versions, schema and binaries
         run: make versioner versions codegen schema provider --jobs=2
+
       # We manually compress the artifacts because it saves around 30 seconds per run
       - name: Tar artifacts
         run: >
@@ -74,14 +72,16 @@ jobs:
         with:
           name: artifacts.tar.gz
           path: bin/artifacts.tar.gz
+
       - name: Schema Check
         if: github.event_name == 'pull_request'
         uses: ./.github/actions/schema-check
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Check worktree clean
-        run: ./ci-scripts/ci/check-worktree-is-clean
-      - run: git status --porcelain
+        uses: ./.github/actions/check-worktree-clean
+
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
         uses: 8398a7/action-slack@v3
@@ -110,11 +110,7 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
           submodules: true
-      - name: Checkout Scripts Repo
-        uses: actions/checkout@v2
-        with:
-          path: ci-scripts
-          repository: pulumi/scripts
+
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
       - run: make ensure
@@ -136,9 +132,10 @@ jobs:
         run: make generate_${{ matrix.language }}
       - name: Build SDK
         run: make build_${{ matrix.language }}
+
       - name: Check worktree clean
-        run: ./ci-scripts/ci/check-worktree-is-clean
-      - run: git status --porcelain
+        uses: ./.github/actions/check-worktree-clean
+
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
       - name: Install Node dependencies
