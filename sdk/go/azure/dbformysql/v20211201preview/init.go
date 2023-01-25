@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:dbformysql/v20211201preview:AzureADAdministrator":
 		r = &AzureADAdministrator{}
+	case "azure-native:dbformysql/v20211201preview:Configuration":
+		r = &Configuration{}
 	case "azure-native:dbformysql/v20211201preview:Database":
 		r = &Database{}
 	case "azure-native:dbformysql/v20211201preview:FirewallRule":
