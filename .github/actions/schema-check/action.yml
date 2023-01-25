@@ -30,6 +30,8 @@ runs:
         if: github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v1
         with:
+          # Update the comment if one already exists
+          comment_tag: schema-check
           message: |
             ### Does the PR have any schema changes?
 
