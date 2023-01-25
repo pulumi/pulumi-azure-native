@@ -58,20 +58,8 @@ jobs:
       - name: Build versions, schema and binaries
         run: make versioner versions codegen schema provider --jobs=2
 
-      # We manually compress the artifacts because it saves around 30 seconds per run
-      - name: Tar artifacts
-        run: >
-          tar -zcf bin/artifacts.tar.gz -C bin
-          pulumi-resource-azure-native
-          pulumi-gen-azure-native
-          pulumi-versioner-azure-native
-          schema-full.json
-          metadata-compact.json
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifacts.tar.gz
-          path: bin/artifacts.tar.gz
+      - name: Artifact capture
+        uses: ./.github/actions/prerequisites-artifact-capture
 
       - name: Schema Check
         if: github.event_name == 'pull_request'
@@ -113,23 +101,18 @@ jobs:
 
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
+
       - run: make ensure
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: artifacts.tar.gz
-          path: ${{ github.workspace }}/bin
-      - name: Unpack artifacts
-        run: tar -zxf bin/artifacts.tar.gz -C bin
-      - name: Restore Binary Permissions
-        run: |
-          chmod +x bin/pulumi-resource-azure-native
-          chmod +x bin/pulumi-gen-azure-native
-          chmod +x bin/pulumi-versioner-azure-native
+
+      - name: Prerequisites artifact restore
+        uses: ./.github/actions/prerequisites-artifact-restore
+
       - name: Mark prerequisites as up-to-date
         run: make --touch versioner versions codegen schema provider
+
       - name: Generate SDK
         run: make generate_${{ matrix.language }}
+
       - name: Build SDK
         run: make build_${{ matrix.language }}
 
@@ -189,24 +172,19 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
           submodules: true
+
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
         with:
           skip_dotnet_and_java: "true"
+
       - run: make ensure
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: artifacts.tar.gz
-          path: ${{ github.workspace }}/bin
-      - name: Unpack artifacts
-        run: tar -zxf bin/artifacts.tar.gz -C bin
-      - name: Restore Binary Permissions
-        run: |
-          chmod +x bin/pulumi-resource-azure-native
-          chmod +x bin/pulumi-gen-azure-native
-          chmod +x bin/pulumi-versioner-azure-native
+
+      - name: Prerequisites artifact restore
+        uses: ./.github/actions/prerequisites-artifact-restore
+
       - name: Mark prerequisites as up-to-date
         run: make --touch versioner versions codegen schema provider
+
       - name: Test Provider Library
         run: make test_provider
