@@ -42,22 +42,10 @@ env:
 
 jobs:
   version:
-    runs-on: ubuntu-latest
-    name: Calculate Version
-    steps:
-      # Calculate version without checking out code
-      - id: version
-        name: Calculate build version
-        run: |
-          LAST_VERSION=$(gh release list --repo pulumi/pulumi-azure-native --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1)
-          NEXT_VERSION=$(npx -y semver --increment minor $LAST_VERSION)
-          TIMESTAMP=$(date +%s)
-          SHORTHASH=$(echo $GITHUB_SHA | cut -c1-8)
-          VERSION=$NEXT_VERSION-alpha.$TIMESTAMP+$SHORTHASH
-          echo $VERSION
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
-    outputs:
-      version: ${{ steps.version.outputs.VERSION }}
+    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    uses: ./.github/workflows/dev-version.yml
+    needs: version
+    secrets: inherit
 
   build_test:
     uses: ./.github/workflows/build-test.yml
