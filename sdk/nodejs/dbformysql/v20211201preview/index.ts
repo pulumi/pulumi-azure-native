@@ -10,6 +10,11 @@ export type AzureADAdministrator = import("./azureADAdministrator").AzureADAdmin
 export const AzureADAdministrator: typeof import("./azureADAdministrator").AzureADAdministrator = null as any;
 utilities.lazyLoad(exports, ["AzureADAdministrator"], () => require("./azureADAdministrator"));
 
+export { ConfigurationArgs } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -24,6 +29,11 @@ export { GetAzureADAdministratorArgs, GetAzureADAdministratorResult, GetAzureADA
 export const getAzureADAdministrator: typeof import("./getAzureADAdministrator").getAzureADAdministrator = null as any;
 export const getAzureADAdministratorOutput: typeof import("./getAzureADAdministrator").getAzureADAdministratorOutput = null as any;
 utilities.lazyLoad(exports, ["getAzureADAdministrator","getAzureADAdministratorOutput"], () => require("./getAzureADAdministrator"));
+
+export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
+export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
+export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -59,6 +69,8 @@ const _module = {
         switch (type) {
             case "azure-native:dbformysql/v20211201preview:AzureADAdministrator":
                 return new AzureADAdministrator(name, <any>undefined, { urn })
+            case "azure-native:dbformysql/v20211201preview:Configuration":
+                return new Configuration(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20211201preview:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20211201preview:FirewallRule":

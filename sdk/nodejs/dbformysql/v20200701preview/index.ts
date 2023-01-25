@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { ConfigurationArgs } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -14,6 +19,11 @@ export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
 utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+
+export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
+export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
+export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -53,6 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:dbformysql/v20200701preview:Configuration":
+                return new Configuration(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20200701preview:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20200701preview:FirewallRule":
