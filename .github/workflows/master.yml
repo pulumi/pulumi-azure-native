@@ -70,6 +70,15 @@ jobs:
         uses: ./.github/actions/install
         with:
           skip_dotnet_and_java: "true"
+
+      - run: make ensure
+
+      - name: Prerequisites artifact restore
+        uses: ./.github/actions/prerequisites-artifact-restore
+
+      - name: Mark prerequisites as up-to-date
+        run: make --touch versioner versions codegen schema provider
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
