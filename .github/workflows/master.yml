@@ -85,7 +85,7 @@ jobs:
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
       - name: Download python SDK
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: python-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/
@@ -93,7 +93,7 @@ jobs:
         run: tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C
           ${{github.workspace}}/sdk/python
       - name: Download dotnet SDK
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: dotnet-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/
@@ -101,7 +101,7 @@ jobs:
         run: tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C
           ${{github.workspace}}/sdk/dotnet
       - name: Download nodejs SDK
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: nodejs-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/
@@ -109,7 +109,7 @@ jobs:
         run: tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C
           ${{github.workspace}}/sdk/nodejs
       - name: Download java SDK
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: java-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/
@@ -140,7 +140,7 @@ jobs:
           cd sdk/pulumi-azure-native-sdk
           find . -maxdepth 1 -not -name '.*' -exec rm -rf {} \;
       - name: Download Go split SDK
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: pulumi-azure-native-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/

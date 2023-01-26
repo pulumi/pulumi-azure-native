@@ -16,7 +16,7 @@ runs:
           metadata-compact.json
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: artifacts.tar.gz
           path: bin/artifacts.tar.gz

@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
       - name: Install Languages & Frameworks
@@ -58,7 +58,8 @@ jobs:
       - name: Test usage of results.json
         run: cat provider/pkg/arm2pulumi/internal/test/results.json
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        # https://github.com/aws-actions/configure-aws-credentials#notice-node12-deprecation-warning
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-region: us-west-2
