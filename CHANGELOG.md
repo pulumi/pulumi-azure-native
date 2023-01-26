@@ -2,6 +2,16 @@
 
 ## HEAD (Unreleased)
 
+## 1.93.0 (2023-01-25)
+
+Breaking changes:
+
+- `azure-native:monitor:MonitoringAccount` renamed to `monitor.AzureMonitorWorkspace`.
+- `azure-native:monitor:getMonitoringAccount` renamed to `monitor.getAzureMonitorWorkspace`.
+
+#### New functions:
+
+
 ## 1.92.0 (2023-01-13)
 
 - Fixes #1602
