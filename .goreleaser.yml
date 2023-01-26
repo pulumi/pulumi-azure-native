@@ -1,6 +1,3 @@
-before:
-  hooks:
-  - make provider_prebuild
 builds:
 - dir: provider
   env:

@@ -47,6 +47,10 @@ arm2pulumi: bin/arm2pulumi
 .PHONY: install_provider
 install_provider: .make/install_provider
 
+.PHONY: provider_prebuild arm2pulumi_prebuild
+provider_prebuild: .make/provider_prebuild
+arm2pulumi_prebuild: .make/arm2pulumi_prebuild
+
 # We don't include v2 here yet as this is executed on the nightly updates
 .PHONY: versions schema generate_schema generate_docs
 versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
