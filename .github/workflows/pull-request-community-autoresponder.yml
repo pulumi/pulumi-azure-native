@@ -1,0 +1,28 @@
+name: PR Community Autoresponder
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  comment-on-pr:
+    name: Comment maintainer instructions
+    if: github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          # Update existing comment if already exists
+          comment_tag: pull-request-contrib
+          message: |
+            Hi there 👋 Thank you for submitting a pull request.
+
+            Acceptance tests must be run by a maintainer. If a maintainer hasn't picked this up after 7 days, please do reach out to a [maintainer](https://github.com/pulumi/pulumi-azure-native/graphs/contributors) via our [community Slack](https://slack.pulumi.com/).
+
+            **Maintainers:** Please review changes then run tests by adding the comment:
+
+            ```
+            /run-acceptance-tests
+            ```
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

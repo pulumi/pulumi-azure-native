@@ -1,0 +1,59 @@
+name: Schema Check
+description: Compare schema to previous release and comment on PR
+
+inputs:
+  GITHUB_TOKEN:
+    description: Token used to write the PR comment
+
+outputs:
+  summary:
+    description: Output of schema-tools compare
+    value: ${{ steps.schema-tools.outputs.summary }}
+
+runs:
+  using: "composite"
+  steps:
+      - name: Install Schema Tools
+        uses: jaxxstorm/action-install-gh-release@v1.5.0
+        with:
+          repo: pulumi/schema-tools
+
+      - name: Check Schema is Valid
+        id: schema-tools
+        shell: bash
+        run: |
+          echo 'summary<<EOF' >> $GITHUB_OUTPUT
+          schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
+      # Update the description of automated PRs
+      - name: update-pull-request
+        if: github.event_name == 'pull_request' && github.actor == 'pulumi-bot'
+        uses: kt3k/update-pr-description@v1.0.1
+        with:
+          pr_body: ${{ steps.schema-tools.outputs.summary }}
+          github_token: ${{ inputs.GITHUB_TOKEN }}
+
+      # Add a comment to non-automated PRs
+      - name: Comment on PR with Details of Schema Check
+        if: github.event_name == 'pull_request' && github.actor != 'pulumi-bot'
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          # Update the comment if one already exists
+          comment_tag: schema-check
+          message: |
+            ### Does the PR have any schema changes?
+
+            ${{ steps.schema-tools.outputs.summary }}
+          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+
+      - name: Add label if no breaking changes
+        if:
+          contains(steps.schema-tools.outputs.summary, 'Looking good! No breaking changes found.') &&
+          github.event_name == 'pull_request' &&
+          github.actor == 'pulumi-bot'
+        uses: actions-ecosystem/action-add-labels@v1.1.0
+        with:
+          labels: impact/no-changelog-required
+          number: ${{ github.event.issue.number }}
+          github_token: ${{ inputs.GITHUB_TOKEN }}

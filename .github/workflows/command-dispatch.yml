@@ -2,8 +2,8 @@ name: command-dispatch
 on:
   issue_comment:
     types:
-    - created
-    - edited
+      - created
+      - edited
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   PROVIDER: azure-native
@@ -34,16 +34,16 @@ jobs:
     runs-on: ubuntu-latest
     name: command-dispatch-for-testing
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        lfs: true
-    - uses: peter-evans/slash-command-dispatch@v2
-      with:
-        token: ${{ secrets.PULUMI_BOT_TOKEN }}
-        reaction-token: ${{ secrets.GITHUB_TOKEN }}
-        commands: run-acceptance-tests
-        permission: write
-        issue-type: pull-request
-        repository: pulumi/pulumi-azure-native
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - uses: peter-evans/slash-command-dispatch@v2
+        with:
+          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          reaction-token: ${{ secrets.GITHUB_TOKEN }}
+          commands: run-acceptance-tests
+          permission: write
+          issue-type: pull-request
+          repository: pulumi/pulumi-azure-native
     if: ${{ github.event.issue.pull_request }}

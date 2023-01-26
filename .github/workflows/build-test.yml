@@ -1,0 +1,181 @@
+name: Build & Test
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        required: true
+        type: string
+      version:
+        type: string
+        description: Version to be used to build the binaries, schema and SDKs
+        required: true
+
+env:
+  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+  PROVIDER: azure-native
+  PROVIDER_VERSION: ${{ inputs.version }}
+  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+  PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
+  # TRAVIS_OS_NAME required by https://github.com/pulumi/scripts/blob/master/ci/publish-tfgen-package
+  TRAVIS_OS_NAME: linux
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
+  ARM_CLIENT_ID: 30e520fa-12b4-4e21-b473-9426c5ac2e1e
+  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  ARM_ENVIRONMENT: public
+  ARM_LOCATION: westus2
+  ARM_SUBSCRIPTION_ID: 0282681f-7a9e-424b-80b2-96babd57a8a1
+  ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
+  GO111MODULE: on
+  PULUMI_API: https://api.pulumi-staging.io
+
+jobs:
+  prerequisites:
+    runs-on: ubuntu-latest
+    name: Build binaries and schema
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.ref }}
+          submodules: true
+
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
+        with:
+          skip_dotnet_and_java: "true"
+
+      - name: Build versions, schema and binaries
+        run: make versioner versions codegen schema provider --jobs=2
+
+      - name: Artifact capture
+        uses: ./.github/actions/prerequisites-artifact-capture
+
+      - name: Schema Check
+        if: github.event_name == 'pull_request'
+        uses: ./.github/actions/schema-check
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check worktree clean
+        uses: ./.github/actions/check-worktree-clean
+
+      - if: failure() && github.event_name == 'push'
+        name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          author_name: Failure in building provider prerequisites
+          fields: repo,commit,author,action
+          status: ${{ job.status }}
+
+  build_sdks:
+    needs: prerequisites
+    # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
+    runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
+    strategy:
+      fail-fast: true
+      matrix:
+        language:
+          - nodejs
+          - python
+          - dotnet
+          - go
+          - java
+    name: Build & Test SDKs
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.ref }}
+          submodules: true
+
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
+
+      - run: make ensure
+
+      - name: Prerequisites artifact restore
+        uses: ./.github/actions/prerequisites-artifact-restore
+
+      - name: Mark prerequisites as up-to-date
+        run: make --touch versioner versions codegen schema provider
+
+      - name: Generate SDK
+        run: make generate_${{ matrix.language }}
+
+      - name: Build SDK
+        run: make build_${{ matrix.language }}
+
+      - name: Check worktree clean
+        uses: ./.github/actions/check-worktree-clean
+
+      - name: Update path
+        run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+      - name: Install Node dependencies
+        run: yarn global add typescript
+      - name: Install Python deps
+        run: |-
+          pip3 install virtualenv==20.0.23
+          pip3 install pipenv
+      - name: Install dependencies
+        run: make install_${{ matrix.language}}_sdk
+      - name: Install gotestfmt
+        uses: jaxxstorm/action-install-gh-release@v1.7.1
+        with:
+          tag: v2.4.0
+          repo: GoTestTools/gotestfmt
+      - name: Run tests
+        run: |
+          set -euo pipefail
+          cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      - name: Tar SDK folder
+        run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.language  }}-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+      - name: Tar split Go SDK folder
+        if: ${{ matrix.language == 'go' }}
+        run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
+      - name: Upload split Go artifacts
+        uses: actions/upload-artifact@v2
+        if: ${{ matrix.language == 'go' }}
+        with:
+          name: pulumi-azure-native-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
+      - if: failure() && github.event_name == 'push'
+        name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          author_name: Failure while building SDKs
+          fields: repo,commit,author,action
+          status: ${{ job.status }}
+
+  test_provider:
+    runs-on: ubuntu-latest
+    name: Test Provider
+    needs: prerequisites
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.ref }}
+          submodules: true
+
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
+        with:
+          skip_dotnet_and_java: "true"
+
+      - run: make ensure
+
+      - name: Prerequisites artifact restore
+        uses: ./.github/actions/prerequisites-artifact-restore
+
+      - name: Mark prerequisites as up-to-date
+        run: make --touch versioner versions codegen schema provider
+
+      - name: Test Provider Library
+        run: make test_provider

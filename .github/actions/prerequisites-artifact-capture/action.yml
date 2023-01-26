@@ -1,0 +1,22 @@
+name: Prerequisites Artifact Capture
+description: Compress and upload prerequisites artifacts for versions, schema and binaries
+
+runs:
+  using: "composite"
+  steps:
+      # We manually compress the artifacts because it saves around 30 seconds per run
+      - name: Tar artifacts
+        shell: bash
+        run: >
+          tar -zcf bin/artifacts.tar.gz -C bin
+          pulumi-resource-azure-native
+          pulumi-gen-azure-native
+          pulumi-versioner-azure-native
+          schema-full.json
+          metadata-compact.json
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts.tar.gz
+          path: bin/artifacts.tar.gz

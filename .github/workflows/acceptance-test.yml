@@ -1,0 +1,47 @@
+name: acceptance-test
+
+on:
+  repository_dispatch:
+    types:
+      - run-acceptance-tests-command
+  pull_request:
+    branches:
+      - master
+      - main
+    paths-ignore:
+      - CHANGELOG.md
+  workflow_dispatch: {}
+
+env:
+  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+
+jobs:
+  comment-notification:
+    runs-on: ubuntu-latest
+    name: comment-notification
+    steps:
+      - name: Create URL to the run output
+        id: vars
+        run: echo "run-url=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_OUTPUT
+      - name: Update with Result
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
+          issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
+          body: "Please view the PR build: ${{ steps.vars.outputs.run-url }}"
+    if: github.event_name == 'repository_dispatch'
+
+  version:
+    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    uses: ./.github/workflows/dev-version.yml
+    secrets: inherit
+
+  build_test:
+    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    uses: ./.github/workflows/build-test.yml
+    needs: version
+    with:
+      ref: ${{ github.ref }}
+      version: ${{ needs.version.outputs.version }}
+    secrets: inherit

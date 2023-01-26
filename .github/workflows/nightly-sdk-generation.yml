@@ -1,7 +1,7 @@
 name: nightly-sdk-generation
 on:
   schedule:
-  - cron: 35 4 * * 1-5
+    - cron: 35 4 * * 1-5
   workflow_dispatch: {}
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -33,82 +33,76 @@ jobs:
     runs-on: ubuntu-latest
     name: generate-sdk
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        lfs: true
-        fetch-depth: 0
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.19.x
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
-      with:
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
-    - name: Cleanup SDK Folder
-      # Remove the per-language folders but preserve the checked-in go.mod
-      run: rm -rf $(find sdk -mindepth 1 -maxdepth 1 -type d)
-    - name: Preparing Git Branch
-      run: >
-        git config --local user.email "bot@pulumi.com"
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          depth: 0
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
+        with:
+          skip_dotnet_and_java: "true"
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
+      - name: Cleanup SDK Folder
+        # Remove the per-language folders but preserve the checked-in go.mod
+        run: rm -rf $(find sdk -mindepth 1 -maxdepth 1 -type d)
+      - name: Preparing Git Branch
+        run: >
+          git config --local user.email "bot@pulumi.com"
 
-        git config --local user.name "pulumi-bot"
+          git config --local user.name "pulumi-bot"
 
-        git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
-    - name: Commit Empty SDK
-      run: |-
-        git add . 
-        git commit -m "Preparing the SDK folder for regeneration"
-    - name: Update Submodules
-      run: make update_submodules
-    - name: Build codegen binaries
-      run: make codegen
-    - name: Build Schema + SDKs
-      run: make versions local_generate
-    - name: Git submodule commit hash
-      id: vars
-      run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
-      working-directory: azure-rest-api-specs
-    - name: Commit changes
-      run: >-
-        git add sdk
+          git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+      - name: Commit Empty SDK
+        run: |-
+          git add . 
+          git commit -m "Preparing the SDK folder for regeneration"
+      - name: Update Submodules
+        run: make update_submodules
+      - name: Build codegen binaries
+        run: make codegen
+      - name: Build Schema + SDKs
+        run: make versions local_generate
+      - name: Git submodule commit hash
+        id: vars
+        run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
+        working-directory: azure-rest-api-specs
+      - name: Commit changes
+        run: >-
+          git add sdk
 
-        git commit -m "Regenerating SDKs based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
+          git commit -m "Regenerating SDKs based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
 
-        git add .
+          git add .
 
-        git commit -m "Regenerating based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
+          git commit -m "Regenerating based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
 
-        git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
-    - name: Create PR
-      id: create-pr
-      uses: repo-sync/pull-request@v2.6.2
-      with:
-        destination_branch: master
-        github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
-        pr_body: "*Automated PR*"
-        pr_title: Automated SDK generation @ azure-rest-api-specs ${{
-          steps.vars.outputs.commit-hash }}
-        author_name: pulumi-bot
-        source_branch: generate-sdk/${{ github.run_id }}-${{ github.run_number }}
-    - name: Set AutoMerge
-      if: steps.create-pr.outputs.has_changed_files
-      uses: peter-evans/enable-pull-request-automerge@v1
-      with:
-        token: ${{ secrets.PULUMI_BOT_TOKEN }}
-        pull-request-number: ${{ steps.create-pr.outputs.pr_number }}
-        repository: ${{ github.repository }}
-        merge-method: squash
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure during automated SDK generation
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
+          git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+      - name: Create PR
+        id: create-pr
+        uses: repo-sync/pull-request@v2.6.2
+        with:
+          destination_branch: master
+          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          pr_body: "*Automated PR*"
+          pr_title: Automated SDK generation @ azure-rest-api-specs ${{
+            steps.vars.outputs.commit-hash }}
+          author_name: pulumi-bot
+          source_branch: generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+      - name: Set AutoMerge
+        if: steps.create-pr.outputs.has_changed_files
+        uses: peter-evans/enable-pull-request-automerge@v1
+        with:
+          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          pull-request-number: ${{ steps.create-pr.outputs.pr_number }}
+          repository: ${{ github.repository }}
+          merge-method: squash
+      - if: failure() && github.event_name == 'push'
+        name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          author_name: Failure during automated SDK generation
+          fields: repo,commit,author,action
+          status: ${{ job.status }}

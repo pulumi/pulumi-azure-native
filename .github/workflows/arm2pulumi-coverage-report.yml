@@ -1,7 +1,7 @@
 name: generate-coverage
 on:
   schedule:
-  - cron: 35 17 * * *
+    - cron: 35 17 * * *
   workflow_dispatch: {}
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -32,46 +32,40 @@ jobs:
   generate-coverage:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        lfs: true
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.19.x
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
-      with:
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
-    - name: Cleanup SDK Folder
-      run: make clean
-    - name: Initialize submodules
-      run: make init_submodules
-    - name: Build codegen binaries
-      run: make codegen
-    - name: Build Schema + SDKs
-      run: make local_generate
-    - name: Build Provider
-      run: make provider
-    - name: Generate coverage report
-      run: make arm2pulumi_coverage_report
-    - name: Test usage of results.json
-      run: cat provider/pkg/arm2pulumi/internal/test/results.json
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-region: us-west-2
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 3600
-        role-session-name: arm2pulumiCvg@githubActions
-        role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-    - name: Upload results to S3
-      run: cd provider/pkg/arm2pulumi/internal/test && bash s3-upload-script.sh
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
+        with:
+          skip_dotnet_and_java: "true"
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
+      - name: Cleanup SDK Folder
+        run: make clean
+      - name: Initialize submodules
+        run: make init_submodules
+      - name: Build codegen binaries
+        run: make codegen
+      - name: Build Schema + SDKs
+        run: make local_generate
+      - name: Build Provider
+        run: make provider
+      - name: Generate coverage report
+        run: make arm2pulumi_coverage_report
+      - name: Test usage of results.json
+        run: cat provider/pkg/arm2pulumi/internal/test/results.json
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: us-west-2
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-duration-seconds: 3600
+          role-session-name: arm2pulumiCvg@githubActions
+          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+      - name: Upload results to S3
+        run: cd provider/pkg/arm2pulumi/internal/test && bash s3-upload-script.sh
     name: coverage-report

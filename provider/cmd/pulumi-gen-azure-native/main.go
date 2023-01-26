@@ -56,7 +56,7 @@ func main() {
 
 	languageSet := codegen.NewStringSet(strings.Split(languages, ",")...)
 	basicLanguages := []string{"dotnet", "nodejs", "python"}
-	supportedOutputs := codegen.NewStringSet("schema", "docs", "go", "go-split")
+	supportedOutputs := codegen.NewStringSet("schema", "docs", "go")
 	for _, language := range basicLanguages {
 		supportedOutputs.Add(language)
 	}
@@ -72,8 +72,8 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
-		if err = emitSchema(*pkgSpec, version, outdir, "main", true); err != nil {
+
+		if err = emitSchema(*pkgSpec, version, "bin", "main", true); err != nil {
 			panic(err)
 		}
 		if languages == "schema" {
@@ -82,20 +82,13 @@ func main() {
 			fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")
 		}
 		// Also, emit the resource metadata for the provider.
-		if err = emitMetadata(meta, outdir, "main"); err != nil {
+		if err = emitMetadata(meta, "bin", "main"); err != nil {
 			panic(err)
 		}
 
-		// Now emit schema and metadata as byte encoded files for arm2pulumi
-		arm2pulumiDir := path.Join(".", "provider", "cmd", "arm2pulumi")
-		if err = emitSchema(*pkgSpec, version, arm2pulumiDir, "main", false); err != nil {
-			panic(err)
-		}
-		// Also, emit the resource metadata for the provider.
-		err = emitMetadata(meta, arm2pulumiDir, "main")
 	} else if languageSet.Subtract(codegen.NewStringSet("docs")).Any() {
 		// Just read existing schema if we're not re-generating
-		schemaPath := path.Join("provider", "cmd", "pulumi-resource-azure-native", "schema-full.json")
+		schemaPath := path.Join("bin", "schema-full.json")
 		schemaBytes, err := os.ReadFile(schemaPath)
 		if err != nil {
 			panic(err)
@@ -148,18 +141,6 @@ func main() {
 	}
 
 	if languageSet.Has("go") {
-		outdir := path.Join(".", "sdk", "go")
-		pkgSpec.Version = version
-		// Work around the SDK size exceeding 512 MB by removing comments from versioned modules.
-		// Roll this back when we have a better fix for the SDK size.
-		specNoComments := removeAllComments(*pkgSpec)
-		err = emitPackage(specNoComments, "go", outdir)
-		if err != nil {
-			panic(err)
-		}
-	}
-
-	if languageSet.Has("go-split") {
 		outdir := path.Join(".", "sdk")
 		pkgSpec.Version = version
 		err = emitSplitPackage(pkgSpec, "go", outdir)
@@ -167,62 +148,6 @@ func main() {
 			panic(err)
 		}
 	}
-}
-
-func removeAllComments(pkgSpec schema.PackageSpec) *schema.PackageSpec {
-	types := map[string]schema.ComplexTypeSpec{}
-	for n, t := range pkgSpec.Types {
-		props := map[string]schema.PropertySpec{}
-		for pn, p := range t.Properties {
-			p.Description = ""
-			props[pn] = p
-		}
-		t.Description = ""
-		t.Properties = props
-		types[n] = t
-	}
-	pkgSpec.Types = types
-	functions := map[string]schema.FunctionSpec{}
-	for n, f := range pkgSpec.Functions {
-		f.Description = ""
-		if f.Inputs != nil {
-			inputs := map[string]schema.PropertySpec{}
-			for pn, p := range f.Inputs.Properties {
-				p.Description = ""
-				inputs[pn] = p
-			}
-			f.Inputs.Properties = inputs
-		}
-		if f.Outputs != nil {
-			outputs := map[string]schema.PropertySpec{}
-			for pn, p := range f.Outputs.Properties {
-				p.Description = ""
-				outputs[pn] = p
-			}
-			f.Outputs.Properties = outputs
-		}
-		functions[n] = f
-	}
-	pkgSpec.Functions = functions
-	resources := map[string]schema.ResourceSpec{}
-	for n, r := range pkgSpec.Resources {
-		inputProperties := map[string]schema.PropertySpec{}
-		for pn, p := range r.InputProperties {
-			p.Description = ""
-			inputProperties[pn] = p
-		}
-		properties := map[string]schema.PropertySpec{}
-		for pn, p := range r.Properties {
-			p.Description = ""
-			properties[pn] = p
-		}
-		r.Description = ""
-		r.InputProperties = inputProperties
-		r.Properties = properties
-		resources[n] = r
-	}
-	pkgSpec.Resources = resources
-	return &pkgSpec
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
