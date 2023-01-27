@@ -47,6 +47,10 @@ arm2pulumi: bin/arm2pulumi
 .PHONY: install_provider
 install_provider: .make/install_provider
 
+.PHONY: provider_prebuild arm2pulumi_prebuild
+provider_prebuild: .make/provider_prebuild
+arm2pulumi_prebuild: .make/arm2pulumi_prebuild
+
 # We don't include v2 here yet as this is executed on the nightly updates
 .PHONY: versions schema generate_schema generate_docs
 versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
@@ -154,7 +158,7 @@ bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 	@mkdir -p bin
 	bin/pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
-bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* .make/schema $(PROVIDER_PKG)
+bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* .make/arm2pulumi_prebuild $(PROVIDER_PKG)
 	cp bin/schema-full.json provider/cmd/arm2pulumi
 	cp bin/metadata-compact.json provider/cmd/arm2pulumi
 	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
@@ -162,9 +166,7 @@ bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulum
 bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 
-bin/$(PROVIDER): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/schema $(PROVIDER_PKG)
-	cp bin/schema-full.json provider/cmd/$(PROVIDER)
-	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
+bin/$(PROVIDER): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	cd provider && \
 		go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
 
@@ -175,6 +177,16 @@ bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSI
 
 .make/provider_mod_download: provider/go.mod provider/go.sum
 	cd provider && GO111MODULE=on go mod download
+	@touch $@
+
+.make/arm2pulumi_prebuild: .make/schema
+	cp bin/schema-full.json provider/cmd/arm2pulumi
+	cp bin/metadata-compact.json provider/cmd/arm2pulumi
+	@touch $@
+
+.make/provider_prebuild: .make/schema
+	cp bin/schema-full.json provider/cmd/$(PROVIDER)
+	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	@touch $@
 
 # Writes schema-full.json and metadata-compact.json to bin/

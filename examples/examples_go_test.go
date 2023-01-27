@@ -40,6 +40,7 @@ func TestAccAksGo(t *testing.T) {
 }
 
 func TestServicebusRecreate(t *testing.T) {
+	skipIfShort(t)
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "go-servicebus-recreate", "step1"),

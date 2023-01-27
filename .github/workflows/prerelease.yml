@@ -40,44 +40,13 @@ jobs:
       ref: ${{ github.ref }}
 
   publish:
-    runs-on: macos-11
-    needs: build_sdks
-    name: publish
-    env:
-      GORELEASER_CURRENT_TAG: ${{ github.ref_name }}
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-        with:
-          submodules: true
-      - name: Install Languages & Frameworks
-        uses: ./.github/actions/install
-        with:
-          skip_dotnet_and_java: "true"
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-region: us-east-2
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          role-duration-seconds: 7200
-          role-session-name: ${{ env.PROVIDER }}@githubActions
-          role-external-id: upload-pulumi-release
-          role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2
-        with:
-          args:
-            -p 3 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
-            60m0s
-          version: latest
-      - if: failure() && github.event_name == 'push'
-        name: Notify Slack
-        uses: 8398a7/action-slack@v3
-        with:
-          author_name: Failure in publishing binaries
-          fields: repo,commit,author,action
-          status: ${{ job.status }}
+    uses: ./.github/workflows/publish-provider.yml
+    secrets: inherit
+    needs: build_test
+    with:
+      version: ${{ github.ref_name }}
+      ref: ${{ github.ref }}
+      prerelease: true
 
   publish_sdk:
     runs-on: ubuntu-latest

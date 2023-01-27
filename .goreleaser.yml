@@ -1,8 +1,3 @@
-before:
-  hooks:
-  - make init_submodules
-  - make codegen
-  - make generate_schema
 builds:
 - dir: provider
   env:

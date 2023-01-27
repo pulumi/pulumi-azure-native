@@ -1,8 +1,6 @@
 before:
   hooks:
-    - make init_submodules
-    - make codegen
-    - make generate_schema
+    - make arm2pulumi_prebuild
 builds:
   - goos:
       - darwin

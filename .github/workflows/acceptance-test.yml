@@ -10,7 +10,16 @@ on:
       - main
     paths-ignore:
       - CHANGELOG.md
-  workflow_dispatch: {}
+  workflow_dispatch: 
+    inputs:
+      prerelease:
+        type: boolean
+        description: Test-publishing prerelease version, skipped if false
+        default: false
+      short_test:
+        type: boolean
+        description: Skip longer running tests
+        default: false
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -33,15 +42,28 @@ jobs:
     if: github.event_name == 'repository_dispatch'
 
   version:
-    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     uses: ./.github/workflows/dev-version.yml
     secrets: inherit
 
   build_test:
-    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     uses: ./.github/workflows/build-test.yml
     needs: version
     with:
       ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}
+      short_test: ${{ inputs.short_test || false }}
     secrets: inherit
+
+  publish:
+    if: github.event_name == 'workflow_dispatch' && inputs.prerelease
+    uses: ./.github/workflows/publish-provider.yml
+    secrets: inherit
+    needs:
+      - build_test
+      - version
+    with:
+      ref: ${{ github.ref }}
+      version: ${{ needs.version.outputs.version }}
+      prerelease: true
