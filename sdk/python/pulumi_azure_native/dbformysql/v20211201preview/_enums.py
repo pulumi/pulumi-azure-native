@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AdministratorType',
+    'ConfigurationSource',
     'CreateMode',
     'DataEncryptionType',
     'EnableStatusEnum',
@@ -22,6 +23,14 @@ class AdministratorType(str, Enum):
     Type of the sever administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
+
+
+class ConfigurationSource(str, Enum):
+    """
+    Source of the configuration.
+    """
+    SYSTEM_DEFAULT = "system-default"
+    USER_OVERRIDE = "user-override"
 
 
 class CreateMode(str, Enum):

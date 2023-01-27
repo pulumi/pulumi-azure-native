@@ -4,13 +4,15 @@
 
 ## 1.93.0 (2023-01-25)
 
-Breaking changes:
+#### Breaking changes:
 
 - `azure-native:monitor:MonitoringAccount` renamed to `monitor.AzureMonitorWorkspace`.
 - `azure-native:monitor:getMonitoringAccount` renamed to `monitor.getAzureMonitorWorkspace`.
 
-#### New functions:
-
+#### New resources:
+    
+- `dbformysql.Configuration` for Flexible Servers
+  [#2200](https://github.com/pulumi/pulumi-azure-native/pull/2200)
 
 ## 1.92.0 (2023-01-13)
 

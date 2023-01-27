@@ -38,6 +38,37 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     }
 
     /// <summary>
+    /// Source of the configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationSource : IEquatable<ConfigurationSource>
+    {
+        private readonly string _value;
+
+        private ConfigurationSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationSource System_default { get; } = new ConfigurationSource("system-default");
+        public static ConfigurationSource User_override { get; } = new ConfigurationSource("user-override");
+
+        public static bool operator ==(ConfigurationSource left, ConfigurationSource right) => left.Equals(right);
+        public static bool operator !=(ConfigurationSource left, ConfigurationSource right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationSource other && Equals(other);
+        public bool Equals(ConfigurationSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The mode to create a new MySQL server.
     /// </summary>
     [EnumType]

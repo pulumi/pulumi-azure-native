@@ -3912,24 +3912,28 @@
       "ServerKey"
     ],
     "2020-07-01-preview": [
+      "Configuration",
       "Database",
       "FirewallRule",
       "Server",
       "ServerKey"
     ],
     "2020-07-01-privatepreview": [
+      "Configuration",
       "Database",
       "FirewallRule",
       "Server",
       "ServerKey"
     ],
     "2021-05-01": [
+      "Configuration",
       "Database",
       "FirewallRule",
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2021-05-01-preview": [
+      "Configuration",
       "Database",
       "FirewallRule",
       "Server",
@@ -3937,6 +3941,7 @@
     ],
     "2021-12-01-preview": [
       "AzureADAdministrator",
+      "Configuration",
       "Database",
       "FirewallRule",
       "Server",

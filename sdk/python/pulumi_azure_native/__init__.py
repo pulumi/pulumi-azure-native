@@ -7899,6 +7899,7 @@ _utilities.register(
   "mod": "dbformysql/v20200701preview",
   "fqn": "pulumi_azure_native.dbformysql.v20200701preview",
   "classes": {
+   "azure-native:dbformysql/v20200701preview:Configuration": "Configuration",
    "azure-native:dbformysql/v20200701preview:Database": "Database",
    "azure-native:dbformysql/v20200701preview:FirewallRule": "FirewallRule",
    "azure-native:dbformysql/v20200701preview:Server": "Server",
@@ -7910,6 +7911,7 @@ _utilities.register(
   "mod": "dbformysql/v20200701privatepreview",
   "fqn": "pulumi_azure_native.dbformysql.v20200701privatepreview",
   "classes": {
+   "azure-native:dbformysql/v20200701privatepreview:Configuration": "Configuration",
    "azure-native:dbformysql/v20200701privatepreview:Database": "Database",
    "azure-native:dbformysql/v20200701privatepreview:FirewallRule": "FirewallRule",
    "azure-native:dbformysql/v20200701privatepreview:Server": "Server",
@@ -7921,6 +7923,7 @@ _utilities.register(
   "mod": "dbformysql/v20210501",
   "fqn": "pulumi_azure_native.dbformysql.v20210501",
   "classes": {
+   "azure-native:dbformysql/v20210501:Configuration": "Configuration",
    "azure-native:dbformysql/v20210501:Database": "Database",
    "azure-native:dbformysql/v20210501:FirewallRule": "FirewallRule",
    "azure-native:dbformysql/v20210501:Server": "Server"
@@ -7931,6 +7934,7 @@ _utilities.register(
   "mod": "dbformysql/v20210501preview",
   "fqn": "pulumi_azure_native.dbformysql.v20210501preview",
   "classes": {
+   "azure-native:dbformysql/v20210501preview:Configuration": "Configuration",
    "azure-native:dbformysql/v20210501preview:Database": "Database",
    "azure-native:dbformysql/v20210501preview:FirewallRule": "FirewallRule",
    "azure-native:dbformysql/v20210501preview:Server": "Server"
@@ -7942,6 +7946,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dbformysql.v20211201preview",
   "classes": {
    "azure-native:dbformysql/v20211201preview:AzureADAdministrator": "AzureADAdministrator",
+   "azure-native:dbformysql/v20211201preview:Configuration": "Configuration",
    "azure-native:dbformysql/v20211201preview:Database": "Database",
    "azure-native:dbformysql/v20211201preview:FirewallRule": "FirewallRule",
    "azure-native:dbformysql/v20211201preview:Server": "Server"

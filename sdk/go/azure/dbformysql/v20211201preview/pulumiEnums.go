@@ -16,6 +16,13 @@ const (
 	AdministratorTypeActiveDirectory = AdministratorType("ActiveDirectory")
 )
 
+type ConfigurationSource string
+
+const (
+	ConfigurationSource_System_Default = ConfigurationSource("system-default")
+	ConfigurationSource_User_Override  = ConfigurationSource("user-override")
+)
+
 type CreateMode string
 
 const (

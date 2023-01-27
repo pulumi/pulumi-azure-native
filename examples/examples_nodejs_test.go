@@ -88,6 +88,17 @@ func TestPostgresTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestMySqlTs(t *testing.T) {
+	t.Skip("looks unreliable, getting errors with Code=ResourceNotFound Code=InternalServerError")
+	skipIfShort(t)
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "mysql"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestMessagingTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
