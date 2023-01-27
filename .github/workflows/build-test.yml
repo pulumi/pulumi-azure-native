@@ -10,6 +10,10 @@ on:
         type: string
         description: Version to be used to build the binaries, schema and SDKs
         required: true
+      short_test:
+        type: boolean
+        description: Skip longer running tests
+        default: false
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -112,39 +116,56 @@ jobs:
 
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+
       - name: Install Node dependencies
         run: yarn global add typescript
+
       - name: Install Python deps
         run: |-
           pip3 install virtualenv==20.0.23
           pip3 install pipenv
+
       - name: Install dependencies
         run: make install_${{ matrix.language}}_sdk
+
       - name: Install gotestfmt
         uses: jaxxstorm/action-install-gh-release@v1.7.1
         with:
           tag: v2.4.0
           repo: GoTestTools/gotestfmt
+
       - name: Run tests
+        if: "!inputs.short_test"
         run: |
           set -euo pipefail
           cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+
+      - name: Run tests
+        if: inputs.short_test
+        run: |
+          set -euo pipefail
+          cd examples && go test -v -json -count=1 -cover -timeout 15m -short -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+
       - name: Tar SDK folder
         run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.language  }}-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+
       - name: Tar split Go SDK folder
         if: ${{ matrix.language == 'go' }}
         run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
+
       - name: Upload split Go artifacts
         uses: actions/upload-artifact@v2
         if: ${{ matrix.language == 'go' }}
         with:
           name: pulumi-azure-native-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
+
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
         uses: 8398a7/action-slack@v3

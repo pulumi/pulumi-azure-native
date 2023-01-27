@@ -16,6 +16,10 @@ on:
         type: boolean
         description: Test-publishing prerelease version, skipped if false
         default: false
+      short_test:
+        type: boolean
+        description: Skip longer running tests
+        default: false
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -49,6 +53,7 @@ jobs:
     with:
       ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}
+      short_test: ${{ inputs.short_test || false }}
     secrets: inherit
 
   publish:

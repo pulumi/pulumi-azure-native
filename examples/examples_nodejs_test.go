@@ -1,4 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
+//go:build nodejs || all
 // +build nodejs all
 
 package examples
@@ -12,6 +13,7 @@ import (
 )
 
 func TestAccApiTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "api"),
@@ -21,6 +23,7 @@ func TestAccApiTs(t *testing.T) {
 }
 
 func TestAccAppServiceTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "appservice"),
@@ -41,6 +44,7 @@ func TestAccCosmosDBTs(t *testing.T) {
 }
 
 func TestAccKeyVaultTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "keyvault"),
@@ -50,6 +54,7 @@ func TestAccKeyVaultTs(t *testing.T) {
 }
 
 func TestAccSimpleTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "simple"),
@@ -60,6 +65,7 @@ func TestAccSimpleTs(t *testing.T) {
 
 func TestDestroyTs(t *testing.T) {
 	// Tests eventually-consistent deletion handling.
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "static-website"),
@@ -69,6 +75,7 @@ func TestDestroyTs(t *testing.T) {
 }
 
 func TestImportTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "import"),
@@ -89,6 +96,7 @@ func TestPostgresTs(t *testing.T) {
 }
 
 func TestMessagingTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "messaging"),
