@@ -44,7 +44,8 @@ jobs:
         uses: ./.github/actions/prerequisites-artifact-restore
 
       - name: Mark prerequisites as up-to-date
-        run: make --touch versioner versions codegen schema provider
+        # Don't include provider as that's the bit we're going to rebuild
+        run: make --touch versioner versions codegen schema
 
       - name: Ensure provider build prerequisites
         run: make provider_prebuild
