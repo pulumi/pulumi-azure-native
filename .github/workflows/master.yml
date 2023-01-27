@@ -56,7 +56,9 @@ jobs:
   publish:
     uses: ./.github/workflows/publish-provider.yml
     secrets: inherit
-    needs: build_test
+    needs:
+      - version
+      - build_test
     with:
       version: ${{ needs.version.outputs.version }}
       ref: ${{ github.ref }}
