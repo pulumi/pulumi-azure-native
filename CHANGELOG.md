@@ -2,6 +2,10 @@
 
 ## HEAD (Unreleased)
 
+- Removed the old Go SDK.
+  - Update references to https://github.com/pulumi/pulumi-azure-native-sdk
+  - See the [Go SDK deprecation and migration discussion](https://github.com/pulumi/pulumi-azure-native/discussions/2078) for more information.
+
 ## 1.93.0 (2023-01-25)
 
 #### Breaking changes:
