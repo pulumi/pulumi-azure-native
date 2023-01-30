@@ -123,12 +123,12 @@ jobs:
           cd sdk/pulumi-azure-native-sdk
           git checkout master
           find . -maxdepth 1 -not -name '.*' -exec rm -rf {} \;
-      - name: Download Go split SDK
+      - name: Download Go SDK
         uses: actions/download-artifact@v3
         with:
           name: pulumi-azure-native-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/
-      - name: UnTar Go split SDK folder
+      - name: UnTar Go SDK folder
         run: |
           mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
           tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
