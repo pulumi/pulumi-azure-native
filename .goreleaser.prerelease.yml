@@ -1,7 +1,5 @@
 builds:
 - dir: provider
-  env:
-  - GO111MODULE=on
   goos:
   - darwin
   - windows

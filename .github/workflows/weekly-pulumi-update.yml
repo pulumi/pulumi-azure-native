@@ -1,33 +1,16 @@
 name: weekly-pulumi-update
+
 on:
   schedule:
     - cron: 35 12 * * 4
   workflow_dispatch: {}
+
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
-  PROVIDER: azure-native
-  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
-  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  TRAVIS_OS_NAME: linux
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-  PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-  SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
-  SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
-  SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  ARM_CLIENT_ID: 30e520fa-12b4-4e21-b473-9426c5ac2e1e
-  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-  ARM_ENVIRONMENT: public
-  ARM_LOCATION: westus2
-  ARM_SUBSCRIPTION_ID: 0282681f-7a9e-424b-80b2-96babd57a8a1
-  ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
-  GO111MODULE: on
-  PULUMI_API: https://api.pulumi-staging.io
+
 jobs:
   weekly-pulumi-update:
     runs-on: ubuntu-latest
@@ -42,69 +25,41 @@ jobs:
         uses: ./.github/actions/install
       - name: Update Pulumi/Pulumi
         id: gomod
-        run: >-
+        run: |
           git config --local user.email 'bot@pulumi.com'
-
           git config --local user.name 'pulumi-bot'
-
           git checkout -b update-pulumi/${{ github.run_id }}-${{ github.run_number }}
-
           cd provider
-
           go get github.com/pulumi/pulumi/pkg/v3
-
           go get github.com/pulumi/pulumi/sdk/v3
-
           go mod download
-
           go mod tidy
-
           cd ../sdk
-
           go get github.com/pulumi/pulumi/sdk/v3
-
           go mod download
-
           go mod tidy
-
           cd ..
-
           git update-index -q --refresh
-
           if ! git diff-files --quiet; then 
-          	echo ::set-output name=changes::1 
+          	echo "changes=1" >> $GITHUB_OUTPUT
           fi
-      - name: Initialize submodules
-        run: make init_submodules
+      - run: make ensure
       - name: Provider with Pulumi Upgrade
         if: steps.gomod.outputs.changes != 0
-        run: >-
+        run: |
           make codegen && make local_generate
-
           git add sdk/nodejs
-
           git commit -m "Regenerating Node.js SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add sdk/python
-
           git commit -m "Regenerating Python SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add sdk/dotnet
-
           git commit -m "Regenerating .NET SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add sdk/go*
-
           git commit -m "Regenerating Go SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add sdk/java*
-
           git commit -m "Regenerating Java SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add .
-
           git commit -m "Updated modules"
-
           git push origin update-pulumi/${{ github.run_id }}-${{ github.run_number }}
       - name: Create PR
         id: create-pr

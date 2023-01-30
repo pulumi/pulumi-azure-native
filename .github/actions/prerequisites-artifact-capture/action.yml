@@ -7,7 +7,9 @@ runs:
       # We manually compress the artifacts because it saves around 30 seconds per run
       - name: Tar artifacts
         shell: bash
-        run: >
+
+        # Use > to combine lines into single command
+        run: > 
           tar -zcf bin/artifacts.tar.gz -C bin
           pulumi-resource-azure-native
           pulumi-gen-azure-native
