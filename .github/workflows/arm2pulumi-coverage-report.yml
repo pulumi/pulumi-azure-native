@@ -45,8 +45,7 @@ jobs:
           creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
       - name: Cleanup SDK Folder
         run: make clean
-      - name: Initialize submodules
-        run: make init_submodules
+      - run: make ensure
       - name: Build codegen binaries
         run: make codegen
       - name: Build Schema + SDKs
