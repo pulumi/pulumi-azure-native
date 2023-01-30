@@ -67,7 +67,7 @@ jobs:
         run: make versions local_generate
       - name: Git submodule commit hash
         id: vars
-        run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
+        run: echo "commit-hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
         working-directory: azure-rest-api-specs
       - name: Commit changes
         run: >-
