@@ -1,4 +1,4 @@
-name: generate-coverage
+name: arm2pulumi-coverage-report
 on:
   schedule:
     - cron: 35 17 * * *
