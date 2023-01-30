@@ -176,7 +176,7 @@ bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSI
 # --------- Sentinel targets --------- #
 
 .make/provider_mod_download: provider/go.mod provider/go.sum
-	cd provider && GO111MODULE=on go mod download
+	cd provider && go mod download
 	@touch $@
 
 .make/arm2pulumi_prebuild: .make/schema
