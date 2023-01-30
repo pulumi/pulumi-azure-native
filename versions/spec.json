@@ -5262,6 +5262,13 @@
       "PrivateEndpointConnection",
       "listIotHubResourceKeys",
       "listIotHubResourceKeysForKeyName"
+    ],
+    "2022-12-12": [
+      "DpsCertificate",
+      "IotDpsResource",
+      "IotDpsResourcePrivateEndpointConnection",
+      "listIotDpsResourceKeys",
+      "listIotDpsResourceKeysForKeyName"
     ]
   },
   "DigitalTwins": {
@@ -6653,6 +6660,16 @@
       "Service",
       "Workspace",
       "WorkspacePrivateEndpointConnection"
+    ],
+    "2022-12-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
     ]
   },
   "HybridCompute": {
@@ -7300,6 +7317,20 @@
       "listDatabasePrincipals"
     ],
     "2022-11-11": [
+      "AttachedDatabaseConfiguration",
+      "Cluster",
+      "ClusterPrincipalAssignment",
+      "DataConnection",
+      "Database",
+      "DatabasePrincipalAssignment",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection",
+      "Script",
+      "listClusterFollowerDatabases",
+      "listClusterLanguageExtensions",
+      "listDatabasePrincipals"
+    ],
+    "2022-12-29": [
       "AttachedDatabaseConfiguration",
       "Cluster",
       "ClusterPrincipalAssignment",
@@ -14499,6 +14530,13 @@
   },
   "StorageMover": {
     "2022-07-01-preview": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
+    ],
+    "2023-03-01": [
       "Agent",
       "Endpoint",
       "JobDefinition",

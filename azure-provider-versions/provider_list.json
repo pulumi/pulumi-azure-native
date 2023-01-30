@@ -471,6 +471,7 @@
       {
         "resourceType": "configurations",
         "apiVersions": [
+          "2022-10-01",
           "2022-09-01",
           "2020-01-01",
           "2017-04-19",
@@ -480,6 +481,7 @@
       {
         "resourceType": "generateRecommendations",
         "apiVersions": [
+          "2022-10-01",
           "2022-09-01",
           "2020-01-01",
           "2017-04-19",
@@ -502,6 +504,7 @@
       {
         "resourceType": "recommendations",
         "apiVersions": [
+          "2022-10-01",
           "2022-09-01",
           "2020-01-01",
           "2017-04-19",
@@ -513,6 +516,7 @@
       {
         "resourceType": "suppressions",
         "apiVersions": [
+          "2022-10-01",
           "2022-09-01",
           "2020-01-01",
           "2017-04-19",
@@ -11641,6 +11645,22 @@
         ]
       },
       {
+        "resourceType": "grafana/privateEndpointConnections",
+        "apiVersions": [
+          "2022-10-01-preview",
+          "2022-08-01",
+          "2022-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "grafana/privateLinkResources",
+        "apiVersions": [
+          "2022-10-01-preview",
+          "2022-08-01",
+          "2022-05-01-preview"
+        ]
+      },
+      {
         "resourceType": "locations",
         "apiVersions": [
           "2022-10-01-preview",
@@ -16069,6 +16089,7 @@
         "apiVersions": [
           "2022-08-08",
           "2021-08-24",
+          "2021-06-10",
           "2020-12-08"
         ]
       },
@@ -16077,6 +16098,7 @@
         "apiVersions": [
           "2022-08-08",
           "2021-08-24",
+          "2021-06-10",
           "2020-12-08"
         ]
       },
@@ -16085,6 +16107,7 @@
         "apiVersions": [
           "2022-08-08",
           "2021-08-24",
+          "2021-06-10",
           "2020-12-08"
         ]
       },
@@ -16093,6 +16116,7 @@
         "apiVersions": [
           "2022-08-08",
           "2021-08-24",
+          "2021-06-10",
           "2020-12-08"
         ]
       }
@@ -19030,6 +19054,7 @@
       {
         "resourceType": "Identities",
         "apiVersions": [
+          "2023-01-31",
           "2022-01-31-PREVIEW",
           "2021-09-30-PREVIEW",
           "2018-11-30",
@@ -19039,6 +19064,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-01-31",
           "2022-01-31-PREVIEW",
           "2021-09-30-PREVIEW",
           "2018-11-30",
@@ -19048,6 +19074,7 @@
       {
         "resourceType": "userAssignedIdentities",
         "apiVersions": [
+          "2023-01-31",
           "2022-01-31-PREVIEW",
           "2021-09-30-PREVIEW",
           "2018-11-30",
@@ -19057,6 +19084,7 @@
       {
         "resourceType": "userAssignedIdentities/federatedIdentityCredentials",
         "apiVersions": [
+          "2023-01-31",
           "2022-01-31-PREVIEW"
         ]
       }
@@ -25410,6 +25438,7 @@
       {
         "resourceType": "HyperVSites",
         "apiVersions": [
+          "2022-10-27",
           "2020-08-01-preview",
           "2020-01-01",
           "2019-06-06",
@@ -25434,6 +25463,7 @@
       {
         "resourceType": "ServerSites",
         "apiVersions": [
+          "2022-10-27",
           "2020-09-09-preview",
           "2020-08-01-preview",
           "2020-01-01-preview",
@@ -25443,6 +25473,7 @@
       {
         "resourceType": "VMwareSites",
         "apiVersions": [
+          "2022-10-27",
           "2020-09-09-preview",
           "2020-08-01-preview",
           "2020-07-10",
@@ -26242,6 +26273,7 @@
       {
         "resourceType": "consoles",
         "apiVersions": [
+          "2023-02-01-preview",
           "2020-04-01-preview",
           "2018-10-01",
           "2017-12-01-preview",
@@ -26269,6 +26301,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-02-01-preview",
           "2020-04-01-preview",
           "2018-10-01",
           "2017-12-01-preview",
@@ -26279,6 +26312,7 @@
       {
         "resourceType": "locations/consoles",
         "apiVersions": [
+          "2023-02-01-preview",
           "2020-04-01-preview",
           "2018-10-01",
           "2017-12-01-preview",
@@ -26289,6 +26323,7 @@
       {
         "resourceType": "locations/userSettings",
         "apiVersions": [
+          "2023-02-01-preview",
           "2020-04-01-preview",
           "2018-10-01",
           "2017-12-01-preview",
@@ -26312,6 +26347,7 @@
       {
         "resourceType": "userSettings",
         "apiVersions": [
+          "2023-02-01-preview",
           "2020-04-01-preview",
           "2018-10-01",
           "2017-12-01-preview",
@@ -40266,9 +40302,15 @@
         "apiVersions": [
           "2022-09-01-preview",
           "2020-04-01",
-          "2019-05-01-preview",
-          "2015-07-01-Preview",
-          "2015-03-01"
+          "2019-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "supporttickets/communications",
+        "apiVersions": [
+          "2022-09-01-preview",
+          "2020-04-01",
+          "2019-05-01-preview"
         ]
       }
     ]
