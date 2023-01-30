@@ -40,7 +40,7 @@ jobs:
     name: Build binaries and schema
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ inputs.ref }}
           submodules: true
@@ -89,7 +89,7 @@ jobs:
     name: Build & Test SDKs
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ inputs.ref }}
           submodules: true
@@ -129,7 +129,7 @@ jobs:
         run: make install_${{ matrix.language}}_sdk
 
       - name: Install gotestfmt
-        uses: jaxxstorm/action-install-gh-release@v1.7.1
+        uses: jaxxstorm/action-install-gh-release@v1.9.0
         with:
           tag: v2.4.0
           repo: GoTestTools/gotestfmt
@@ -150,7 +150,7 @@ jobs:
         run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.language  }}-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
@@ -160,7 +160,7 @@ jobs:
         run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
 
       - name: Upload split Go artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: ${{ matrix.language == 'go' }}
         with:
           name: pulumi-azure-native-sdk.tar.gz
@@ -180,7 +180,7 @@ jobs:
     needs: prerequisites
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ inputs.ref }}
           submodules: true

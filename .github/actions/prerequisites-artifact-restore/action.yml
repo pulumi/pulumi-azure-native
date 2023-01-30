@@ -5,7 +5,7 @@ runs:
   using: "composite"
   steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: artifacts.tar.gz
           path: ${{ github.workspace }}/bin
