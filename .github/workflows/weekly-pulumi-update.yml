@@ -41,68 +41,41 @@ jobs:
         uses: ./.github/actions/install
       - name: Update Pulumi/Pulumi
         id: gomod
-        run: >-
+        run: |
           git config --local user.email 'bot@pulumi.com'
-
           git config --local user.name 'pulumi-bot'
-
           git checkout -b update-pulumi/${{ github.run_id }}-${{ github.run_number }}
-
           cd provider
-
           go get github.com/pulumi/pulumi/pkg/v3
-
           go get github.com/pulumi/pulumi/sdk/v3
-
           go mod download
-
           go mod tidy
-
           cd ../sdk
-
           go get github.com/pulumi/pulumi/sdk/v3
-
           go mod download
-
           go mod tidy
-
           cd ..
-
           git update-index -q --refresh
-
           if ! git diff-files --quiet; then 
           	echo "changes=1" >> $GITHUB_OUTPUT
           fi
       - run: make ensure
       - name: Provider with Pulumi Upgrade
         if: steps.gomod.outputs.changes != 0
-        run: >-
+        run: |
           make codegen && make local_generate
-
           git add sdk/nodejs
-
           git commit -m "Regenerating Node.js SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add sdk/python
-
           git commit -m "Regenerating Python SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add sdk/dotnet
-
           git commit -m "Regenerating .NET SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add sdk/go*
-
           git commit -m "Regenerating Go SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add sdk/java*
-
           git commit -m "Regenerating Java SDK based on updated modules" || echo "ignore commit failure, may be empty"
-
           git add .
-
           git commit -m "Updated modules"
-
           git push origin update-pulumi/${{ github.run_id }}-${{ github.run_number }}
       - name: Create PR
         id: create-pr

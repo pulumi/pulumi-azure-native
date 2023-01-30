@@ -48,11 +48,9 @@ jobs:
         # Remove the per-language folders but preserve the checked-in go.mod
         run: rm -rf $(find sdk -mindepth 1 -maxdepth 1 -type d)
       - name: Preparing Git Branch
-        run: >
+        run: |
           git config --local user.email "bot@pulumi.com"
-
           git config --local user.name "pulumi-bot"
-
           git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: Commit Empty SDK
         run: |-
@@ -69,15 +67,11 @@ jobs:
         run: echo "commit-hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
         working-directory: azure-rest-api-specs
       - name: Commit changes
-        run: >-
+        run: |
           git add sdk
-
           git commit -m "Regenerating SDKs based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
-
           git add .
-
           git commit -m "Regenerating based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
-
           git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: Create PR
         id: create-pr
