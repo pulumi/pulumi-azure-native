@@ -341,3 +341,25 @@ jobs:
           author_name: Failure in publishing SDK
           fields: repo,commit,author,action
           status: ${{ job.status }}
+
+  publish-arm2pulumi:
+    runs-on: ubuntu-latest
+    name: publish-arm2pulumi
+    needs: publish-provider
+    if: "!inputs.prerelease"
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
+        with:
+          skip_dotnet_and_java: "true"
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          args: -p 1 -f .goreleaser.arm2pulumi.yml release --rm-dist --timeout 60m0s
+          version: latest
