@@ -67,8 +67,6 @@ jobs:
         run: python -m pip install pip twine
 
       - name: Publish PyPi Package
-        # TODO: Enable after testing
-        if: false
         run: >
           twine upload
           -u "pulumi"
@@ -87,7 +85,7 @@ jobs:
 
   publish-dotnet-sdk:
     runs-on: ubuntu-latest
-    name: publish_sdk
+    name: publish-dotnet-sdk
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -115,7 +113,7 @@ jobs:
 
       - name: Publish NuGet Package
         run: |
-          find "${SOURCE_ROOT}/sdk/dotnet/bin/Debug/" -name 'Pulumi.*.nupkg' \
+          find "sdk/dotnet/bin/Debug/" -name 'Pulumi.*.nupkg' \
             -exec dotnet nuget push -k "${NUGET_PUBLISH_KEY}" -s https://api.nuget.org/v3/index.json {} ';'
 
       - if: failure() && github.event_name == 'push'
