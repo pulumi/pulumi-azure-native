@@ -297,10 +297,10 @@ export FAKE_MODULE
 .make/build_nodejs: VERSION_JS = $(shell bin/pulumictl convert-version -l javascript -v "$(VERSION_GENERIC)")
 .make/build_nodejs: bin/pulumictl .make/nodejs_yarn_install
 	cd sdk/nodejs/ && \
-	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
-	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-	mkdir -p bin/scripts && cp scripts/install-pulumi-plugin.js bin/scripts
-	sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
+		NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
+		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+		mkdir -p bin/scripts && cp scripts/install-pulumi-plugin.js bin/scripts && \
+		sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
 	@touch $@
 
 .make/build_python: VERSION_PYTHON = $(shell bin/pulumictl convert-version -l python -v "$(VERSION_GENERIC)")
