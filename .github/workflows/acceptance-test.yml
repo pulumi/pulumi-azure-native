@@ -12,10 +12,6 @@ on:
       - CHANGELOG.md
   workflow_dispatch: 
     inputs:
-      prerelease:
-        type: boolean
-        description: Test-publishing prerelease version, skipped if false
-        default: false
       short_test:
         type: boolean
         description: Skip longer running tests
@@ -55,15 +51,3 @@ jobs:
       version: ${{ needs.version.outputs.version }}
       short_test: ${{ inputs.short_test || false }}
     secrets: inherit
-
-  publish:
-    if: github.event_name == 'workflow_dispatch' && inputs.prerelease
-    uses: ./.github/workflows/publish.yml
-    secrets: inherit
-    needs:
-      - version
-      - build_test
-    with:
-      ref: ${{ github.ref }}
-      version: ${{ needs.version.outputs.version }}
-      prerelease: true
