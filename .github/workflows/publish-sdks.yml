@@ -224,7 +224,8 @@ jobs:
 
       - name: Calculate branch name
         id: branch
-        run: echo "name=${{ inputs.prerelease == true && 'master' || inputs.version }}" >> $GITHUB_OUTPUT
+        # Only write to master on a release - write to a stub branch for prerelease
+        run: echo "name=${{ inputs.prerelease == false && 'master' || inputs.version }}" >> $GITHUB_OUTPUT
 
       - name: Checkout branch
         run: git checkout ${{ steps.branch.outputs.name }}
