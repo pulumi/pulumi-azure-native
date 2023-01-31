@@ -44,8 +44,6 @@ jobs:
   publish-python-sdk:
     runs-on: ubuntu-latest
     name: publish-python-sdk
-    env:
-      PACKAGE_VERSION: ${{ inputs.version }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -90,8 +88,6 @@ jobs:
   publish-dotnet-sdk:
     runs-on: ubuntu-latest
     name: publish_sdk
-    env:
-      PACKAGE_VERSION: ${{ inputs.version }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -118,8 +114,6 @@ jobs:
           ${{github.workspace}}/sdk/dotnet
 
       - name: Publish NuGet Package
-        # TODO: Enable after testing
-        if: false
         run: |
           find "${SOURCE_ROOT}/sdk/dotnet/bin/Debug/" -name 'Pulumi.*.nupkg' \
             -exec dotnet nuget push -k "${NUGET_PUBLISH_KEY}" -s https://api.nuget.org/v3/index.json {} ';'
@@ -135,8 +129,6 @@ jobs:
   publish-nodejs-sdk:
     runs-on: ubuntu-latest
     name: publish-nodejs-sdk
-    env:
-      PACKAGE_VERSION: ${{ inputs.version }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -151,14 +143,20 @@ jobs:
         with:
           name: nodejs-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/
+
       - name: Uncompress nodejs SDK
         run: tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C
           ${{github.workspace}}/sdk/nodejs
 
+      - name: Calculate tag
+        id: tag
+        run: echo "tag=$(./.github/scripts/calculate-npm-tag.sh "${{ inputs.version }}")" >> $GITHUB_OUTPUT
+
       - name: Publish Node.JS SDK
+        working-directory: sdk/nodejs/bin
+        run: npm publish --tag "${{ steps.tag.outputs.tag }}"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: ${{github.workspace}}/.github/scripts/publish-npm-sdk.sh
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -192,8 +190,6 @@ jobs:
           ${{github.workspace}}/sdk/java
 
       - name: Publish Java SDK
-        # TODO: Enable after testing
-        if: false
         uses: gradle/gradle-build-action@9b814496b50909128c6a52622b416c5ffa04db49
         with:
           arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
@@ -211,8 +207,6 @@ jobs:
   publish-go-sdk:
     runs-on: ubuntu-latest
     name: publish-go-sdk
-    env:
-      PACKAGE_VERSION: ${{ inputs.version }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -268,9 +262,7 @@ jobs:
           # Find go.mod's, get parent dir name, concat with version, set as a tag
           find */go.mod -type f -exec sh -c "dirname {} | xargs basename | xargs printf "%s/$VERSION" | xargs git tag" \;
 
-      - name: Publish
-        # TODO: Enable after testing
-        if: false
+      - name: Publish to GitHub repository
         working-directory: sdk/pulumi-azure-native-sdk
         run: git push -u origin ${{ steps.branch.outputs.name }} --tags
 

@@ -299,6 +299,7 @@ export FAKE_MODULE
 	cd sdk/nodejs/ && \
 	NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
 	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+	mkdir -p bin/scripts && cp scripts/install-pulumi-plugin.js bin/scripts
 	sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
 	@touch $@
 
@@ -313,7 +314,7 @@ export FAKE_MODULE
 		cd ./bin && python3 setup.py build sdist
 	@touch $@
 
-.make/build_dotnet: VERSION_DOTNET  = $(shell bin/pulumictl convert-version -l dotnet -v "$(PROVIDER_VERSION)")
+.make/build_dotnet: VERSION_DOTNET = $(shell bin/pulumictl convert-version -l dotnet -v "$(PROVIDER_VERSION)")
 .make/build_dotnet: bin/pulumictl .make/generate_dotnet
 	cd sdk/dotnet && \
 		echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
