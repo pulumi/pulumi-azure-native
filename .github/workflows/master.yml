@@ -53,23 +53,11 @@ jobs:
       version: ${{ needs.version.outputs.version }}
 
   publish:
-    uses: ./.github/workflows/publish-provider.yml
+    uses: ./.github/workflows/publish.yml
     secrets: inherit
     needs:
       - version
       - build_test
-    with:
-      ref: ${{ github.ref }}
-      version: ${{ needs.version.outputs.version }}
-      prerelease: true
-
-  publish-sdks:
-    uses: ./.github/workflows/publish-sdks.yml
-    secrets: inherit
-    needs:
-      - version
-      - build_test
-      - publish
     with:
       ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}

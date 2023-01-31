@@ -58,19 +58,7 @@ jobs:
 
   publish:
     if: github.event_name == 'workflow_dispatch' && inputs.prerelease
-    uses: ./.github/workflows/publish-provider.yml
-    secrets: inherit
-    needs:
-      - version
-      - build_test
-    with:
-      ref: ${{ github.ref }}
-      version: ${{ needs.version.outputs.version }}
-      prerelease: true
-
-  publish-sdks:
-    if: github.event_name == 'workflow_dispatch' && inputs.prerelease
-    uses: ./.github/workflows/publish-sdks.yml
+    uses: ./.github/workflows/publish.yml
     secrets: inherit
     needs:
       - version
