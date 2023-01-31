@@ -9,7 +9,7 @@ on:
       version:
         required: true
         type: string
-        description: Version to be used to build the binaries, schema and SDKs
+        description: Version to be used to publish the SDKs
       prerelease:
         required: true
         type: boolean
