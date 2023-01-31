@@ -14,21 +14,9 @@ jobs:
       version: ${{ github.ref_name }}
 
   publish:
-    uses: ./.github/workflows/publish-provider.yml
+    uses: ./.github/workflows/publish.yml
     secrets: inherit
     needs: build_test
-    with:
-      ref: ${{ github.ref }}
-      version: ${{ github.ref_name }}
-      prerelease: ${{ contains(github.ref_name,'-') }}
-
-  publish-sdks:
-    uses: ./.github/workflows/publish-sdks.yml
-    secrets: inherit
-    needs:
-      - version
-      - build_test
-      - publish
     with:
       ref: ${{ github.ref }}
       version: ${{ github.ref_name }}
