@@ -1,11 +1,11 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
-import * as mysqlpreview from "@pulumi/azure-native/dbformysql/v20210501";
+import * as mysql from "@pulumi/azure-native/dbformysql/v20210501";
 import * as resources from "@pulumi/azure-native/resources";
 
 const resourceGroup = new resources.ResourceGroup("rg");
 
-const flexibleServer = new mysqlpreview.Server("server", {
+const flexibleServer = new mysql.Server("server", {
     resourceGroupName: resourceGroup.name,
     sku: {
         tier: "Burstable",
@@ -16,7 +16,7 @@ const flexibleServer = new mysqlpreview.Server("server", {
     version: "5.7",
 });
 
-new mysqlpreview.Configuration("innodb_strict_mode", {
+new mysql.Configuration("innodb_strict_mode", {
     resourceGroupName: resourceGroup.name,
     serverName: flexibleServer.name,
     source: "user-override",

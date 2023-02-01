@@ -1,7 +1,7 @@
-// Copyright 2021, Pulumi Corporation.  All rights reserved.
+// Copyright 2023, Pulumi Corporation.  All rights reserved.
 
 import * as postgresql from "@pulumi/azure-native/dbforpostgresql";
-import * as postgresqlpreview from "@pulumi/azure-native/dbforpostgresql/v20200214preview";
+import * as postgresqlflexible from "@pulumi/azure-native/dbforpostgresql/v20221201";
 import * as resources from "@pulumi/azure-native/resources";
 
 const resourceGroup = new resources.ResourceGroup("rg");
@@ -35,7 +35,7 @@ new postgresql.Configuration("backslash_quote", {
     value: "on",
 });
 
-const flexibleServer = new postgresqlpreview.Server("server", {
+const flexibleServer = new postgresqlflexible.Server("server", {
     resourceGroupName: resourceGroup.name,
     sku: {
         tier: "GeneralPurpose",
@@ -44,14 +44,12 @@ const flexibleServer = new postgresqlpreview.Server("server", {
     administratorLogin: "cloudsa",
     administratorLoginPassword: `pa$$w0rd`,
     version: "12",
-    haEnabled: "Enabled",
-    storageProfile: {
-        storageMB: 524288,
-        backupRetentionDays: 7,
-    },    
+    storage: {
+        storageSizeGB: 32,
+    },
 });
 
-new postgresqlpreview.Configuration("backslash_quote", {
+new postgresqlflexible.Configuration("backslash_quote", {
     resourceGroupName: resourceGroup.name,
     serverName: flexibleServer.name,
     source: "user-override",
