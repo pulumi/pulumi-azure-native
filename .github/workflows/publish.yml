@@ -1,4 +1,4 @@
-name: master
+name: publish
 
 on:
   workflow_call:

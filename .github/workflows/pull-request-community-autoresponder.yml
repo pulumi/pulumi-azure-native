@@ -1,4 +1,4 @@
-name: PR Community Autoresponder
+name: pull-request-community-autoresponder
 
 on:
   pull_request_target:

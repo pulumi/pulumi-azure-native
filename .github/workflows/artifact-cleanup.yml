@@ -1,4 +1,4 @@
-name: cleanup
+name: artifact-cleanup
 on:
   schedule:
     - cron: 0 1 * * *
