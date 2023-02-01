@@ -291,14 +291,15 @@ jobs:
           path: sdk/pulumi-azure-native-sdk
           fetch-depth: 0
 
-      - name: Calculate branch name
-        id: branch
-        # Only write to master on a release - write to a stub branch for prerelease
-        run: echo "name=${{ inputs.prerelease == false && 'master' || inputs.version }}" >> $GITHUB_OUTPUT
-
-      - name: Checkout branch
-        run: git checkout ${{ steps.branch.outputs.name }}
+      - name: Checkout prerelease branch
+        if: inputs.prerelease == true
         working-directory: sdk/pulumi-azure-native-sdk
+        run: git checkout -b ${{ inputs.version }}
+
+      - name: Checkout master branch
+        if: inputs.prerelease == false
+        working-directory: sdk/pulumi-azure-native-sdk
+        run: git checkout master
 
       - name: Clear all source files
         working-directory: sdk/pulumi-azure-native-sdk
