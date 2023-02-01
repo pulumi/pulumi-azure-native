@@ -61,9 +61,13 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 			if len(versionResources) > 0 {
 				var versions []string
 				for version := range versionResources {
-					versions = append(versions, version)
+					if version != "" {
+						versions = append(versions, version)
+					}
 				}
-				err = multierror.Append(err, fmt.Errorf("no version specified for %s, available versions: %s", providerName, strings.Join(versions, ", ")))
+				if len(versions) > 0 {
+					err = multierror.Append(err, fmt.Errorf("no version specified for %s, available versions: %s", providerName, strings.Join(versions, ", ")))
+				}
 				continue
 			}
 		}
