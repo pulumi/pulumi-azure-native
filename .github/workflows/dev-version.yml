@@ -1,4 +1,4 @@
-name: Calculate Dev Version
+name: dev-version
 
 on:
   workflow_call:
