@@ -22,9 +22,12 @@ if typing.TYPE_CHECKING:
     v20210930preview = __v20210930preview
     import pulumi_azure_native.managedidentity.v20220131preview as __v20220131preview
     v20220131preview = __v20220131preview
+    import pulumi_azure_native.managedidentity.v20230131 as __v20230131
+    v20230131 = __v20230131
 else:
     v20150831preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20150831preview')
     v20181130 = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20181130')
     v20210930preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20210930preview')
     v20220131preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20220131preview')
+    v20230131 = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20230131')
 

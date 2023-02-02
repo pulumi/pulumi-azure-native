@@ -1458,7 +1458,7 @@ class RoutingPropertiesArgs:
         The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param pulumi.Input['RoutingEndpointsArgs'] endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
         :param pulumi.Input[Sequence[pulumi.Input['EnrichmentPropertiesArgs']]] enrichments: The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
-        :param pulumi.Input['FallbackRoutePropertiesArgs'] fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+        :param pulumi.Input['FallbackRoutePropertiesArgs'] fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not present in the template, the fallback route is disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
         if endpoints is not None:
@@ -1498,7 +1498,7 @@ class RoutingPropertiesArgs:
     @pulumi.getter(name="fallbackRoute")
     def fallback_route(self) -> Optional[pulumi.Input['FallbackRoutePropertiesArgs']]:
         """
-        The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+        The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not present in the template, the fallback route is disabled by default.
         """
         return pulumi.get(self, "fallback_route")
 

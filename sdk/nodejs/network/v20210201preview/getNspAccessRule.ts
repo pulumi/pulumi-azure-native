@@ -53,6 +53,10 @@ export interface GetNspAccessRuleResult {
      */
     readonly direction?: string;
     /**
+     * Outbound rules email address format.
+     */
+    readonly emailAddresses?: string[];
+    /**
      * Outbound rules fully qualified domain name format.
      */
     readonly fullyQualifiedDomainNames?: string[];
@@ -72,6 +76,10 @@ export interface GetNspAccessRuleResult {
      * Inbound rule specified by the perimeter id.
      */
     readonly networkSecurityPerimeters?: outputs.network.v20210201preview.PerimeterBasedAccessRuleResponse[];
+    /**
+     * Outbound rules phone number format.
+     */
+    readonly phoneNumbers?: string[];
     /**
      * The provisioning state of the scope assignment resource.
      */

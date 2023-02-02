@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.Databricks.V20220401Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databricks:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -67,7 +67,7 @@ class VolumeArgs:
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         :param pulumi.Input[Union[str, 'AvsDataStore']] avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         :param pulumi.Input[str] backup_id: UUID v4 or resource identifier used to identify the Backup.
         :param pulumi.Input[str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
@@ -282,7 +282,7 @@ class VolumeArgs:
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> pulumi.Input[float]:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
 
@@ -823,7 +823,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         :param pulumi.Input[str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
@@ -1032,6 +1032,7 @@ class Volume(pulumi.CustomResource):
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
         __props__.__dict__["avs_data_store"] = None
+        __props__.__dict__["backup_id"] = None
         __props__.__dict__["baremetal_tenant_id"] = None
         __props__.__dict__["capacity_pool_resource_id"] = None
         __props__.__dict__["clone_progress"] = None
@@ -1070,6 +1071,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["smb_encryption"] = None
         __props__.__dict__["smb_non_browsable"] = None
         __props__.__dict__["snapshot_directory_visible"] = None
+        __props__.__dict__["snapshot_id"] = None
         __props__.__dict__["storage_to_network_proximity"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["system_data"] = None
@@ -1092,6 +1094,14 @@ class Volume(pulumi.CustomResource):
         Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         """
         return pulumi.get(self, "avs_data_store")
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        UUID v4 or resource identifier used to identify the Backup.
+        """
+        return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="baremetalTenantId")
@@ -1398,6 +1408,14 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "snapshot_directory_visible")
 
     @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @property
     @pulumi.getter(name="storageToNetworkProximity")
     def storage_to_network_proximity(self) -> pulumi.Output[str]:
         """
@@ -1462,7 +1480,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> pulumi.Output[float]:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
 

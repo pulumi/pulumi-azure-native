@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         public Output<string?> AvsDataStore { get; private set; } = null!;
 
         /// <summary>
+        /// UUID v4 or resource identifier used to identify the Backup.
+        /// </summary>
+        [Output("backupId")]
+        public Output<string?> BackupId { get; private set; } = null!;
+
+        /// <summary>
         /// Unique Baremetal Tenant Identifier.
         /// </summary>
         [Output("baremetalTenantId")]
@@ -224,6 +230,12 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         /// </summary>
         [Output("snapshotDirectoryVisible")]
         public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
+
+        /// <summary>
+        /// UUID v4 or resource identifier used to identify the Snapshot.
+        /// </summary>
+        [Output("snapshotId")]
+        public Output<string?> SnapshotId { get; private set; } = null!;
 
         /// <summary>
         /// Provides storage to network proximity information for the volume.

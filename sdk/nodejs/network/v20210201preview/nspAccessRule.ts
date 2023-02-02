@@ -46,6 +46,10 @@ export class NspAccessRule extends pulumi.CustomResource {
      */
     public readonly direction!: pulumi.Output<string | undefined>;
     /**
+     * Outbound rules email address format.
+     */
+    public readonly emailAddresses!: pulumi.Output<string[] | undefined>;
+    /**
      * Outbound rules fully qualified domain name format.
      */
     public readonly fullyQualifiedDomainNames!: pulumi.Output<string[] | undefined>;
@@ -61,6 +65,10 @@ export class NspAccessRule extends pulumi.CustomResource {
      * Inbound rule specified by the perimeter id.
      */
     public readonly networkSecurityPerimeters!: pulumi.Output<outputs.network.v20210201preview.PerimeterBasedAccessRuleResponse[] | undefined>;
+    /**
+     * Outbound rules phone number format.
+     */
+    public readonly phoneNumbers!: pulumi.Output<string[] | undefined>;
     /**
      * The provisioning state of the scope assignment resource.
      */
@@ -101,12 +109,14 @@ export class NspAccessRule extends pulumi.CustomResource {
             resourceInputs["accessRuleName"] = args ? args.accessRuleName : undefined;
             resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
             resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
             resourceInputs["fullyQualifiedDomainNames"] = args ? args.fullyQualifiedDomainNames : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkSecurityPerimeterName"] = args ? args.networkSecurityPerimeterName : undefined;
             resourceInputs["networkSecurityPerimeters"] = args ? args.networkSecurityPerimeters : undefined;
+            resourceInputs["phoneNumbers"] = args ? args.phoneNumbers : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
@@ -116,10 +126,12 @@ export class NspAccessRule extends pulumi.CustomResource {
         } else {
             resourceInputs["addressPrefixes"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
+            resourceInputs["emailAddresses"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainNames"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkSecurityPerimeters"] = undefined /*out*/;
+            resourceInputs["phoneNumbers"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["subscriptions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -149,6 +161,10 @@ export interface NspAccessRuleArgs {
      */
     direction?: pulumi.Input<string | enums.network.v20210201preview.AccessRuleDirection>;
     /**
+     * Outbound rules email address format.
+     */
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Outbound rules fully qualified domain name format.
      */
     fullyQualifiedDomainNames?: pulumi.Input<pulumi.Input<string>[]>;
@@ -172,6 +188,10 @@ export interface NspAccessRuleArgs {
      * Inbound rule specified by the perimeter id.
      */
     networkSecurityPerimeters?: pulumi.Input<pulumi.Input<inputs.network.v20210201preview.PerimeterBasedAccessRuleArgs>[]>;
+    /**
+     * Outbound rules phone number format.
+     */
+    phoneNumbers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the NSP profile.
      */

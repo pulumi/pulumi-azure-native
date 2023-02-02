@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

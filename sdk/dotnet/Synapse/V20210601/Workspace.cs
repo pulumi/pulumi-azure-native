@@ -22,16 +22,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public Output<string> AdlaResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
-        /// </summary>
-        [Output("azureADOnlyAuthentication")]
-        public Output<bool?> AzureADOnlyAuthentication { get; private set; } = null!;
-
-        /// <summary>
         /// Connectivity endpoints
         /// </summary>
         [Output("connectivityEndpoints")]
-        public Output<ImmutableDictionary<string, string>?> ConnectivityEndpoints { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Initial workspace AAD admin properties for a CSP subscription
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// Workspace level configs and feature flags
         /// </summary>
         [Output("extraProperties")]
-        public Output<ImmutableDictionary<string, object>> ExtraProperties { get; private set; } = null!;
+        public Output<object> ExtraProperties { get; private set; } = null!;
 
         /// <summary>
         /// Identity of the workspace
@@ -231,18 +225,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// </summary>
         [Input("azureADOnlyAuthentication")]
         public Input<bool>? AzureADOnlyAuthentication { get; set; }
-
-        [Input("connectivityEndpoints")]
-        private InputMap<string>? _connectivityEndpoints;
-
-        /// <summary>
-        /// Connectivity endpoints
-        /// </summary>
-        public InputMap<string> ConnectivityEndpoints
-        {
-            get => _connectivityEndpoints ?? (_connectivityEndpoints = new InputMap<string>());
-            set => _connectivityEndpoints = value;
-        }
 
         /// <summary>
         /// Initial workspace AAD admin properties for a CSP subscription

@@ -49,6 +49,10 @@ export interface GetVolumeResult {
      */
     readonly avsDataStore?: string;
     /**
+     * UUID v4 or resource identifier used to identify the Backup.
+     */
+    readonly backupId?: string;
+    /**
      * Unique Baremetal Tenant Identifier.
      */
     readonly baremetalTenantId: string;
@@ -188,6 +192,10 @@ export interface GetVolumeResult {
      * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
     readonly snapshotDirectoryVisible?: boolean;
+    /**
+     * UUID v4 or resource identifier used to identify the Snapshot.
+     */
+    readonly snapshotId?: string;
     /**
      * Provides storage to network proximity information for the volume.
      */

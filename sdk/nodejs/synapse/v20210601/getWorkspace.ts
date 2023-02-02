@@ -39,13 +39,9 @@ export interface GetWorkspaceResult {
      */
     readonly adlaResourceId: string;
     /**
-     * Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
-     */
-    readonly azureADOnlyAuthentication?: boolean;
-    /**
      * Connectivity endpoints
      */
-    readonly connectivityEndpoints?: {[key: string]: string};
+    readonly connectivityEndpoints: {[key: string]: string};
     /**
      * Initial workspace AAD admin properties for a CSP subscription
      */
@@ -61,7 +57,7 @@ export interface GetWorkspaceResult {
     /**
      * Workspace level configs and feature flags
      */
-    readonly extraProperties: {[key: string]: any};
+    readonly extraProperties: any;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

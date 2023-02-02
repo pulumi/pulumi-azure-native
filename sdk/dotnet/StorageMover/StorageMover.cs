@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.StorageMover
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20220701preview:StorageMover"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagemover/v20230301:StorageMover"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.NetApp.V20220301.Inputs
         public Input<string>? SmbServerName { get; set; }
 
         /// <summary>
-        /// Username of Active Directory domain administrator
+        /// A domain user account with permission to create machine accounts
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

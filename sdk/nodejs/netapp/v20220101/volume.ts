@@ -42,6 +42,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly avsDataStore!: pulumi.Output<string | undefined>;
     /**
+     * UUID v4 or resource identifier used to identify the Backup.
+     */
+    public readonly backupId!: pulumi.Output<string | undefined>;
+    /**
      * Unique Baremetal Tenant Identifier.
      */
     public /*out*/ readonly baremetalTenantId!: pulumi.Output<string>;
@@ -178,6 +182,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
     /**
+     * UUID v4 or resource identifier used to identify the Snapshot.
+     */
+    public readonly snapshotId!: pulumi.Output<string | undefined>;
+    /**
      * Provides storage to network proximity information for the volume.
      */
     public /*out*/ readonly storageToNetworkProximity!: pulumi.Output<string>;
@@ -312,6 +320,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["avsDataStore"] = undefined /*out*/;
+            resourceInputs["backupId"] = undefined /*out*/;
             resourceInputs["baremetalTenantId"] = undefined /*out*/;
             resourceInputs["capacityPoolResourceId"] = undefined /*out*/;
             resourceInputs["cloneProgress"] = undefined /*out*/;
@@ -346,6 +355,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["smbContinuouslyAvailable"] = undefined /*out*/;
             resourceInputs["smbEncryption"] = undefined /*out*/;
             resourceInputs["snapshotDirectoryVisible"] = undefined /*out*/;
+            resourceInputs["snapshotId"] = undefined /*out*/;
             resourceInputs["storageToNetworkProximity"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

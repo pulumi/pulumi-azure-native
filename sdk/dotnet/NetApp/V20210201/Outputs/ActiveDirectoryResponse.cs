@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.NetApp.V20210201.Outputs
         /// </summary>
         public readonly string StatusDetails;
         /// <summary>
-        /// Username of Active Directory domain administrator
+        /// A domain user account with permission to create machine accounts
         /// </summary>
         public readonly string? Username;
 

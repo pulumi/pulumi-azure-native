@@ -111,9 +111,11 @@ export * from "../types/enums/workloads";
 
 // Export sub-modules:
 import * as v20211201preview from "./v20211201preview";
+import * as v20221101preview from "./v20221101preview";
 
 export {
     v20211201preview,
+    v20221101preview,
 };
 
 const _module = {

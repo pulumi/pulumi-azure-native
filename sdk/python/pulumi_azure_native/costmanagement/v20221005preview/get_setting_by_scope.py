@@ -101,7 +101,7 @@ def get_setting_by_scope(scope: Optional[str] = None,
     Setting definition.
 
 
-    :param str scope: The scope associated with setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
+    :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
     :param str type: Setting type.
     """
     pulumi.log.warn("""get_setting_by_scope is deprecated: Please use one of the variants: TagInheritanceSetting.""")
@@ -127,7 +127,7 @@ def get_setting_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
     Setting definition.
 
 
-    :param str scope: The scope associated with setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
+    :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
     :param str type: Setting type.
     """
     pulumi.log.warn("""get_setting_by_scope is deprecated: Please use one of the variants: TagInheritanceSetting.""")

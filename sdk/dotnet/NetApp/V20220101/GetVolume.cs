@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         /// </summary>
         public readonly string? AvsDataStore;
         /// <summary>
+        /// UUID v4 or resource identifier used to identify the Backup.
+        /// </summary>
+        public readonly string? BackupId;
+        /// <summary>
         /// Unique Baremetal Tenant Identifier.
         /// </summary>
         public readonly string BaremetalTenantId;
@@ -238,6 +242,10 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         /// </summary>
         public readonly bool? SnapshotDirectoryVisible;
         /// <summary>
+        /// UUID v4 or resource identifier used to identify the Snapshot.
+        /// </summary>
+        public readonly string? SnapshotId;
+        /// <summary>
         /// Provides storage to network proximity information for the volume.
         /// </summary>
         public readonly string StorageToNetworkProximity;
@@ -290,6 +298,8 @@ namespace Pulumi.AzureNative.NetApp.V20220101
         [OutputConstructor]
         private GetVolumeResult(
             string? avsDataStore,
+
+            string? backupId,
 
             string baremetalTenantId,
 
@@ -361,6 +371,8 @@ namespace Pulumi.AzureNative.NetApp.V20220101
 
             bool? snapshotDirectoryVisible,
 
+            string? snapshotId,
+
             string storageToNetworkProximity,
 
             string subnetId,
@@ -388,6 +400,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101
             ImmutableArray<string> zones)
         {
             AvsDataStore = avsDataStore;
+            BackupId = backupId;
             BaremetalTenantId = baremetalTenantId;
             CapacityPoolResourceId = capacityPoolResourceId;
             CloneProgress = cloneProgress;
@@ -423,6 +436,7 @@ namespace Pulumi.AzureNative.NetApp.V20220101
             SmbContinuouslyAvailable = smbContinuouslyAvailable;
             SmbEncryption = smbEncryption;
             SnapshotDirectoryVisible = snapshotDirectoryVisible;
+            SnapshotId = snapshotId;
             StorageToNetworkProximity = storageToNetworkProximity;
             SubnetId = subnetId;
             SystemData = systemData;

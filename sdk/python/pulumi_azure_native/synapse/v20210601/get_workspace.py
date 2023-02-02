@@ -22,13 +22,10 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, adla_resource_id=None, azure_ad_only_authentication=None, connectivity_endpoints=None, csp_workspace_admin_properties=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, settings=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, trusted_service_bypass_enabled=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, csp_workspace_admin_properties=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, settings=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, trusted_service_bypass_enabled=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
         if adla_resource_id and not isinstance(adla_resource_id, str):
             raise TypeError("Expected argument 'adla_resource_id' to be a str")
         pulumi.set(__self__, "adla_resource_id", adla_resource_id)
-        if azure_ad_only_authentication and not isinstance(azure_ad_only_authentication, bool):
-            raise TypeError("Expected argument 'azure_ad_only_authentication' to be a bool")
-        pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
         if connectivity_endpoints and not isinstance(connectivity_endpoints, dict):
             raise TypeError("Expected argument 'connectivity_endpoints' to be a dict")
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
@@ -114,16 +111,8 @@ class GetWorkspaceResult:
         return pulumi.get(self, "adla_resource_id")
 
     @property
-    @pulumi.getter(name="azureADOnlyAuthentication")
-    def azure_ad_only_authentication(self) -> Optional[bool]:
-        """
-        Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
-        """
-        return pulumi.get(self, "azure_ad_only_authentication")
-
-    @property
     @pulumi.getter(name="connectivityEndpoints")
-    def connectivity_endpoints(self) -> Optional[Mapping[str, str]]:
+    def connectivity_endpoints(self) -> Mapping[str, str]:
         """
         Connectivity endpoints
         """
@@ -155,7 +144,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="extraProperties")
-    def extra_properties(self) -> Mapping[str, Any]:
+    def extra_properties(self) -> Any:
         """
         Workspace level configs and feature flags
         """
@@ -329,7 +318,6 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             yield self
         return GetWorkspaceResult(
             adla_resource_id=self.adla_resource_id,
-            azure_ad_only_authentication=self.azure_ad_only_authentication,
             connectivity_endpoints=self.connectivity_endpoints,
             csp_workspace_admin_properties=self.csp_workspace_admin_properties,
             default_data_lake_storage=self.default_data_lake_storage,
@@ -375,7 +363,6 @@ def get_workspace(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkspaceResult(
         adla_resource_id=__ret__.adla_resource_id,
-        azure_ad_only_authentication=__ret__.azure_ad_only_authentication,
         connectivity_endpoints=__ret__.connectivity_endpoints,
         csp_workspace_admin_properties=__ret__.csp_workspace_admin_properties,
         default_data_lake_storage=__ret__.default_data_lake_storage,

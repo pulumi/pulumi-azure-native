@@ -97,7 +97,7 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity:FederatedIdentityCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity:FederatedIdentityCredential" }, { type: "azure-native:managedidentity/v20230131:FederatedIdentityCredential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FederatedIdentityCredential.__pulumiType, name, resourceInputs, opts);
     }

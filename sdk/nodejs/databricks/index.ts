@@ -53,11 +53,13 @@ export * from "../types/enums/databricks";
 import * as v20180401 from "./v20180401";
 import * as v20210401preview from "./v20210401preview";
 import * as v20220401preview from "./v20220401preview";
+import * as v20230201 from "./v20230201";
 
 export {
     v20180401,
     v20210401preview,
     v20220401preview,
+    v20230201,
 };
 
 const _module = {

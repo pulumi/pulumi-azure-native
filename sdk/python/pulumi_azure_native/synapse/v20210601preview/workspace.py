@@ -586,7 +586,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extraProperties")
-    def extra_properties(self) -> pulumi.Output[Mapping[str, Any]]:
+    def extra_properties(self) -> pulumi.Output[Any]:
         """
         Workspace level configs and feature flags
         """

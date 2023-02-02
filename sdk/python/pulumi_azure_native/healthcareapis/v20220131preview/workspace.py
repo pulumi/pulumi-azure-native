@@ -151,7 +151,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:healthcareapis/v20220131preview:Workspace',

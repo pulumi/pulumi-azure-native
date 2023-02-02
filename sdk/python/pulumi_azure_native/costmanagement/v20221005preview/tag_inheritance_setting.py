@@ -25,7 +25,7 @@ class TagInheritanceSettingArgs:
         The set of arguments for constructing a TagInheritanceSetting resource.
         :param pulumi.Input[str] kind: Specifies the kind of settings.
                Expected value is 'taginheritance'.
-        :param pulumi.Input[str] scope: The scope associated with setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
+        :param pulumi.Input[str] scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input['TagInheritancePropertiesArgs'] properties: The properties of the tag inheritance setting.
         :param pulumi.Input[str] type: Setting type.
@@ -56,7 +56,7 @@ class TagInheritanceSettingArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        The scope associated with setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
+        The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
         """
         return pulumi.get(self, "scope")
 
@@ -121,7 +121,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Specifies the kind of settings.
                Expected value is 'taginheritance'.
         :param pulumi.Input[pulumi.InputType['TagInheritancePropertiesArgs']] properties: The properties of the tag inheritance setting.
-        :param pulumi.Input[str] scope: The scope associated with setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
+        :param pulumi.Input[str] scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
         :param pulumi.Input[str] type: Setting type.
         """
         ...

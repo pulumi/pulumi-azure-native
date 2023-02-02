@@ -114,7 +114,7 @@ export interface TagInheritanceSettingArgs {
      */
     properties?: pulumi.Input<inputs.costmanagement.v20221001preview.TagInheritancePropertiesArgs>;
     /**
-     * The scope associated with setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
+     * The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
      */
     scope: pulumi.Input<string>;
     /**

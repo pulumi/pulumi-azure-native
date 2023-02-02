@@ -22,13 +22,16 @@ class GetNspAccessRuleResult:
     """
     The NSP access rule resource
     """
-    def __init__(__self__, address_prefixes=None, direction=None, fully_qualified_domain_names=None, id=None, location=None, name=None, network_security_perimeters=None, provisioning_state=None, subscriptions=None, tags=None, type=None):
+    def __init__(__self__, address_prefixes=None, direction=None, email_addresses=None, fully_qualified_domain_names=None, id=None, location=None, name=None, network_security_perimeters=None, phone_numbers=None, provisioning_state=None, subscriptions=None, tags=None, type=None):
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
         pulumi.set(__self__, "address_prefixes", address_prefixes)
         if direction and not isinstance(direction, str):
             raise TypeError("Expected argument 'direction' to be a str")
         pulumi.set(__self__, "direction", direction)
+        if email_addresses and not isinstance(email_addresses, list):
+            raise TypeError("Expected argument 'email_addresses' to be a list")
+        pulumi.set(__self__, "email_addresses", email_addresses)
         if fully_qualified_domain_names and not isinstance(fully_qualified_domain_names, list):
             raise TypeError("Expected argument 'fully_qualified_domain_names' to be a list")
         pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
@@ -44,6 +47,9 @@ class GetNspAccessRuleResult:
         if network_security_perimeters and not isinstance(network_security_perimeters, list):
             raise TypeError("Expected argument 'network_security_perimeters' to be a list")
         pulumi.set(__self__, "network_security_perimeters", network_security_perimeters)
+        if phone_numbers and not isinstance(phone_numbers, list):
+            raise TypeError("Expected argument 'phone_numbers' to be a list")
+        pulumi.set(__self__, "phone_numbers", phone_numbers)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -72,6 +78,14 @@ class GetNspAccessRuleResult:
         Direction that specifies whether the access rules is inbound/outbound.
         """
         return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter(name="emailAddresses")
+    def email_addresses(self) -> Optional[Sequence[str]]:
+        """
+        Outbound rules email address format.
+        """
+        return pulumi.get(self, "email_addresses")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainNames")
@@ -114,6 +128,14 @@ class GetNspAccessRuleResult:
         return pulumi.get(self, "network_security_perimeters")
 
     @property
+    @pulumi.getter(name="phoneNumbers")
+    def phone_numbers(self) -> Optional[Sequence[str]]:
+        """
+        Outbound rules phone number format.
+        """
+        return pulumi.get(self, "phone_numbers")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -154,11 +176,13 @@ class AwaitableGetNspAccessRuleResult(GetNspAccessRuleResult):
         return GetNspAccessRuleResult(
             address_prefixes=self.address_prefixes,
             direction=self.direction,
+            email_addresses=self.email_addresses,
             fully_qualified_domain_names=self.fully_qualified_domain_names,
             id=self.id,
             location=self.location,
             name=self.name,
             network_security_perimeters=self.network_security_perimeters,
+            phone_numbers=self.phone_numbers,
             provisioning_state=self.provisioning_state,
             subscriptions=self.subscriptions,
             tags=self.tags,
@@ -190,11 +214,13 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
     return AwaitableGetNspAccessRuleResult(
         address_prefixes=__ret__.address_prefixes,
         direction=__ret__.direction,
+        email_addresses=__ret__.email_addresses,
         fully_qualified_domain_names=__ret__.fully_qualified_domain_names,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         network_security_perimeters=__ret__.network_security_perimeters,
+        phone_numbers=__ret__.phone_numbers,
         provisioning_state=__ret__.provisioning_state,
         subscriptions=__ret__.subscriptions,
         tags=__ret__.tags,

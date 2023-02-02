@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.CostManagement.V20221001Preview.Outputs
     public sealed class TagInheritancePropertiesResponse
     {
         /// <summary>
-        /// Prefer Container tags to override container tags with resource tags in case of conflicts.
+        /// When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
         /// </summary>
         public readonly bool PreferContainerTags;
 

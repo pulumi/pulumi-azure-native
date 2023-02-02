@@ -6609,6 +6609,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databox/v20221001",
+  "fqn": "pulumi_azure_native.databox.v20221001",
+  "classes": {
+   "azure-native:databox/v20221001:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databoxedge",
   "fqn": "pulumi_azure_native.databoxedge",
   "classes": {
@@ -7043,6 +7051,16 @@ _utilities.register(
    "azure-native:databricks/v20220401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:databricks/v20220401preview:Workspace": "Workspace",
    "azure-native:databricks/v20220401preview:vNetPeering": "VNetPeering"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "databricks/v20230201",
+  "fqn": "pulumi_azure_native.databricks.v20230201",
+  "classes": {
+   "azure-native:databricks/v20230201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:databricks/v20230201:Workspace": "Workspace",
+   "azure-native:databricks/v20230201:vNetPeering": "VNetPeering"
   }
  },
  {
@@ -8897,6 +8915,16 @@ _utilities.register(
    "azure-native:devices/v20220430preview:IotHubResource": "IotHubResource",
    "azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
    "azure-native:devices/v20220430preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devices/v20221212",
+  "fqn": "pulumi_azure_native.devices.v20221212",
+  "classes": {
+   "azure-native:devices/v20221212:DpsCertificate": "DpsCertificate",
+   "azure-native:devices/v20221212:IotDpsResource": "IotDpsResource",
+   "azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
   }
  },
  {
@@ -11025,6 +11053,21 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "healthcareapis/v20221201",
+  "fqn": "pulumi_azure_native.healthcareapis.v20221201",
+  "classes": {
+   "azure-native:healthcareapis/v20221201:DicomService": "DicomService",
+   "azure-native:healthcareapis/v20221201:FhirService": "FhirService",
+   "azure-native:healthcareapis/v20221201:IotConnector": "IotConnector",
+   "azure-native:healthcareapis/v20221201:IotConnectorFhirDestination": "IotConnectorFhirDestination",
+   "azure-native:healthcareapis/v20221201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:healthcareapis/v20221201:Service": "Service",
+   "azure-native:healthcareapis/v20221201:Workspace": "Workspace",
+   "azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybridcompute",
   "fqn": "pulumi_azure_native.hybridcompute",
   "classes": {
@@ -11210,6 +11253,17 @@ _utilities.register(
    "azure-native:hybridcompute/v20221110:MachineExtension": "MachineExtension",
    "azure-native:hybridcompute/v20221110:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute/v20221110:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcompute/v20221227preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20221227preview",
+  "classes": {
+   "azure-native:hybridcompute/v20221227preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20221227preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20221227preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20221227preview:PrivateLinkScope": "PrivateLinkScope"
   }
  },
  {
@@ -12405,6 +12459,28 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "kusto/v20221229",
+  "fqn": "pulumi_azure_native.kusto.v20221229",
+  "classes": {
+   "azure-native:kusto/v20221229:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
+   "azure-native:kusto/v20221229:Cluster": "Cluster",
+   "azure-native:kusto/v20221229:ClusterPrincipalAssignment": "ClusterPrincipalAssignment",
+   "azure-native:kusto/v20221229:CosmosDbDataConnection": "CosmosDbDataConnection",
+   "azure-native:kusto/v20221229:DataConnection": "DataConnection",
+   "azure-native:kusto/v20221229:Database": "Database",
+   "azure-native:kusto/v20221229:DatabasePrincipalAssignment": "DatabasePrincipalAssignment",
+   "azure-native:kusto/v20221229:EventGridDataConnection": "EventGridDataConnection",
+   "azure-native:kusto/v20221229:EventHubDataConnection": "EventHubDataConnection",
+   "azure-native:kusto/v20221229:IotHubDataConnection": "IotHubDataConnection",
+   "azure-native:kusto/v20221229:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:kusto/v20221229:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:kusto/v20221229:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
+   "azure-native:kusto/v20221229:ReadWriteDatabase": "ReadWriteDatabase",
+   "azure-native:kusto/v20221229:Script": "Script"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "labservices",
   "fqn": "pulumi_azure_native.labservices",
   "classes": {
@@ -13187,6 +13263,44 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "machinelearningservices/v20221201preview",
+  "fqn": "pulumi_azure_native.machinelearningservices.v20221201preview",
+  "classes": {
+   "azure-native:machinelearningservices/v20221201preview:BatchDeployment": "BatchDeployment",
+   "azure-native:machinelearningservices/v20221201preview:BatchEndpoint": "BatchEndpoint",
+   "azure-native:machinelearningservices/v20221201preview:CodeContainer": "CodeContainer",
+   "azure-native:machinelearningservices/v20221201preview:CodeVersion": "CodeVersion",
+   "azure-native:machinelearningservices/v20221201preview:ComponentContainer": "ComponentContainer",
+   "azure-native:machinelearningservices/v20221201preview:ComponentVersion": "ComponentVersion",
+   "azure-native:machinelearningservices/v20221201preview:Compute": "Compute",
+   "azure-native:machinelearningservices/v20221201preview:DataContainer": "DataContainer",
+   "azure-native:machinelearningservices/v20221201preview:DataVersion": "DataVersion",
+   "azure-native:machinelearningservices/v20221201preview:Datastore": "Datastore",
+   "azure-native:machinelearningservices/v20221201preview:EnvironmentContainer": "EnvironmentContainer",
+   "azure-native:machinelearningservices/v20221201preview:EnvironmentVersion": "EnvironmentVersion",
+   "azure-native:machinelearningservices/v20221201preview:Job": "Job",
+   "azure-native:machinelearningservices/v20221201preview:LabelingJob": "LabelingJob",
+   "azure-native:machinelearningservices/v20221201preview:ModelContainer": "ModelContainer",
+   "azure-native:machinelearningservices/v20221201preview:ModelVersion": "ModelVersion",
+   "azure-native:machinelearningservices/v20221201preview:OnlineDeployment": "OnlineDeployment",
+   "azure-native:machinelearningservices/v20221201preview:OnlineEndpoint": "OnlineEndpoint",
+   "azure-native:machinelearningservices/v20221201preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:machinelearningservices/v20221201preview:Registry": "Registry",
+   "azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer": "RegistryCodeContainer",
+   "azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion": "RegistryCodeVersion",
+   "azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer": "RegistryComponentContainer",
+   "azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion": "RegistryComponentVersion",
+   "azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer": "RegistryEnvironmentContainer",
+   "azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentVersion": "RegistryEnvironmentVersion",
+   "azure-native:machinelearningservices/v20221201preview:RegistryModelContainer": "RegistryModelContainer",
+   "azure-native:machinelearningservices/v20221201preview:RegistryModelVersion": "RegistryModelVersion",
+   "azure-native:machinelearningservices/v20221201preview:Schedule": "Schedule",
+   "azure-native:machinelearningservices/v20221201preview:Workspace": "Workspace",
+   "azure-native:machinelearningservices/v20221201preview:WorkspaceConnection": "WorkspaceConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "maintenance",
   "fqn": "pulumi_azure_native.maintenance",
   "classes": {
@@ -13307,6 +13421,15 @@ _utilities.register(
   "classes": {
    "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential": "FederatedIdentityCredential",
    "azure-native:managedidentity/v20220131preview:UserAssignedIdentity": "UserAssignedIdentity"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "managedidentity/v20230131",
+  "fqn": "pulumi_azure_native.managedidentity.v20230131",
+  "classes": {
+   "azure-native:managedidentity/v20230131:FederatedIdentityCredential": "FederatedIdentityCredential",
+   "azure-native:managedidentity/v20230131:UserAssignedIdentity": "UserAssignedIdentity"
   }
  },
  {
@@ -22589,6 +22712,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "storagemover/v20230301",
+  "fqn": "pulumi_azure_native.storagemover.v20230301",
+  "classes": {
+   "azure-native:storagemover/v20230301:Agent": "Agent",
+   "azure-native:storagemover/v20230301:Endpoint": "Endpoint",
+   "azure-native:storagemover/v20230301:JobDefinition": "JobDefinition",
+   "azure-native:storagemover/v20230301:Project": "Project",
+   "azure-native:storagemover/v20230301:StorageMover": "StorageMover"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "storagepool",
   "fqn": "pulumi_azure_native.storagepool",
   "classes": {
@@ -24567,6 +24702,20 @@ _utilities.register(
    "azure-native:workloads/v20211201preview:SAPVirtualInstance": "SAPVirtualInstance",
    "azure-native:workloads/v20211201preview:WordpressInstance": "WordpressInstance",
    "azure-native:workloads/v20211201preview:monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "workloads/v20221101preview",
+  "fqn": "pulumi_azure_native.workloads.v20221101preview",
+  "classes": {
+   "azure-native:workloads/v20221101preview:ProviderInstance": "ProviderInstance",
+   "azure-native:workloads/v20221101preview:SAPApplicationServerInstance": "SAPApplicationServerInstance",
+   "azure-native:workloads/v20221101preview:SAPCentralInstance": "SAPCentralInstance",
+   "azure-native:workloads/v20221101preview:SAPDatabaseInstance": "SAPDatabaseInstance",
+   "azure-native:workloads/v20221101preview:SAPVirtualInstance": "SAPVirtualInstance",
+   "azure-native:workloads/v20221101preview:SapLandscapeMonitor": "SapLandscapeMonitor",
+   "azure-native:workloads/v20221101preview:monitor": "Monitor"
   }
  }
 ]

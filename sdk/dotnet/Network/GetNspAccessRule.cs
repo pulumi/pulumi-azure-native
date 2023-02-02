@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? Direction;
         /// <summary>
+        /// Outbound rules email address format.
+        /// </summary>
+        public readonly ImmutableArray<string> EmailAddresses;
+        /// <summary>
         /// Outbound rules fully qualified domain name format.
         /// </summary>
         public readonly ImmutableArray<string> FullyQualifiedDomainNames;
@@ -123,6 +127,10 @@ namespace Pulumi.AzureNative.Network
         /// Inbound rule specified by the perimeter id.
         /// </summary>
         public readonly ImmutableArray<Outputs.PerimeterBasedAccessRuleResponse> NetworkSecurityPerimeters;
+        /// <summary>
+        /// Outbound rules phone number format.
+        /// </summary>
+        public readonly ImmutableArray<string> PhoneNumbers;
         /// <summary>
         /// The provisioning state of the scope assignment resource.
         /// </summary>
@@ -146,6 +154,8 @@ namespace Pulumi.AzureNative.Network
 
             string? direction,
 
+            ImmutableArray<string> emailAddresses,
+
             ImmutableArray<string> fullyQualifiedDomainNames,
 
             string id,
@@ -155,6 +165,8 @@ namespace Pulumi.AzureNative.Network
             string name,
 
             ImmutableArray<Outputs.PerimeterBasedAccessRuleResponse> networkSecurityPerimeters,
+
+            ImmutableArray<string> phoneNumbers,
 
             string provisioningState,
 
@@ -166,11 +178,13 @@ namespace Pulumi.AzureNative.Network
         {
             AddressPrefixes = addressPrefixes;
             Direction = direction;
+            EmailAddresses = emailAddresses;
             FullyQualifiedDomainNames = fullyQualifiedDomainNames;
             Id = id;
             Location = location;
             Name = name;
             NetworkSecurityPerimeters = networkSecurityPerimeters;
+            PhoneNumbers = phoneNumbers;
             ProvisioningState = provisioningState;
             Subscriptions = subscriptions;
             Tags = tags;

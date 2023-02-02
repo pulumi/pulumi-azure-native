@@ -155,7 +155,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="extraProperties")
-    def extra_properties(self) -> Mapping[str, Any]:
+    def extra_properties(self) -> Any:
         """
         Workspace level configs and feature flags
         """

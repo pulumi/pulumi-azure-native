@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// Workspace level configs and feature flags
         /// </summary>
         [Output("extraProperties")]
-        public Output<ImmutableDictionary<string, object>> ExtraProperties { get; private set; } = null!;
+        public Output<object> ExtraProperties { get; private set; } = null!;
 
         /// <summary>
         /// Identity of the workspace

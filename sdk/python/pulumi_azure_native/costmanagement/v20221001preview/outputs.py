@@ -511,7 +511,7 @@ class TagInheritancePropertiesResponse(dict):
                  prefer_container_tags: bool):
         """
         The properties of the tag inheritance setting.
-        :param bool prefer_container_tags: Prefer Container tags to override container tags with resource tags in case of conflicts.
+        :param bool prefer_container_tags: When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
         """
         pulumi.set(__self__, "prefer_container_tags", prefer_container_tags)
 
@@ -519,7 +519,7 @@ class TagInheritancePropertiesResponse(dict):
     @pulumi.getter(name="preferContainerTags")
     def prefer_container_tags(self) -> bool:
         """
-        Prefer Container tags to override container tags with resource tags in case of conflicts.
+        When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
         """
         return pulumi.get(self, "prefer_container_tags")
 

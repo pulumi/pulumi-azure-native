@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public Output<string?> Direction { get; private set; } = null!;
 
         /// <summary>
+        /// Outbound rules email address format.
+        /// </summary>
+        [Output("emailAddresses")]
+        public Output<ImmutableArray<string>> EmailAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Outbound rules fully qualified domain name format.
         /// </summary>
         [Output("fullyQualifiedDomainNames")]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         [Output("networkSecurityPerimeters")]
         public Output<ImmutableArray<Outputs.PerimeterBasedAccessRuleResponse>> NetworkSecurityPerimeters { get; private set; } = null!;
+
+        /// <summary>
+        /// Outbound rules phone number format.
+        /// </summary>
+        [Output("phoneNumbers")]
+        public Output<ImmutableArray<string>> PhoneNumbers { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the scope assignment resource.
@@ -148,6 +160,18 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         [Input("direction")]
         public InputUnion<string, Pulumi.AzureNative.Network.V20210201Preview.AccessRuleDirection>? Direction { get; set; }
 
+        [Input("emailAddresses")]
+        private InputList<string>? _emailAddresses;
+
+        /// <summary>
+        /// Outbound rules email address format.
+        /// </summary>
+        public InputList<string> EmailAddresses
+        {
+            get => _emailAddresses ?? (_emailAddresses = new InputList<string>());
+            set => _emailAddresses = value;
+        }
+
         [Input("fullyQualifiedDomainNames")]
         private InputList<string>? _fullyQualifiedDomainNames;
 
@@ -194,6 +218,18 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         {
             get => _networkSecurityPerimeters ?? (_networkSecurityPerimeters = new InputList<Inputs.PerimeterBasedAccessRuleArgs>());
             set => _networkSecurityPerimeters = value;
+        }
+
+        [Input("phoneNumbers")]
+        private InputList<string>? _phoneNumbers;
+
+        /// <summary>
+        /// Outbound rules phone number format.
+        /// </summary>
+        public InputList<string> PhoneNumbers
+        {
+            get => _phoneNumbers ?? (_phoneNumbers = new InputList<string>());
+            set => _phoneNumbers = value;
         }
 
         /// <summary>

@@ -72,6 +72,8 @@ if typing.TYPE_CHECKING:
     v20220707 = __v20220707
     import pulumi_azure_native.kusto.v20221111 as __v20221111
     v20221111 = __v20221111
+    import pulumi_azure_native.kusto.v20221229 as __v20221229
+    v20221229 = __v20221229
 else:
     v20170907privatepreview = _utilities.lazy_import('pulumi_azure_native.kusto.v20170907privatepreview')
     v20180907preview = _utilities.lazy_import('pulumi_azure_native.kusto.v20180907preview')
@@ -87,4 +89,5 @@ else:
     v20220201 = _utilities.lazy_import('pulumi_azure_native.kusto.v20220201')
     v20220707 = _utilities.lazy_import('pulumi_azure_native.kusto.v20220707')
     v20221111 = _utilities.lazy_import('pulumi_azure_native.kusto.v20221111')
+    v20221229 = _utilities.lazy_import('pulumi_azure_native.kusto.v20221229')
 

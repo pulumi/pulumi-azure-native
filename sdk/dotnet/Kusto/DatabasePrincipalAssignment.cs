@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:DatabasePrincipalAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:DatabasePrincipalAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:DatabasePrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:DatabasePrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

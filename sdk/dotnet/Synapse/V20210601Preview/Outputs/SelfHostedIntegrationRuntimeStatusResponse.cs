@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// The list of nodes for this integration runtime.
         /// </summary>
         public readonly ImmutableArray<Outputs.SelfHostedIntegrationRuntimeNodeResponse> Nodes;
+        public readonly int OsType;
         /// <summary>
         /// The version that the integration runtime is going to update to.
         /// </summary>
@@ -84,6 +85,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// The state of integration runtime.
         /// </summary>
         public readonly string State;
+        public readonly int TargetFramework;
         /// <summary>
         /// The task queue id of the integration runtime.
         /// </summary>
@@ -132,6 +134,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
 
             ImmutableArray<Outputs.SelfHostedIntegrationRuntimeNodeResponse> nodes,
 
+            int osType,
+
             string pushedVersion,
 
             string scheduledUpdateDate,
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
             ImmutableArray<string> serviceUrls,
 
             string state,
+
+            int targetFramework,
 
             string taskQueueId,
 
@@ -164,11 +170,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
             NewerVersions = newerVersions;
             NodeCommunicationChannelEncryptionMode = nodeCommunicationChannelEncryptionMode;
             Nodes = nodes;
+            OsType = osType;
             PushedVersion = pushedVersion;
             ScheduledUpdateDate = scheduledUpdateDate;
             ServiceRegion = serviceRegion;
             ServiceUrls = serviceUrls;
             State = state;
+            TargetFramework = targetFramework;
             TaskQueueId = taskQueueId;
             Type = type;
             UpdateDelayOffset = updateDelayOffset;

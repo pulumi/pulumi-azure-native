@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Kusto.V20190907
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:EventGridDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:EventGridDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:EventGridDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -3669,7 +3669,7 @@ class OSImageNotificationProfileResponse(dict):
                  not_before_timeout: Optional[str] = None):
         """
         :param bool enable: Specifies whether the OS Image Scheduled event is enabled or disabled.
-        :param str not_before_timeout: Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, with the value set to 15 minutes (PT15M)
+        :param str not_before_timeout: Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, and the value must be 15 minutes (PT15M)
         """
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
@@ -3688,7 +3688,7 @@ class OSImageNotificationProfileResponse(dict):
     @pulumi.getter(name="notBeforeTimeout")
     def not_before_timeout(self) -> Optional[str]:
         """
-        Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, with the value set to 15 minutes (PT15M)
+        Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, and the value must be 15 minutes (PT15M)
         """
         return pulumi.get(self, "not_before_timeout")
 

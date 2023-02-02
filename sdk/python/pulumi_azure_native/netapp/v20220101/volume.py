@@ -952,6 +952,7 @@ class Volume(pulumi.CustomResource):
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
         __props__.__dict__["avs_data_store"] = None
+        __props__.__dict__["backup_id"] = None
         __props__.__dict__["baremetal_tenant_id"] = None
         __props__.__dict__["capacity_pool_resource_id"] = None
         __props__.__dict__["clone_progress"] = None
@@ -986,6 +987,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["smb_continuously_available"] = None
         __props__.__dict__["smb_encryption"] = None
         __props__.__dict__["snapshot_directory_visible"] = None
+        __props__.__dict__["snapshot_id"] = None
         __props__.__dict__["storage_to_network_proximity"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["system_data"] = None
@@ -1008,6 +1010,14 @@ class Volume(pulumi.CustomResource):
         Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         """
         return pulumi.get(self, "avs_data_store")
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        UUID v4 or resource identifier used to identify the Backup.
+        """
+        return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="baremetalTenantId")
@@ -1280,6 +1290,14 @@ class Volume(pulumi.CustomResource):
         If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter(name="storageToNetworkProximity")

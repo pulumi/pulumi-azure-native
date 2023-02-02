@@ -61,9 +61,11 @@ export * from "../types/enums/storagemover";
 
 // Export sub-modules:
 import * as v20220701preview from "./v20220701preview";
+import * as v20230301 from "./v20230301";
 
 export {
     v20220701preview,
+    v20230301,
 };
 
 const _module = {

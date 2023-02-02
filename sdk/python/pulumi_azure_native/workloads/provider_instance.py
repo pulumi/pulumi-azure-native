@@ -176,7 +176,7 @@ class ProviderInstance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:ProviderInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:ProviderInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:ProviderInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProviderInstance, __self__).__init__(
             'azure-native:workloads:ProviderInstance',

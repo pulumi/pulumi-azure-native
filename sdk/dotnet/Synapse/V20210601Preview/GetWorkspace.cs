@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraProperties;
+        public readonly object ExtraProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             Outputs.EncryptionDetailsResponse? encryption,
 
-            ImmutableDictionary<string, object> extraProperties,
+            object extraProperties,
 
             string id,
 

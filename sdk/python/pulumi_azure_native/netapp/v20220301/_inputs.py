@@ -97,7 +97,7 @@ class ActiveDirectoryArgs:
         :param pulumi.Input[str] server_root_ca_certificate: When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
         :param pulumi.Input[str] site: The Active Directory site the service will limit Domain Controller discovery to
         :param pulumi.Input[str] smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-        :param pulumi.Input[str] username: Username of Active Directory domain administrator
+        :param pulumi.Input[str] username: A domain user account with permission to create machine accounts
         """
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
@@ -374,7 +374,7 @@ class ActiveDirectoryArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Username of Active Directory domain administrator
+        A domain user account with permission to create machine accounts
         """
         return pulumi.get(self, "username")
 
@@ -1246,7 +1246,7 @@ class VolumeGroupVolumePropertiesArgs:
         Volume resource
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB, 500 GiB for large volumes. Upper limit is 100TiB. Specified in bytes.
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         :param pulumi.Input[Union[str, 'AvsDataStore']] avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         :param pulumi.Input[str] backup_id: UUID v4 or resource identifier used to identify the Backup.
         :param pulumi.Input[str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
@@ -1407,7 +1407,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> pulumi.Input[float]:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB, 500 GiB for large volumes. Upper limit is 100TiB. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
 

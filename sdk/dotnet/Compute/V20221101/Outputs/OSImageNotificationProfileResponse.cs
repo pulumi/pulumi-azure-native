@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
         /// </summary>
         public readonly bool? Enable;
         /// <summary>
-        /// Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, with the value set to 15 minutes (PT15M)
+        /// Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, and the value must be 15 minutes (PT15M)
         /// </summary>
         public readonly string? NotBeforeTimeout;
 

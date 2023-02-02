@@ -61,7 +61,7 @@ export interface GetWorkspaceResult {
     /**
      * Workspace level configs and feature flags
      */
-    readonly extraProperties: {[key: string]: any};
+    readonly extraProperties: any;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

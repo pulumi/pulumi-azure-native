@@ -74,13 +74,9 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// </summary>
         public readonly string AdlaResourceId;
         /// <summary>
-        /// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
-        /// </summary>
-        public readonly bool? AzureADOnlyAuthentication;
-        /// <summary>
         /// Connectivity endpoints
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? ConnectivityEndpoints;
+        public readonly ImmutableDictionary<string, string> ConnectivityEndpoints;
         /// <summary>
         /// Initial workspace AAD admin properties for a CSP subscription
         /// </summary>
@@ -96,7 +92,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraProperties;
+        public readonly object ExtraProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -182,9 +178,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         private GetWorkspaceResult(
             string adlaResourceId,
 
-            bool? azureADOnlyAuthentication,
-
-            ImmutableDictionary<string, string>? connectivityEndpoints,
+            ImmutableDictionary<string, string> connectivityEndpoints,
 
             Outputs.CspWorkspaceAdminPropertiesResponse? cspWorkspaceAdminProperties,
 
@@ -192,7 +186,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
 
             Outputs.EncryptionDetailsResponse? encryption,
 
-            ImmutableDictionary<string, object> extraProperties,
+            object extraProperties,
 
             string id,
 
@@ -235,7 +229,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601
             string workspaceUID)
         {
             AdlaResourceId = adlaResourceId;
-            AzureADOnlyAuthentication = azureADOnlyAuthentication;
             ConnectivityEndpoints = connectivityEndpoints;
             CspWorkspaceAdminProperties = cspWorkspaceAdminProperties;
             DefaultDataLakeStorage = defaultDataLakeStorage;

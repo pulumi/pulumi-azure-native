@@ -23,11 +23,13 @@ class NspAccessRuleArgs:
                  access_rule_name: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'AccessRuleDirection']]] = None,
+                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeters: Optional[pulumi.Input[Sequence[pulumi.Input['PerimeterBasedAccessRuleArgs']]]] = None,
+                 phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -38,11 +40,13 @@ class NspAccessRuleArgs:
         :param pulumi.Input[str] access_rule_name: The name of the NSP access rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: Inbound address prefixes (IPv4/IPv6)
         :param pulumi.Input[Union[str, 'AccessRuleDirection']] direction: Direction that specifies whether the access rules is inbound/outbound.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Outbound rules email address format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fully_qualified_domain_names: Outbound rules fully qualified domain name format.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the access rule that is unique within a profile. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input['PerimeterBasedAccessRuleArgs']]] network_security_perimeters: Inbound rule specified by the perimeter id.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] phone_numbers: Outbound rules phone number format.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]] subscriptions: List of subscription ids
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -55,6 +59,8 @@ class NspAccessRuleArgs:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
         if direction is not None:
             pulumi.set(__self__, "direction", direction)
+        if email_addresses is not None:
+            pulumi.set(__self__, "email_addresses", email_addresses)
         if fully_qualified_domain_names is not None:
             pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
         if id is not None:
@@ -65,6 +71,8 @@ class NspAccessRuleArgs:
             pulumi.set(__self__, "name", name)
         if network_security_perimeters is not None:
             pulumi.set(__self__, "network_security_perimeters", network_security_perimeters)
+        if phone_numbers is not None:
+            pulumi.set(__self__, "phone_numbers", phone_numbers)
         if subscriptions is not None:
             pulumi.set(__self__, "subscriptions", subscriptions)
         if tags is not None:
@@ -143,6 +151,18 @@ class NspAccessRuleArgs:
         pulumi.set(self, "direction", value)
 
     @property
+    @pulumi.getter(name="emailAddresses")
+    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Outbound rules email address format.
+        """
+        return pulumi.get(self, "email_addresses")
+
+    @email_addresses.setter
+    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "email_addresses", value)
+
+    @property
     @pulumi.getter(name="fullyQualifiedDomainNames")
     def fully_qualified_domain_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -203,6 +223,18 @@ class NspAccessRuleArgs:
         pulumi.set(self, "network_security_perimeters", value)
 
     @property
+    @pulumi.getter(name="phoneNumbers")
+    def phone_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Outbound rules phone number format.
+        """
+        return pulumi.get(self, "phone_numbers")
+
+    @phone_numbers.setter
+    def phone_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "phone_numbers", value)
+
+    @property
     @pulumi.getter
     def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]]:
         """
@@ -235,12 +267,14 @@ class NspAccessRule(pulumi.CustomResource):
                  access_rule_name: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'AccessRuleDirection']]] = None,
+                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PerimeterBasedAccessRuleArgs']]]]] = None,
+                 phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]]] = None,
@@ -255,12 +289,14 @@ class NspAccessRule(pulumi.CustomResource):
         :param pulumi.Input[str] access_rule_name: The name of the NSP access rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: Inbound address prefixes (IPv4/IPv6)
         :param pulumi.Input[Union[str, 'AccessRuleDirection']] direction: Direction that specifies whether the access rules is inbound/outbound.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Outbound rules email address format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fully_qualified_domain_names: Outbound rules fully qualified domain name format.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the access rule that is unique within a profile. This name can be used to access the resource.
         :param pulumi.Input[str] network_security_perimeter_name: The name of the network security perimeter.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PerimeterBasedAccessRuleArgs']]]] network_security_perimeters: Inbound rule specified by the perimeter id.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] phone_numbers: Outbound rules phone number format.
         :param pulumi.Input[str] profile_name: The name of the NSP profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]] subscriptions: List of subscription ids
@@ -294,12 +330,14 @@ class NspAccessRule(pulumi.CustomResource):
                  access_rule_name: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'AccessRuleDirection']]] = None,
+                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                  network_security_perimeters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PerimeterBasedAccessRuleArgs']]]]] = None,
+                 phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubscriptionIdArgs']]]]] = None,
@@ -316,6 +354,7 @@ class NspAccessRule(pulumi.CustomResource):
             __props__.__dict__["access_rule_name"] = access_rule_name
             __props__.__dict__["address_prefixes"] = address_prefixes
             __props__.__dict__["direction"] = direction
+            __props__.__dict__["email_addresses"] = email_addresses
             __props__.__dict__["fully_qualified_domain_names"] = fully_qualified_domain_names
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
@@ -324,6 +363,7 @@ class NspAccessRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_security_perimeter_name'")
             __props__.__dict__["network_security_perimeter_name"] = network_security_perimeter_name
             __props__.__dict__["network_security_perimeters"] = network_security_perimeters
+            __props__.__dict__["phone_numbers"] = phone_numbers
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
@@ -360,10 +400,12 @@ class NspAccessRule(pulumi.CustomResource):
 
         __props__.__dict__["address_prefixes"] = None
         __props__.__dict__["direction"] = None
+        __props__.__dict__["email_addresses"] = None
         __props__.__dict__["fully_qualified_domain_names"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_security_perimeters"] = None
+        __props__.__dict__["phone_numbers"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["subscriptions"] = None
         __props__.__dict__["tags"] = None
@@ -385,6 +427,14 @@ class NspAccessRule(pulumi.CustomResource):
         Direction that specifies whether the access rules is inbound/outbound.
         """
         return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter(name="emailAddresses")
+    def email_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Outbound rules email address format.
+        """
+        return pulumi.get(self, "email_addresses")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainNames")
@@ -417,6 +467,14 @@ class NspAccessRule(pulumi.CustomResource):
         Inbound rule specified by the perimeter id.
         """
         return pulumi.get(self, "network_security_perimeters")
+
+    @property
+    @pulumi.getter(name="phoneNumbers")
+    def phone_numbers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Outbound rules phone number format.
+        """
+        return pulumi.get(self, "phone_numbers")
 
     @property
     @pulumi.getter(name="provisioningState")

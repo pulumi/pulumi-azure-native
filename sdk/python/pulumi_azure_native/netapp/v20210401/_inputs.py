@@ -90,7 +90,7 @@ class ActiveDirectoryArgs:
         :param pulumi.Input[str] server_root_ca_certificate: When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
         :param pulumi.Input[str] site: The Active Directory site the service will limit Domain Controller discovery to
         :param pulumi.Input[str] smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-        :param pulumi.Input[str] username: Username of Active Directory domain administrator
+        :param pulumi.Input[str] username: A domain user account with permission to create machine accounts
         """
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
@@ -339,7 +339,7 @@ class ActiveDirectoryArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Username of Active Directory domain administrator
+        A domain user account with permission to create machine accounts
         """
         return pulumi.get(self, "username")
 
