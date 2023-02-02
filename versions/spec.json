@@ -4104,6 +4104,10 @@
     "2022-09-01": [
       "Job",
       "listJobCredentials"
+    ],
+    "2022-10-01": [
+      "Job",
+      "listJobCredentials"
     ]
   },
   "DataBoxEdge": {
@@ -4669,6 +4673,11 @@
     ],
     "2022-04-01-preview": [
       "AccessConnector",
+      "PrivateEndpointConnection",
+      "Workspace",
+      "vNetPeering"
+    ],
+    "2023-02-01": [
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
@@ -5262,6 +5271,13 @@
       "PrivateEndpointConnection",
       "listIotHubResourceKeys",
       "listIotHubResourceKeysForKeyName"
+    ],
+    "2022-12-12": [
+      "DpsCertificate",
+      "IotDpsResource",
+      "IotDpsResourcePrivateEndpointConnection",
+      "listIotDpsResourceKeys",
+      "listIotDpsResourceKeysForKeyName"
     ]
   },
   "DigitalTwins": {
@@ -6653,6 +6669,16 @@
       "Service",
       "Workspace",
       "WorkspacePrivateEndpointConnection"
+    ],
+    "2022-12-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
     ]
   },
   "HybridCompute": {
@@ -6743,6 +6769,12 @@
       "PrivateLinkScope"
     ],
     "2022-11-10": [
+      "Machine",
+      "MachineExtension",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
+    ],
+    "2022-12-27-preview": [
       "Machine",
       "MachineExtension",
       "PrivateEndpointConnection",
@@ -7300,6 +7332,20 @@
       "listDatabasePrincipals"
     ],
     "2022-11-11": [
+      "AttachedDatabaseConfiguration",
+      "Cluster",
+      "ClusterPrincipalAssignment",
+      "DataConnection",
+      "Database",
+      "DatabasePrincipalAssignment",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection",
+      "Script",
+      "listClusterFollowerDatabases",
+      "listClusterLanguageExtensions",
+      "listDatabasePrincipals"
+    ],
+    "2022-12-29": [
       "AttachedDatabaseConfiguration",
       "Cluster",
       "ClusterPrincipalAssignment",
@@ -7922,6 +7968,50 @@
       "listWorkspaceNotebookAccessToken",
       "listWorkspaceNotebookKeys",
       "listWorkspaceStorageAccountKeys"
+    ],
+    "2022-12-01-preview": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "Job",
+      "LabelingJob",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "Registry",
+      "RegistryCodeContainer",
+      "RegistryCodeVersion",
+      "RegistryComponentContainer",
+      "RegistryComponentVersion",
+      "RegistryEnvironmentContainer",
+      "RegistryEnvironmentVersion",
+      "RegistryModelContainer",
+      "RegistryModelVersion",
+      "Schedule",
+      "Workspace",
+      "WorkspaceConnection",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listOnlineEndpointKeys",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
     ]
   },
   "Maintenance": {
@@ -7973,6 +8063,10 @@
       "FederatedIdentityCredential",
       "UserAssignedIdentity",
       "listUserAssignedIdentityAssociatedResources"
+    ],
+    "2023-01-31": [
+      "FederatedIdentityCredential",
+      "UserAssignedIdentity"
     ]
   },
   "ManagedNetwork": {
@@ -11621,6 +11715,9 @@
       "listListTenantConfigurationViolation"
     ]
   },
+  "PortalServices": {
+    "": []
+  },
   "PowerBI": {
     "2016-01-29": [
       "WorkspaceCollection",
@@ -14504,6 +14601,13 @@
       "JobDefinition",
       "Project",
       "StorageMover"
+    ],
+    "2023-03-01": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
     ]
   },
   "StoragePool": {
@@ -16278,6 +16382,19 @@
       "SAPDatabaseInstance",
       "SAPVirtualInstance",
       "WordpressInstance",
+      "getSAPAvailabilityZoneDetails",
+      "getSAPDiskConfigurations",
+      "getSAPSizingRecommendations",
+      "getSAPSupportedSku",
+      "monitor"
+    ],
+    "2022-11-01-preview": [
+      "ProviderInstance",
+      "SAPApplicationServerInstance",
+      "SAPCentralInstance",
+      "SAPDatabaseInstance",
+      "SAPVirtualInstance",
+      "SapLandscapeMonitor",
       "getSAPAvailabilityZoneDetails",
       "getSAPDiskConfigurations",
       "getSAPSizingRecommendations",
