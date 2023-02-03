@@ -19,9 +19,19 @@ endif
 
 JAVA_GEN        := pulumi-java-gen
 
+GOOS ?= $(shell go env GOOS)
+GOARCH ?= $(shell go env GOARCH)
+GOEXE ?= $(shell go env GOEXE)
+LOCAL_PROVIDER_FILENAME := $(PROVIDER)$(GOEXE)
+LOCAL_ARM2PULUMI_FILENAME := arm2pulumi$(GOEXE)
+
+ifeq ($(CI)$(PROVIDER_VERSION),true)
+$(error PROVIDER_VERSION must be set in CI environments)
+endif
+
 # Input during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local builds will just used this fixed default version unless specified
-PROVIDER_VERSION ?=  "1.0.0-alpha.0+dev"
+PROVIDER_VERSION ?= 1.0.0-alpha.0+dev
 # Ensure the leading "v" is removed - use this normalised version everywhere rather than the raw input to ensure consistency.
 # These variables are lazy (no `:`) so they're not calculated until after the dependency is installed
 VERSION_GENERIC = $(shell bin/pulumictl convert-version -l generic -v "$(PROVIDER_VERSION)")
@@ -33,16 +43,17 @@ VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pk
 # relevant target we run `@touch $@` to update the file which is the name of the target.
 _ := $(shell mkdir -p .make)
 
-.PHONY: default ensure
+.PHONY: default ensure dist
 default: provider arm2pulumi build_sdks
 ensure: bin/pulumictl .make/provider_mod_download
+dist: dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt
 
 # Binaries
 .PHONY: versioner codegen provider arm2pulumi
 versioner: bin/pulumi-versioner-azure-native
 codegen: bin/$(CODEGEN)
-provider: bin/$(PROVIDER)
-arm2pulumi: bin/arm2pulumi
+provider: bin/$(LOCAL_PROVIDER_FILENAME)
+arm2pulumi: bin/$(LOCAL_ARM2PULUMI_FILENAME)
 
 .PHONY: install_provider
 install_provider: .make/install_provider
@@ -54,9 +65,9 @@ arm2pulumi_prebuild: .make/arm2pulumi_prebuild
 # We don't include v2 here yet as this is executed on the nightly updates
 .PHONY: versions schema generate_schema generate_docs
 versions: .make/versions_spec .make/versions_v1 .make/versions_deprecated .make/versions_pending .make/versions_active
-schema: .make/schema
-generate_schema: .make/schema
-generate_docs: .make/generate_docs
+schema: bin/schema-full.json
+generate_schema: bin/schema-full.json
+generate_docs: provider/cmd/pulumi-resource-azure-native/schema.json
 
 .PHONY: versions generate_java generate_nodejs generate_python generate_dotnet generate_go
 generate_java: .make/generate_java
@@ -111,7 +122,7 @@ arm2pulumi_coverage_report: .make/provider_mod_download provider/cmd/$(PROVIDER)
 	(cd provider && go test -v -tags=coverage -run TestQuickstartTemplateCoverage github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi/internal/test)
 
 .PHONY: test_provider
-test_provider: .make/provider_mod_download .make/schema provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
+test_provider: .make/provider_mod_download .make/provider_prebuild provider/cmd/$(PROVIDER)/*.go $(PROVIDER_PKG)
 	cd provider && go test -v $(PROVIDER_PKGS)
 
 .PHONY: lint_provider
@@ -123,6 +134,7 @@ clean:
 	rm -rf nuget
 	rm -rf .make
 	rm -rf bin
+	rm -rf dist
 	cd provider/cmd/arm2pulumi && rm -f metadata-compact.json schema-full.json
 	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-full.json
 	rm -rf sdk/dotnet/bin
@@ -158,17 +170,64 @@ bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 	@mkdir -p bin
 	bin/pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
-bin/arm2pulumi: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* .make/arm2pulumi_prebuild $(PROVIDER_PKG)
-	cp bin/schema-full.json provider/cmd/arm2pulumi
-	cp bin/metadata-compact.json provider/cmd/arm2pulumi
-	cd provider && go build -o $(WORKING_DIR)/bin/arm2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
+LOCAL_ARM2PULUMI_PATH := bin/$(GOOS)-$(GOARCH)/$(LOCAL_ARM2PULUMI_FILENAME)
+
+bin/$(LOCAL_ARM2PULUMI_FILENAME): $(LOCAL_ARM2PULUMI_PATH)
+	rm $@
+	cp $(LOCAL_ARM2PULUMI_PATH) bin
+
+bin/linux-amd64/arm2pulumi: TARGET := linux-amd64
+bin/linux-arm64/arm2pulumi: TARGET := linux-arm64
+bin/darwin-amd64/arm2pulumi: TARGET := darwin-amd64
+bin/darwin-arm64/arm2pulumi: TARGET := darwin-arm64
+bin/windows-amd64/arm2pulumi.exe: TARGET := windows-amd64
+bin/%/arm2pulumi bin/%/arm2pulumi.exe: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* .make/arm2pulumi_prebuild $(PROVIDER_PKG)
+	cd provider && go build -o $(WORKING_DIR)/$@ $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
 
 bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 
-bin/$(PROVIDER): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
+# Writes schema-full.json and metadata-compact.json to bin/
+bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
+	bin/$(CODEGEN) schema $(VERSION_GENERIC)
+
+# Docs schema
+provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
+	bin/$(CODEGEN) docs $(VERSION_GENERIC)
+
+bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	cd provider && \
-		go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
+		go build -o $(WORKING_DIR)/bin/$(LOCAL_PROVIDER_FILENAME) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
+
+bin/linux-amd64/$(PROVIDER): TARGET := linux-amd64
+bin/linux-arm64/$(PROVIDER): TARGET := linux-arm64
+bin/darwin-amd64/$(PROVIDER): TARGET := darwin-amd64
+bin/darwin-arm64/$(PROVIDER): TARGET := darwin-arm64
+bin/windows-amd64/$(PROVIDER).exe: TARGET := windows-amd64
+bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
+	@# check the TARGET is set
+	test $(TARGET)
+	cd provider && \
+		export GOOS=$$(echo "$(TARGET)" | cut -d "-" -f 1) && \
+		export GOARCH=$$(echo "$(TARGET)" | cut -d "-" -f 2) && \
+		go build -o ${WORKING_DIR}/$@ $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
+
+dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz: bin/linux-amd64/$(PROVIDER)
+dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz: bin/linux-arm64/$(PROVIDER)
+dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.tar.gz: bin/darwin-amd64/$(PROVIDER)
+dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz: bin/darwin-arm64/$(PROVIDER)
+dist/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz: bin/windows-amd64/$(PROVIDER).exe
+dist/$(PROVIDER)-v$(PROVIDER_VERSION)-%.tar.gz:
+	@mkdir -p dist
+	@# $< is the last dependency (the binary path from above)
+	tar --gzip -cf $@ README.md LICENSE -C $$(dirname $<) .
+
+dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz
+dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz
+dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.tar.gz
+dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz
+dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz
+	cd dist && shasum *.tar.gz > pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt
 
 bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSIONER)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(VERSIONER)
@@ -179,23 +238,14 @@ bin/$(VERSIONER): bin/pulumictl .make/provider_mod_download provider/cmd/$(VERSI
 	cd provider && go mod download
 	@touch $@
 
-.make/arm2pulumi_prebuild: .make/schema
+.make/arm2pulumi_prebuild: bin/schema-full.json bin/metadata-compact.json
 	cp bin/schema-full.json provider/cmd/arm2pulumi
 	cp bin/metadata-compact.json provider/cmd/arm2pulumi
 	@touch $@
 
-.make/provider_prebuild: .make/schema
+.make/provider_prebuild: bin/schema-full.json bin/metadata-compact.json
 	cp bin/schema-full.json provider/cmd/$(PROVIDER)
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
-	@touch $@
-
-# Writes schema-full.json and metadata-compact.json to bin/
-.make/schema: bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
-	bin/$(CODEGEN) schema $(VERSION_GENERIC)
-	@touch $@
-
-.make/generate_docs: bin/$(CODEGEN) $(SPECS) .make/versions_v1 .make/versions_deprecated
-	bin/$(CODEGEN) docs $(VERSION_GENERIC)
 	@touch $@
 
 .make/versions_spec: bin/pulumi-versioner-azure-native $(SPECS)
@@ -238,7 +288,7 @@ export FAKE_MODULE
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
-.make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) .make/schema
+.make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) nodejs $(VERSION_GENERIC)
@@ -247,7 +297,7 @@ export FAKE_MODULE
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch $@
 
-.make/generate_python: bin/pulumictl bin/$(CODEGEN) .make/schema
+.make/generate_python: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) python $(VERSION_GENERIC)
@@ -255,7 +305,7 @@ export FAKE_MODULE
 	cp README.md sdk/python
 	@touch $@
 
-.make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) .make/schema
+.make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	bin/$(CODEGEN) dotnet $(VERSION_GENERIC)
@@ -264,7 +314,7 @@ export FAKE_MODULE
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch $@
 
-.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) .make/schema
+.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
 	@mkdir -p sdk/pulumi-azure-native-sdk
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go

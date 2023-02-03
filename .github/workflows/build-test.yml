@@ -50,7 +50,7 @@ jobs:
           skip_dotnet_and_java: "true"
 
       - name: Build versions, schema and binaries
-        run: make versioner versions codegen schema provider --jobs=2
+        run: make versioner versions codegen schema provider
 
       - name: Artifact capture
         uses: ./.github/actions/prerequisites-artifact-capture
