@@ -12009,6 +12009,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "keyvault/v20220201preview",
+  "fqn": "pulumi_azure_native.keyvault.v20220201preview",
+  "classes": {
+   "azure-native:keyvault/v20220201preview:Key": "Key",
+   "azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20220201preview:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20220201preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20220201preview:Secret": "Secret",
+   "azure-native:keyvault/v20220201preview:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "keyvault/v20220701",
   "fqn": "pulumi_azure_native.keyvault.v20220701",
   "classes": {
@@ -12018,6 +12031,19 @@ _utilities.register(
    "azure-native:keyvault/v20220701:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:keyvault/v20220701:Secret": "Secret",
    "azure-native:keyvault/v20220701:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "keyvault/v20221101",
+  "fqn": "pulumi_azure_native.keyvault.v20221101",
+  "classes": {
+   "azure-native:keyvault/v20221101:Key": "Key",
+   "azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20221101:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20221101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20221101:Secret": "Secret",
+   "azure-native:keyvault/v20221101:Vault": "Vault"
   }
  },
  {
@@ -18706,6 +18732,12 @@ _utilities.register(
   "mod": "recoveryservices/v20220930preview",
   "fqn": "pulumi_azure_native.recoveryservices.v20220930preview",
   "classes": {
+   "azure-native:recoveryservices/v20220930preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20220930preview:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20220930preview:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20220930preview:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20220930preview:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20220930preview:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20220930preview:Vault": "Vault"
   }
  },

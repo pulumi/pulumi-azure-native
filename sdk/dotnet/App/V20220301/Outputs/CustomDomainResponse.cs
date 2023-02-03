@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.App.V20220301.Outputs
         /// </summary>
         public readonly string? BindingType;
         /// <summary>
-        /// Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
+        /// Resource Id of the Certificate to be bound to this hostname.
         /// </summary>
-        public readonly string CertificateId;
+        public readonly string? CertificateId;
         /// <summary>
         /// Hostname.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.App.V20220301.Outputs
         private CustomDomainResponse(
             string? bindingType,
 
-            string certificateId,
+            string? certificateId,
 
             string name)
         {

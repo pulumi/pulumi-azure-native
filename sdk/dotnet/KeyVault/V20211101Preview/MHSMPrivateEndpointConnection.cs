@@ -104,7 +104,9 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

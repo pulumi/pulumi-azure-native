@@ -1589,31 +1589,20 @@ class CookieExpirationArgs:
 @pulumi.input_type
 class CustomDomainArgs:
     def __init__(__self__, *,
-                 certificate_id: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 binding_type: Optional[pulumi.Input[Union[str, 'BindingType']]] = None):
+                 binding_type: Optional[pulumi.Input[Union[str, 'BindingType']]] = None,
+                 certificate_id: Optional[pulumi.Input[str]] = None):
         """
         Custom Domain of a Container App
-        :param pulumi.Input[str] certificate_id: Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         :param pulumi.Input[str] name: Hostname.
         :param pulumi.Input[Union[str, 'BindingType']] binding_type: Custom Domain binding type.
+        :param pulumi.Input[str] certificate_id: Resource Id of the Certificate to be bound to this hostname.
         """
-        pulumi.set(__self__, "certificate_id", certificate_id)
         pulumi.set(__self__, "name", name)
         if binding_type is not None:
             pulumi.set(__self__, "binding_type", binding_type)
-
-    @property
-    @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> pulumi.Input[str]:
-        """
-        Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
-        """
-        return pulumi.get(self, "certificate_id")
-
-    @certificate_id.setter
-    def certificate_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_id", value)
+        if certificate_id is not None:
+            pulumi.set(__self__, "certificate_id", certificate_id)
 
     @property
     @pulumi.getter
@@ -1638,6 +1627,18 @@ class CustomDomainArgs:
     @binding_type.setter
     def binding_type(self, value: Optional[pulumi.Input[Union[str, 'BindingType']]]):
         pulumi.set(self, "binding_type", value)
+
+    @property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id of the Certificate to be bound to this hostname.
+        """
+        return pulumi.get(self, "certificate_id")
+
+    @certificate_id.setter
+    def certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_id", value)
 
 
 @pulumi.input_type

@@ -114,7 +114,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> Optional[int]:
+    def cache_size(self) -> int:
         """
         The cache size
         """

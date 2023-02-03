@@ -216,7 +216,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MHSMPrivateEndpointConnection, __self__).__init__(
             'azure-native:keyvault:MHSMPrivateEndpointConnection',

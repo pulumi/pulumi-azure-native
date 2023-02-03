@@ -2124,10 +2124,10 @@ class CustomDomainResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "certificateId":
-            suggest = "certificate_id"
-        elif key == "bindingType":
+        if key == "bindingType":
             suggest = "binding_type"
+        elif key == "certificateId":
+            suggest = "certificate_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CustomDomainResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2141,27 +2141,20 @@ class CustomDomainResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_id: str,
                  name: str,
-                 binding_type: Optional[str] = None):
+                 binding_type: Optional[str] = None,
+                 certificate_id: Optional[str] = None):
         """
         Custom Domain of a Container App
-        :param str certificate_id: Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         :param str name: Hostname.
         :param str binding_type: Custom Domain binding type.
+        :param str certificate_id: Resource Id of the Certificate to be bound to this hostname.
         """
-        pulumi.set(__self__, "certificate_id", certificate_id)
         pulumi.set(__self__, "name", name)
         if binding_type is not None:
             pulumi.set(__self__, "binding_type", binding_type)
-
-    @property
-    @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> str:
-        """
-        Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
-        """
-        return pulumi.get(self, "certificate_id")
+        if certificate_id is not None:
+            pulumi.set(__self__, "certificate_id", certificate_id)
 
     @property
     @pulumi.getter
@@ -2178,6 +2171,14 @@ class CustomDomainResponse(dict):
         Custom Domain binding type.
         """
         return pulumi.get(self, "binding_type")
+
+    @property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> Optional[str]:
+        """
+        Resource Id of the Certificate to be bound to this hostname.
+        """
+        return pulumi.get(self, "certificate_id")
 
 
 @pulumi.output_type
