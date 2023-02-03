@@ -7114,7 +7114,23 @@
       "Secret",
       "Vault"
     ],
+    "2022-02-01-preview": [
+      "Key",
+      "MHSMPrivateEndpointConnection",
+      "ManagedHsm",
+      "PrivateEndpointConnection",
+      "Secret",
+      "Vault"
+    ],
     "2022-07-01": [
+      "Key",
+      "MHSMPrivateEndpointConnection",
+      "ManagedHsm",
+      "PrivateEndpointConnection",
+      "Secret",
+      "Vault"
+    ],
+    "2022-11-01": [
       "Key",
       "MHSMPrivateEndpointConnection",
       "ManagedHsm",
@@ -12220,6 +12236,12 @@
       "Vault"
     ],
     "2022-09-30-preview": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy",
       "Vault"
     ],
     "2022-10-01": [
