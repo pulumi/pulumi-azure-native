@@ -29,7 +29,7 @@ runs:
       # Update the description of automated PRs
       - name: update-pull-request
         if: github.event_name == 'pull_request' && github.actor == 'pulumi-bot'
-        uses: kt3k/update-pr-description@v1.0.1
+        uses: kt3k/update-pr-description@v2.1.1
         with:
           pr_body: ${{ steps.schema-tools.outputs.summary }}
           github_token: ${{ inputs.GITHUB_TOKEN }}
