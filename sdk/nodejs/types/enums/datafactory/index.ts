@@ -35,6 +35,19 @@ export const AzureSearchIndexWriteBehaviorType = {
  */
 export type AzureSearchIndexWriteBehaviorType = (typeof AzureSearchIndexWriteBehaviorType)[keyof typeof AzureSearchIndexWriteBehaviorType];
 
+export const AzureStorageAuthenticationType = {
+    Anonymous: "Anonymous",
+    AccountKey: "AccountKey",
+    SasUri: "SasUri",
+    ServicePrincipal: "ServicePrincipal",
+    Msi: "Msi",
+} as const;
+
+/**
+ * The type used for authentication. Type: string.
+ */
+export type AzureStorageAuthenticationType = (typeof AzureStorageAuthenticationType)[keyof typeof AzureStorageAuthenticationType];
+
 export const BigDataPoolReferenceType = {
     BigDataPoolReference: "BigDataPoolReference",
 } as const;

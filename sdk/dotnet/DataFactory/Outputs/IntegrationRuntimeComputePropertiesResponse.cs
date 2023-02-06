@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class IntegrationRuntimeComputePropertiesResponse
     {
         /// <summary>
+        /// CopyComputeScale properties for managed integration runtime.
+        /// </summary>
+        public readonly Outputs.CopyComputeScalePropertiesResponse? CopyComputeScaleProperties;
+        /// <summary>
         /// Data flow properties for managed integration runtime.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeDataFlowPropertiesResponse? DataFlowProperties;
@@ -37,12 +41,18 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly int? NumberOfNodes;
         /// <summary>
+        /// PipelineExternalComputeScale properties for managed integration runtime.
+        /// </summary>
+        public readonly Outputs.PipelineExternalComputeScalePropertiesResponse? PipelineExternalComputeScaleProperties;
+        /// <summary>
         /// VNet properties for managed integration runtime.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeVNetPropertiesResponse? VNetProperties;
 
         [OutputConstructor]
         private IntegrationRuntimeComputePropertiesResponse(
+            Outputs.CopyComputeScalePropertiesResponse? copyComputeScaleProperties,
+
             Outputs.IntegrationRuntimeDataFlowPropertiesResponse? dataFlowProperties,
 
             string? location,
@@ -53,13 +63,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             int? numberOfNodes,
 
+            Outputs.PipelineExternalComputeScalePropertiesResponse? pipelineExternalComputeScaleProperties,
+
             Outputs.IntegrationRuntimeVNetPropertiesResponse? vNetProperties)
         {
+            CopyComputeScaleProperties = copyComputeScaleProperties;
             DataFlowProperties = dataFlowProperties;
             Location = location;
             MaxParallelExecutionsPerNode = maxParallelExecutionsPerNode;
             NodeSize = nodeSize;
             NumberOfNodes = numberOfNodes;
+            PipelineExternalComputeScaleProperties = pipelineExternalComputeScaleProperties;
             VNetProperties = vNetProperties;
         }
     }

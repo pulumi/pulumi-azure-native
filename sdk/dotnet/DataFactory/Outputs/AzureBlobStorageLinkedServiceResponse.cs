@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// The type used for authentication. Type: string.
+        /// </summary>
+        public readonly string? AuthenticationType;
+        /// <summary>
         /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? AzureCloudType;
@@ -40,6 +44,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The connection string. It is mutually exclusive with sasUri, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
         public readonly object? ConnectionString;
+        /// <summary>
+        /// Container uri of the Azure Blob Storage resource only support for anonymous access. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? ContainerUri;
         /// <summary>
         /// The credential reference containing authentication information.
         /// </summary>
@@ -94,11 +102,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableArray<object> annotations,
 
+            string? authenticationType,
+
             object? azureCloudType,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             object? connectionString,
+
+            object? containerUri,
 
             Outputs.CredentialReferenceResponse? credential,
 
@@ -125,9 +137,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             AccountKey = accountKey;
             AccountKind = accountKind;
             Annotations = annotations;
+            AuthenticationType = authenticationType;
             AzureCloudType = azureCloudType;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            ContainerUri = containerUri;
             Credential = credential;
             Description = description;
             EncryptedCredential = encryptedCredential;

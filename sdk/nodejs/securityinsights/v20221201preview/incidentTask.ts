@@ -131,6 +131,8 @@ export class IncidentTask extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230201preview:IncidentTask" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IncidentTask.__pulumiType, name, resourceInputs, opts);
     }
 }

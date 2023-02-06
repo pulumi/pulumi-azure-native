@@ -89,9 +89,9 @@ class GetNetworkWatcherResult:
 
     @property
     @pulumi.getter(name="runningOperationIds")
-    def running_operation_ids(self) -> Optional[Sequence[int]]:
+    def running_operation_ids(self) -> Optional[Sequence[str]]:
         """
-        List of running operation IDs.
+        List of running operation GUIDs.
         """
         return pulumi.get(self, "running_operation_ids")
 

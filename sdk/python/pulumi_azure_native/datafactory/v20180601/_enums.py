@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AzureFunctionActivityMethod',
     'AzureSearchIndexWriteBehaviorType',
+    'AzureStorageAuthenticationType',
     'BigDataPoolReferenceType',
     'BlobEventTypes',
     'CassandraSourceReadConsistencyLevels',
@@ -102,6 +103,17 @@ class AzureSearchIndexWriteBehaviorType(str, Enum):
     """
     MERGE = "Merge"
     UPLOAD = "Upload"
+
+
+class AzureStorageAuthenticationType(str, Enum):
+    """
+    The type used for authentication. Type: string.
+    """
+    ANONYMOUS = "Anonymous"
+    ACCOUNT_KEY = "AccountKey"
+    SAS_URI = "SasUri"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    MSI = "Msi"
 
 
 class BigDataPoolReferenceType(str, Enum):

@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101:AutomationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:AutomationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:AutomationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:AutomationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

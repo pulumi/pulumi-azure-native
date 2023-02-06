@@ -18,7 +18,7 @@ class NetworkWatcherArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
-                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkWatcher resource.
@@ -26,7 +26,7 @@ class NetworkWatcherArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] running_operation_ids: List of running operation IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] running_operation_ids: List of running operation GUIDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -91,14 +91,14 @@ class NetworkWatcherArgs:
 
     @property
     @pulumi.getter(name="runningOperationIds")
-    def running_operation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+    def running_operation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of running operation IDs.
+        List of running operation GUIDs.
         """
         return pulumi.get(self, "running_operation_ids")
 
     @running_operation_ids.setter
-    def running_operation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+    def running_operation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "running_operation_ids", value)
 
     @property
@@ -123,7 +123,7 @@ class NetworkWatcher(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -135,7 +135,7 @@ class NetworkWatcher(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] running_operation_ids: List of running operation IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] running_operation_ids: List of running operation GUIDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -166,7 +166,7 @@ class NetworkWatcher(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -256,9 +256,9 @@ class NetworkWatcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runningOperationIds")
-    def running_operation_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
+    def running_operation_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of running operation IDs.
+        List of running operation GUIDs.
         """
         return pulumi.get(self, "running_operation_ids")
 

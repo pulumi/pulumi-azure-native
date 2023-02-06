@@ -40,10 +40,10 @@ namespace Pulumi.AzureNative.Network.V20220501
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// List of running operation IDs.
+        /// List of running operation GUIDs.
         /// </summary>
         [Output("runningOperationIds")]
-        public Output<ImmutableArray<int>> RunningOperationIds { get; private set; } = null!;
+        public Output<ImmutableArray<string>> RunningOperationIds { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -169,14 +169,14 @@ namespace Pulumi.AzureNative.Network.V20220501
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("runningOperationIds")]
-        private InputList<int>? _runningOperationIds;
+        private InputList<string>? _runningOperationIds;
 
         /// <summary>
-        /// List of running operation IDs.
+        /// List of running operation GUIDs.
         /// </summary>
-        public InputList<int> RunningOperationIds
+        public InputList<string> RunningOperationIds
         {
-            get => _runningOperationIds ?? (_runningOperationIds = new InputList<int>());
+            get => _runningOperationIds ?? (_runningOperationIds = new InputList<string>());
             set => _runningOperationIds = value;
         }
 

@@ -75,6 +75,40 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
+    /// The type used for authentication. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureStorageAuthenticationType : IEquatable<AzureStorageAuthenticationType>
+    {
+        private readonly string _value;
+
+        private AzureStorageAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureStorageAuthenticationType Anonymous { get; } = new AzureStorageAuthenticationType("Anonymous");
+        public static AzureStorageAuthenticationType AccountKey { get; } = new AzureStorageAuthenticationType("AccountKey");
+        public static AzureStorageAuthenticationType SasUri { get; } = new AzureStorageAuthenticationType("SasUri");
+        public static AzureStorageAuthenticationType ServicePrincipal { get; } = new AzureStorageAuthenticationType("ServicePrincipal");
+        public static AzureStorageAuthenticationType Msi { get; } = new AzureStorageAuthenticationType("Msi");
+
+        public static bool operator ==(AzureStorageAuthenticationType left, AzureStorageAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AzureStorageAuthenticationType left, AzureStorageAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureStorageAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureStorageAuthenticationType other && Equals(other);
+        public bool Equals(AzureStorageAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Big data pool reference type.
     /// </summary>
     [EnumType]

@@ -144,6 +144,7 @@ __all__ = [
     'ControlActivityArgs',
     'CopyActivityLogSettingsArgs',
     'CopyActivityArgs',
+    'CopyComputeScalePropertiesArgs',
     'CosmosDbLinkedServiceArgs',
     'CosmosDbMongoDbApiCollectionDatasetArgs',
     'CosmosDbMongoDbApiLinkedServiceArgs',
@@ -391,6 +392,7 @@ __all__ = [
     'PhoenixObjectDatasetArgs',
     'PhoenixSourceArgs',
     'PipelineElapsedTimeMetricPolicyArgs',
+    'PipelineExternalComputeScalePropertiesArgs',
     'PipelineFolderArgs',
     'PipelinePolicyArgs',
     'PipelineReferenceArgs',
@@ -6605,9 +6607,11 @@ class AzureBlobStorageLinkedServiceArgs:
                  account_key: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
                  account_kind: Optional[pulumi.Input[str]] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AzureStorageAuthenticationType']]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[Any] = None,
+                 container_uri: Optional[Any] = None,
                  credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
@@ -6625,9 +6629,11 @@ class AzureBlobStorageLinkedServiceArgs:
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] account_key: The Azure key vault secret reference of accountKey in connection string.
         :param pulumi.Input[str] account_kind: Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Union[str, 'AzureStorageAuthenticationType']] authentication_type: The type used for authentication. Type: string.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any container_uri: Container uri of the Azure Blob Storage resource only support for anonymous access. Type: string (or Expression with resultType string).
         :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -6646,12 +6652,16 @@ class AzureBlobStorageLinkedServiceArgs:
             pulumi.set(__self__, "account_kind", account_kind)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if azure_cloud_type is not None:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if container_uri is not None:
+            pulumi.set(__self__, "container_uri", container_uri)
         if credential is not None:
             pulumi.set(__self__, "credential", credential)
         if description is not None:
@@ -6723,6 +6733,18 @@ class AzureBlobStorageLinkedServiceArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AzureStorageAuthenticationType']]]:
+        """
+        The type used for authentication. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AzureStorageAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
     @pulumi.getter(name="azureCloudType")
     def azure_cloud_type(self) -> Optional[Any]:
         """
@@ -6757,6 +6779,18 @@ class AzureBlobStorageLinkedServiceArgs:
     @connection_string.setter
     def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="containerUri")
+    def container_uri(self) -> Optional[Any]:
+        """
+        Container uri of the Azure Blob Storage resource only support for anonymous access. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "container_uri")
+
+    @container_uri.setter
+    def container_uri(self, value: Optional[Any]):
+        pulumi.set(self, "container_uri", value)
 
     @property
     @pulumi.getter
@@ -21047,6 +21081,46 @@ class CopyActivityArgs:
     @validate_data_consistency.setter
     def validate_data_consistency(self, value: Optional[Any]):
         pulumi.set(self, "validate_data_consistency", value)
+
+
+@pulumi.input_type
+class CopyComputeScalePropertiesArgs:
+    def __init__(__self__, *,
+                 data_integration_unit: Optional[pulumi.Input[int]] = None,
+                 time_to_live: Optional[pulumi.Input[int]] = None):
+        """
+        CopyComputeScale properties for managed integration runtime.
+        :param pulumi.Input[int] data_integration_unit: DIU number setting reserved for copy activity execution. Supported values are multiples of 4 in range 4-256.
+        :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of integration runtime which will execute copy activity.
+        """
+        if data_integration_unit is not None:
+            pulumi.set(__self__, "data_integration_unit", data_integration_unit)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="dataIntegrationUnit")
+    def data_integration_unit(self) -> Optional[pulumi.Input[int]]:
+        """
+        DIU number setting reserved for copy activity execution. Supported values are multiples of 4 in range 4-256.
+        """
+        return pulumi.get(self, "data_integration_unit")
+
+    @data_integration_unit.setter
+    def data_integration_unit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_integration_unit", value)
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live (in minutes) setting of integration runtime which will execute copy activity.
+        """
+        return pulumi.get(self, "time_to_live")
+
+    @time_to_live.setter
+    def time_to_live(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "time_to_live", value)
 
 
 @pulumi.input_type
@@ -42834,21 +42908,27 @@ class InformixTableDatasetArgs:
 @pulumi.input_type
 class IntegrationRuntimeComputePropertiesArgs:
     def __init__(__self__, *,
+                 copy_compute_scale_properties: Optional[pulumi.Input['CopyComputeScalePropertiesArgs']] = None,
                  data_flow_properties: Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 pipeline_external_compute_scale_properties: Optional[pulumi.Input['PipelineExternalComputeScalePropertiesArgs']] = None,
                  v_net_properties: Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']] = None):
         """
         The compute resource properties for managed integration runtime.
+        :param pulumi.Input['CopyComputeScalePropertiesArgs'] copy_compute_scale_properties: CopyComputeScale properties for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs'] data_flow_properties: Data flow properties for managed integration runtime.
         :param pulumi.Input[str] location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
         :param pulumi.Input[int] max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param pulumi.Input[str] node_size: The node size requirement to managed integration runtime.
         :param pulumi.Input[int] number_of_nodes: The required number of nodes for managed integration runtime.
+        :param pulumi.Input['PipelineExternalComputeScalePropertiesArgs'] pipeline_external_compute_scale_properties: PipelineExternalComputeScale properties for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeVNetPropertiesArgs'] v_net_properties: VNet properties for managed integration runtime.
         """
+        if copy_compute_scale_properties is not None:
+            pulumi.set(__self__, "copy_compute_scale_properties", copy_compute_scale_properties)
         if data_flow_properties is not None:
             pulumi.set(__self__, "data_flow_properties", data_flow_properties)
         if location is not None:
@@ -42859,8 +42939,22 @@ class IntegrationRuntimeComputePropertiesArgs:
             pulumi.set(__self__, "node_size", node_size)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+        if pipeline_external_compute_scale_properties is not None:
+            pulumi.set(__self__, "pipeline_external_compute_scale_properties", pipeline_external_compute_scale_properties)
         if v_net_properties is not None:
             pulumi.set(__self__, "v_net_properties", v_net_properties)
+
+    @property
+    @pulumi.getter(name="copyComputeScaleProperties")
+    def copy_compute_scale_properties(self) -> Optional[pulumi.Input['CopyComputeScalePropertiesArgs']]:
+        """
+        CopyComputeScale properties for managed integration runtime.
+        """
+        return pulumi.get(self, "copy_compute_scale_properties")
+
+    @copy_compute_scale_properties.setter
+    def copy_compute_scale_properties(self, value: Optional[pulumi.Input['CopyComputeScalePropertiesArgs']]):
+        pulumi.set(self, "copy_compute_scale_properties", value)
 
     @property
     @pulumi.getter(name="dataFlowProperties")
@@ -42921,6 +43015,18 @@ class IntegrationRuntimeComputePropertiesArgs:
     @number_of_nodes.setter
     def number_of_nodes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_nodes", value)
+
+    @property
+    @pulumi.getter(name="pipelineExternalComputeScaleProperties")
+    def pipeline_external_compute_scale_properties(self) -> Optional[pulumi.Input['PipelineExternalComputeScalePropertiesArgs']]:
+        """
+        PipelineExternalComputeScale properties for managed integration runtime.
+        """
+        return pulumi.get(self, "pipeline_external_compute_scale_properties")
+
+    @pipeline_external_compute_scale_properties.setter
+    def pipeline_external_compute_scale_properties(self, value: Optional[pulumi.Input['PipelineExternalComputeScalePropertiesArgs']]):
+        pulumi.set(self, "pipeline_external_compute_scale_properties", value)
 
     @property
     @pulumi.getter(name="vNetProperties")
@@ -56048,6 +56154,30 @@ class PipelineElapsedTimeMetricPolicyArgs:
     @duration.setter
     def duration(self, value: Optional[Any]):
         pulumi.set(self, "duration", value)
+
+
+@pulumi.input_type
+class PipelineExternalComputeScalePropertiesArgs:
+    def __init__(__self__, *,
+                 time_to_live: Optional[pulumi.Input[int]] = None):
+        """
+        PipelineExternalComputeScale properties for managed integration runtime.
+        :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
+        """
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
+        """
+        return pulumi.get(self, "time_to_live")
+
+    @time_to_live.setter
+    def time_to_live(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "time_to_live", value)
 
 
 @pulumi.input_type

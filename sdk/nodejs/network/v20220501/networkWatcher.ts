@@ -51,9 +51,9 @@ export class NetworkWatcher extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * List of running operation IDs.
+     * List of running operation GUIDs.
      */
-    public readonly runningOperationIds!: pulumi.Output<number[] | undefined>;
+    public readonly runningOperationIds!: pulumi.Output<string[] | undefined>;
     /**
      * Resource tags.
      */
@@ -124,9 +124,9 @@ export interface NetworkWatcherArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * List of running operation IDs.
+     * List of running operation GUIDs.
      */
-    runningOperationIds?: pulumi.Input<pulumi.Input<number>[]>;
+    runningOperationIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags.
      */

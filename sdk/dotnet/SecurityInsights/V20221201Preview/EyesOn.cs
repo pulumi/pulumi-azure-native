@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221001preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:EyesOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

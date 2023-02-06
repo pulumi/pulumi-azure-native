@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// The type used for authentication. Type: string.
+        /// </summary>
+        [Input("authenticationType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.AzureStorageAuthenticationType>? AuthenticationType { get; set; }
+
+        /// <summary>
         /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("azureCloudType")]
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("connectionString")]
         public Input<object>? ConnectionString { get; set; }
+
+        /// <summary>
+        /// Container uri of the Azure Blob Storage resource only support for anonymous access. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("containerUri")]
+        public Input<object>? ContainerUri { get; set; }
 
         /// <summary>
         /// The credential reference containing authentication information.
