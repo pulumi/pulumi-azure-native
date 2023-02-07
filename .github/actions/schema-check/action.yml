@@ -26,17 +26,8 @@ runs:
           schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
-      # Update the description of automated PRs
-      - name: update-pull-request
-        if: github.event_name == 'pull_request' && github.actor == 'pulumi-bot'
-        uses: kt3k/update-pr-description@v1.0.1
-        with:
-          pr_body: ${{ steps.schema-tools.outputs.summary }}
-          github_token: ${{ inputs.GITHUB_TOKEN }}
-
-      # Add a comment to non-automated PRs
       - name: Comment on PR with Details of Schema Check
-        if: github.event_name == 'pull_request' && github.actor != 'pulumi-bot'
+        if: github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v2
         with:
           # Update the comment if one already exists
