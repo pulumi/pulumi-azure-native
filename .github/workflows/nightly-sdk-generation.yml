@@ -32,11 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     name: generate-sdk
     steps:
+      # We do a deep checkout so we're able to push later
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
           submodules: true
-          depth: 0
+          fetch-depth: 0
+
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
         with:
