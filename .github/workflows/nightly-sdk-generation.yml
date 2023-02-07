@@ -32,40 +32,51 @@ jobs:
     runs-on: ubuntu-latest
     name: generate-sdk
     steps:
+      # We do a deep checkout so we're able to push later
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
           submodules: true
-          depth: 0
+          fetch-depth: 0
+
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
         with:
           skip_dotnet_and_java: "true"
+
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
+
       - name: Cleanup SDK Folder
         # Remove the per-language folders but preserve the checked-in go.mod
         run: rm -rf $(find sdk -mindepth 1 -maxdepth 1 -type d)
+
       - name: Preparing Git Branch
         run: |
           git config --local user.email "bot@pulumi.com"
           git config --local user.name "pulumi-bot"
           git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+
       - name: Commit Empty SDK
         run: |-
           git add . 
           git commit -m "Preparing the SDK folder for regeneration"
+
       - name: Update Submodules
         run: make update_submodules
+
       - name: Build codegen binaries
         run: make codegen
+
       - name: Build Schema + SDKs
         run: make versions local_generate
+
       - name: Git submodule commit hash
         id: vars
         run: echo "commit-hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
         working-directory: azure-rest-api-specs
+
       - name: Commit changes
         run: |
           git add sdk
@@ -73,25 +84,40 @@ jobs:
           git add .
           git commit -m "Regenerating based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
           git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+
       - name: Create PR
         id: create-pr
-        uses: repo-sync/pull-request@v2.6.2
+        uses: repo-sync/pull-request@v2.12.1
         with:
           destination_branch: master
           github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
           pr_body: "*Automated PR*"
           pr_title: Automated SDK generation @ azure-rest-api-specs ${{
             steps.vars.outputs.commit-hash }}
-          author_name: pulumi-bot
           source_branch: generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+
+      - name: Install Schema Tools
+        uses: jaxxstorm/action-install-gh-release@v1.9.0
+        with:
+          repo: pulumi/schema-tools
+
+      - name: Check Schema is Valid
+        id: schema-tools
+        shell: bash
+        run: |
+          echo 'summary<<EOF' >> $GITHUB_OUTPUT
+          schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
       - name: Set AutoMerge
-        if: steps.create-pr.outputs.has_changed_files
-        uses: peter-evans/enable-pull-request-automerge@v1
+        if: steps.create-pr.outputs.has_changed_files && contains(steps.schema-tools.outputs.summary, 'Looking good! No breaking changes found.')
+        uses: peter-evans/enable-pull-request-automerge@v2.3.0
         with:
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
           pull-request-number: ${{ steps.create-pr.outputs.pr_number }}
           repository: ${{ github.repository }}
           merge-method: squash
+
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
         uses: 8398a7/action-slack@v3

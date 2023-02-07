@@ -11131,7 +11131,8 @@
     "": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ],
     "accounts": [
       "2020-03-01-preview",
@@ -11161,27 +11162,32 @@
     "checknameavailability": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ],
     "locations": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ],
     "locations/operationstatuses": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ],
     "operations": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ],
     "registeredsubscriptions": [
       "2020-03-01-preview",
       "2022-04-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01-preview"
     ]
   },
   "devops": {

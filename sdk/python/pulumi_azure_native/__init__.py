@@ -21120,6 +21120,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "servicefabric/v20221001preview",
+  "fqn": "pulumi_azure_native.servicefabric.v20221001preview",
+  "classes": {
+   "azure-native:servicefabric/v20221001preview:Application": "Application",
+   "azure-native:servicefabric/v20221001preview:ApplicationType": "ApplicationType",
+   "azure-native:servicefabric/v20221001preview:ApplicationTypeVersion": "ApplicationTypeVersion",
+   "azure-native:servicefabric/v20221001preview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20221001preview:NodeType": "NodeType",
+   "azure-native:servicefabric/v20221001preview:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "servicefabricmesh",
   "fqn": "pulumi_azure_native.servicefabricmesh",
   "classes": {
