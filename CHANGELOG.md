@@ -2,11 +2,20 @@
 
 ## HEAD (Unreleased)
 
+
+## 1.94.0 (2023-02-07)
+
 - Removed the old Go SDK.
   - Update references to https://github.com/pulumi/pulumi-azure-native-sdk
   - See the [Go SDK deprecation and migration discussion](https://github.com/pulumi/pulumi-azure-native/discussions/2078) for more information.
 - Force replacement when `cdn:Profile` changes `sku`
   [#1874](https://github.com/pulumi/pulumi-azure-native/issues/1874)
+- Update API versions to stable for Flexible Server examples in [#2216](https://github.com/pulumi/pulumi-azure-native/pull/2216)
+- Add MySQL flexible server configuration in [#2200](https://github.com/pulumi/pulumi-azure-native/pull/2200)
+- Rework build & CI pipeline
+- Mark properties as _"changes to this property will trigger replacement"_ in the Pulumi registry docs
+- Upgrade to latest version of Azure Rest API Specs
+
 
 ## 1.93.0 (2023-01-25)
 
