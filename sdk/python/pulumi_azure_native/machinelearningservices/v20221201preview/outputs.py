@@ -70,6 +70,7 @@ __all__ = [
     'ComputeInstanceResponse',
     'ComputeInstanceSshSettingsResponse',
     'ComputeInstanceVersionResponse',
+    'ComputeRuntimeDtoResponse',
     'ComputeSchedulesResponse',
     'ComputeStartStopScheduleResponse',
     'ContainerResourceRequirementsResponse',
@@ -104,6 +105,7 @@ __all__ = [
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
+    'FeatureStoreSettingsResponse',
     'FlavorDataResponse',
     'ForecastingResponse',
     'ForecastingSettingsResponse',
@@ -6327,6 +6329,36 @@ class ComputeInstanceVersionResponse(dict):
 
 
 @pulumi.output_type
+class ComputeRuntimeDtoResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkRuntimeVersion":
+            suggest = "spark_runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeRuntimeDtoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeRuntimeDtoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeRuntimeDtoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spark_runtime_version: Optional[str] = None):
+        if spark_runtime_version is not None:
+            pulumi.set(__self__, "spark_runtime_version", spark_runtime_version)
+
+    @property
+    @pulumi.getter(name="sparkRuntimeVersion")
+    def spark_runtime_version(self) -> Optional[str]:
+        return pulumi.get(self, "spark_runtime_version")
+
+
+@pulumi.output_type
 class ComputeSchedulesResponse(dict):
     """
     The list of schedules to be applied on the computes
@@ -8818,6 +8850,66 @@ class ErrorResponseResponse(dict):
         The error object.
         """
         return pulumi.get(self, "error")
+
+
+@pulumi.output_type
+class FeatureStoreSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowRoleAssignmentsOnResourceGroupLevel":
+            suggest = "allow_role_assignments_on_resource_group_level"
+        elif key == "computeRuntime":
+            suggest = "compute_runtime"
+        elif key == "offlineStoreConnectionName":
+            suggest = "offline_store_connection_name"
+        elif key == "onlineStoreConnectionName":
+            suggest = "online_store_connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureStoreSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureStoreSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureStoreSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_role_assignments_on_resource_group_level: Optional[bool] = None,
+                 compute_runtime: Optional['outputs.ComputeRuntimeDtoResponse'] = None,
+                 offline_store_connection_name: Optional[str] = None,
+                 online_store_connection_name: Optional[str] = None):
+        if allow_role_assignments_on_resource_group_level is not None:
+            pulumi.set(__self__, "allow_role_assignments_on_resource_group_level", allow_role_assignments_on_resource_group_level)
+        if compute_runtime is not None:
+            pulumi.set(__self__, "compute_runtime", compute_runtime)
+        if offline_store_connection_name is not None:
+            pulumi.set(__self__, "offline_store_connection_name", offline_store_connection_name)
+        if online_store_connection_name is not None:
+            pulumi.set(__self__, "online_store_connection_name", online_store_connection_name)
+
+    @property
+    @pulumi.getter(name="allowRoleAssignmentsOnResourceGroupLevel")
+    def allow_role_assignments_on_resource_group_level(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_role_assignments_on_resource_group_level")
+
+    @property
+    @pulumi.getter(name="computeRuntime")
+    def compute_runtime(self) -> Optional['outputs.ComputeRuntimeDtoResponse']:
+        return pulumi.get(self, "compute_runtime")
+
+    @property
+    @pulumi.getter(name="offlineStoreConnectionName")
+    def offline_store_connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "offline_store_connection_name")
+
+    @property
+    @pulumi.getter(name="onlineStoreConnectionName")
+    def online_store_connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "online_store_connection_name")
 
 
 @pulumi.output_type

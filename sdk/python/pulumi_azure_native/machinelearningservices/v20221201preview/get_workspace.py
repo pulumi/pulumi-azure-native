@@ -22,7 +22,7 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, id=None, identity=None, image_build_compute=None, key_vault=None, location=None, ml_flow_tracking_uri=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, public_network_access=None, scheduled_purge_date=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, soft_deleted_at=None, storage_account=None, storage_hns_enabled=None, system_data=None, system_datastores_auth_mode=None, tags=None, tenant_id=None, type=None, v1_legacy_mode=None, workspace_id=None):
+    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, feature_store_settings=None, friendly_name=None, hbi_workspace=None, id=None, identity=None, image_build_compute=None, key_vault=None, kind=None, location=None, ml_flow_tracking_uri=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, public_network_access=None, scheduled_purge_date=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, soft_deleted_at=None, storage_account=None, storage_hns_enabled=None, system_data=None, system_datastores_auth_mode=None, tags=None, tenant_id=None, type=None, v1_legacy_mode=None, workspace_id=None):
         if allow_public_access_when_behind_vnet and not isinstance(allow_public_access_when_behind_vnet, bool):
             raise TypeError("Expected argument 'allow_public_access_when_behind_vnet' to be a bool")
         pulumi.set(__self__, "allow_public_access_when_behind_vnet", allow_public_access_when_behind_vnet)
@@ -41,6 +41,9 @@ class GetWorkspaceResult:
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if feature_store_settings and not isinstance(feature_store_settings, dict):
+            raise TypeError("Expected argument 'feature_store_settings' to be a dict")
+        pulumi.set(__self__, "feature_store_settings", feature_store_settings)
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
@@ -59,6 +62,9 @@ class GetWorkspaceResult:
         if key_vault and not isinstance(key_vault, str):
             raise TypeError("Expected argument 'key_vault' to be a str")
         pulumi.set(__self__, "key_vault", key_vault)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -181,6 +187,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "encryption")
 
     @property
+    @pulumi.getter(name="featureStoreSettings")
+    def feature_store_settings(self) -> Optional['outputs.FeatureStoreSettingsResponse']:
+        """
+        Settings for feature store type workspace.
+        """
+        return pulumi.get(self, "feature_store_settings")
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[str]:
         """
@@ -227,6 +241,11 @@ class GetWorkspaceResult:
         ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         """
         return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -433,12 +452,14 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             description=self.description,
             discovery_url=self.discovery_url,
             encryption=self.encryption,
+            feature_store_settings=self.feature_store_settings,
             friendly_name=self.friendly_name,
             hbi_workspace=self.hbi_workspace,
             id=self.id,
             identity=self.identity,
             image_build_compute=self.image_build_compute,
             key_vault=self.key_vault,
+            kind=self.kind,
             location=self.location,
             ml_flow_tracking_uri=self.ml_flow_tracking_uri,
             name=self.name,
@@ -488,12 +509,14 @@ def get_workspace(resource_group_name: Optional[str] = None,
         description=__ret__.description,
         discovery_url=__ret__.discovery_url,
         encryption=__ret__.encryption,
+        feature_store_settings=__ret__.feature_store_settings,
         friendly_name=__ret__.friendly_name,
         hbi_workspace=__ret__.hbi_workspace,
         id=__ret__.id,
         identity=__ret__.identity,
         image_build_compute=__ret__.image_build_compute,
         key_vault=__ret__.key_vault,
+        kind=__ret__.kind,
         location=__ret__.location,
         ml_flow_tracking_uri=__ret__.ml_flow_tracking_uri,
         name=__ret__.name,

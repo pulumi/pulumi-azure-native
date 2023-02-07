@@ -593,6 +593,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
         public static ConnectionCategory Snowflake { get; } = new ConnectionCategory("Snowflake");
         public static ConnectionCategory AzureSqlDb { get; } = new ConnectionCategory("AzureSqlDb");
         public static ConnectionCategory AzureSynapseAnalytics { get; } = new ConnectionCategory("AzureSynapseAnalytics");
+        public static ConnectionCategory AzureMySqlDb { get; } = new ConnectionCategory("AzureMySqlDb");
+        public static ConnectionCategory AzurePostgresDb { get; } = new ConnectionCategory("AzurePostgresDb");
+        public static ConnectionCategory AzureDataLakeGen2 { get; } = new ConnectionCategory("AzureDataLakeGen2");
+        public static ConnectionCategory Redis { get; } = new ConnectionCategory("Redis");
 
         public static bool operator ==(ConnectionCategory left, ConnectionCategory right) => left.Equals(right);
         public static bool operator !=(ConnectionCategory left, ConnectionCategory right) => !left.Equals(right);

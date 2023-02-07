@@ -24,11 +24,13 @@ class WorkspaceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertyArgs']] = None,
+                 feature_store_settings: Optional[pulumi.Input['FeatureStoreSettingsArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
@@ -49,6 +51,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] description: The description of this workspace.
         :param pulumi.Input[str] discovery_url: Url for the discovery service to identify regional endpoints for machine learning experimentation services
         :param pulumi.Input['EncryptionPropertyArgs'] encryption: The encryption settings of Azure ML workspace.
+        :param pulumi.Input['FeatureStoreSettingsArgs'] feature_store_settings: Settings for feature store type workspace.
         :param pulumi.Input[str] friendly_name: The friendly name for this workspace. This name in mutable
         :param pulumi.Input[bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
@@ -81,6 +84,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "discovery_url", discovery_url)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if feature_store_settings is not None:
+            pulumi.set(__self__, "feature_store_settings", feature_store_settings)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if hbi_workspace is None:
@@ -93,6 +98,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "image_build_compute", image_build_compute)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if primary_user_assigned_identity is not None:
@@ -203,6 +210,18 @@ class WorkspaceArgs:
         pulumi.set(self, "encryption", value)
 
     @property
+    @pulumi.getter(name="featureStoreSettings")
+    def feature_store_settings(self) -> Optional[pulumi.Input['FeatureStoreSettingsArgs']]:
+        """
+        Settings for feature store type workspace.
+        """
+        return pulumi.get(self, "feature_store_settings")
+
+    @feature_store_settings.setter
+    def feature_store_settings(self, value: Optional[pulumi.Input['FeatureStoreSettingsArgs']]):
+        pulumi.set(self, "feature_store_settings", value)
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -261,6 +280,15 @@ class WorkspaceArgs:
     @key_vault.setter
     def key_vault(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
@@ -406,11 +434,13 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
+                 feature_store_settings: Optional[pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
@@ -435,6 +465,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this workspace.
         :param pulumi.Input[str] discovery_url: Url for the discovery service to identify regional endpoints for machine learning experimentation services
         :param pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']] encryption: The encryption settings of Azure ML workspace.
+        :param pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']] feature_store_settings: Settings for feature store type workspace.
         :param pulumi.Input[str] friendly_name: The friendly name for this workspace. This name in mutable
         :param pulumi.Input[bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the resource.
@@ -483,11 +514,13 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
+                 feature_store_settings: Optional[pulumi.Input[pulumi.InputType['FeatureStoreSettingsArgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  hbi_workspace: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
@@ -517,6 +550,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["discovery_url"] = discovery_url
             __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["feature_store_settings"] = feature_store_settings
             __props__.__dict__["friendly_name"] = friendly_name
             if hbi_workspace is None:
                 hbi_workspace = False
@@ -524,6 +558,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_build_compute"] = image_build_compute
             __props__.__dict__["key_vault"] = key_vault
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
             __props__.__dict__["public_network_access"] = public_network_access
@@ -584,11 +619,13 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["discovery_url"] = None
         __props__.__dict__["encryption"] = None
+        __props__.__dict__["feature_store_settings"] = None
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["hbi_workspace"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["image_build_compute"] = None
         __props__.__dict__["key_vault"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["ml_flow_tracking_uri"] = None
         __props__.__dict__["name"] = None
@@ -664,6 +701,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "encryption")
 
     @property
+    @pulumi.getter(name="featureStoreSettings")
+    def feature_store_settings(self) -> pulumi.Output[Optional['outputs.FeatureStoreSettingsResponse']]:
+        """
+        Settings for feature store type workspace.
+        """
+        return pulumi.get(self, "feature_store_settings")
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -702,6 +747,11 @@ class Workspace(pulumi.CustomResource):
         ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         """
         return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

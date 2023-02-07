@@ -303,6 +303,10 @@ export const ConnectionCategory = {
     Snowflake: "Snowflake",
     AzureSqlDb: "AzureSqlDb",
     AzureSynapseAnalytics: "AzureSynapseAnalytics",
+    AzureMySqlDb: "AzureMySqlDb",
+    AzurePostgresDb: "AzurePostgresDb",
+    AzureDataLakeGen2: "AzureDataLakeGen2",
+    Redis: "Redis",
 } as const;
 
 /**

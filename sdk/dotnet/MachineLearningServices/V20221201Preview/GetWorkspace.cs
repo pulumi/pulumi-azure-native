@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
         /// </summary>
         public readonly Outputs.EncryptionPropertyResponse? Encryption;
         /// <summary>
+        /// Settings for feature store type workspace.
+        /// </summary>
+        public readonly Outputs.FeatureStoreSettingsResponse? FeatureStoreSettings;
+        /// <summary>
         /// The friendly name for this workspace. This name in mutable
         /// </summary>
         public readonly string? FriendlyName;
@@ -117,6 +121,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
         /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
         public readonly string? KeyVault;
+        public readonly string? Kind;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -228,6 +233,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
 
             Outputs.EncryptionPropertyResponse? encryption,
 
+            Outputs.FeatureStoreSettingsResponse? featureStoreSettings,
+
             string? friendlyName,
 
             bool? hbiWorkspace,
@@ -239,6 +246,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
             string? imageBuildCompute,
 
             string? keyVault,
+
+            string? kind,
 
             string? location,
 
@@ -294,12 +303,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
             Description = description;
             DiscoveryUrl = discoveryUrl;
             Encryption = encryption;
+            FeatureStoreSettings = featureStoreSettings;
             FriendlyName = friendlyName;
             HbiWorkspace = hbiWorkspace;
             Id = id;
             Identity = identity;
             ImageBuildCompute = imageBuildCompute;
             KeyVault = keyVault;
+            Kind = kind;
             Location = location;
             MlFlowTrackingUri = mlFlowTrackingUri;
             Name = name;

@@ -62,6 +62,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.machinelearningservices.v20221201preview.EncryptionPropertyResponse | undefined>;
     /**
+     * Settings for feature store type workspace.
+     */
+    public readonly featureStoreSettings!: pulumi.Output<outputs.machinelearningservices.v20221201preview.FeatureStoreSettingsResponse | undefined>;
+    /**
      * The friendly name for this workspace. This name in mutable
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
@@ -81,6 +85,7 @@ export class Workspace extends pulumi.CustomResource {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     public readonly keyVault!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Specifies the location of the resource.
      */
@@ -198,11 +203,13 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["discoveryUrl"] = args ? args.discoveryUrl : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["featureStoreSettings"] = args ? args.featureStoreSettings : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["hbiWorkspace"] = (args ? args.hbiWorkspace : undefined) ?? false;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageBuildCompute"] = args ? args.imageBuildCompute : undefined;
             resourceInputs["keyVault"] = args ? args.keyVault : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
@@ -236,11 +243,13 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["discoveryUrl"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["featureStoreSettings"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["hbiWorkspace"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["imageBuildCompute"] = undefined /*out*/;
             resourceInputs["keyVault"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mlFlowTrackingUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -302,6 +311,10 @@ export interface WorkspaceArgs {
      */
     encryption?: pulumi.Input<inputs.machinelearningservices.v20221201preview.EncryptionPropertyArgs>;
     /**
+     * Settings for feature store type workspace.
+     */
+    featureStoreSettings?: pulumi.Input<inputs.machinelearningservices.v20221201preview.FeatureStoreSettingsArgs>;
+    /**
      * The friendly name for this workspace. This name in mutable
      */
     friendlyName?: pulumi.Input<string>;
@@ -321,6 +334,7 @@ export interface WorkspaceArgs {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     keyVault?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the location of the resource.
      */
