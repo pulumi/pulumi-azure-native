@@ -38,11 +38,19 @@ runs:
             ${{ steps.schema-tools.outputs.summary }}
           GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
 
-      - name: Add label if no breaking changes
-        if:
-          contains(steps.schema-tools.outputs.summary, 'Looking good! No breaking changes found.') &&
+      - name: Disable automerge on breaking changes
+        shell: bash
+        if: >
           github.event_name == 'pull_request' &&
-          github.actor == 'pulumi-bot'
+          github.actor == 'pulumi-bot' &&
+          !contains(steps.schema-tools.outputs.summary, 'Looking good! No breaking changes found.')
+        run: gh pr merge ${{ github.event.number }} --disable-auto
+
+      - name: Add label if no breaking changes
+        if: >
+          github.event_name == 'pull_request' &&
+          github.actor == 'pulumi-bot' &&
+          contains(steps.schema-tools.outputs.summary, 'Looking good! No breaking changes found.')
         uses: actions-ecosystem/action-add-labels@v1.1.0
         with:
           labels: impact/no-changelog-required
