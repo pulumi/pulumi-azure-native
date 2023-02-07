@@ -12,6 +12,7 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 	},
 	"Cdn": {
 		"Profile": codegen.NewStringSet(
+			"location",
 			// sku
 			"name",
 		),
