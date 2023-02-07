@@ -1397,6 +1397,7 @@
       {
         "resourceType": "Spring",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-11-01-preview",
           "2022-09-01-preview",
@@ -1413,6 +1414,7 @@
       {
         "resourceType": "Spring/apps",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-11-01-preview",
           "2022-09-01-preview",
@@ -1429,6 +1431,7 @@
       {
         "resourceType": "Spring/apps/deployments",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-11-01-preview",
           "2022-09-01-preview",
@@ -1445,6 +1448,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-11-01-preview",
           "2022-09-01-preview",
@@ -1461,6 +1465,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-11-01-preview",
           "2022-09-01-preview",
@@ -1477,6 +1482,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-11-01-preview",
           "2022-09-01-preview",
@@ -1493,6 +1499,7 @@
       {
         "resourceType": "locations/operationStatus",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-11-01-preview",
           "2022-09-01-preview",
@@ -1509,6 +1516,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-11-01-preview",
           "2022-09-01-preview",
@@ -1525,6 +1533,7 @@
       {
         "resourceType": "runtimeVersions",
         "apiVersions": [
+          "2023-01-01-preview",
           "2022-12-01",
           "2022-05-01-preview",
           "2022-04-01",
@@ -20685,6 +20694,48 @@
         "apiVersions": [
           "2021-03-01-preview"
         ]
+      },
+      {
+        "resourceType": "workbenches",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workbenches/chambers",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workbenches/chambers/connectors",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workbenches/chambers/fileRequests",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workbenches/chambers/files",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workbenches/chambers/storages",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workbenches/chambers/workloads",
+        "apiVersions": [
+          "2021-03-01-preview"
+        ]
       }
     ]
   },
@@ -39125,17 +39176,6 @@
           "2021-01-15",
           "2021-01-01",
           "2020-12-01"
-        ]
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.Windows365",
-    "resourceTypes": [
-      {
-        "resourceType": "CloudPcDelegatedMsis",
-        "apiVersions": [
-          "2022-09-01-preview"
         ]
       }
     ]
