@@ -84,7 +84,6 @@ jobs:
           pr_body: "*Automated PR*"
           pr_title: Automated SDK generation @ azure-rest-api-specs ${{
             steps.vars.outputs.commit-hash }}
-          author_name: pulumi-bot
           source_branch: generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: Set AutoMerge
         if: steps.create-pr.outputs.has_changed_files
