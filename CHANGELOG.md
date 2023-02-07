@@ -5,6 +5,8 @@
 - Removed the old Go SDK.
   - Update references to https://github.com/pulumi/pulumi-azure-native-sdk
   - See the [Go SDK deprecation and migration discussion](https://github.com/pulumi/pulumi-azure-native/discussions/2078) for more information.
+- Force replacement when `cdn:Profile` changes `sku`
+  [#1874](https://github.com/pulumi/pulumi-azure-native/issues/1874)
 
 ## 1.93.0 (2023-01-25)
 
