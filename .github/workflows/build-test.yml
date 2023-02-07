@@ -25,6 +25,7 @@ env:
   TRAVIS_OS_NAME: linux
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
+  ARM_USE_OIDC: true
   # ARM_CLIENT_ID: 30e520fa-12b4-4e21-b473-9426c5ac2e1e
   ARM_CLIENT_ID: 89380e12-5be6-486a-89ef-eea107af2f47 # tkappler oidc-test
   # ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
