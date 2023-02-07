@@ -88,6 +88,7 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		SupportsClientCertAuth:         true,
 		SupportsClientSecretAuth:       true,
 		SupportsOIDCAuth:               useOIDC,
+		UseMicrosoftGraph:              useOIDC,
 		SupportsManagedServiceIdentity: useMsi,
 		SupportsAzureCliToken:          true,
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
