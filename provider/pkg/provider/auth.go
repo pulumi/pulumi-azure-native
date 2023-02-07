@@ -50,6 +50,20 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		}
 	}
 
+	useOIDC := k.getConfig("useOidc", "ARM_USE_OIDC") == "true"
+	var oidcRequestToken, oidcRequestUrl string
+	if useOIDC {
+		oidcRequestToken = k.getConfig("oidcRequestToken", "ARM_OIDC_REQUEST_TOKEN")
+		if oidcRequestToken == "" {
+			// The ACTIONS_ variables are set by GitHub.
+			oidcRequestToken = k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN")
+		}
+		oidcRequestUrl = k.getConfig("oidcRequestUrl", "ARM_OIDC_REQUEST_URL")
+		if oidcRequestUrl == "" {
+			oidcRequestUrl = k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL")
+		}
+	}
+
 	builder := &authentication.Builder{
 		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
 		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
@@ -63,9 +77,17 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		AuxiliaryTenantIDs:   auxTenants,
 		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
 
+		// OIDC section.
+		IDTokenRequestToken: oidcRequestToken,
+		IDTokenRequestURL:   oidcRequestUrl,
+		IDToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
+		IDTokenFilePath:     k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
+		MetadataHost:        k.getConfig("metadataHost", "ARM_METADATA_HOSTNAME"),
+
 		// Feature Toggles
 		SupportsClientCertAuth:         true,
 		SupportsClientSecretAuth:       true,
+		SupportsOIDCAuth:               useOIDC,
 		SupportsManagedServiceIdentity: useMsi,
 		SupportsAzureCliToken:          true,
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
