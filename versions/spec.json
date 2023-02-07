@@ -13422,6 +13422,15 @@
       "NodeType",
       "Service",
       "getmanagedAzResiliencyStatus"
+    ],
+    "2022-10-01-preview": [
+      "Application",
+      "ApplicationType",
+      "ApplicationTypeVersion",
+      "ManagedCluster",
+      "NodeType",
+      "Service",
+      "getmanagedAzResiliencyStatus"
     ]
   },
   "ServiceFabricMesh": {
