@@ -1186,6 +1186,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 
 			// Apply manual metadata about Force New properties.
 			apiProperty.ForceNew = m.forceNew(resolvedProperty, name, isType)
+			propertySpec.WillReplaceOnChanges = apiProperty.ForceNew
 		}
 
 		if sdkName != name {
