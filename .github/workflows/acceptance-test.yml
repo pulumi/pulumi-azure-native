@@ -51,3 +51,13 @@ jobs:
       version: ${{ needs.version.outputs.version }}
       short_test: ${{ inputs.short_test || false }}
     secrets: inherit
+
+  lint_workflows:
+    runs-on: ubuntu-latest
+    name: Test Provider
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Lint actions
+        uses: reviewdog/action-actionlint@v1.36.0
