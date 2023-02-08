@@ -471,6 +471,7 @@
       {
         "resourceType": "configurations",
         "apiVersions": [
+          "2023-01-01",
           "2022-10-01",
           "2022-09-01",
           "2020-01-01",
@@ -481,6 +482,7 @@
       {
         "resourceType": "generateRecommendations",
         "apiVersions": [
+          "2023-01-01",
           "2022-10-01",
           "2022-09-01",
           "2020-01-01",
@@ -493,6 +495,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-01-01-alpha",
           "2020-07-01-preview",
           "2020-01-01",
           "2017-04-19",
@@ -504,6 +507,7 @@
       {
         "resourceType": "recommendations",
         "apiVersions": [
+          "2023-01-01",
           "2022-10-01",
           "2022-09-01",
           "2020-01-01",
@@ -516,6 +520,7 @@
       {
         "resourceType": "suppressions",
         "apiVersions": [
+          "2023-01-01",
           "2022-10-01",
           "2022-09-01",
           "2020-01-01",
@@ -20015,6 +20020,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-01-01",
           "2021-11-01-preview",
           "2021-11-01",
           "2021-06-01",
@@ -20031,6 +20037,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2023-01-01",
           "2021-11-01-preview",
           "2021-11-01",
           "2021-06-01",
@@ -20047,6 +20054,7 @@
       {
         "resourceType": "locations/mediaServicesOperationResults",
         "apiVersions": [
+          "2023-01-01",
           "2021-11-01",
           "2021-06-01",
           "2021-05-01",
@@ -20061,6 +20069,7 @@
       {
         "resourceType": "locations/mediaServicesOperationStatuses",
         "apiVersions": [
+          "2023-01-01",
           "2021-11-01",
           "2021-06-01",
           "2021-05-01",
@@ -20087,6 +20096,7 @@
       {
         "resourceType": "mediaservices",
         "apiVersions": [
+          "2023-01-01",
           "2021-11-01",
           "2021-06-01",
           "2021-05-01",
@@ -20158,6 +20168,7 @@
       {
         "resourceType": "mediaservices/liveEventOperations",
         "apiVersions": [
+          "2022-11-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20171,6 +20182,7 @@
       {
         "resourceType": "mediaservices/liveEvents",
         "apiVersions": [
+          "2022-11-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20184,6 +20196,7 @@
       {
         "resourceType": "mediaservices/liveEvents/liveOutputs",
         "apiVersions": [
+          "2022-11-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20197,6 +20210,7 @@
       {
         "resourceType": "mediaservices/liveOutputOperations",
         "apiVersions": [
+          "2022-11-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20237,6 +20251,7 @@
       {
         "resourceType": "mediaservices/streamingEndpointOperations",
         "apiVersions": [
+          "2022-11-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20250,6 +20265,7 @@
       {
         "resourceType": "mediaservices/streamingEndpoints",
         "apiVersions": [
+          "2022-11-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20313,6 +20329,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-01-01",
           "2021-11-01-preview",
           "2021-11-01",
           "2021-06-01",
