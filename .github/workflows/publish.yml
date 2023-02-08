@@ -44,8 +44,6 @@ jobs:
   publish-provider:
     runs-on: ubuntu-latest
     name: publish-provider
-    env:
-      GORELEASER_CURRENT_TAG: v${{ inputs.version }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -89,6 +87,9 @@ jobs:
           args:
             -p 3 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout 60m0s
           version: latest
+        env:
+          # When building prerelease version, we omit the "v" so must add it for go releaser
+          GORELEASER_CURRENT_TAG: v${{ inputs.version }}
 
       - name: GoReleaser release
         if: "!inputs.prerelease"
@@ -96,6 +97,9 @@ jobs:
         with:
           args: -p 3 release --rm-dist --timeout 60m0s
           version: latest
+        env:
+          # Currently, when triggering a real release, we use the tag which is already prefixed with "v"
+          GORELEASER_CURRENT_TAG: ${{ inputs.version }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
