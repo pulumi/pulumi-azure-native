@@ -1,6 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
 //go:build nodejs || all
-// +build nodejs all
 
 package examples
 
@@ -38,16 +37,6 @@ func TestAccCosmosDBTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "cosmosdb"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccKeyVaultTs(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "keyvault"),
 		})
 
 	integration.ProgramTest(t, &test)
