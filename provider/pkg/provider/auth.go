@@ -15,6 +15,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pkg/errors"
+	"github.com/ryboe/q"
 
 	goversion "github.com/hashicorp/go-version"
 	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
@@ -94,7 +95,9 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
 	}
 
-	return builder.Build()
+	c, err := builder.Build()
+	q.Q("AUTH", c)
+	return c, err
 }
 
 func getAzVersion() (*goversion.Version, error) {
@@ -176,10 +179,12 @@ func (k *azureNativeProvider) makeAuthorizerFactories(ctx context.Context,
 	endpoint := k.environment.TokenAudience
 
 	tokenFactory := func(api environments.Api) (autorest.Authorizer, error) {
+		q.Q("Getting MSAL token", api.Endpoint, endpoint)
 		return authConfig.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
 	}
 
 	bearerAuthFactory := func(api environments.Api) (autorest.Authorizer, error) {
+		q.Q("Getting MSAL bearer auth callback", api.Endpoint, endpoint)
 		return authConfig.MSALBearerAuthorizerCallback(ctx, api, buildSender, oauthConfig, endpoint), nil
 	}
 
