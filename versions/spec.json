@@ -5905,6 +5905,33 @@
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2022-11-15": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "DatabaseAccount",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
     ]
   },
   "DomainRegistration": {
@@ -8454,6 +8481,17 @@
       "MoveResource"
     ],
     "2021-08-01": [
+      "MoveCollection",
+      "MoveResource"
+    ],
+    "2022-05-01-preview": [
+      "MigrateAgent",
+      "ModernizeProject",
+      "WorkloadDeployment",
+      "WorkloadInstance",
+      "getWorkloadDeploymentSecretConfigurations"
+    ],
+    "2022-08-01": [
       "MoveCollection",
       "MoveResource"
     ]
@@ -14646,6 +14684,10 @@
       "StorageTarget"
     ],
     "2022-05-01": [
+      "Cache",
+      "StorageTarget"
+    ],
+    "2023-01-01": [
       "Cache",
       "StorageTarget"
     ]
