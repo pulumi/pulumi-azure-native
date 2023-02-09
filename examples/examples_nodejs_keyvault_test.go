@@ -1,5 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
-//go:build (nodejs && oidc) || all
+//go:build nodejs || (nodejs && oidc) || all
 
 package examples
 
