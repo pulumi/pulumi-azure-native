@@ -6,20 +6,33 @@ on:
       - v*.*.*
 
 jobs:
+  version:
+    runs-on: ubuntu-latest
+    name: Calculate Dev Version
+    steps:
+      - id: version
+        name: Calculate build version
+        run: echo "version=$(.github/scripts/normalise-tag-version.sh ${{ github.ref_name }})" >> "$GITHUB_OUTPUT"
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
   build_test:
     uses: ./.github/workflows/build-test.yml
+    needs: version
     secrets: inherit
     with:
       ref: ${{ github.ref }}
-      version: ${{ github.ref_name }}
+      version: ${{ needs.version.outputs.version }}
 
   publish:
     uses: ./.github/workflows/publish.yml
     secrets: inherit
-    needs: build_test
+    needs:
+      - build_test
+      - version
     with:
       ref: ${{ github.ref }}
-      version: ${{ github.ref_name }}
+      version: ${{ needs.version.outputs.version }}
       prerelease: ${{ contains(github.ref_name,'-') }}
 
   dispatch_docs_build:
