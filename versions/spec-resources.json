@@ -4133,7 +4133,8 @@
       "2021-12-01",
       "2022-02-01",
       "2022-09-01",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01"
     ],
     "listJobCredentials": [
       "2018-01-01",
@@ -4146,7 +4147,8 @@
       "2021-12-01",
       "2022-02-01",
       "2022-09-01",
-      "2022-10-01"
+      "2022-10-01",
+      "2022-12-01"
     ]
   },
   "DataBoxEdge": {
@@ -5435,7 +5437,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "CassandraDataCenter": [
       "2021-03-01-preview",
@@ -5448,7 +5451,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "CassandraResourceCassandraKeyspace": [
       "2019-08-01",
@@ -5472,7 +5476,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "CassandraResourceCassandraTable": [
       "2019-08-01",
@@ -5496,7 +5501,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "CassandraResourceCassandraView": [
       "2021-07-01-preview",
@@ -5533,7 +5539,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "DatabaseAccountCassandraKeyspace": [
       "2015-04-01",
@@ -5628,7 +5635,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "GremlinResourceGremlinGraph": [
       "2019-08-01",
@@ -5652,7 +5660,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "MongoDBResourceMongoDBCollection": [
       "2019-08-01",
@@ -5676,7 +5685,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "MongoDBResourceMongoDBDatabase": [
       "2019-08-01",
@@ -5700,7 +5710,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "MongoDBResourceMongoRoleDefinition": [
       "2021-10-15-preview",
@@ -5708,7 +5719,8 @@
       "2022-02-15-preview",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "MongoDBResourceMongoUserDefinition": [
       "2021-10-15-preview",
@@ -5716,7 +5728,8 @@
       "2022-02-15-preview",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "NotebookWorkspace": [
       "2019-08-01",
@@ -5740,7 +5753,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "PrivateEndpointConnection": [
       "2019-08-01-preview",
@@ -5759,7 +5773,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "Service": [
       "2021-04-01-preview",
@@ -5770,7 +5785,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "SqlResourceSqlContainer": [
       "2019-08-01",
@@ -5794,7 +5810,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "SqlResourceSqlDatabase": [
       "2019-08-01",
@@ -5818,7 +5835,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "SqlResourceSqlRoleAssignment": [
       "2020-06-01-preview",
@@ -5835,7 +5853,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "SqlResourceSqlRoleDefinition": [
       "2020-06-01-preview",
@@ -5852,7 +5871,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "SqlResourceSqlStoredProcedure": [
       "2019-08-01",
@@ -5876,7 +5896,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "SqlResourceSqlTrigger": [
       "2019-08-01",
@@ -5900,7 +5921,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "SqlResourceSqlUserDefinedFunction": [
       "2019-08-01",
@@ -5924,7 +5946,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "TableResourceTable": [
       "2019-08-01",
@@ -5948,7 +5971,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "listDatabaseAccountConnectionStrings": [
       "2015-04-01",
@@ -5977,7 +6001,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "listDatabaseAccountKeys": [
       "2015-04-01",
@@ -6006,7 +6031,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ],
     "listNotebookWorkspaceConnectionInfo": [
       "2019-08-01",
@@ -6030,7 +6056,8 @@
       "2022-05-15",
       "2022-05-15-preview",
       "2022-08-15",
-      "2022-08-15-preview"
+      "2022-08-15-preview",
+      "2022-11-15"
     ]
   },
   "DomainRegistration": {
@@ -6151,7 +6178,8 @@
       "2021-09-01-preview",
       "2021-10-01-preview",
       "2022-05-05-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ],
     "TagRule": [
       "2020-07-01",
@@ -6159,11 +6187,13 @@
       "2021-09-01-preview",
       "2021-10-01-preview",
       "2022-05-05-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ],
     "listAllTrafficFilter": [
       "2022-05-05-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ],
     "listDeploymentInfo": [
       "2020-07-01",
@@ -6171,7 +6201,8 @@
       "2021-09-01-preview",
       "2021-10-01-preview",
       "2022-05-05-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ],
     "listMonitoredResource": [
       "2020-07-01",
@@ -6179,12 +6210,14 @@
       "2021-09-01-preview",
       "2021-10-01-preview",
       "2022-05-05-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ],
     "listUpgradableVersionDetails": [
       "2021-10-01-preview",
       "2022-05-05-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ],
     "listVMHost": [
       "2020-07-01",
@@ -6192,11 +6225,13 @@
       "2021-09-01-preview",
       "2021-10-01-preview",
       "2022-05-05-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ],
     "listlistAssociatedTrafficFilter": [
       "2022-05-05-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ]
   },
   "ElasticSan": {
@@ -8700,21 +8735,29 @@
     "ImportCollector": [
       "2019-10-01"
     ],
+    "MigrateAgent": [
+      "2022-05-01-preview"
+    ],
     "MigrateProject": [
       "2018-09-01-preview"
     ],
     "MigrateProjectsControllerMigrateProject": [
       "2020-05-01"
     ],
+    "ModernizeProject": [
+      "2022-05-01-preview"
+    ],
     "MoveCollection": [
       "2019-10-01-preview",
       "2021-01-01",
-      "2021-08-01"
+      "2021-08-01",
+      "2022-08-01"
     ],
     "MoveResource": [
       "2019-10-01-preview",
       "2021-01-01",
-      "2021-08-01"
+      "2021-08-01",
+      "2022-08-01"
     ],
     "PrivateEndpointConnection": [
       "2019-10-01"
@@ -8736,12 +8779,21 @@
     "VMwareCollector": [
       "2019-10-01"
     ],
+    "WorkloadDeployment": [
+      "2022-05-01-preview"
+    ],
+    "WorkloadInstance": [
+      "2022-05-01-preview"
+    ],
     "getProjectKeys": [
       "2017-11-11-preview",
       "2018-02-02"
     ],
     "getSolutionConfig": [
       "2018-09-01-preview"
+    ],
+    "getWorkloadDeploymentSecretConfigurations": [
+      "2022-05-01-preview"
     ]
   },
   "MixedReality": {
@@ -15252,7 +15304,8 @@
       "2021-05-01",
       "2021-09-01",
       "2022-01-01",
-      "2022-05-01"
+      "2022-05-01",
+      "2023-01-01"
     ],
     "StorageTarget": [
       "2019-08-01-preview",
@@ -15263,7 +15316,8 @@
       "2021-05-01",
       "2021-09-01",
       "2022-01-01",
-      "2022-05-01"
+      "2022-05-01",
+      "2023-01-01"
     ]
   },
   "StorageMover": {
