@@ -32,7 +32,7 @@ jobs:
         with:
           repo: pulumi/pulumictl
       - name: Dispatch Event
-        run: pulumictl create docs-build pulumi-azure-native ${GITHUB_REF#refs/tags/}
+        run: pulumictl create docs-build pulumi-azure-native ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
     name: dispatch_docs_build

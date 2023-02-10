@@ -50,7 +50,7 @@ jobs:
 
       - name: Cleanup SDK Folder
         # Remove the per-language folders but preserve the checked-in go.mod
-        run: rm -rf $(find sdk -mindepth 1 -maxdepth 1 -type d)
+        run: rm -rf "$(find sdk -mindepth 1 -maxdepth 1 -type d)"
 
       - name: Preparing Git Branch
         run: |
@@ -74,7 +74,7 @@ jobs:
 
       - name: Git submodule commit hash
         id: vars
-        run: echo "commit-hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+        run: echo "commit-hash=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
         working-directory: azure-rest-api-specs
 
       - name: Commit changes
@@ -105,9 +105,11 @@ jobs:
         id: schema-tools
         shell: bash
         run: |
-          echo 'summary<<EOF' >> $GITHUB_OUTPUT
-          schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+          {
+            echo 'summary<<EOF'
+            schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
 
       - name: Set AutoMerge
         if: steps.create-pr.outputs.has_changed_files && contains(steps.schema-tools.outputs.summary, 'Looking good! No breaking changes found.')

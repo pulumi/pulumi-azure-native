@@ -114,7 +114,7 @@ jobs:
         uses: ./.github/actions/check-worktree-clean
 
       - name: Update path
-        run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+        run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
 
       - name: Install Node dependencies
         run: yarn global add typescript

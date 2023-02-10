@@ -83,9 +83,11 @@ jobs:
         run: |
           # Get latest stable release. Return only first column from result (tag).
           LAST_VERSION=$(gh release view --repo pulumi/pulumi-azure-native --json tagName -q .tagName)
-          echo 'summary<<EOF' >> $GITHUB_OUTPUT
-          schema-tools compare --provider="azure-native" --old-commit="$LAST_VERSION" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+          {
+            echo 'summary<<EOF'
+            schema-tools compare --provider="azure-native" --old-commit="$LAST_VERSION" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
 
       - name: Configure AWS Credentials
         # https://github.com/aws-actions/configure-aws-credentials#notice-node12-deprecation-warning
@@ -232,7 +234,7 @@ jobs:
 
       - name: Calculate tag
         id: tag
-        run: echo "tag=$(./.github/scripts/calculate-npm-tag.sh "${{ inputs.version }}")" >> $GITHUB_OUTPUT
+        run: echo "tag=$(./.github/scripts/calculate-npm-tag.sh "${{ inputs.version }}")" >> "$GITHUB_OUTPUT"
 
       - name: Publish Node.JS SDK
         working-directory: sdk/nodejs/bin
@@ -350,7 +352,7 @@ jobs:
           git commit -m "$VERSION"
           git tag "$VERSION"
           # Find go.mod's, get parent dir name, concat with version, set as a tag
-          find */go.mod -type f -exec sh -c "dirname {} | xargs basename | xargs printf "%s/$VERSION" | xargs git tag" \;
+          find "*/go.mod" -type f -exec sh -c 'dirname {$1} | xargs basename | xargs printf "%s/$VERSION" | xargs git tag' shell {} \;
 
       - name: Publish to prerelease branch
         if: inputs.prerelease == true
