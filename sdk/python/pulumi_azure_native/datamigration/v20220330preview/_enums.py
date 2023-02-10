@@ -123,7 +123,7 @@ class SsisMigrationOverwriteOption(str, Enum):
 
 class SsisStoreType(str, Enum):
     """
-    The SSIS store type of source, only SSIS catalog is supported now in DMS
+    The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
     """
     SSIS_CATALOG = "SsisCatalog"
 

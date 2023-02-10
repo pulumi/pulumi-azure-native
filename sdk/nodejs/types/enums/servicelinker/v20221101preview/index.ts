@@ -68,6 +68,7 @@ export const ClientType = {
     Nodejs: "nodejs",
     SpringBoot: "springBoot",
     Kafka_springBoot: "kafka-springBoot",
+    Dapr: "dapr",
 } as const;
 
 /**

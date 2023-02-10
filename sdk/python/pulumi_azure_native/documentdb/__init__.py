@@ -118,6 +118,8 @@ if typing.TYPE_CHECKING:
     v20220815 = __v20220815
     import pulumi_azure_native.documentdb.v20220815preview as __v20220815preview
     v20220815preview = __v20220815preview
+    import pulumi_azure_native.documentdb.v20221115 as __v20221115
+    v20221115 = __v20221115
 else:
     v20150401 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150401')
     v20150408 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150408')
@@ -147,4 +149,5 @@ else:
     v20220515preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20220515preview')
     v20220815 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20220815')
     v20220815preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20220815preview')
+    v20221115 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20221115')
 

@@ -67,7 +67,7 @@ class GetAzureMonitorWorkspaceResult:
 
     @property
     @pulumi.getter(name="defaultIngestionSettings")
-    def default_ingestion_settings(self) -> 'outputs.MonitoringAccountResponseDefaultIngestionSettings':
+    def default_ingestion_settings(self) -> 'outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings':
         """
         The Data Collection Rule and Endpoint used for ingestion by default.
         """
@@ -99,7 +99,7 @@ class GetAzureMonitorWorkspaceResult:
 
     @property
     @pulumi.getter
-    def metrics(self) -> 'outputs.MonitoringAccountResponseMetrics':
+    def metrics(self) -> 'outputs.AzureMonitorWorkspaceResponseMetrics':
         """
         Information about metrics for the Azure Monitor workspace
         """
@@ -165,18 +165,18 @@ class AwaitableGetAzureMonitorWorkspaceResult(GetAzureMonitorWorkspaceResult):
             type=self.type)
 
 
-def get_azure_monitor_workspace(monitoring_account_name: Optional[str] = None,
+def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureMonitorWorkspaceResult:
     """
     An Azure Monitor Workspace definition
 
 
-    :param str monitoring_account_name: The name of the Azure Monitor workspace.  The name is case insensitive
+    :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['monitoringAccountName'] = monitoring_account_name
+    __args__['azureMonitorWorkspaceName'] = azure_monitor_workspace_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:monitor/v20210603preview:getAzureMonitorWorkspace', __args__, opts=opts, typ=GetAzureMonitorWorkspaceResult).value
@@ -196,14 +196,14 @@ def get_azure_monitor_workspace(monitoring_account_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_azure_monitor_workspace)
-def get_azure_monitor_workspace_output(monitoring_account_name: Optional[pulumi.Input[str]] = None,
+def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureMonitorWorkspaceResult]:
     """
     An Azure Monitor Workspace definition
 
 
-    :param str monitoring_account_name: The name of the Azure Monitor workspace.  The name is case insensitive
+    :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

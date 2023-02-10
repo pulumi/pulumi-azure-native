@@ -129,7 +129,7 @@ export const SsisStoreType = {
 } as const;
 
 /**
- * The SSIS store type of source, only SSIS catalog is supported now in DMS
+ * The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
  */
 export type SsisStoreType = (typeof SsisStoreType)[keyof typeof SsisStoreType];
 

@@ -16,21 +16,21 @@ __all__ = ['AzureMonitorWorkspaceArgs', 'AzureMonitorWorkspace']
 class AzureMonitorWorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 azure_monitor_workspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AzureMonitorWorkspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] monitoring_account_name: The name of the Azure Monitor workspace.  The name is case insensitive
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if azure_monitor_workspace_name is not None:
+            pulumi.set(__self__, "azure_monitor_workspace_name", azure_monitor_workspace_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if monitoring_account_name is not None:
-            pulumi.set(__self__, "monitoring_account_name", monitoring_account_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -47,6 +47,18 @@ class AzureMonitorWorkspaceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="azureMonitorWorkspaceName")
+    def azure_monitor_workspace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Azure Monitor workspace.  The name is case insensitive
+        """
+        return pulumi.get(self, "azure_monitor_workspace_name")
+
+    @azure_monitor_workspace_name.setter
+    def azure_monitor_workspace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_monitor_workspace_name", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -57,18 +69,6 @@ class AzureMonitorWorkspaceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="monitoringAccountName")
-    def monitoring_account_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Azure Monitor workspace.  The name is case insensitive
-        """
-        return pulumi.get(self, "monitoring_account_name")
-
-    @monitoring_account_name.setter
-    def monitoring_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "monitoring_account_name", value)
 
     @property
     @pulumi.getter
@@ -88,8 +88,8 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_monitor_workspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring_account_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -99,8 +99,8 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] monitoring_account_name: The name of the Azure Monitor workspace.  The name is case insensitive
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -129,8 +129,8 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_monitor_workspace_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring_account_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -142,8 +142,8 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AzureMonitorWorkspaceArgs.__new__(AzureMonitorWorkspaceArgs)
 
+            __props__.__dict__["azure_monitor_workspace_name"] = azure_monitor_workspace_name
             __props__.__dict__["location"] = location
-            __props__.__dict__["monitoring_account_name"] = monitoring_account_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -202,7 +202,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultIngestionSettings")
-    def default_ingestion_settings(self) -> pulumi.Output['outputs.MonitoringAccountResponseDefaultIngestionSettings']:
+    def default_ingestion_settings(self) -> pulumi.Output['outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings']:
         """
         The Data Collection Rule and Endpoint used for ingestion by default.
         """
@@ -226,7 +226,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metrics(self) -> pulumi.Output['outputs.MonitoringAccountResponseMetrics']:
+    def metrics(self) -> pulumi.Output['outputs.AzureMonitorWorkspaceResponseMetrics']:
         """
         Information about metrics for the Azure Monitor workspace
         """

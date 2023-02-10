@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Database Migration Service resource
+ * An Azure Database Migration Service (classic) resource
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -31,7 +31,7 @@ export interface GetServiceArgs {
 }
 
 /**
- * A Database Migration Service resource
+ * An Azure Database Migration Service (classic) resource
  */
 export interface GetServiceResult {
     /**
@@ -78,7 +78,7 @@ export interface GetServiceResult {
     readonly virtualSubnetId?: string;
 }
 /**
- * A Database Migration Service resource
+ * An Azure Database Migration Service (classic) resource
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

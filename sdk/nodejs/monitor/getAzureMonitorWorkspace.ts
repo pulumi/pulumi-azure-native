@@ -15,7 +15,7 @@ export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:monitor:getAzureMonitorWorkspace", {
-        "monitoringAccountName": args.monitoringAccountName,
+        "azureMonitorWorkspaceName": args.azureMonitorWorkspaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetAzureMonitorWorkspaceArgs {
     /**
      * The name of the Azure Monitor workspace.  The name is case insensitive
      */
-    monitoringAccountName: string;
+    azureMonitorWorkspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -42,7 +42,7 @@ export interface GetAzureMonitorWorkspaceResult {
     /**
      * The Data Collection Rule and Endpoint used for ingestion by default.
      */
-    readonly defaultIngestionSettings: outputs.monitor.MonitoringAccountResponseDefaultIngestionSettings;
+    readonly defaultIngestionSettings: outputs.monitor.AzureMonitorWorkspaceResponseDefaultIngestionSettings;
     /**
      * Resource entity tag (ETag)
      */
@@ -58,7 +58,7 @@ export interface GetAzureMonitorWorkspaceResult {
     /**
      * Information about metrics for the Azure Monitor workspace
      */
-    readonly metrics: outputs.monitor.MonitoringAccountResponseMetrics;
+    readonly metrics: outputs.monitor.AzureMonitorWorkspaceResponseMetrics;
     /**
      * The name of the resource
      */
@@ -92,7 +92,7 @@ export interface GetAzureMonitorWorkspaceOutputArgs {
     /**
      * The name of the Azure Monitor workspace.  The name is case insensitive
      */
-    monitoringAccountName: pulumi.Input<string>;
+    azureMonitorWorkspaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

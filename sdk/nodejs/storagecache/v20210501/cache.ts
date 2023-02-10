@@ -159,7 +159,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["upgradeStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache:Cache" }, { type: "azure-native:storagecache/v20190801preview:Cache" }, { type: "azure-native:storagecache/v20191101:Cache" }, { type: "azure-native:storagecache/v20200301:Cache" }, { type: "azure-native:storagecache/v20201001:Cache" }, { type: "azure-native:storagecache/v20210301:Cache" }, { type: "azure-native:storagecache/v20210901:Cache" }, { type: "azure-native:storagecache/v20220101:Cache" }, { type: "azure-native:storagecache/v20220501:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache:Cache" }, { type: "azure-native:storagecache/v20190801preview:Cache" }, { type: "azure-native:storagecache/v20191101:Cache" }, { type: "azure-native:storagecache/v20200301:Cache" }, { type: "azure-native:storagecache/v20201001:Cache" }, { type: "azure-native:storagecache/v20210301:Cache" }, { type: "azure-native:storagecache/v20210901:Cache" }, { type: "azure-native:storagecache/v20220101:Cache" }, { type: "azure-native:storagecache/v20220501:Cache" }, { type: "azure-native:storagecache/v20230101:Cache" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cache.__pulumiType, name, resourceInputs, opts);
     }

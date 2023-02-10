@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview.Outputs
     public sealed class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse
     {
         /// <summary>
-        /// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        /// Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         /// </summary>
         public readonly Outputs.AzureActiveDirectoryAppResponse AzureApp;
         /// <summary>

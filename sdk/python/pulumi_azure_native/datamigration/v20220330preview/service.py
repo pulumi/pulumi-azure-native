@@ -206,7 +206,7 @@ class Service(pulumi.CustomResource):
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A Database Migration Service resource
+        An Azure Database Migration Service (classic) resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +227,7 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A Database Migration Service resource
+        An Azure Database Migration Service (classic) resource
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

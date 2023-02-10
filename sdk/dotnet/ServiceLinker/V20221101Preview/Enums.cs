@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
         public static ClientType Nodejs { get; } = new ClientType("nodejs");
         public static ClientType SpringBoot { get; } = new ClientType("springBoot");
         public static ClientType Kafka_springBoot { get; } = new ClientType("kafka-springBoot");
+        public static ClientType Dapr { get; } = new ClientType("dapr");
 
         public static bool operator ==(ClientType left, ClientType right) => left.Equals(right);
         public static bool operator !=(ClientType left, ClientType right) => !left.Equals(right);

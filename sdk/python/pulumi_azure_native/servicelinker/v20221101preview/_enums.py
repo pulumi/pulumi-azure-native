@@ -78,6 +78,7 @@ class ClientType(str, Enum):
     NODEJS = "nodejs"
     SPRING_BOOT = "springBoot"
     KAFKA_SPRING_BOOT = "kafka-springBoot"
+    DAPR = "dapr"
 
 
 class DeleteOrUpdateBehavior(str, Enum):

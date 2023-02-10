@@ -18,6 +18,8 @@ __all__ = [
     'ConfluentBootstrapServerArgs',
     'ConfluentSchemaRegistryArgs',
     'CreateOrUpdateDryrunParametersArgs',
+    'DaprMetadataArgs',
+    'DaprPropertiesArgs',
     'FirewallRulesArgs',
     'KeyVaultSecretReferenceSecretInfoArgs',
     'KeyVaultSecretUriSecretInfoArgs',
@@ -179,12 +181,14 @@ class ConfigurationInfoArgs:
                  action: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
                  additional_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  customized_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 dapr_properties: Optional[pulumi.Input['DaprPropertiesArgs']] = None,
                  delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None):
         """
         The configuration information, used to generate configurations or save to applications
         :param pulumi.Input[Union[str, 'ActionType']] action: Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_configurations: A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] customized_keys: Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations
+        :param pulumi.Input['DaprPropertiesArgs'] dapr_properties: Indicates some additional properties for dapr client type
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         """
         if action is not None:
@@ -193,6 +197,8 @@ class ConfigurationInfoArgs:
             pulumi.set(__self__, "additional_configurations", additional_configurations)
         if customized_keys is not None:
             pulumi.set(__self__, "customized_keys", customized_keys)
+        if dapr_properties is not None:
+            pulumi.set(__self__, "dapr_properties", dapr_properties)
         if delete_or_update_behavior is not None:
             pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
 
@@ -231,6 +237,18 @@ class ConfigurationInfoArgs:
     @customized_keys.setter
     def customized_keys(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "customized_keys", value)
+
+    @property
+    @pulumi.getter(name="daprProperties")
+    def dapr_properties(self) -> Optional[pulumi.Input['DaprPropertiesArgs']]:
+        """
+        Indicates some additional properties for dapr client type
+        """
+        return pulumi.get(self, "dapr_properties")
+
+    @dapr_properties.setter
+    def dapr_properties(self, value: Optional[pulumi.Input['DaprPropertiesArgs']]):
+        pulumi.set(self, "dapr_properties", value)
 
     @property
     @pulumi.getter(name="deleteOrUpdateBehavior")
@@ -478,6 +496,150 @@ class CreateOrUpdateDryrunParametersArgs:
     @v_net_solution.setter
     def v_net_solution(self, value: Optional[pulumi.Input['VNetSolutionArgs']]):
         pulumi.set(self, "v_net_solution", value)
+
+
+@pulumi.input_type
+class DaprMetadataArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 secret_ref: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The dapr component metadata.
+        :param pulumi.Input[str] name: Metadata property name.
+        :param pulumi.Input[str] secret_ref: The secret name where dapr could get value
+        :param pulumi.Input[str] value: Metadata property value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata property name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret name where dapr could get value
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata property value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DaprPropertiesArgs:
+    def __init__(__self__, *,
+                 component_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secret_store_component: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Indicates some additional properties for dapr client type
+        :param pulumi.Input[str] component_type: The dapr component type
+        :param pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]] metadata: Additional dapr metadata
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The dapr component scopes
+        :param pulumi.Input[str] secret_store_component: The name of a secret store dapr to retrieve secret
+        :param pulumi.Input[str] version: The dapr component version
+        """
+        if component_type is not None:
+            pulumi.set(__self__, "component_type", component_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if secret_store_component is not None:
+            pulumi.set(__self__, "secret_store_component", secret_store_component)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dapr component type
+        """
+        return pulumi.get(self, "component_type")
+
+    @component_type.setter
+    def component_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "component_type", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]]:
+        """
+        Additional dapr metadata
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The dapr component scopes
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="secretStoreComponent")
+    def secret_store_component(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a secret store dapr to retrieve secret
+        """
+        return pulumi.get(self, "secret_store_component")
+
+    @secret_store_component.setter
+    def secret_store_component(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_store_component", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dapr component version
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

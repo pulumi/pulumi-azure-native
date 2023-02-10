@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Database Migration Service resource
+ * An Azure Database Migration Service (classic) resource
  */
 export class Service extends pulumi.CustomResource {
     /**

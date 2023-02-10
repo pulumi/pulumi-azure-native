@@ -6617,6 +6617,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databox/v20221201",
+  "fqn": "pulumi_azure_native.databox.v20221201",
+  "classes": {
+   "azure-native:databox/v20221201:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databoxedge",
   "fqn": "pulumi_azure_native.databoxedge",
   "classes": {
@@ -9847,6 +9855,35 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "documentdb/v20221115",
+  "fqn": "pulumi_azure_native.documentdb.v20221115",
+  "classes": {
+   "azure-native:documentdb/v20221115:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20221115:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20221115:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20221115:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20221115:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20221115:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20221115:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20221115:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20221115:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20221115:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb/v20221115:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
+   "azure-native:documentdb/v20221115:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20221115:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20221115:Service": "Service",
+   "azure-native:documentdb/v20221115:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20221115:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20221115:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20221115:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20221115:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20221115:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20221115:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20221115:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "domainregistration",
   "fqn": "pulumi_azure_native.domainregistration",
   "classes": {
@@ -10111,6 +10148,15 @@ _utilities.register(
   "classes": {
    "azure-native:elastic/v20220701preview:Monitor": "Monitor",
    "azure-native:elastic/v20220701preview:TagRule": "TagRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "elastic/v20220901preview",
+  "fqn": "pulumi_azure_native.elastic.v20220901preview",
+  "classes": {
+   "azure-native:elastic/v20220901preview:Monitor": "Monitor",
+   "azure-native:elastic/v20220901preview:TagRule": "TagRule"
   }
  },
  {
@@ -14077,6 +14123,26 @@ _utilities.register(
   "classes": {
    "azure-native:migrate/v20210801:MoveCollection": "MoveCollection",
    "azure-native:migrate/v20210801:MoveResource": "MoveResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "migrate/v20220501preview",
+  "fqn": "pulumi_azure_native.migrate.v20220501preview",
+  "classes": {
+   "azure-native:migrate/v20220501preview:MigrateAgent": "MigrateAgent",
+   "azure-native:migrate/v20220501preview:ModernizeProject": "ModernizeProject",
+   "azure-native:migrate/v20220501preview:WorkloadDeployment": "WorkloadDeployment",
+   "azure-native:migrate/v20220501preview:WorkloadInstance": "WorkloadInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "migrate/v20220801",
+  "fqn": "pulumi_azure_native.migrate.v20220801",
+  "classes": {
+   "azure-native:migrate/v20220801:MoveCollection": "MoveCollection",
+   "azure-native:migrate/v20220801:MoveResource": "MoveResource"
   }
  },
  {
@@ -22789,6 +22855,15 @@ _utilities.register(
   "classes": {
    "azure-native:storagecache/v20220501:Cache": "Cache",
    "azure-native:storagecache/v20220501:StorageTarget": "StorageTarget"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storagecache/v20230101",
+  "fqn": "pulumi_azure_native.storagecache.v20230101",
+  "classes": {
+   "azure-native:storagecache/v20230101:Cache": "Cache",
+   "azure-native:storagecache/v20230101:StorageTarget": "StorageTarget"
   }
  },
  {

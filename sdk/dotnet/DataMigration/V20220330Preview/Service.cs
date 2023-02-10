@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20220330Preview
 {
     /// <summary>
-    /// A Database Migration Service resource
+    /// An Azure Database Migration Service (classic) resource
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20220330preview:Service")]
     public partial class Service : global::Pulumi.CustomResource

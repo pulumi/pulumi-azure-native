@@ -3377,7 +3377,7 @@ class ConnectToTargetSqlMISyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.MiSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         """
         pulumi.set(__self__, "azure_app", azure_app)
@@ -3387,7 +3387,7 @@ class ConnectToTargetSqlMISyncTaskInputResponse(dict):
     @pulumi.getter(name="azureApp")
     def azure_app(self) -> 'outputs.AzureActiveDirectoryAppResponse':
         """
-        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         """
         return pulumi.get(self, "azure_app")
 
@@ -13841,7 +13841,7 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
                  number_of_parallel_database_migrations: Optional[float] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param str storage_resource_id: Fully qualified resourceId of storage
@@ -13863,7 +13863,7 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
     @pulumi.getter(name="azureApp")
     def azure_app(self) -> 'outputs.AzureActiveDirectoryAppResponse':
         """
-        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         """
         return pulumi.get(self, "azure_app")
 
@@ -20094,7 +20094,7 @@ class SsisMigrationInfoResponse(dict):
         SSIS migration info with SSIS store type, overwrite policy.
         :param str environment_overwrite_option: The overwrite option for the SSIS environment migration
         :param str project_overwrite_option: The overwrite option for the SSIS project migration
-        :param str ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS
+        :param str ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
         """
         if environment_overwrite_option is not None:
             pulumi.set(__self__, "environment_overwrite_option", environment_overwrite_option)
@@ -20123,7 +20123,7 @@ class SsisMigrationInfoResponse(dict):
     @pulumi.getter(name="ssisStoreType")
     def ssis_store_type(self) -> Optional[str]:
         """
-        The SSIS store type of source, only SSIS catalog is supported now in DMS
+        The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
         """
         return pulumi.get(self, "ssis_store_type")
 
@@ -20486,7 +20486,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse(dict):
                  backup_file_share: Optional['outputs.FileShareResponse'] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param str storage_resource_id: Fully qualified resourceId of storage
@@ -20505,7 +20505,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse(dict):
     @pulumi.getter(name="azureApp")
     def azure_app(self) -> 'outputs.AzureActiveDirectoryAppResponse':
         """
-        Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         """
         return pulumi.get(self, "azure_app")
 

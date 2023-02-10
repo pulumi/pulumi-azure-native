@@ -32,8 +32,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Azure Monitor workspace.  The name is case insensitive
         /// </summary>
-        [Input("monitoringAccountName", required: true)]
-        public string MonitoringAccountName { get; set; } = null!;
+        [Input("azureMonitorWorkspaceName", required: true)]
+        public string AzureMonitorWorkspaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -52,8 +52,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the Azure Monitor workspace.  The name is case insensitive
         /// </summary>
-        [Input("monitoringAccountName", required: true)]
-        public Input<string> MonitoringAccountName { get; set; } = null!;
+        [Input("azureMonitorWorkspaceName", required: true)]
+        public Input<string> AzureMonitorWorkspaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The Data Collection Rule and Endpoint used for ingestion by default.
         /// </summary>
-        public readonly Outputs.MonitoringAccountResponseDefaultIngestionSettings DefaultIngestionSettings;
+        public readonly Outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings DefaultIngestionSettings;
         /// <summary>
         /// Resource entity tag (ETag)
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Information about metrics for the Azure Monitor workspace
         /// </summary>
-        public readonly Outputs.MonitoringAccountResponseMetrics Metrics;
+        public readonly Outputs.AzureMonitorWorkspaceResponseMetrics Metrics;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Monitor
         private GetAzureMonitorWorkspaceResult(
             string accountId,
 
-            Outputs.MonitoringAccountResponseDefaultIngestionSettings defaultIngestionSettings,
+            Outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings defaultIngestionSettings,
 
             string etag,
 
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string location,
 
-            Outputs.MonitoringAccountResponseMetrics metrics,
+            Outputs.AzureMonitorWorkspaceResponseMetrics metrics,
 
             string name,
 

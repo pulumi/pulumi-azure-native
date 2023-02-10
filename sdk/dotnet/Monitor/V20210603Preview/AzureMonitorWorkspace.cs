@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Monitor.V20210603Preview
         /// The Data Collection Rule and Endpoint used for ingestion by default.
         /// </summary>
         [Output("defaultIngestionSettings")]
-        public Output<Outputs.MonitoringAccountResponseDefaultIngestionSettings> DefaultIngestionSettings { get; private set; } = null!;
+        public Output<Outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings> DefaultIngestionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource entity tag (ETag)
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Monitor.V20210603Preview
         /// Information about metrics for the Azure Monitor workspace
         /// </summary>
         [Output("metrics")]
-        public Output<Outputs.MonitoringAccountResponseMetrics> Metrics { get; private set; } = null!;
+        public Output<Outputs.AzureMonitorWorkspaceResponseMetrics> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -125,16 +125,16 @@ namespace Pulumi.AzureNative.Monitor.V20210603Preview
     public sealed class AzureMonitorWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the Azure Monitor workspace.  The name is case insensitive
+        /// </summary>
+        [Input("azureMonitorWorkspaceName")]
+        public Input<string>? AzureMonitorWorkspaceName { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the Azure Monitor workspace.  The name is case insensitive
-        /// </summary>
-        [Input("monitoringAccountName")]
-        public Input<string>? MonitoringAccountName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

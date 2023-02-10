@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetServiceResult:
     """
-    A Database Migration Service resource
+    An Azure Database Migration Service (classic) resource
     """
     def __init__(__self__, auto_stop_delay=None, delete_resources_on_stop=None, etag=None, id=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, system_data=None, tags=None, type=None, virtual_nic_id=None, virtual_subnet_id=None):
         if auto_stop_delay and not isinstance(auto_stop_delay, str):
@@ -199,7 +199,7 @@ def get_service(group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    A Database Migration Service resource
+    An Azure Database Migration Service (classic) resource
 
 
     :param str group_name: Name of the resource group
@@ -234,7 +234,7 @@ def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    A Database Migration Service resource
+    An Azure Database Migration Service (classic) resource
 
 
     :param str group_name: Name of the resource group

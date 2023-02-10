@@ -361,7 +361,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
     }
 
     /// <summary>
-    /// The SSIS store type of source, only SSIS catalog is supported now in DMS
+    /// The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
     /// </summary>
     [EnumType]
     public readonly struct SsisStoreType : IEquatable<SsisStoreType>

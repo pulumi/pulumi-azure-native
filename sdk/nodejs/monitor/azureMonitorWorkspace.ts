@@ -45,7 +45,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
      * The Data Collection Rule and Endpoint used for ingestion by default.
      */
-    public /*out*/ readonly defaultIngestionSettings!: pulumi.Output<outputs.monitor.MonitoringAccountResponseDefaultIngestionSettings>;
+    public /*out*/ readonly defaultIngestionSettings!: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseDefaultIngestionSettings>;
     /**
      * Resource entity tag (ETag)
      */
@@ -57,7 +57,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
      * Information about metrics for the Azure Monitor workspace
      */
-    public /*out*/ readonly metrics!: pulumi.Output<outputs.monitor.MonitoringAccountResponseMetrics>;
+    public /*out*/ readonly metrics!: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseMetrics>;
     /**
      * The name of the resource
      */
@@ -93,8 +93,8 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["azureMonitorWorkspaceName"] = args ? args.azureMonitorWorkspaceName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monitoringAccountName"] = args ? args.monitoringAccountName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
@@ -129,13 +129,13 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
  */
 export interface AzureMonitorWorkspaceArgs {
     /**
+     * The name of the Azure Monitor workspace.  The name is case insensitive
+     */
+    azureMonitorWorkspaceName?: pulumi.Input<string>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * The name of the Azure Monitor workspace.  The name is case insensitive
-     */
-    monitoringAccountName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

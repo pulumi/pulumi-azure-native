@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
-    'MonitoringAccountResponseDefaultIngestionSettings',
-    'MonitoringAccountResponseMetrics',
+    'AzureMonitorWorkspaceResponseDefaultIngestionSettings',
+    'AzureMonitorWorkspaceResponseMetrics',
     'SystemDataResponse',
 ]
 
 @pulumi.output_type
-class MonitoringAccountResponseDefaultIngestionSettings(dict):
+class AzureMonitorWorkspaceResponseDefaultIngestionSettings(dict):
     """
     The Data Collection Rule and Endpoint used for ingestion by default.
     """
@@ -29,14 +29,14 @@ class MonitoringAccountResponseDefaultIngestionSettings(dict):
             suggest = "data_collection_rule_resource_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitoringAccountResponseDefaultIngestionSettings. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceResponseDefaultIngestionSettings. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MonitoringAccountResponseDefaultIngestionSettings.__key_warning(key)
+        AzureMonitorWorkspaceResponseDefaultIngestionSettings.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MonitoringAccountResponseDefaultIngestionSettings.__key_warning(key)
+        AzureMonitorWorkspaceResponseDefaultIngestionSettings.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -68,7 +68,7 @@ class MonitoringAccountResponseDefaultIngestionSettings(dict):
 
 
 @pulumi.output_type
-class MonitoringAccountResponseMetrics(dict):
+class AzureMonitorWorkspaceResponseMetrics(dict):
     """
     Information about metrics for the Azure Monitor workspace
     """
@@ -81,14 +81,14 @@ class MonitoringAccountResponseMetrics(dict):
             suggest = "prometheus_query_endpoint"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitoringAccountResponseMetrics. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceResponseMetrics. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MonitoringAccountResponseMetrics.__key_warning(key)
+        AzureMonitorWorkspaceResponseMetrics.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MonitoringAccountResponseMetrics.__key_warning(key)
+        AzureMonitorWorkspaceResponseMetrics.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

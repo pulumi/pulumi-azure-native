@@ -97,7 +97,7 @@ export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20220215preview:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20220515preview:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20220815:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20220815preview:MongoDBResourceMongoRoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20220215preview:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20220515preview:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20220815:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20220815preview:MongoDBResourceMongoRoleDefinition" }, { type: "azure-native:documentdb/v20221115:MongoDBResourceMongoRoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoDBResourceMongoRoleDefinition.__pulumiType, name, resourceInputs, opts);
     }

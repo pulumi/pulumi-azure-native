@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview.Inputs
         }
 
         /// <summary>
+        /// Indicates some additional properties for dapr client type
+        /// </summary>
+        [Input("daprProperties")]
+        public Input<Inputs.DaprPropertiesArgs>? DaprProperties { get; set; }
+
+        /// <summary>
         /// Indicates whether to clean up previous operation when Linker is updating or deleting
         /// </summary>
         [Input("deleteOrUpdateBehavior")]

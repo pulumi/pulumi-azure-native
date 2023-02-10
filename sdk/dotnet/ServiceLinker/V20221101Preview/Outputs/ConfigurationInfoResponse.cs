@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomizedKeys;
         /// <summary>
+        /// Indicates some additional properties for dapr client type
+        /// </summary>
+        public readonly Outputs.DaprPropertiesResponse? DaprProperties;
+        /// <summary>
         /// Indicates whether to clean up previous operation when Linker is updating or deleting
         /// </summary>
         public readonly string? DeleteOrUpdateBehavior;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview.Outputs
 
             ImmutableDictionary<string, string>? customizedKeys,
 
+            Outputs.DaprPropertiesResponse? daprProperties,
+
             string? deleteOrUpdateBehavior)
         {
             Action = action;
             AdditionalConfigurations = additionalConfigurations;
             CustomizedKeys = customizedKeys;
+            DaprProperties = daprProperties;
             DeleteOrUpdateBehavior = deleteOrUpdateBehavior;
         }
     }
