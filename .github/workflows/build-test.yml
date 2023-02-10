@@ -183,13 +183,14 @@ jobs:
           TMPDIR: ${{ runner.temp }}
         run: |
           # do not set 'e' here since we want to retrieve Q logs first
-          set -uo pipefail
           cd examples
           go test -v -json -count=1 -cover -timeout 15m -tags=${{ matrix.language }},oidc -parallel 4 . > /tmp/gotest.log 2>&1
           exitcode=$?
           cat /tmp/gotest.log | gotestfmt
           echo $(cat $TMPDIR/q)
           test $exitcode -eq 0
+        shell: bash -uxo pipefail {0}
+        continue-on-error: true
 
       - name: Tar SDK folder
         if: ${{ matrix.language != 'go' }}
