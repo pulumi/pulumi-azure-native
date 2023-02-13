@@ -2,8 +2,11 @@
 
 ## HEAD (Unreleased)
 
+## 1.95.0 (2023-02-13)
+
 Upstream breaking changes:
 - Resource "azure-native:monitor:AzureMonitorWorkspace" and function "azure-native:monitor:getAzureMonitorWorkspace" renamed required property "monitoringAccountName" and types restructured.
+
 
 ## 1.94.0 (2023-02-07)
 
