@@ -6216,6 +6216,32 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20230101",
+  "fqn": "pulumi_azure_native.containerservice.v20230101",
+  "classes": {
+   "azure-native:containerservice/v20230101:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20230101:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20230101:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20230101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20230101:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20230102preview",
+  "fqn": "pulumi_azure_native.containerservice.v20230102preview",
+  "classes": {
+   "azure-native:containerservice/v20230102preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20230102preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20230102preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20230102preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20230102preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20230102preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
@@ -11842,6 +11868,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.insights.v20221001",
   "classes": {
    "azure-native:insights/v20221001:AutoscaleSetting": "AutoscaleSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "insights/v20230101",
+  "fqn": "pulumi_azure_native.insights.v20230101",
+  "classes": {
+   "azure-native:insights/v20230101:ActionGroup": "ActionGroup"
   }
  },
  {

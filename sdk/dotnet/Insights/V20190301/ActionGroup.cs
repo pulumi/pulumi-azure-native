@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.Insights.V20190301
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210901:ActionGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220401:ActionGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230101:ActionGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

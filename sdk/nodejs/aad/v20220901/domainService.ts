@@ -157,7 +157,7 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["resourceForestSettings"] = args ? args.resourceForestSettings : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["syncScope"] = args ? args.syncScope : undefined;
+            resourceInputs["syncScope"] = (args ? args.syncScope : undefined) ?? "All";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

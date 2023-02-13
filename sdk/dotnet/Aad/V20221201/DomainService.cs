@@ -318,6 +318,7 @@ namespace Pulumi.AzureNative.Aad.V20221201
 
         public DomainServiceArgs()
         {
+            SyncScope = "All";
         }
         public static new DomainServiceArgs Empty => new DomainServiceArgs();
     }

@@ -75,6 +75,8 @@ class DomainServiceArgs:
             pulumi.set(__self__, "resource_forest_settings", resource_forest_settings)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sync_scope is None:
+            sync_scope = 'All'
         if sync_scope is not None:
             pulumi.set(__self__, "sync_scope", sync_scope)
         if tags is not None:
@@ -366,6 +368,8 @@ class DomainService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            if sync_scope is None:
+                sync_scope = 'All'
             __props__.__dict__["sync_scope"] = sync_scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["deployment_id"] = None

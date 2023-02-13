@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         public Output<string?> DnsPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The default value is false. It can be enabled/disabled on creation and updation of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
+        /// The default value is false. It can be enabled/disabled on creation and updating of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
         /// </summary>
         [Output("enableNamespaceResources")]
         public Output<bool?> EnableNamespaceResources { get; private set; } = null!;
@@ -368,6 +368,8 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221002preview:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221101:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221102preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230101:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230102preview:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -470,7 +472,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
         public Input<string>? DnsPrefix { get; set; }
 
         /// <summary>
-        /// The default value is false. It can be enabled/disabled on creation and updation of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
+        /// The default value is false. It can be enabled/disabled on creation and updating of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
         /// </summary>
         [Input("enableNamespaceResources")]
         public Input<bool>? EnableNamespaceResources { get; set; }

@@ -87,7 +87,7 @@ export interface GetManagedClusterResult {
      */
     readonly dnsPrefix?: string;
     /**
-     * The default value is false. It can be enabled/disabled on creation and updation of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
+     * The default value is false. It can be enabled/disabled on creation and updating of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
      */
     readonly enableNamespaceResources?: boolean;
     /**
