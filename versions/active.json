@@ -207,6 +207,7 @@
       "2017-04-19",
       "2020-01-01",
       "2020-07-01-preview",
+      "2022-10-01",
       "2023-01-01-alpha"
     ],
     "recommendations": [
@@ -244,6 +245,10 @@
       "2021-09-01-preview"
     ],
     "farmbeatssolutiondefinitions": [
+      "2020-05-12-preview",
+      "2021-09-01-preview"
+    ],
+    "locations": [
       "2020-05-12-preview",
       "2021-09-01-preview"
     ],
@@ -410,7 +415,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "checkfeedbackrequired": [
       "2014-02-14",
@@ -429,7 +435,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "checknameavailability": [
       "2014-02-14",
@@ -448,7 +455,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "checkservicenameavailability": [
       "2014-02-14",
@@ -461,7 +469,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "getdomainownershipidentifier": [
       "2020-12-01",
@@ -469,7 +478,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "locations": [
       "2020-06-01-preview",
@@ -478,7 +488,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "locations/deletedservices": [
       "2020-06-01-preview",
@@ -487,7 +498,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "operations": [
       "2014-02-14",
@@ -506,7 +518,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "reportfeedback": [
       "2014-02-14",
@@ -525,7 +538,8 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "service": [
       "2014-02-14",
@@ -544,14 +558,16 @@
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "service/eventgridfilters": [
       "2021-01-01-preview",
       "2021-04-01-preview",
       "2021-08-01",
       "2021-12-01-preview",
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-08-01"
     ],
     "validateservicename": [
       "2014-02-14",
@@ -11359,7 +11375,8 @@
       "2020-12-01",
       "2021-06-30-preview",
       "2022-05-31",
-      "2022-10-31"
+      "2022-10-31",
+      "2023-01-31"
     ],
     "digitaltwinsinstances/endpoints": [
       "2020-03-01-preview",
@@ -11367,7 +11384,8 @@
       "2020-12-01",
       "2021-06-30-preview",
       "2022-05-31",
-      "2022-10-31"
+      "2022-10-31",
+      "2023-01-31"
     ],
     "digitaltwinsinstances/operationresults": [
       "2020-03-01-preview",
@@ -11375,12 +11393,14 @@
       "2020-12-01",
       "2021-06-30-preview",
       "2022-05-31",
-      "2022-10-31"
+      "2022-10-31",
+      "2023-01-31"
     ],
     "digitaltwinsinstances/timeseriesdatabaseconnections": [
       "2021-06-30-preview",
       "2022-05-31",
-      "2022-10-31"
+      "2022-10-31",
+      "2023-01-31"
     ],
     "locations": [
       "2020-03-01-preview",
@@ -11397,7 +11417,8 @@
       "2020-12-01",
       "2021-06-30-preview",
       "2022-05-31",
-      "2022-10-31"
+      "2022-10-31",
+      "2023-01-31"
     ],
     "locations/operationresults": [
       "2020-03-01-preview",
@@ -11405,7 +11426,8 @@
       "2020-12-01",
       "2021-06-30-preview",
       "2022-05-31",
-      "2022-10-31"
+      "2022-10-31",
+      "2023-01-31"
     ],
     "locations/operationsstatuses": [
       "2020-03-01-preview",
@@ -11413,7 +11435,8 @@
       "2020-12-01",
       "2021-06-30-preview",
       "2022-05-31",
-      "2022-10-31"
+      "2022-10-31",
+      "2023-01-31"
     ],
     "operations": [
       "2020-03-01-preview",
@@ -11421,7 +11444,8 @@
       "2020-12-01",
       "2021-06-30-preview",
       "2022-05-31",
-      "2022-10-31"
+      "2022-10-31",
+      "2023-01-31"
     ]
   },
   "documentdb": {
@@ -16826,33 +16850,26 @@
   },
   "mission": {
     "": [
-      "2022-08-02-preview",
-      "2022-10-31-preview",
-      "2022-12-07-preview"
+      "2023-02-01-preview"
     ],
     "communities": [
-      "2022-10-31-preview",
-      "2022-12-07-preview"
-    ],
-    "communities/virtualenclaves": [
-      "2022-10-31-preview"
+      "2023-02-01-preview"
     ],
     "locations": [
-      "2022-08-02-preview",
-      "2022-10-31-preview",
-      "2022-12-07-preview"
+      "2023-02-01-preview"
     ],
     "locations/operationstatuses": [
-      "2022-08-02-preview",
-      "2022-10-31-preview",
-      "2022-12-07-preview"
+      "2023-02-01-preview"
     ],
     "operations": [
-      "2022-08-02-preview",
-      "2022-10-31-preview",
-      "2022-12-07-preview"
+      "2023-02-01-preview"
     ],
-    "virtualenclaves": []
+    "virtualenclaves": [
+      "2023-02-01-preview"
+    ],
+    "virtualenclaves/workloads": [
+      "2023-02-01-preview"
+    ]
   },
   "mixedreality": {
     "": [
