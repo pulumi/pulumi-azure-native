@@ -1410,6 +1410,25 @@
     "listNetworkManagerDeploymentStatus": "2021-02-01-preview",
     "listNetworkManagerEffectiveSecurityAdminRule": "2021-02-01-preview"
   },
+  "NetworkCloud": {
+    "BareMetalMachine": "2022-12-12-preview",
+    "BareMetalMachineKeySet": "2022-12-12-preview",
+    "BmcKeySet": "2022-12-12-preview",
+    "CloudServicesNetwork": "2022-12-12-preview",
+    "Cluster": "2022-12-12-preview",
+    "ClusterManager": "2022-12-12-preview",
+    "Console": "2022-12-12-preview",
+    "DefaultCniNetwork": "2022-12-12-preview",
+    "HybridAksCluster": "2022-12-12-preview",
+    "L2Network": "2022-12-12-preview",
+    "L3Network": "2022-12-12-preview",
+    "MetricsConfiguration": "2022-12-12-preview",
+    "Rack": "2022-12-12-preview",
+    "StorageAppliance": "2022-12-12-preview",
+    "TrunkedNetwork": "2022-12-12-preview",
+    "VirtualMachine": "2022-12-12-preview",
+    "Volume": "2022-12-12-preview"
+  },
   "NetworkFunction": {
     "AzureTrafficCollector": "2022-05-01",
     "CollectorPolicy": "2022-05-01"
@@ -1574,6 +1593,10 @@
   },
   "ResourceGraph": {
     "GraphQuery": "2018-09-01-preview"
+  },
+  "ResourceHealth": {
+    "listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId": "2022-10-01-preview",
+    "listSecurityAdvisoryImpactedResourceByTenantIdAndEventId": "2022-10-01-preview"
   },
   "Resources": {
     "Deployment": "2021-01-01",

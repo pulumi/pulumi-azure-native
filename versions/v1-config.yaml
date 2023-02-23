@@ -806,6 +806,8 @@ Network: # Overlapping resources between 2022-01-01 and 2020-11-01
     listFirewallPolicyIdpsSignaturesFilterValue: "2022-01-01"
     listNetworkManagerDeploymentStatus: 2021-02-01-preview
     listNetworkManagerEffectiveSecurityAdminRule: 2021-02-01-preview
+NetworkCloud:
+  tracking: 2022-12-12-preview
 NetworkFunction:
   tracking: "2022-05-01"
 NotificationHubs:
@@ -894,6 +896,9 @@ ResourceConnector:
     listApplianceClusterCustomerUserCredential: 2022-04-15-preview
 ResourceGraph:
   tracking: 2018-09-01-preview
+ResourceHealth:
+  # has many stable versions as well but only this preview version matches our criteria
+  tracking: 2022-10-01-preview
 Resources: # Overlapping resources between 2021-01-01 and 2019-05-01
   additions:
     Deployment: "2021-01-01"
