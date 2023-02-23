@@ -89,7 +89,7 @@ export class BuildServiceBuilder extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220301preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220501preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220901preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20221101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20221201:BuildServiceBuilder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220301preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220501preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220901preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20221101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20221201:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20230101preview:BuildServiceBuilder" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildServiceBuilder.__pulumiType, name, resourceInputs, opts);
     }

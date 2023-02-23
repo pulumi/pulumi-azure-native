@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SyncAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SyncAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:SyncAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:SyncAgent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

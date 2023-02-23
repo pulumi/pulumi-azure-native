@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101:DataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:DataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:DataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:DataConnector"},
                 },
             };

@@ -89,7 +89,7 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220101:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220501:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220701:SubscriptionNetworkManagerConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220101:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220501:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220701:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220901:SubscriptionNetworkManagerConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionNetworkManagerConnection.__pulumiType, name, resourceInputs, opts);
     }

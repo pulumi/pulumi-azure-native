@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
         /// </summary>
         public readonly Outputs.BootDiagnosticsInstanceViewResponse? BootDiagnostics;
         /// <summary>
+        /// Specifies the host OS name of the virtual machine. &lt;br&gt;&lt;br&gt; This name cannot be updated after the VM is created. &lt;br&gt;&lt;br&gt; **Max-length (Windows):** 15 characters &lt;br&gt;&lt;br&gt; **Max-length (Linux):** 64 characters. &lt;br&gt;&lt;br&gt; For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
+        /// </summary>
+        public readonly string? ComputerName;
+        /// <summary>
         /// The disks information.
         /// </summary>
         public readonly ImmutableArray<Outputs.DiskInstanceViewResponse> Disks;
@@ -33,9 +37,21 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineExtensionInstanceViewResponse> Extensions;
         /// <summary>
+        /// The hypervisor generation of the Virtual Machine [V1, V2]
+        /// </summary>
+        public readonly string? HyperVGeneration;
+        /// <summary>
         /// The Maintenance Operation status on the virtual machine.
         /// </summary>
         public readonly Outputs.MaintenanceRedeployStatusResponse? MaintenanceRedeployStatus;
+        /// <summary>
+        /// The Operating System running on the hybrid machine.
+        /// </summary>
+        public readonly string? OsName;
+        /// <summary>
+        /// The version of Operating System running on the hybrid machine.
+        /// </summary>
+        public readonly string? OsVersion;
         /// <summary>
         /// The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.
         /// </summary>
@@ -71,11 +87,19 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
 
             Outputs.BootDiagnosticsInstanceViewResponse? bootDiagnostics,
 
+            string? computerName,
+
             ImmutableArray<Outputs.DiskInstanceViewResponse> disks,
 
             ImmutableArray<Outputs.VirtualMachineExtensionInstanceViewResponse> extensions,
 
+            string? hyperVGeneration,
+
             Outputs.MaintenanceRedeployStatusResponse? maintenanceRedeployStatus,
+
+            string? osName,
+
+            string? osVersion,
 
             string? placementGroupId,
 
@@ -93,9 +117,13 @@ namespace Pulumi.AzureNative.Compute.V20221101.Outputs
         {
             AssignedHost = assignedHost;
             BootDiagnostics = bootDiagnostics;
+            ComputerName = computerName;
             Disks = disks;
             Extensions = extensions;
+            HyperVGeneration = hyperVGeneration;
             MaintenanceRedeployStatus = maintenanceRedeployStatus;
+            OsName = osName;
+            OsVersion = osVersion;
             PlacementGroupId = placementGroupId;
             PlatformFaultDomain = platformFaultDomain;
             PlatformUpdateDomain = platformUpdateDomain;

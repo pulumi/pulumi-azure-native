@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualHubIpConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualHubIpConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualHubIpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualHubIpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

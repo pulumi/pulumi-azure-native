@@ -377,7 +377,7 @@ class LiveEvent(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20180330preview:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20180701:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20200501:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20210601:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20220801:LiveEvent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20180330preview:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20180701:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20200501:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20210601:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20220801:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20221101:LiveEvent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveEvent, __self__).__init__(
             'azure-native:media/v20211101:LiveEvent',

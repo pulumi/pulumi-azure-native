@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201.Outputs
         /// <summary>
         /// Collection of addons
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? AddonConfigs;
+        public readonly ImmutableDictionary<string, object>? AddonConfigs;
         /// <summary>
         /// List of custom persistent disks
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201.Outputs
 
         [OutputConstructor]
         private AppResourcePropertiesResponse(
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? addonConfigs,
+            ImmutableDictionary<string, object>? addonConfigs,
 
             ImmutableArray<Outputs.CustomPersistentDiskResourceResponse> customPersistentDisks,
 

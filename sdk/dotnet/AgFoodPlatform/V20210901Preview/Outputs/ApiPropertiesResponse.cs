@@ -19,12 +19,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview.Outputs
         /// <summary>
         /// Interval in minutes for which the weather data for the api needs to be refreshed.
         /// </summary>
-        public readonly int? ApiFreshnessWindowInMinutes;
+        public readonly int? ApiFreshnessTimeInMinutes;
 
         [OutputConstructor]
-        private ApiPropertiesResponse(int? apiFreshnessWindowInMinutes)
+        private ApiPropertiesResponse(int? apiFreshnessTimeInMinutes)
         {
-            ApiFreshnessWindowInMinutes = apiFreshnessWindowInMinutes;
+            ApiFreshnessTimeInMinutes = apiFreshnessTimeInMinutes;
         }
     }
 }

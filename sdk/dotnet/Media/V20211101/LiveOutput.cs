@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.Media.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:media/v20200501:LiveOutput"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20210601:LiveOutput"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20220801:LiveOutput"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20221101:LiveOutput"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

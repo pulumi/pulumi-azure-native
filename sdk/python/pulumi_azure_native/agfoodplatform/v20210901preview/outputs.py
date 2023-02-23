@@ -33,8 +33,8 @@ class ApiPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "apiFreshnessWindowInMinutes":
-            suggest = "api_freshness_window_in_minutes"
+        if key == "apiFreshnessTimeInMinutes":
+            suggest = "api_freshness_time_in_minutes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ApiPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -48,21 +48,21 @@ class ApiPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 api_freshness_window_in_minutes: Optional[int] = None):
+                 api_freshness_time_in_minutes: Optional[int] = None):
         """
         Api properties.
-        :param int api_freshness_window_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
+        :param int api_freshness_time_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
         """
-        if api_freshness_window_in_minutes is not None:
-            pulumi.set(__self__, "api_freshness_window_in_minutes", api_freshness_window_in_minutes)
+        if api_freshness_time_in_minutes is not None:
+            pulumi.set(__self__, "api_freshness_time_in_minutes", api_freshness_time_in_minutes)
 
     @property
-    @pulumi.getter(name="apiFreshnessWindowInMinutes")
-    def api_freshness_window_in_minutes(self) -> Optional[int]:
+    @pulumi.getter(name="apiFreshnessTimeInMinutes")
+    def api_freshness_time_in_minutes(self) -> Optional[int]:
         """
         Interval in minutes for which the weather data for the api needs to be refreshed.
         """
-        return pulumi.get(self, "api_freshness_window_in_minutes")
+        return pulumi.get(self, "api_freshness_time_in_minutes")
 
 
 @pulumi.output_type

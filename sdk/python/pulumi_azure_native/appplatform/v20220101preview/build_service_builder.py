@@ -172,7 +172,7 @@ class BuildServiceBuilder(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220401:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20221201:BuildServiceBuilder")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220401:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20221201:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:BuildServiceBuilder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BuildServiceBuilder, __self__).__init__(
             'azure-native:appplatform/v20220101preview:BuildServiceBuilder',

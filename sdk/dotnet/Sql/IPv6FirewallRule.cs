@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:IPv6FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:IPv6FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:IPv6FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:IPv6FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

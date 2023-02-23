@@ -106,7 +106,7 @@ export class NamedValue extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NamedValue" }, { type: "azure-native:apimanagement/v20191201:NamedValue" }, { type: "azure-native:apimanagement/v20191201preview:NamedValue" }, { type: "azure-native:apimanagement/v20200601preview:NamedValue" }, { type: "azure-native:apimanagement/v20201201:NamedValue" }, { type: "azure-native:apimanagement/v20210101preview:NamedValue" }, { type: "azure-native:apimanagement/v20210401preview:NamedValue" }, { type: "azure-native:apimanagement/v20211201preview:NamedValue" }, { type: "azure-native:apimanagement/v20220401preview:NamedValue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NamedValue" }, { type: "azure-native:apimanagement/v20191201:NamedValue" }, { type: "azure-native:apimanagement/v20191201preview:NamedValue" }, { type: "azure-native:apimanagement/v20200601preview:NamedValue" }, { type: "azure-native:apimanagement/v20201201:NamedValue" }, { type: "azure-native:apimanagement/v20210101preview:NamedValue" }, { type: "azure-native:apimanagement/v20210401preview:NamedValue" }, { type: "azure-native:apimanagement/v20211201preview:NamedValue" }, { type: "azure-native:apimanagement/v20220401preview:NamedValue" }, { type: "azure-native:apimanagement/v20220801:NamedValue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamedValue.__pulumiType, name, resourceInputs, opts);
     }

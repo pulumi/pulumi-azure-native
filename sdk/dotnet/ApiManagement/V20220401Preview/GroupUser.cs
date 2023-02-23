@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GroupUser"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GroupUser"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GroupUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GroupUser"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

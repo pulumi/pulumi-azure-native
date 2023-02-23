@@ -374,7 +374,7 @@ class AppResourcePropertiesResponse(dict):
                  fqdn: str,
                  provisioning_state: str,
                  url: str,
-                 addon_configs: Optional[Mapping[str, Mapping[str, Any]]] = None,
+                 addon_configs: Optional[Mapping[str, Any]] = None,
                  custom_persistent_disks: Optional[Sequence['outputs.CustomPersistentDiskResourceResponse']] = None,
                  enable_end_to_end_tls: Optional[bool] = None,
                  https_only: Optional[bool] = None,
@@ -389,7 +389,7 @@ class AppResourcePropertiesResponse(dict):
         :param str fqdn: Fully qualified dns Name.
         :param str provisioning_state: Provisioning state of the App
         :param str url: URL of the App
-        :param Mapping[str, Mapping[str, Any]] addon_configs: Collection of addons
+        :param Mapping[str, Any] addon_configs: Collection of addons
         :param Sequence['CustomPersistentDiskResourceResponse'] custom_persistent_disks: List of custom persistent disks
         :param bool enable_end_to_end_tls: Indicate if end to end TLS is enabled.
         :param bool https_only: Indicate if only https is allowed.
@@ -454,7 +454,7 @@ class AppResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="addonConfigs")
-    def addon_configs(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def addon_configs(self) -> Optional[Mapping[str, Any]]:
         """
         Collection of addons
         """
@@ -743,7 +743,7 @@ class BindingResourcePropertiesResponse(dict):
                  resource_name: str,
                  resource_type: str,
                  updated_at: str,
-                 binding_parameters: Optional[Mapping[str, Any]] = None,
+                 binding_parameters: Optional[Mapping[str, str]] = None,
                  key: Optional[str] = None,
                  resource_id: Optional[str] = None):
         """
@@ -753,7 +753,7 @@ class BindingResourcePropertiesResponse(dict):
         :param str resource_name: The name of the bound resource
         :param str resource_type: The standard Azure resource type of the bound resource
         :param str updated_at: Update time of the Binding resource
-        :param Mapping[str, Any] binding_parameters: Binding parameters of the Binding resource
+        :param Mapping[str, str] binding_parameters: Binding parameters of the Binding resource
         :param str key: The key of the bound resource
         :param str resource_id: The Azure resource id of the bound resource
         """
@@ -811,7 +811,7 @@ class BindingResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="bindingParameters")
-    def binding_parameters(self) -> Optional[Mapping[str, Any]]:
+    def binding_parameters(self) -> Optional[Mapping[str, str]]:
         """
         Binding parameters of the Binding resource
         """
@@ -2716,7 +2716,7 @@ class DeploymentSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 addon_configs: Optional[Mapping[str, Mapping[str, Any]]] = None,
+                 addon_configs: Optional[Mapping[str, Any]] = None,
                  container_probe_settings: Optional['outputs.ContainerProbeSettingsResponse'] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
                  liveness_probe: Optional['outputs.ProbeResponse'] = None,
@@ -2726,7 +2726,7 @@ class DeploymentSettingsResponse(dict):
                  termination_grace_period_seconds: Optional[int] = None):
         """
         Deployment settings payload
-        :param Mapping[str, Mapping[str, Any]] addon_configs: Collection of addons
+        :param Mapping[str, Any] addon_configs: Collection of addons
         :param 'ContainerProbeSettingsResponse' container_probe_settings: Container liveness and readiness probe settings
         :param Mapping[str, str] environment_variables: Collection of environment variables
         :param 'ProbeResponse' liveness_probe: Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
@@ -2756,7 +2756,7 @@ class DeploymentSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="addonConfigs")
-    def addon_configs(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def addon_configs(self) -> Optional[Mapping[str, Any]]:
         """
         Collection of addons
         """

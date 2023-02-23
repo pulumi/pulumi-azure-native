@@ -143,6 +143,7 @@ import * as mobilenetwork from "./mobilenetwork";
 import * as monitor from "./monitor";
 import * as netapp from "./netapp";
 import * as network from "./network";
+import * as networkcloud from "./networkcloud";
 import * as networkfunction from "./networkfunction";
 import * as notificationhubs from "./notificationhubs";
 import * as offazure from "./offazure";
@@ -165,6 +166,7 @@ import * as redhatopenshift from "./redhatopenshift";
 import * as relay from "./relay";
 import * as resourceconnector from "./resourceconnector";
 import * as resourcegraph from "./resourcegraph";
+import * as resourcehealth from "./resourcehealth";
 import * as resources from "./resources";
 import * as saas from "./saas";
 import * as scheduler from "./scheduler";
@@ -342,6 +344,7 @@ export {
     monitor,
     netapp,
     network,
+    networkcloud,
     networkfunction,
     notificationhubs,
     offazure,
@@ -364,6 +367,7 @@ export {
     relay,
     resourceconnector,
     resourcegraph,
+    resourcehealth,
     resources,
     saas,
     scheduler,

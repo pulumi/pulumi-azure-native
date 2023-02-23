@@ -116,6 +116,7 @@ import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
 import * as netapp from "./netapp";
 import * as network from "./network";
+import * as networkcloud from "./networkcloud";
 import * as networkfunction from "./networkfunction";
 import * as notificationhubs from "./notificationhubs";
 import * as operationalinsights from "./operationalinsights";
@@ -290,6 +291,7 @@ export {
     mobilenetwork,
     netapp,
     network,
+    networkcloud,
     networkfunction,
     notificationhubs,
     operationalinsights,

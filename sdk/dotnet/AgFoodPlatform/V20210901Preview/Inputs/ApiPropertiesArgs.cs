@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview.Inputs
         /// <summary>
         /// Interval in minutes for which the weather data for the api needs to be refreshed.
         /// </summary>
-        [Input("apiFreshnessWindowInMinutes")]
-        public Input<int>? ApiFreshnessWindowInMinutes { get; set; }
+        [Input("apiFreshnessTimeInMinutes")]
+        public Input<int>? ApiFreshnessTimeInMinutes { get; set; }
 
         public ApiPropertiesArgs()
         {

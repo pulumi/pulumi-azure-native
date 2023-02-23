@@ -194,6 +194,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ExtendedDatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ExtendedDatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ExtendedDatabaseBlobAuditingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

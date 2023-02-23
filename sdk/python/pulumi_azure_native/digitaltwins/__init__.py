@@ -31,6 +31,8 @@ if typing.TYPE_CHECKING:
     v20220531 = __v20220531
     import pulumi_azure_native.digitaltwins.v20221031 as __v20221031
     v20221031 = __v20221031
+    import pulumi_azure_native.digitaltwins.v20230131 as __v20230131
+    v20230131 = __v20230131
 else:
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20200301preview')
     v20201031 = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20201031')
@@ -38,4 +40,5 @@ else:
     v20210630preview = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20210630preview')
     v20220531 = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20220531')
     v20221031 = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20221031')
+    v20230131 = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20230131')
 

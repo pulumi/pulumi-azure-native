@@ -68,6 +68,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:AuthorizationProvider"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

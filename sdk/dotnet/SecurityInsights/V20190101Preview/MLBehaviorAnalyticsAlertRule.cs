@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101:MLBehaviorAnalyticsAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:MLBehaviorAnalyticsAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:MLBehaviorAnalyticsAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:MLBehaviorAnalyticsAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:MLBehaviorAnalyticsAlertRule"},
                 },
             };

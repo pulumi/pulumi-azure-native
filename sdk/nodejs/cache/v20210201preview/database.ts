@@ -127,7 +127,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache:Database" }, { type: "azure-native:cache/v20201001preview:Database" }, { type: "azure-native:cache/v20210301:Database" }, { type: "azure-native:cache/v20210801:Database" }, { type: "azure-native:cache/v20220101:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:Database" }, { type: "azure-native:cache/v20201001preview:Database" }, { type: "azure-native:cache/v20210301:Database" }, { type: "azure-native:cache/v20210801:Database" }, { type: "azure-native:cache/v20220101:Database" }, { type: "azure-native:cache/v20221101preview:Database" }, { type: "azure-native:cache/v20230301preview:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }

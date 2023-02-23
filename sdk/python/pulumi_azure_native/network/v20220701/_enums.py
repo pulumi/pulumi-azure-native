@@ -271,7 +271,6 @@ class ApplicationGatewaySkuName(str, Enum):
     WA_F_MEDIUM = "WAF_Medium"
     WA_F_LARGE = "WAF_Large"
     STANDARD_V2 = "Standard_v2"
-    STANDARD_BASIC = "Standard_Basic"
     WA_F_V2 = "WAF_v2"
 
 
@@ -347,7 +346,6 @@ class ApplicationGatewayTier(str, Enum):
     WAF = "WAF"
     STANDARD_V2 = "Standard_v2"
     WA_F_V2 = "WAF_v2"
-    STANDARD_BASIC = "Standard_Basic"
 
 
 class AuthorizationUseStatus(str, Enum):

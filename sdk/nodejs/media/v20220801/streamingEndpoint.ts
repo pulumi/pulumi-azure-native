@@ -197,7 +197,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingEndpoint" }, { type: "azure-native:media/v20180330preview:StreamingEndpoint" }, { type: "azure-native:media/v20180601preview:StreamingEndpoint" }, { type: "azure-native:media/v20180701:StreamingEndpoint" }, { type: "azure-native:media/v20190501preview:StreamingEndpoint" }, { type: "azure-native:media/v20200501:StreamingEndpoint" }, { type: "azure-native:media/v20210601:StreamingEndpoint" }, { type: "azure-native:media/v20211101:StreamingEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingEndpoint" }, { type: "azure-native:media/v20180330preview:StreamingEndpoint" }, { type: "azure-native:media/v20180601preview:StreamingEndpoint" }, { type: "azure-native:media/v20180701:StreamingEndpoint" }, { type: "azure-native:media/v20190501preview:StreamingEndpoint" }, { type: "azure-native:media/v20200501:StreamingEndpoint" }, { type: "azure-native:media/v20210601:StreamingEndpoint" }, { type: "azure-native:media/v20211101:StreamingEndpoint" }, { type: "azure-native:media/v20221101:StreamingEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingEndpoint.__pulumiType, name, resourceInputs, opts);
     }

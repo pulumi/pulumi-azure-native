@@ -49,6 +49,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The Azure key vault secret reference of sasToken in sas uri.
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? SasToken;
+        /// <summary>
+        /// SAS URI of the Azure Data Lake Storage Gen2 service. Type: string, SecureString or AzureKeyVaultSecretReference.
+        /// </summary>
+        public readonly object? SasUri;
+        /// <summary>
         /// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalCredential;
@@ -76,7 +84,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly object Url;
+        public readonly object? Url;
 
         [OutputConstructor]
         private AzureBlobFSLinkedServiceResponse(
@@ -96,6 +104,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? sasToken,
+
+            object? sasUri,
+
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalCredential,
 
             object? servicePrincipalCredentialType,
@@ -108,7 +120,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object url)
+            object? url)
         {
             AccountKey = accountKey;
             Annotations = annotations;
@@ -118,6 +130,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
+            SasToken = sasToken;
+            SasUri = sasUri;
             ServicePrincipalCredential = servicePrincipalCredential;
             ServicePrincipalCredentialType = servicePrincipalCredentialType;
             ServicePrincipalId = servicePrincipalId;
