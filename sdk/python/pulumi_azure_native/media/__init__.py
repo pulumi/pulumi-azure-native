@@ -77,6 +77,10 @@ if typing.TYPE_CHECKING:
     v20220701 = __v20220701
     import pulumi_azure_native.media.v20220801 as __v20220801
     v20220801 = __v20220801
+    import pulumi_azure_native.media.v20221101 as __v20221101
+    v20221101 = __v20221101
+    import pulumi_azure_native.media.v20230101 as __v20230101
+    v20230101 = __v20230101
 else:
     v20151001 = _utilities.lazy_import('pulumi_azure_native.media.v20151001')
     v20180330preview = _utilities.lazy_import('pulumi_azure_native.media.v20180330preview')
@@ -92,4 +96,6 @@ else:
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.media.v20220501preview')
     v20220701 = _utilities.lazy_import('pulumi_azure_native.media.v20220701')
     v20220801 = _utilities.lazy_import('pulumi_azure_native.media.v20220801')
+    v20221101 = _utilities.lazy_import('pulumi_azure_native.media.v20221101')
+    v20230101 = _utilities.lazy_import('pulumi_azure_native.media.v20230101')
 

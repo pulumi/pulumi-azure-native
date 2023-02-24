@@ -187,6 +187,8 @@ export class Update extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230201:Update" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Update.__pulumiType, name, resourceInputs, opts);
     }
 }

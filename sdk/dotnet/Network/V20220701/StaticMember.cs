@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Network.V20220701
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:StaticMember"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:StaticMember"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:StaticMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:StaticMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

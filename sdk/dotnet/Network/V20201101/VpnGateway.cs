@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VpnGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VpnGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VpnGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

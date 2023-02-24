@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201.Inputs
     public sealed class BindingResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bindingParameters")]
-        private InputMap<object>? _bindingParameters;
+        private InputMap<string>? _bindingParameters;
 
         /// <summary>
         /// Binding parameters of the Binding resource
         /// </summary>
-        public InputMap<object> BindingParameters
+        public InputMap<string> BindingParameters
         {
-            get => _bindingParameters ?? (_bindingParameters = new InputMap<object>());
+            get => _bindingParameters ?? (_bindingParameters = new InputMap<string>());
             set => _bindingParameters = value;
         }
 

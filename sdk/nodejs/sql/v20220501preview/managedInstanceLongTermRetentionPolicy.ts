@@ -98,6 +98,8 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
             resourceInputs["yearlyRetention"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceLongTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

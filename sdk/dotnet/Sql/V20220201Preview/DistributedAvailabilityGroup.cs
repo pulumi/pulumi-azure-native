@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DistributedAvailabilityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DistributedAvailabilityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DistributedAvailabilityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DistributedAvailabilityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

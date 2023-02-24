@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Backend"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Backend"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Backend"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:Backend"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -21,9 +21,12 @@ if typing.TYPE_CHECKING:
     v20220513 = __v20220513
     import pulumi_azure_native.confidentialledger.v20220908preview as __v20220908preview
     v20220908preview = __v20220908preview
+    import pulumi_azure_native.confidentialledger.v20230126preview as __v20230126preview
+    v20230126preview = __v20230126preview
 else:
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.confidentialledger.v20201201preview')
     v20210513preview = _utilities.lazy_import('pulumi_azure_native.confidentialledger.v20210513preview')
     v20220513 = _utilities.lazy_import('pulumi_azure_native.confidentialledger.v20220513')
     v20220908preview = _utilities.lazy_import('pulumi_azure_native.confidentialledger.v20220908preview')
+    v20230126preview = _utilities.lazy_import('pulumi_azure_native.confidentialledger.v20230126preview')
 

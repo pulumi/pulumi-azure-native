@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:CustomIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

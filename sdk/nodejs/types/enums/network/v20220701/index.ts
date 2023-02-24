@@ -136,7 +136,6 @@ export const ApplicationGatewaySkuName = {
     WAF_Medium: "WAF_Medium",
     WAF_Large: "WAF_Large",
     Standard_v2: "Standard_v2",
-    Standard_Basic: "Standard_Basic",
     WAF_v2: "WAF_v2",
 } as const;
 
@@ -222,7 +221,6 @@ export const ApplicationGatewayTier = {
     WAF: "WAF",
     Standard_v2: "Standard_v2",
     WAF_v2: "WAF_v2",
-    Standard_Basic: "Standard_Basic",
 } as const;
 
 /**

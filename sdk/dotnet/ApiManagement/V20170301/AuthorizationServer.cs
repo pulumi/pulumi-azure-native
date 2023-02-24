@@ -163,6 +163,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:AuthorizationServer"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:AuthorizationServer"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:AuthorizationServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:AuthorizationServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

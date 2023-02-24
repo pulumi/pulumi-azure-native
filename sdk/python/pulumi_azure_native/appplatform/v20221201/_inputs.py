@@ -197,7 +197,7 @@ class ApiPortalPropertiesArgs:
 @pulumi.input_type
 class AppResourcePropertiesArgs:
     def __init__(__self__, *,
-                 addon_configs: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 addon_configs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgs']]]] = None,
                  enable_end_to_end_tls: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
@@ -209,7 +209,7 @@ class AppResourcePropertiesArgs:
                  vnet_addons: Optional[pulumi.Input['AppVNetAddonsArgs']] = None):
         """
         App resource properties payload
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] addon_configs: Collection of addons
+        :param pulumi.Input[Mapping[str, Any]] addon_configs: Collection of addons
         :param pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgs']]] custom_persistent_disks: List of custom persistent disks
         :param pulumi.Input[bool] enable_end_to_end_tls: Indicate if end to end TLS is enabled.
         :param pulumi.Input[bool] https_only: Indicate if only https is allowed.
@@ -247,14 +247,14 @@ class AppResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="addonConfigs")
-    def addon_configs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def addon_configs(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Collection of addons
         """
         return pulumi.get(self, "addon_configs")
 
     @addon_configs.setter
-    def addon_configs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def addon_configs(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "addon_configs", value)
 
     @property
@@ -482,12 +482,12 @@ class AzureFileVolumeArgs:
 @pulumi.input_type
 class BindingResourcePropertiesArgs:
     def __init__(__self__, *,
-                 binding_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 binding_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Binding resource properties payload
-        :param pulumi.Input[Mapping[str, Any]] binding_parameters: Binding parameters of the Binding resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] binding_parameters: Binding parameters of the Binding resource
         :param pulumi.Input[str] key: The key of the bound resource
         :param pulumi.Input[str] resource_id: The Azure resource id of the bound resource
         """
@@ -500,14 +500,14 @@ class BindingResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="bindingParameters")
-    def binding_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def binding_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Binding parameters of the Binding resource
         """
         return pulumi.get(self, "binding_parameters")
 
     @binding_parameters.setter
-    def binding_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def binding_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "binding_parameters", value)
 
     @property
@@ -1725,7 +1725,7 @@ class DeploymentResourcePropertiesArgs:
 @pulumi.input_type
 class DeploymentSettingsArgs:
     def __init__(__self__, *,
-                 addon_configs: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
+                 addon_configs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  container_probe_settings: Optional[pulumi.Input['ContainerProbeSettingsArgs']] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  liveness_probe: Optional[pulumi.Input['ProbeArgs']] = None,
@@ -1735,7 +1735,7 @@ class DeploymentSettingsArgs:
                  termination_grace_period_seconds: Optional[pulumi.Input[int]] = None):
         """
         Deployment settings payload
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] addon_configs: Collection of addons
+        :param pulumi.Input[Mapping[str, Any]] addon_configs: Collection of addons
         :param pulumi.Input['ContainerProbeSettingsArgs'] container_probe_settings: Container liveness and readiness probe settings
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Collection of environment variables
         :param pulumi.Input['ProbeArgs'] liveness_probe: Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
@@ -1765,14 +1765,14 @@ class DeploymentSettingsArgs:
 
     @property
     @pulumi.getter(name="addonConfigs")
-    def addon_configs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def addon_configs(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Collection of addons
         """
         return pulumi.get(self, "addon_configs")
 
     @addon_configs.setter
-    def addon_configs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def addon_configs(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "addon_configs", value)
 
     @property

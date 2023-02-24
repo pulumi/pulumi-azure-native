@@ -161,6 +161,8 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230201:UpdateRun" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UpdateRun.__pulumiType, name, resourceInputs, opts);
     }
 }

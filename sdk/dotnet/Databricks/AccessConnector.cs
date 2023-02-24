@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Databricks
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:AccessConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20221001preview:AccessConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

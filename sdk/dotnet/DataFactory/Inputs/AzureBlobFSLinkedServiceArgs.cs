@@ -76,6 +76,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// The Azure key vault secret reference of sasToken in sas uri.
+        /// </summary>
+        [Input("sasToken")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? SasToken { get; set; }
+
+        /// <summary>
+        /// SAS URI of the Azure Data Lake Storage Gen2 service. Type: string, SecureString or AzureKeyVaultSecretReference.
+        /// </summary>
+        [Input("sasUri")]
+        public Input<object>? SasUri { get; set; }
+
+        /// <summary>
         /// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
         /// </summary>
         [Input("servicePrincipalCredential")]
@@ -115,8 +127,8 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// <summary>
         /// Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         /// </summary>
-        [Input("url", required: true)]
-        public Input<object> Url { get; set; } = null!;
+        [Input("url")]
+        public Input<object>? Url { get; set; }
 
         public AzureBlobFSLinkedServiceArgs()
         {

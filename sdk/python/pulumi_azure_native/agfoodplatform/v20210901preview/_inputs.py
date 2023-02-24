@@ -21,25 +21,25 @@ __all__ = [
 @pulumi.input_type
 class ApiPropertiesArgs:
     def __init__(__self__, *,
-                 api_freshness_window_in_minutes: Optional[pulumi.Input[int]] = None):
+                 api_freshness_time_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         Api properties.
-        :param pulumi.Input[int] api_freshness_window_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
+        :param pulumi.Input[int] api_freshness_time_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
         """
-        if api_freshness_window_in_minutes is not None:
-            pulumi.set(__self__, "api_freshness_window_in_minutes", api_freshness_window_in_minutes)
+        if api_freshness_time_in_minutes is not None:
+            pulumi.set(__self__, "api_freshness_time_in_minutes", api_freshness_time_in_minutes)
 
     @property
-    @pulumi.getter(name="apiFreshnessWindowInMinutes")
-    def api_freshness_window_in_minutes(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="apiFreshnessTimeInMinutes")
+    def api_freshness_time_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Interval in minutes for which the weather data for the api needs to be refreshed.
         """
-        return pulumi.get(self, "api_freshness_window_in_minutes")
+        return pulumi.get(self, "api_freshness_time_in_minutes")
 
-    @api_freshness_window_in_minutes.setter
-    def api_freshness_window_in_minutes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "api_freshness_window_in_minutes", value)
+    @api_freshness_time_in_minutes.setter
+    def api_freshness_time_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "api_freshness_time_in_minutes", value)
 
 
 @pulumi.input_type

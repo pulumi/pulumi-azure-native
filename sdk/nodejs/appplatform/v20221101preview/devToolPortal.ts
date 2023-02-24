@@ -85,6 +85,8 @@ export class DevToolPortal extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230101preview:DevToolPortal" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevToolPortal.__pulumiType, name, resourceInputs, opts);
     }
 }

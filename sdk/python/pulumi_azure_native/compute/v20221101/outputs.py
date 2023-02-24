@@ -9397,8 +9397,16 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
             suggest = "vm_health"
         elif key == "bootDiagnostics":
             suggest = "boot_diagnostics"
+        elif key == "computerName":
+            suggest = "computer_name"
+        elif key == "hyperVGeneration":
+            suggest = "hyper_v_generation"
         elif key == "maintenanceRedeployStatus":
             suggest = "maintenance_redeploy_status"
+        elif key == "osName":
+            suggest = "os_name"
+        elif key == "osVersion":
+            suggest = "os_version"
         elif key == "placementGroupId":
             suggest = "placement_group_id"
         elif key == "platformFaultDomain":
@@ -9425,9 +9433,13 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
                  assigned_host: str,
                  vm_health: 'outputs.VirtualMachineHealthStatusResponse',
                  boot_diagnostics: Optional['outputs.BootDiagnosticsInstanceViewResponse'] = None,
+                 computer_name: Optional[str] = None,
                  disks: Optional[Sequence['outputs.DiskInstanceViewResponse']] = None,
                  extensions: Optional[Sequence['outputs.VirtualMachineExtensionInstanceViewResponse']] = None,
+                 hyper_v_generation: Optional[str] = None,
                  maintenance_redeploy_status: Optional['outputs.MaintenanceRedeployStatusResponse'] = None,
+                 os_name: Optional[str] = None,
+                 os_version: Optional[str] = None,
                  placement_group_id: Optional[str] = None,
                  platform_fault_domain: Optional[int] = None,
                  platform_update_domain: Optional[int] = None,
@@ -9439,9 +9451,13 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
         :param str assigned_host: Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. <br><br>Minimum api-version: 2020-06-01.
         :param 'VirtualMachineHealthStatusResponse' vm_health: The health status for the VM.
         :param 'BootDiagnosticsInstanceViewResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+        :param str computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
         :param Sequence['DiskInstanceViewResponse'] disks: The disks information.
         :param Sequence['VirtualMachineExtensionInstanceViewResponse'] extensions: The extensions information.
+        :param str hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
         :param 'MaintenanceRedeployStatusResponse' maintenance_redeploy_status: The Maintenance Operation status on the virtual machine.
+        :param str os_name: The Operating System running on the hybrid machine.
+        :param str os_version: The version of Operating System running on the hybrid machine.
         :param str placement_group_id: The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.
         :param int platform_fault_domain: The Fault Domain count.
         :param int platform_update_domain: The Update Domain count.
@@ -9453,12 +9469,20 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
         pulumi.set(__self__, "vm_health", vm_health)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
         if disks is not None:
             pulumi.set(__self__, "disks", disks)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
+        if hyper_v_generation is not None:
+            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if maintenance_redeploy_status is not None:
             pulumi.set(__self__, "maintenance_redeploy_status", maintenance_redeploy_status)
+        if os_name is not None:
+            pulumi.set(__self__, "os_name", os_name)
+        if os_version is not None:
+            pulumi.set(__self__, "os_version", os_version)
         if placement_group_id is not None:
             pulumi.set(__self__, "placement_group_id", placement_group_id)
         if platform_fault_domain is not None:
@@ -9497,6 +9521,14 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
         return pulumi.get(self, "boot_diagnostics")
 
     @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> Optional[str]:
+        """
+        Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
+        """
+        return pulumi.get(self, "computer_name")
+
+    @property
     @pulumi.getter
     def disks(self) -> Optional[Sequence['outputs.DiskInstanceViewResponse']]:
         """
@@ -9513,12 +9545,36 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
         return pulumi.get(self, "extensions")
 
     @property
+    @pulumi.getter(name="hyperVGeneration")
+    def hyper_v_generation(self) -> Optional[str]:
+        """
+        The hypervisor generation of the Virtual Machine [V1, V2]
+        """
+        return pulumi.get(self, "hyper_v_generation")
+
+    @property
     @pulumi.getter(name="maintenanceRedeployStatus")
     def maintenance_redeploy_status(self) -> Optional['outputs.MaintenanceRedeployStatusResponse']:
         """
         The Maintenance Operation status on the virtual machine.
         """
         return pulumi.get(self, "maintenance_redeploy_status")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> Optional[str]:
+        """
+        The Operating System running on the hybrid machine.
+        """
+        return pulumi.get(self, "os_name")
+
+    @property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> Optional[str]:
+        """
+        The version of Operating System running on the hybrid machine.
+        """
+        return pulumi.get(self, "os_version")
 
     @property
     @pulumi.getter(name="placementGroupId")

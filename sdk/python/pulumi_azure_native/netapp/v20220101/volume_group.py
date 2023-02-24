@@ -192,7 +192,7 @@ class VolumeGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20210801:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20211001:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20210801:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20211001:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeGroup, __self__).__init__(
             'azure-native:netapp/v20220101:VolumeGroup',

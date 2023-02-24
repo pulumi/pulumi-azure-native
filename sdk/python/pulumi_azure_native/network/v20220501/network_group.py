@@ -152,7 +152,7 @@ class NetworkGroup(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20210501preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220201preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220401preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20210501preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220201preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220401preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkGroup, __self__).__init__(
             'azure-native:network/v20220501:NetworkGroup',

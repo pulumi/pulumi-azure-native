@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201.Inputs
     public sealed class AppResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("addonConfigs")]
-        private InputMap<ImmutableDictionary<string, object>>? _addonConfigs;
+        private InputMap<object>? _addonConfigs;
 
         /// <summary>
         /// Collection of addons
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> AddonConfigs
+        public InputMap<object> AddonConfigs
         {
-            get => _addonConfigs ?? (_addonConfigs = new InputMap<ImmutableDictionary<string, object>>());
+            get => _addonConfigs ?? (_addonConfigs = new InputMap<object>());
             set => _addonConfigs = value;
         }
 

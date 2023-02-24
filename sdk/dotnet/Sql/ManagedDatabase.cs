@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

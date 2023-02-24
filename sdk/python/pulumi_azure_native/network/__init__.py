@@ -390,6 +390,8 @@ if typing.TYPE_CHECKING:
     v20220501 = __v20220501
     import pulumi_azure_native.network.v20220701 as __v20220701
     v20220701 = __v20220701
+    import pulumi_azure_native.network.v20220901 as __v20220901
+    v20220901 = __v20220901
 else:
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.network.v20150501preview')
     v20150504preview = _utilities.lazy_import('pulumi_azure_native.network.v20150504preview')
@@ -454,4 +456,5 @@ else:
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.network.v20220401preview')
     v20220501 = _utilities.lazy_import('pulumi_azure_native.network.v20220501')
     v20220701 = _utilities.lazy_import('pulumi_azure_native.network.v20220701')
+    v20220901 = _utilities.lazy_import('pulumi_azure_native.network.v20220901')
 

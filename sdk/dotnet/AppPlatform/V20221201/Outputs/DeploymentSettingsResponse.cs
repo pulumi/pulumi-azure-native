@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201.Outputs
         /// <summary>
         /// Collection of addons
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? AddonConfigs;
+        public readonly ImmutableDictionary<string, object>? AddonConfigs;
         /// <summary>
         /// Container liveness and readiness probe settings
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201.Outputs
 
         [OutputConstructor]
         private DeploymentSettingsResponse(
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? addonConfigs,
+            ImmutableDictionary<string, object>? addonConfigs,
 
             Outputs.ContainerProbeSettingsResponse? containerProbeSettings,
 

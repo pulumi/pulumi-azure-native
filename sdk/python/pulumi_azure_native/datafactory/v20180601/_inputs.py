@@ -5703,7 +5703,6 @@ class AzureBlobFSDatasetArgs:
 class AzureBlobFSLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 url: Any,
                  account_key: Optional[Any] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  azure_cloud_type: Optional[Any] = None,
@@ -5712,16 +5711,18 @@ class AzureBlobFSLinkedServiceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 sas_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 sas_uri: Optional[Any] = None,
                  service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 url: Optional[Any] = None):
         """
         Azure Data Lake Storage Gen2 linked service.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureBlobFS'.
-        :param Any url: Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         :param Any account_key: Account key for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
@@ -5730,14 +5731,16 @@ class AzureBlobFSLinkedServiceArgs:
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] sas_token: The Azure key vault secret reference of sasToken in sas uri.
+        :param Any sas_uri: SAS URI of the Azure Data Lake Storage Gen2 service. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
         :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Storage Gen2 account. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Storage Gen2 account.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any url: Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'AzureBlobFS')
-        pulumi.set(__self__, "url", url)
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
         if annotations is not None:
@@ -5754,6 +5757,10 @@ class AzureBlobFSLinkedServiceArgs:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if sas_uri is not None:
+            pulumi.set(__self__, "sas_uri", sas_uri)
         if service_principal_credential is not None:
             pulumi.set(__self__, "service_principal_credential", service_principal_credential)
         if service_principal_credential_type is not None:
@@ -5764,6 +5771,8 @@ class AzureBlobFSLinkedServiceArgs:
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -5777,18 +5786,6 @@ class AzureBlobFSLinkedServiceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> Any:
-        """
-        Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Any):
-        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -5887,6 +5884,30 @@ class AzureBlobFSLinkedServiceArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The Azure key vault secret reference of sasToken in sas uri.
+        """
+        return pulumi.get(self, "sas_token")
+
+    @sas_token.setter
+    def sas_token(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "sas_token", value)
+
+    @property
+    @pulumi.getter(name="sasUri")
+    def sas_uri(self) -> Optional[Any]:
+        """
+        SAS URI of the Azure Data Lake Storage Gen2 service. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "sas_uri")
+
+    @sas_uri.setter
+    def sas_uri(self, value: Optional[Any]):
+        pulumi.set(self, "sas_uri", value)
+
+    @property
     @pulumi.getter(name="servicePrincipalCredential")
     def service_principal_credential(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
         """
@@ -5945,6 +5966,18 @@ class AzureBlobFSLinkedServiceArgs:
     @tenant.setter
     def tenant(self, value: Optional[Any]):
         pulumi.set(self, "tenant", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[Any]:
+        """
+        Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[Any]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type

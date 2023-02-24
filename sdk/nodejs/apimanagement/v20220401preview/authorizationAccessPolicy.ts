@@ -90,6 +90,8 @@ export class AuthorizationAccessPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:AuthorizationAccessPolicy" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AuthorizationAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

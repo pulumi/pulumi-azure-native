@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:VirtualNetworkTap"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualNetworkTap"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetworkTap"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualNetworkTap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

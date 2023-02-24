@@ -107,7 +107,7 @@ export class Subvolume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20211001:Subvolume" }, { type: "azure-native:netapp/v20220101:Subvolume" }, { type: "azure-native:netapp/v20220301:Subvolume" }, { type: "azure-native:netapp/v20220501:Subvolume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20211001:Subvolume" }, { type: "azure-native:netapp/v20220101:Subvolume" }, { type: "azure-native:netapp/v20220301:Subvolume" }, { type: "azure-native:netapp/v20220501:Subvolume" }, { type: "azure-native:netapp/v20220901:Subvolume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Subvolume.__pulumiType, name, resourceInputs, opts);
     }

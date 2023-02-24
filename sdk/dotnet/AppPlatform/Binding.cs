@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:Binding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:Binding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:Binding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
