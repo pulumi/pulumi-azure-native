@@ -2,6 +2,49 @@
 
 ## HEAD (Unreleased)
 
+## 1.96.0 (2023-02-24)
+
+- New resource providers `networkcloud` (API version _2022-12-12-preview_) and `resourcehealth` (API version _2022-10-01-preview_).
+- New resources:
+  - `networkcloud.BareMetalMachine`
+  - `networkcloud.BareMetalMachineKeySet`
+  - `networkcloud.BmcKeySet`
+  - `networkcloud.CloudServicesNetwork`
+  - `networkcloud.Cluster`
+  - `networkcloud.ClusterManager`
+  - `networkcloud.Console`
+  - `networkcloud.DefaultCniNetwork`
+  - `networkcloud.HybridAksCluster`
+  - `networkcloud.L2Network`
+  - `networkcloud.L3Network`
+  - `networkcloud.MetricsConfiguration`
+  - `networkcloud.Rack`
+  - `networkcloud.StorageAppliance`
+  - `networkcloud.TrunkedNetwork`
+  - `networkcloud.VirtualMachine`
+  - `networkcloud.Volume`
+- New functions:
+  - `networkcloud.getBareMetalMachine`
+  - `networkcloud.getBareMetalMachineKeySet`
+  - `networkcloud.getBmcKeySet`
+  - `networkcloud.getCloudServicesNetwork`
+  - `networkcloud.getCluster`
+  - `networkcloud.getClusterManager`
+  - `networkcloud.getConsole`
+  - `networkcloud.getDefaultCniNetwork`
+  - `networkcloud.getHybridAksCluster`
+  - `networkcloud.getL2Network`
+  - `networkcloud.getL3Network`
+  - `networkcloud.getMetricsConfiguration`
+  - `networkcloud.getRack`
+  - `networkcloud.getStorageAppliance`
+  - `networkcloud.getTrunkedNetwork`
+  - `networkcloud.getVirtualMachine`
+  - `networkcloud.getVolume`
+  - `resourcehealth.listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId`
+  - `resourcehealth.listSecurityAdvisoryImpactedResourceByTenantIdAndEventId`
+
+
 ## 1.95.0 (2023-02-13)
 
 Upstream breaking changes:
