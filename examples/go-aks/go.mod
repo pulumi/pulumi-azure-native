@@ -22,7 +22,7 @@ require (
 	golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b // indirect
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
 	golang.org/x/net v0.0.0-20210326060303-6b1517762897 // indirect
-	golang.org/x/sys v0.0.0-20210817190340-bfb29a6856f2 // indirect
+	golang.org/x/sys v0.1.0 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	google.golang.org/genproto v0.0.0-20200608115520-7c474a2e3482 // indirect
 	google.golang.org/grpc v1.29.1 // indirect
