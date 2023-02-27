@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A budget resource.
+ * Gets the budget for the scope by budget name.
  */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
 
@@ -80,7 +80,7 @@ export interface GetBudgetResult {
     readonly type: string;
 }
 /**
- * A budget resource.
+ * Gets the budget for the scope by budget name.
  */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
     return pulumi.output(args).apply((a: any) => getBudget(a, opts))

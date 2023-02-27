@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Kusto cluster data set mapping
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getKustoClusterDataSetMapping(args: GetKustoClusterDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoClusterDataSetMappingResult> {
@@ -88,7 +88,7 @@ export interface GetKustoClusterDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A Kusto cluster data set mapping
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getKustoClusterDataSetMappingOutput(args: GetKustoClusterDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetMappingResult> {

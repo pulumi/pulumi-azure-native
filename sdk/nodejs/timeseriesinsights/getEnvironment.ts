@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+ * Gets the environment with the specified name in the specified subscription and resource group.
  * API Version: 2020-05-15.
  */
 /** @deprecated Please use one of the variants: Gen1Environment, Gen2Environment. */
@@ -72,7 +72,7 @@ export interface GetEnvironmentResult {
     readonly type: string;
 }
 /**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+ * Gets the environment with the specified name in the specified subscription and resource group.
  * API Version: 2020-05-15.
  */
 /** @deprecated Please use one of the variants: Gen1Environment, Gen2Environment. */

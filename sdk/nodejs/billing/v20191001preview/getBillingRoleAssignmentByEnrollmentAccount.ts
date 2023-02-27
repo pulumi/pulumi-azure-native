@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The role assignment
+ * Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
  */
 export function getBillingRoleAssignmentByEnrollmentAccount(args: GetBillingRoleAssignmentByEnrollmentAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByEnrollmentAccountResult> {
 
@@ -90,7 +90,7 @@ export interface GetBillingRoleAssignmentByEnrollmentAccountResult {
     readonly userEmailAddress?: string;
 }
 /**
- * The role assignment
+ * Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
  */
 export function getBillingRoleAssignmentByEnrollmentAccountOutput(args: GetBillingRoleAssignmentByEnrollmentAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByEnrollmentAccountResult> {
     return pulumi.output(args).apply((a: any) => getBillingRoleAssignmentByEnrollmentAccount(a, opts))

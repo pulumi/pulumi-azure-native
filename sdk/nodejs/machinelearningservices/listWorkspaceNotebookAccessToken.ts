@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * return notebook access token and refresh token
  * API Version: 2021-01-01.
  */
 export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookAccessTokenResult> {
@@ -38,6 +39,7 @@ export interface ListWorkspaceNotebookAccessTokenResult {
     readonly tokenType: string;
 }
 /**
+ * return notebook access token and refresh token
  * API Version: 2021-01-01.
  */
 export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebookAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookAccessTokenResult> {

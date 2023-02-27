@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The storageSpaces resource definition.
+ * Gets the Hybrid AKS storage space object
  * API Version: 2022-05-01-preview.
  */
 export function getstorageSpaceRetrieve(args: GetstorageSpaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetstorageSpaceRetrieveResult> {
@@ -66,7 +66,7 @@ export interface GetstorageSpaceRetrieveResult {
     readonly type: string;
 }
 /**
- * The storageSpaces resource definition.
+ * Gets the Hybrid AKS storage space object
  * API Version: 2022-05-01-preview.
  */
 export function getstorageSpaceRetrieveOutput(args: GetstorageSpaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetstorageSpaceRetrieveResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the watcher type.
+ * Retrieve the watcher identified by watcher name.
  * API Version: 2019-06-01.
  */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
@@ -99,7 +99,7 @@ export interface GetWatcherResult {
     readonly type: string;
 }
 /**
- * Definition of the watcher type.
+ * Retrieve the watcher identified by watcher name.
  * API Version: 2019-06-01.
  */
 export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {

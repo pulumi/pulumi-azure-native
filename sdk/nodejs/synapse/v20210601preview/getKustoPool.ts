@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a Kusto kusto pool.
+ * Gets a Kusto pool.
  */
 export function getKustoPool(args: GetKustoPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolResult> {
 
@@ -113,7 +113,7 @@ export interface GetKustoPoolResult {
     readonly workspaceUID?: string;
 }
 /**
- * Class representing a Kusto kusto pool.
+ * Gets a Kusto pool.
  */
 export function getKustoPoolOutput(args: GetKustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolResult> {
     return pulumi.output(args).apply((a: any) => getKustoPool(a, opts))

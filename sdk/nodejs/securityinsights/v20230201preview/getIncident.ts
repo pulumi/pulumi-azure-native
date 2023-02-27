@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets an incident.
+ */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -134,6 +137,9 @@ export interface GetIncidentResult {
      */
     readonly type: string;
 }
+/**
+ * Gets an incident.
+ */
 export function getIncidentOutput(args: GetIncidentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentResult> {
     return pulumi.output(args).apply((a: any) => getIncident(a, opts))
 }

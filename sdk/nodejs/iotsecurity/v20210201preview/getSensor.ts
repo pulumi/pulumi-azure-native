@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * IoT sensor model
+ * Get IoT sensor
  */
 export function getSensor(args: GetSensorArgs, opts?: pulumi.InvokeOptions): Promise<GetSensorResult> {
 
@@ -92,7 +92,7 @@ export interface GetSensorResult {
     readonly zone?: string;
 }
 /**
- * IoT sensor model
+ * Get IoT sensor
  */
 export function getSensorOutput(args: GetSensorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensorResult> {
     return pulumi.output(args).apply((a: any) => getSensor(a, opts))

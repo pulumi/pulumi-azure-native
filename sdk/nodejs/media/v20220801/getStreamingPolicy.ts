@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Streaming Policy resource
+ * Get the details of a Streaming Policy in the Media Services account
  */
 export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingPolicyResult> {
 
@@ -81,7 +81,7 @@ export interface GetStreamingPolicyResult {
     readonly type: string;
 }
 /**
- * A Streaming Policy resource
+ * Get the details of a Streaming Policy in the Media Services account
  */
 export function getStreamingPolicyOutput(args: GetStreamingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getStreamingPolicy(a, opts))

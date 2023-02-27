@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Api Operation details.
+ * Gets the details of the API Operation specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationResult> {
@@ -91,7 +91,7 @@ export interface GetApiOperationResult {
     readonly urlTemplate: string;
 }
 /**
- * Api Operation details.
+ * Gets the details of the API Operation specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getApiOperationOutput(args: GetApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Get Insights result operation response.
+ * Execute Insights for an entity.
  * API Version: 2019-01-01-preview.
  */
 export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityInsightsResult> {
@@ -75,7 +75,7 @@ export interface GetEntityInsightsResult {
     readonly value?: outputs.securityinsights.EntityInsightItemResponse[];
 }
 /**
- * The Get Insights result operation response.
+ * Execute Insights for an entity.
  * API Version: 2019-01-01-preview.
  */
 export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityInsightsResult> {

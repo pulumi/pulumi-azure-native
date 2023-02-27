@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Namespace/Relay Connection String
+ * Primary and Secondary ConnectionStrings to the namespace
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
 
@@ -58,7 +58,7 @@ export interface ListNamespaceKeysResult {
     readonly secondaryKey?: string;
 }
 /**
- * Namespace/Relay Connection String
+ * Primary and Secondary ConnectionStrings to the namespace
  */
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
     return pulumi.output(args).apply((a: any) => listNamespaceKeys(a, opts))

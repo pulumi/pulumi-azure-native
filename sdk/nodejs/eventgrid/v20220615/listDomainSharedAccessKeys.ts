@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Shared access keys of the Domain.
+ * List the two keys used to publish to a domain.
  */
 export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainSharedAccessKeysResult> {
 
@@ -41,7 +41,7 @@ export interface ListDomainSharedAccessKeysResult {
     readonly key2?: string;
 }
 /**
- * Shared access keys of the Domain.
+ * List the two keys used to publish to a domain.
  */
 export function listDomainSharedAccessKeysOutput(args: ListDomainSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainSharedAccessKeysResult> {
     return pulumi.output(args).apply((a: any) => listDomainSharedAccessKeys(a, opts))

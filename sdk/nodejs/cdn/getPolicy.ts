@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Defines web application firewall policy for Azure CDN.
+ * Retrieve protection policy with specified name within a resource group.
  * API Version: 2020-09-01.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
@@ -94,7 +94,7 @@ export interface GetPolicyResult {
     readonly type: string;
 }
 /**
- * Defines web application firewall policy for Azure CDN.
+ * Retrieve protection policy with specified name within a resource group.
  * API Version: 2020-09-01.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {

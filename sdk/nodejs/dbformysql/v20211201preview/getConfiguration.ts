@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a Configuration.
+ * Gets information about a configuration of server.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -93,7 +93,7 @@ export interface GetConfigurationResult {
     readonly value?: string;
 }
 /**
- * Represents a Configuration.
+ * Gets information about a configuration of server.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

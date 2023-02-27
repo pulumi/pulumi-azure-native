@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of topic resource.
+ * Returns a description for the specified topic.
  */
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
@@ -136,7 +136,7 @@ export interface GetTopicResult {
     readonly updatedAt: string;
 }
 /**
- * Description of topic resource.
+ * Returns a description for the specified topic.
  */
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {

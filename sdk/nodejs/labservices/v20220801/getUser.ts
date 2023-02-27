@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * User of a lab that can register for and use virtual machines within the lab.
+ * Returns the properties of a lab user.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -89,7 +89,7 @@ export interface GetUserResult {
     readonly type: string;
 }
 /**
- * User of a lab that can register for and use virtual machines within the lab.
+ * Returns the properties of a lab user.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

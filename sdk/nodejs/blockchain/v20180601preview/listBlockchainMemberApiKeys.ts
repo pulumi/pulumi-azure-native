@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Collection of the API key payload which is exposed in the response of the resource provider.
+ * Lists the API keys for a blockchain member.
  */
 export function listBlockchainMemberApiKeys(args: ListBlockchainMemberApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBlockchainMemberApiKeysResult> {
 
@@ -40,7 +40,7 @@ export interface ListBlockchainMemberApiKeysResult {
     readonly keys?: outputs.blockchain.v20180601preview.ApiKeyResponse[];
 }
 /**
- * Collection of the API key payload which is exposed in the response of the resource provider.
+ * Lists the API keys for a blockchain member.
  */
 export function listBlockchainMemberApiKeysOutput(args: ListBlockchainMemberApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBlockchainMemberApiKeysResult> {
     return pulumi.output(args).apply((a: any) => listBlockchainMemberApiKeys(a, opts))

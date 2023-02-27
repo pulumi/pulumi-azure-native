@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * disk access resource.
+ * Gets information about a disk access resource.
  * API Version: 2020-12-01.
  */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
@@ -69,7 +69,7 @@ export interface GetDiskAccessResult {
     readonly type: string;
 }
 /**
- * disk access resource.
+ * Gets information about a disk access resource.
  * API Version: 2020-12-01.
  */
 export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {

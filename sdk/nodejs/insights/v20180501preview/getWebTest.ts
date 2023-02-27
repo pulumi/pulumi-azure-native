@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Application Insights WebTest definition.
+ * Get a specific Application Insights web test definition.
  */
 export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
 
@@ -112,7 +112,7 @@ export interface GetWebTestResult {
     readonly webTestName: string;
 }
 /**
- * An Application Insights WebTest definition.
+ * Get a specific Application Insights web test definition.
  */
 export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebTestResult> {
     return pulumi.output(args).apply((a: any) => getWebTest(a, opts))

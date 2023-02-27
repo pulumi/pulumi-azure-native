@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+ * Gets details of the specified Data Lake Analytics account.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -176,7 +176,7 @@ export interface GetAccountResult {
     readonly virtualNetworkRules: outputs.datalakeanalytics.v20191101preview.VirtualNetworkRuleResponse[];
 }
 /**
- * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+ * Gets details of the specified Data Lake Analytics account.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response on GET of a hybrid use benefit
+ * Gets a given plan ID
  */
 export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridUseBenefitResult> {
 
@@ -68,7 +68,7 @@ export interface GetHybridUseBenefitResult {
     readonly type: string;
 }
 /**
- * Response on GET of a hybrid use benefit
+ * Gets a given plan ID
  */
 export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridUseBenefitResult> {
     return pulumi.output(args).apply((a: any) => getHybridUseBenefit(a, opts))

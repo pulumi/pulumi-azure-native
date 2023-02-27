@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ * Gets an existing origin within an endpoint.
  */
 /** @deprecated Version 2019-12-31 will be removed in v2 of the provider. */
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
@@ -93,7 +93,7 @@ export interface GetOriginResult {
     readonly weight?: number;
 }
 /**
- * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ * Gets an existing origin within an endpoint.
  */
 /** @deprecated Version 2019-12-31 will be removed in v2 of the provider. */
 export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Identity Provider details.
+ * Gets the configuration details of the identity Provider configured in specified service instance.
  */
 export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
 
@@ -78,7 +78,7 @@ export interface GetIdentityProviderResult {
     readonly type: string;
 }
 /**
- * Identity Provider details.
+ * Gets the configuration details of the identity Provider configured in specified service instance.
  */
 export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
     return pulumi.output(args).apply((a: any) => getIdentityProvider(a, opts))

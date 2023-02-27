@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Key Vault container ARM resource for a certificate that is purchased through Azure.
+ * Get the certificate associated with a certificate order.
  */
 export function getAppServiceCertificateOrderCertificate(args: GetAppServiceCertificateOrderCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderCertificateResult> {
 
@@ -74,7 +74,7 @@ export interface GetAppServiceCertificateOrderCertificateResult {
     readonly type: string;
 }
 /**
- * Key Vault container ARM resource for a certificate that is purchased through Azure.
+ * Get the certificate associated with a certificate order.
  */
 export function getAppServiceCertificateOrderCertificateOutput(args: GetAppServiceCertificateOrderCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderCertificateResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrderCertificate(a, opts))

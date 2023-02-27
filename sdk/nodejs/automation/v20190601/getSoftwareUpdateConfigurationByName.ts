@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Software update configuration properties.
+ * Get a single software update configuration by name.
  */
 export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConfigurationByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetSoftwareUpdateConfigurationByNameResult> {
 
@@ -89,7 +89,7 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
     readonly updateConfiguration: outputs.automation.v20190601.UpdateConfigurationResponse;
 }
 /**
- * Software update configuration properties.
+ * Get a single software update configuration by name.
  */
 export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
     return pulumi.output(args).apply((a: any) => getSoftwareUpdateConfigurationByName(a, opts))

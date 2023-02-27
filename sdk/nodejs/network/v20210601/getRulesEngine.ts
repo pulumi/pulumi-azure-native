@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+ * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
  */
 export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesEngineResult> {
 
@@ -61,7 +61,7 @@ export interface GetRulesEngineResult {
     readonly type: string;
 }
 /**
- * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+ * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
  */
 export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesEngineResult> {
     return pulumi.output(args).apply((a: any) => getRulesEngine(a, opts))

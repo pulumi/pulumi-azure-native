@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL virtual machine.
+ * Gets a SQL virtual machine.
  */
 export function getSqlVirtualMachine(args: GetSqlVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineResult> {
 
@@ -125,7 +125,7 @@ export interface GetSqlVirtualMachineResult {
     readonly wsfcDomainCredentials?: outputs.sqlvirtualmachine.v20211101preview.WsfcDomainCredentialsResponse;
 }
 /**
- * A SQL virtual machine.
+ * Gets a SQL virtual machine.
  */
 export function getSqlVirtualMachineOutput(args: GetSqlVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getSqlVirtualMachine(a, opts))

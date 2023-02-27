@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A secret.
+ * Get secret.
  * API Version: 2018-09-15.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
@@ -81,7 +81,7 @@ export interface GetSecretResult {
     readonly value?: string;
 }
 /**
- * A secret.
+ * Get secret.
  * API Version: 2018-09-15.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {

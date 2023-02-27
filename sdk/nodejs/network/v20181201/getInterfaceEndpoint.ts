@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Interface endpoint resource.
+ * Gets the specified interface endpoint by resource group.
  */
 export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInterfaceEndpointResult> {
 
@@ -89,7 +89,7 @@ export interface GetInterfaceEndpointResult {
     readonly type: string;
 }
 /**
- * Interface endpoint resource.
+ * Gets the specified interface endpoint by resource group.
  */
 export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInterfaceEndpointResult> {
     return pulumi.output(args).apply((a: any) => getInterfaceEndpoint(a, opts))

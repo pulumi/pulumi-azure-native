@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A private link scoped resource
+ * Gets a scoped resource in a private link scope.
  */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
 
@@ -65,7 +65,7 @@ export interface GetPrivateLinkScopedResourceResult {
     readonly type: string;
 }
 /**
- * A private link scoped resource
+ * Gets a scoped resource in a private link scope.
  */
 export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScopedResource(a, opts))

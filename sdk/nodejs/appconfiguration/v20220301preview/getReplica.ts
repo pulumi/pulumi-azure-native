@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The replica resource.
+ * Gets the properties of the specified replica.
  */
 export function getReplica(args: GetReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaResult> {
 
@@ -69,7 +69,7 @@ export interface GetReplicaResult {
     readonly type: string;
 }
 /**
- * The replica resource.
+ * Gets the properties of the specified replica.
  */
 export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaResult> {
     return pulumi.output(args).apply((a: any) => getReplica(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a connected cluster.
+ * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
 
@@ -120,7 +120,7 @@ export interface GetConnectedClusterResult {
     readonly type: string;
 }
 /**
- * Represents a connected cluster.
+ * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
     return pulumi.output(args).apply((a: any) => getConnectedCluster(a, opts))

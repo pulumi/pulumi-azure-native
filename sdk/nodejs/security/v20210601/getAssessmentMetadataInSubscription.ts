@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Security assessment metadata response
+ * Get metadata information on an assessment type in a specific subscription
  */
 export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
 
@@ -89,7 +89,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
     readonly userImpact?: string;
 }
 /**
- * Security assessment metadata response
+ * Get metadata information on an assessment type in a specific subscription
  */
 export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getAssessmentMetadataInSubscription(a, opts))

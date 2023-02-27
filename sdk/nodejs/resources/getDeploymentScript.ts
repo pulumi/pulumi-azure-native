@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Deployment script object.
+ * Gets a deployment script with a given name.
  * API Version: 2020-10-01.
  */
 /** @deprecated Please use one of the variants: AzureCliScript, AzurePowerShellScript. */
@@ -71,7 +71,7 @@ export interface GetDeploymentScriptResult {
     readonly type: string;
 }
 /**
- * Deployment script object.
+ * Gets a deployment script with a given name.
  * API Version: 2020-10-01.
  */
 /** @deprecated Please use one of the variants: AzureCliScript, AzurePowerShellScript. */

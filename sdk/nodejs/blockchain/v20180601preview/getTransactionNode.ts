@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Payload of the transaction node which is the request/response of the resource provider.
+ * Get the details of the transaction node.
  */
 export function getTransactionNode(args: GetTransactionNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetTransactionNodeResult> {
 
@@ -81,7 +81,7 @@ export interface GetTransactionNodeResult {
     readonly userName: string;
 }
 /**
- * Payload of the transaction node which is the request/response of the resource provider.
+ * Get the details of the transaction node.
  */
 export function getTransactionNodeOutput(args: GetTransactionNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransactionNodeResult> {
     return pulumi.output(args).apply((a: any) => getTransactionNode(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+ * Gets a Swift Virtual Network connection.
  */
 export function getWebAppSwiftVirtualNetworkConnectionSlot(args: GetWebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionSlotResult> {
 
@@ -62,7 +62,7 @@ export interface GetWebAppSwiftVirtualNetworkConnectionSlotResult {
     readonly type: string;
 }
 /**
- * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+ * Gets a Swift Virtual Network connection.
  */
 export function getWebAppSwiftVirtualNetworkConnectionSlotOutput(args: GetWebAppSwiftVirtualNetworkConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSwiftVirtualNetworkConnectionSlot(a, opts))

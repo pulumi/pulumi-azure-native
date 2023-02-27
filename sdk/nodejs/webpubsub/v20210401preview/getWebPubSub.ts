@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A class represent a resource.
+ * Get the resource and its properties.
  */
 export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubResult> {
 
@@ -127,7 +127,7 @@ export interface GetWebPubSubResult {
     readonly version: string;
 }
 /**
- * A class represent a resource.
+ * Get the resource and its properties.
  */
 export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSub(a, opts))

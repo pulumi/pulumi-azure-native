@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Disk.
+ * Get disk.
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
 
@@ -112,7 +112,7 @@ export interface GetDiskResult {
     readonly uniqueIdentifier: string;
 }
 /**
- * A Disk.
+ * Get disk.
  */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
     return pulumi.output(args).apply((a: any) => getDisk(a, opts))

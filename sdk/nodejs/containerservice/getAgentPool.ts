@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Agent Pool.
+ * Gets the details of the agent pool by managed cluster and resource group.
  * API Version: 2021-03-01.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
@@ -190,7 +190,7 @@ export interface GetAgentPoolResult {
     readonly vnetSubnetID?: string;
 }
 /**
- * Agent Pool.
+ * Gets the details of the agent pool by managed cluster and resource group.
  * API Version: 2021-03-01.
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {

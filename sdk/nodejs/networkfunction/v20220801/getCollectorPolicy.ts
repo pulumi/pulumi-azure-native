@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Collector policy resource.
+ * Gets the collector policy in a specified Traffic Collector
  */
 export function getCollectorPolicy(args: GetCollectorPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectorPolicyResult> {
 
@@ -81,7 +81,7 @@ export interface GetCollectorPolicyResult {
     readonly type: string;
 }
 /**
- * Collector policy resource.
+ * Gets the collector policy in a specified Traffic Collector
  */
 export function getCollectorPolicyOutput(args: GetCollectorPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectorPolicyResult> {
     return pulumi.output(args).apply((a: any) => getCollectorPolicy(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A custom image.
+ * Get custom image.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getCustomImage(args: GetCustomImageArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomImageResult> {
@@ -100,7 +100,7 @@ export interface GetCustomImageResult {
     readonly vm?: outputs.devtestlab.v20160515.CustomImagePropertiesFromVmResponse;
 }
 /**
- * A custom image.
+ * Get custom image.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomImageResult> {

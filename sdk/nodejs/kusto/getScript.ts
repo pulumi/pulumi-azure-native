@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a database script.
+ * Gets a Kusto cluster database script.
  * API Version: 2021-01-01.
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
@@ -79,7 +79,7 @@ export interface GetScriptResult {
     readonly type: string;
 }
 /**
- * Class representing a database script.
+ * Gets a Kusto cluster database script.
  * API Version: 2021-01-01.
  */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {

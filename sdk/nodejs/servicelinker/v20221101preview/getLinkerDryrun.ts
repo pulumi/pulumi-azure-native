@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * a dryrun job resource
+ * get a dryrun job
  */
 export function getLinkerDryrun(args: GetLinkerDryrunArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkerDryrunResult> {
 
@@ -68,7 +68,7 @@ export interface GetLinkerDryrunResult {
     readonly type: string;
 }
 /**
- * a dryrun job resource
+ * get a dryrun job
  */
 export function getLinkerDryrunOutput(args: GetLinkerDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerDryrunResult> {
     return pulumi.output(args).apply((a: any) => getLinkerDryrun(a, opts))

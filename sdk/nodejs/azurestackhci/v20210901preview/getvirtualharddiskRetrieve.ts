@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The virtual hard disk resource definition.
+ * Gets virtualharddisks by resource name
  */
 export function getvirtualharddiskRetrieve(args: GetvirtualharddiskRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualharddiskRetrieveResult> {
 
@@ -93,7 +93,7 @@ export interface GetvirtualharddiskRetrieveResult {
     readonly type: string;
 }
 /**
- * The virtual hard disk resource definition.
+ * Gets virtualharddisks by resource name
  */
 export function getvirtualharddiskRetrieveOutput(args: GetvirtualharddiskRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualharddiskRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getvirtualharddiskRetrieve(a, opts))

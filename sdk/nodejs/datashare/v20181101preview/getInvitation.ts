@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Invitation data transfer object.
+ * Get an invitation in a share
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
@@ -95,7 +95,7 @@ export interface GetInvitationResult {
     readonly userName: string;
 }
 /**
- * A Invitation data transfer object.
+ * Get an invitation in a share
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {

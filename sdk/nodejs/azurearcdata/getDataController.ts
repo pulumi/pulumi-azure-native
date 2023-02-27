@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data controller resource
+ * Retrieves a dataController resource
  * API Version: 2021-06-01-preview.
  */
 export function getDataController(args: GetDataControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataControllerResult> {
@@ -66,7 +66,7 @@ export interface GetDataControllerResult {
     readonly type: string;
 }
 /**
- * Data controller resource
+ * Retrieves a dataController resource
  * API Version: 2021-06-01-preview.
  */
 export function getDataControllerOutput(args: GetDataControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataControllerResult> {

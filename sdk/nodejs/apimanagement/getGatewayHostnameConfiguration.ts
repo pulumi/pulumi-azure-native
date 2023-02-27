@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gateway hostname configuration details.
+ * Get details of a hostname configuration
  * API Version: 2020-12-01.
  */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
@@ -80,7 +80,7 @@ export interface GetGatewayHostnameConfigurationResult {
     readonly type: string;
 }
 /**
- * Gateway hostname configuration details.
+ * Get details of a hostname configuration
  * API Version: 2020-12-01.
  */
 export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A class represents the access keys of SignalR service.
+ * Get the access keys of the SignalR resource.
  */
 export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSignalRKeysResult> {
 
@@ -49,7 +49,7 @@ export interface ListSignalRKeysResult {
     readonly secondaryKey?: string;
 }
 /**
- * A class represents the access keys of SignalR service.
+ * Get the access keys of the SignalR resource.
  */
 export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSignalRKeysResult> {
     return pulumi.output(args).apply((a: any) => listSignalRKeys(a, opts))

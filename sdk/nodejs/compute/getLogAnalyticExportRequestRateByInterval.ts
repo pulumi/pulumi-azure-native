@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * LogAnalytics operation status response
+ * Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
  * API Version: 2020-12-01.
  */
 export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticExportRequestRateByIntervalArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportRequestRateByIntervalResult> {
@@ -81,7 +81,7 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
     readonly properties: outputs.compute.LogAnalyticsOutputResponse;
 }
 /**
- * LogAnalytics operation status response
+ * Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
  * API Version: 2020-12-01.
  */
 export function getLogAnalyticExportRequestRateByIntervalOutput(args: GetLogAnalyticExportRequestRateByIntervalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportRequestRateByIntervalResult> {

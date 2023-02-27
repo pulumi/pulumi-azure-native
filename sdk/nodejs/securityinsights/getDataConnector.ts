@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 /** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector. */
@@ -61,7 +61,7 @@ export interface GetDataConnectorResult {
     readonly type: string;
 }
 /**
- * Data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 /** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector. */

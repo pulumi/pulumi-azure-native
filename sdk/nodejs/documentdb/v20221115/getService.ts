@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Properties for the database account.
+ * Gets the status of service.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -57,7 +57,7 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * Properties for the database account.
+ * Gets the status of service.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

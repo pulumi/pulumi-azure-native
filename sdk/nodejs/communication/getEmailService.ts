@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A class representing an EmailService resource.
+ * Get the EmailService and its properties.
  * API Version: 2021-10-01-preview.
  */
 export function getEmailService(args: GetEmailServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailServiceResult> {
@@ -69,7 +69,7 @@ export interface GetEmailServiceResult {
     readonly type: string;
 }
 /**
- * A class representing an EmailService resource.
+ * Get the EmailService and its properties.
  * API Version: 2021-10-01-preview.
  */
 export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {

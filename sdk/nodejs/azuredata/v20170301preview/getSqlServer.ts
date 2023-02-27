@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL server.
+ * Gets a SQL Server.
  */
 /** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider. */
 export function getSqlServer(args: GetSqlServerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerResult> {
@@ -73,7 +73,7 @@ export interface GetSqlServerResult {
     readonly version?: string;
 }
 /**
- * A SQL server.
+ * Gets a SQL Server.
  */
 /** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider. */
 export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerResult> {

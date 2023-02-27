@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Returns ResourceGuardProxy under vault and with the name referenced in request
  * API Version: 2021-02-01-preview.
  */
 export function getResourceGuardProxy(args: GetResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardProxyResult> {
@@ -63,6 +64,7 @@ export interface GetResourceGuardProxyResult {
     readonly type: string;
 }
 /**
+ * Returns ResourceGuardProxy under vault and with the name referenced in request
  * API Version: 2021-02-01-preview.
  */
 export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {

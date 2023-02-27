@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Android Policy entity for Intune MAM.
+ * Returns AndroidMAMPolicy with given name.
  */
 export function getAndroidMAMPolicyByName(args: GetAndroidMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAndroidMAMPolicyByNameResult> {
 
@@ -78,7 +78,7 @@ export interface GetAndroidMAMPolicyByNameResult {
     readonly type: string;
 }
 /**
- * Android Policy entity for Intune MAM.
+ * Returns AndroidMAMPolicy with given name.
  */
 export function getAndroidMAMPolicyByNameOutput(args: GetAndroidMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAndroidMAMPolicyByNameResult> {
     return pulumi.output(args).apply((a: any) => getAndroidMAMPolicyByName(a, opts))

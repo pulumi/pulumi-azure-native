@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description of Rule Resource.
+ * Retrieves the description for the specified rule.
  * API Version: 2017-04-01.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
@@ -80,7 +80,7 @@ export interface GetRuleResult {
     readonly type: string;
 }
 /**
- * Description of Rule Resource.
+ * Retrieves the description for the specified rule.
  * API Version: 2017-04-01.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {

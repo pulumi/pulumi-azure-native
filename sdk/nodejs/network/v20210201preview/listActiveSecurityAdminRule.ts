@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Result of the request to list active security admin rules. It contains a list of active security admin rules and a skiptoken to get the next set of results.
+ * Lists active security admin rules in a network manager.
  */
 export function listActiveSecurityAdminRule(args: ListActiveSecurityAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveSecurityAdminRuleResult> {
 
@@ -54,7 +54,7 @@ export interface ListActiveSecurityAdminRuleResult {
     readonly value?: (outputs.network.v20210201preview.ActiveDefaultSecurityAdminRuleResponse | outputs.network.v20210201preview.ActiveSecurityAdminRuleResponse)[];
 }
 /**
- * Result of the request to list active security admin rules. It contains a list of active security admin rules and a skiptoken to get the next set of results.
+ * Lists active security admin rules in a network manager.
  */
 export function listActiveSecurityAdminRuleOutput(args: ListActiveSecurityAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityAdminRuleResult> {
     return pulumi.output(args).apply((a: any) => listActiveSecurityAdminRule(a, opts))

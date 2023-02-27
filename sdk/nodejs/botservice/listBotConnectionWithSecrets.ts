@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Bot channel resource definition
+ * Get a Connection Setting registration for a Bot Service
  * API Version: 2021-03-01.
  */
 export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionWithSecretsResult> {
@@ -82,7 +82,7 @@ export interface ListBotConnectionWithSecretsResult {
     readonly zones: string[];
 }
 /**
- * Bot channel resource definition
+ * Get a Connection Setting registration for a Bot Service
  * API Version: 2021-03-01.
  */
 export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {

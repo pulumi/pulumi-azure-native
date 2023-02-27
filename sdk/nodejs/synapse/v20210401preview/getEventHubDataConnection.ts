@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing an event hub data connection.
+ * Returns a data connection.
  */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
 
@@ -108,7 +108,7 @@ export interface GetEventHubDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing an event hub data connection.
+ * Returns a data connection.
  */
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventHubDataConnection(a, opts))

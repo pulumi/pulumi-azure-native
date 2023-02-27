@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Tenant access information contract of the API Management service.
+ * Get tenant access information details.
  */
 export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessSecretsResult> {
 
@@ -58,7 +58,7 @@ export interface ListTenantAccessSecretsResult {
     readonly secondaryKey?: string;
 }
 /**
- * Tenant access information contract of the API Management service.
+ * Get tenant access information details.
  */
 export function listTenantAccessSecretsOutput(args: ListTenantAccessSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessSecretsResult> {
     return pulumi.output(args).apply((a: any) => listTenantAccessSecrets(a, opts))

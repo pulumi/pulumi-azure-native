@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Domain service.
+ * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
 /** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
@@ -142,7 +142,7 @@ export interface GetDomainServiceResult {
     readonly vnetSiteId: string;
 }
 /**
- * Domain service.
+ * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
 /** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
 export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {

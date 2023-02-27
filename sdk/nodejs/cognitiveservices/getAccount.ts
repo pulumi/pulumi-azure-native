@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+ * Returns a Cognitive Services account specified by the parameters.
  * API Version: 2017-04-18.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -77,7 +77,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+ * Returns a Cognitive Services account specified by the parameters.
  * API Version: 2017-04-18.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

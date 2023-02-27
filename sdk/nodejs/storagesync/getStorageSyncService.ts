@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Storage Sync Service object.
+ * Get a given StorageSyncService.
  * API Version: 2020-03-01.
  */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
@@ -85,7 +85,7 @@ export interface GetStorageSyncServiceResult {
     readonly type: string;
 }
 /**
- * Storage Sync Service object.
+ * Get a given StorageSyncService.
  * API Version: 2020-03-01.
  */
 export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {

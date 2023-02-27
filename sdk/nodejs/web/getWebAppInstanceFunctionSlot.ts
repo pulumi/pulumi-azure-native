@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Function information.
+ * Get function information by its ID for web site, or a deployment slot.
  * API Version: 2020-12-01.
  */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
@@ -112,7 +112,7 @@ export interface GetWebAppInstanceFunctionSlotResult {
     readonly type: string;
 }
 /**
- * Function information.
+ * Get function information by its ID for web site, or a deployment slot.
  * API Version: 2020-12-01.
  */
 export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {

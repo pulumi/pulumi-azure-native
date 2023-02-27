@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB SQL database.
+ * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccountSqlDatabase(args: GetDatabaseAccountSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlDatabaseResult> {
@@ -80,7 +80,7 @@ export interface GetDatabaseAccountSqlDatabaseResult {
     readonly users?: string;
 }
 /**
- * An Azure Cosmos DB SQL database.
+ * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccountSqlDatabaseOutput(args: GetDatabaseAccountSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountSqlDatabaseResult> {

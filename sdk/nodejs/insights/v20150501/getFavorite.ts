@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Properties that define a favorite that is associated to an Application Insights component.
+ * Get a single favorite by its FavoriteId, defined within an Application Insights component.
  */
 export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteResult> {
 
@@ -82,7 +82,7 @@ export interface GetFavoriteResult {
     readonly version?: string;
 }
 /**
- * Properties that define a favorite that is associated to an Application Insights component.
+ * Get a single favorite by its FavoriteId, defined within an Application Insights component.
  */
 export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteResult> {
     return pulumi.output(args).apply((a: any) => getFavorite(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Protection container mapping object.
+ * Gets the details of a protection container mapping.
  */
 /** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
 export function getReplicationProtectionContainerMapping(args: GetReplicationProtectionContainerMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionContainerMappingResult> {
@@ -73,7 +73,7 @@ export interface GetReplicationProtectionContainerMappingResult {
     readonly type: string;
 }
 /**
- * Protection container mapping object.
+ * Gets the details of a protection container mapping.
  */
 /** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
 export function getReplicationProtectionContainerMappingOutput(args: GetReplicationProtectionContainerMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionContainerMappingResult> {

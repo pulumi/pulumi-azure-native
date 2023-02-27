@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The container for solution.
+ * Retrieves the user ManagementAssociation.
  */
 export function getManagementAssociation(args: GetManagementAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementAssociationResult> {
 
@@ -71,7 +71,7 @@ export interface GetManagementAssociationResult {
     readonly type: string;
 }
 /**
- * The container for solution.
+ * Retrieves the user ManagementAssociation.
  */
 export function getManagementAssociationOutput(args: GetManagementAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementAssociationResult> {
     return pulumi.output(args).apply((a: any) => getManagementAssociation(a, opts))

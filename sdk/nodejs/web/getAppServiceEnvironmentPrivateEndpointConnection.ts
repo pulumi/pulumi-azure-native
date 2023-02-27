@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Remote Private Endpoint Connection ARM resource.
+ * Gets a private endpoint connection
  * API Version: 2020-12-01.
  */
 export function getAppServiceEnvironmentPrivateEndpointConnection(args: GetAppServiceEnvironmentPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentPrivateEndpointConnectionResult> {
@@ -71,7 +71,7 @@ export interface GetAppServiceEnvironmentPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Remote Private Endpoint Connection ARM resource.
+ * Gets a private endpoint connection
  * API Version: 2020-12-01.
  */
 export function getAppServiceEnvironmentPrivateEndpointConnectionOutput(args: GetAppServiceEnvironmentPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentPrivateEndpointConnectionResult> {

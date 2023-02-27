@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A kusto cluster data set.
+ * Get a DataSet in a share
  */
 export function getKustoClusterDataSet(args: GetKustoClusterDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoClusterDataSetResult> {
 
@@ -76,7 +76,7 @@ export interface GetKustoClusterDataSetResult {
     readonly type: string;
 }
 /**
- * A kusto cluster data set.
+ * Get a DataSet in a share
  */
 export function getKustoClusterDataSetOutput(args: GetKustoClusterDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetResult> {
     return pulumi.output(args).apply((a: any) => getKustoClusterDataSet(a, opts))

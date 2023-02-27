@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Device group
+ * Get device group
  * API Version: 2021-02-01-preview.
  */
 export function getDeviceGroup(args: GetDeviceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupResult> {
@@ -53,7 +53,7 @@ export interface GetDeviceGroupResult {
     readonly type: string;
 }
 /**
- * Device group
+ * Get device group
  * API Version: 2021-02-01-preview.
  */
 export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {

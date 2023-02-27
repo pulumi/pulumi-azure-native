@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes an outbound endpoint for a DNS resolver.
+ * Gets properties of an outbound endpoint for a DNS resolver.
  * API Version: 2020-04-01-preview.
  */
 export function getOutboundEndpoint(args: GetOutboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundEndpointResult> {
@@ -82,7 +82,7 @@ export interface GetOutboundEndpointResult {
     readonly type: string;
 }
 /**
- * Describes an outbound endpoint for a DNS resolver.
+ * Gets properties of an outbound endpoint for a DNS resolver.
  * API Version: 2020-04-01-preview.
  */
 export function getOutboundEndpointOutput(args: GetOutboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundEndpointResult> {

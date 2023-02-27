@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Object model for the Azure PowerShell script.
+ * Gets a deployment script with a given name.
  */
 export function getAzurePowerShellScript(args: GetAzurePowerShellScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetAzurePowerShellScriptResult> {
 
@@ -129,7 +129,7 @@ export interface GetAzurePowerShellScriptResult {
     readonly type: string;
 }
 /**
- * Object model for the Azure PowerShell script.
+ * Gets a deployment script with a given name.
  */
 export function getAzurePowerShellScriptOutput(args: GetAzurePowerShellScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzurePowerShellScriptResult> {
     return pulumi.output(args).apply((a: any) => getAzurePowerShellScript(a, opts))

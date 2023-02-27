@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Configures how to correlate scan data and logs with resources associated with the subscription.
+ * Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
  * API Version: 2021-01-15-preview.
  */
 export function listIngestionSettingTokens(args: ListIngestionSettingTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListIngestionSettingTokensResult> {
@@ -33,7 +33,7 @@ export interface ListIngestionSettingTokensResult {
     readonly token: string;
 }
 /**
- * Configures how to correlate scan data and logs with resources associated with the subscription.
+ * Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
  * API Version: 2021-01-15-preview.
  */
 export function listIngestionSettingTokensOutput(args: ListIngestionSettingTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIngestionSettingTokensResult> {

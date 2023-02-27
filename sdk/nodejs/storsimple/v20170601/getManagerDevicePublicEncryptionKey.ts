@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The public key.
+ * Returns the public encryption key of the device.
  */
 export function getManagerDevicePublicEncryptionKey(args: GetManagerDevicePublicEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerDevicePublicEncryptionKeyResult> {
 
@@ -42,7 +42,7 @@ export interface GetManagerDevicePublicEncryptionKeyResult {
     readonly key: string;
 }
 /**
- * The public key.
+ * Returns the public encryption key of the device.
  */
 export function getManagerDevicePublicEncryptionKeyOutput(args: GetManagerDevicePublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerDevicePublicEncryptionKeyResult> {
     return pulumi.output(args).apply((a: any) => getManagerDevicePublicEncryptionKey(a, opts))

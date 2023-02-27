@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a virtual machine scale set virtual machine.
+ * Gets a virtual machine from a VM scale set.
  */
 export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMResult> {
 
@@ -150,7 +150,7 @@ export interface GetVirtualMachineScaleSetVMResult {
     readonly zones: string[];
 }
 /**
- * Describes a virtual machine scale set virtual machine.
+ * Gets a virtual machine from a VM scale set.
  */
 export function getVirtualMachineScaleSetVMOutput(args: GetVirtualMachineScaleSetVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVM(a, opts))

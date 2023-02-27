@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Virtual Network resource.
+ * Gets the specified virtual network by resource group.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
 
@@ -109,7 +109,7 @@ export interface GetVirtualNetworkResult {
     readonly virtualNetworkPeerings?: outputs.network.v20200601.VirtualNetworkPeeringResponse[];
 }
 /**
- * Virtual Network resource.
+ * Gets the specified virtual network by resource group.
  */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))

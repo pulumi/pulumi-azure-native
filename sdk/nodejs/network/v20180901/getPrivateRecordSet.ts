@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+ * Gets a record set.
  */
 export function getPrivateRecordSet(args: GetPrivateRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateRecordSetResult> {
 
@@ -110,7 +110,7 @@ export interface GetPrivateRecordSetResult {
     readonly type: string;
 }
 /**
- * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+ * Gets a record set.
  */
 export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateRecordSetResult> {
     return pulumi.output(args).apply((a: any) => getPrivateRecordSet(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Configuration Assignment
+ * Get configuration for resource.
  */
 export function getConfigurationAssignmentParent(args: GetConfigurationAssignmentParentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentParentResult> {
 
@@ -89,7 +89,7 @@ export interface GetConfigurationAssignmentParentResult {
     readonly type: string;
 }
 /**
- * Configuration Assignment
+ * Get configuration for resource.
  */
 export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationAssignmentParent(a, opts))

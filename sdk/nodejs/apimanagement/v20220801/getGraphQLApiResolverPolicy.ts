@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Policy Contract details.
+ * Get the policy configuration at the GraphQL API Resolver level.
  */
 export function getGraphQLApiResolverPolicy(args: GetGraphQLApiResolverPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResolverPolicyResult> {
 
@@ -73,7 +73,7 @@ export interface GetGraphQLApiResolverPolicyResult {
     readonly value: string;
 }
 /**
- * Policy Contract details.
+ * Get the policy configuration at the GraphQL API Resolver level.
  */
 export function getGraphQLApiResolverPolicyOutput(args: GetGraphQLApiResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverPolicyResult> {
     return pulumi.output(args).apply((a: any) => getGraphQLApiResolverPolicy(a, opts))

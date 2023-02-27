@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * VirtualWAN Resource.
+ * Retrieves the details of a VirtualWAN.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVirtualWAN(args: GetVirtualWANArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWANResult> {
@@ -75,7 +75,7 @@ export interface GetVirtualWANResult {
     readonly vpnSites: outputs.network.v20180401.SubResourceResponse[];
 }
 /**
- * VirtualWAN Resource.
+ * Retrieves the details of a VirtualWAN.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVirtualWANOutput(args: GetVirtualWANOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWANResult> {

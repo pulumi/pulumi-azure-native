@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a Shared Private Link Resource
+ * Get the specified shared private link resource
  */
 export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRSharedPrivateLinkResourceResult> {
 
@@ -77,7 +77,7 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
     readonly type: string;
 }
 /**
- * Describes a Shared Private Link Resource
+ * Get the specified shared private link resource
  */
 export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRSharedPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getSignalRSharedPrivateLinkResource(a, opts))

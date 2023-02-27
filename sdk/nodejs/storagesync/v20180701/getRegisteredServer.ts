@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Registered Server resource.
+ * Get a given registered server.
  */
 /** @deprecated Version 2018-07-01 will be removed in v2 of the provider. */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
@@ -128,7 +128,7 @@ export interface GetRegisteredServerResult {
     readonly type: string;
 }
 /**
- * Registered Server resource.
+ * Get a given registered server.
  */
 /** @deprecated Version 2018-07-01 will be removed in v2 of the provider. */
 export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {

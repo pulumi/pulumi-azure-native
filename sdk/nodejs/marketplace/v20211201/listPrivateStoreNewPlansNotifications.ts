@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List of all new plans notifications for public offers
+ * List new plans notifications
  */
 export function listPrivateStoreNewPlansNotifications(args: ListPrivateStoreNewPlansNotificationsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreNewPlansNotificationsResult> {
 
@@ -32,7 +32,7 @@ export interface ListPrivateStoreNewPlansNotificationsResult {
     readonly newPlansNotifications?: outputs.marketplace.v20211201.NewNotificationsResponse[];
 }
 /**
- * List of all new plans notifications for public offers
+ * List new plans notifications
  */
 export function listPrivateStoreNewPlansNotificationsOutput(args: ListPrivateStoreNewPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreNewPlansNotificationsResult> {
     return pulumi.output(args).apply((a: any) => listPrivateStoreNewPlansNotifications(a, opts))

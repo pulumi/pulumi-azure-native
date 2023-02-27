@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The management group details.
+ * Get the details of the management group.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
 
@@ -74,7 +74,7 @@ export interface GetManagementGroupResult {
     readonly type: string;
 }
 /**
- * The management group details.
+ * Get the details of the management group.
  */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The cluster resource
+ * Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
  */
 /** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -174,7 +174,7 @@ export interface GetClusterResult {
     readonly vmImage?: string;
 }
 /**
- * The cluster resource
+ * Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
  */
 /** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

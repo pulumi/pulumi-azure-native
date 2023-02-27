@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Guest Usages Resource
+ * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  * API Version: 2020-05-01-preview.
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
@@ -58,7 +58,7 @@ export interface GetGuestUsageResult {
     readonly type: string;
 }
 /**
- * Guest Usages Resource
+ * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  * API Version: 2020-05-01-preview.
  */
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {

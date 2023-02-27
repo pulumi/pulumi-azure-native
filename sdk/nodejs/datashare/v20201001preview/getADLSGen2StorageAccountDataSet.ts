@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An ADLSGen2 storage account data set.
+ * Get a DataSet in a share
  */
 export function getADLSGen2StorageAccountDataSet(args: GetADLSGen2StorageAccountDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2StorageAccountDataSetResult> {
 
@@ -83,7 +83,7 @@ export interface GetADLSGen2StorageAccountDataSetResult {
     readonly type: string;
 }
 /**
- * An ADLSGen2 storage account data set.
+ * Get a DataSet in a share
  */
 export function getADLSGen2StorageAccountDataSetOutput(args: GetADLSGen2StorageAccountDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2StorageAccountDataSetResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen2StorageAccountDataSet(a, opts))

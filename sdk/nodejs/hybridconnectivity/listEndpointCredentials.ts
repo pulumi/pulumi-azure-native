@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The endpoint access for the target resource.
+ * Gets the endpoint access credentials to the resource.
  * API Version: 2022-05-01-preview.
  */
 export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointCredentialsResult> {
@@ -59,7 +59,7 @@ export interface ListEndpointCredentialsResult {
     readonly namespaceNameSuffix: string;
 }
 /**
- * The endpoint access for the target resource.
+ * Gets the endpoint access credentials to the resource.
  * API Version: 2022-05-01-preview.
  */
 export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointCredentialsResult> {

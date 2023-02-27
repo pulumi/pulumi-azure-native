@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get properties of the provided storage appliance.
  * API Version: 2022-12-12-preview.
  */
 export function getStorageAppliance(args: GetStorageApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageApplianceResult> {
@@ -114,6 +115,7 @@ export interface GetStorageApplianceResult {
     readonly type: string;
 }
 /**
+ * Get properties of the provided storage appliance.
  * API Version: 2022-12-12-preview.
  */
 export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageApplianceResult> {

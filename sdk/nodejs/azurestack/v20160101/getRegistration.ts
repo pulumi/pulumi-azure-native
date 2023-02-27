@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Registration information.
+ * Returns the properties of an Azure Stack registration.
  */
 /** @deprecated Version 2016-01-01 will be removed in v2 of the provider. */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
@@ -71,7 +71,7 @@ export interface GetRegistrationResult {
     readonly type: string;
 }
 /**
- * Registration information.
+ * Returns the properties of an Azure Stack registration.
  */
 /** @deprecated Version 2016-01-01 will be removed in v2 of the provider. */
 export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationResult> {

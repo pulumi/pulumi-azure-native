@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a database data masking policy.
+ * Gets a database data masking policy.
  */
 export function getDataMaskingPolicy(args: GetDataMaskingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDataMaskingPolicyResult> {
 
@@ -79,7 +79,7 @@ export interface GetDataMaskingPolicyResult {
     readonly type: string;
 }
 /**
- * Represents a database data masking policy.
+ * Gets a database data masking policy.
  */
 export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataMaskingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDataMaskingPolicy(a, opts))

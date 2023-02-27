@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * FarmBeats ARM Resource.
+ * Get FarmBeats resource.
  * API Version: 2020-05-12-preview.
  */
 export function getFarmBeatsModel(args: GetFarmBeatsModelArgs, opts?: pulumi.InvokeOptions): Promise<GetFarmBeatsModelResult> {
@@ -73,7 +73,7 @@ export interface GetFarmBeatsModelResult {
     readonly type: string;
 }
 /**
- * FarmBeats ARM Resource.
+ * Get FarmBeats resource.
  * API Version: 2020-05-12-preview.
  */
 export function getFarmBeatsModelOutput(args: GetFarmBeatsModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFarmBeatsModelResult> {

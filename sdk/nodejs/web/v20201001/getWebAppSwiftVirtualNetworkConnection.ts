@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+ * Gets a Swift Virtual Network connection.
  */
 export function getWebAppSwiftVirtualNetworkConnection(args: GetWebAppSwiftVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionResult> {
 
@@ -64,7 +64,7 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
     readonly type: string;
 }
 /**
- * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+ * Gets a Swift Virtual Network connection.
  */
 export function getWebAppSwiftVirtualNetworkConnectionOutput(args: GetWebAppSwiftVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSwiftVirtualNetworkConnection(a, opts))

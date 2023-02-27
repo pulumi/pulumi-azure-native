@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Migrate project.
+ * Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
  */
 export function getMigrateProjectsControllerMigrateProject(args: GetMigrateProjectsControllerMigrateProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateProjectsControllerMigrateProjectResult> {
 
@@ -64,7 +64,7 @@ export interface GetMigrateProjectsControllerMigrateProjectResult {
     readonly type: string;
 }
 /**
- * Migrate project.
+ * Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
  */
 export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
     return pulumi.output(args).apply((a: any) => getMigrateProjectsControllerMigrateProject(a, opts))

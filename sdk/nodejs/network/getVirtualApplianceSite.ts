@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Virtual Appliance Site resource.
+ * Gets the specified Virtual Appliance Site.
  * API Version: 2020-11-01.
  */
 export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualApplianceSiteResult> {
@@ -70,7 +70,7 @@ export interface GetVirtualApplianceSiteResult {
     readonly type: string;
 }
 /**
- * Virtual Appliance Site resource.
+ * Gets the specified Virtual Appliance Site.
  * API Version: 2020-11-01.
  */
 export function getVirtualApplianceSiteOutput(args: GetVirtualApplianceSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualApplianceSiteResult> {

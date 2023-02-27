@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Settings with single toggle.
+ * Gets a setting.
  */
 export function getEntityAnalytics(args: GetEntityAnalyticsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityAnalyticsResult> {
 
@@ -68,7 +68,7 @@ export interface GetEntityAnalyticsResult {
     readonly type: string;
 }
 /**
- * Settings with single toggle.
+ * Gets a setting.
  */
 export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityAnalyticsResult> {
     return pulumi.output(args).apply((a: any) => getEntityAnalytics(a, opts))

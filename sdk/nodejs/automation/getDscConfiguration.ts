@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the configuration type.
+ * Retrieve the configuration identified by configuration name.
  * API Version: 2019-06-01.
  */
 export function getDscConfiguration(args: GetDscConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscConfigurationResult> {
@@ -106,7 +106,7 @@ export interface GetDscConfigurationResult {
     readonly type: string;
 }
 /**
- * Definition of the configuration type.
+ * Retrieve the configuration identified by configuration name.
  * API Version: 2019-06-01.
  */
 export function getDscConfigurationOutput(args: GetDscConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscConfigurationResult> {

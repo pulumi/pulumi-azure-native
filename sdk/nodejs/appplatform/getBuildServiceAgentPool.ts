@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The build service agent pool resource
+ * Get build service agent pool.
  * API Version: 2022-01-01-preview.
  */
 export function getBuildServiceAgentPool(args: GetBuildServiceAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceAgentPoolResult> {
@@ -67,7 +67,7 @@ export interface GetBuildServiceAgentPoolResult {
     readonly type: string;
 }
 /**
- * The build service agent pool resource
+ * Get build service agent pool.
  * API Version: 2022-01-01-preview.
  */
 export function getBuildServiceAgentPoolOutput(args: GetBuildServiceAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceAgentPoolResult> {

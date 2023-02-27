@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A managed server DNS alias.
+ * Gets a server DNS alias.
  * API Version: 2021-11-01-preview.
  */
 export function getManagedServerDnsAlias(args: GetManagedServerDnsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedServerDnsAliasResult> {
@@ -56,7 +56,7 @@ export interface GetManagedServerDnsAliasResult {
     readonly type: string;
 }
 /**
- * A managed server DNS alias.
+ * Gets a server DNS alias.
  * API Version: 2021-11-01-preview.
  */
 export function getManagedServerDnsAliasOutput(args: GetManagedServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedServerDnsAliasResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
+ * The operation that retrieves information about a capacity reservation group.
  * API Version: 2021-04-01.
  */
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
@@ -78,7 +78,7 @@ export interface GetCapacityReservationGroupResult {
     readonly zones?: string[];
 }
 /**
- * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
+ * The operation that retrieves information about a capacity reservation group.
  * API Version: 2021-04-01.
  */
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationGroupResult> {

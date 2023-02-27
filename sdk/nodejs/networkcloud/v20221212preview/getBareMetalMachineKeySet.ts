@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get bare metal machine key set of the provided cluster.
+ */
 export function getBareMetalMachineKeySet(args: GetBareMetalMachineKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineKeySetResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,6 +109,9 @@ export interface GetBareMetalMachineKeySetResult {
      */
     readonly userListStatus: outputs.networkcloud.v20221212preview.KeySetUserStatusResponse[];
 }
+/**
+ * Get bare metal machine key set of the provided cluster.
+ */
 export function getBareMetalMachineKeySetOutput(args: GetBareMetalMachineKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineKeySetResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalMachineKeySet(a, opts))
 }

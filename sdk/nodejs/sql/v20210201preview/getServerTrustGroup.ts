@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A server trust group.
+ * Gets a server trust group.
  */
 export function getServerTrustGroup(args: GetServerTrustGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustGroupResult> {
 
@@ -61,7 +61,7 @@ export interface GetServerTrustGroupResult {
     readonly type: string;
 }
 /**
- * A server trust group.
+ * Gets a server trust group.
  */
 export function getServerTrustGroupOutput(args: GetServerTrustGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustGroupResult> {
     return pulumi.output(args).apply((a: any) => getServerTrustGroup(a, opts))

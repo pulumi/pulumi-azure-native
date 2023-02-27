@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Packet core data plane resource.
+ * Gets information about the specified packet core data plane.
  * API Version: 2022-04-01-preview.
  */
 export function getPacketCoreDataPlane(args: GetPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreDataPlaneResult> {
@@ -98,7 +98,7 @@ export interface GetPacketCoreDataPlaneResult {
     readonly userPlaneAccessInterface: outputs.mobilenetwork.InterfacePropertiesResponse;
 }
 /**
- * Packet core data plane resource.
+ * Gets information about the specified packet core data plane.
  * API Version: 2022-04-01-preview.
  */
 export function getPacketCoreDataPlaneOutput(args: GetPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreDataPlaneResult> {

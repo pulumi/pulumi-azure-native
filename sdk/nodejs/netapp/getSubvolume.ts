@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Subvolume Information properties
+ * Returns the path associated with the subvolumeName provided
  * API Version: 2021-10-01.
  */
 export function getSubvolume(args: GetSubvolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeResult> {
@@ -80,7 +80,7 @@ export interface GetSubvolumeResult {
     readonly type: string;
 }
 /**
- * Subvolume Information properties
+ * Returns the path associated with the subvolumeName provided
  * API Version: 2021-10-01.
  */
 export function getSubvolumeOutput(args: GetSubvolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeResult> {

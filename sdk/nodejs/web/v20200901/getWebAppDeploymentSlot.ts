@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * User credentials used for publishing activity.
+ * Get a deployment by its ID for an app, or a deployment slot.
  */
 export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentSlotResult> {
 
@@ -102,7 +102,7 @@ export interface GetWebAppDeploymentSlotResult {
     readonly type: string;
 }
 /**
- * User credentials used for publishing activity.
+ * Get a deployment by its ID for an app, or a deployment slot.
  */
 export function getWebAppDeploymentSlotOutput(args: GetWebAppDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDeploymentSlot(a, opts))

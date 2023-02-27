@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Route Filter Rule Resource.
+ * Gets the specified rule from a route filter.
  * API Version: 2020-11-01.
  */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
@@ -71,7 +71,7 @@ export interface GetRouteFilterRuleResult {
     readonly routeFilterRuleType: string;
 }
 /**
- * Route Filter Rule Resource.
+ * Gets the specified rule from a route filter.
  * API Version: 2020-11-01.
  */
 export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterRuleResult> {

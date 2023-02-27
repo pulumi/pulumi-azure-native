@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Product information.
+ * Returns the specified product.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
 
@@ -129,7 +129,7 @@ export interface GetProductResult {
     readonly vmExtensionType?: string;
 }
 /**
- * Product information.
+ * Returns the specified product.
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
     return pulumi.output(args).apply((a: any) => getProduct(a, opts))

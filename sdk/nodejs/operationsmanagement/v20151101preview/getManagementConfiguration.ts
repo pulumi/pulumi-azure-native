@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The container for solution.
+ * Retrieves the user ManagementConfiguration.
  */
 export function getManagementConfiguration(args: GetManagementConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementConfigurationResult> {
 
@@ -56,7 +56,7 @@ export interface GetManagementConfigurationResult {
     readonly type: string;
 }
 /**
- * The container for solution.
+ * Retrieves the user ManagementConfiguration.
  */
 export function getManagementConfigurationOutput(args: GetManagementConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getManagementConfiguration(a, opts))

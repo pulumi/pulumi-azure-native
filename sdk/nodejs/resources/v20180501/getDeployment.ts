@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Deployment information.
+ * Gets a deployment.
  */
 /** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
@@ -58,7 +58,7 @@ export interface GetDeploymentResult {
     readonly type: string;
 }
 /**
- * Deployment information.
+ * Gets a deployment.
  */
 /** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {

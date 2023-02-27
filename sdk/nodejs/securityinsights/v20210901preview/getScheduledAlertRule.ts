@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents scheduled alert rule.
+ * Gets the alert rule.
  */
 export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAlertRuleResult> {
 
@@ -146,7 +146,7 @@ export interface GetScheduledAlertRuleResult {
     readonly type: string;
 }
 /**
- * Represents scheduled alert rule.
+ * Gets the alert rule.
  */
 export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAlertRule(a, opts))

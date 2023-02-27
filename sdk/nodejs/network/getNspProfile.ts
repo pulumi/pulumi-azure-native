@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The network security perimeter profile resource
+ * Gets the specified NSP profile.
  * API Version: 2021-02-01-preview.
  */
 export function getNspProfile(args: GetNspProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNspProfileResult> {
@@ -67,7 +67,7 @@ export interface GetNspProfileResult {
     readonly type: string;
 }
 /**
- * The network security perimeter profile resource
+ * Gets the specified NSP profile.
  * API Version: 2021-02-01-preview.
  */
 export function getNspProfileOutput(args: GetNspProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspProfileResult> {

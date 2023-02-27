@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a Workspace definition.
+ * Get a workspace.
  */
 /** @deprecated Version 2019-12-10-preview will be removed in v2 of the provider. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -67,7 +67,7 @@ export interface GetWorkspaceResult {
     readonly type: string;
 }
 /**
- * Represents a Workspace definition.
+ * Get a workspace.
  */
 /** @deprecated Version 2019-12-10-preview will be removed in v2 of the provider. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {

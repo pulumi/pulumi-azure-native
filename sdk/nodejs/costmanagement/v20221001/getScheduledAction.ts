@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Scheduled action definition.
+ * Get the private scheduled action by name.
  */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
 
@@ -87,7 +87,7 @@ export interface GetScheduledActionResult {
     readonly viewId: string;
 }
 /**
- * Scheduled action definition.
+ * Get the private scheduled action by name.
  */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))

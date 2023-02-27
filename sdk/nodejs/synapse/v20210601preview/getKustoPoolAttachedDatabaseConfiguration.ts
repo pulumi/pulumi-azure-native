@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing an attached database configuration.
+ * Returns an attached database configuration.
  */
 export function getKustoPoolAttachedDatabaseConfiguration(args: GetKustoPoolAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolAttachedDatabaseConfigurationResult> {
 
@@ -90,7 +90,7 @@ export interface GetKustoPoolAttachedDatabaseConfigurationResult {
     readonly type: string;
 }
 /**
- * Class representing an attached database configuration.
+ * Returns an attached database configuration.
  */
 export function getKustoPoolAttachedDatabaseConfigurationOutput(args: GetKustoPoolAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolAttachedDatabaseConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getKustoPoolAttachedDatabaseConfiguration(a, opts))

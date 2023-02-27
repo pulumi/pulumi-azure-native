@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A share data transfer object.
+ * Get a share
  * API Version: 2020-09-01.
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
@@ -86,7 +86,7 @@ export interface GetShareResult {
     readonly userName: string;
 }
 /**
- * A share data transfer object.
+ * Get a share
  * API Version: 2020-09-01.
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {

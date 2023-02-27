@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An Azure SQL managed instance administrator.
+ * Gets a managed instance administrator.
  * API Version: 2020-11-01-preview.
  */
 export function getManagedInstanceAdministrator(args: GetManagedInstanceAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceAdministratorResult> {
@@ -64,7 +64,7 @@ export interface GetManagedInstanceAdministratorResult {
     readonly type: string;
 }
 /**
- * An Azure SQL managed instance administrator.
+ * Gets a managed instance administrator.
  * API Version: 2020-11-01-preview.
  */
 export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAdministratorResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Global parameters resource type.
+ * Gets a Global parameter
  * API Version: 2018-06-01.
  */
 export function getGlobalParameter(args: GetGlobalParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalParameterResult> {
@@ -62,7 +62,7 @@ export interface GetGlobalParameterResult {
     readonly type: string;
 }
 /**
- * Global parameters resource type.
+ * Gets a Global parameter
  * API Version: 2018-06-01.
  */
 export function getGlobalParameterOutput(args: GetGlobalParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalParameterResult> {

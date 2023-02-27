@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a bookmark in Azure Security Insights.
+ * Gets a bookmark.
  */
 export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkResult> {
 
@@ -109,7 +109,7 @@ export interface GetBookmarkResult {
     readonly updatedBy?: outputs.securityinsights.v20200101.UserInfoResponse;
 }
 /**
- * Represents a bookmark in Azure Security Insights.
+ * Gets a bookmark.
  */
 export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkResult> {
     return pulumi.output(args).apply((a: any) => getBookmark(a, opts))

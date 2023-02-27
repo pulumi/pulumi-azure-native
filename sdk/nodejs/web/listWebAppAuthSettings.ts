@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ * Gets the Authentication/Authorization settings of an app.
  * API Version: 2020-12-01.
  */
 export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsResult> {
@@ -254,7 +254,7 @@ export interface ListWebAppAuthSettingsResult {
     readonly validateIssuer?: boolean;
 }
 /**
- * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ * Gets the Authentication/Authorization settings of an app.
  * API Version: 2020-12-01.
  */
 export function listWebAppAuthSettingsOutput(args: ListWebAppAuthSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsResult> {

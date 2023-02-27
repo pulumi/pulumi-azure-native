@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Schema Contract details.
+ * Gets the details of the Schema specified by its identifier.
  * API Version: 2021-04-01-preview.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
@@ -63,7 +63,7 @@ export interface GetSchemaResult {
     readonly value?: string;
 }
 /**
- * Schema Contract details.
+ * Gets the details of the Schema specified by its identifier.
  * API Version: 2021-04-01-preview.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {

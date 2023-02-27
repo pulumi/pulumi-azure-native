@@ -8,8 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The task that has the ARM resource and task properties.
- * The task will have all information to schedule a run against it.
+ * Get the properties of a specified task.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
 
@@ -119,8 +118,7 @@ export interface GetTaskResult {
     readonly type: string;
 }
 /**
- * The task that has the ARM resource and task properties.
- * The task will have all information to schedule a run against it.
+ * Get the properties of a specified task.
  */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
     return pulumi.output(args).apply((a: any) => getTask(a, opts))

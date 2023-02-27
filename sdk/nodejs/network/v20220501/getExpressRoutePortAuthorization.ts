@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * ExpressRoutePort Authorization resource definition.
+ * Gets the specified authorization from the specified express route port.
  */
 export function getExpressRoutePortAuthorization(args: GetExpressRoutePortAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortAuthorizationResult> {
 
@@ -70,7 +70,7 @@ export interface GetExpressRoutePortAuthorizationResult {
     readonly type: string;
 }
 /**
- * ExpressRoutePort Authorization resource definition.
+ * Gets the specified authorization from the specified express route port.
  */
 export function getExpressRoutePortAuthorizationOutput(args: GetExpressRoutePortAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getExpressRoutePortAuthorization(a, opts))

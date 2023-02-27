@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+ * Gets the access policy with the specified name in the specified environment.
  */
 /** @deprecated Version 2018-08-15-preview will be removed in v2 of the provider. */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
@@ -64,7 +64,7 @@ export interface GetAccessPolicyResult {
     readonly type: string;
 }
 /**
- * An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+ * Gets the access policy with the specified name in the specified environment.
  */
 /** @deprecated Version 2018-08-15-preview will be removed in v2 of the provider. */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {

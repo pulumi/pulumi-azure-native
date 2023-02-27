@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get a VMware collector.
  * API Version: 2019-10-01.
  */
 export function getVMwareCollector(args: GetVMwareCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetVMwareCollectorResult> {
@@ -43,6 +44,7 @@ export interface GetVMwareCollectorResult {
     readonly type: string;
 }
 /**
+ * Get a VMware collector.
  * API Version: 2019-10-01.
  */
 export function getVMwareCollectorOutput(args: GetVMwareCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMwareCollectorResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The build service agent pool resource
+ * Get build service agent pool.
  */
 export function getBuildServiceAgentPool(args: GetBuildServiceAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceAgentPoolResult> {
 
@@ -66,7 +66,7 @@ export interface GetBuildServiceAgentPoolResult {
     readonly type: string;
 }
 /**
- * The build service agent pool resource
+ * Get build service agent pool.
  */
 export function getBuildServiceAgentPoolOutput(args: GetBuildServiceAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getBuildServiceAgentPool(a, opts))

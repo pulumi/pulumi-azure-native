@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+ * Returns the symmetric encryption key of the manager.
  */
 export function getManagerEncryptionKey(args: GetManagerEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerEncryptionKeyResult> {
 
@@ -45,7 +45,7 @@ export interface GetManagerEncryptionKeyResult {
     readonly valueCertificateThumbprint?: string;
 }
 /**
- * This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+ * Returns the symmetric encryption key of the manager.
  */
 export function getManagerEncryptionKeyOutput(args: GetManagerEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerEncryptionKeyResult> {
     return pulumi.output(args).apply((a: any) => getManagerEncryptionKey(a, opts))

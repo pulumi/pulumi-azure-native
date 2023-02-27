@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes the result of the request to view entities.
+ * List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
  */
 export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     args = args || {};
@@ -85,7 +85,7 @@ export interface GetEntityResult {
     readonly value?: outputs.management.v20200501.EntityInfoResponse[];
 }
 /**
- * Describes the result of the request to view entities.
+ * List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
  */
 export function getEntityOutput(args?: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
     return pulumi.output(args).apply((a: any) => getEntity(a, opts))

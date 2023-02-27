@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
+ * Lists DNS forwarding ruleset resource IDs attached to a virtual network.
  * API Version: 2020-04-01-preview.
  */
 export function listDnsForwardingRulesetByVirtualNetwork(args: ListDnsForwardingRulesetByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsForwardingRulesetByVirtualNetworkResult> {
@@ -50,7 +50,7 @@ export interface ListDnsForwardingRulesetByVirtualNetworkResult {
     readonly value?: outputs.network.VirtualNetworkDnsForwardingRulesetResponse[];
 }
 /**
- * The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
+ * Lists DNS forwarding ruleset resource IDs attached to a virtual network.
  * API Version: 2020-04-01-preview.
  */
 export function listDnsForwardingRulesetByVirtualNetworkOutput(args: ListDnsForwardingRulesetByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsForwardingRulesetByVirtualNetworkResult> {

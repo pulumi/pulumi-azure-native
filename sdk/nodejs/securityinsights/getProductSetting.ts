@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Setting.
+ * Gets a setting.
  * API Version: 2021-03-01-preview.
  */
 /** @deprecated Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba. */
@@ -73,7 +73,7 @@ export interface GetProductSettingResult {
     readonly type: string;
 }
 /**
- * The Setting.
+ * Gets a setting.
  * API Version: 2021-03-01-preview.
  */
 /** @deprecated Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba. */

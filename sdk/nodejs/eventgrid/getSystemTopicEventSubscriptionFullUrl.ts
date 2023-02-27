@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Full endpoint url of an event subscription
+ * Get the full endpoint URL for an event subscription of a system topic.
  * API Version: 2021-06-01-preview.
  */
 export function getSystemTopicEventSubscriptionFullUrl(args: GetSystemTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionFullUrlResult> {
@@ -43,7 +43,7 @@ export interface GetSystemTopicEventSubscriptionFullUrlResult {
     readonly endpointUrl?: string;
 }
 /**
- * Full endpoint url of an event subscription
+ * Get the full endpoint URL for an event subscription of a system topic.
  * API Version: 2021-06-01-preview.
  */
 export function getSystemTopicEventSubscriptionFullUrlOutput(args: GetSystemTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionFullUrlResult> {

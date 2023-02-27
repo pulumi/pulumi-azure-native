@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+ * Lists all applicable schedules
  */
 export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListVirtualMachineApplicableSchedulesResult> {
 
@@ -69,7 +69,7 @@ export interface ListVirtualMachineApplicableSchedulesResult {
     readonly type: string;
 }
 /**
- * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+ * Lists all applicable schedules
  */
 export function listVirtualMachineApplicableSchedulesOutput(args: ListVirtualMachineApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVirtualMachineApplicableSchedulesResult> {
     return pulumi.output(args).apply((a: any) => listVirtualMachineApplicableSchedules(a, opts))

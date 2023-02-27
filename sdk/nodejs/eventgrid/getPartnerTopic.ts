@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Event Grid Partner Topic.
+ * Get properties of a partner topic.
  * API Version: 2021-10-15-preview.
  */
 export function getPartnerTopic(args: GetPartnerTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicResult> {
@@ -99,7 +99,7 @@ export interface GetPartnerTopicResult {
     readonly type: string;
 }
 /**
- * Event Grid Partner Topic.
+ * Get properties of a partner topic.
  * API Version: 2021-10-15-preview.
  */
 export function getPartnerTopicOutput(args: GetPartnerTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Data network resource.
+ * Gets information about the specified mobile network dataNetwork.
  */
 export function getDataNetwork(args: GetDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetDataNetworkResult> {
 
@@ -97,7 +97,7 @@ export interface GetDataNetworkResult {
     readonly type: string;
 }
 /**
- * Data network resource.
+ * Gets information about the specified mobile network dataNetwork.
  */
 export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getDataNetwork(a, opts))

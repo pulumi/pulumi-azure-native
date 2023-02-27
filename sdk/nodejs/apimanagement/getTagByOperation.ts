@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Tag Contract details.
+ * Get tag associated with the Operation.
  * API Version: 2020-12-01.
  */
 export function getTagByOperation(args: GetTagByOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByOperationResult> {
@@ -65,7 +65,7 @@ export interface GetTagByOperationResult {
     readonly type: string;
 }
 /**
- * Tag Contract details.
+ * Get tag associated with the Operation.
  * API Version: 2020-12-01.
  */
 export function getTagByOperationOutput(args: GetTagByOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByOperationResult> {

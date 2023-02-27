@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The connection info for the given notebook workspace
+ * Retrieves the connection info for the notebook workspace
  * API Version: 2021-03-15.
  */
 export function listNotebookWorkspaceConnectionInfo(args: ListNotebookWorkspaceConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListNotebookWorkspaceConnectionInfoResult> {
@@ -47,7 +47,7 @@ export interface ListNotebookWorkspaceConnectionInfoResult {
     readonly notebookServerEndpoint: string;
 }
 /**
- * The connection info for the given notebook workspace
+ * Retrieves the connection info for the notebook workspace
  * API Version: 2021-03-15.
  */
 export function listNotebookWorkspaceConnectionInfoOutput(args: ListNotebookWorkspaceConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookWorkspaceConnectionInfoResult> {

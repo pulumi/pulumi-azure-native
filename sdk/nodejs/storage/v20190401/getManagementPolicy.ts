@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Get Storage Account ManagementPolicies operation response.
+ * Gets the managementpolicy associated with the specified storage account.
  */
 /** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
@@ -63,7 +63,7 @@ export interface GetManagementPolicyResult {
     readonly type: string;
 }
 /**
- * The Get Storage Account ManagementPolicies operation response.
+ * Gets the managementpolicy associated with the specified storage account.
  */
 /** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {

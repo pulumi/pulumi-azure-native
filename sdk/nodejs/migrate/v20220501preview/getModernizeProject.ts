@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * ModernizeProject model.
+ * Gets the details of the modernize project.
  */
 export function getModernizeProject(args: GetModernizeProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetModernizeProjectResult> {
 
@@ -67,7 +67,7 @@ export interface GetModernizeProjectResult {
     readonly type: string;
 }
 /**
- * ModernizeProject model.
+ * Gets the details of the modernize project.
  */
 export function getModernizeProjectOutput(args: GetModernizeProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModernizeProjectResult> {
     return pulumi.output(args).apply((a: any) => getModernizeProject(a, opts))

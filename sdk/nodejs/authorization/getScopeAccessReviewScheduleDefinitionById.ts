@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Access Review Schedule Definition.
+ * Get single access review definition
  * API Version: 2021-12-01-preview.
  */
 export function getScopeAccessReviewScheduleDefinitionById(args: GetScopeAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeAccessReviewScheduleDefinitionByIdResult> {
@@ -185,7 +185,7 @@ export interface GetScopeAccessReviewScheduleDefinitionByIdResult {
     readonly userPrincipalName: string;
 }
 /**
- * Access Review Schedule Definition.
+ * Get single access review definition
  * API Version: 2021-12-01-preview.
  */
 export function getScopeAccessReviewScheduleDefinitionByIdOutput(args: GetScopeAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAccessReviewScheduleDefinitionByIdResult> {

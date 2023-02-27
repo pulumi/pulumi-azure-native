@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * This type describes a gateway resource.
+ * Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
 
@@ -92,7 +92,7 @@ export interface GetGatewayResult {
     readonly type: string;
 }
 /**
- * This type describes a gateway resource.
+ * Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
     return pulumi.output(args).apply((a: any) => getGateway(a, opts))

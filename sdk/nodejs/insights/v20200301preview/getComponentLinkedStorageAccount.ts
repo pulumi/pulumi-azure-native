@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Application Insights component linked storage accounts
+ * Returns the current linked storage settings for an Application Insights component.
  */
 export function getComponentLinkedStorageAccount(args: GetComponentLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentLinkedStorageAccountResult> {
 
@@ -54,7 +54,7 @@ export interface GetComponentLinkedStorageAccountResult {
     readonly type: string;
 }
 /**
- * An Application Insights component linked storage accounts
+ * Returns the current linked storage settings for an Application Insights component.
  */
 export function getComponentLinkedStorageAccountOutput(args: GetComponentLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentLinkedStorageAccountResult> {
     return pulumi.output(args).apply((a: any) => getComponentLinkedStorageAccount(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Vendor resource.
+ * Gets information about the specified vendor.
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
 
@@ -55,7 +55,7 @@ export interface GetVendorResult {
     readonly type: string;
 }
 /**
- * Vendor resource.
+ * Gets information about the specified vendor.
  */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
     return pulumi.output(args).apply((a: any) => getVendor(a, opts))

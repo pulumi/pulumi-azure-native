@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a migration resource.
+ * Gets details of a migration.
  */
 export function getMigration(args: GetMigrationArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationResult> {
 
@@ -105,7 +105,7 @@ export interface GetMigrationResult {
     readonly userAssignedIdentityResourceId?: string;
 }
 /**
- * Represents a migration resource.
+ * Gets details of a migration.
  */
 export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationResult> {
     return pulumi.output(args).apply((a: any) => getMigration(a, opts))

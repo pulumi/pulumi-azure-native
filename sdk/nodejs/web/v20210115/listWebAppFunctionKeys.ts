@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * String dictionary resource.
+ * Get function keys for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionKeys(args: ListWebAppFunctionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionKeysResult> {
 
@@ -58,7 +58,7 @@ export interface ListWebAppFunctionKeysResult {
     readonly type: string;
 }
 /**
- * String dictionary resource.
+ * Get function keys for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionKeysOutput(args: ListWebAppFunctionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysResult> {
     return pulumi.output(args).apply((a: any) => listWebAppFunctionKeys(a, opts))

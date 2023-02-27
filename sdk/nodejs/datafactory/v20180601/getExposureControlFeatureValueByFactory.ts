@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The exposure control response.
+ * Get exposure control feature for specific factory.
  */
 export function getExposureControlFeatureValueByFactory(args: GetExposureControlFeatureValueByFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetExposureControlFeatureValueByFactoryResult> {
 
@@ -51,7 +51,7 @@ export interface GetExposureControlFeatureValueByFactoryResult {
     readonly value: string;
 }
 /**
- * The exposure control response.
+ * Get exposure control feature for specific factory.
  */
 export function getExposureControlFeatureValueByFactoryOutput(args: GetExposureControlFeatureValueByFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueByFactoryResult> {
     return pulumi.output(args).apply((a: any) => getExposureControlFeatureValueByFactory(a, opts))

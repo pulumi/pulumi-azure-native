@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The response of a list operation.
+ * Lists all applicable schedules
  */
 export function listScheduleApplicable(args: ListScheduleApplicableArgs, opts?: pulumi.InvokeOptions): Promise<ListScheduleApplicableResult> {
 
@@ -49,7 +49,7 @@ export interface ListScheduleApplicableResult {
     readonly value?: outputs.devtestlab.v20180915.ScheduleResponse[];
 }
 /**
- * The response of a list operation.
+ * Lists all applicable schedules
  */
 export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListScheduleApplicableResult> {
     return pulumi.output(args).apply((a: any) => listScheduleApplicable(a, opts))

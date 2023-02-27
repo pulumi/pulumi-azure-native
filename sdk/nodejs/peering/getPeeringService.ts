@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Peering Service
+ * Gets an existing peering service with the specified name under the given subscription and resource group.
  * API Version: 2021-01-01.
  */
 export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServiceResult> {
@@ -81,7 +81,7 @@ export interface GetPeeringServiceResult {
     readonly type: string;
 }
 /**
- * Peering Service
+ * Gets an existing peering service with the specified name under the given subscription and resource group.
  * API Version: 2021-01-01.
  */
 export function getPeeringServiceOutput(args: GetPeeringServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringServiceResult> {

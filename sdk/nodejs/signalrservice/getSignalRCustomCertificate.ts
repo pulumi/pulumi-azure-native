@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A custom certificate.
+ * Get a custom certificate.
  * API Version: 2022-02-01.
  */
 export function getSignalRCustomCertificate(args: GetSignalRCustomCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRCustomCertificateResult> {
@@ -74,7 +74,7 @@ export interface GetSignalRCustomCertificateResult {
     readonly type: string;
 }
 /**
- * A custom certificate.
+ * Get a custom certificate.
  * API Version: 2022-02-01.
  */
 export function getSignalRCustomCertificateOutput(args: GetSignalRCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomCertificateResult> {

@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get a VMware collector.
+ */
 export function getVMwareCollector(args: GetVMwareCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetVMwareCollectorResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +42,9 @@ export interface GetVMwareCollectorResult {
     readonly properties: outputs.migrate.v20191001.CollectorPropertiesResponse;
     readonly type: string;
 }
+/**
+ * Get a VMware collector.
+ */
 export function getVMwareCollectorOutput(args: GetVMwareCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMwareCollectorResult> {
     return pulumi.output(args).apply((a: any) => getVMwareCollector(a, opts))
 }

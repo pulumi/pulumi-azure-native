@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The response to a live token query.
+ * **Gets an access token for live metrics stream data.**
  */
 export function getLiveToken(args: GetLiveTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveTokenResult> {
 
@@ -32,7 +32,7 @@ export interface GetLiveTokenResult {
     readonly liveToken: string;
 }
 /**
- * The response to a live token query.
+ * **Gets an access token for live metrics stream data.**
  */
 export function getLiveTokenOutput(args: GetLiveTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveTokenResult> {
     return pulumi.output(args).apply((a: any) => getLiveToken(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Defines the response of a trigger subscription operation.
+ * Get a trigger's event subscription status.
  * API Version: 2018-06-01.
  */
 export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscriptionStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerEventSubscriptionStatusResult> {
@@ -47,7 +47,7 @@ export interface GetTriggerEventSubscriptionStatusResult {
     readonly triggerName: string;
 }
 /**
- * Defines the response of a trigger subscription operation.
+ * Get a trigger's event subscription status.
  * API Version: 2018-06-01.
  */
 export function getTriggerEventSubscriptionStatusOutput(args: GetTriggerEventSubscriptionStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerEventSubscriptionStatusResult> {

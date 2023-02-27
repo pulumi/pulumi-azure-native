@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Defines the move resource.
+ * Gets the Move Resource.
  */
 export function getMoveResource(args: GetMoveResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveResourceResult> {
 
@@ -61,7 +61,7 @@ export interface GetMoveResourceResult {
     readonly type: string;
 }
 /**
- * Defines the move resource.
+ * Gets the Move Resource.
  */
 export function getMoveResourceOutput(args: GetMoveResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveResourceResult> {
     return pulumi.output(args).apply((a: any) => getMoveResource(a, opts))

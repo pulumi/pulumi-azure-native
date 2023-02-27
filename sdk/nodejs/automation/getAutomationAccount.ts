@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the automation account type.
+ * Get information about an Automation Account.
  * API Version: 2021-06-22.
  */
 export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationAccountResult> {
@@ -113,7 +113,7 @@ export interface GetAutomationAccountResult {
     readonly type: string;
 }
 /**
- * Definition of the automation account type.
+ * Get information about an Automation Account.
  * API Version: 2021-06-22.
  */
 export function getAutomationAccountOutput(args: GetAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationAccountResult> {

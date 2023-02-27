@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents Fusion alert rule.
+ * Gets the alert rule.
  * API Version: 2020-01-01.
  */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
@@ -88,7 +88,7 @@ export interface GetFusionAlertRuleResult {
     readonly type: string;
 }
 /**
- * Represents Fusion alert rule.
+ * Gets the alert rule.
  * API Version: 2020-01-01.
  */
 export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {

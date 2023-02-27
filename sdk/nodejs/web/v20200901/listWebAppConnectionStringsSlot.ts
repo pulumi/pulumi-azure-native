@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * String dictionary resource.
+ * Gets the connection strings of an app.
  */
 export function listWebAppConnectionStringsSlot(args: ListWebAppConnectionStringsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsSlotResult> {
 
@@ -65,7 +65,7 @@ export interface ListWebAppConnectionStringsSlotResult {
     readonly type: string;
 }
 /**
- * String dictionary resource.
+ * Gets the connection strings of an app.
  */
 export function listWebAppConnectionStringsSlotOutput(args: ListWebAppConnectionStringsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppConnectionStringsSlot(a, opts))

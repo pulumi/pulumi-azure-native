@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Attestation service response message.
+ * Get the status of Attestation Provider.
  */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
 
@@ -76,7 +76,7 @@ export interface GetAttestationProviderResult {
     readonly type: string;
 }
 /**
- * Attestation service response message.
+ * Get the status of Attestation Provider.
  */
 export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {
     return pulumi.output(args).apply((a: any) => getAttestationProvider(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Protection profile details.
+ * Gets the details of a replication policy.
  * API Version: 2018-07-10.
  */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
@@ -62,7 +62,7 @@ export interface GetReplicationPolicyResult {
     readonly type: string;
 }
 /**
- * Protection profile details.
+ * Gets the details of a replication policy.
  * API Version: 2018-07-10.
  */
 export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationPolicyResult> {

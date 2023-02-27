@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Shared access keys of the partner namespace.
+ * List the two keys used to publish to a partner namespace.
  */
 export function listPartnerNamespaceSharedAccessKeys(args: ListPartnerNamespaceSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListPartnerNamespaceSharedAccessKeysResult> {
 
@@ -41,7 +41,7 @@ export interface ListPartnerNamespaceSharedAccessKeysResult {
     readonly key2?: string;
 }
 /**
- * Shared access keys of the partner namespace.
+ * List the two keys used to publish to a partner namespace.
  */
 export function listPartnerNamespaceSharedAccessKeysOutput(args: ListPartnerNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPartnerNamespaceSharedAccessKeysResult> {
     return pulumi.output(args).apply((a: any) => listPartnerNamespaceSharedAccessKeys(a, opts))

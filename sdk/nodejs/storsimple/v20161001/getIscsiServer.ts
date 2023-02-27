@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The iSCSI server.
+ * Returns the properties of the specified iSCSI server name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiServer(args: GetIscsiServerArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiServerResult> {
@@ -77,7 +77,7 @@ export interface GetIscsiServerResult {
     readonly type: string;
 }
 /**
- * The iSCSI server.
+ * Returns the properties of the specified iSCSI server name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiServerOutput(args: GetIscsiServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiServerResult> {

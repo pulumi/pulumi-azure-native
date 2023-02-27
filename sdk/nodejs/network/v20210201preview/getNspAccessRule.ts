@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The NSP access rule resource
+ * Gets the specified NSP access rule by name.
  */
 export function getNspAccessRule(args: GetNspAccessRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNspAccessRuleResult> {
 
@@ -98,7 +98,7 @@ export interface GetNspAccessRuleResult {
     readonly type: string;
 }
 /**
- * The NSP access rule resource
+ * Gets the specified NSP access rule by name.
  */
 export function getNspAccessRuleOutput(args: GetNspAccessRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspAccessRuleResult> {
     return pulumi.output(args).apply((a: any) => getNspAccessRule(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The workflow trigger callback URL.
+ * Get the callback url for a trigger of a workflow version.
  */
 export function listWorkflowVersionTriggerCallbackUrl(args: ListWorkflowVersionTriggerCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowVersionTriggerCallbackUrlResult> {
 
@@ -80,7 +80,7 @@ export interface ListWorkflowVersionTriggerCallbackUrlResult {
     readonly value: string;
 }
 /**
- * The workflow trigger callback URL.
+ * Get the callback url for a trigger of a workflow version.
  */
 export function listWorkflowVersionTriggerCallbackUrlOutput(args: ListWorkflowVersionTriggerCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowVersionTriggerCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listWorkflowVersionTriggerCallbackUrl(a, opts))

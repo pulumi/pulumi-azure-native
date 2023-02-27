@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Subscription Information with the alias.
+ * Get Alias Subscription.
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
 
@@ -51,7 +51,7 @@ export interface GetAliasResult {
     readonly type: string;
 }
 /**
- * Subscription Information with the alias.
+ * Get Alias Subscription.
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
     return pulumi.output(args).apply((a: any) => getAlias(a, opts))

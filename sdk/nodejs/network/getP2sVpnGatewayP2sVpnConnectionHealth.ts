@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * P2SVpnGateway Resource.
+ * Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
  * API Version: 2020-11-01.
  */
 export function getP2sVpnGatewayP2sVpnConnectionHealth(args: GetP2sVpnGatewayP2sVpnConnectionHealthArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayP2sVpnConnectionHealthResult> {
@@ -93,7 +93,7 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthResult {
     readonly vpnServerConfiguration?: outputs.network.SubResourceResponse;
 }
 /**
- * P2SVpnGateway Resource.
+ * Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
  * API Version: 2020-11-01.
  */
 export function getP2sVpnGatewayP2sVpnConnectionHealthOutput(args: GetP2sVpnGatewayP2sVpnConnectionHealthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayP2sVpnConnectionHealthResult> {

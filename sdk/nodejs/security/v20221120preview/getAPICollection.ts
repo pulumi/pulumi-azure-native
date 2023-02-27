@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An API collection as represented by Defender for APIs.
+ * Gets an Azure API Management API if it has been onboarded to Defender for APIs. If an Azure API Management API is onboarded to Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
  */
 export function getAPICollection(args: GetAPICollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAPICollectionResult> {
 
@@ -58,7 +58,7 @@ export interface GetAPICollectionResult {
     readonly type: string;
 }
 /**
- * An API collection as represented by Defender for APIs.
+ * Gets an Azure API Management API if it has been onboarded to Defender for APIs. If an Azure API Management API is onboarded to Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
  */
 export function getAPICollectionOutput(args: GetAPICollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPICollectionResult> {
     return pulumi.output(args).apply((a: any) => getAPICollection(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Factory resource type.
+ * Gets a factory.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
@@ -78,7 +78,7 @@ export interface GetFactoryResult {
     readonly vstsConfiguration?: outputs.datafactory.v20170901preview.FactoryVSTSConfigurationResponse;
 }
 /**
- * Factory resource type.
+ * Gets a factory.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A database security alert policy.
+ * Gets a database's security alert policy.
  * API Version: 2020-11-01-preview.
  */
 export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseSecurityAlertPolicyResult> {
@@ -95,7 +95,7 @@ export interface GetDatabaseSecurityAlertPolicyResult {
     readonly type: string;
 }
 /**
- * A database security alert policy.
+ * Gets a database's security alert policy.
  * API Version: 2020-11-01-preview.
  */
 export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {

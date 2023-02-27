@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Device Update account details.
+ * Returns account details for the given account name.
  * API Version: 2020-03-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -81,7 +81,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * Device Update account details.
+ * Returns account details for the given account name.
  * API Version: 2020-03-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

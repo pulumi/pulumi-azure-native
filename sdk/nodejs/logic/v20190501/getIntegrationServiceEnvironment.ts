@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The integration service environment.
+ * Gets an integration service environment.
  */
 export function getIntegrationServiceEnvironment(args: GetIntegrationServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationServiceEnvironmentResult> {
 
@@ -68,7 +68,7 @@ export interface GetIntegrationServiceEnvironmentResult {
     readonly type: string;
 }
 /**
- * The integration service environment.
+ * Gets an integration service environment.
  */
 export function getIntegrationServiceEnvironmentOutput(args: GetIntegrationServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationServiceEnvironment(a, opts))

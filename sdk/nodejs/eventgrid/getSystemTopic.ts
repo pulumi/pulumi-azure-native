@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * EventGrid System Topic.
+ * Get properties of a system topic.
  * API Version: 2021-06-01-preview.
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
@@ -81,7 +81,7 @@ export interface GetSystemTopicResult {
     readonly type: string;
 }
 /**
- * EventGrid System Topic.
+ * Get properties of a system topic.
  * API Version: 2021-06-01-preview.
  */
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {

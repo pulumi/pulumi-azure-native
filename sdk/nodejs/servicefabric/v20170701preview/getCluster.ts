@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The cluster resource
+ * Get cluster resource
  */
 /** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -163,7 +163,7 @@ export interface GetClusterResult {
     readonly vmImage?: string;
 }
 /**
- * The cluster resource
+ * Get cluster resource
  */
 /** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

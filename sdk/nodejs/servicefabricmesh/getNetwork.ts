@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * This type describes a network resource.
+ * Gets the information about the network resource with the given name. The information include the description and other properties of the network.
  * API Version: 2018-09-01-preview.
  */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
@@ -61,7 +61,7 @@ export interface GetNetworkResult {
     readonly type: string;
 }
 /**
- * This type describes a network resource.
+ * Gets the information about the network resource with the given name. The information include the description and other properties of the network.
  * API Version: 2018-09-01-preview.
  */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {

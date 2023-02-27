@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Device resource.
+ * Gets information about the specified device.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
 
@@ -76,7 +76,7 @@ export interface GetDeviceResult {
     readonly type: string;
 }
 /**
- * Device resource.
+ * Gets information about the specified device.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))

@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * return notebook access token and refresh token
+ */
 export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookAccessTokenResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,6 +37,9 @@ export interface ListWorkspaceNotebookAccessTokenResult {
     readonly scope: string;
     readonly tokenType: string;
 }
+/**
+ * return notebook access token and refresh token
+ */
 export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebookAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceNotebookAccessToken(a, opts))
 }

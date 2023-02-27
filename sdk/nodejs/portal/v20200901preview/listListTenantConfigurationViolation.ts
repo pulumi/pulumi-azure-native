@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List of list of items that violate tenant's configuration.
+ * Gets list of items that violate tenant's configuration.
  */
 export function listListTenantConfigurationViolation(args?: ListListTenantConfigurationViolationArgs, opts?: pulumi.InvokeOptions): Promise<ListListTenantConfigurationViolationResult> {
     args = args || {};

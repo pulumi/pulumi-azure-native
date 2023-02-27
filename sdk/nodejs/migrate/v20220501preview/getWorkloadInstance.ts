@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Workload instance model.
+ * Gets the details of the workload instance.
  */
 export function getWorkloadInstance(args: GetWorkloadInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadInstanceResult> {
 
@@ -67,7 +67,7 @@ export interface GetWorkloadInstanceResult {
     readonly type: string;
 }
 /**
- * Workload instance model.
+ * Gets the details of the workload instance.
  */
 export function getWorkloadInstanceOutput(args: GetWorkloadInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadInstanceResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadInstance(a, opts))

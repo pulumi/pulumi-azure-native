@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Postgres Instance.
+ * Retrieves a postgres Instance resource
  * API Version: 2021-06-01-preview.
  */
 export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetPostgresInstanceResult> {
@@ -73,7 +73,7 @@ export interface GetPostgresInstanceResult {
     readonly type: string;
 }
 /**
- * A Postgres Instance.
+ * Retrieves a postgres Instance resource
  * API Version: 2021-06-01-preview.
  */
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {

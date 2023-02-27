@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ * Gets an existing custom domain within an endpoint.
  * API Version: 2020-09-01.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
@@ -91,7 +91,7 @@ export interface GetCustomDomainResult {
     readonly validationData?: string;
 }
 /**
- * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ * Gets an existing custom domain within an endpoint.
  * API Version: 2020-09-01.
  */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {

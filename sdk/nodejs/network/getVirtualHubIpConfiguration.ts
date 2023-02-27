@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * IpConfigurations.
+ * Retrieves the details of a Virtual Hub Ip configuration.
  * API Version: 2020-11-01.
  */
 export function getVirtualHubIpConfiguration(args: GetVirtualHubIpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubIpConfigurationResult> {
@@ -78,7 +78,7 @@ export interface GetVirtualHubIpConfigurationResult {
     readonly type: string;
 }
 /**
- * IpConfigurations.
+ * Retrieves the details of a Virtual Hub Ip configuration.
  * API Version: 2020-11-01.
  */
 export function getVirtualHubIpConfigurationOutput(args: GetVirtualHubIpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubIpConfigurationResult> {

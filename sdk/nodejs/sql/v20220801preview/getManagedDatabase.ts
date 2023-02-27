@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A managed database resource.
+ * Gets a managed database.
  */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
 
@@ -90,7 +90,7 @@ export interface GetManagedDatabaseResult {
     readonly type: string;
 }
 /**
- * A managed database resource.
+ * Gets a managed database.
  */
 export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getManagedDatabase(a, opts))

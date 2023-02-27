@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The List Cluster Keys Results appliance.
+ * Returns the cluster customer credentials for the dedicated appliance.
  */
 export function listApplianceKeys(args: ListApplianceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceKeysResult> {
 
@@ -48,7 +48,7 @@ export interface ListApplianceKeysResult {
     readonly sshKeys: {[key: string]: outputs.resourceconnector.v20221027.SSHKeyResponse};
 }
 /**
- * The List Cluster Keys Results appliance.
+ * Returns the cluster customer credentials for the dedicated appliance.
  */
 export function listApplianceKeysOutput(args: ListApplianceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceKeysResult> {
     return pulumi.output(args).apply((a: any) => listApplianceKeys(a, opts))

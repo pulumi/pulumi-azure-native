@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Volume resource
+ * Get the details of the specified volume
  */
 /** @deprecated Version 2019-05-01 will be removed in v2 of the provider. */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
@@ -112,7 +112,7 @@ export interface GetVolumeResult {
     readonly usageThreshold: number;
 }
 /**
- * Volume resource
+ * Get the details of the specified volume
  */
 /** @deprecated Version 2019-05-01 will be removed in v2 of the provider. */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {

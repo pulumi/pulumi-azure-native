@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a scaling plan definition.
+ * Get a scaling plan.
  */
 /** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
@@ -86,7 +86,7 @@ export interface GetScalingPlanResult {
     readonly type: string;
 }
 /**
- * Represents a scaling plan definition.
+ * Get a scaling plan.
  */
 /** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents a credential set resource for a container registry.
+ * Gets the properties of the specified credential set resource.
  */
 export function getCredentialSet(args: GetCredentialSetArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialSetResult> {
 
@@ -78,7 +78,7 @@ export interface GetCredentialSetResult {
     readonly type: string;
 }
 /**
- * An object that represents a credential set resource for a container registry.
+ * Gets the properties of the specified credential set resource.
  */
 export function getCredentialSetOutput(args: GetCredentialSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialSetResult> {
     return pulumi.output(args).apply((a: any) => getCredentialSet(a, opts))

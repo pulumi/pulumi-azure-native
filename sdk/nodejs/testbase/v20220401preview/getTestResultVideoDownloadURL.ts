@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The response of getting a download URL.
+ * Gets the download URL of the test execution screen recording.
  */
 export function getTestResultVideoDownloadURL(args: GetTestResultVideoDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultVideoDownloadURLResult> {
 
@@ -51,7 +51,7 @@ export interface GetTestResultVideoDownloadURLResult {
     readonly expirationTime: string;
 }
 /**
- * The response of getting a download URL.
+ * Gets the download URL of the test execution screen recording.
  */
 export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
     return pulumi.output(args).apply((a: any) => getTestResultVideoDownloadURL(a, opts))

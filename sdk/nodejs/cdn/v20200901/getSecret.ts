@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Friendly Secret name mapping to the any Secret or secret related information.
+ * Gets an existing Secret within a profile.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
 
@@ -66,7 +66,7 @@ export interface GetSecretResult {
     readonly type: string;
 }
 /**
- * Friendly Secret name mapping to the any Secret or secret related information.
+ * Gets an existing Secret within a profile.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))

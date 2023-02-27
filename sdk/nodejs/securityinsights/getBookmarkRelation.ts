@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents a relation between two resources
+ * Gets a bookmark relation.
  * API Version: 2019-01-01-preview.
  */
 export function getBookmarkRelation(args: GetBookmarkRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkRelationResult> {
@@ -81,7 +81,7 @@ export interface GetBookmarkRelationResult {
     readonly type: string;
 }
 /**
- * Represents a relation between two resources
+ * Gets a bookmark relation.
  * API Version: 2019-01-01-preview.
  */
 export function getBookmarkRelationOutput(args: GetBookmarkRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkRelationResult> {

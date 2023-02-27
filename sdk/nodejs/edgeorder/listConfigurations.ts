@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The list of configurations.
+ * This method provides the list of configurations for the given product family, product line and product under subscription.
  * API Version: 2021-12-01.
  */
 export function listConfigurations(args: ListConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationsResult> {
@@ -50,7 +50,7 @@ export interface ListConfigurationsResult {
     readonly value: outputs.edgeorder.ConfigurationResponse[];
 }
 /**
- * The list of configurations.
+ * This method provides the list of configurations for the given product family, product line and product under subscription.
  * API Version: 2021-12-01.
  */
 export function listConfigurationsOutput(args: ListConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationsResult> {

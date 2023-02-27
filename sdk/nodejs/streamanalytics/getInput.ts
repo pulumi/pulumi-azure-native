@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+ * Gets details about the specified input.
  * API Version: 2016-03-01.
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
@@ -58,7 +58,7 @@ export interface GetInputResult {
     readonly type: string;
 }
 /**
- * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+ * Gets details about the specified input.
  * API Version: 2016-03-01.
  */
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {

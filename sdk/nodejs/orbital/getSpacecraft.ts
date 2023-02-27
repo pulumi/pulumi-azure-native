@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Customer creates a spacecraft resource to schedule a contact.
+ * Gets the specified spacecraft in a specified resource group
  * API Version: 2021-04-04-preview.
  */
 export function getSpacecraft(args: GetSpacecraftArgs, opts?: pulumi.InvokeOptions): Promise<GetSpacecraftResult> {
@@ -93,7 +93,7 @@ export interface GetSpacecraftResult {
     readonly type: string;
 }
 /**
- * Customer creates a spacecraft resource to schedule a contact.
+ * Gets the specified spacecraft in a specified resource group
  * API Version: 2021-04-04-preview.
  */
 export function getSpacecraftOutput(args: GetSpacecraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpacecraftResult> {

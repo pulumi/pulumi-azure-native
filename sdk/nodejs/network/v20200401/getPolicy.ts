@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Defines web application firewall policy.
+ * Retrieve protection policy with specified name within a resource group.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -85,7 +85,7 @@ export interface GetPolicyResult {
     readonly type: string;
 }
 /**
- * Defines web application firewall policy.
+ * Retrieve protection policy with specified name within a resource group.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

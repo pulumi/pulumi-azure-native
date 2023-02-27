@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A task resource
+ * The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
  */
 /** @deprecated Version 2018-03-31-preview will be removed in v2 of the provider. */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
@@ -73,7 +73,7 @@ export interface GetTaskResult {
     readonly type: string;
 }
 /**
- * A task resource
+ * The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
  */
 /** @deprecated Version 2018-03-31-preview will be removed in v2 of the provider. */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Status Details of the long running operation for an environment
+ * Gets the status of long running operation
  * API Version: 2018-10-15.
  */
 export function getGlobalUserOperationStatus(args: GetGlobalUserOperationStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationStatusResult> {
@@ -38,7 +38,7 @@ export interface GetGlobalUserOperationStatusResult {
     readonly status: string;
 }
 /**
- * Status Details of the long running operation for an environment
+ * Gets the status of long running operation
  * API Version: 2018-10-15.
  */
 export function getGlobalUserOperationStatusOutput(args: GetGlobalUserOperationStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationStatusResult> {

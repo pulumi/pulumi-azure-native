@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+ * Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
  * API Version: 2018-05-01.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
@@ -46,7 +46,7 @@ export interface ListAccountKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+ * Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
  * API Version: 2018-05-01.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A budget resource.
+ * Gets the budget for a resource group under a subscription by budget name.
  */
 /** @deprecated Version 2018-03-31 will be removed in v2 of the provider. */
 export function getBudgetByResourceGroupName(args: GetBudgetByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetByResourceGroupNameResult> {
@@ -82,7 +82,7 @@ export interface GetBudgetByResourceGroupNameResult {
     readonly type: string;
 }
 /**
- * A budget resource.
+ * Gets the budget for a resource group under a subscription by budget name.
  */
 /** @deprecated Version 2018-03-31 will be removed in v2 of the provider. */
 export function getBudgetByResourceGroupNameOutput(args: GetBudgetByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetByResourceGroupNameResult> {

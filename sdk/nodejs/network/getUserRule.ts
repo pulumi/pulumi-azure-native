@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Network base rule.
+ * Gets a user rule.
  * API Version: 2021-02-01-preview.
  */
 /** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
@@ -78,7 +78,7 @@ export interface GetUserRuleResult {
     readonly type: string;
 }
 /**
- * Network base rule.
+ * Gets a user rule.
  * API Version: 2021-02-01-preview.
  */
 /** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */

@@ -8,7 +8,8 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Base class for backup items.
+ * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
+ * call the GetItemOperationResult API.
  */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
 
@@ -84,7 +85,8 @@ export interface GetProtectedItemResult {
     readonly type: string;
 }
 /**
- * Base class for backup items.
+ * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
+ * call the GetItemOperationResult API.
  */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
     return pulumi.output(args).apply((a: any) => getProtectedItem(a, opts))

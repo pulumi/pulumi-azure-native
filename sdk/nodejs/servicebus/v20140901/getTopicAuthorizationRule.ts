@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Description of a namespace authorization rule.
+ * Returns the specified authorization rule.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
@@ -65,7 +65,7 @@ export interface GetTopicAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Description of a namespace authorization rule.
+ * Returns the specified authorization rule.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {

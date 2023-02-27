@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Specifies information about the capacity reservation.
+ * The operation that retrieves information about the capacity reservation.
  * API Version: 2021-04-01.
  */
 export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
@@ -95,7 +95,7 @@ export interface GetCapacityReservationResult {
     readonly zones?: string[];
 }
 /**
- * Specifies information about the capacity reservation.
+ * The operation that retrieves information about the capacity reservation.
  * API Version: 2021-04-01.
  */
 export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Specifies information about the proximity placement group.
+ * Retrieves information about a proximity placement group .
  */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
 
@@ -81,7 +81,7 @@ export interface GetProximityPlacementGroupResult {
     readonly virtualMachines: outputs.compute.v20210301.SubResourceWithColocationStatusResponse[];
 }
 /**
- * Specifies information about the proximity placement group.
+ * Retrieves information about a proximity placement group .
  */
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
     return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))

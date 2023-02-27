@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The key resource.
+ * Gets the current version of the specified key from the specified key vault.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
 
@@ -86,7 +86,7 @@ export interface GetKeyResult {
     readonly type: string;
 }
 /**
- * The key resource.
+ * Gets the current version of the specified key from the specified key vault.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
     return pulumi.output(args).apply((a: any) => getKey(a, opts))

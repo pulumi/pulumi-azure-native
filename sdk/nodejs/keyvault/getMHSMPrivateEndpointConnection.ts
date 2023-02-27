@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Private endpoint connection resource.
+ * Gets the specified private endpoint connection associated with the managed HSM Pool.
  * API Version: 2021-06-01-preview.
  */
 export function getMHSMPrivateEndpointConnection(args: GetMHSMPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMHSMPrivateEndpointConnectionResult> {
@@ -86,7 +86,7 @@ export interface GetMHSMPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Private endpoint connection resource.
+ * Gets the specified private endpoint connection associated with the managed HSM Pool.
  * API Version: 2021-06-01-preview.
  */
 export function getMHSMPrivateEndpointConnectionOutput(args: GetMHSMPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMHSMPrivateEndpointConnectionResult> {

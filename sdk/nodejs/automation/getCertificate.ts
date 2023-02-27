@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the certificate.
+ * Retrieve the certificate identified by certificate name.
  * API Version: 2019-06-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -75,7 +75,7 @@ export interface GetCertificateResult {
     readonly type: string;
 }
 /**
- * Definition of the certificate.
+ * Retrieve the certificate identified by certificate name.
  * API Version: 2019-06-01.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {

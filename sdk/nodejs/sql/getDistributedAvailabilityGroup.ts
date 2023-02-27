@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Distributed availability group between box and Sql Managed Instance.
+ * Gets a distributed availability group info.
  * API Version: 2021-05-01-preview.
  */
 export function getDistributedAvailabilityGroup(args: GetDistributedAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributedAvailabilityGroupResult> {
@@ -91,7 +91,7 @@ export interface GetDistributedAvailabilityGroupResult {
     readonly type: string;
 }
 /**
- * Distributed availability group between box and Sql Managed Instance.
+ * Gets a distributed availability group info.
  * API Version: 2021-05-01-preview.
  */
 export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {

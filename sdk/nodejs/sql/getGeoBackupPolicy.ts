@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A database geo backup policy.
+ * Gets a geo backup policy.
  * API Version: 2014-04-01.
  */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
@@ -72,7 +72,7 @@ export interface GetGeoBackupPolicyResult {
     readonly type: string;
 }
 /**
- * A database geo backup policy.
+ * Gets a geo backup policy.
  * API Version: 2014-04-01.
  */
 export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoBackupPolicyResult> {

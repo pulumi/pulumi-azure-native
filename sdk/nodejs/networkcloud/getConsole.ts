@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get properties of the provided virtual machine console.
  * API Version: 2022-12-12-preview.
  */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
@@ -95,6 +96,7 @@ export interface GetConsoleResult {
     readonly virtualMachineAccessId: string;
 }
 /**
+ * Get properties of the provided virtual machine console.
  * API Version: 2022-12-12-preview.
  */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {

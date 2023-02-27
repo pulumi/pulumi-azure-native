@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get properties of the provided rack.
  * API Version: 2022-12-12-preview.
  */
 export function getRack(args: GetRackArgs, opts?: pulumi.InvokeOptions): Promise<GetRackResult> {
@@ -93,6 +94,7 @@ export interface GetRackResult {
     readonly type: string;
 }
 /**
+ * Get properties of the provided rack.
  * API Version: 2022-12-12-preview.
  */
 export function getRackOutput(args: GetRackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRackResult> {

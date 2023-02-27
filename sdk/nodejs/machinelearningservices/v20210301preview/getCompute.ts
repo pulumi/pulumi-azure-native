@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Machine Learning compute object wrapped into ARM resource envelope.
+ * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
 export function getCompute(args: GetComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeResult> {
 
@@ -77,7 +77,7 @@ export interface GetComputeResult {
     readonly type: string;
 }
 /**
- * Machine Learning compute object wrapped into ARM resource envelope.
+ * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
 export function getComputeOutput(args: GetComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeResult> {
     return pulumi.output(args).apply((a: any) => getCompute(a, opts))

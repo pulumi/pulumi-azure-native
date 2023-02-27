@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Deployment resource payload
+ * Get a Deployment and its properties.
  * API Version: 2020-07-01.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
@@ -67,7 +67,7 @@ export interface GetDeploymentResult {
     readonly type: string;
 }
 /**
- * Deployment resource payload
+ * Get a Deployment and its properties.
  * API Version: 2020-07-01.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {

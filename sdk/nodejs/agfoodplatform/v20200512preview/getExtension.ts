@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Extension resource.
+ * Get installed extension details by extension id.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
@@ -81,7 +81,7 @@ export interface GetExtensionResult {
     readonly type: string;
 }
 /**
- * Extension resource.
+ * Get installed extension details by extension id.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))

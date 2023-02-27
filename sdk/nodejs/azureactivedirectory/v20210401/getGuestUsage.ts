@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Guest Usages Resource
+ * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
 
@@ -64,7 +64,7 @@ export interface GetGuestUsageResult {
     readonly type: string;
 }
 /**
- * Guest Usages Resource
+ * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  */
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
     return pulumi.output(args).apply((a: any) => getGuestUsage(a, opts))

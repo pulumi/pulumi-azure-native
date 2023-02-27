@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Resource information.
+ * Gets a resource.
  */
 /** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
@@ -97,7 +97,7 @@ export interface GetResourceResult {
     readonly type: string;
 }
 /**
- * Resource information.
+ * Gets a resource.
  */
 /** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing an event hub connection.
+ * Returns an Event Hub connection.
  */
 /** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
 export function getEventHubConnection(args: GetEventHubConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubConnectionResult> {
@@ -81,7 +81,7 @@ export interface GetEventHubConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing an event hub connection.
+ * Returns an Event Hub connection.
  */
 /** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
 export function getEventHubConnectionOutput(args: GetEventHubConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubConnectionResult> {

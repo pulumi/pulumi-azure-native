@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Private endpoint connection resource.
+ * Gets the specified private endpoint connection associated with the given policy.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -65,7 +65,7 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Private endpoint connection resource.
+ * Gets the specified private endpoint connection associated with the given policy.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

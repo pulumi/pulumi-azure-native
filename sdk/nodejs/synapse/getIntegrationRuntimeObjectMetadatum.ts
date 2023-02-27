@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A list of SSIS object metadata.
+ * Get object metadata from an integration runtime
  * API Version: 2021-03-01.
  */
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
@@ -55,7 +55,7 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
     readonly value?: (outputs.synapse.SsisEnvironmentResponse | outputs.synapse.SsisFolderResponse | outputs.synapse.SsisPackageResponse | outputs.synapse.SsisProjectResponse)[];
 }
 /**
- * A list of SSIS object metadata.
+ * Get object metadata from an integration runtime
  * API Version: 2021-03-01.
  */
 export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {

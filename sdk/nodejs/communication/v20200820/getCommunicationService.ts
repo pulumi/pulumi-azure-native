@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A class representing a CommunicationService resource.
+ * Get the CommunicationService and its properties.
  */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
 
@@ -84,7 +84,7 @@ export interface GetCommunicationServiceResult {
     readonly version: string;
 }
 /**
- * A class representing a CommunicationService resource.
+ * Get the CommunicationService and its properties.
  */
 export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationServiceResult> {
     return pulumi.output(args).apply((a: any) => getCommunicationService(a, opts))

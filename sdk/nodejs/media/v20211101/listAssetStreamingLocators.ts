@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Streaming Locators associated with this Asset.
+ * Lists Streaming Locators which are associated with this asset.
  */
 export function listAssetStreamingLocators(args: ListAssetStreamingLocatorsArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetStreamingLocatorsResult> {
 
@@ -45,7 +45,7 @@ export interface ListAssetStreamingLocatorsResult {
     readonly streamingLocators: outputs.media.v20211101.AssetStreamingLocatorResponse[];
 }
 /**
- * The Streaming Locators associated with this Asset.
+ * Lists Streaming Locators which are associated with this asset.
  */
 export function listAssetStreamingLocatorsOutput(args: ListAssetStreamingLocatorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetStreamingLocatorsResult> {
     return pulumi.output(args).apply((a: any) => listAssetStreamingLocators(a, opts))

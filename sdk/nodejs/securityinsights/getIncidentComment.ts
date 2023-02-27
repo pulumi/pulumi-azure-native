@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents an incident comment
+ * Gets an incident comment.
  * API Version: 2021-03-01-preview.
  */
 export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCommentResult> {
@@ -88,7 +88,7 @@ export interface GetIncidentCommentResult {
     readonly type: string;
 }
 /**
- * Represents an incident comment
+ * Gets an incident comment.
  * API Version: 2021-03-01-preview.
  */
 export function getIncidentCommentOutput(args: GetIncidentCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCommentResult> {

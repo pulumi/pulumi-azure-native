@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Role Assignments
+ * Get the specified role assignment.
  */
 /** @deprecated Version 2015-07-01 will be removed in v2 of the provider. */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
@@ -54,7 +54,7 @@ export interface GetRoleAssignmentResult {
     readonly type: string;
 }
 /**
- * Role Assignments
+ * Get the specified role assignment.
  */
 /** @deprecated Version 2015-07-01 will be removed in v2 of the provider. */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {

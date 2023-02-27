@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * List of virtual network gateway routes.
+ * This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
  * API Version: 2020-11-01.
  */
 export function getVirtualNetworkGatewayLearnedRoutes(args: GetVirtualNetworkGatewayLearnedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayLearnedRoutesResult> {
@@ -41,7 +41,7 @@ export interface GetVirtualNetworkGatewayLearnedRoutesResult {
     readonly value?: outputs.network.GatewayRouteResponse[];
 }
 /**
- * List of virtual network gateway routes.
+ * This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
  * API Version: 2020-11-01.
  */
 export function getVirtualNetworkGatewayLearnedRoutesOutput(args: GetVirtualNetworkGatewayLearnedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayLearnedRoutesResult> {

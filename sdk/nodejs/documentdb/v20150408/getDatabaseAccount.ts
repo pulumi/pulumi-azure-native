@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB database account.
+ * Retrieves the properties of an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountResult> {
@@ -122,7 +122,7 @@ export interface GetDatabaseAccountResult {
     readonly writeLocations: outputs.documentdb.v20150408.LocationResponse[];
 }
 /**
- * An Azure Cosmos DB database account.
+ * Retrieves the properties of an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {

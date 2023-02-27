@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Specifies information about the gallery Application Definition that you want to create or update.
+ * Retrieves information about a gallery Application Definition.
  */
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
@@ -84,7 +84,7 @@ export interface GetGalleryApplicationResult {
     readonly type: string;
 }
 /**
- * Specifies information about the gallery Application Definition that you want to create or update.
+ * Retrieves information about a gallery Application Definition.
  */
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {

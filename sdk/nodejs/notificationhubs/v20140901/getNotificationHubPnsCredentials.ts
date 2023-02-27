@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of a NotificationHub Resource.
+ * Lists the PNS Credentials associated with a notification hub .
  */
 export function getNotificationHubPnsCredentials(args: GetNotificationHubPnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubPnsCredentialsResult> {
 
@@ -65,7 +65,7 @@ export interface GetNotificationHubPnsCredentialsResult {
     readonly type?: string;
 }
 /**
- * Description of a NotificationHub Resource.
+ * Lists the PNS Credentials associated with a notification hub .
  */
 export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHubPnsCredentials(a, opts))

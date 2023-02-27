@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
+ */
 export function listControllerConnectionDetails(args: ListControllerConnectionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListControllerConnectionDetailsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +41,9 @@ export interface ListControllerConnectionDetailsResult {
      */
     readonly connectionDetailsList?: outputs.devspaces.v20190401.ControllerConnectionDetailsResponse[];
 }
+/**
+ * Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
+ */
 export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
     return pulumi.output(args).apply((a: any) => listControllerConnectionDetails(a, opts))
 }

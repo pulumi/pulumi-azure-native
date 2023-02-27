@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
+ * Lists active connectivity configurations in a network manager.
  */
 export function listActiveConnectivityConfiguration(args: ListActiveConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveConnectivityConfigurationResult> {
 
@@ -54,7 +54,7 @@ export interface ListActiveConnectivityConfigurationResult {
     readonly value?: outputs.network.v20210201preview.ActiveConnectivityConfigurationResponse[];
 }
 /**
- * Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
+ * Lists active connectivity configurations in a network manager.
  */
 export function listActiveConnectivityConfigurationOutput(args: ListActiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveConnectivityConfigurationResult> {
     return pulumi.output(args).apply((a: any) => listActiveConnectivityConfiguration(a, opts))

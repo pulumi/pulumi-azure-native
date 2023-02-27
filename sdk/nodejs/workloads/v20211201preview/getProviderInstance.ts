@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A provider instance associated with SAP monitor.
+ * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  */
 export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderInstanceResult> {
 
@@ -73,7 +73,7 @@ export interface GetProviderInstanceResult {
     readonly type: string;
 }
 /**
- * A provider instance associated with SAP monitor.
+ * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  */
 export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
     return pulumi.output(args).apply((a: any) => getProviderInstance(a, opts))

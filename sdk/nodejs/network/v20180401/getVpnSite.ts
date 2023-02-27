@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * VpnSite Resource.
+ * Retrieves the details of a VPN site.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnSiteResult> {
@@ -90,7 +90,7 @@ export interface GetVpnSiteResult {
     readonly virtualWAN?: outputs.network.v20180401.SubResourceResponse;
 }
 /**
- * VpnSite Resource.
+ * Retrieves the details of a VPN site.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {

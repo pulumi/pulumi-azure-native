@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * NetApp account resource
+ * Get the NetApp account
  */
 /** @deprecated Version 2020-11-01 will be removed in v2 of the provider. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -74,7 +74,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * NetApp account resource
+ * Get the NetApp account
  */
 /** @deprecated Version 2020-11-01 will be removed in v2 of the provider. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

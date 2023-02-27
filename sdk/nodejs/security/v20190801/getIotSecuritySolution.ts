@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * IoT Security solution configuration and resource information.
+ * User this method to get details of a specific IoT Security solution based on solution name
  */
 export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSecuritySolutionResult> {
 
@@ -104,7 +104,7 @@ export interface GetIotSecuritySolutionResult {
     readonly workspace?: string;
 }
 /**
- * IoT Security solution configuration and resource information.
+ * User this method to get details of a specific IoT Security solution based on solution name
  */
 export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotSecuritySolutionResult> {
     return pulumi.output(args).apply((a: any) => getIotSecuritySolution(a, opts))

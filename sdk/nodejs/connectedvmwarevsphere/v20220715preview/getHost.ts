@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Define the host.
+ * Implements host GET method.
  */
 export function getHost(args: GetHostArgs, opts?: pulumi.InvokeOptions): Promise<GetHostResult> {
 
@@ -108,7 +108,7 @@ export interface GetHostResult {
     readonly vCenterId?: string;
 }
 /**
- * Define the host.
+ * Implements host GET method.
  */
 export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
     return pulumi.output(args).apply((a: any) => getHost(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Role Addon
+ * Gets a specific addon by name.
  */
 /** @deprecated Please use one of the variants: ArcAddon. */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
@@ -68,7 +68,7 @@ export interface GetAddonResult {
     readonly type: string;
 }
 /**
- * Role Addon
+ * Gets a specific addon by name.
  */
 /** @deprecated Please use one of the variants: ArcAddon. */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {

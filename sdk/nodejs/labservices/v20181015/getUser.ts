@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The User registered to a lab
+ * Get user
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -103,7 +103,7 @@ export interface GetUserResult {
     readonly uniqueIdentifier?: string;
 }
 /**
- * The User registered to a lab
+ * Get user
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

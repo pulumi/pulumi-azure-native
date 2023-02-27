@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The profile resource format.
+ * Gets information about the specified profile.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
@@ -132,7 +132,7 @@ export interface GetProfileResult {
     readonly typeName?: string;
 }
 /**
- * The profile resource format.
+ * Gets information about the specified profile.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {

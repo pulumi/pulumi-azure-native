@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Site Extension Information.
+ * Get site extension information by its ID for a web site, or a deployment slot.
  */
 export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionResult> {
 
@@ -126,7 +126,7 @@ export interface GetWebAppSiteExtensionResult {
     readonly version?: string;
 }
 /**
- * Site Extension Information.
+ * Get site extension information by its ID for a web site, or a deployment slot.
  */
 export function getWebAppSiteExtensionOutput(args: GetWebAppSiteExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSiteExtension(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Streaming Locator resource
+ * Get the details of a Streaming Locator in the Media Services account
  * API Version: 2020-05-01.
  */
 export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingLocatorResult> {
@@ -98,7 +98,7 @@ export interface GetStreamingLocatorResult {
     readonly type: string;
 }
 /**
- * A Streaming Locator resource
+ * Get the details of a Streaming Locator in the Media Services account
  * API Version: 2020-05-01.
  */
 export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingLocatorResult> {

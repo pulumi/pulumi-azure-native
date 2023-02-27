@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * ObjectAnchorsAccount Response.
+ * Retrieve an Object Anchors Account.
  */
 export function getObjectAnchorsAccount(args: GetObjectAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectAnchorsAccountResult> {
 
@@ -85,7 +85,7 @@ export interface GetObjectAnchorsAccountResult {
     readonly type: string;
 }
 /**
- * ObjectAnchorsAccount Response.
+ * Retrieve an Object Anchors Account.
  */
 export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
     return pulumi.output(args).apply((a: any) => getObjectAnchorsAccount(a, opts))

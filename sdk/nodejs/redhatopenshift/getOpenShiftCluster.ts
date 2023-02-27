@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+ * The operation returns properties of a OpenShift cluster.
  * API Version: 2020-04-30.
  */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
@@ -93,7 +93,7 @@ export interface GetOpenShiftClusterResult {
     readonly workerProfiles?: outputs.redhatopenshift.WorkerProfileResponse[];
 }
 /**
- * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+ * The operation returns properties of a OpenShift cluster.
  * API Version: 2020-04-30.
  */
 export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftClusterResult> {

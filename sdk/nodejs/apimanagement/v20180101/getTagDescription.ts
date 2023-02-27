@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Contract details.
+ * Get tag associated with the API.
  */
 export function getTagDescription(args: GetTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTagDescriptionResult> {
 
@@ -71,7 +71,7 @@ export interface GetTagDescriptionResult {
     readonly type: string;
 }
 /**
- * Contract details.
+ * Get tag associated with the API.
  */
 export function getTagDescriptionOutput(args: GetTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagDescriptionResult> {
     return pulumi.output(args).apply((a: any) => getTagDescription(a, opts))

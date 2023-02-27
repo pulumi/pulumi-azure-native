@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Define the datastore.
+ * Implements datastore GET method.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
 
@@ -108,7 +108,7 @@ export interface GetDatastoreResult {
     readonly vCenterId?: string;
 }
 /**
- * Define the datastore.
+ * Implements datastore GET method.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
     return pulumi.output(args).apply((a: any) => getDatastore(a, opts))

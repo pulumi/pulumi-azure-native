@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Compute role.
+ * Gets a specific role by name.
  */
 export function getIoTRole(args: GetIoTRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTRoleResult> {
 
@@ -94,7 +94,7 @@ export interface GetIoTRoleResult {
     readonly type: string;
 }
 /**
- * Compute role.
+ * Gets a specific role by name.
  */
 export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
     return pulumi.output(args).apply((a: any) => getIoTRole(a, opts))

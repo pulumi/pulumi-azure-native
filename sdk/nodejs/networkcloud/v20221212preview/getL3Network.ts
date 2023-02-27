@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get properties of the provided layer 3 (L3) network.
+ */
 export function getL3Network(args: GetL3NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL3NetworkResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,6 +118,9 @@ export interface GetL3NetworkResult {
      */
     readonly vlan: number;
 }
+/**
+ * Get properties of the provided layer 3 (L3) network.
+ */
 export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3NetworkResult> {
     return pulumi.output(args).apply((a: any) => getL3Network(a, opts))
 }

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list of configurations.
+ * List configurations for the given product family, product line and product for the given subscription.
  */
 export function listProductsAndConfigurations(args?: ListProductsAndConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsAndConfigurationsResult> {
     args = args || {};
@@ -50,7 +50,7 @@ export interface ListProductsAndConfigurationsResult {
     readonly value: outputs.edgeorder.v20220501preview.ConfigurationResponse[];
 }
 /**
- * The list of configurations.
+ * List configurations for the given product family, product line and product for the given subscription.
  */
 export function listProductsAndConfigurationsOutput(args?: ListProductsAndConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsAndConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => listProductsAndConfigurations(a, opts))

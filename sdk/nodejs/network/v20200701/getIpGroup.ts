@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The IpGroups resource information.
+ * Gets the specified ipGroups.
  */
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
 
@@ -81,7 +81,7 @@ export interface GetIpGroupResult {
     readonly type: string;
 }
 /**
- * The IpGroups resource information.
+ * Gets the specified ipGroups.
  */
 export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
     return pulumi.output(args).apply((a: any) => getIpGroup(a, opts))

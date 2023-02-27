@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Resource information, as returned by the resource provider.
+ * Get the Vault details.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
 
@@ -72,7 +72,7 @@ export interface GetVaultResult {
     readonly type: string;
 }
 /**
- * Resource information, as returned by the resource provider.
+ * Get the Vault details.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
     return pulumi.output(args).apply((a: any) => getVault(a, opts))

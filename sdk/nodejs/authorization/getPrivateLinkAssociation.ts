@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get a single private link association
  * API Version: 2020-05-01.
  */
 export function getPrivateLinkAssociation(args: GetPrivateLinkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAssociationResult> {
@@ -49,6 +50,7 @@ export interface GetPrivateLinkAssociationResult {
     readonly type: string;
 }
 /**
+ * Get a single private link association
  * API Version: 2020-05-01.
  */
 export function getPrivateLinkAssociationOutput(args: GetPrivateLinkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAssociationResult> {

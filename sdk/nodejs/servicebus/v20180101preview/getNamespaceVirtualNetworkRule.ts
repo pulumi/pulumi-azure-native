@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in a List or Get VirtualNetworkRules operation
+ * Gets an VirtualNetworkRule for a Namespace by rule name.
  */
 export function getNamespaceVirtualNetworkRule(args: GetNamespaceVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceVirtualNetworkRuleResult> {
 
@@ -54,7 +54,7 @@ export interface GetNamespaceVirtualNetworkRuleResult {
     readonly virtualNetworkSubnetId?: string;
 }
 /**
- * Single item in a List or Get VirtualNetworkRules operation
+ * Gets an VirtualNetworkRule for a Namespace by rule name.
  */
 export function getNamespaceVirtualNetworkRuleOutput(args: GetNamespaceVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceVirtualNetworkRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceVirtualNetworkRule(a, opts))

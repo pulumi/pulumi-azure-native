@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+ * Get the properties of a specified build task.
  */
 export function getBuildTask(args: GetBuildTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildTaskResult> {
 
@@ -89,7 +89,7 @@ export interface GetBuildTaskResult {
     readonly type: string;
 }
 /**
- * The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+ * Get the properties of a specified build task.
  */
 export function getBuildTaskOutput(args: GetBuildTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildTaskResult> {
     return pulumi.output(args).apply((a: any) => getBuildTask(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A private endpoint connection
+ * To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -65,7 +65,7 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * A private endpoint connection
+ * To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

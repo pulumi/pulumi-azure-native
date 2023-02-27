@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Information about appliance definition.
+ * Gets the appliance definition.
  */
 /** @deprecated Version 2016-09-01-preview will be removed in v2 of the provider. */
 export function getApplianceDefinition(args: GetApplianceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceDefinitionResult> {
@@ -94,7 +94,7 @@ export interface GetApplianceDefinitionResult {
     readonly type: string;
 }
 /**
- * Information about appliance definition.
+ * Gets the appliance definition.
  */
 /** @deprecated Version 2016-09-01-preview will be removed in v2 of the provider. */
 export function getApplianceDefinitionOutput(args: GetApplianceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceDefinitionResult> {

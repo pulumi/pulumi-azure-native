@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An application security group in a resource group.
+ * Gets information about the specified application security group.
  */
 /** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
@@ -67,7 +67,7 @@ export interface GetApplicationSecurityGroupResult {
     readonly type: string;
 }
 /**
- * An application security group in a resource group.
+ * Gets information about the specified application security group.
  */
 /** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSecurityGroupResult> {

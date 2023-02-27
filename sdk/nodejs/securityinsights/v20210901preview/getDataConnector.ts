@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Data connector
+ * Gets a data connector.
  */
 /** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, AwsS3DataConnector, CodelessApiPollingDataConnector, CodelessUiDataConnector, Dynamics365DataConnector, MCASDataConnector, MDATPDataConnector, MSTIDataConnector, MTPDataConnector, OfficeATPDataConnector, OfficeDataConnector, OfficeIRMDataConnector, TIDataConnector, TiTaxiiDataConnector. */
 export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectorResult> {
@@ -67,7 +67,7 @@ export interface GetDataConnectorResult {
     readonly type: string;
 }
 /**
- * Data connector
+ * Gets a data connector.
  */
 /** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, AwsS3DataConnector, CodelessApiPollingDataConnector, CodelessUiDataConnector, Dynamics365DataConnector, MCASDataConnector, MDATPDataConnector, MSTIDataConnector, MTPDataConnector, OfficeATPDataConnector, OfficeDataConnector, OfficeIRMDataConnector, TIDataConnector, TiTaxiiDataConnector. */
 export function getDataConnectorOutput(args: GetDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectorResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Compute node information related to a AmlCompute.
+ * Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
  * API Version: 2021-01-01.
  */
 export function listMachineLearningComputeNodes(args: ListMachineLearningComputeNodesArgs, opts?: pulumi.InvokeOptions): Promise<ListMachineLearningComputeNodesResult> {
@@ -55,7 +55,7 @@ export interface ListMachineLearningComputeNodesResult {
     readonly nodes: outputs.machinelearningservices.AmlComputeNodeInformationResponse[];
 }
 /**
- * Compute node information related to a AmlCompute.
+ * Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
  * API Version: 2021-01-01.
  */
 export function listMachineLearningComputeNodesOutput(args: ListMachineLearningComputeNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMachineLearningComputeNodesResult> {

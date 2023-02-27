@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Fabric definition.
+ * Gets the details of an Azure Site Recovery fabric.
  * API Version: 2018-07-10.
  */
 export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationFabricResult> {
@@ -62,7 +62,7 @@ export interface GetReplicationFabricResult {
     readonly type: string;
 }
 /**
- * Fabric definition.
+ * Gets the details of an Azure Site Recovery fabric.
  * API Version: 2018-07-10.
  */
 export function getReplicationFabricOutput(args: GetReplicationFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationFabricResult> {

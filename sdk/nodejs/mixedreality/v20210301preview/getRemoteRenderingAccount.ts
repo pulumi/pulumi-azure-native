@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * RemoteRenderingAccount Response.
+ * Retrieve a Remote Rendering Account.
  */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
 
@@ -88,7 +88,7 @@ export interface GetRemoteRenderingAccountResult {
     readonly type: string;
 }
 /**
- * RemoteRenderingAccount Response.
+ * Retrieve a Remote Rendering Account.
  */
 export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
     return pulumi.output(args).apply((a: any) => getRemoteRenderingAccount(a, opts))

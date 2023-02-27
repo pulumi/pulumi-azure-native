@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Configuration profile assignment is an association between a VM and automanage profile configuration.
+ * Get information about a configuration profile assignment
  * API Version: 2020-06-30-preview.
  */
 export function getConfigurationProfileAssignment(args: GetConfigurationProfileAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileAssignmentResult> {
@@ -58,7 +58,7 @@ export interface GetConfigurationProfileAssignmentResult {
     readonly type: string;
 }
 /**
- * Configuration profile assignment is an association between a VM and automanage profile configuration.
+ * Get information about a configuration profile assignment
  * API Version: 2020-06-30-preview.
  */
 export function getConfigurationProfileAssignmentOutput(args: GetConfigurationProfileAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileAssignmentResult> {

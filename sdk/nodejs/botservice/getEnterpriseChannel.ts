@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Enterprise Channel resource definition
+ * Returns an Enterprise Channel specified by the parameters.
  * API Version: 2018-07-12.
  */
 export function getEnterpriseChannel(args: GetEnterpriseChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseChannelResult> {
@@ -73,7 +73,7 @@ export interface GetEnterpriseChannelResult {
     readonly type: string;
 }
 /**
- * Enterprise Channel resource definition
+ * Returns an Enterprise Channel specified by the parameters.
  * API Version: 2018-07-12.
  */
 export function getEnterpriseChannelOutput(args: GetEnterpriseChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseChannelResult> {

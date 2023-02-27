@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The Connection Monitor Test class.
+ * Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
  */
 export function getConnectionMonitorTest(args: GetConnectionMonitorTestArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorTestResult> {
 
@@ -78,7 +78,7 @@ export interface GetConnectionMonitorTestResult {
     readonly type: string;
 }
 /**
- * The Connection Monitor Test class.
+ * Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
  */
 export function getConnectionMonitorTestOutput(args: GetConnectionMonitorTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorTestResult> {
     return pulumi.output(args).apply((a: any) => getConnectionMonitorTest(a, opts))

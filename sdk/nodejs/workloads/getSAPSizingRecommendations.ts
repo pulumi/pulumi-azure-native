@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The SAP sizing recommendation result.
+ * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
  * API Version: 2021-12-01-preview.
  */
 export function getSAPSizingRecommendations(args: GetSAPSizingRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSizingRecommendationsResult> {
@@ -81,7 +81,7 @@ export interface GetSAPSizingRecommendationsResult {
     readonly deploymentType: string;
 }
 /**
- * The SAP sizing recommendation result.
+ * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
  * API Version: 2021-12-01-preview.
  */
 export function getSAPSizingRecommendationsOutput(args: GetSAPSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSizingRecommendationsResult> {

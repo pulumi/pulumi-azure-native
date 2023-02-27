@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure Migrate Project.
+ * Get the project with the specified name.
  * API Version: 2019-10-01.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
@@ -65,7 +65,7 @@ export interface GetProjectResult {
     readonly type: string;
 }
 /**
- * Azure Migrate Project.
+ * Get the project with the specified name.
  * API Version: 2019-10-01.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {

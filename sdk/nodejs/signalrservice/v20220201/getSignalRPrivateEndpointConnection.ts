@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A private endpoint connection to an azure resource
+ * Get the specified private endpoint connection
  */
 export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRPrivateEndpointConnectionResult> {
 
@@ -73,7 +73,7 @@ export interface GetSignalRPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * A private endpoint connection to an azure resource
+ * Get the specified private endpoint connection
  */
 export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getSignalRPrivateEndpointConnection(a, opts))

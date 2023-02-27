@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The top level storage insight resource container.
+ * Gets a storage insight instance.
  * API Version: 2020-08-01.
  */
 export function getStorageInsightConfig(args: GetStorageInsightConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightConfigResult> {
@@ -78,7 +78,7 @@ export interface GetStorageInsightConfigResult {
     readonly type: string;
 }
 /**
- * The top level storage insight resource container.
+ * Gets a storage insight instance.
  * API Version: 2020-08-01.
  */
 export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {

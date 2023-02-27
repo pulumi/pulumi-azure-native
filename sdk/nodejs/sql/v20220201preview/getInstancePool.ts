@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure SQL instance pool.
+ * Gets an instance pool.
  */
 export function getInstancePool(args: GetInstancePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancePoolResult> {
 
@@ -72,7 +72,7 @@ export interface GetInstancePoolResult {
     readonly vCores: number;
 }
 /**
- * An Azure SQL instance pool.
+ * Gets an instance pool.
  */
 export function getInstancePoolOutput(args: GetInstancePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancePoolResult> {
     return pulumi.output(args).apply((a: any) => getInstancePool(a, opts))

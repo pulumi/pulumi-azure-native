@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a CosmosDb data connection.
+ * Returns a data connection.
  */
 export function getCosmosDbDataConnection(args: GetCosmosDbDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCosmosDbDataConnectionResult> {
 
@@ -100,7 +100,7 @@ export interface GetCosmosDbDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing a CosmosDb data connection.
+ * Returns a data connection.
  */
 export function getCosmosDbDataConnectionOutput(args: GetCosmosDbDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCosmosDbDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getCosmosDbDataConnection(a, opts))

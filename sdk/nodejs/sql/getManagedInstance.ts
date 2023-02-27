@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure SQL managed instance.
+ * Gets a managed instance.
  * API Version: 2020-11-01-preview.
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
@@ -160,7 +160,7 @@ export interface GetManagedInstanceResult {
     readonly zoneRedundant?: boolean;
 }
 /**
- * An Azure SQL managed instance.
+ * Gets a managed instance.
  * API Version: 2020-11-01-preview.
  */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {

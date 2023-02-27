@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+ * Lists the applicable start/stop schedules, if any.
  * API Version: 2018-09-15.
  */
 export function listServiceFabricApplicableSchedules(args: ListServiceFabricApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceFabricApplicableSchedulesResult> {
@@ -75,7 +75,7 @@ export interface ListServiceFabricApplicableSchedulesResult {
     readonly type: string;
 }
 /**
- * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+ * Lists the applicable start/stop schedules, if any.
  * API Version: 2018-09-15.
  */
 export function listServiceFabricApplicableSchedulesOutput(args: ListServiceFabricApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceFabricApplicableSchedulesResult> {

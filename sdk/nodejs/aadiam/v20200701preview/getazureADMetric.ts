@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * AzureADMetrics resource.
+ * Gets a azureADMetrics instance with a given name.
  */
 export function getazureADMetric(args: GetazureADMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetazureADMetricResult> {
 
@@ -57,7 +57,7 @@ export interface GetazureADMetricResult {
     readonly type: string;
 }
 /**
- * AzureADMetrics resource.
+ * Gets a azureADMetrics instance with a given name.
  */
 export function getazureADMetricOutput(args: GetazureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetazureADMetricResult> {
     return pulumi.output(args).apply((a: any) => getazureADMetric(a, opts))

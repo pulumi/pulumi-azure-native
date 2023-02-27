@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Attestation service response message.
+ * Get the status of Attestation Provider.
  */
 /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
@@ -67,7 +67,7 @@ export interface GetAttestationProviderResult {
     readonly type: string;
 }
 /**
- * Attestation service response message.
+ * Get the status of Attestation Provider.
  */
 /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
 export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {

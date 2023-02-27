@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The top level data export resource container.
+ * Gets a data export instance.
  */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
 
@@ -78,7 +78,7 @@ export interface GetDataExportResult {
     readonly type: string;
 }
 /**
- * The top level data export resource container.
+ * Gets a data export instance.
  */
 export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
     return pulumi.output(args).apply((a: any) => getDataExport(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Governance rule over a given scope
+ * Get a specific governance rule for the requested scope by ruleId
  */
 export function getGovernanceRule(args: GetGovernanceRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetGovernanceRuleResult> {
 
@@ -104,7 +104,7 @@ export interface GetGovernanceRuleResult {
     readonly type: string;
 }
 /**
- * Governance rule over a given scope
+ * Get a specific governance rule for the requested scope by ruleId
  */
 export function getGovernanceRuleOutput(args: GetGovernanceRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGovernanceRuleResult> {
     return pulumi.output(args).apply((a: any) => getGovernanceRule(a, opts))

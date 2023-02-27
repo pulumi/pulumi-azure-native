@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Shared access keys of the Topic
+ * List the two keys used to publish to a topic.
  * API Version: 2020-06-01.
  */
 export function listTopicSharedAccessKeys(args: ListTopicSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicSharedAccessKeysResult> {
@@ -42,7 +42,7 @@ export interface ListTopicSharedAccessKeysResult {
     readonly key2?: string;
 }
 /**
- * Shared access keys of the Topic
+ * List the two keys used to publish to a topic.
  * API Version: 2020-06-01.
  */
 export function listTopicSharedAccessKeysOutput(args: ListTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicSharedAccessKeysResult> {

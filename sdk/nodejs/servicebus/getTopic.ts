@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description of topic resource.
+ * Returns a description for the specified topic.
  * API Version: 2017-04-01.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
@@ -118,7 +118,7 @@ export interface GetTopicResult {
     readonly updatedAt: string;
 }
 /**
- * Description of topic resource.
+ * Returns a description for the specified topic.
  * API Version: 2017-04-01.
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {

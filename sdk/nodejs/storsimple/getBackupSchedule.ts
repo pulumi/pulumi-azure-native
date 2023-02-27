@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The backup schedule.
+ * Gets the properties of the specified backup schedule name.
  * API Version: 2017-06-01.
  */
 export function getBackupSchedule(args: GetBackupScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupScheduleResult> {
@@ -92,7 +92,7 @@ export interface GetBackupScheduleResult {
     readonly type: string;
 }
 /**
- * The backup schedule.
+ * Gets the properties of the specified backup schedule name.
  * API Version: 2017-06-01.
  */
 export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleResult> {

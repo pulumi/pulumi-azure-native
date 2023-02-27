@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A server blob auditing policy.
+ * Gets a server's blob auditing policy.
  */
 export function getServerBlobAuditingPolicy(args: GetServerBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerBlobAuditingPolicyResult> {
 
@@ -170,7 +170,7 @@ export interface GetServerBlobAuditingPolicyResult {
     readonly type: string;
 }
 /**
- * A server blob auditing policy.
+ * Gets a server's blob auditing policy.
  */
 export function getServerBlobAuditingPolicyOutput(args: GetServerBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerBlobAuditingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerBlobAuditingPolicy(a, opts))

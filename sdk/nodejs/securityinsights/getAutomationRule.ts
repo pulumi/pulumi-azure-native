@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents an automation rule.
+ * Gets the automation rule.
  * API Version: 2019-01-01-preview.
  */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
@@ -95,7 +95,7 @@ export interface GetAutomationRuleResult {
     readonly type: string;
 }
 /**
- * Represents an automation rule.
+ * Gets the automation rule.
  * API Version: 2019-01-01-preview.
  */
 export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationRuleResult> {

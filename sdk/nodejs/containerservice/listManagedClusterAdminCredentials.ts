@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The list of credential result response.
+ * Gets cluster admin credential of the managed cluster with a specified resource group and name.
  * API Version: 2021-03-01.
  */
 export function listManagedClusterAdminCredentials(args: ListManagedClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAdminCredentialsResult> {
@@ -41,7 +41,7 @@ export interface ListManagedClusterAdminCredentialsResult {
     readonly kubeconfigs: outputs.containerservice.CredentialResultResponse[];
 }
 /**
- * The list of credential result response.
+ * Gets cluster admin credential of the managed cluster with a specified resource group and name.
  * API Version: 2021-03-01.
  */
 export function listManagedClusterAdminCredentialsOutput(args: ListManagedClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAdminCredentialsResult> {

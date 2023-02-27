@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Live Output.
+ * Gets a live output.
  * API Version: 2020-05-01.
  */
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
@@ -99,7 +99,7 @@ export interface GetLiveOutputResult {
     readonly type: string;
 }
 /**
- * The Live Output.
+ * Gets a live output.
  * API Version: 2020-05-01.
  */
 export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {

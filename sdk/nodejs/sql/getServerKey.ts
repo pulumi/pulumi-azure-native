@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A server key.
+ * Gets a server key.
  * API Version: 2020-11-01-preview.
  */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
@@ -75,7 +75,7 @@ export interface GetServerKeyResult {
     readonly type: string;
 }
 /**
- * A server key.
+ * Gets a server key.
  * API Version: 2020-11-01-preview.
  */
 export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {

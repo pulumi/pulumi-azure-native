@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The remediation definition.
+ * Gets an existing remediation at resource scope.
  * API Version: 2019-07-01.
  */
 export function getRemediationAtResource(args: GetRemediationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceResult> {
@@ -81,7 +81,7 @@ export interface GetRemediationAtResourceResult {
     readonly type: string;
 }
 /**
- * The remediation definition.
+ * Gets an existing remediation at resource scope.
  * API Version: 2019-07-01.
  */
 export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceResult> {

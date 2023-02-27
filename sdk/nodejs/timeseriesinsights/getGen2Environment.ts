@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
+ * Gets the environment with the specified name in the specified subscription and resource group.
  * API Version: 2020-05-15.
  */
 export function getGen2Environment(args: GetGen2EnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGen2EnvironmentResult> {
@@ -103,7 +103,7 @@ export interface GetGen2EnvironmentResult {
     readonly warmStoreConfiguration?: outputs.timeseriesinsights.WarmStoreConfigurationPropertiesResponse;
 }
 /**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
+ * Gets the environment with the specified name in the specified subscription and resource group.
  * API Version: 2020-05-15.
  */
 export function getGen2EnvironmentOutput(args: GetGen2EnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGen2EnvironmentResult> {

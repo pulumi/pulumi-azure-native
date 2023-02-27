@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * VpnConnection Resource.
+ * Retrieves the details of a vpn connection.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
@@ -95,7 +95,7 @@ export interface GetVpnConnectionResult {
     readonly sharedKey?: string;
 }
 /**
- * VpnConnection Resource.
+ * Retrieves the details of a vpn connection.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {

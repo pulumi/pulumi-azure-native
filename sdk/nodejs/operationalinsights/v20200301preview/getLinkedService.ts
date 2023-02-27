@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The top level Linked service resource container.
+ * Gets a linked service instance.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
 
@@ -66,7 +66,7 @@ export interface GetLinkedServiceResult {
     readonly writeAccessResourceId?: string;
 }
 /**
- * The top level Linked service resource container.
+ * Gets a linked service instance.
  */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
     return pulumi.output(args).apply((a: any) => getLinkedService(a, opts))

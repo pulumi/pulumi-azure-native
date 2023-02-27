@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Metadata resource definition.
+ * Get a Metadata.
  */
 export function getMetadata(args: GetMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataResult> {
 
@@ -109,7 +109,7 @@ export interface GetMetadataResult {
     readonly version?: string;
 }
 /**
- * Metadata resource definition.
+ * Get a Metadata.
  */
 export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataResult> {
     return pulumi.output(args).apply((a: any) => getMetadata(a, opts))

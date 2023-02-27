@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * SAP monitor info on Azure (ARM properties and SAP monitor properties)
+ * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  * API Version: 2020-02-07-preview.
  */
 export function getSapMonitor(args: GetSapMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetSapMonitorResult> {
@@ -86,7 +86,7 @@ export interface GetSapMonitorResult {
     readonly type: string;
 }
 /**
- * SAP monitor info on Azure (ARM properties and SAP monitor properties)
+ * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  * API Version: 2020-02-07-preview.
  */
 export function getSapMonitorOutput(args: GetSapMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapMonitorResult> {

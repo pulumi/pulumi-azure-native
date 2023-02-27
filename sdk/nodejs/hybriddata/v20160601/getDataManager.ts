@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The DataManager resource.
+ * Gets information about the specified data manager resource.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataManagerResult> {
@@ -69,7 +69,7 @@ export interface GetDataManagerResult {
     readonly type: string;
 }
 /**
- * The DataManager resource.
+ * Gets information about the specified data manager resource.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getDataManagerOutput(args: GetDataManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataManagerResult> {

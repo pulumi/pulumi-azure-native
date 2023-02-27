@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Peering in an ExpressRoute Cross Connection resource.
+ * Gets the specified peering for the ExpressRouteCrossConnection.
  */
 export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCrossConnectionPeeringResult> {
 
@@ -113,7 +113,7 @@ export interface GetExpressRouteCrossConnectionPeeringResult {
     readonly vlanId?: number;
 }
 /**
- * Peering in an ExpressRoute Cross Connection resource.
+ * Gets the specified peering for the ExpressRouteCrossConnection.
  */
 export function getExpressRouteCrossConnectionPeeringOutput(args: GetExpressRouteCrossConnectionPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCrossConnectionPeeringResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCrossConnectionPeering(a, opts))

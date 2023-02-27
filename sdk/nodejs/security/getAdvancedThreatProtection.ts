@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The Advanced Threat Protection resource.
+ * Gets the Advanced Threat Protection settings for the specified resource.
  * API Version: 2019-01-01.
  */
 export function getAdvancedThreatProtection(args: GetAdvancedThreatProtectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdvancedThreatProtectionResult> {
@@ -50,7 +50,7 @@ export interface GetAdvancedThreatProtectionResult {
     readonly type: string;
 }
 /**
- * The Advanced Threat Protection resource.
+ * Gets the Advanced Threat Protection settings for the specified resource.
  * API Version: 2019-01-01.
  */
 export function getAdvancedThreatProtectionOutput(args: GetAdvancedThreatProtectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdvancedThreatProtectionResult> {

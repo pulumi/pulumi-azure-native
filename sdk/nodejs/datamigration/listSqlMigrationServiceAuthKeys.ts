@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An authentication key.
+ * Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
  * API Version: 2021-10-30-preview.
  */
 export function listSqlMigrationServiceAuthKeys(args: ListSqlMigrationServiceAuthKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSqlMigrationServiceAuthKeysResult> {
@@ -42,7 +42,7 @@ export interface ListSqlMigrationServiceAuthKeysResult {
     readonly authKey2?: string;
 }
 /**
- * An authentication key.
+ * Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
  * API Version: 2021-10-30-preview.
  */
 export function listSqlMigrationServiceAuthKeysOutput(args: ListSqlMigrationServiceAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceAuthKeysResult> {

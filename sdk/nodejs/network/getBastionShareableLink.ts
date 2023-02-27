@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Response for all the Bastion Shareable Link endpoints.
+ * Return the Bastion Shareable Links for all the VMs specified in the request.
  * API Version: 2020-11-01.
  */
 export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionShareableLinkResult> {
@@ -50,7 +50,7 @@ export interface GetBastionShareableLinkResult {
     readonly value?: outputs.network.BastionShareableLinkResponse[];
 }
 /**
- * Response for all the Bastion Shareable Link endpoints.
+ * Return the Bastion Shareable Links for all the VMs specified in the request.
  * API Version: 2020-11-01.
  */
 export function getBastionShareableLinkOutput(args: GetBastionShareableLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionShareableLinkResult> {

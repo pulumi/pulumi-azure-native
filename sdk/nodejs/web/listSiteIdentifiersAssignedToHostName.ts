@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Collection of identifiers.
+ * List all apps that are assigned to a hostname.
  * API Version: 2020-12-01.
  */
 export function listSiteIdentifiersAssignedToHostName(args?: ListSiteIdentifiersAssignedToHostNameArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteIdentifiersAssignedToHostNameResult> {
@@ -41,7 +41,7 @@ export interface ListSiteIdentifiersAssignedToHostNameResult {
     readonly value: outputs.web.IdentifierResponse[];
 }
 /**
- * Collection of identifiers.
+ * List all apps that are assigned to a hostname.
  * API Version: 2020-12-01.
  */
 export function listSiteIdentifiersAssignedToHostNameOutput(args?: ListSiteIdentifiersAssignedToHostNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteIdentifiersAssignedToHostNameResult> {

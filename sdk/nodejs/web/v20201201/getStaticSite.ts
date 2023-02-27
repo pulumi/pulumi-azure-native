@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Static Site ARM resource.
+ * Gets the details of a static site.
  */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
 
@@ -124,7 +124,7 @@ export interface GetStaticSiteResult {
     readonly userProvidedFunctionApps: outputs.web.v20201201.StaticSiteUserProvidedFunctionAppResponse[];
 }
 /**
- * Static Site ARM resource.
+ * Gets the details of a static site.
  */
 export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteResult> {
     return pulumi.output(args).apply((a: any) => getStaticSite(a, opts))

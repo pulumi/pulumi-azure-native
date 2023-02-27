@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The application resource.
+ * Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -113,7 +113,7 @@ export interface GetApplicationResult {
     readonly upgradePolicy?: outputs.servicefabric.v20201201preview.ApplicationUpgradePolicyResponse;
 }
 /**
- * The application resource.
+ * Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

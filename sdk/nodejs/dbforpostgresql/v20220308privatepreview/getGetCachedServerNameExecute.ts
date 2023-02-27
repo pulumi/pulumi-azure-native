@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a resource name of a cached server
+ * Get available cached server name for fast provisioning
  */
 export function getGetCachedServerNameExecute(args: GetGetCachedServerNameExecuteArgs, opts?: pulumi.InvokeOptions): Promise<GetGetCachedServerNameExecuteResult> {
 
@@ -55,7 +55,7 @@ export interface GetGetCachedServerNameExecuteResult {
     readonly name: string;
 }
 /**
- * Represents a resource name of a cached server
+ * Get available cached server name for fast provisioning
  */
 export function getGetCachedServerNameExecuteOutput(args: GetGetCachedServerNameExecuteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGetCachedServerNameExecuteResult> {
     return pulumi.output(args).apply((a: any) => getGetCachedServerNameExecute(a, opts))

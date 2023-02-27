@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Frontend Subresource of Traffic Controller.
+ * Get a Traffic Controller Frontend
  */
 export function getFrontendsInterface(args: GetFrontendsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontendsInterfaceResult> {
 
@@ -81,7 +81,7 @@ export interface GetFrontendsInterfaceResult {
     readonly type: string;
 }
 /**
- * Frontend Subresource of Traffic Controller.
+ * Get a Traffic Controller Frontend
  */
 export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontendsInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getFrontendsInterface(a, opts))

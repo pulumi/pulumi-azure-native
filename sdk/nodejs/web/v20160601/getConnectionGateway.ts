@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The gateway definition
+ * Gets a specific gateway under a subscription and in a specific resource group
  */
 export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionGatewayResult> {
 
@@ -66,7 +66,7 @@ export interface GetConnectionGatewayResult {
     readonly type: string;
 }
 /**
- * The gateway definition
+ * Gets a specific gateway under a subscription and in a specific resource group
  */
 export function getConnectionGatewayOutput(args: GetConnectionGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionGatewayResult> {
     return pulumi.output(args).apply((a: any) => getConnectionGateway(a, opts))

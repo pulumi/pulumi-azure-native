@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+ * Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
  */
 export function getSecretValue(args: GetSecretValueArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretValueResult> {
 
@@ -66,7 +66,7 @@ export interface GetSecretValueResult {
     readonly value?: string;
 }
 /**
- * This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+ * Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
  */
 export function getSecretValueOutput(args: GetSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretValueResult> {
     return pulumi.output(args).apply((a: any) => getSecretValue(a, opts))

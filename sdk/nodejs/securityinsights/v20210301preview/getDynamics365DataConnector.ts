@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Dynamics365 data connector.
+ * Gets a data connector.
  */
 export function getDynamics365DataConnector(args: GetDynamics365DataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDynamics365DataConnectorResult> {
 
@@ -79,7 +79,7 @@ export interface GetDynamics365DataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents Dynamics365 data connector.
+ * Gets a data connector.
  */
 export function getDynamics365DataConnectorOutput(args: GetDynamics365DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamics365DataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getDynamics365DataConnector(a, opts))

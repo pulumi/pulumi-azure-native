@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Get User Token response details.
+ * Gets the Shared Access Authorization Token for the User.
  */
 export function getUserSharedAccessToken(args: GetUserSharedAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSharedAccessTokenResult> {
 
@@ -55,7 +55,7 @@ export interface GetUserSharedAccessTokenResult {
     readonly value?: string;
 }
 /**
- * Get User Token response details.
+ * Gets the Shared Access Authorization Token for the User.
  */
 export function getUserSharedAccessTokenOutput(args: GetUserSharedAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSharedAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getUserSharedAccessToken(a, opts))

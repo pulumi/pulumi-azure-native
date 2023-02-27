@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A data set mapping data transfer object.
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 /** @deprecated Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping. */
@@ -69,7 +69,7 @@ export interface GetDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A data set mapping data transfer object.
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 /** @deprecated Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping. */

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a federated identity credential.
+ * Gets the federated identity credential.
  */
 export function getFederatedIdentityCredential(args: GetFederatedIdentityCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIdentityCredentialResult> {
 
@@ -69,7 +69,7 @@ export interface GetFederatedIdentityCredentialResult {
     readonly type: string;
 }
 /**
- * Describes a federated identity credential.
+ * Gets the federated identity credential.
  */
 export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
     return pulumi.output(args).apply((a: any) => getFederatedIdentityCredential(a, opts))

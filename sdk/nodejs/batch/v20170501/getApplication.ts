@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Contains information about an application in a Batch account.
+ * Gets information about the specified application.
  */
 /** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
@@ -63,7 +63,7 @@ export interface GetApplicationResult {
     readonly packages?: outputs.batch.v20170501.ApplicationPackageResponse[];
 }
 /**
- * Contains information about an application in a Batch account.
+ * Gets information about the specified application.
  */
 /** @deprecated Version 2017-05-01 will be removed in v2 of the provider. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {

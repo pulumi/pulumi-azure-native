@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Asset Filter.
+ * Get the details of an Asset Filter associated with the specified Asset.
  */
 export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetFilterResult> {
 
@@ -74,7 +74,7 @@ export interface GetAssetFilterResult {
     readonly type: string;
 }
 /**
- * An Asset Filter.
+ * Get the details of an Asset Filter associated with the specified Asset.
  */
 export function getAssetFilterOutput(args: GetAssetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetFilterResult> {
     return pulumi.output(args).apply((a: any) => getAssetFilter(a, opts))

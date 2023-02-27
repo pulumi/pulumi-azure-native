@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The result of the GetSupportedOptimizationTypes API
+ * Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
  * API Version: 2020-09-01.
  */
 export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOptimizationTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileSupportedOptimizationTypesResult> {
@@ -38,7 +38,7 @@ export interface GetProfileSupportedOptimizationTypesResult {
     readonly supportedOptimizationTypes: string[];
 }
 /**
- * The result of the GetSupportedOptimizationTypes API
+ * Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
  * API Version: 2020-09-01.
  */
 export function getProfileSupportedOptimizationTypesOutput(args: GetProfileSupportedOptimizationTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileSupportedOptimizationTypesResult> {

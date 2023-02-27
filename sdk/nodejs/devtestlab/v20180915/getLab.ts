@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A lab.
+ * Get lab.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
 
@@ -143,7 +143,7 @@ export interface GetLabResult {
     readonly vmCreationResourceGroup: string;
 }
 /**
- * A lab.
+ * Get lab.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
     return pulumi.output(args).apply((a: any) => getLab(a, opts))

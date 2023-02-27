@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Create or update Restore Point collection parameters.
+ * The operation to get the restore point collection.
  */
 export function getRestorePointCollection(args: GetRestorePointCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointCollectionResult> {
 
@@ -77,7 +77,7 @@ export interface GetRestorePointCollectionResult {
     readonly type: string;
 }
 /**
- * Create or update Restore Point collection parameters.
+ * The operation to get the restore point collection.
  */
 export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointCollectionResult> {
     return pulumi.output(args).apply((a: any) => getRestorePointCollection(a, opts))

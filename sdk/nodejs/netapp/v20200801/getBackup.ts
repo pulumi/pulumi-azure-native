@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Backup of a Volume
+ * Get a particular backup of the volume
  */
 /** @deprecated Version 2020-08-01 will be removed in v2 of the provider. */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
@@ -90,7 +90,7 @@ export interface GetBackupResult {
     readonly type: string;
 }
 /**
- * Backup of a Volume
+ * Get a particular backup of the volume
  */
 /** @deprecated Version 2020-08-01 will be removed in v2 of the provider. */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {

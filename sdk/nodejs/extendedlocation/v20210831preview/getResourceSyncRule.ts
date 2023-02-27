@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Resource Sync Rules definition.
+ * Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
  */
 export function getResourceSyncRule(args: GetResourceSyncRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSyncRuleResult> {
 
@@ -81,7 +81,7 @@ export interface GetResourceSyncRuleResult {
     readonly type: string;
 }
 /**
- * Resource Sync Rules definition.
+ * Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
  */
 export function getResourceSyncRuleOutput(args: GetResourceSyncRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSyncRuleResult> {
     return pulumi.output(args).apply((a: any) => getResourceSyncRule(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * the ISV access token result response.
+ * Gets the ISV access token for a specified Subscription Level SaaS.
  */
 export function listSaasSubscriptionLevelAccessToken(args: ListSaasSubscriptionLevelAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasSubscriptionLevelAccessTokenResult> {
 
@@ -41,7 +41,7 @@ export interface ListSaasSubscriptionLevelAccessTokenResult {
     readonly token?: string;
 }
 /**
- * the ISV access token result response.
+ * Gets the ISV access token for a specified Subscription Level SaaS.
  */
 export function listSaasSubscriptionLevelAccessTokenOutput(args: ListSaasSubscriptionLevelAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasSubscriptionLevelAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => listSaasSubscriptionLevelAccessToken(a, opts))

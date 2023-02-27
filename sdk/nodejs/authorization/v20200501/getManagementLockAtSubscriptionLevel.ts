@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The lock information.
+ * Gets a management lock at the subscription level.
  */
 export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtSubscriptionLevelResult> {
 
@@ -59,7 +59,7 @@ export interface GetManagementLockAtSubscriptionLevelResult {
     readonly type: string;
 }
 /**
- * The lock information.
+ * Gets a management lock at the subscription level.
  */
 export function getManagementLockAtSubscriptionLevelOutput(args: GetManagementLockAtSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtSubscriptionLevelResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockAtSubscriptionLevel(a, opts))

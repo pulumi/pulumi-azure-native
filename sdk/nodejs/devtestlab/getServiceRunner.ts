@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A container for a managed identity to execute DevTest lab services.
+ * Get service runner.
  * API Version: 2018-09-15.
  */
 export function getServiceRunner(args: GetServiceRunnerArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRunnerResult> {
@@ -66,7 +66,7 @@ export interface GetServiceRunnerResult {
     readonly type: string;
 }
 /**
- * A container for a managed identity to execute DevTest lab services.
+ * Get service runner.
  * API Version: 2018-09-15.
  */
 export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRunnerResult> {

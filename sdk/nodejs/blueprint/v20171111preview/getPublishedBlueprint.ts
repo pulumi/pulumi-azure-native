@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a published Blueprint.
+ * Get a published Blueprint.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedBlueprintResult> {
@@ -87,7 +87,7 @@ export interface GetPublishedBlueprintResult {
     readonly type: string;
 }
 /**
- * Represents a published Blueprint.
+ * Get a published Blueprint.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedBlueprintResult> {

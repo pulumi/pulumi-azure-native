@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * EventGrid Domain.
+ * Get properties of a domain.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
 
@@ -125,7 +125,7 @@ export interface GetDomainResult {
     readonly type: string;
 }
 /**
- * EventGrid Domain.
+ * Get properties of a domain.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Video Analyzer account.
+ * Get the details of the specified Video Analyzer account
  * API Version: 2021-05-01-preview.
  */
 export function getVideoAnalyzer(args: GetVideoAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoAnalyzerResult> {
@@ -77,7 +77,7 @@ export interface GetVideoAnalyzerResult {
     readonly type: string;
 }
 /**
- * A Video Analyzer account.
+ * Get the details of the specified Video Analyzer account
  * API Version: 2021-05-01-preview.
  */
 export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoAnalyzerResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Function information.
+ * Get function information by its ID for web site, or a deployment slot.
  * API Version: 2020-12-01.
  */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
@@ -107,7 +107,7 @@ export interface GetWebAppFunctionResult {
     readonly type: string;
 }
 /**
- * Function information.
+ * Get function information by its ID for web site, or a deployment slot.
  * API Version: 2020-12-01.
  */
 export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFunctionResult> {

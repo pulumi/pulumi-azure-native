@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents threat intelligence data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getTIDataConnector(args: GetTIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetTIDataConnectorResult> {
@@ -75,7 +75,7 @@ export interface GetTIDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents threat intelligence data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getTIDataConnectorOutput(args: GetTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTIDataConnectorResult> {

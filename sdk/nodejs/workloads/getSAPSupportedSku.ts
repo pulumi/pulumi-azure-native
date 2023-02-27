@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The list of supported SKUs for different resources which are part of SAP deployment.
+ * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
  * API Version: 2021-12-01-preview.
  */
 export function getSAPSupportedSku(args: GetSAPSupportedSkuArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSupportedSkuResult> {
@@ -66,7 +66,7 @@ export interface GetSAPSupportedSkuResult {
     readonly supportedSkus?: outputs.workloads.SAPSupportedSkuResponse[];
 }
 /**
- * The list of supported SKUs for different resources which are part of SAP deployment.
+ * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
  * API Version: 2021-12-01-preview.
  */
 export function getSAPSupportedSkuOutput(args: GetSAPSupportedSkuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSupportedSkuResult> {

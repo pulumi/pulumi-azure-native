@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An object that represents a machine learning project.
+ * Gets the properties of the specified machine learning project.
  * API Version: 2017-05-01-preview.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
@@ -96,7 +96,7 @@ export interface GetProjectResult {
     readonly workspaceId: string;
 }
 /**
- * An object that represents a machine learning project.
+ * Gets the properties of the specified machine learning project.
  * API Version: 2017-05-01-preview.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {

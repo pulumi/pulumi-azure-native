@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Site Extension Information.
+ * Get site extension information by its ID for a web site, or a deployment slot.
  * API Version: 2020-12-01.
  */
 export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionSlotResult> {
@@ -137,7 +137,7 @@ export interface GetWebAppSiteExtensionSlotResult {
     readonly version?: string;
 }
 /**
- * Site Extension Information.
+ * Get site extension information by its ID for a web site, or a deployment slot.
  * API Version: 2020-12-01.
  */
 export function getWebAppSiteExtensionSlotOutput(args: GetWebAppSiteExtensionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionSlotResult> {

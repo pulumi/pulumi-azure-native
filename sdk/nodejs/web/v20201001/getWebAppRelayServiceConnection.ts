@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Hybrid Connection for an App Service app.
+ * Gets a hybrid connection configuration by its name.
  */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
 
@@ -68,7 +68,7 @@ export interface GetWebAppRelayServiceConnectionResult {
     readonly type: string;
 }
 /**
- * Hybrid Connection for an App Service app.
+ * Gets a hybrid connection configuration by its name.
  */
 export function getWebAppRelayServiceConnectionOutput(args: GetWebAppRelayServiceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppRelayServiceConnection(a, opts))

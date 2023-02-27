@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The list of credential result response.
+ * Gets cluster user credentials of the connected cluster with a specified resource group and name.
  * API Version: 2022-05-01-preview.
  */
 export function listConnectedClusterUserCredential(args: ListConnectedClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedClusterUserCredentialResult> {
@@ -55,7 +55,7 @@ export interface ListConnectedClusterUserCredentialResult {
     readonly kubeconfigs: outputs.kubernetes.CredentialResultResponse[];
 }
 /**
- * The list of credential result response.
+ * Gets cluster user credentials of the connected cluster with a specified resource group and name.
  * API Version: 2022-05-01-preview.
  */
 export function listConnectedClusterUserCredentialOutput(args: ListConnectedClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedClusterUserCredentialResult> {

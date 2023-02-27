@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response for list sim ids API service call.
+ * List sim ids under a mobile network.
  */
 export function listMobileNetworkSimIds(args: ListMobileNetworkSimIdsArgs, opts?: pulumi.InvokeOptions): Promise<ListMobileNetworkSimIdsResult> {
 
@@ -44,7 +44,7 @@ export interface ListMobileNetworkSimIdsResult {
     readonly value?: outputs.mobilenetwork.v20220301preview.SubResourceResponse[];
 }
 /**
- * Response for list sim ids API service call.
+ * List sim ids under a mobile network.
  */
 export function listMobileNetworkSimIdsOutput(args: ListMobileNetworkSimIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMobileNetworkSimIdsResult> {
     return pulumi.output(args).apply((a: any) => listMobileNetworkSimIds(a, opts))

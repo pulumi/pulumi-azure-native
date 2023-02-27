@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Snapshot resource.
+ * Gets information about a snapshot.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
 
@@ -152,7 +152,7 @@ export interface GetSnapshotResult {
     readonly uniqueId: string;
 }
 /**
- * Snapshot resource.
+ * Gets information about a snapshot.
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

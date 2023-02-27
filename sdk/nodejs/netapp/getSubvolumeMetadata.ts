@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Result of the post subvolume and action is to get metadata of the subvolume.
+ * Get details of the specified subvolume
  * API Version: 2021-10-01.
  */
 export function getSubvolumeMetadata(args: GetSubvolumeMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeMetadataResult> {
@@ -101,7 +101,7 @@ export interface GetSubvolumeMetadataResult {
     readonly type: string;
 }
 /**
- * Result of the post subvolume and action is to get metadata of the subvolume.
+ * Get details of the specified subvolume
  * API Version: 2021-10-01.
  */
 export function getSubvolumeMetadataOutput(args: GetSubvolumeMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeMetadataResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A type of synchronization setting based on schedule
+ * Get a synchronizationSetting in a share
  */
 export function getScheduledSynchronizationSetting(args: GetScheduledSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledSynchronizationSettingResult> {
 
@@ -80,7 +80,7 @@ export interface GetScheduledSynchronizationSettingResult {
     readonly userName: string;
 }
 /**
- * A type of synchronization setting based on schedule
+ * Get a synchronizationSetting in a share
  */
 export function getScheduledSynchronizationSettingOutput(args: GetScheduledSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledSynchronizationSettingResult> {
     return pulumi.output(args).apply((a: any) => getScheduledSynchronizationSetting(a, opts))

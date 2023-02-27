@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The iSCSI disk.
+ * Returns the properties of the specified iSCSI disk name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiDiskResult> {
@@ -94,7 +94,7 @@ export interface GetIscsiDiskResult {
     readonly usedCapacityInBytes: number;
 }
 /**
- * The iSCSI disk.
+ * Returns the properties of the specified iSCSI disk name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiDiskOutput(args: GetIscsiDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiDiskResult> {

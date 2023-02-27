@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The response of getting a download URL.
+ * Gets the download URL of a package.
  */
 export function getPackageDownloadURL(args: GetPackageDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageDownloadURLResult> {
 
@@ -46,7 +46,7 @@ export interface GetPackageDownloadURLResult {
     readonly expirationTime: string;
 }
 /**
- * The response of getting a download URL.
+ * Gets the download URL of a package.
  */
 export function getPackageDownloadURLOutput(args: GetPackageDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageDownloadURLResult> {
     return pulumi.output(args).apply((a: any) => getPackageDownloadURL(a, opts))

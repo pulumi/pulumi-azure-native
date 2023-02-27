@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Workspace authorization keys for a workspace.
+ * List the authorization keys associated with this workspace.
  * API Version: 2016-04-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
@@ -42,7 +42,7 @@ export interface ListWorkspaceKeysResult {
     readonly secondaryToken?: string;
 }
 /**
- * Workspace authorization keys for a workspace.
+ * List the authorization keys associated with this workspace.
  * API Version: 2016-04-01.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {

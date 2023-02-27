@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The volume.
+ * Returns the properties of the specified volume name.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
 
@@ -100,7 +100,7 @@ export interface GetVolumeResult {
     readonly volumeType: string;
 }
 /**
- * The volume.
+ * Returns the properties of the specified volume name.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))

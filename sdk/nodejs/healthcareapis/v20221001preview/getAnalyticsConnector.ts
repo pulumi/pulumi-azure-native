@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Analytics Connector definition.
+ * Gets the properties of the specified Analytics Connector.
  */
 export function getAnalyticsConnector(args: GetAnalyticsConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsConnectorResult> {
 
@@ -89,7 +89,7 @@ export interface GetAnalyticsConnectorResult {
     readonly type: string;
 }
 /**
- * Analytics Connector definition.
+ * Gets the properties of the specified Analytics Connector.
  */
 export function getAnalyticsConnectorOutput(args: GetAnalyticsConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAnalyticsConnector(a, opts))

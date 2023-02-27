@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The link resource format.
+ * Gets a link in the hub.
  * API Version: 2017-04-26.
  */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
@@ -106,7 +106,7 @@ export interface GetLinkResult {
     readonly type: string;
 }
 /**
- * The link resource format.
+ * Gets a link in the hub.
  * API Version: 2017-04-26.
  */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {

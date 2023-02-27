@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An attestation resource.
+ * Gets an existing attestation at resource scope.
  * API Version: 2021-01-01.
  */
 export function getAttestationAtResource(args: GetAttestationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtResourceResult> {
@@ -89,7 +89,7 @@ export interface GetAttestationAtResourceResult {
     readonly type: string;
 }
 /**
- * An attestation resource.
+ * Gets an existing attestation at resource scope.
  * API Version: 2021-01-01.
  */
 export function getAttestationAtResourceOutput(args: GetAttestationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceResult> {

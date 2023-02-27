@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * List keys of a notebook.
+ */
 export function listWorkspaceNotebookKeys(args: ListWorkspaceNotebookKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookKeysResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,6 +31,9 @@ export interface ListWorkspaceNotebookKeysResult {
     readonly primaryAccessKey: string;
     readonly secondaryAccessKey: string;
 }
+/**
+ * List keys of a notebook.
+ */
 export function listWorkspaceNotebookKeysOutput(args: ListWorkspaceNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceNotebookKeys(a, opts))
 }

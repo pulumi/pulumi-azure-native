@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * DSCP Configuration in a resource group.
+ * Gets a DSCP Configuration.
  * API Version: 2020-11-01.
  */
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
@@ -101,7 +101,7 @@ export interface GetDscpConfigurationResult {
     readonly type: string;
 }
 /**
- * DSCP Configuration in a resource group.
+ * Gets a DSCP Configuration.
  * API Version: 2020-11-01.
  */
 export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {

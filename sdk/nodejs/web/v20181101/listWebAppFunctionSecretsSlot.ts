@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Function secrets.
+ * Get function secrets for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsSlotResult> {
 
@@ -67,7 +67,7 @@ export interface ListWebAppFunctionSecretsSlotResult {
     readonly type: string;
 }
 /**
- * Function secrets.
+ * Get function secrets for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionSecretsSlotOutput(args: ListWebAppFunctionSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppFunctionSecretsSlot(a, opts))

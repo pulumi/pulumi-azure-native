@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a DNS resolver.
+ * Gets properties of a DNS resolver.
  */
 export function getDnsResolver(args: GetDnsResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverResult> {
 
@@ -80,7 +80,7 @@ export interface GetDnsResolverResult {
     readonly virtualNetwork: outputs.network.v20220701.SubResourceResponse;
 }
 /**
- * Describes a DNS resolver.
+ * Gets properties of a DNS resolver.
  */
 export function getDnsResolverOutput(args: GetDnsResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverResult> {
     return pulumi.output(args).apply((a: any) => getDnsResolver(a, opts))

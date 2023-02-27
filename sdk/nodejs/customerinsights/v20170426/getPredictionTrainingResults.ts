@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The training results of the prediction.
+ * Gets training results.
  */
 export function getPredictionTrainingResults(args: GetPredictionTrainingResultsArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionTrainingResultsResult> {
 
@@ -61,7 +61,7 @@ export interface GetPredictionTrainingResultsResult {
     readonly tenantId: string;
 }
 /**
- * The training results of the prediction.
+ * Gets training results.
  */
 export function getPredictionTrainingResultsOutput(args: GetPredictionTrainingResultsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionTrainingResultsResult> {
     return pulumi.output(args).apply((a: any) => getPredictionTrainingResults(a, opts))

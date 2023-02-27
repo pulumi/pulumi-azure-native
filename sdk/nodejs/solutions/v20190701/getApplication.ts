@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Information about managed application.
+ * Gets the managed application.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -136,7 +136,7 @@ export interface GetApplicationResult {
     readonly updatedBy: outputs.solutions.v20190701.ApplicationClientDetailsResponse;
 }
 /**
- * Information about managed application.
+ * Gets the managed application.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

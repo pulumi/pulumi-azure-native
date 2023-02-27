@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the webhook type.
+ * Retrieve the webhook identified by webhook name.
  * API Version: 2015-10-31.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
@@ -98,7 +98,7 @@ export interface GetWebhookResult {
     readonly uri?: string;
 }
 /**
- * Definition of the webhook type.
+ * Retrieve the webhook identified by webhook name.
  * API Version: 2015-10-31.
  */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {

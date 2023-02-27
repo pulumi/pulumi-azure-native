@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The workflow trigger callback URL.
+ * Get the content callback url.
  */
 export function listAgreementContentCallbackUrl(args: ListAgreementContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListAgreementContentCallbackUrlResult> {
 
@@ -75,7 +75,7 @@ export interface ListAgreementContentCallbackUrlResult {
     readonly value: string;
 }
 /**
- * The workflow trigger callback URL.
+ * Get the content callback url.
  */
 export function listAgreementContentCallbackUrlOutput(args: ListAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgreementContentCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listAgreementContentCallbackUrl(a, opts))

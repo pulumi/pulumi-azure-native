@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents an instance of an Analysis Services resource.
+ * Gets details about the specified Analysis Services server.
  */
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
 
@@ -100,7 +100,7 @@ export interface GetServerDetailsResult {
     readonly type: string;
 }
 /**
- * Represents an instance of an Analysis Services resource.
+ * Gets details about the specified Analysis Services server.
  */
 export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDetailsResult> {
     return pulumi.output(args).apply((a: any) => getServerDetails(a, opts))

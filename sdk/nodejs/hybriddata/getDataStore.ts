@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data store.
+ * This method gets the data store/repository by name.
  * API Version: 2019-06-01.
  */
 export function getDataStore(args: GetDataStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDataStoreResult> {
@@ -74,7 +74,7 @@ export interface GetDataStoreResult {
     readonly type: string;
 }
 /**
- * Data store.
+ * This method gets the data store/repository by name.
  * API Version: 2019-06-01.
  */
 export function getDataStoreOutput(args: GetDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataStoreResult> {

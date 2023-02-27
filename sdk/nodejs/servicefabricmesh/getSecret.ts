@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * This type describes a secret resource.
+ * Gets the information about the secret resource with the given name. The information include the description and other properties of the secret.
  * API Version: 2018-09-01-preview.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
@@ -61,7 +61,7 @@ export interface GetSecretResult {
     readonly type: string;
 }
 /**
- * This type describes a secret resource.
+ * Gets the information about the secret resource with the given name. The information include the description and other properties of the secret.
  * API Version: 2018-09-01-preview.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {

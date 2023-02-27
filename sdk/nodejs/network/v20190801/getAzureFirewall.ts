@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Azure Firewall resource.
+ * Gets the specified Azure Firewall.
  */
 export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureFirewallResult> {
 
@@ -104,7 +104,7 @@ export interface GetAzureFirewallResult {
     readonly zones?: string[];
 }
 /**
- * Azure Firewall resource.
+ * Gets the specified Azure Firewall.
  */
 export function getAzureFirewallOutput(args: GetAzureFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureFirewallResult> {
     return pulumi.output(args).apply((a: any) => getAzureFirewall(a, opts))

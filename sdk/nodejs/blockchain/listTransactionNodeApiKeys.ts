@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Collection of the API key payload which is exposed in the response of the resource provider.
+ * List the API keys for the transaction node.
  * API Version: 2018-06-01-preview.
  */
 export function listTransactionNodeApiKeys(args: ListTransactionNodeApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTransactionNodeApiKeysResult> {
@@ -46,7 +46,7 @@ export interface ListTransactionNodeApiKeysResult {
     readonly keys?: outputs.blockchain.ApiKeyResponse[];
 }
 /**
- * Collection of the API key payload which is exposed in the response of the resource provider.
+ * List the API keys for the transaction node.
  * API Version: 2018-06-01-preview.
  */
 export function listTransactionNodeApiKeysOutput(args: ListTransactionNodeApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTransactionNodeApiKeysResult> {

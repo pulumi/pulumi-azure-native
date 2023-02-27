@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * This type describes an application resource.
+ * Gets the information about the application resource with the given name. The information include the description and other properties of the application.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -96,7 +96,7 @@ export interface GetApplicationResult {
     readonly unhealthyEvaluation: string;
 }
 /**
- * This type describes an application resource.
+ * Gets the information about the application resource with the given name. The information include the description and other properties of the application.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

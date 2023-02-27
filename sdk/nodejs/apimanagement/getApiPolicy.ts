@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Policy Contract details.
+ * Get the policy configuration at the API level.
  * API Version: 2020-12-01.
  */
 export function getApiPolicy(args: GetApiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPolicyResult> {
@@ -69,7 +69,7 @@ export interface GetApiPolicyResult {
     readonly value: string;
 }
 /**
- * Policy Contract details.
+ * Get the policy configuration at the API level.
  * API Version: 2020-12-01.
  */
 export function getApiPolicyOutput(args: GetApiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPolicyResult> {

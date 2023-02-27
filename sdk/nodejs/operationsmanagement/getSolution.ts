@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The container for solution.
+ * Retrieves the user solution.
  * API Version: 2015-11-01-preview.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
@@ -65,7 +65,7 @@ export interface GetSolutionResult {
     readonly type: string;
 }
 /**
- * The container for solution.
+ * Retrieves the user solution.
  * API Version: 2015-11-01-preview.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {

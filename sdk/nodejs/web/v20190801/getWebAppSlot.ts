@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A web app, a mobile app backend, or an API app.
+ * Gets the details of a web, mobile, or API app.
  */
 export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotResult> {
 
@@ -213,7 +213,7 @@ export interface GetWebAppSlotResult {
     readonly usageState: string;
 }
 /**
- * A web app, a mobile app backend, or an API app.
+ * Gets the details of a web, mobile, or API app.
  */
 export function getWebAppSlotOutput(args: GetWebAppSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSlot(a, opts))

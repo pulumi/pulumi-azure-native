@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * SyncIdentityProvider represents a SyncIdentityProvider
+ * The operation returns properties of a SyncIdentityProvider.
  */
 export function getSyncIdentityProvider(args: GetSyncIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncIdentityProviderResult> {
 
@@ -58,7 +58,7 @@ export interface GetSyncIdentityProviderResult {
     readonly type: string;
 }
 /**
- * SyncIdentityProvider represents a SyncIdentityProvider
+ * The operation returns properties of a SyncIdentityProvider.
  */
 export function getSyncIdentityProviderOutput(args: GetSyncIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncIdentityProviderResult> {
     return pulumi.output(args).apply((a: any) => getSyncIdentityProvider(a, opts))

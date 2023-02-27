@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Trigger details.
+ * Get a specific trigger by name.
  */
 /** @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
@@ -63,7 +63,7 @@ export interface GetTriggerResult {
     readonly type: string;
 }
 /**
- * Trigger details.
+ * Get a specific trigger by name.
  */
 /** @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger. */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {

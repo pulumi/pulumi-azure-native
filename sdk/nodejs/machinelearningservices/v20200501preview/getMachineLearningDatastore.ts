@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Machine Learning datastore object wrapped into ARM resource envelope.
+ * Get a Datastore by name.
  */
 export function getMachineLearningDatastore(args: GetMachineLearningDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatastoreResult> {
 
@@ -73,7 +73,7 @@ export interface GetMachineLearningDatastoreResult {
     readonly type: string;
 }
 /**
- * Machine Learning datastore object wrapped into ARM resource envelope.
+ * Get a Datastore by name.
  */
 export function getMachineLearningDatastoreOutput(args: GetMachineLearningDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatastoreResult> {
     return pulumi.output(args).apply((a: any) => getMachineLearningDatastore(a, opts))

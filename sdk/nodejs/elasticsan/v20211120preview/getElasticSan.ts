@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response for ElasticSan request.
+ * Get a ElasticSan.
  */
 export function getElasticSan(args: GetElasticSanArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticSanResult> {
 
@@ -100,7 +100,7 @@ export interface GetElasticSanResult {
     readonly volumeGroupCount: number;
 }
 /**
- * Response for ElasticSan request.
+ * Get a ElasticSan.
  */
 export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticSanResult> {
     return pulumi.output(args).apply((a: any) => getElasticSan(a, opts))

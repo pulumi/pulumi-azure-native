@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * NetApp account resource
+ * Get the NetApp account
  * API Version: 2020-12-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -73,7 +73,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * NetApp account resource
+ * Get the NetApp account
  * API Version: 2020-12-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

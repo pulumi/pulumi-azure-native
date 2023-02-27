@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a time series database connection resource.
+ * Get the description of an existing time series database connection.
  * API Version: 2021-06-30-preview.
  */
 export function getTimeSeriesDatabaseConnection(args: GetTimeSeriesDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetTimeSeriesDatabaseConnectionResult> {
@@ -62,7 +62,7 @@ export interface GetTimeSeriesDatabaseConnectionResult {
     readonly type: string;
 }
 /**
- * Describes a time series database connection resource.
+ * Get the description of an existing time series database connection.
  * API Version: 2021-06-30-preview.
  */
 export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {

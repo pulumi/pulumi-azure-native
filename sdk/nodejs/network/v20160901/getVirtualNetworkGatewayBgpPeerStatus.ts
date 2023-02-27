@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response for list BGP peer status API service call
+ * The GetBgpPeerStatus operation retrieves the status of all BGP peers.
  */
 export function getVirtualNetworkGatewayBgpPeerStatus(args: GetVirtualNetworkGatewayBgpPeerStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayBgpPeerStatusResult> {
 
@@ -45,7 +45,7 @@ export interface GetVirtualNetworkGatewayBgpPeerStatusResult {
     readonly value?: outputs.network.v20160901.BgpPeerStatusResponse[];
 }
 /**
- * Response for list BGP peer status API service call
+ * The GetBgpPeerStatus operation retrieves the status of all BGP peers.
  */
 export function getVirtualNetworkGatewayBgpPeerStatusOutput(args: GetVirtualNetworkGatewayBgpPeerStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayBgpPeerStatusResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayBgpPeerStatus(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a server.
+ * Gets information about a server.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -134,7 +134,7 @@ export interface GetServerResult {
     readonly version?: string;
 }
 /**
- * Represents a server.
+ * Gets information about a server.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

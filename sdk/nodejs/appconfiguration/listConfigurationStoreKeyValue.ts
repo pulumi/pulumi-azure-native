@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The result of a request to retrieve a key-value from the specified configuration store.
+ * Lists a configuration store key-value.
  * API Version: 2020-06-01.
  */
 export function listConfigurationStoreKeyValue(args: ListConfigurationStoreKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeyValueResult> {
@@ -80,7 +80,7 @@ export interface ListConfigurationStoreKeyValueResult {
     readonly value: string;
 }
 /**
- * The result of a request to retrieve a key-value from the specified configuration store.
+ * Lists a configuration store key-value.
  * API Version: 2020-06-01.
  */
 export function listConfigurationStoreKeyValueOutput(args: ListConfigurationStoreKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeyValueResult> {

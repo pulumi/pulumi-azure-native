@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Resource upload definition payload
+ * Get an resource upload URL for build service, which may be artifacts or source archive.
  */
 export function getBuildServiceResourceUploadUrl(args: GetBuildServiceResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceResourceUploadUrlResult> {
 
@@ -46,7 +46,7 @@ export interface GetBuildServiceResourceUploadUrlResult {
     readonly uploadUrl?: string;
 }
 /**
- * Resource upload definition payload
+ * Get an resource upload URL for build service, which may be artifacts or source archive.
  */
 export function getBuildServiceResourceUploadUrlOutput(args: GetBuildServiceResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceResourceUploadUrlResult> {
     return pulumi.output(args).apply((a: any) => getBuildServiceResourceUploadUrl(a, opts))

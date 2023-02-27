@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Domain Topic.
+ * Get properties of a domain topic.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
@@ -56,7 +56,7 @@ export interface GetDomainTopicResult {
     readonly type: string;
 }
 /**
- * Domain Topic.
+ * Get properties of a domain topic.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {

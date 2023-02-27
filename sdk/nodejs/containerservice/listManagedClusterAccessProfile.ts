@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Managed cluster Access Profile.
+ * Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
  * API Version: 2020-03-01.
  */
 export function listManagedClusterAccessProfile(args: ListManagedClusterAccessProfileArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAccessProfileResult> {
@@ -63,7 +63,7 @@ export interface ListManagedClusterAccessProfileResult {
     readonly type: string;
 }
 /**
- * Managed cluster Access Profile.
+ * Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
  * API Version: 2020-03-01.
  */
 export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The integration account schema.
+ * Gets an integration account schema.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
 
@@ -101,7 +101,7 @@ export interface GetSchemaResult {
     readonly type: string;
 }
 /**
- * The integration account schema.
+ * Gets an integration account schema.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
     return pulumi.output(args).apply((a: any) => getSchema(a, opts))

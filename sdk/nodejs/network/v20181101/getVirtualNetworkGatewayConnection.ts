@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A common class for general resource information
+ * Gets the specified virtual network gateway connection by resource group.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
 
@@ -136,7 +136,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     readonly virtualNetworkGateway2?: outputs.network.v20181101.VirtualNetworkGatewayResponse;
 }
 /**
- * A common class for general resource information
+ * Gets the specified virtual network gateway connection by resource group.
  */
 export function getVirtualNetworkGatewayConnectionOutput(args: GetVirtualNetworkGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayConnection(a, opts))

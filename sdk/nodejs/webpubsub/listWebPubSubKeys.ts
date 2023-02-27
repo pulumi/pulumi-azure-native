@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A class represents the access keys of the resource.
+ * Get the access keys of the resource.
  * API Version: 2021-04-01-preview.
  */
 export function listWebPubSubKeys(args: ListWebPubSubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebPubSubKeysResult> {
@@ -50,7 +50,7 @@ export interface ListWebPubSubKeysResult {
     readonly secondaryKey?: string;
 }
 /**
- * A class represents the access keys of the resource.
+ * Get the access keys of the resource.
  * API Version: 2021-04-01-preview.
  */
 export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebPubSubKeysResult> {

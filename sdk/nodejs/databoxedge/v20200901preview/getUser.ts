@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+ * Gets the properties of the specified user.
  */
 /** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
@@ -71,7 +71,7 @@ export interface GetUserResult {
     readonly userType?: string;
 }
 /**
- * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+ * Gets the properties of the specified user.
  */
 /** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider. */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {

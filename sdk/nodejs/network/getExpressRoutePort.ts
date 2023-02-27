@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * ExpressRoutePort resource definition.
+ * Retrieves the requested ExpressRoutePort resource.
  * API Version: 2020-11-01.
  */
 export function getExpressRoutePort(args: GetExpressRoutePortArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortResult> {
@@ -109,7 +109,7 @@ export interface GetExpressRoutePortResult {
     readonly type: string;
 }
 /**
- * ExpressRoutePort resource definition.
+ * Retrieves the requested ExpressRoutePort resource.
  * API Version: 2020-11-01.
  */
 export function getExpressRoutePortOutput(args: GetExpressRoutePortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortResult> {

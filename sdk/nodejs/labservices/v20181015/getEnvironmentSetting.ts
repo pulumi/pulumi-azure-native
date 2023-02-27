@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents settings of an environment, from which environment instances would be created
+ * Get environment setting
  */
 export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSettingResult> {
 
@@ -111,7 +111,7 @@ export interface GetEnvironmentSettingResult {
     readonly uniqueIdentifier?: string;
 }
 /**
- * Represents settings of an environment, from which environment instances would be created
+ * Get environment setting
  */
 export function getEnvironmentSettingOutput(args: GetEnvironmentSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSettingResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentSetting(a, opts))

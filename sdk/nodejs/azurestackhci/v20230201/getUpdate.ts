@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Update details
+ * Get specified Update
  */
 export function getUpdate(args: GetUpdateArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateResult> {
 
@@ -129,7 +129,7 @@ export interface GetUpdateResult {
     readonly version?: string;
 }
 /**
- * Update details
+ * Get specified Update
  */
 export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateResult> {
     return pulumi.output(args).apply((a: any) => getUpdate(a, opts))

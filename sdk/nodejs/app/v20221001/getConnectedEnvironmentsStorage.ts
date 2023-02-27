@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Storage resource for connectedEnvironment.
+ * Get storage for a connectedEnvironment.
  */
 export function getConnectedEnvironmentsStorage(args: GetConnectedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsStorageResult> {
 
@@ -61,7 +61,7 @@ export interface GetConnectedEnvironmentsStorageResult {
     readonly type: string;
 }
 /**
- * Storage resource for connectedEnvironment.
+ * Get storage for a connectedEnvironment.
  */
 export function getConnectedEnvironmentsStorageOutput(args: GetConnectedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsStorageResult> {
     return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsStorage(a, opts))

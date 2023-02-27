@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a database principal assignment.
+ * Gets a Kusto pool database principalAssignment.
  * API Version: 2021-04-01-preview.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
@@ -96,7 +96,7 @@ export interface GetDatabasePrincipalAssignmentResult {
     readonly type: string;
 }
 /**
- * Class representing a database principal assignment.
+ * Gets a Kusto pool database principalAssignment.
  * API Version: 2021-04-01-preview.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {

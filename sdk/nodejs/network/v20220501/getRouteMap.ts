@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The RouteMap child resource of a Virtual hub.
+ * Retrieves the details of a RouteMap.
  */
 export function getRouteMap(args: GetRouteMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteMapResult> {
 
@@ -73,7 +73,7 @@ export interface GetRouteMapResult {
     readonly type: string;
 }
 /**
- * The RouteMap child resource of a Virtual hub.
+ * Retrieves the details of a RouteMap.
  */
 export function getRouteMapOutput(args: GetRouteMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteMapResult> {
     return pulumi.output(args).apply((a: any) => getRouteMap(a, opts))

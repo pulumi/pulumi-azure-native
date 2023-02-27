@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ * Gets an existing origin group within an endpoint.
  * API Version: 2020-09-01.
  */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
@@ -87,7 +87,7 @@ export interface GetOriginGroupResult {
     readonly type: string;
 }
 /**
- * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ * Gets an existing origin group within an endpoint.
  * API Version: 2020-09-01.
  */
 export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginGroupResult> {

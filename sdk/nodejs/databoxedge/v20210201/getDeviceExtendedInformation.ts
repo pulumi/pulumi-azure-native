@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The extended Info of the Data Box Edge/Gateway device.
+ * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
  */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
 
@@ -84,7 +84,7 @@ export interface GetDeviceExtendedInformationResult {
     readonly type: string;
 }
 /**
- * The extended Info of the Data Box Edge/Gateway device.
+ * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
  */
 export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
     return pulumi.output(args).apply((a: any) => getDeviceExtendedInformation(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Account Filter.
+ * Get the details of an Account Filter in the Media Services account.
  * API Version: 2020-05-01.
  */
 export function getAccountFilter(args: GetAccountFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountFilterResult> {
@@ -70,7 +70,7 @@ export interface GetAccountFilterResult {
     readonly type: string;
 }
 /**
- * An Account Filter.
+ * Get the details of an Account Filter in the Media Services account.
  * API Version: 2020-05-01.
  */
 export function getAccountFilterOutput(args: GetAccountFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountFilterResult> {

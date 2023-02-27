@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Settings with single toggle.
+ * Gets a setting.
  */
 export function getIPSyncer(args: GetIPSyncerArgs, opts?: pulumi.InvokeOptions): Promise<GetIPSyncerResult> {
 
@@ -68,7 +68,7 @@ export interface GetIPSyncerResult {
     readonly type: string;
 }
 /**
- * Settings with single toggle.
+ * Gets a setting.
  */
 export function getIPSyncerOutput(args: GetIPSyncerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSyncerResult> {
     return pulumi.output(args).apply((a: any) => getIPSyncer(a, opts))

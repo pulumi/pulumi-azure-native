@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Setting.
+ * Gets a setting.
  */
 /** @deprecated Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba. */
 export function getProductSetting(args: GetProductSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetProductSettingResult> {
@@ -67,7 +67,7 @@ export interface GetProductSettingResult {
     readonly type: string;
 }
 /**
- * The Setting.
+ * Gets a setting.
  */
 /** @deprecated Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba. */
 export function getProductSettingOutput(args: GetProductSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductSettingResult> {

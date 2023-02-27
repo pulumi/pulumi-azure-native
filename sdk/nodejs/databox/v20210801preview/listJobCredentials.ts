@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List of unencrypted credentials for accessing device.
+ * This method gets the unencrypted secrets related to the job.
  */
 export function listJobCredentials(args: ListJobCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobCredentialsResult> {
 
@@ -44,7 +44,7 @@ export interface ListJobCredentialsResult {
     readonly value?: outputs.databox.v20210801preview.UnencryptedCredentialsResponse[];
 }
 /**
- * List of unencrypted credentials for accessing device.
+ * This method gets the unencrypted secrets related to the job.
  */
 export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listJobCredentials(a, opts))

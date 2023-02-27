@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Partner configuration information
+ * Get properties of a partner configuration.
  * API Version: 2021-10-15-preview.
  */
 export function getPartnerConfiguration(args: GetPartnerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerConfigurationResult> {
@@ -64,7 +64,7 @@ export interface GetPartnerConfigurationResult {
     readonly type: string;
 }
 /**
- * Partner configuration information
+ * Get properties of a partner configuration.
  * API Version: 2021-10-15-preview.
  */
 export function getPartnerConfigurationOutput(args: GetPartnerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerConfigurationResult> {

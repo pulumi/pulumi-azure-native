@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Functions host level keys.
+ * Description for Get host secrets for a function app.
  */
 export function listWebAppHostKeys(args: ListWebAppHostKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHostKeysResult> {
 
@@ -45,7 +45,7 @@ export interface ListWebAppHostKeysResult {
     readonly systemKeys?: {[key: string]: string};
 }
 /**
- * Functions host level keys.
+ * Description for Get host secrets for a function app.
  */
 export function listWebAppHostKeysOutput(args: ListWebAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHostKeysResult> {
     return pulumi.output(args).apply((a: any) => listWebAppHostKeys(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Define the Virtual Instance for SAP solutions resource.
+ * Gets a Virtual Instance for SAP solutions resource
  */
 export function getSAPVirtualInstance(args: GetSAPVirtualInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPVirtualInstanceResult> {
 
@@ -100,7 +100,7 @@ export interface GetSAPVirtualInstanceResult {
     readonly type: string;
 }
 /**
- * Define the Virtual Instance for SAP solutions resource.
+ * Gets a Virtual Instance for SAP solutions resource
  */
 export function getSAPVirtualInstanceOutput(args: GetSAPVirtualInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPVirtualInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPVirtualInstance(a, opts))

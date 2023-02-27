@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Packet core control plane resource.
+ * Gets information about the specified packet core control plane.
  */
 export function getPacketCoreControlPlane(args: GetPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreControlPlaneResult> {
 
@@ -112,7 +112,7 @@ export interface GetPacketCoreControlPlaneResult {
     readonly version?: string;
 }
 /**
- * Packet core control plane resource.
+ * Gets information about the specified packet core control plane.
  */
 export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
     return pulumi.output(args).apply((a: any) => getPacketCoreControlPlane(a, opts))

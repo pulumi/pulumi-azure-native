@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Defines the user rule collection.
+ * Gets a network manager security user configuration rule collection.
  */
 export function getUserRuleCollection(args: GetUserRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleCollectionResult> {
 
@@ -78,7 +78,7 @@ export interface GetUserRuleCollectionResult {
     readonly type: string;
 }
 /**
- * Defines the user rule collection.
+ * Gets a network manager security user configuration rule collection.
  */
 export function getUserRuleCollectionOutput(args: GetUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleCollectionResult> {
     return pulumi.output(args).apply((a: any) => getUserRuleCollection(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Php workload resource
+ * Gets the PHP workload resource.
  */
 export function getPhpWorkload(args: GetPhpWorkloadArgs, opts?: pulumi.InvokeOptions): Promise<GetPhpWorkloadResult> {
 
@@ -128,7 +128,7 @@ export interface GetPhpWorkloadResult {
     readonly webNodesProfile: outputs.workloads.v20211201preview.VmssNodesProfileResponse;
 }
 /**
- * Php workload resource
+ * Gets the PHP workload resource.
  */
 export function getPhpWorkloadOutput(args: GetPhpWorkloadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPhpWorkloadResult> {
     return pulumi.output(args).apply((a: any) => getPhpWorkload(a, opts))

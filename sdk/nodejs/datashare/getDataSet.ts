@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A DataSet data transfer object.
+ * Get a DataSet in a share
  * API Version: 2020-09-01.
  */
 /** @deprecated Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet. */
@@ -69,7 +69,7 @@ export interface GetDataSetResult {
     readonly type: string;
 }
 /**
- * A DataSet data transfer object.
+ * Get a DataSet in a share
  * API Version: 2020-09-01.
  */
 /** @deprecated Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet. */

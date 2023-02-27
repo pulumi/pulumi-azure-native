@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
+ * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
  */
 export function getmanagedAzResiliencyStatus(args: GetmanagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedAzResiliencyStatusResult> {
 
@@ -44,7 +44,7 @@ export interface GetmanagedAzResiliencyStatusResult {
     readonly isClusterZoneResilient: boolean;
 }
 /**
- * Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
+ * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
  */
 export function getmanagedAzResiliencyStatusOutput(args: GetmanagedAzResiliencyStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagedAzResiliencyStatusResult> {
     return pulumi.output(args).apply((a: any) => getmanagedAzResiliencyStatus(a, opts))

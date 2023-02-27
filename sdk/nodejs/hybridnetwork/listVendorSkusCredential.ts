@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The Sku credential definition.
+ * Generate credentials for publishing SKU images.
  * API Version: 2022-01-01-preview.
  */
 export function listVendorSkusCredential(args: ListVendorSkusCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListVendorSkusCredentialResult> {
@@ -54,7 +54,7 @@ export interface ListVendorSkusCredentialResult {
     readonly username?: string;
 }
 /**
- * The Sku credential definition.
+ * Generate credentials for publishing SKU images.
  * API Version: 2022-01-01-preview.
  */
 export function listVendorSkusCredentialOutput(args: ListVendorSkusCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVendorSkusCredentialResult> {

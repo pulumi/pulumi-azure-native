@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Issue Comment Contract details.
+ * Gets the details of the issue Comment for an API specified by its identifier.
  */
 export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueCommentResult> {
 
@@ -72,7 +72,7 @@ export interface GetApiIssueCommentResult {
     readonly userId: string;
 }
 /**
- * Issue Comment Contract details.
+ * Gets the details of the issue Comment for an API specified by its identifier.
  */
 export function getApiIssueCommentOutput(args: GetApiIssueCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueCommentResult> {
     return pulumi.output(args).apply((a: any) => getApiIssueComment(a, opts))

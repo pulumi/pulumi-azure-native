@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Remote Private Endpoint Connection ARM resource.
+ * Description for Gets a private endpoint connection
  */
 export function getWebAppPrivateEndpointConnectionSlot(args: GetWebAppPrivateEndpointConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPrivateEndpointConnectionSlotResult> {
 
@@ -75,7 +75,7 @@ export interface GetWebAppPrivateEndpointConnectionSlotResult {
     readonly type: string;
 }
 /**
- * Remote Private Endpoint Connection ARM resource.
+ * Description for Gets a private endpoint connection
  */
 export function getWebAppPrivateEndpointConnectionSlotOutput(args: GetWebAppPrivateEndpointConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPrivateEndpointConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPrivateEndpointConnectionSlot(a, opts))

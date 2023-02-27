@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Job Definition resource.
+ * Gets a Job Definition resource.
  * API Version: 2022-07-01-preview.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
@@ -119,7 +119,7 @@ export interface GetJobDefinitionResult {
     readonly type: string;
 }
 /**
- * The Job Definition resource.
+ * Gets a Job Definition resource.
  * API Version: 2022-07-01-preview.
  */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The X509 Certificate.
+ * Returns the certificate.
  * API Version: 2020-08-31.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -62,7 +62,7 @@ export interface GetCertificateResult {
     readonly type: string;
 }
 /**
- * The X509 Certificate.
+ * Returns the certificate.
  * API Version: 2020-08-31.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {

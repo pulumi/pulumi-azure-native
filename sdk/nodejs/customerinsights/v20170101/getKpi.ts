@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The KPI resource format.
+ * Gets a KPI in the hub.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
@@ -131,7 +131,7 @@ export interface GetKpiResult {
     readonly unit?: string;
 }
 /**
- * The KPI resource format.
+ * Gets a KPI in the hub.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKpiResult> {

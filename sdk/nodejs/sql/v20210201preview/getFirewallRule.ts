@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A server firewall rule.
+ * Gets a firewall rule.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
 
@@ -58,7 +58,7 @@ export interface GetFirewallRuleResult {
     readonly type: string;
 }
 /**
- * A server firewall rule.
+ * Gets a firewall rule.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))

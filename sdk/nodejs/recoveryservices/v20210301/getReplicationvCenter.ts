@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * vCenter definition.
+ * Gets the details of a registered vCenter server(Add vCenter server.)
  */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
 
@@ -66,7 +66,7 @@ export interface GetReplicationvCenterResult {
     readonly type: string;
 }
 /**
- * vCenter definition.
+ * Gets the details of a registered vCenter server(Add vCenter server.)
  */
 export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationvCenterResult> {
     return pulumi.output(args).apply((a: any) => getReplicationvCenter(a, opts))

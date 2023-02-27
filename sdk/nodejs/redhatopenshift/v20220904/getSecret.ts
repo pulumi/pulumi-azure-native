@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Secret represents a secret.
+ * The operation returns properties of a Secret.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
 
@@ -61,7 +61,7 @@ export interface GetSecretResult {
     readonly type: string;
 }
 /**
- * Secret represents a secret.
+ * The operation returns properties of a Secret.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))

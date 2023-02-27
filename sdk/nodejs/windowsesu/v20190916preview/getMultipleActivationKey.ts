@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * MAK key details.
+ * Get a MAK key.
  */
 export function getMultipleActivationKey(args: GetMultipleActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMultipleActivationKeyResult> {
 
@@ -82,7 +82,7 @@ export interface GetMultipleActivationKeyResult {
     readonly type: string;
 }
 /**
- * MAK key details.
+ * Get a MAK key.
  */
 export function getMultipleActivationKeyOutput(args: GetMultipleActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultipleActivationKeyResult> {
     return pulumi.output(args).apply((a: any) => getMultipleActivationKey(a, opts))

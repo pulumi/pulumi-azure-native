@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Connection string for ingesting security data and logs
+ * Connection strings for ingesting security scan logs and data.
  */
 export function listIngestionSettingConnectionStrings(args: ListIngestionSettingConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListIngestionSettingConnectionStringsResult> {
 
@@ -35,7 +35,7 @@ export interface ListIngestionSettingConnectionStringsResult {
     readonly value: outputs.security.v20210115preview.IngestionConnectionStringResponse[];
 }
 /**
- * Connection string for ingesting security data and logs
+ * Connection strings for ingesting security scan logs and data.
  */
 export function listIngestionSettingConnectionStringsOutput(args: ListIngestionSettingConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIngestionSettingConnectionStringsResult> {
     return pulumi.output(args).apply((a: any) => listIngestionSettingConnectionStrings(a, opts))

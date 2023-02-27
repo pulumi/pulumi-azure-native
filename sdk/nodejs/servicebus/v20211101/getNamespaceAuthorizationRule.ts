@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of a namespace authorization rule.
+ * Gets an authorization rule for a namespace by rule name.
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
 
@@ -65,7 +65,7 @@ export interface GetNamespaceAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Description of a namespace authorization rule.
+ * Gets an authorization rule for a namespace by rule name.
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))

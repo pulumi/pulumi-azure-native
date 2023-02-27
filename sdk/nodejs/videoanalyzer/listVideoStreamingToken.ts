@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+ * Generates a streaming token used for authenticating video playback.
  * API Version: 2021-05-01-preview.
  */
 export function listVideoStreamingToken(args: ListVideoStreamingTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListVideoStreamingTokenResult> {
@@ -47,7 +47,7 @@ export interface ListVideoStreamingTokenResult {
     readonly token: string;
 }
 /**
- * Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+ * Generates a streaming token used for authenticating video playback.
  * API Version: 2021-05-01-preview.
  */
 export function listVideoStreamingTokenOutput(args: ListVideoStreamingTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoStreamingTokenResult> {

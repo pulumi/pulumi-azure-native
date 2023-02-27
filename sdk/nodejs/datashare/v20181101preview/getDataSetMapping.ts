@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A data set mapping data transfer object.
+ * Get a DataSetMapping in a shareSubscription
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getDataSetMapping(args: GetDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetMappingResult> {
@@ -61,7 +61,7 @@ export interface GetDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A data set mapping data transfer object.
+ * Get a DataSetMapping in a shareSubscription
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getDataSetMappingOutput(args: GetDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetMappingResult> {

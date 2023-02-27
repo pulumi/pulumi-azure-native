@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Profile of a lab user.
+ * Get user profile.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
@@ -88,7 +88,7 @@ export interface GetUserResult {
     readonly uniqueIdentifier?: string;
 }
 /**
- * Profile of a lab user.
+ * Get user profile.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {

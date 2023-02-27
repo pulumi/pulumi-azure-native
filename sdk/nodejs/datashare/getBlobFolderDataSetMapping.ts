@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Blob folder data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getBlobFolderDataSetMapping(args: GetBlobFolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobFolderDataSetMappingResult> {
@@ -100,7 +100,7 @@ export interface GetBlobFolderDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A Blob folder data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getBlobFolderDataSetMappingOutput(args: GetBlobFolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobFolderDataSetMappingResult> {

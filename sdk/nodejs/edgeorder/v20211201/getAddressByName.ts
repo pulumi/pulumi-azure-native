@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Address Resource.
+ * Gets information about the specified address.
  */
 export function getAddressByName(args: GetAddressByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressByNameResult> {
 
@@ -72,7 +72,7 @@ export interface GetAddressByNameResult {
     readonly type: string;
 }
 /**
- * Address Resource.
+ * Gets information about the specified address.
  */
 export function getAddressByNameOutput(args: GetAddressByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddressByNameResult> {
     return pulumi.output(args).apply((a: any) => getAddressByName(a, opts))

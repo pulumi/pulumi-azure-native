@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Trigger resource type.
+ * Gets a trigger.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
@@ -63,7 +63,7 @@ export interface GetTriggerResult {
     readonly type: string;
 }
 /**
- * Trigger resource type.
+ * Gets a trigger.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Gets an AuthorizationRule for an Event Hub by rule name.
  */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
 
@@ -70,7 +70,7 @@ export interface GetEventHubAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Gets an AuthorizationRule for an Event Hub by rule name.
  */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents an attached NetworkConnection.
+ * Gets an attached NetworkConnection.
  * API Version: 2022-09-01-preview.
  */
 export function getAttachedNetworkByDevCenter(args: GetAttachedNetworkByDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedNetworkByDevCenterResult> {
@@ -78,7 +78,7 @@ export interface GetAttachedNetworkByDevCenterResult {
     readonly type: string;
 }
 /**
- * Represents an attached NetworkConnection.
+ * Gets an attached NetworkConnection.
  * API Version: 2022-09-01-preview.
  */
 export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {

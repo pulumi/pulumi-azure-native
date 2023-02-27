@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Fusion alert rule.
+ * Gets the alert rule.
  */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
 
@@ -99,7 +99,7 @@ export interface GetFusionAlertRuleResult {
     readonly type: string;
 }
 /**
- * Represents Fusion alert rule.
+ * Gets the alert rule.
  */
 export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getFusionAlertRule(a, opts))

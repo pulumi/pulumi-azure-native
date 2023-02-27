@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
  * API Version: 2021-03-08.
  */
 export function getprivateLinkServicesForM365SecurityCenter(args: GetprivateLinkServicesForM365SecurityCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForM365SecurityCenterResult> {
@@ -77,7 +77,7 @@ export interface GetprivateLinkServicesForM365SecurityCenterResult {
     readonly type: string;
 }
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
  * API Version: 2021-03-08.
  */
 export function getprivateLinkServicesForM365SecurityCenterOutput(args: GetprivateLinkServicesForM365SecurityCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForM365SecurityCenterResult> {

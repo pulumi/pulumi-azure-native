@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets the queue with the specified queue name, under the specified account if it exists.
+ */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +54,9 @@ export interface GetQueueResult {
      */
     readonly type: string;
 }
+/**
+ * Gets the queue with the specified queue name, under the specified account if it exists.
+ */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }

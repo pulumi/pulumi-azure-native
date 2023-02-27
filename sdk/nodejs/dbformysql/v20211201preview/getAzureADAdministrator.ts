@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a Administrator.
+ * Gets information about an azure ad administrator.
  */
 export function getAzureADAdministrator(args: GetAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADAdministratorResult> {
 
@@ -77,7 +77,7 @@ export interface GetAzureADAdministratorResult {
     readonly type: string;
 }
 /**
- * Represents a Administrator.
+ * Gets information about an azure ad administrator.
  */
 export function getAzureADAdministratorOutput(args: GetAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getAzureADAdministrator(a, opts))

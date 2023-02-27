@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An object that represents a machine learning team account.
+ * Gets the properties of the specified machine learning team account.
  * API Version: 2017-05-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -97,7 +97,7 @@ export interface GetAccountResult {
     readonly vsoAccountId: string;
 }
 /**
- * An object that represents a machine learning team account.
+ * Gets the properties of the specified machine learning team account.
  * API Version: 2017-05-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

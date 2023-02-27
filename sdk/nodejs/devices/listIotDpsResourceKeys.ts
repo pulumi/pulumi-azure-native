@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * List of shared access keys.
+ * List the primary and secondary keys for a provisioning service.
  * API Version: 2020-03-01.
  */
 export function listIotDpsResourceKeys(args: ListIotDpsResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysResult> {
@@ -45,7 +45,7 @@ export interface ListIotDpsResourceKeysResult {
     readonly value?: outputs.devices.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse[];
 }
 /**
- * List of shared access keys.
+ * List the primary and secondary keys for a provisioning service.
  * API Version: 2020-03-01.
  */
 export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysResult> {

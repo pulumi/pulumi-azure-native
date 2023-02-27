@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Sync Group object.
+ * Get a given SyncGroup.
  */
 /** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
@@ -60,7 +60,7 @@ export interface GetSyncGroupResult {
     readonly uniqueId?: string;
 }
 /**
- * Sync Group object.
+ * Get a given SyncGroup.
  */
 /** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {

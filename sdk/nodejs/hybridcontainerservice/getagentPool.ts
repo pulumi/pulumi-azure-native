@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The agentPool resource definition
+ * Gets the agent pool in the Hybrid AKS provisioned cluster
  * API Version: 2022-05-01-preview.
  */
 export function getagentPool(args: GetagentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetagentPoolResult> {
@@ -120,7 +120,7 @@ export interface GetagentPoolResult {
     readonly vmSize?: string;
 }
 /**
- * The agentPool resource definition
+ * Gets the agent pool in the Hybrid AKS provisioned cluster
  * API Version: 2022-05-01-preview.
  */
 export function getagentPoolOutput(args: GetagentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetagentPoolResult> {

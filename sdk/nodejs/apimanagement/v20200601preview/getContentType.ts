@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Content type contract details.
+ * Gets API Management content type details.
  */
 export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTypeResult> {
 
@@ -62,7 +62,7 @@ export interface GetContentTypeResult {
     readonly version?: string;
 }
 /**
- * Content type contract details.
+ * Gets API Management content type details.
  */
 export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
     return pulumi.output(args).apply((a: any) => getContentType(a, opts))

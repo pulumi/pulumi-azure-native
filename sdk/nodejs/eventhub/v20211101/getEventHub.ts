@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in List or Get Event Hub operation
+ * Gets an Event Hubs description for the specified Event Hub.
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
 
@@ -89,7 +89,7 @@ export interface GetEventHubResult {
     readonly updatedAt: string;
 }
 /**
- * Single item in List or Get Event Hub operation
+ * Gets an Event Hubs description for the specified Event Hub.
  */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
     return pulumi.output(args).apply((a: any) => getEventHub(a, opts))

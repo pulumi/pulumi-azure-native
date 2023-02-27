@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A list of streaming jobs. Populated by a List operation.
+ * Lists all of the streaming jobs in the given cluster.
  * API Version: 2020-03-01-preview.
  */
 export function listClusterStreamingJobs(args: ListClusterStreamingJobsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterStreamingJobsResult> {
@@ -45,7 +45,7 @@ export interface ListClusterStreamingJobsResult {
     readonly value: outputs.streamanalytics.ClusterJobResponse[];
 }
 /**
- * A list of streaming jobs. Populated by a List operation.
+ * Lists all of the streaming jobs in the given cluster.
  * API Version: 2020-03-01-preview.
  */
 export function listClusterStreamingJobsOutput(args: ListClusterStreamingJobsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterStreamingJobsResult> {

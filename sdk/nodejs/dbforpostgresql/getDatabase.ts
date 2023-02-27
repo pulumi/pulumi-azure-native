@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents a Database.
+ * Gets information about a database.
  * API Version: 2017-12-01.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
@@ -59,7 +59,7 @@ export interface GetDatabaseResult {
     readonly type: string;
 }
 /**
- * Represents a Database.
+ * Gets information about a database.
  * API Version: 2017-12-01.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {

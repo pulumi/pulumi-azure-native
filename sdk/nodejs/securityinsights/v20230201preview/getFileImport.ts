@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a file import in Azure Security Insights.
+ * Gets a file import.
  */
 export function getFileImport(args: GetFileImportArgs, opts?: pulumi.InvokeOptions): Promise<GetFileImportResult> {
 
@@ -109,7 +109,7 @@ export interface GetFileImportResult {
     readonly validRecordCount: number;
 }
 /**
- * Represents a file import in Azure Security Insights.
+ * Gets a file import.
  */
 export function getFileImportOutput(args: GetFileImportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileImportResult> {
     return pulumi.output(args).apply((a: any) => getFileImport(a, opts))

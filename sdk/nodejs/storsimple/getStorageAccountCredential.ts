@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The storage account credential.
+ * Gets the properties of the specified storage account credential name.
  * API Version: 2017-06-01.
  */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
@@ -74,7 +74,7 @@ export interface GetStorageAccountCredentialResult {
     readonly volumesCount: number;
 }
 /**
- * The storage account credential.
+ * Gets the properties of the specified storage account credential name.
  * API Version: 2017-06-01.
  */
 export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {

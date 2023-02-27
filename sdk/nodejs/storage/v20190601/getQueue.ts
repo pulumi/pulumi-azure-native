@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets the queue with the specified queue name, under the specified account if it exists.
+ */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     pulumi.log.warn("getQueue is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
@@ -53,6 +56,9 @@ export interface GetQueueResult {
      */
     readonly type: string;
 }
+/**
+ * Gets the queue with the specified queue name, under the specified account if it exists.
+ */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))

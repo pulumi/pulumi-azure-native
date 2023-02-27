@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Managed private endpoint resource type.
+ * Gets a managed private endpoint.
  * API Version: 2018-06-01.
  */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
@@ -67,7 +67,7 @@ export interface GetManagedPrivateEndpointResult {
     readonly type: string;
 }
 /**
- * Managed private endpoint resource type.
+ * Gets a managed private endpoint.
  * API Version: 2018-06-01.
  */
 export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {

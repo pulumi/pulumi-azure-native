@@ -8,7 +8,8 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Base class for backup ProtectionIntent.
+ * Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
+ * call the GetItemOperationResult API.
  */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
 
@@ -74,7 +75,8 @@ export interface GetProtectionIntentResult {
     readonly type: string;
 }
 /**
- * Base class for backup ProtectionIntent.
+ * Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
+ * call the GetItemOperationResult API.
  */
 export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionIntentResult> {
     return pulumi.output(args).apply((a: any) => getProtectionIntent(a, opts))

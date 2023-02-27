@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB User Definition
+ * Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
  */
 export function getMongoDBResourceMongoUserDefinition(args: GetMongoDBResourceMongoUserDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoUserDefinitionResult> {
 
@@ -77,7 +77,7 @@ export interface GetMongoDBResourceMongoUserDefinitionResult {
     readonly userName?: string;
 }
 /**
- * An Azure Cosmos DB User Definition
+ * Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
  */
 export function getMongoDBResourceMongoUserDefinitionOutput(args: GetMongoDBResourceMongoUserDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoUserDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoUserDefinition(a, opts))

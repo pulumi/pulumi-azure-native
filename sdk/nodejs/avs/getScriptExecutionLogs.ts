@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An instance of a script executed by a user - custom or AVS
+ * Return the logs for a script execution resource
  * API Version: 2021-06-01.
  */
 export function getScriptExecutionLogs(args: GetScriptExecutionLogsArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionLogsResult> {
@@ -114,7 +114,7 @@ export interface GetScriptExecutionLogsResult {
     readonly warnings: string[];
 }
 /**
- * An instance of a script executed by a user - custom or AVS
+ * Return the logs for a script execution resource
  * API Version: 2021-06-01.
  */
 export function getScriptExecutionLogsOutput(args: GetScriptExecutionLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionLogsResult> {

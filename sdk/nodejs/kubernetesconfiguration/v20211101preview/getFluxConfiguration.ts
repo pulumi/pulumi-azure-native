@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Flux Configuration object returned in Get & Put response.
+ * Gets details of the Flux Configuration.
  */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
 
@@ -123,7 +123,7 @@ export interface GetFluxConfigurationResult {
     readonly type: string;
 }
 /**
- * The Flux Configuration object returned in Get & Put response.
+ * Gets details of the Flux Configuration.
  */
 export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluxConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getFluxConfiguration(a, opts))

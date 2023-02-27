@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The view resource format.
+ * Gets a view in the hub.
  * API Version: 2017-04-26.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
@@ -84,7 +84,7 @@ export interface GetViewResult {
     readonly viewName: string;
 }
 /**
- * The view resource format.
+ * Gets a view in the hub.
  * API Version: 2017-04-26.
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {

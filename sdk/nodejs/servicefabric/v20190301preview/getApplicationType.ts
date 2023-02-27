@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The application type name resource
+ * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric cluster resource.
  */
 /** @deprecated Version 2019-03-01-preview will be removed in v2 of the provider. */
 export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeResult> {
@@ -68,7 +68,7 @@ export interface GetApplicationTypeResult {
     readonly type: string;
 }
 /**
- * The application type name resource
+ * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric cluster resource.
  */
 /** @deprecated Version 2019-03-01-preview will be removed in v2 of the provider. */
 export function getApplicationTypeOutput(args: GetApplicationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeResult> {

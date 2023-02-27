@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Alert processing rule object containing target scopes, conditions and scheduling logic.
+ * Get an alert processing rule by name.
  */
 export function getAlertProcessingRuleByName(args: GetAlertProcessingRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertProcessingRuleByNameResult> {
 
@@ -64,7 +64,7 @@ export interface GetAlertProcessingRuleByNameResult {
     readonly type: string;
 }
 /**
- * Alert processing rule object containing target scopes, conditions and scheduling logic.
+ * Get an alert processing rule by name.
  */
 export function getAlertProcessingRuleByNameOutput(args: GetAlertProcessingRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertProcessingRuleByNameResult> {
     return pulumi.output(args).apply((a: any) => getAlertProcessingRuleByName(a, opts))

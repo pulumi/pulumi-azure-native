@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Integration runtime status response.
+ * Get the integration runtime status
  */
 export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeStatusResult> {
 
@@ -49,7 +49,7 @@ export interface GetIntegrationRuntimeStatusResult {
     readonly properties: outputs.synapse.v20210401preview.ManagedIntegrationRuntimeStatusResponse | outputs.synapse.v20210401preview.SelfHostedIntegrationRuntimeStatusResponse;
 }
 /**
- * Integration runtime status response.
+ * Get the integration runtime status
  */
 export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationRuntimeStatus(a, opts))

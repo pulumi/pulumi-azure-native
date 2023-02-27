@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * ID and Key for Migration Project.
+ * Gets the Log Analytics Workspace ID and Primary Key for the specified project.
  */
 export function getProjectKeys(args: GetProjectKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectKeysResult> {
 
@@ -41,7 +41,7 @@ export interface GetProjectKeysResult {
     readonly workspaceKey: string;
 }
 /**
- * ID and Key for Migration Project.
+ * Gets the Log Analytics Workspace ID and Primary Key for the specified project.
  */
 export function getProjectKeysOutput(args: GetProjectKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectKeysResult> {
     return pulumi.output(args).apply((a: any) => getProjectKeys(a, opts))

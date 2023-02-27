@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents MTP (Microsoft Threat Protection) data connector.
+ * Gets a data connector.
  */
 export function getMTPDataConnector(args: GetMTPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMTPDataConnectorResult> {
 
@@ -79,7 +79,7 @@ export interface GetMTPDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents MTP (Microsoft Threat Protection) data connector.
+ * Gets a data connector.
  */
 export function getMTPDataConnectorOutput(args: GetMTPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMTPDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMTPDataConnector(a, opts))

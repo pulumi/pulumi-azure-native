@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a relation between two resources
+ * Gets a bookmark relation.
  */
 export function getBookmarkRelation(args: GetBookmarkRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkRelationResult> {
 
@@ -80,7 +80,7 @@ export interface GetBookmarkRelationResult {
     readonly type: string;
 }
 /**
- * Represents a relation between two resources
+ * Gets a bookmark relation.
  */
 export function getBookmarkRelationOutput(args: GetBookmarkRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkRelationResult> {
     return pulumi.output(args).apply((a: any) => getBookmarkRelation(a, opts))

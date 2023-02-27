@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a Virtual Machine.
+ * Retrieves information about the model view or the instance view of a virtual machine.
  */
 /** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
@@ -159,7 +159,7 @@ export interface GetVirtualMachineResult {
     readonly zones?: string[];
 }
 /**
- * Describes a Virtual Machine.
+ * Retrieves information about the model view or the instance view of a virtual machine.
  */
 /** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {

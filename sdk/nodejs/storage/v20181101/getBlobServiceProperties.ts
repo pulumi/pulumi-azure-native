@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The properties of a storage account’s Blob service.
+ * Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2018-11-01 will be removed in v2 of the provider. */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {
@@ -67,7 +67,7 @@ export interface GetBlobServicePropertiesResult {
     readonly type: string;
 }
 /**
- * The properties of a storage account’s Blob service.
+ * Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2018-11-01 will be removed in v2 of the provider. */
 export function getBlobServicePropertiesOutput(args: GetBlobServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobServicePropertiesResult> {

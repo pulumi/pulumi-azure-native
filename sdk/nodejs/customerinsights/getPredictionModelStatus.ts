@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The prediction model status.
+ * Gets model status of the prediction.
  * API Version: 2017-04-26.
  */
 export function getPredictionModelStatus(args: GetPredictionModelStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionModelStatusResult> {
@@ -83,7 +83,7 @@ export interface GetPredictionModelStatusResult {
     readonly validationSetCount: number;
 }
 /**
- * The prediction model status.
+ * Gets model status of the prediction.
  * API Version: 2017-04-26.
  */
 export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionModelStatusResult> {

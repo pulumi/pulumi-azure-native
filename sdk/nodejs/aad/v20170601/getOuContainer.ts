@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Resource for OuContainer.
+ * Get OuContainer in DomainService instance.
  */
 /** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
@@ -99,7 +99,7 @@ export interface GetOuContainerResult {
     readonly type: string;
 }
 /**
- * Resource for OuContainer.
+ * Get OuContainer in DomainService instance.
  */
 /** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
 export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOuContainerResult> {

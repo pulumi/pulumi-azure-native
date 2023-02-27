@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The list of credential result response.
+ * Gets cluster monitoring user credential of the managed cluster with a specified resource group and name.
  * API Version: 2021-03-01.
  */
 export function listManagedClusterMonitoringUserCredentials(args: ListManagedClusterMonitoringUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterMonitoringUserCredentialsResult> {
@@ -41,7 +41,7 @@ export interface ListManagedClusterMonitoringUserCredentialsResult {
     readonly kubeconfigs: outputs.containerservice.CredentialResultResponse[];
 }
 /**
- * The list of credential result response.
+ * Gets cluster monitoring user credential of the managed cluster with a specified resource group and name.
  * API Version: 2021-03-01.
  */
 export function listManagedClusterMonitoringUserCredentialsOutput(args: ListManagedClusterMonitoringUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterMonitoringUserCredentialsResult> {

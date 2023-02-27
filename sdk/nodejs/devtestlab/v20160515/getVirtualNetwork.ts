@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A virtual network.
+ * Get virtual network.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
@@ -100,7 +100,7 @@ export interface GetVirtualNetworkResult {
     readonly uniqueIdentifier?: string;
 }
 /**
- * A virtual network.
+ * Get virtual network.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {

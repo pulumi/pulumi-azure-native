@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A list of Network Manager Deployment Status
+ * Post to List of Network Manager Deployment Status.
  * API Version: 2021-02-01-preview.
  */
 export function listNetworkManagerDeploymentStatus(args: ListNetworkManagerDeploymentStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerDeploymentStatusResult> {
@@ -60,7 +60,7 @@ export interface ListNetworkManagerDeploymentStatusResult {
     readonly value?: outputs.network.NetworkManagerDeploymentStatusResponse[];
 }
 /**
- * A list of Network Manager Deployment Status
+ * Post to List of Network Manager Deployment Status.
  * API Version: 2021-02-01-preview.
  */
 export function listNetworkManagerDeploymentStatusOutput(args: ListNetworkManagerDeploymentStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerDeploymentStatusResult> {

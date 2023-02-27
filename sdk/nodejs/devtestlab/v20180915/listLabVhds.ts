@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The response of a list operation.
+ * List disk images available for custom image creation.
  */
 export function listLabVhds(args: ListLabVhdsArgs, opts?: pulumi.InvokeOptions): Promise<ListLabVhdsResult> {
 
@@ -44,7 +44,7 @@ export interface ListLabVhdsResult {
     readonly value?: outputs.devtestlab.v20180915.LabVhdResponse[];
 }
 /**
- * The response of a list operation.
+ * List disk images available for custom image creation.
  */
 export function listLabVhdsOutput(args: ListLabVhdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLabVhdsResult> {
     return pulumi.output(args).apply((a: any) => listLabVhds(a, opts))

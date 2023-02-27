@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a virtual network link.
+ * Gets properties of a virtual network link to a DNS forwarding ruleset.
  */
 export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkLinkResult> {
 
@@ -73,7 +73,7 @@ export interface GetVirtualNetworkLinkResult {
     readonly virtualNetwork: outputs.network.v20220701.SubResourceResponse;
 }
 /**
- * Describes a virtual network link.
+ * Gets properties of a virtual network link to a DNS forwarding ruleset.
  */
 export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkLink(a, opts))

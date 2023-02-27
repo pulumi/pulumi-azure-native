@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Instance of an Azure ML Operationalization Cluster resource.
+ * Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
  * API Version: 2017-08-01-preview.
  */
 export function getOperationalizationCluster(args: GetOperationalizationClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOperationalizationClusterResult> {
@@ -101,7 +101,7 @@ export interface GetOperationalizationClusterResult {
     readonly type: string;
 }
 /**
- * Instance of an Azure ML Operationalization Cluster resource.
+ * Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
  * API Version: 2017-08-01-preview.
  */
 export function getOperationalizationClusterOutput(args: GetOperationalizationClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperationalizationClusterResult> {

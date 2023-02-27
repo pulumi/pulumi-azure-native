@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The routing intent child resource of a Virtual hub.
+ * Retrieves the details of a RoutingIntent.
  */
 export function getRoutingIntent(args: GetRoutingIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingIntentResult> {
 
@@ -65,7 +65,7 @@ export interface GetRoutingIntentResult {
     readonly type: string;
 }
 /**
- * The routing intent child resource of a Virtual hub.
+ * Retrieves the details of a RoutingIntent.
  */
 export function getRoutingIntentOutput(args: GetRoutingIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingIntentResult> {
     return pulumi.output(args).apply((a: any) => getRoutingIntent(a, opts))

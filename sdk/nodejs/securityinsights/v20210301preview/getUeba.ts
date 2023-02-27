@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Settings with single toggle.
+ * Gets a setting.
  */
 export function getUeba(args: GetUebaArgs, opts?: pulumi.InvokeOptions): Promise<GetUebaResult> {
 
@@ -75,7 +75,7 @@ export interface GetUebaResult {
     readonly type: string;
 }
 /**
- * Settings with single toggle.
+ * Gets a setting.
  */
 export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUebaResult> {
     return pulumi.output(args).apply((a: any) => getUeba(a, opts))

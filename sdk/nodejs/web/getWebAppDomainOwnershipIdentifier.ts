@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A domain specific resource identifier.
+ * Get domain ownership identifier for web app.
  * API Version: 2020-12-01.
  */
 export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierResult> {
@@ -59,7 +59,7 @@ export interface GetWebAppDomainOwnershipIdentifierResult {
     readonly value?: string;
 }
 /**
- * A domain specific resource identifier.
+ * Get domain ownership identifier for web app.
  * API Version: 2020-12-01.
  */
 export function getWebAppDomainOwnershipIdentifierOutput(args: GetWebAppDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierResult> {

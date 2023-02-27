@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure SQL job agent.
+ * Gets a job agent.
  */
 export function getJobAgent(args: GetJobAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetJobAgentResult> {
 
@@ -73,7 +73,7 @@ export interface GetJobAgentResult {
     readonly type: string;
 }
 /**
- * An Azure SQL job agent.
+ * Gets a job agent.
  */
 export function getJobAgentOutput(args: GetJobAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobAgentResult> {
     return pulumi.output(args).apply((a: any) => getJobAgent(a, opts))

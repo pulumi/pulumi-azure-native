@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a data connection.
+ * Returns a data connection.
  * API Version: 2021-04-01-preview.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
@@ -78,7 +78,7 @@ export interface GetDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing a data connection.
+ * Returns a data connection.
  * API Version: 2021-04-01-preview.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */

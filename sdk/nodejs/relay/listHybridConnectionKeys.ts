@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Namespace/Relay Connection String
+ * Primary and secondary connection strings to the hybrid connection.
  * API Version: 2017-04-01.
  */
 export function listHybridConnectionKeys(args: ListHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListHybridConnectionKeysResult> {
@@ -64,7 +64,7 @@ export interface ListHybridConnectionKeysResult {
     readonly secondaryKey?: string;
 }
 /**
- * Namespace/Relay Connection String
+ * Primary and secondary connection strings to the hybrid connection.
  * API Version: 2017-04-01.
  */
 export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHybridConnectionKeysResult> {

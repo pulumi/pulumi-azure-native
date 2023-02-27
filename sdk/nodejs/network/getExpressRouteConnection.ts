@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * ExpressRouteConnection resource.
+ * Gets the specified ExpressRouteConnection.
  * API Version: 2020-11-01.
  */
 export function getExpressRouteConnection(args: GetExpressRouteConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteConnectionResult> {
@@ -78,7 +78,7 @@ export interface GetExpressRouteConnectionResult {
     readonly routingWeight?: number;
 }
 /**
- * ExpressRouteConnection resource.
+ * Gets the specified ExpressRouteConnection.
  * API Version: 2020-11-01.
  */
 export function getExpressRouteConnectionOutput(args: GetExpressRouteConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteConnectionResult> {

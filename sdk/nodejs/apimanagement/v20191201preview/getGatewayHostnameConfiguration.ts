@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Gateway hostname configuration details.
+ * Gets the details of the Gateway hostname configuration specified by its identifier.
  */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
 
@@ -67,7 +67,7 @@ export interface GetGatewayHostnameConfigurationResult {
     readonly type: string;
 }
 /**
- * Gateway hostname configuration details.
+ * Gets the details of the Gateway hostname configuration specified by its identifier.
  */
 export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getGatewayHostnameConfiguration(a, opts))

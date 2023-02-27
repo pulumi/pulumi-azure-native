@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Function information.
+ * Get function information by its ID for web site, or a deployment slot.
  */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
 
@@ -113,7 +113,7 @@ export interface GetWebAppFunctionResult {
     readonly type: string;
 }
 /**
- * Function information.
+ * Get function information by its ID for web site, or a deployment slot.
  */
 export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFunctionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppFunction(a, opts))

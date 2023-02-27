@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * VpnGatewayNatRule Resource.
+ * Retrieves the details of a nat ruleGet.
  */
 export function getNatRule(args: GetNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNatRuleResult> {
 
@@ -85,7 +85,7 @@ export interface GetNatRuleResult {
     readonly type: string;
 }
 /**
- * VpnGatewayNatRule Resource.
+ * Retrieves the details of a nat ruleGet.
  */
 export function getNatRuleOutput(args: GetNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatRuleResult> {
     return pulumi.output(args).apply((a: any) => getNatRule(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * configuration associated with SAP Landscape Monitor Dashboard.
+ * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
  */
 export function getSapLandscapeMonitor(args: GetSapLandscapeMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetSapLandscapeMonitorResult> {
 
@@ -64,7 +64,7 @@ export interface GetSapLandscapeMonitorResult {
     readonly type: string;
 }
 /**
- * configuration associated with SAP Landscape Monitor Dashboard.
+ * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
  */
 export function getSapLandscapeMonitorOutput(args: GetSapLandscapeMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapLandscapeMonitorResult> {
     return pulumi.output(args).apply((a: any) => getSapLandscapeMonitor(a, opts))

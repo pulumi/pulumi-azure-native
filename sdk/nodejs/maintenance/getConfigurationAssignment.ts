@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Configuration Assignment
+ * Get configuration for resource.
  * API Version: 2021-04-01-preview.
  */
 export function getConfigurationAssignment(args: GetConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentResult> {
@@ -80,7 +80,7 @@ export interface GetConfigurationAssignmentResult {
     readonly type: string;
 }
 /**
- * Configuration Assignment
+ * Get configuration for resource.
  * API Version: 2021-04-01-preview.
  */
 export function getConfigurationAssignmentOutput(args: GetConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentResult> {

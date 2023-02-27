@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Policies for protecting resources using Just-in-Time access control for the subscription, location
+ */
 /** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
 export function getJitNetworkAccessPolicy(args: GetJitNetworkAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetJitNetworkAccessPolicyResult> {
     pulumi.log.warn("getJitNetworkAccessPolicy is deprecated: Version 2015-06-01-preview will be removed in v2 of the provider.")
@@ -65,6 +68,9 @@ export interface GetJitNetworkAccessPolicyResult {
      */
     readonly virtualMachines: outputs.security.v20150601preview.JitNetworkAccessPolicyVirtualMachineResponse[];
 }
+/**
+ * Policies for protecting resources using Just-in-Time access control for the subscription, location
+ */
 /** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
 export function getJitNetworkAccessPolicyOutput(args: GetJitNetworkAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitNetworkAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getJitNetworkAccessPolicy(a, opts))

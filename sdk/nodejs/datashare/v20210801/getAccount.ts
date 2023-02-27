@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An account data transfer object.
+ * Get an account
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -80,7 +80,7 @@ export interface GetAccountResult {
     readonly userName: string;
 }
 /**
- * An account data transfer object.
+ * Get an account
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

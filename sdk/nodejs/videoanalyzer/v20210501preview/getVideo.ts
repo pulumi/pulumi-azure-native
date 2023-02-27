@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The representation of a single video in a Video Analyzer account.
+ * Retrieves an existing video resource within an account with a given name.
  */
 export function getVideo(args: GetVideoArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoResult> {
 
@@ -77,7 +77,7 @@ export interface GetVideoResult {
     readonly type: string;
 }
 /**
- * The representation of a single video in a Video Analyzer account.
+ * Retrieves an existing video resource within an account with a given name.
  */
 export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoResult> {
     return pulumi.output(args).apply((a: any) => getVideo(a, opts))

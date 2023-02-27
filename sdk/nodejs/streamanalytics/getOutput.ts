@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+ * Gets details about the specified output.
  * API Version: 2016-03-01.
  */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetOutputResult> {
@@ -70,7 +70,7 @@ export interface GetOutputResult {
     readonly type: string;
 }
 /**
- * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+ * Gets details about the specified output.
  * API Version: 2016-03-01.
  */
 export function getOutputOutput(args: GetOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutputResult> {

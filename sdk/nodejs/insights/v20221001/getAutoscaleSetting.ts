@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The autoscale setting resource.
+ * Gets an autoscale setting
  */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
 
@@ -84,7 +84,7 @@ export interface GetAutoscaleSettingResult {
     readonly type: string;
 }
 /**
- * The autoscale setting resource.
+ * Gets an autoscale setting
  */
 export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscaleSettingResult> {
     return pulumi.output(args).apply((a: any) => getAutoscaleSetting(a, opts))

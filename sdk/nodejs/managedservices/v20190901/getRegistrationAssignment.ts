@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Registration assignment.
+ * Gets the details of specified registration assignment.
  */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
 
@@ -57,7 +57,7 @@ export interface GetRegistrationAssignmentResult {
     readonly type: string;
 }
 /**
- * Registration assignment.
+ * Gets the details of specified registration assignment.
  */
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationAssignment(a, opts))

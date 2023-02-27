@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get metrics configuration of the provided cluster.
+ */
 export function getMetricsConfiguration(args: GetMetricsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsConfigurationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +89,9 @@ export interface GetMetricsConfigurationResult {
      */
     readonly type: string;
 }
+/**
+ * Get metrics configuration of the provided cluster.
+ */
 export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMetricsConfiguration(a, opts))
 }

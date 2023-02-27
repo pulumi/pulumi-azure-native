@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  * API Version: 2021-03-08.
  */
 export function getprivateLinkServicesForSCCPowershell(args: GetprivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForSCCPowershellResult> {
@@ -77,7 +77,7 @@ export interface GetprivateLinkServicesForSCCPowershellResult {
     readonly type: string;
 }
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  * API Version: 2021-03-08.
  */
 export function getprivateLinkServicesForSCCPowershellOutput(args: GetprivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForSCCPowershellResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The policy definition.
+ * Gets the policy definition.
  */
 /** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
@@ -54,7 +54,7 @@ export interface GetPolicyDefinitionResult {
     readonly policyType?: string;
 }
 /**
- * The policy definition.
+ * Gets the policy definition.
  */
 /** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
 export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {

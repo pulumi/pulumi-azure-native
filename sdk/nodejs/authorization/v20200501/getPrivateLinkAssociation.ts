@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get a single private link association
+ */
 export function getPrivateLinkAssociation(args: GetPrivateLinkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAssociationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +48,9 @@ export interface GetPrivateLinkAssociationResult {
      */
     readonly type: string;
 }
+/**
+ * Get a single private link association
+ */
 export function getPrivateLinkAssociationOutput(args: GetPrivateLinkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAssociationResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkAssociation(a, opts))
 }

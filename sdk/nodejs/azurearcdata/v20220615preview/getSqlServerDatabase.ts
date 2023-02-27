@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Arc Sql Server database
+ * Retrieves an Arc Sql Server database.
  */
 export function getSqlServerDatabase(args: GetSqlServerDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerDatabaseResult> {
 
@@ -69,7 +69,7 @@ export interface GetSqlServerDatabaseResult {
     readonly type: string;
 }
 /**
- * Arc Sql Server database
+ * Retrieves an Arc Sql Server database.
  */
 export function getSqlServerDatabaseOutput(args: GetSqlServerDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getSqlServerDatabase(a, opts))

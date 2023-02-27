@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Provider details.
+ * Gets the details of registered recovery services provider.
  */
 /** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
 export function getReplicationRecoveryServicesProvider(args: GetReplicationRecoveryServicesProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryServicesProviderResult> {
@@ -68,7 +68,7 @@ export interface GetReplicationRecoveryServicesProviderResult {
     readonly type: string;
 }
 /**
- * Provider details.
+ * Gets the details of registered recovery services provider.
  */
 /** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
 export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {

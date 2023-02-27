@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Cloud shell console
+ * Gets the console for the user.
  * API Version: 2018-10-01.
  */
 export function getConsoleWithLocation(args: GetConsoleWithLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleWithLocationResult> {
@@ -41,7 +41,7 @@ export interface GetConsoleWithLocationResult {
     readonly properties: outputs.portal.ConsolePropertiesResponse;
 }
 /**
- * Cloud shell console
+ * Gets the console for the user.
  * API Version: 2018-10-01.
  */
 export function getConsoleWithLocationOutput(args: GetConsoleWithLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleWithLocationResult> {

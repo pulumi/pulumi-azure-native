@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Workload group operations for a data warehouse
+ * Gets a workload group
  */
 export function getWorkloadGroup(args: GetWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadGroupResult> {
 
@@ -79,7 +79,7 @@ export interface GetWorkloadGroupResult {
     readonly type: string;
 }
 /**
- * Workload group operations for a data warehouse
+ * Gets a workload group
  */
 export function getWorkloadGroupOutput(args: GetWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadGroupResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadGroup(a, opts))

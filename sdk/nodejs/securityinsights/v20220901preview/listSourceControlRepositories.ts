@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List all the source controls.
+ * Gets a list of repositories metadata.
  */
 export function listSourceControlRepositories(args: ListSourceControlRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<ListSourceControlRepositoriesResult> {
 
@@ -44,7 +44,7 @@ export interface ListSourceControlRepositoriesResult {
     readonly value: outputs.securityinsights.v20220901preview.RepoResponse[];
 }
 /**
- * List all the source controls.
+ * Gets a list of repositories metadata.
  */
 export function listSourceControlRepositoriesOutput(args: ListSourceControlRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSourceControlRepositoriesResult> {
     return pulumi.output(args).apply((a: any) => listSourceControlRepositories(a, opts))

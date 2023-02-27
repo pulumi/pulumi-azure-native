@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Bot channel resource definition
+ * Returns a BotService Channel registration specified by the parameters.
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
@@ -79,7 +79,7 @@ export interface GetChannelResult {
     readonly type: string;
 }
 /**
- * Bot channel resource definition
+ * Returns a BotService Channel registration specified by the parameters.
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {

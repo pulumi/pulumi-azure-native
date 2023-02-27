@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Threat intelligence information object.
+ * View a threat intelligence indicator by name.
  * API Version: 2019-01-01-preview.
  */
 export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndicatorArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceIndicatorResult> {
@@ -64,7 +64,7 @@ export interface GetThreatIntelligenceIndicatorResult {
     readonly type: string;
 }
 /**
- * Threat intelligence information object.
+ * View a threat intelligence indicator by name.
  * API Version: 2019-01-01-preview.
  */
 export function getThreatIntelligenceIndicatorOutput(args: GetThreatIntelligenceIndicatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceIndicatorResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Defines the hybridIdentityMetadata.
+ * Get the hybrid identity metadata proxy resource.
  */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
 
@@ -73,7 +73,7 @@ export interface GetHybridIdentityMetadatumResult {
     readonly type: string;
 }
 /**
- * Defines the hybridIdentityMetadata.
+ * Get the hybrid identity metadata proxy resource.
  */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     return pulumi.output(args).apply((a: any) => getHybridIdentityMetadatum(a, opts))

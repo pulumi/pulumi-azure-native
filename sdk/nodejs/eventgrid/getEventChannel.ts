@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Event Channel.
+ * Get properties of an event channel.
  * API Version: 2021-06-01-preview.
  */
 export function getEventChannel(args: GetEventChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEventChannelResult> {
@@ -88,7 +88,7 @@ export interface GetEventChannelResult {
     readonly type: string;
 }
 /**
- * Event Channel.
+ * Get properties of an event channel.
  * API Version: 2021-06-01-preview.
  */
 export function getEventChannelOutput(args: GetEventChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventChannelResult> {

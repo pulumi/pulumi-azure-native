@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Namespace/ServiceBus Connection String
+ * Gets the primary and secondary connection strings for the namespace.
  * API Version: 2017-04-01.
  */
 export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDisasterRecoveryConfigKeysResult> {
@@ -72,7 +72,7 @@ export interface ListDisasterRecoveryConfigKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Namespace/ServiceBus Connection String
+ * Gets the primary and secondary connection strings for the namespace.
  * API Version: 2017-04-01.
  */
 export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {

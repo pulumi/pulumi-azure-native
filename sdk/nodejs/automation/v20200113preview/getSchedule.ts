@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Definition of the schedule.
+ * Retrieve the schedule identified by schedule name.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -109,7 +109,7 @@ export interface GetScheduleResult {
     readonly type: string;
 }
 /**
- * Definition of the schedule.
+ * Retrieve the schedule identified by schedule name.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))

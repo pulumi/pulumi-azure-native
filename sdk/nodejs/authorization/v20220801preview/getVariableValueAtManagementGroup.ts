@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The variable value.
+ * This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
  */
 export function getVariableValueAtManagementGroup(args: GetVariableValueAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableValueAtManagementGroupResult> {
 
@@ -61,7 +61,7 @@ export interface GetVariableValueAtManagementGroupResult {
     readonly values: outputs.authorization.v20220801preview.PolicyVariableValueColumnValueResponse[];
 }
 /**
- * The variable value.
+ * This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
  */
 export function getVariableValueAtManagementGroupOutput(args: GetVariableValueAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableValueAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getVariableValueAtManagementGroup(a, opts))

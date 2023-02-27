@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets an integration account agreement.
+ */
 export function getIntegrationAccountAgreement(args: GetIntegrationAccountAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountAgreementResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,6 +93,9 @@ export interface GetIntegrationAccountAgreementResult {
      */
     readonly type?: string;
 }
+/**
+ * Gets an integration account agreement.
+ */
 export function getIntegrationAccountAgreementOutput(args: GetIntegrationAccountAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAgreementResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountAgreement(a, opts))
 }

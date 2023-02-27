@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List of virtual network gateway routes
+ * This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
  */
 export function getVirtualNetworkGatewayAdvertisedRoutes(args: GetVirtualNetworkGatewayAdvertisedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
 
@@ -45,7 +45,7 @@ export interface GetVirtualNetworkGatewayAdvertisedRoutesResult {
     readonly value?: outputs.network.v20180701.GatewayRouteResponse[];
 }
 /**
- * List of virtual network gateway routes
+ * This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
  */
 export function getVirtualNetworkGatewayAdvertisedRoutesOutput(args: GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayAdvertisedRoutes(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Result of the Get delivery attributes operation.
+ * Get all delivery attributes for an event subscription of a partner topic.
  */
 export function getPartnerTopicEventSubscriptionDeliveryAttributes(args: GetPartnerTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> {
 
@@ -45,7 +45,7 @@ export interface GetPartnerTopicEventSubscriptionDeliveryAttributesResult {
     readonly value?: (outputs.eventgrid.v20210601preview.DynamicDeliveryAttributeMappingResponse | outputs.eventgrid.v20210601preview.StaticDeliveryAttributeMappingResponse)[];
 }
 /**
- * Result of the Get delivery attributes operation.
+ * Get all delivery attributes for an event subscription of a partner topic.
  */
 export function getPartnerTopicEventSubscriptionDeliveryAttributesOutput(args: GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> {
     return pulumi.output(args).apply((a: any) => getPartnerTopicEventSubscriptionDeliveryAttributes(a, opts))

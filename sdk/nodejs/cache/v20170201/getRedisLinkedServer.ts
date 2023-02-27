@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Response to put/get linked server (with properties) for Redis cache.
+ * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
 /** @deprecated Version 2017-02-01 will be removed in v2 of the provider. */
 export function getRedisLinkedServer(args: GetRedisLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisLinkedServerResult> {
@@ -68,7 +68,7 @@ export interface GetRedisLinkedServerResult {
     readonly type: string;
 }
 /**
- * Response to put/get linked server (with properties) for Redis cache.
+ * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
 /** @deprecated Version 2017-02-01 will be removed in v2 of the provider. */
 export function getRedisLinkedServerOutput(args: GetRedisLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisLinkedServerResult> {

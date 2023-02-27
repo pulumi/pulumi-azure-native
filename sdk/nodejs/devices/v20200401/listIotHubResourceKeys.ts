@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list of shared access policies with a next link.
+ * Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
  */
 export function listIotHubResourceKeys(args: ListIotHubResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysResult> {
 
@@ -44,7 +44,7 @@ export interface ListIotHubResourceKeysResult {
     readonly value?: outputs.devices.v20200401.SharedAccessSignatureAuthorizationRuleResponse[];
 }
 /**
- * The list of shared access policies with a next link.
+ * Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
  */
 export function listIotHubResourceKeysOutput(args: ListIotHubResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysResult> {
     return pulumi.output(args).apply((a: any) => listIotHubResourceKeys(a, opts))

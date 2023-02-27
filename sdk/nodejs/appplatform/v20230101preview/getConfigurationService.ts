@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Application Configuration Service resource
+ * Get the Application Configuration Service and its properties.
  */
 export function getConfigurationService(args: GetConfigurationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationServiceResult> {
 
@@ -61,7 +61,7 @@ export interface GetConfigurationServiceResult {
     readonly type: string;
 }
 /**
- * Application Configuration Service resource
+ * Get the Application Configuration Service and its properties.
  */
 export function getConfigurationServiceOutput(args: GetConfigurationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationServiceResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationService(a, opts))

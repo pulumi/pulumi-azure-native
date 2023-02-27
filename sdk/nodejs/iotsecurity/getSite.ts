@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * IoT site model
+ * Get IoT site
  * API Version: 2021-02-01-preview.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
@@ -56,7 +56,7 @@ export interface GetSiteResult {
     readonly type: string;
 }
 /**
- * IoT site model
+ * Get IoT site
  * API Version: 2021-02-01-preview.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {

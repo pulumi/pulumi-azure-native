@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Model that represents a Target resource.
+ * Get a Target resource that extends a tracked regional resource.
  * API Version: 2021-09-15-preview.
  */
 export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetResult> {
@@ -76,7 +76,7 @@ export interface GetTargetResult {
     readonly type: string;
 }
 /**
- * Model that represents a Target resource.
+ * Get a Target resource that extends a tracked regional resource.
  * API Version: 2021-09-15-preview.
  */
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {

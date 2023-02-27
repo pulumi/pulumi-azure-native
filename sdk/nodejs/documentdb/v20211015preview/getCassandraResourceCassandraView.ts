@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Cassandra view.
+ * Gets the Cassandra view under an existing Azure Cosmos DB database account.
  */
 export function getCassandraResourceCassandraView(args: GetCassandraResourceCassandraViewArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraViewResult> {
 
@@ -72,7 +72,7 @@ export interface GetCassandraResourceCassandraViewResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Cassandra view.
+ * Gets the Cassandra view under an existing Azure Cosmos DB database account.
  */
 export function getCassandraResourceCassandraViewOutput(args: GetCassandraResourceCassandraViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraViewResult> {
     return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraView(a, opts))

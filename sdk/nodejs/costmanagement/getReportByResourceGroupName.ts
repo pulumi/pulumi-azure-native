@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A report resource.
+ * Gets the report for a resource group under a subscription by report name.
  * API Version: 2018-08-01-preview.
  */
 export function getReportByResourceGroupName(args: GetReportByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByResourceGroupNameResult> {
@@ -69,7 +69,7 @@ export interface GetReportByResourceGroupNameResult {
     readonly type: string;
 }
 /**
- * A report resource.
+ * Gets the report for a resource group under a subscription by report name.
  * API Version: 2018-08-01-preview.
  */
 export function getReportByResourceGroupNameOutput(args: GetReportByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByResourceGroupNameResult> {

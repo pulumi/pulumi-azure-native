@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list of language extension objects.
+ * Returns a list of language extensions that can run within KQL queries.
  */
 export function listClusterLanguageExtensions(args: ListClusterLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterLanguageExtensionsResult> {
 
@@ -40,7 +40,7 @@ export interface ListClusterLanguageExtensionsResult {
     readonly value?: outputs.kusto.v20221111.LanguageExtensionResponse[];
 }
 /**
- * The list of language extension objects.
+ * Returns a list of language extensions that can run within KQL queries.
  */
 export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
     return pulumi.output(args).apply((a: any) => listClusterLanguageExtensions(a, opts))

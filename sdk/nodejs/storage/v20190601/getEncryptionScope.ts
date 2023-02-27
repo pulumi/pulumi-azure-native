@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Encryption Scope resource.
+ * Returns the properties for the specified encryption scope.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
@@ -75,7 +75,7 @@ export interface GetEncryptionScopeResult {
     readonly type: string;
 }
 /**
- * The Encryption Scope resource.
+ * Returns the properties for the specified encryption scope.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {

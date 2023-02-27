@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Hybrid connection authorization rule for a hybrid connection by name.
  */
 export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionAuthorizationRuleResult> {
 
@@ -70,7 +70,7 @@ export interface GetHybridConnectionAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Hybrid connection authorization rule for a hybrid connection by name.
  */
 export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getHybridConnectionAuthorizationRule(a, opts))

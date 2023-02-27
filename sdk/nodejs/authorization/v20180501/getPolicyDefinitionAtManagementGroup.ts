@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The policy definition.
+ * This operation retrieves the policy definition in the given management group with the given name.
  */
 export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionAtManagementGroupResult> {
 
@@ -73,7 +73,7 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
     readonly type: string;
 }
 /**
- * The policy definition.
+ * This operation retrieves the policy definition in the given management group with the given name.
  */
 export function getPolicyDefinitionAtManagementGroupOutput(args: GetPolicyDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPolicyDefinitionAtManagementGroup(a, opts))

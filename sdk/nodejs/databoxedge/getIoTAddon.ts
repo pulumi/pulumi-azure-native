@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * IoT Addon.
+ * Gets a specific addon by name.
  * API Version: 2020-12-01.
  */
 export function getIoTAddon(args: GetIoTAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTAddonResult> {
@@ -92,7 +92,7 @@ export interface GetIoTAddonResult {
     readonly version: string;
 }
 /**
- * IoT Addon.
+ * Gets a specific addon by name.
  * API Version: 2020-12-01.
  */
 export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTAddonResult> {

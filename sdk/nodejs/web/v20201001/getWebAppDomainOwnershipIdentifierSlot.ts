@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A domain specific resource identifier.
+ * Get domain ownership identifier for web app.
  */
 export function getWebAppDomainOwnershipIdentifierSlot(args: GetWebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierSlotResult> {
 
@@ -70,7 +70,7 @@ export interface GetWebAppDomainOwnershipIdentifierSlotResult {
     readonly value?: string;
 }
 /**
- * A domain specific resource identifier.
+ * Get domain ownership identifier for web app.
  */
 export function getWebAppDomainOwnershipIdentifierSlotOutput(args: GetWebAppDomainOwnershipIdentifierSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDomainOwnershipIdentifierSlot(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a catalog.
+ * Gets a catalog
  * API Version: 2022-09-01-preview.
  */
 export function getCatalog(args: GetCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogResult> {
@@ -74,7 +74,7 @@ export interface GetCatalogResult {
     readonly type: string;
 }
 /**
- * Represents a catalog.
+ * Gets a catalog
  * API Version: 2022-09-01-preview.
  */
 export function getCatalogOutput(args: GetCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * NamedValue details.
+ * Gets the details of the named value specified by its identifier.
  */
 export function getNamedValue(args: GetNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedValueResult> {
 
@@ -73,7 +73,7 @@ export interface GetNamedValueResult {
     readonly value?: string;
 }
 /**
- * NamedValue details.
+ * Gets the details of the named value specified by its identifier.
  */
 export function getNamedValueOutput(args: GetNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedValueResult> {
     return pulumi.output(args).apply((a: any) => getNamedValue(a, opts))

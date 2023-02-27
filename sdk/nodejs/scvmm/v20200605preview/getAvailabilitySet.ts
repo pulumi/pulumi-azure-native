@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The AvailabilitySets resource definition.
+ * Implements AvailabilitySet GET method.
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
 
@@ -76,7 +76,7 @@ export interface GetAvailabilitySetResult {
     readonly vmmServerId?: string;
 }
 /**
- * The AvailabilitySets resource definition.
+ * Implements AvailabilitySet GET method.
  */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * App resource payload
+ * Get an App and its properties.
  * API Version: 2020-07-01.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
@@ -71,7 +71,7 @@ export interface GetAppResult {
     readonly type: string;
 }
 /**
- * App resource payload
+ * Get an App and its properties.
  * API Version: 2020-07-01.
  */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {

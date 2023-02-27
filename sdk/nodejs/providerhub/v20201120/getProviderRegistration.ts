@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets the provider registration details.
+ */
 export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +40,9 @@ export interface GetProviderRegistrationResult {
      */
     readonly type: string;
 }
+/**
+ * Gets the provider registration details.
+ */
 export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getProviderRegistration(a, opts))
 }

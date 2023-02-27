@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * VirtualHub Resource.
+ * Retrieves the details of a VirtualHub.
  * API Version: 2020-11-01.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
@@ -133,7 +133,7 @@ export interface GetVirtualHubResult {
     readonly vpnGateway?: outputs.network.SubResourceResponse;
 }
 /**
- * VirtualHub Resource.
+ * Retrieves the details of a VirtualHub.
  * API Version: 2020-11-01.
  */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Agent Pool.
+ * Gets the details of the agent pool by managed cluster and resource group.
  */
 /** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
@@ -100,7 +100,7 @@ export interface GetAgentPoolResult {
     readonly vnetSubnetID?: string;
 }
 /**
- * Agent Pool.
+ * Gets the details of the agent pool by managed cluster and resource group.
  */
 /** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {

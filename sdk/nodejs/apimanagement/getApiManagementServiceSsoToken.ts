@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The response of the GetSsoToken operation.
+ * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
  * API Version: 2020-12-01.
  */
 export function getApiManagementServiceSsoToken(args: GetApiManagementServiceSsoTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceSsoTokenResult> {
@@ -38,7 +38,7 @@ export interface GetApiManagementServiceSsoTokenResult {
     readonly redirectUri?: string;
 }
 /**
- * The response of the GetSsoToken operation.
+ * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
  * API Version: 2020-12-01.
  */
 export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServiceSsoTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceSsoTokenResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Customer Notification Event resource.
+ * Gets a Test Base CustomerEvent.
  */
 export function getCustomerEvent(args: GetCustomerEventArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerEventResult> {
 
@@ -65,7 +65,7 @@ export interface GetCustomerEventResult {
     readonly type: string;
 }
 /**
- * The Customer Notification Event resource.
+ * Gets a Test Base CustomerEvent.
  */
 export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerEventResult> {
     return pulumi.output(args).apply((a: any) => getCustomerEvent(a, opts))

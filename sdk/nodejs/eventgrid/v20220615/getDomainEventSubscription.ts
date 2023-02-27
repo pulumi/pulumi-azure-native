@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Event Subscription
+ * Get properties of an event subscription of a domain.
  */
 export function getDomainEventSubscription(args: GetDomainEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainEventSubscriptionResult> {
 
@@ -105,7 +105,7 @@ export interface GetDomainEventSubscriptionResult {
     readonly type: string;
 }
 /**
- * Event Subscription
+ * Get properties of an event subscription of a domain.
  */
 export function getDomainEventSubscriptionOutput(args: GetDomainEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getDomainEventSubscription(a, opts))

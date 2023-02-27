@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The properties of the EventHubConsumerGroupInfo object.
+ * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  */
 /** @deprecated Version 2017-07-01 will be removed in v2 of the provider. */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
@@ -57,7 +57,7 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
     readonly tags?: {[key: string]: string};
 }
 /**
- * The properties of the EventHubConsumerGroupInfo object.
+ * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  */
 /** @deprecated Version 2017-07-01 will be removed in v2 of the provider. */
 export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {

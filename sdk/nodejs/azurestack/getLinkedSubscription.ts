@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Linked Subscription information.
+ * Returns the properties of a Linked Subscription resource.
  * API Version: 2020-06-01-preview.
  */
 export function getLinkedSubscription(args: GetLinkedSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedSubscriptionResult> {
@@ -97,7 +97,7 @@ export interface GetLinkedSubscriptionResult {
     readonly type: string;
 }
 /**
- * Linked Subscription information.
+ * Returns the properties of a Linked Subscription resource.
  * API Version: 2020-06-01-preview.
  */
 export function getLinkedSubscriptionOutput(args: GetLinkedSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedSubscriptionResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The integration account RosettaNet process configuration.
+ * Gets an integration account RosettaNetProcessConfiguration.
  * API Version: 2016-06-01.
  */
 export function getRosettaNetProcessConfiguration(args: GetRosettaNetProcessConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRosettaNetProcessConfigurationResult> {
@@ -102,7 +102,7 @@ export interface GetRosettaNetProcessConfigurationResult {
     readonly type: string;
 }
 /**
- * The integration account RosettaNet process configuration.
+ * Gets an integration account RosettaNetProcessConfiguration.
  * API Version: 2016-06-01.
  */
 export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {

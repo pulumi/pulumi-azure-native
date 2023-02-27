@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * details of synchronization
+ * List synchronization details
  * API Version: 2020-09-01.
  */
 export function listShareSynchronizationDetails(args: ListShareSynchronizationDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSynchronizationDetailsResult> {
@@ -110,7 +110,7 @@ export interface ListShareSynchronizationDetailsResult {
     readonly value: outputs.datashare.SynchronizationDetailsResponse[];
 }
 /**
- * details of synchronization
+ * List synchronization details
  * API Version: 2020-09-01.
  */
 export function listShareSynchronizationDetailsOutput(args: ListShareSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSynchronizationDetailsResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * OpenShift Managed cluster.
+ * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
 
@@ -100,7 +100,7 @@ export interface GetOpenShiftManagedClusterResult {
     readonly type: string;
 }
 /**
- * OpenShift Managed cluster.
+ * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  */
 export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getOpenShiftManagedCluster(a, opts))

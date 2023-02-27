@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Custom domain of the API portal
+ * Get the API portal custom domain.
  */
 export function getApiPortalCustomDomain(args: GetApiPortalCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPortalCustomDomainResult> {
 
@@ -66,7 +66,7 @@ export interface GetApiPortalCustomDomainResult {
     readonly type: string;
 }
 /**
- * Custom domain of the API portal
+ * Get the API portal custom domain.
  */
 export function getApiPortalCustomDomainOutput(args: GetApiPortalCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getApiPortalCustomDomain(a, opts))

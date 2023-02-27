@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Sentinel onboarding state
+ * Get Sentinel onboarding state
  */
 export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs, opts?: pulumi.InvokeOptions): Promise<GetSentinelOnboardingStateResult> {
 
@@ -70,7 +70,7 @@ export interface GetSentinelOnboardingStateResult {
     readonly type: string;
 }
 /**
- * Sentinel onboarding state
+ * Get Sentinel onboarding state
  */
 export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSentinelOnboardingStateResult> {
     return pulumi.output(args).apply((a: any) => getSentinelOnboardingState(a, opts))

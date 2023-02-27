@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a Private DNS zone.
+ * Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
  */
 export function getPrivateZone(args: GetPrivateZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateZoneResult> {
 
@@ -85,7 +85,7 @@ export interface GetPrivateZoneResult {
     readonly type: string;
 }
 /**
- * Describes a Private DNS zone.
+ * Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
  */
 export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateZoneResult> {
     return pulumi.output(args).apply((a: any) => getPrivateZone(a, opts))

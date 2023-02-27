@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The subscription diagnostic setting resource.
+ * Gets the active subscription diagnostic settings for the specified resource.
  * API Version: 2017-05-01-preview.
  */
 export function getSubscriptionDiagnosticSetting(args: GetSubscriptionDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDiagnosticSettingResult> {
@@ -72,7 +72,7 @@ export interface GetSubscriptionDiagnosticSettingResult {
     readonly workspaceId?: string;
 }
 /**
- * The subscription diagnostic setting resource.
+ * Gets the active subscription diagnostic settings for the specified resource.
  * API Version: 2017-05-01-preview.
  */
 export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {

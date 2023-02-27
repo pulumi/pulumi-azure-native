@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The QueueStatus of Agent Pool
+ * Gets the count of queued runs for a given agent pool.
  */
 export function listAgentPoolQueueStatus(args: ListAgentPoolQueueStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListAgentPoolQueueStatusResult> {
 
@@ -42,7 +42,7 @@ export interface ListAgentPoolQueueStatusResult {
     readonly count?: number;
 }
 /**
- * The QueueStatus of Agent Pool
+ * Gets the count of queued runs for a given agent pool.
  */
 export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
     return pulumi.output(args).apply((a: any) => listAgentPoolQueueStatus(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An export resource.
+ * The operation to get the export for the defined scope by export name.
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
@@ -85,7 +85,7 @@ export interface GetExportResult {
     readonly type: string;
 }
 /**
- * An export resource.
+ * The operation to get the export for the defined scope by export name.
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))

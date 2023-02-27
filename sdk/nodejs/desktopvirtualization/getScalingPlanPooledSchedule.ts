@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a ScalingPlanPooledSchedule definition.
+ * Get a ScalingPlanPooledSchedule.
  * API Version: 2022-04-01-preview.
  */
 export function getScalingPlanPooledSchedule(args: GetScalingPlanPooledScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanPooledScheduleResult> {
@@ -126,7 +126,7 @@ export interface GetScalingPlanPooledScheduleResult {
     readonly type: string;
 }
 /**
- * Represents a ScalingPlanPooledSchedule definition.
+ * Get a ScalingPlanPooledSchedule.
  * API Version: 2022-04-01-preview.
  */
 export function getScalingPlanPooledScheduleOutput(args: GetScalingPlanPooledScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanPooledScheduleResult> {

@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get the properties of the provided cluster manager.
  * API Version: 2022-12-12-preview.
  */
 export function getClusterManager(args: GetClusterManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterManagerResult> {
@@ -98,6 +99,7 @@ export interface GetClusterManagerResult {
     readonly vmSize?: string;
 }
 /**
+ * Get the properties of the provided cluster manager.
  * API Version: 2022-12-12-preview.
  */
 export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterManagerResult> {

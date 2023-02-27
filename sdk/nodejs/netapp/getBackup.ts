@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Backup of a Volume
+ * Get a particular backup of the volume
  * API Version: 2020-12-01.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
@@ -97,7 +97,7 @@ export interface GetBackupResult {
     readonly volumeName: string;
 }
 /**
- * Backup of a Volume
+ * Get a particular backup of the volume
  * API Version: 2020-12-01.
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {

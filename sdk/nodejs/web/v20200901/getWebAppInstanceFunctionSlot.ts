@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Function information.
+ * Get function information by its ID for web site, or a deployment slot.
  */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
 
@@ -118,7 +118,7 @@ export interface GetWebAppInstanceFunctionSlotResult {
     readonly type: string;
 }
 /**
- * Function information.
+ * Get function information by its ID for web site, or a deployment slot.
  */
 export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppInstanceFunctionSlot(a, opts))

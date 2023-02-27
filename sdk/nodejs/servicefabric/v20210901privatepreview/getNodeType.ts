@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+ * Get a Service Fabric node type of a given managed cluster.
  */
 export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeResult> {
 
@@ -149,7 +149,7 @@ export interface GetNodeTypeResult {
     readonly vmSize?: string;
 }
 /**
- * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+ * Get a Service Fabric node type of a given managed cluster.
  */
 export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeTypeResult> {
     return pulumi.output(args).apply((a: any) => getNodeType(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of an API Management service resource.
+ * Gets an API Management service resource description.
  */
 /** @deprecated Version 2016-07-07 will be removed in v2 of the provider. */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
@@ -130,7 +130,7 @@ export interface GetApiManagementServiceResult {
     readonly vpnconfiguration?: outputs.apimanagement.v20160707.VirtualNetworkConfigurationResponse;
 }
 /**
- * Description of an API Management service resource.
+ * Gets an API Management service resource description.
  */
 /** @deprecated Version 2016-07-07 will be removed in v2 of the provider. */
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {

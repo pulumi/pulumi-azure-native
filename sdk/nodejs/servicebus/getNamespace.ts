@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description of a namespace resource.
+ * Gets a description for the specified namespace.
  * API Version: 2017-04-01.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
@@ -81,7 +81,7 @@ export interface GetNamespaceResult {
     readonly updatedAt: string;
 }
 /**
- * Description of a namespace resource.
+ * Gets a description for the specified namespace.
  * API Version: 2017-04-01.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {

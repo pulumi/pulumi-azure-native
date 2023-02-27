@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of a Namespace AuthorizationRules.
+ * Gets an authorization rule for a NotificationHub by name.
  */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
 
@@ -106,7 +106,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Description of a Namespace AuthorizationRules.
+ * Gets an authorization rule for a NotificationHub by name.
  */
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHubAuthorizationRule(a, opts))

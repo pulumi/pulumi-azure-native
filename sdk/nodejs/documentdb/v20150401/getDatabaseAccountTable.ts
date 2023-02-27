@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Table.
+ * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDatabaseAccountTable(args: GetDatabaseAccountTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountTableResult> {
@@ -60,7 +60,7 @@ export interface GetDatabaseAccountTableResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Table.
+ * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDatabaseAccountTableOutput(args: GetDatabaseAccountTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountTableResult> {

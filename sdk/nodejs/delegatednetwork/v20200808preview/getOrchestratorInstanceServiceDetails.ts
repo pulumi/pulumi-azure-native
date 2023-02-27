@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents an instance of a orchestrator.
+ * Gets details about the orchestrator instance.
  */
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInstanceServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratorInstanceServiceDetailsResult> {
@@ -94,7 +94,7 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
     readonly type: string;
 }
 /**
- * Represents an instance of a orchestrator.
+ * Gets details about the orchestrator instance.
  */
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getOrchestratorInstanceServiceDetailsOutput(args: GetOrchestratorInstanceServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratorInstanceServiceDetailsResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Deployment script object.
+ * Gets a deployment script with a given name.
  */
 /** @deprecated Please use one of the variants: AzureCliScript, AzurePowerShellScript. */
 export function getDeploymentScript(args: GetDeploymentScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentScriptResult> {
@@ -70,7 +70,7 @@ export interface GetDeploymentScriptResult {
     readonly type: string;
 }
 /**
- * Deployment script object.
+ * Gets a deployment script with a given name.
  */
 /** @deprecated Please use one of the variants: AzureCliScript, AzurePowerShellScript. */
 export function getDeploymentScriptOutput(args: GetDeploymentScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentScriptResult> {

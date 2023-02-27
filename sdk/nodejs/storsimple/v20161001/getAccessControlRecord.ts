@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The access control record
+ * Returns the properties of the specified access control record name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlRecordResult> {
@@ -56,7 +56,7 @@ export interface GetAccessControlRecordResult {
     readonly type: string;
 }
 /**
- * The access control record
+ * Returns the properties of the specified access control record name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {

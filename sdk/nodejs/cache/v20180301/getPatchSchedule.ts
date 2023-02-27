@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response to put/get patch schedules for Redis cache.
+ * Gets the patching schedule of a redis cache.
  */
 /** @deprecated Version 2018-03-01 will be removed in v2 of the provider. */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
@@ -59,7 +59,7 @@ export interface GetPatchScheduleResult {
     readonly type: string;
 }
 /**
- * Response to put/get patch schedules for Redis cache.
+ * Gets the patching schedule of a redis cache.
  */
 /** @deprecated Version 2018-03-01 will be removed in v2 of the provider. */
 export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchScheduleResult> {

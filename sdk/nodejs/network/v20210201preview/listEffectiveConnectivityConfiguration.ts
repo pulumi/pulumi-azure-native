@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+ * List all effective connectivity configurations applied on a virtual network.
  */
 export function listEffectiveConnectivityConfiguration(args: ListEffectiveConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveConnectivityConfigurationResult> {
 
@@ -49,7 +49,7 @@ export interface ListEffectiveConnectivityConfigurationResult {
     readonly value?: outputs.network.v20210201preview.EffectiveConnectivityConfigurationResponse[];
 }
 /**
- * Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+ * List all effective connectivity configurations applied on a virtual network.
  */
 export function listEffectiveConnectivityConfigurationOutput(args: ListEffectiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveConnectivityConfigurationResult> {
     return pulumi.output(args).apply((a: any) => listEffectiveConnectivityConfiguration(a, opts))

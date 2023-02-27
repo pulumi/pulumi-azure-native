@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a data connection.
+ * Returns a data connection.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
 export function getKustoPoolDataConnection(args: GetKustoPoolDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolDataConnectionResult> {
@@ -77,7 +77,7 @@ export interface GetKustoPoolDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing a data connection.
+ * Returns a data connection.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
 export function getKustoPoolDataConnectionOutput(args: GetKustoPoolDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolDataConnectionResult> {

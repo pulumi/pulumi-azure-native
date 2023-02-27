@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a disaster recovery configuration.
+ * Gets a disaster recovery configuration.
  */
 export function getDisasterRecoveryConfiguration(args: GetDisasterRecoveryConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigurationResult> {
 
@@ -82,7 +82,7 @@ export interface GetDisasterRecoveryConfigurationResult {
     readonly type: string;
 }
 /**
- * Represents a disaster recovery configuration.
+ * Gets a disaster recovery configuration.
  */
 export function getDisasterRecoveryConfigurationOutput(args: GetDisasterRecoveryConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDisasterRecoveryConfiguration(a, opts))

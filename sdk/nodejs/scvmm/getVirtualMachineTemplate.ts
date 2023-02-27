@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The VirtualMachineTemplates resource definition.
+ * Implements VirtualMachineTemplate GET method.
  * API Version: 2020-06-05-preview.
  */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
@@ -137,7 +137,7 @@ export interface GetVirtualMachineTemplateResult {
     readonly vmmServerId?: string;
 }
 /**
- * The VirtualMachineTemplates resource definition.
+ * Implements VirtualMachineTemplate GET method.
  * API Version: 2020-06-05-preview.
  */
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {

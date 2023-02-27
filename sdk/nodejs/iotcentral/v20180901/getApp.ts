@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The IoT Central application.
+ * Get the metadata of an IoT Central application.
  */
 /** @deprecated Version 2018-09-01 will be removed in v2 of the provider. */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
@@ -94,7 +94,7 @@ export interface GetAppResult {
     readonly type: string;
 }
 /**
- * The IoT Central application.
+ * Get the metadata of an IoT Central application.
  */
 /** @deprecated Version 2018-09-01 will be removed in v2 of the provider. */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {

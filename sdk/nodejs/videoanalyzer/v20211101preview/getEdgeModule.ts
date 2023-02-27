@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The representation of an edge module.
+ * Retrieves an existing edge module resource with the given name.
  */
 export function getEdgeModule(args: GetEdgeModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeModuleResult> {
 
@@ -61,7 +61,7 @@ export interface GetEdgeModuleResult {
     readonly type: string;
 }
 /**
- * The representation of an edge module.
+ * Retrieves an existing edge module resource with the given name.
  */
 export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeModuleResult> {
     return pulumi.output(args).apply((a: any) => getEdgeModule(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Lab details.
+ * Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
  * API Version: 2021-12-01-preview.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
@@ -103,7 +103,7 @@ export interface GetLabResult {
     readonly value?: number;
 }
 /**
- * Lab details.
+ * Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
  * API Version: 2021-12-01-preview.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {

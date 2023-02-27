@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Managed cluster.
+ * Gets the details of the managed cluster with a specified resource group and name.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
 
@@ -136,7 +136,7 @@ export interface GetManagedClusterResult {
     readonly windowsProfile?: outputs.containerservice.v20200101.ManagedClusterWindowsProfileResponse;
 }
 /**
- * Managed cluster.
+ * Gets the details of the managed cluster with a specified resource group and name.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))

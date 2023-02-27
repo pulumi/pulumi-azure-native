@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Arc PrivateLinkScope definition.
+ * Returns a Azure Arc PrivateLinkScope.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
 
@@ -64,7 +64,7 @@ export interface GetPrivateLinkScopeResult {
     readonly type: string;
 }
 /**
- * An Azure Arc PrivateLinkScope definition.
+ * Returns a Azure Arc PrivateLinkScope.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))

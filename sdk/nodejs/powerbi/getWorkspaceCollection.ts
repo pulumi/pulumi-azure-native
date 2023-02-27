@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Retrieves an existing Power BI Workspace Collection.
  * API Version: 2016-01-29.
  */
 export function getWorkspaceCollection(args: GetWorkspaceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceCollectionResult> {
@@ -55,6 +56,7 @@ export interface GetWorkspaceCollectionResult {
     readonly type?: string;
 }
 /**
+ * Retrieves an existing Power BI Workspace Collection.
  * API Version: 2016-01-29.
  */
 export function getWorkspaceCollectionOutput(args: GetWorkspaceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCollectionResult> {

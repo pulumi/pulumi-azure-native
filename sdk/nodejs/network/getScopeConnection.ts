@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Scope Connections resource
+ * Get specified scope connection created by this Network Manager.
  * API Version: 2022-02-01-preview.
  */
 export function getScopeConnection(args: GetScopeConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeConnectionResult> {
@@ -74,7 +74,7 @@ export interface GetScopeConnectionResult {
     readonly type: string;
 }
 /**
- * The Scope Connections resource
+ * Get specified scope connection created by this Network Manager.
  * API Version: 2022-02-01-preview.
  */
 export function getScopeConnectionOutput(args: GetScopeConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeConnectionResult> {

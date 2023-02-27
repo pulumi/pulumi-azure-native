@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * ApplicationGateways resource
+ * The Get application gateway operation retrieves information about the specified application gateway.
  */
 /** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
@@ -118,7 +118,7 @@ export interface GetApplicationGatewayResult {
     readonly urlPathMaps?: outputs.network.v20160330.ApplicationGatewayUrlPathMapResponse[];
 }
 /**
- * ApplicationGateways resource
+ * The Get application gateway operation retrieves information about the specified application gateway.
  */
 /** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Response for iSCSI target requests.
+ * Get an iSCSI target.
  * API Version: 2020-03-15-preview.
  */
 export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiTargetResult> {
@@ -70,7 +70,7 @@ export interface GetIscsiTargetResult {
     readonly type: string;
 }
 /**
- * Response for iSCSI target requests.
+ * Get an iSCSI target.
  * API Version: 2020-03-15-preview.
  */
 export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiTargetResult> {

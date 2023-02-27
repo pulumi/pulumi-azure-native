@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An attestation resource.
+ * Gets an existing attestation at subscription scope.
  */
 export function getAttestationAtSubscription(args: GetAttestationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtSubscriptionResult> {
 
@@ -91,7 +91,7 @@ export interface GetAttestationAtSubscriptionResult {
     readonly type: string;
 }
 /**
- * An attestation resource.
+ * Gets an existing attestation at subscription scope.
  */
 export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getAttestationAtSubscription(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A SqlServerInstance.
+ * Retrieves a SQL Server Instance resource
  */
 export function getSqlServerInstance(args: GetSqlServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceResult> {
 
@@ -64,7 +64,7 @@ export interface GetSqlServerInstanceResult {
     readonly type: string;
 }
 /**
- * A SqlServerInstance.
+ * Retrieves a SQL Server Instance resource
  */
 export function getSqlServerInstanceOutput(args: GetSqlServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSqlServerInstance(a, opts))

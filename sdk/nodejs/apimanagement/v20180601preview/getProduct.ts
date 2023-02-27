@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Product details.
+ * Gets the details of the product specified by its identifier.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
 
@@ -78,7 +78,7 @@ export interface GetProductResult {
     readonly type: string;
 }
 /**
- * Product details.
+ * Gets the details of the product specified by its identifier.
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
     return pulumi.output(args).apply((a: any) => getProduct(a, opts))

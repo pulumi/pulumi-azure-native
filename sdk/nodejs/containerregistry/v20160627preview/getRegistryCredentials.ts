@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The result of a request to get the administrator login credentials for a container registry.
+ * Gets the administrator login credentials for the specified container registry.
  */
 export function getRegistryCredentials(args: GetRegistryCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryCredentialsResult> {
 
@@ -41,7 +41,7 @@ export interface GetRegistryCredentialsResult {
     readonly username?: string;
 }
 /**
- * The result of a request to get the administrator login credentials for a container registry.
+ * Gets the administrator login credentials for the specified container registry.
  */
 export function getRegistryCredentialsOutput(args: GetRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getRegistryCredentials(a, opts))

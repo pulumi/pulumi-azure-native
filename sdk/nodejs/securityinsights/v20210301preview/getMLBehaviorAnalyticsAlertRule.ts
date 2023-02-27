@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents MLBehaviorAnalytics alert rule.
+ * Gets the alert rule.
  */
 export function getMLBehaviorAnalyticsAlertRule(args: GetMLBehaviorAnalyticsAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMLBehaviorAnalyticsAlertRuleResult> {
 
@@ -99,7 +99,7 @@ export interface GetMLBehaviorAnalyticsAlertRuleResult {
     readonly type: string;
 }
 /**
- * Represents MLBehaviorAnalytics alert rule.
+ * Gets the alert rule.
  */
 export function getMLBehaviorAnalyticsAlertRuleOutput(args: GetMLBehaviorAnalyticsAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLBehaviorAnalyticsAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getMLBehaviorAnalyticsAlertRule(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * String dictionary resource.
+ * Gets the metadata of an app.
  */
 export function listWebAppMetadataSlot(args: ListWebAppMetadataSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppMetadataSlotResult> {
 
@@ -58,7 +58,7 @@ export interface ListWebAppMetadataSlotResult {
     readonly type: string;
 }
 /**
- * String dictionary resource.
+ * Gets the metadata of an app.
  */
 export function listWebAppMetadataSlotOutput(args: ListWebAppMetadataSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppMetadataSlot(a, opts))

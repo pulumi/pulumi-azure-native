@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * DigitalTwinsInstance endpoint resource.
+ * Get DigitalTwinsInstances Endpoint.
  */
 /** @deprecated Version 2020-03-01-preview will be removed in v2 of the provider. */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
@@ -59,7 +59,7 @@ export interface GetDigitalTwinsEndpointResult {
     readonly type: string;
 }
 /**
- * DigitalTwinsInstance endpoint resource.
+ * Get DigitalTwinsInstances Endpoint.
  */
 /** @deprecated Version 2020-03-01-preview will be removed in v2 of the provider. */
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Wiki properties
+ * Gets the details of the Wiki for an API specified by its identifier.
  */
 export function getApiWiki(args: GetApiWikiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiWikiResult> {
 
@@ -57,7 +57,7 @@ export interface GetApiWikiResult {
     readonly type: string;
 }
 /**
- * Wiki properties
+ * Gets the details of the Wiki for an API specified by its identifier.
  */
 export function getApiWikiOutput(args: GetApiWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiWikiResult> {
     return pulumi.output(args).apply((a: any) => getApiWiki(a, opts))

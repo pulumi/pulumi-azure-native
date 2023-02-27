@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents a machine learning team account workspace.
+ * Gets the properties of the specified machine learning workspace.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -82,7 +82,7 @@ export interface GetWorkspaceResult {
     readonly workspaceId: string;
 }
 /**
- * An object that represents a machine learning team account workspace.
+ * Gets the properties of the specified machine learning workspace.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

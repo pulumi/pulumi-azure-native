@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A container group.
+ * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
  */
 /** @deprecated Version 2017-10-01-preview will be removed in v2 of the provider. */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
@@ -93,7 +93,7 @@ export interface GetContainerGroupResult {
     readonly volumes?: outputs.containerinstance.v20171001preview.VolumeResponse[];
 }
 /**
- * A container group.
+ * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
  */
 /** @deprecated Version 2017-10-01-preview will be removed in v2 of the provider. */
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {

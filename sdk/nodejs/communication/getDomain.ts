@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A class representing a Domains resource.
+ * Get the Domains resource and its properties.
  * API Version: 2021-10-01-preview.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
@@ -102,7 +102,7 @@ export interface GetDomainResult {
     readonly verificationStates: outputs.communication.DomainPropertiesResponseVerificationStates;
 }
 /**
- * A class representing a Domains resource.
+ * Get the Domains resource and its properties.
  * API Version: 2021-10-01-preview.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {

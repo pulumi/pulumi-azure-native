@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Remote debugging config.
+ * Get remote debugging config.
  */
 export function getDeploymentRemoteDebuggingConfig(args: GetDeploymentRemoteDebuggingConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentRemoteDebuggingConfigResult> {
 
@@ -51,7 +51,7 @@ export interface GetDeploymentRemoteDebuggingConfigResult {
     readonly port?: number;
 }
 /**
- * Remote debugging config.
+ * Get remote debugging config.
  */
 export function getDeploymentRemoteDebuggingConfigOutput(args: GetDeploymentRemoteDebuggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentRemoteDebuggingConfigResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentRemoteDebuggingConfig(a, opts))

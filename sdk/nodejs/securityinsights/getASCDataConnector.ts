@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents ASC (Azure Security Center) data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getASCDataConnector(args: GetASCDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetASCDataConnectorResult> {
@@ -71,7 +71,7 @@ export interface GetASCDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents ASC (Azure Security Center) data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getASCDataConnectorOutput(args: GetASCDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetASCDataConnectorResult> {

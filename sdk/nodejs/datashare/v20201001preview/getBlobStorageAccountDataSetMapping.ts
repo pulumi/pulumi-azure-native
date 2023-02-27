@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A blob storage account data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getBlobStorageAccountDataSetMapping(args: GetBlobStorageAccountDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobStorageAccountDataSetMappingResult> {
 
@@ -99,7 +99,7 @@ export interface GetBlobStorageAccountDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A blob storage account data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getBlobStorageAccountDataSetMappingOutput(args: GetBlobStorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobStorageAccountDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getBlobStorageAccountDataSetMapping(a, opts))

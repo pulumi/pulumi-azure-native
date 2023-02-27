@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL Analytics pool
+ * Get SQL pool properties
  */
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
 export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolResult> {
@@ -111,7 +111,7 @@ export interface GetSqlPoolResult {
     readonly type: string;
 }
 /**
- * A SQL Analytics pool
+ * Get SQL pool properties
  */
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class of response for listContentKeys action
+ * List Content Keys used by this Streaming Locator
  */
 export function listStreamingLocatorContentKeys(args: ListStreamingLocatorContentKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorContentKeysResult> {
 
@@ -45,7 +45,7 @@ export interface ListStreamingLocatorContentKeysResult {
     readonly contentKeys?: outputs.media.v20211101.StreamingLocatorContentKeyResponse[];
 }
 /**
- * Class of response for listContentKeys action
+ * List Content Keys used by this Streaming Locator
  */
 export function listStreamingLocatorContentKeysOutput(args: ListStreamingLocatorContentKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorContentKeysResult> {
     return pulumi.output(args).apply((a: any) => listStreamingLocatorContentKeys(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
  */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
 
@@ -94,7 +94,7 @@ export interface GetAFDCustomDomainResult {
     readonly validationProperties: outputs.cdn.v20221101preview.DomainValidationPropertiesResponse;
 }
 /**
- * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
  */
 export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getAFDCustomDomain(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Site resource.
+ * Gets information about the specified mobile network site.
  * API Version: 2022-04-01-preview.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
@@ -98,7 +98,7 @@ export interface GetSiteResult {
     readonly type: string;
 }
 /**
- * Site resource.
+ * Gets information about the specified mobile network site.
  * API Version: 2022-04-01-preview.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {

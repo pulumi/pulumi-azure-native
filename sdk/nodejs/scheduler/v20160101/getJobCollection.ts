@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets a job collection.
+ */
 /** @deprecated Version 2016-01-01 will be removed in v2 of the provider. */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
     pulumi.log.warn("getJobCollection is deprecated: Version 2016-01-01 will be removed in v2 of the provider.")
@@ -55,6 +58,9 @@ export interface GetJobCollectionResult {
      */
     readonly type: string;
 }
+/**
+ * Gets a job collection.
+ */
 /** @deprecated Version 2016-01-01 will be removed in v2 of the provider. */
 export function getJobCollectionOutput(args: GetJobCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCollectionResult> {
     return pulumi.output(args).apply((a: any) => getJobCollection(a, opts))

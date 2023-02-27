@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a SourceControl in Azure Security Insights.
+ * Gets a source control byt its identifier.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
 
@@ -93,7 +93,7 @@ export interface GetSourceControlResult {
     readonly version?: string;
 }
 /**
- * Represents a SourceControl in Azure Security Insights.
+ * Gets a source control byt its identifier.
  */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
     return pulumi.output(args).apply((a: any) => getSourceControl(a, opts))

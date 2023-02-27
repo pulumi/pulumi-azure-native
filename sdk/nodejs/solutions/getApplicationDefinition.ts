@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Information about managed application definition.
+ * Gets the managed application definition.
  * API Version: 2019-07-01.
  */
 export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationDefinitionResult> {
@@ -125,7 +125,7 @@ export interface GetApplicationDefinitionResult {
     readonly type: string;
 }
 /**
- * Information about managed application definition.
+ * Gets the managed application definition.
  * API Version: 2019-07-01.
  */
 export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationDefinitionResult> {

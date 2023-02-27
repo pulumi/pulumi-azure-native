@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Workspace connection.
+ * Get the detail of a workspace connection.
  * API Version: 2021-01-01.
  */
 export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceConnectionResult> {
@@ -71,7 +71,7 @@ export interface GetWorkspaceConnectionResult {
     readonly valueFormat?: string;
 }
 /**
- * Workspace connection.
+ * Get the detail of a workspace connection.
  * API Version: 2021-01-01.
  */
 export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceConnectionResult> {

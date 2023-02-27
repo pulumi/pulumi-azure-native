@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * States and configurations of Cost Analysis.
+ * Gets the view for the defined scope by view name.
  * API Version: 2019-11-01.
  */
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
@@ -113,7 +113,7 @@ export interface GetViewByScopeResult {
     readonly type: string;
 }
 /**
- * States and configurations of Cost Analysis.
+ * Gets the view for the defined scope by view name.
  * API Version: 2019-11-01.
  */
 export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewByScopeResult> {

@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * Lists secret keys.
+ */
 export function listWorkflowAccessKeySecretKeys(args: ListWorkflowAccessKeySecretKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowAccessKeySecretKeysResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +42,9 @@ export interface ListWorkflowAccessKeySecretKeysResult {
      */
     readonly secondarySecretKey: string;
 }
+/**
+ * Lists secret keys.
+ */
 export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkflowAccessKeySecretKeys(a, opts))
 }

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * LoadTest details
+ * Get a LoadTest resource.
  * API Version: 2021-12-01-preview.
  */
 export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestResult> {
@@ -77,7 +77,7 @@ export interface GetLoadTestResult {
     readonly type: string;
 }
 /**
- * LoadTest details
+ * Get a LoadTest resource.
  * API Version: 2021-12-01-preview.
  */
 export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestResult> {

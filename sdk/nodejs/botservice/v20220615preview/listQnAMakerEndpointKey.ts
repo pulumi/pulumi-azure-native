@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Schema for EndpointKeys generate/refresh operations.
+ * Lists the QnA Maker endpoint keys
  */
 export function listQnAMakerEndpointKey(args?: ListQnAMakerEndpointKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListQnAMakerEndpointKeyResult> {
     args = args || {};
@@ -50,7 +50,7 @@ export interface ListQnAMakerEndpointKeyResult {
     readonly secondaryEndpointKey?: string;
 }
 /**
- * Schema for EndpointKeys generate/refresh operations.
+ * Lists the QnA Maker endpoint keys
  */
 export function listQnAMakerEndpointKeyOutput(args?: ListQnAMakerEndpointKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQnAMakerEndpointKeyResult> {
     return pulumi.output(args).apply((a: any) => listQnAMakerEndpointKey(a, opts))

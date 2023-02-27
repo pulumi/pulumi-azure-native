@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Default rollout definition.
+ * Gets the default rollout details.
  * API Version: 2020-11-20.
  */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
@@ -53,7 +53,7 @@ export interface GetDefaultRolloutResult {
     readonly type: string;
 }
 /**
- * Default rollout definition.
+ * Gets the default rollout details.
  * API Version: 2020-11-20.
  */
 export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {

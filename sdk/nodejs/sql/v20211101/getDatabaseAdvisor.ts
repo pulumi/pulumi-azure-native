@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Database, Server or Elastic Pool Advisor.
+ * Gets a database advisor.
  */
 export function getDatabaseAdvisor(args: GetDatabaseAdvisorArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAdvisorResult> {
 
@@ -90,7 +90,7 @@ export interface GetDatabaseAdvisorResult {
     readonly type: string;
 }
 /**
- * Database, Server or Elastic Pool Advisor.
+ * Gets a database advisor.
  */
 export function getDatabaseAdvisorOutput(args: GetDatabaseAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAdvisorResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAdvisor(a, opts))

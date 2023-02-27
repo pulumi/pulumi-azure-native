@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The Managed Network resource
+ * Get the specified scope assignment.
  * API Version: 2019-06-01-preview.
  */
 export function getScopeAssignment(args: GetScopeAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeAssignmentResult> {
@@ -62,7 +62,7 @@ export interface GetScopeAssignmentResult {
     readonly type: string;
 }
 /**
- * The Managed Network resource
+ * Get the specified scope assignment.
  * API Version: 2019-06-01-preview.
  */
 export function getScopeAssignmentOutput(args: GetScopeAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAssignmentResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Tenant access information contract of the API Management service.
+ * Gets the Git access configuration for the tenant.
  * API Version: 2019-12-01.
  */
 export function listTenantAccessGitSecrets(args: ListTenantAccessGitSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessGitSecretsResult> {
@@ -55,7 +55,7 @@ export interface ListTenantAccessGitSecretsResult {
     readonly secondaryKey?: string;
 }
 /**
- * Tenant access information contract of the API Management service.
+ * Gets the Git access configuration for the tenant.
  * API Version: 2019-12-01.
  */
 export function listTenantAccessGitSecretsOutput(args: ListTenantAccessGitSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessGitSecretsResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Resource upload definition payload
+ * Get an resource upload URL for an App, which may be artifacts or source archive.
  */
 export function getAppResourceUploadUrl(args: GetAppResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResourceUploadUrlResult> {
 
@@ -46,7 +46,7 @@ export interface GetAppResourceUploadUrlResult {
     readonly uploadUrl?: string;
 }
 /**
- * Resource upload definition payload
+ * Get an resource upload URL for an App, which may be artifacts or source archive.
  */
 export function getAppResourceUploadUrlOutput(args: GetAppResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResourceUploadUrlResult> {
     return pulumi.output(args).apply((a: any) => getAppResourceUploadUrl(a, opts))

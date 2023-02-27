@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The image definition.
+ * Gets entity type (profile or interaction) image upload URL.
  */
 export function getImageUploadUrlForEntityType(args: GetImageUploadUrlForEntityTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForEntityTypeResult> {
 
@@ -60,7 +60,7 @@ export interface GetImageUploadUrlForEntityTypeResult {
     readonly relativePath?: string;
 }
 /**
- * The image definition.
+ * Gets entity type (profile or interaction) image upload URL.
  */
 export function getImageUploadUrlForEntityTypeOutput(args: GetImageUploadUrlForEntityTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForEntityTypeResult> {
     return pulumi.output(args).apply((a: any) => getImageUploadUrlForEntityType(a, opts))

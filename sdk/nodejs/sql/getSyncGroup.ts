@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure SQL Database sync group.
+ * Gets a sync group.
  * API Version: 2020-11-01-preview.
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
@@ -107,7 +107,7 @@ export interface GetSyncGroupResult {
     readonly usePrivateLinkConnection?: boolean;
 }
 /**
- * An Azure SQL Database sync group.
+ * Gets a sync group.
  * API Version: 2020-11-01-preview.
  */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {

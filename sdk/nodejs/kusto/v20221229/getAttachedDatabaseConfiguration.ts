@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing an attached database configuration.
+ * Returns an attached database configuration.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
 
@@ -89,7 +89,7 @@ export interface GetAttachedDatabaseConfigurationResult {
     readonly type: string;
 }
 /**
- * Class representing an attached database configuration.
+ * Returns an attached database configuration.
  */
 export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getAttachedDatabaseConfiguration(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Namespace/Relay Connection String
+ * Primary and Secondary ConnectionStrings to the WCFRelays.
  */
 export function listWCFRelayKeys(args: ListWCFRelayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWCFRelayKeysResult> {
 
@@ -63,7 +63,7 @@ export interface ListWCFRelayKeysResult {
     readonly secondaryKey?: string;
 }
 /**
- * Namespace/Relay Connection String
+ * Primary and Secondary ConnectionStrings to the WCFRelays.
  */
 export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWCFRelayKeysResult> {
     return pulumi.output(args).apply((a: any) => listWCFRelayKeys(a, opts))

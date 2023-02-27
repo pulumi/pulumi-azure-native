@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Hybrid Connection contract. This is used to configure a Hybrid Connection.
+ * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
 export function getWebAppHybridConnectionSlot(args: GetWebAppHybridConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionSlotResult> {
 
@@ -97,7 +97,7 @@ export interface GetWebAppHybridConnectionSlotResult {
     readonly type: string;
 }
 /**
- * Hybrid Connection contract. This is used to configure a Hybrid Connection.
+ * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
 export function getWebAppHybridConnectionSlotOutput(args: GetWebAppHybridConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppHybridConnectionSlot(a, opts))

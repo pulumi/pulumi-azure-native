@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a lab.
+ * Get lab
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
 
@@ -110,7 +110,7 @@ export interface GetLabResult {
     readonly userQuota: number;
 }
 /**
- * Represents a lab.
+ * Get lab
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
     return pulumi.output(args).apply((a: any) => getLab(a, opts))

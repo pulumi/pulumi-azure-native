@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Cognitive Services account commitment plan.
+ * Gets the specified commitmentPlans associated with the Cognitive Services account.
  * API Version: 2021-10-01.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
@@ -66,7 +66,7 @@ export interface GetCommitmentPlanResult {
     readonly type: string;
 }
 /**
- * Cognitive Services account commitment plan.
+ * Gets the specified commitmentPlans associated with the Cognitive Services account.
  * API Version: 2021-10-01.
  */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {

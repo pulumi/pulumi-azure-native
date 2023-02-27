@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List of deployments for a remediation.
+ * Gets all deployments for a remediation at resource group scope.
  */
 export function listRemediationDeploymentsAtResourceGroup(args: ListRemediationDeploymentsAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtResourceGroupResult> {
 
@@ -49,7 +49,7 @@ export interface ListRemediationDeploymentsAtResourceGroupResult {
     readonly value: outputs.policyinsights.v20180701preview.RemediationDeploymentResponse[];
 }
 /**
- * List of deployments for a remediation.
+ * Gets all deployments for a remediation at resource group scope.
  */
 export function listRemediationDeploymentsAtResourceGroupOutput(args: ListRemediationDeploymentsAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => listRemediationDeploymentsAtResourceGroup(a, opts))

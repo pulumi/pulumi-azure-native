@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An server Active Directory Administrator.
+ * Returns an server Administrator.
  */
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
 
@@ -66,7 +66,7 @@ export interface GetServerAzureADAdministratorResult {
     readonly type: string;
 }
 /**
- * An server Active Directory Administrator.
+ * Returns an server Administrator.
  */
 export function getServerAzureADAdministratorOutput(args: GetServerAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getServerAzureADAdministrator(a, opts))

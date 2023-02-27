@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+ * Gets the event source with the specified name in the specified environment.
  */
 /** @deprecated Version 2017-02-28-preview will be removed in v2 of the provider. */
 export function getEventSource(args: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
@@ -64,7 +64,7 @@ export interface GetEventSourceResult {
     readonly type: string;
 }
 /**
- * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+ * Gets the event source with the specified name in the specified environment.
  */
 /** @deprecated Version 2017-02-28-preview will be removed in v2 of the provider. */
 export function getEventSourceOutput(args: GetEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceResult> {

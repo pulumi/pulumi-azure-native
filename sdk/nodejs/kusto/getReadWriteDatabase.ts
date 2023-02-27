@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a read write database.
+ * Returns a database.
  * API Version: 2021-01-01.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
@@ -83,7 +83,7 @@ export interface GetReadWriteDatabaseResult {
     readonly type: string;
 }
 /**
- * Class representing a read write database.
+ * Returns a database.
  * API Version: 2021-01-01.
  */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {

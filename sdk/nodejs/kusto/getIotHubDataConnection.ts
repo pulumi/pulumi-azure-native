@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Class representing an iot hub data connection.
+ * Returns a data connection.
  * API Version: 2021-01-01.
  */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
@@ -97,7 +97,7 @@ export interface GetIotHubDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing an iot hub data connection.
+ * Returns a data connection.
  * API Version: 2021-01-01.
  */
 export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {

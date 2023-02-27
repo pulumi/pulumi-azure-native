@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A schedule.
+ * Get schedule.
  */
 /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getScheduleResource(args: GetScheduleResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResourceResult> {
@@ -91,7 +91,7 @@ export interface GetScheduleResourceResult {
     readonly weeklyRecurrence?: outputs.devtestlab.v20150521preview.WeekDetailsResponse;
 }
 /**
- * A schedule.
+ * Get schedule.
  */
 /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getScheduleResourceOutput(args: GetScheduleResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResourceResult> {

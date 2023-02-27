@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Test keys payload
+ * List test keys for a Service.
  */
 export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceTestKeysResult> {
 
@@ -53,7 +53,7 @@ export interface ListServiceTestKeysResult {
     readonly secondaryTestEndpoint?: string;
 }
 /**
- * Test keys payload
+ * List test keys for a Service.
  */
 export function listServiceTestKeysOutput(args: ListServiceTestKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceTestKeysResult> {
     return pulumi.output(args).apply((a: any) => listServiceTestKeys(a, opts))

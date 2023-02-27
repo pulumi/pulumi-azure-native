@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The X509 Certificate.
+ * Get the certificate from the provisioning service.
  */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
 
@@ -61,7 +61,7 @@ export interface GetDpsCertificateResult {
     readonly type: string;
 }
 /**
- * The X509 Certificate.
+ * Get the certificate from the provisioning service.
  */
 export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
     return pulumi.output(args).apply((a: any) => getDpsCertificate(a, opts))

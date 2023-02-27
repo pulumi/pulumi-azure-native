@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Storage Sync Service object.
+ * Get a given StorageSyncService.
  */
 /** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
@@ -63,7 +63,7 @@ export interface GetStorageSyncServiceResult {
     readonly type: string;
 }
 /**
- * Storage Sync Service object.
+ * Get a given StorageSyncService.
  */
 /** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {

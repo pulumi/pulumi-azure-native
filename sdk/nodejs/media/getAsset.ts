@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Asset.
+ * Get the details of an Asset in the Media Services account
  * API Version: 2020-05-01.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
@@ -90,7 +90,7 @@ export interface GetAssetResult {
     readonly type: string;
 }
 /**
- * An Asset.
+ * Get the details of an Asset in the Media Services account
  * API Version: 2020-05-01.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {

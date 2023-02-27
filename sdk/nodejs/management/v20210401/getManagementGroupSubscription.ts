@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The details of subscription under management group.
+ * Retrieves details about given subscription which is associated with the management group.
  */
 export function getManagementGroupSubscription(args: GetManagementGroupSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupSubscriptionResult> {
 
@@ -64,7 +64,7 @@ export interface GetManagementGroupSubscriptionResult {
     readonly type: string;
 }
 /**
- * The details of subscription under management group.
+ * Retrieves details about given subscription which is associated with the management group.
  */
 export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroupSubscription(a, opts))

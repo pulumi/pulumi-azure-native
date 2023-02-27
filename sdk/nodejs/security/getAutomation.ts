@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The security automation resource.
+ * Retrieves information about the model of a security automation.
  * API Version: 2019-01-01-preview.
  */
 export function getAutomation(args: GetAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationResult> {
@@ -85,7 +85,7 @@ export interface GetAutomationResult {
     readonly type: string;
 }
 /**
- * The security automation resource.
+ * Retrieves information about the model of a security automation.
  * API Version: 2019-01-01-preview.
  */
 export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationResult> {

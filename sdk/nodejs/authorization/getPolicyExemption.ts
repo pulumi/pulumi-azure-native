@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The policy exemption.
+ * This operation retrieves a single policy exemption, given its name and the scope it was created at.
  * API Version: 2020-07-01-preview.
  */
 export function getPolicyExemption(args: GetPolicyExemptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyExemptionResult> {
@@ -81,7 +81,7 @@ export interface GetPolicyExemptionResult {
     readonly type: string;
 }
 /**
- * The policy exemption.
+ * This operation retrieves a single policy exemption, given its name and the scope it was created at.
  * API Version: 2020-07-01-preview.
  */
 export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Backend details.
+ * Gets the details of the backend specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
@@ -90,7 +90,7 @@ export interface GetBackendResult {
     readonly url: string;
 }
 /**
- * Backend details.
+ * Gets the details of the backend specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {

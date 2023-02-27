@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A user-defined logical grouping of machines.
+ * Returns the specified machine group as it existed during the specified time interval.
  * API Version: 2015-11-01-preview.
  */
 export function getMachineGroup(args: GetMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineGroupResult> {
@@ -89,7 +89,7 @@ export interface GetMachineGroupResult {
     readonly type: string;
 }
 /**
- * A user-defined logical grouping of machines.
+ * Returns the specified machine group as it existed during the specified time interval.
  * API Version: 2015-11-01-preview.
  */
 export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineGroupResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Description of a namespace authorization rule.
+ * Authorization rule for a namespace by name.
  * API Version: 2017-04-01.
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
@@ -55,7 +55,7 @@ export interface GetNamespaceAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Description of a namespace authorization rule.
+ * Authorization rule for a namespace by name.
  * API Version: 2017-04-01.
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {

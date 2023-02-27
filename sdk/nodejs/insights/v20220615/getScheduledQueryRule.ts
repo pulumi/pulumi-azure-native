@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The scheduled query rule resource.
+ * Retrieve an scheduled query rule definition.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
 
@@ -140,7 +140,7 @@ export interface GetScheduledQueryRuleResult {
     readonly windowSize?: string;
 }
 /**
- * The scheduled query rule resource.
+ * Retrieve an scheduled query rule definition.
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledQueryRule(a, opts))

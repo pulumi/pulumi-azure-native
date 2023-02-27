@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Event Subscription
+ * Get an event subscription of a partner topic.
  * API Version: 2020-04-01-preview.
  */
 export function getPartnerTopicEventSubscription(args: GetPartnerTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionResult> {
@@ -106,7 +106,7 @@ export interface GetPartnerTopicEventSubscriptionResult {
     readonly type: string;
 }
 /**
- * Event Subscription
+ * Get an event subscription of a partner topic.
  * API Version: 2020-04-01-preview.
  */
 export function getPartnerTopicEventSubscriptionOutput(args: GetPartnerTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionResult> {

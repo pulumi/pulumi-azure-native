@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Nat Gateway resource.
+ * Gets the specified nat gateway in a specified resource group.
  */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
 
@@ -93,7 +93,7 @@ export interface GetNatGatewayResult {
     readonly type: string;
 }
 /**
- * Nat Gateway resource.
+ * Gets the specified nat gateway in a specified resource group.
  */
 export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
     return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))

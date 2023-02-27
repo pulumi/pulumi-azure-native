@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network base admin rule.
+ * Gets a network manager security configuration admin rule.
  */
 /** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */
 export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleResult> {
@@ -77,7 +77,7 @@ export interface GetAdminRuleResult {
     readonly type: string;
 }
 /**
- * Network base admin rule.
+ * Gets a network manager security configuration admin rule.
  */
 /** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */
 export function getAdminRuleOutput(args: GetAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleResult> {

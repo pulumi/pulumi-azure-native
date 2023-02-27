@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A private endpoint connection to an azure resource
+ * Get the specified private endpoint connection
  * API Version: 2021-04-01-preview.
  */
 export function getWebPubSubPrivateEndpointConnection(args: GetWebPubSubPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubPrivateEndpointConnectionResult> {
@@ -70,7 +70,7 @@ export interface GetWebPubSubPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * A private endpoint connection to an azure resource
+ * Get the specified private endpoint connection
  * API Version: 2021-04-01-preview.
  */
 export function getWebPubSubPrivateEndpointConnectionOutput(args: GetWebPubSubPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubPrivateEndpointConnectionResult> {

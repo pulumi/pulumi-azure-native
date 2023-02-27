@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+ * Gets a Storage Mover resource.
  */
 export function getStorageMover(args: GetStorageMoverArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageMoverResult> {
 
@@ -68,7 +68,7 @@ export interface GetStorageMoverResult {
     readonly type: string;
 }
 /**
- * The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+ * Gets a Storage Mover resource.
  */
 export function getStorageMoverOutput(args: GetStorageMoverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageMoverResult> {
     return pulumi.output(args).apply((a: any) => getStorageMover(a, opts))

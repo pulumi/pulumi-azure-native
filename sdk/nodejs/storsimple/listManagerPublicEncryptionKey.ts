@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents the secrets encrypted using Symmetric Encryption Key.
+ * Returns the symmetric encrypted public encryption key of the manager.
  * API Version: 2017-06-01.
  */
 export function listManagerPublicEncryptionKey(args: ListManagerPublicEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListManagerPublicEncryptionKeyResult> {
@@ -46,7 +46,7 @@ export interface ListManagerPublicEncryptionKeyResult {
     readonly valueCertificateThumbprint?: string;
 }
 /**
- * Represents the secrets encrypted using Symmetric Encryption Key.
+ * Returns the symmetric encrypted public encryption key of the manager.
  * API Version: 2017-06-01.
  */
 export function listManagerPublicEncryptionKeyOutput(args: ListManagerPublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerPublicEncryptionKeyResult> {

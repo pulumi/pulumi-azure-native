@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a hybrid machine.
+ * Retrieves information about the model view or the instance view of a hybrid machine.
  * API Version: 2020-08-02.
  */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
@@ -139,7 +139,7 @@ export interface GetMachineResult {
     readonly vmUuid: string;
 }
 /**
- * Describes a hybrid machine.
+ * Retrieves information about the model view or the instance view of a hybrid machine.
  * API Version: 2020-08-02.
  */
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {

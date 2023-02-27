@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+ * Gets an existing peering with the specified name under the given subscription and resource group.
  * API Version: 2021-01-01.
  */
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
@@ -81,7 +81,7 @@ export interface GetPeeringResult {
     readonly type: string;
 }
 /**
- * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+ * Gets an existing peering with the specified name under the given subscription and resource group.
  * API Version: 2021-01-01.
  */
 export function getPeeringOutput(args: GetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringResult> {

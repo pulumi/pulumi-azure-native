@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Solution resource.
+ * Get installed Solution details by Solution id.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
 
@@ -65,7 +65,7 @@ export interface GetSolutionResult {
     readonly type: string;
 }
 /**
- * Solution resource.
+ * Get installed Solution details by Solution id.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
     return pulumi.output(args).apply((a: any) => getSolution(a, opts))

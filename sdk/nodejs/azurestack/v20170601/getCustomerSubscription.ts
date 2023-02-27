@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Customer subscription.
+ * Returns the specified product.
  */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
 
@@ -58,7 +58,7 @@ export interface GetCustomerSubscriptionResult {
     readonly type: string;
 }
 /**
- * Customer subscription.
+ * Returns the specified product.
  */
 export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getCustomerSubscription(a, opts))

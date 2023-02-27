@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Describes a federated identity credential.
+ * Gets the federated identity credential.
  * API Version: 2022-01-31-preview.
  */
 export function getFederatedIdentityCredential(args: GetFederatedIdentityCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIdentityCredentialResult> {
@@ -63,7 +63,7 @@ export interface GetFederatedIdentityCredentialResult {
     readonly type: string;
 }
 /**
- * Describes a federated identity credential.
+ * Gets the federated identity credential.
  * API Version: 2022-01-31-preview.
  */
 export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {

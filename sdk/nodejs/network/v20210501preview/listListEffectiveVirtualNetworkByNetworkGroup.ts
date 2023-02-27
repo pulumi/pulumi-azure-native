@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+ * Lists all effective virtual networks by specified network group.
  */
 export function listListEffectiveVirtualNetworkByNetworkGroup(args: ListListEffectiveVirtualNetworkByNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListListEffectiveVirtualNetworkByNetworkGroupResult> {
 
@@ -54,7 +54,7 @@ export interface ListListEffectiveVirtualNetworkByNetworkGroupResult {
     readonly value?: outputs.network.v20210501preview.EffectiveVirtualNetworkResponse[];
 }
 /**
- * Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+ * Lists all effective virtual networks by specified network group.
  */
 export function listListEffectiveVirtualNetworkByNetworkGroupOutput(args: ListListEffectiveVirtualNetworkByNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListEffectiveVirtualNetworkByNetworkGroupResult> {
     return pulumi.output(args).apply((a: any) => listListEffectiveVirtualNetworkByNetworkGroup(a, opts))

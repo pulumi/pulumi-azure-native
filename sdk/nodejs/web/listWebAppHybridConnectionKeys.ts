@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+ * Gets the send key name and value for a Hybrid Connection.
  * API Version: 2018-11-01.
  */
 export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysResult> {
@@ -68,7 +68,7 @@ export interface ListWebAppHybridConnectionKeysResult {
     readonly type: string;
 }
 /**
- * Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+ * Gets the send key name and value for a Hybrid Connection.
  * API Version: 2018-11-01.
  */
 export function listWebAppHybridConnectionKeysOutput(args: ListWebAppHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHybridConnectionKeysResult> {

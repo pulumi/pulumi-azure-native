@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The description of the Windows IoT Device Service.
+ * Get the non-security related metadata of a Windows IoT Device Service.
  */
 /** @deprecated Version 2018-02-16-preview will be removed in v2 of the provider. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
@@ -79,7 +79,7 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * The description of the Windows IoT Device Service.
+ * Get the non-security related metadata of a Windows IoT Device Service.
  */
 /** @deprecated Version 2018-02-16-preview will be removed in v2 of the provider. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {

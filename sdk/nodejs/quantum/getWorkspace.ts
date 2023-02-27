@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The resource proxy definition object for quantum workspace.
+ * Returns the Workspace resource associated with the given name.
  * API Version: 2019-11-04-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -85,7 +85,7 @@ export interface GetWorkspaceResult {
     readonly usable: string;
 }
 /**
- * The resource proxy definition object for quantum workspace.
+ * Returns the Workspace resource associated with the given name.
  * API Version: 2019-11-04-preview.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {

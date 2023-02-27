@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A DDoS custom policy in a resource group.
+ * Gets information about the specified DDoS custom policy.
  */
 export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosCustomPolicyResult> {
 
@@ -76,7 +76,7 @@ export interface GetDdosCustomPolicyResult {
     readonly type: string;
 }
 /**
- * A DDoS custom policy in a resource group.
+ * Gets information about the specified DDoS custom policy.
  */
 export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDdosCustomPolicy(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Public IP address resource.
+ * Gets the specified public IP address in a specified resource group.
  * API Version: 2020-11-01.
  */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
@@ -138,7 +138,7 @@ export interface GetPublicIPAddressResult {
     readonly zones?: string[];
 }
 /**
- * Public IP address resource.
+ * Gets the specified public IP address in a specified resource group.
  * API Version: 2020-11-01.
  */
 export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+ * Gets the details of the private endpoint connection to the Search service in the given resource group.
  */
 /** @deprecated Version 2020-03-13 will be removed in v2 of the provider. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
@@ -59,7 +59,7 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+ * Gets the details of the private endpoint connection to the Search service in the given resource group.
  */
 /** @deprecated Version 2020-03-13 will be removed in v2 of the provider. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {

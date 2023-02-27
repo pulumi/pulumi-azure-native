@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents a token for a container registry.
+ * Gets the properties of the specified token.
  */
 export function getToken(args: GetTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetTokenResult> {
 
@@ -77,7 +77,7 @@ export interface GetTokenResult {
     readonly type: string;
 }
 /**
- * An object that represents a token for a container registry.
+ * Gets the properties of the specified token.
  */
 export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTokenResult> {
     return pulumi.output(args).apply((a: any) => getToken(a, opts))

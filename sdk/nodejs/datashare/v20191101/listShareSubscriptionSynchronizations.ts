@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A consumer side list of share subscription synchronizations
+ * List synchronizations of a share subscription
  */
 export function listShareSubscriptionSynchronizations(args: ListShareSubscriptionSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSynchronizationsResult> {
 
@@ -64,7 +64,7 @@ export interface ListShareSubscriptionSynchronizationsResult {
     readonly value: outputs.datashare.v20191101.ShareSubscriptionSynchronizationResponse[];
 }
 /**
- * A consumer side list of share subscription synchronizations
+ * List synchronizations of a share subscription
  */
 export function listShareSubscriptionSynchronizationsOutput(args: ListShareSubscriptionSynchronizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSynchronizationsResult> {
     return pulumi.output(args).apply((a: any) => listShareSubscriptionSynchronizations(a, opts))

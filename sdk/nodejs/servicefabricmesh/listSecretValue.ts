@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * This type represents the unencrypted value of the secret.
+ * Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
  * API Version: 2018-09-01-preview.
  */
 export function listSecretValue(args: ListSecretValueArgs, opts?: pulumi.InvokeOptions): Promise<ListSecretValueResult> {
@@ -43,7 +43,7 @@ export interface ListSecretValueResult {
     readonly value?: string;
 }
 /**
- * This type represents the unencrypted value of the secret.
+ * Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
  * API Version: 2018-09-01-preview.
  */
 export function listSecretValueOutput(args: ListSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecretValueResult> {

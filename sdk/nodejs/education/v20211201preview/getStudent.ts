@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Student details.
+ * Get the details for a specific student in the specified lab by student alias
  */
 export function getStudent(args: GetStudentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudentResult> {
 
@@ -106,7 +106,7 @@ export interface GetStudentResult {
     readonly type: string;
 }
 /**
- * Student details.
+ * Get the details for a specific student in the specified lab by student alias
  */
 export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudentResult> {
     return pulumi.output(args).apply((a: any) => getStudent(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list of supported availability zone pairs which are part of SAP HA deployment.
+ * Get the recommended SAP Availability Zone Pair Details for your region.
  */
 export function getSAPAvailabilityZoneDetails(args: GetSAPAvailabilityZoneDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPAvailabilityZoneDetailsResult> {
 
@@ -50,7 +50,7 @@ export interface GetSAPAvailabilityZoneDetailsResult {
     readonly availabilityZonePairs?: outputs.workloads.v20211201preview.SAPAvailabilityZonePairResponse[];
 }
 /**
- * The list of supported availability zone pairs which are part of SAP HA deployment.
+ * Get the recommended SAP Availability Zone Pair Details for your region.
  */
 export function getSAPAvailabilityZoneDetailsOutput(args: GetSAPAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPAvailabilityZoneDetailsResult> {
     return pulumi.output(args).apply((a: any) => getSAPAvailabilityZoneDetails(a, opts))

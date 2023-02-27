@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents an instance of a Dedicated Capacity resource.
+ * Gets details about the specified dedicated capacity.
  */
 /** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
@@ -86,7 +86,7 @@ export interface GetCapacityDetailsResult {
     readonly type: string;
 }
 /**
- * Represents an instance of a Dedicated Capacity resource.
+ * Gets details about the specified dedicated capacity.
  */
 /** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getCapacityDetailsOutput(args: GetCapacityDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityDetailsResult> {

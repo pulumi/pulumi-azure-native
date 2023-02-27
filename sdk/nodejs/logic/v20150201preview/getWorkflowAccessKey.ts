@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets a workflow access key.
+ */
 export function getWorkflowAccessKey(args: GetWorkflowAccessKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowAccessKeyResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +54,9 @@ export interface GetWorkflowAccessKeyResult {
      */
     readonly type: string;
 }
+/**
+ * Gets a workflow access key.
+ */
 export function getWorkflowAccessKeyOutput(args: GetWorkflowAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowAccessKeyResult> {
     return pulumi.output(args).apply((a: any) => getWorkflowAccessKey(a, opts))
 }

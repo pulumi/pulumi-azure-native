@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Contains information about an application in a Batch account.
+ * Gets information about the specified application.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -66,7 +66,7 @@ export interface GetApplicationResult {
     readonly type: string;
 }
 /**
- * Contains information about an application in a Batch account.
+ * Gets information about the specified application.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

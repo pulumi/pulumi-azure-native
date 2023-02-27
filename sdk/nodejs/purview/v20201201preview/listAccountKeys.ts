@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The Account access keys.
+ * List the authorization keys associated with this account.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
 
@@ -41,7 +41,7 @@ export interface ListAccountKeysResult {
     readonly atlasKafkaSecondaryEndpoint?: string;
 }
 /**
- * The Account access keys.
+ * List the authorization keys associated with this account.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))

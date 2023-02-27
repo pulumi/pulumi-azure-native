@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Synchronization Setting data transfer object.
+ * Get a synchronizationSetting in a share
  * API Version: 2020-09-01.
  */
 /** @deprecated Please use one of the variants: ScheduledSynchronizationSetting. */
@@ -69,7 +69,7 @@ export interface GetSynchronizationSettingResult {
     readonly type: string;
 }
 /**
- * A Synchronization Setting data transfer object.
+ * Get a synchronizationSetting in a share
  * API Version: 2020-09-01.
  */
 /** @deprecated Please use one of the variants: ScheduledSynchronizationSetting. */

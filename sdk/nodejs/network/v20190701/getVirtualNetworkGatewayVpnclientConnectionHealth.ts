@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List of virtual network gateway vpn client connection health.
+ * Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
  */
 export function getVirtualNetworkGatewayVpnclientConnectionHealth(args: GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
 
@@ -40,7 +40,7 @@ export interface GetVirtualNetworkGatewayVpnclientConnectionHealthResult {
     readonly value?: outputs.network.v20190701.VpnClientConnectionHealthDetailResponse[];
 }
 /**
- * List of virtual network gateway vpn client connection health.
+ * Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
  */
 export function getVirtualNetworkGatewayVpnclientConnectionHealthOutput(args: GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnclientConnectionHealth(a, opts))

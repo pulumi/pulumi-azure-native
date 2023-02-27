@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Storage mapping object.
+ * Gets the details of the specified storage classification mapping.
  * API Version: 2018-07-10.
  */
 export function getReplicationStorageClassificationMapping(args: GetReplicationStorageClassificationMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationStorageClassificationMappingResult> {
@@ -72,7 +72,7 @@ export interface GetReplicationStorageClassificationMappingResult {
     readonly type: string;
 }
 /**
- * Storage mapping object.
+ * Gets the details of the specified storage classification mapping.
  * API Version: 2018-07-10.
  */
 export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {

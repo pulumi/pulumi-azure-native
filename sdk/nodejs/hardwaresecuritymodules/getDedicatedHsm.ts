@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource information with extended details.
+ * Gets the specified Azure dedicated HSM.
  * API Version: 2018-10-31-preview.
  */
 export function getDedicatedHsm(args: GetDedicatedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHsmResult> {
@@ -81,7 +81,7 @@ export interface GetDedicatedHsmResult {
     readonly zones?: string[];
 }
 /**
- * Resource information with extended details.
+ * Gets the specified Azure dedicated HSM.
  * API Version: 2018-10-31-preview.
  */
 export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHsmResult> {

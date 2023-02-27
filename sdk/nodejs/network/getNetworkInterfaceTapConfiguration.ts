@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Tap configuration in a Network Interface.
+ * Get the specified tap configuration on a network interface.
  * API Version: 2020-11-01.
  */
 export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTapConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceTapConfigurationResult> {
@@ -66,7 +66,7 @@ export interface GetNetworkInterfaceTapConfigurationResult {
     readonly virtualNetworkTap?: outputs.network.VirtualNetworkTapResponse;
 }
 /**
- * Tap configuration in a Network Interface.
+ * Get the specified tap configuration on a network interface.
  * API Version: 2020-11-01.
  */
 export function getNetworkInterfaceTapConfigurationOutput(args: GetNetworkInterfaceTapConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceTapConfigurationResult> {

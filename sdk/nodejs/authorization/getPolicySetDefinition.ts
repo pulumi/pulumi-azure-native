@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The policy set definition.
+ * This operation retrieves the policy set definition in the given subscription with the given name.
  * API Version: 2020-09-01.
  */
 export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
@@ -72,7 +72,7 @@ export interface GetPolicySetDefinitionResult {
     readonly type: string;
 }
 /**
- * The policy set definition.
+ * This operation retrieves the policy set definition in the given subscription with the given name.
  * API Version: 2020-09-01.
  */
 export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {

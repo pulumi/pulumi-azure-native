@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The device security group resource
+ * Use this method to get the device security group for the specified IoT Hub resource.
  */
 export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceSecurityGroupResult> {
 
@@ -64,7 +64,7 @@ export interface GetDeviceSecurityGroupResult {
     readonly type: string;
 }
 /**
- * The device security group resource
+ * Use this method to get the device security group for the specified IoT Hub resource.
  */
 export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getDeviceSecurityGroup(a, opts))

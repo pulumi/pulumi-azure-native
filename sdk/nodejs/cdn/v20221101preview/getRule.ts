@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Friendly Rules name mapping to the any Rules or secret related information.
+ * Gets an existing delivery rule within a rule set.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
 
@@ -87,7 +87,7 @@ export interface GetRuleResult {
     readonly type: string;
 }
 /**
- * Friendly Rules name mapping to the any Rules or secret related information.
+ * Gets an existing delivery rule within a rule set.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply((a: any) => getRule(a, opts))

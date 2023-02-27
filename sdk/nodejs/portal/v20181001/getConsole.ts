@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Cloud shell console
+ * Gets the console for the user.
  */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
 
@@ -35,7 +35,7 @@ export interface GetConsoleResult {
     readonly properties: outputs.portal.v20181001.ConsolePropertiesResponse;
 }
 /**
- * Cloud shell console
+ * Gets the console for the user.
  */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
     return pulumi.output(args).apply((a: any) => getConsole(a, opts))

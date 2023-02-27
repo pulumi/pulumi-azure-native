@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Specifies information about the Dedicated host.
+ * Retrieves information about a dedicated host.
  */
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
@@ -104,7 +104,7 @@ export interface GetDedicatedHostResult {
     readonly virtualMachines: outputs.compute.v20191201.SubResourceReadOnlyResponse[];
 }
 /**
- * Specifies information about the Dedicated host.
+ * Retrieves information about a dedicated host.
  */
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The description of the provisioning service.
+ * Get the metadata of the provisioning service without SAS keys.
  */
 /** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
@@ -70,7 +70,7 @@ export interface GetIotDpsResourceResult {
     readonly type: string;
 }
 /**
- * The description of the provisioning service.
+ * Get the metadata of the provisioning service without SAS keys.
  */
 /** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
 export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {

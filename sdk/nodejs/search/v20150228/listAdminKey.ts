@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Response containing the primary and secondary API keys for a given Azure Search service.
+ * Returns the primary and secondary API keys for the given Azure Search service.
  */
 export function listAdminKey(args: ListAdminKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListAdminKeyResult> {
 
@@ -41,7 +41,7 @@ export interface ListAdminKeyResult {
     readonly secondaryKey: string;
 }
 /**
- * Response containing the primary and secondary API keys for a given Azure Search service.
+ * Returns the primary and secondary API keys for the given Azure Search service.
  */
 export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAdminKeyResult> {
     return pulumi.output(args).apply((a: any) => listAdminKey(a, opts))

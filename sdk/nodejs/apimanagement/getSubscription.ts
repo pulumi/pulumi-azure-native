@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Subscription details.
+ * Gets the specified Subscription entity.
  * API Version: 2020-12-01.
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
@@ -103,7 +103,7 @@ export interface GetSubscriptionResult {
     readonly type: string;
 }
 /**
- * Subscription details.
+ * Gets the specified Subscription entity.
  * API Version: 2020-12-01.
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {

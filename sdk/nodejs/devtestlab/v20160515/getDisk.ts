@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Disk.
+ * Get disk.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
@@ -110,7 +110,7 @@ export interface GetDiskResult {
     readonly uniqueIdentifier?: string;
 }
 /**
- * A Disk.
+ * Get disk.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {

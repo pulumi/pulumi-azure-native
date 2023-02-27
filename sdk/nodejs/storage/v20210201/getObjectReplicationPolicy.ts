@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+ * Get the object replication policy of the storage account by policy ID.
  */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
 
@@ -73,7 +73,7 @@ export interface GetObjectReplicationPolicyResult {
     readonly type: string;
 }
 /**
- * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+ * Get the object replication policy of the storage account by policy ID.
  */
 export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getObjectReplicationPolicy(a, opts))

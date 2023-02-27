@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * EventGrid Domain.
+ * Get properties of a domain.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
@@ -63,7 +63,7 @@ export interface GetDomainResult {
     readonly type: string;
 }
 /**
- * EventGrid Domain.
+ * Get properties of a domain.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {

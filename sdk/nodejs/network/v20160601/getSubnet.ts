@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Subnet in a VirtualNetwork resource
+ * The Get subnet operation retrieves information about the specified subnet.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
@@ -84,7 +84,7 @@ export interface GetSubnetResult {
     readonly routeTable?: outputs.network.v20160601.RouteTableResponse;
 }
 /**
- * Subnet in a VirtualNetwork resource
+ * The Get subnet operation retrieves information about the specified subnet.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The assembly definition.
+ * Get an assembly for an integration account.
  * API Version: 2019-05-01.
  */
 export function getIntegrationAccountAssembly(args: GetIntegrationAccountAssemblyArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountAssemblyResult> {
@@ -66,7 +66,7 @@ export interface GetIntegrationAccountAssemblyResult {
     readonly type: string;
 }
 /**
- * The assembly definition.
+ * Get an assembly for an integration account.
  * API Version: 2019-05-01.
  */
 export function getIntegrationAccountAssemblyOutput(args: GetIntegrationAccountAssemblyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAssemblyResult> {

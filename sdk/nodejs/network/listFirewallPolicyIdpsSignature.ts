@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Query result
+ * Retrieves the current status of IDPS signatures for the relevant policy
  * API Version: 2022-01-01.
  */
 export function listFirewallPolicyIdpsSignature(args: ListFirewallPolicyIdpsSignatureArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignatureResult> {
@@ -70,7 +70,7 @@ export interface ListFirewallPolicyIdpsSignatureResult {
     readonly signatures?: outputs.network.SingleQueryResultResponse[];
 }
 /**
- * Query result
+ * Retrieves the current status of IDPS signatures for the relevant policy
  * API Version: 2022-01-01.
  */
 export function listFirewallPolicyIdpsSignatureOutput(args: ListFirewallPolicyIdpsSignatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignatureResult> {

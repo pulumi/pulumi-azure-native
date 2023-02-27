@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Collection of top-level domain legal agreements.
+ * Gets all legal agreements that user needs to accept before purchasing a domain.
  */
 export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsArgs, opts?: pulumi.InvokeOptions): Promise<ListTopLevelDomainAgreementsResult> {
 
@@ -49,7 +49,7 @@ export interface ListTopLevelDomainAgreementsResult {
     readonly value: outputs.domainregistration.v20210301.TldLegalAgreementResponse[];
 }
 /**
- * Collection of top-level domain legal agreements.
+ * Gets all legal agreements that user needs to accept before purchasing a domain.
  */
 export function listTopLevelDomainAgreementsOutput(args: ListTopLevelDomainAgreementsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopLevelDomainAgreementsResult> {
     return pulumi.output(args).apply((a: any) => listTopLevelDomainAgreements(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Asset Storage container SAS URLs.
+ * Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
  * API Version: 2020-05-01.
  */
 export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetContainerSasResult> {
@@ -56,7 +56,7 @@ export interface ListAssetContainerSasResult {
     readonly assetContainerSasUrls?: string[];
 }
 /**
- * The Asset Storage container SAS URLs.
+ * Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
  * API Version: 2020-05-01.
  */
 export function listAssetContainerSasOutput(args: ListAssetContainerSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetContainerSasResult> {

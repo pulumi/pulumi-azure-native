@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An ADLS Gen 1 file data set.
+ * Get a DataSet in a share
  */
 export function getADLSGen1FileDataSet(args: GetADLSGen1FileDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen1FileDataSetResult> {
 
@@ -84,7 +84,7 @@ export interface GetADLSGen1FileDataSetResult {
     readonly type: string;
 }
 /**
- * An ADLS Gen 1 file data set.
+ * Get a DataSet in a share
  */
 export function getADLSGen1FileDataSetOutput(args: GetADLSGen1FileDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen1FileDataSetResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen1FileDataSet(a, opts))

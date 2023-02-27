@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list of disk configuration for vmSku which are part of SAP deployment.
+ * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
  */
 export function getSAPDiskConfigurations(args: GetSAPDiskConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDiskConfigurationsResult> {
 
@@ -65,7 +65,7 @@ export interface GetSAPDiskConfigurationsResult {
     readonly volumeConfigurations?: {[key: string]: outputs.workloads.v20221101preview.SAPDiskConfigurationResponse};
 }
 /**
- * The list of disk configuration for vmSku which are part of SAP deployment.
+ * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
  */
 export function getSAPDiskConfigurationsOutput(args: GetSAPDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDiskConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getSAPDiskConfigurations(a, opts))

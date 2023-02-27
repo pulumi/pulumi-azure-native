@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Container service
+ * The operation to get a container service.
  */
 /** @deprecated Version 2015-11-01-preview will be removed in v2 of the provider. */
 export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerServiceResult> {
@@ -86,7 +86,7 @@ export interface GetContainerServiceResult {
     readonly windowsProfile?: outputs.containerservice.v20151101preview.ContainerServiceWindowsProfileResponse;
 }
 /**
- * Container service
+ * The operation to get a container service.
  */
 /** @deprecated Version 2015-11-01-preview will be removed in v2 of the provider. */
 export function getContainerServiceOutput(args: GetContainerServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerServiceResult> {

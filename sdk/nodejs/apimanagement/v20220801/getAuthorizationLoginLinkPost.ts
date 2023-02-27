@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Authorization login response contract.
+ * Gets authorization login links.
  */
 export function getAuthorizationLoginLinkPost(args: GetAuthorizationLoginLinkPostArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationLoginLinkPostResult> {
 
@@ -52,7 +52,7 @@ export interface GetAuthorizationLoginLinkPostResult {
     readonly loginLink?: string;
 }
 /**
- * Authorization login response contract.
+ * Gets authorization login links.
  */
 export function getAuthorizationLoginLinkPostOutput(args: GetAuthorizationLoginLinkPostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationLoginLinkPostResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationLoginLinkPost(a, opts))

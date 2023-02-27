@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Defines the security configuration
+ * Retrieves a network manager security admin configuration.
  * API Version: 2021-02-01-preview.
  */
 export function getSecurityAdminConfiguration(args: GetSecurityAdminConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityAdminConfigurationResult> {
@@ -82,7 +82,7 @@ export interface GetSecurityAdminConfigurationResult {
     readonly type: string;
 }
 /**
- * Defines the security configuration
+ * Retrieves a network manager security admin configuration.
  * API Version: 2021-02-01-preview.
  */
 export function getSecurityAdminConfigurationOutput(args: GetSecurityAdminConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityAdminConfigurationResult> {

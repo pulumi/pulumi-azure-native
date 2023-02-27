@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Authorization access policy contract.
+ * Gets the details of the authorization access policy specified by its identifier.
  */
 export function getAuthorizationAccessPolicy(args: GetAuthorizationAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationAccessPolicyResult> {
 
@@ -68,7 +68,7 @@ export interface GetAuthorizationAccessPolicyResult {
     readonly type: string;
 }
 /**
- * Authorization access policy contract.
+ * Gets the details of the authorization access policy specified by its identifier.
  */
 export function getAuthorizationAccessPolicyOutput(args: GetAuthorizationAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationAccessPolicy(a, opts))

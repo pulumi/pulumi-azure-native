@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Authorization Provider contract.
+ * Gets the details of the authorization provider specified by its identifier.
  */
 export function getAuthorizationProvider(args: GetAuthorizationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationProviderResult> {
 
@@ -65,7 +65,7 @@ export interface GetAuthorizationProviderResult {
     readonly type: string;
 }
 /**
- * Authorization Provider contract.
+ * Gets the details of the authorization provider specified by its identifier.
  */
 export function getAuthorizationProviderOutput(args: GetAuthorizationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationProviderResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationProvider(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Get GitHub access token response definition.
+ * Get GitHub Access Token.
  */
 export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryGitHubAccessTokenResult> {
 
@@ -60,7 +60,7 @@ export interface GetFactoryGitHubAccessTokenResult {
     readonly gitHubAccessToken?: string;
 }
 /**
- * Get GitHub access token response definition.
+ * Get GitHub Access Token.
  */
 export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getFactoryGitHubAccessToken(a, opts))

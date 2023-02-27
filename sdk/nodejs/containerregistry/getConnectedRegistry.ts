@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An object that represents a connected registry for a container registry.
+ * Gets the properties of the connected registry.
  * API Version: 2020-11-01-preview.
  */
 export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedRegistryResult> {
@@ -102,7 +102,7 @@ export interface GetConnectedRegistryResult {
     readonly version: string;
 }
 /**
- * An object that represents a connected registry for a container registry.
+ * Gets the properties of the connected registry.
  * API Version: 2020-11-01-preview.
  */
 export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedRegistryResult> {

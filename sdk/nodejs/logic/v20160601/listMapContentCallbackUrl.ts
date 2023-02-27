@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The workflow trigger callback URL.
+ * Get the content callback url.
  */
 export function listMapContentCallbackUrl(args: ListMapContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListMapContentCallbackUrlResult> {
 
@@ -75,7 +75,7 @@ export interface ListMapContentCallbackUrlResult {
     readonly value: string;
 }
 /**
- * The workflow trigger callback URL.
+ * Get the content callback url.
  */
 export function listMapContentCallbackUrlOutput(args: ListMapContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMapContentCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listMapContentCallbackUrl(a, opts))

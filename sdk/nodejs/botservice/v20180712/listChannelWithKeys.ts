@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Bot channel resource definition
+ * Lists a Channel registration for a Bot Service including secrets
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
 
@@ -77,7 +77,7 @@ export interface ListChannelWithKeysResult {
     readonly type: string;
 }
 /**
- * Bot channel resource definition
+ * Lists a Channel registration for a Bot Service including secrets
  */
 export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
     return pulumi.output(args).apply((a: any) => listChannelWithKeys(a, opts))

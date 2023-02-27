@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * MachinePool represents a MachinePool
+ * The operation returns properties of a MachinePool.
  */
 export function getMachinePool(args: GetMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetMachinePoolResult> {
 
@@ -58,7 +58,7 @@ export interface GetMachinePoolResult {
     readonly type: string;
 }
 /**
- * MachinePool represents a MachinePool
+ * The operation returns properties of a MachinePool.
  */
 export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachinePoolResult> {
     return pulumi.output(args).apply((a: any) => getMachinePool(a, opts))

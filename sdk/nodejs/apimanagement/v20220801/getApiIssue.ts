@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Issue Contract details.
+ * Gets the details of the Issue for an API specified by its identifier.
  */
 export function getApiIssue(args: GetApiIssueArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueResult> {
 
@@ -84,7 +84,7 @@ export interface GetApiIssueResult {
     readonly userId: string;
 }
 /**
- * Issue Contract details.
+ * Gets the details of the Issue for an API specified by its identifier.
  */
 export function getApiIssueOutput(args: GetApiIssueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueResult> {
     return pulumi.output(args).apply((a: any) => getApiIssue(a, opts))

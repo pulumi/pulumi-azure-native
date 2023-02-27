@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Schema for Application properties.
+ * Get an application.
  */
 /** @deprecated Version 2019-01-23-preview will be removed in v2 of the provider. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
@@ -92,7 +92,7 @@ export interface GetApplicationResult {
     readonly type: string;
 }
 /**
- * Schema for Application properties.
+ * Get an application.
  */
 /** @deprecated Version 2019-01-23-preview will be removed in v2 of the provider. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {

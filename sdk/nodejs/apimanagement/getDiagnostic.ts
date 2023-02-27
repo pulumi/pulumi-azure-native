@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Diagnostic details.
+ * Gets the details of the Diagnostic specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticResult> {
@@ -94,7 +94,7 @@ export interface GetDiagnosticResult {
     readonly verbosity?: string;
 }
 /**
- * Diagnostic details.
+ * Gets the details of the Diagnostic specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Replication protected item.
+ * Gets the details of an ASR replication protected item.
  * API Version: 2018-07-10.
  */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
@@ -72,7 +72,7 @@ export interface GetReplicationProtectedItemResult {
     readonly type: string;
 }
 /**
- * Replication protected item.
+ * Gets the details of an ASR replication protected item.
  * API Version: 2018-07-10.
  */
 export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectedItemResult> {

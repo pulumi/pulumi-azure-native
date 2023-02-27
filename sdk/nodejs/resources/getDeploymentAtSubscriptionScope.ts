@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Deployment information.
+ * Gets a deployment.
  * API Version: 2021-01-01.
  */
 export function getDeploymentAtSubscriptionScope(args: GetDeploymentAtSubscriptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtSubscriptionScopeResult> {
@@ -56,7 +56,7 @@ export interface GetDeploymentAtSubscriptionScopeResult {
     readonly type: string;
 }
 /**
- * Deployment information.
+ * Gets a deployment.
  * API Version: 2021-01-01.
  */
 export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The customer's prefix that is registered by the peering service provider.
+ * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  */
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredPrefixResult> {
@@ -72,7 +72,7 @@ export interface GetRegisteredPrefixResult {
     readonly type: string;
 }
 /**
- * The customer's prefix that is registered by the peering service provider.
+ * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  */
 /** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getRegisteredPrefixOutput(args: GetRegisteredPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredPrefixResult> {

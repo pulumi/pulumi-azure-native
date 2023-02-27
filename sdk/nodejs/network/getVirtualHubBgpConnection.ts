@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Virtual Appliance Site resource.
+ * Retrieves the details of a Virtual Hub Bgp Connection.
  * API Version: 2020-11-01.
  */
 export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubBgpConnectionResult> {
@@ -71,7 +71,7 @@ export interface GetVirtualHubBgpConnectionResult {
     readonly type: string;
 }
 /**
- * Virtual Appliance Site resource.
+ * Retrieves the details of a Virtual Hub Bgp Connection.
  * API Version: 2020-11-01.
  */
 export function getVirtualHubBgpConnectionOutput(args: GetVirtualHubBgpConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubBgpConnectionResult> {

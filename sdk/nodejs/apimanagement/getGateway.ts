@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gateway details.
+ * Gets the details of the Gateway specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
@@ -62,7 +62,7 @@ export interface GetGatewayResult {
     readonly type: string;
 }
 /**
- * Gateway details.
+ * Gets the details of the Gateway specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {

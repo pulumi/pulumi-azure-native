@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB MongoDB collection.
+ * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccountMongoDBCollection(args: GetDatabaseAccountMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountMongoDBCollectionResult> {
@@ -76,7 +76,7 @@ export interface GetDatabaseAccountMongoDBCollectionResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB MongoDB collection.
+ * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2015-04-08 will be removed in v2 of the provider. */
 export function getDatabaseAccountMongoDBCollectionOutput(args: GetDatabaseAccountMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountMongoDBCollectionResult> {

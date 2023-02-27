@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents MCAS (Microsoft Cloud App Security) data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getMCASDataConnector(args: GetMCASDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMCASDataConnectorResult> {
@@ -71,7 +71,7 @@ export interface GetMCASDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents MCAS (Microsoft Cloud App Security) data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getMCASDataConnectorOutput(args: GetMCASDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMCASDataConnectorResult> {

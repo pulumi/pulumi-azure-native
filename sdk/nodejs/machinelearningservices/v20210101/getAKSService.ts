@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Machine Learning service object wrapped into ARM resource envelope.
+ * Get a Service by name.
  */
 export function getAKSService(args: GetAKSServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAKSServiceResult> {
 
@@ -82,7 +82,7 @@ export interface GetAKSServiceResult {
     readonly type: string;
 }
 /**
- * Machine Learning service object wrapped into ARM resource envelope.
+ * Get a Service by name.
  */
 export function getAKSServiceOutput(args: GetAKSServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAKSServiceResult> {
     return pulumi.output(args).apply((a: any) => getAKSService(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Cache details.
+ * Gets the details of the Cache specified by its identifier.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
 
@@ -62,7 +62,7 @@ export interface GetCacheResult {
     readonly type: string;
 }
 /**
- * Cache details.
+ * Gets the details of the Cache specified by its identifier.
  */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
     return pulumi.output(args).apply((a: any) => getCache(a, opts))

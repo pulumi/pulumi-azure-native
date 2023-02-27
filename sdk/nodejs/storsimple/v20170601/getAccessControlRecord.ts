@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The access control record.
+ * Returns the properties of the specified access control record name.
  */
 export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlRecordResult> {
 
@@ -62,7 +62,7 @@ export interface GetAccessControlRecordResult {
     readonly volumeCount: number;
 }
 /**
- * The access control record.
+ * Returns the properties of the specified access control record name.
  */
 export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
     return pulumi.output(args).apply((a: any) => getAccessControlRecord(a, opts))

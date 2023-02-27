@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A single API Management service resource in List or Get response.
+ * Gets an API Management service resource description.
  * API Version: 2020-12-01.
  */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
@@ -169,7 +169,7 @@ export interface GetApiManagementServiceResult {
     readonly zones?: string[];
 }
 /**
- * A single API Management service resource in List or Get response.
+ * Gets an API Management service resource description.
  * API Version: 2020-12-01.
  */
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {

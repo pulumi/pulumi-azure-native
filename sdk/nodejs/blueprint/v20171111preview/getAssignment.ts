@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a Blueprint assignment.
+ * Get a Blueprint assignment.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
@@ -90,7 +90,7 @@ export interface GetAssignmentResult {
     readonly type: string;
 }
 /**
- * Represents a Blueprint assignment.
+ * Get a Blueprint assignment.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {

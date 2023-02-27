@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getMDATPDataConnector(args: GetMDATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMDATPDataConnectorResult> {
@@ -71,7 +71,7 @@ export interface GetMDATPDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getMDATPDataConnectorOutput(args: GetMDATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMDATPDataConnectorResult> {

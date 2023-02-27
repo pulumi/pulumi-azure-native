@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents the PersonalPreferences for the user
+ * Get personal preferences for a user
  */
 export function getGlobalUserPersonalPreferences(args: GetGlobalUserPersonalPreferencesArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserPersonalPreferencesResult> {
 
@@ -54,7 +54,7 @@ export interface GetGlobalUserPersonalPreferencesResult {
     readonly id?: string;
 }
 /**
- * Represents the PersonalPreferences for the user
+ * Get personal preferences for a user
  */
 export function getGlobalUserPersonalPreferencesOutput(args: GetGlobalUserPersonalPreferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserPersonalPreferencesResult> {
     return pulumi.output(args).apply((a: any) => getGlobalUserPersonalPreferences(a, opts))

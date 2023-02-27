@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * SSL certificate for an app.
+ * Get a certificate.
  * API Version: 2020-12-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -141,7 +141,7 @@ export interface GetCertificateResult {
     readonly valid: boolean;
 }
 /**
- * SSL certificate for an app.
+ * Get a certificate.
  * API Version: 2020-12-01.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {

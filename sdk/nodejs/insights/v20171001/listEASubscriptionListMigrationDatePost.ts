@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Subscription migrate date information properties
+ * list date to migrate to new pricing model.
  */
 export function listEASubscriptionListMigrationDatePost(args?: ListEASubscriptionListMigrationDatePostArgs, opts?: pulumi.InvokeOptions): Promise<ListEASubscriptionListMigrationDatePostResult> {
     args = args || {};

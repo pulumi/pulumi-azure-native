@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Linked service resource type.
+ * Gets a linked service.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
 
@@ -61,7 +61,7 @@ export interface GetLinkedServiceResult {
     readonly type: string;
 }
 /**
- * Linked service resource type.
+ * Gets a linked service.
  */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
     return pulumi.output(args).apply((a: any) => getLinkedService(a, opts))

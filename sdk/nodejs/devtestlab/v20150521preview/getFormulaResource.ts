@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A formula.
+ * Get formula.
  */
 /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getFormulaResource(args: GetFormulaResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetFormulaResourceResult> {
@@ -91,7 +91,7 @@ export interface GetFormulaResourceResult {
     readonly vm?: outputs.devtestlab.v20150521preview.FormulaPropertiesFromVmResponse;
 }
 /**
- * A formula.
+ * Get formula.
  */
 /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getFormulaResourceOutput(args: GetFormulaResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormulaResourceResult> {

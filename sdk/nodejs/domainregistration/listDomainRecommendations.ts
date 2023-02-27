@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Collection of domain name identifiers.
+ * Get domain name recommendations based on keywords.
  * API Version: 2020-10-01.
  */
 export function listDomainRecommendations(args?: ListDomainRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainRecommendationsResult> {
@@ -46,7 +46,7 @@ export interface ListDomainRecommendationsResult {
     readonly value: outputs.domainregistration.NameIdentifierResponse[];
 }
 /**
- * Collection of domain name identifiers.
+ * Get domain name recommendations based on keywords.
  * API Version: 2020-10-01.
  */
 export function listDomainRecommendationsOutput(args?: ListDomainRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainRecommendationsResult> {

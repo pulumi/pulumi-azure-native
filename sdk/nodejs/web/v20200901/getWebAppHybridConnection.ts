@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Hybrid Connection contract. This is used to configure a Hybrid Connection.
+ * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
 export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionResult> {
 
@@ -99,7 +99,7 @@ export interface GetWebAppHybridConnectionResult {
     readonly type: string;
 }
 /**
- * Hybrid Connection contract. This is used to configure a Hybrid Connection.
+ * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
 export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppHybridConnection(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A notification.
+ * Get notification channel.
  */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
 
@@ -98,7 +98,7 @@ export interface GetNotificationChannelResult {
     readonly webHookUrl?: string;
 }
 /**
- * A notification.
+ * Get notification channel.
  */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
     return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))

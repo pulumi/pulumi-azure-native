@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Gremlin database.
+ * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2016-03-19 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinDatabase(args: GetDatabaseAccountGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountGremlinDatabaseResult> {
@@ -72,7 +72,7 @@ export interface GetDatabaseAccountGremlinDatabaseResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Gremlin database.
+ * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2016-03-19 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinDatabaseOutput(args: GetDatabaseAccountGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountGremlinDatabaseResult> {

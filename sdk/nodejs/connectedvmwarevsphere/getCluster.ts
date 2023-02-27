@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Define the cluster.
+ * Implements cluster GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -109,7 +109,7 @@ export interface GetClusterResult {
     readonly vCenterId?: string;
 }
 /**
- * Define the cluster.
+ * Implements cluster GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

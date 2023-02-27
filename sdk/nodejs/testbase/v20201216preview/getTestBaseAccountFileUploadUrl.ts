@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The URL response
+ * Gets the file upload URL of a Test Base Account.
  */
 export function getTestBaseAccountFileUploadUrl(args: GetTestBaseAccountFileUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountFileUploadUrlResult> {
 
@@ -46,7 +46,7 @@ export interface GetTestBaseAccountFileUploadUrlResult {
     readonly uploadUrl: string;
 }
 /**
- * The URL response
+ * Gets the file upload URL of a Test Base Account.
  */
 export function getTestBaseAccountFileUploadUrlOutput(args: GetTestBaseAccountFileUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountFileUploadUrlResult> {
     return pulumi.output(args).apply((a: any) => getTestBaseAccountFileUploadUrl(a, opts))

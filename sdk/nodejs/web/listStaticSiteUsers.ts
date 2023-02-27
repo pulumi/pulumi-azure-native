@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Collection of static site custom users.
+ * Gets the list of users of a static site.
  * API Version: 2020-12-01.
  */
 export function listStaticSiteUsers(args: ListStaticSiteUsersArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteUsersResult> {
@@ -50,7 +50,7 @@ export interface ListStaticSiteUsersResult {
     readonly value: outputs.web.StaticSiteUserARMResourceResponse[];
 }
 /**
- * Collection of static site custom users.
+ * Gets the list of users of a static site.
  * API Version: 2020-12-01.
  */
 export function listStaticSiteUsersOutput(args: ListStaticSiteUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteUsersResult> {

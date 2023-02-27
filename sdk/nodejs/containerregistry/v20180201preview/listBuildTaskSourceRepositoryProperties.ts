@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The properties of the source code repository.
+ * Get the source control properties for a build task.
  */
 export function listBuildTaskSourceRepositoryProperties(args: ListBuildTaskSourceRepositoryPropertiesArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildTaskSourceRepositoryPropertiesResult> {
 
@@ -57,7 +57,7 @@ export interface ListBuildTaskSourceRepositoryPropertiesResult {
     readonly sourceControlType: string;
 }
 /**
- * The properties of the source code repository.
+ * Get the source control properties for a build task.
  */
 export function listBuildTaskSourceRepositoryPropertiesOutput(args: ListBuildTaskSourceRepositoryPropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildTaskSourceRepositoryPropertiesResult> {
     return pulumi.output(args).apply((a: any) => listBuildTaskSourceRepositoryProperties(a, opts))

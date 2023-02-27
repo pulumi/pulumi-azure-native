@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The list of language extension objects.
+ * Returns a list of language extensions that can run within KQL queries.
  * API Version: 2021-06-01-preview.
  */
 export function listKustoPoolLanguageExtensions(args: ListKustoPoolLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListKustoPoolLanguageExtensionsResult> {
@@ -46,7 +46,7 @@ export interface ListKustoPoolLanguageExtensionsResult {
     readonly value?: outputs.synapse.LanguageExtensionResponse[];
 }
 /**
- * The list of language extension objects.
+ * Returns a list of language extensions that can run within KQL queries.
  * API Version: 2021-06-01-preview.
  */
 export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {

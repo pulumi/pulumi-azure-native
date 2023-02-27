@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Custom entity store assignment
+ * Gets a single custom entity store assignment by name for the provided subscription and resource group.
  * API Version: 2021-07-01-preview.
  */
 export function getCustomEntityStoreAssignment(args: GetCustomEntityStoreAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomEntityStoreAssignmentResult> {
@@ -61,7 +61,7 @@ export interface GetCustomEntityStoreAssignmentResult {
     readonly type: string;
 }
 /**
- * Custom entity store assignment
+ * Gets a single custom entity store assignment by name for the provided subscription and resource group.
  * API Version: 2021-07-01-preview.
  */
 export function getCustomEntityStoreAssignmentOutput(args: GetCustomEntityStoreAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomEntityStoreAssignmentResult> {

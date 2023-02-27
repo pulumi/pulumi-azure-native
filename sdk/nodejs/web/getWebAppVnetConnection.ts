@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Virtual Network information contract.
+ * Gets a virtual network the app (or deployment slot) is connected to by name.
  * API Version: 2020-12-01.
  */
 export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionResult> {
@@ -87,7 +87,7 @@ export interface GetWebAppVnetConnectionResult {
     readonly vnetResourceId?: string;
 }
 /**
- * Virtual Network information contract.
+ * Gets a virtual network the app (or deployment slot) is connected to by name.
  * API Version: 2020-12-01.
  */
 export function getWebAppVnetConnectionOutput(args: GetWebAppVnetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionResult> {

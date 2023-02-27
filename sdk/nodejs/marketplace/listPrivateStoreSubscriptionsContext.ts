@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * List of subscription Ids in the private store
+ * List all the subscriptions in the private store context
  * API Version: 2021-12-01.
  */
 export function listPrivateStoreSubscriptionsContext(args: ListPrivateStoreSubscriptionsContextArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreSubscriptionsContextResult> {
@@ -30,7 +30,7 @@ export interface ListPrivateStoreSubscriptionsContextResult {
     readonly subscriptionsIds?: string[];
 }
 /**
- * List of subscription Ids in the private store
+ * List all the subscriptions in the private store context
  * API Version: 2021-12-01.
  */
 export function listPrivateStoreSubscriptionsContextOutput(args: ListPrivateStoreSubscriptionsContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreSubscriptionsContextResult> {

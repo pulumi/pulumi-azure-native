@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A class represent a SignalR service resource.
+ * Get the SignalR service and its properties.
  */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
 
@@ -118,7 +118,7 @@ export interface GetSignalRResult {
     readonly version: string;
 }
 /**
- * A class represent a SignalR service resource.
+ * Get the SignalR service and its properties.
  */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
     return pulumi.output(args).apply((a: any) => getSignalR(a, opts))

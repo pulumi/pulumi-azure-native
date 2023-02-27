@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Subscription keys.
+ * Gets the specified Subscription keys.
  * API Version: 2020-12-01.
  */
 export function listSubscriptionSecrets(args: ListSubscriptionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubscriptionSecretsResult> {
@@ -47,7 +47,7 @@ export interface ListSubscriptionSecretsResult {
     readonly secondaryKey?: string;
 }
 /**
- * Subscription keys.
+ * Gets the specified Subscription keys.
  * API Version: 2020-12-01.
  */
 export function listSubscriptionSecretsOutput(args: ListSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubscriptionSecretsResult> {

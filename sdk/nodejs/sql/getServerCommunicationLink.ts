@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Server communication link.
+ * Returns a server communication link.
  * API Version: 2014-04-01.
  */
 export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCommunicationLinkResult> {
@@ -67,7 +67,7 @@ export interface GetServerCommunicationLinkResult {
     readonly type: string;
 }
 /**
- * Server communication link.
+ * Returns a server communication link.
  * API Version: 2014-04-01.
  */
 export function getServerCommunicationLinkOutput(args: GetServerCommunicationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCommunicationLinkResult> {

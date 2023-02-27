@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Network watcher in a resource group.
+ * Gets the specified network watcher by resource group.
  */
 /** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
@@ -63,7 +63,7 @@ export interface GetNetworkWatcherResult {
     readonly type: string;
 }
 /**
- * Network watcher in a resource group.
+ * Gets the specified network watcher by resource group.
  */
 /** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
 export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {

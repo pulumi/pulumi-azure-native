@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Linked storage accounts top level resource container.
+ * Gets all linked storage account of a specific data source type associated with the specified workspace.
  * API Version: 2020-08-01.
  */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
@@ -59,7 +59,7 @@ export interface GetLinkedStorageAccountResult {
     readonly type: string;
 }
 /**
- * Linked storage accounts top level resource container.
+ * Gets all linked storage account of a specific data source type associated with the specified workspace.
  * API Version: 2020-08-01.
  */
 export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {

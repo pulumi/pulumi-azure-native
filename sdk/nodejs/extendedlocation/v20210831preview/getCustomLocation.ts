@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Custom Locations definition.
+ * Gets the details of the customLocation with a specified resource group and name.
  */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
 
@@ -92,7 +92,7 @@ export interface GetCustomLocationResult {
     readonly type: string;
 }
 /**
- * Custom Locations definition.
+ * Gets the details of the customLocation with a specified resource group and name.
  */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
     return pulumi.output(args).apply((a: any) => getCustomLocation(a, opts))

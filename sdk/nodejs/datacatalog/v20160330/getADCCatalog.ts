@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Azure Data Catalog.
+ * The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
  */
 export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetADCCatalogResult> {
 
@@ -84,7 +84,7 @@ export interface GetADCCatalogResult {
     readonly users?: outputs.datacatalog.v20160330.PrincipalsResponse[];
 }
 /**
- * Azure Data Catalog.
+ * The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
  */
 export function getADCCatalogOutput(args: GetADCCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADCCatalogResult> {
     return pulumi.output(args).apply((a: any) => getADCCatalog(a, opts))

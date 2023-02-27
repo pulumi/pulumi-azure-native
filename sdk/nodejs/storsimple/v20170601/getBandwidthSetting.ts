@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The bandwidth setting.
+ * Returns the properties of the specified bandwidth setting name.
  */
 export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthSettingResult> {
 
@@ -65,7 +65,7 @@ export interface GetBandwidthSettingResult {
     readonly volumeCount: number;
 }
 /**
- * The bandwidth setting.
+ * Returns the properties of the specified bandwidth setting name.
  */
 export function getBandwidthSettingOutput(args: GetBandwidthSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthSettingResult> {
     return pulumi.output(args).apply((a: any) => getBandwidthSetting(a, opts))

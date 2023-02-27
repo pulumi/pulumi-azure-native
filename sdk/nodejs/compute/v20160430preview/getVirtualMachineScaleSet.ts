@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a Virtual Machine Scale Set.
+ * Display information about a virtual machine scale set.
  */
 /** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
@@ -90,7 +90,7 @@ export interface GetVirtualMachineScaleSetResult {
     readonly virtualMachineProfile?: outputs.compute.v20160430preview.VirtualMachineScaleSetVMProfileResponse;
 }
 /**
- * Describes a Virtual Machine Scale Set.
+ * Display information about a virtual machine scale set.
  */
 /** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {

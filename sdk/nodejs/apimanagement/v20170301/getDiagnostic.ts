@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Diagnostic details.
+ * Gets the details of the Diagnostic specified by its identifier.
  */
 export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticResult> {
 
@@ -54,7 +54,7 @@ export interface GetDiagnosticResult {
     readonly type: string;
 }
 /**
- * Diagnostic details.
+ * Gets the details of the Diagnostic specified by its identifier.
  */
 export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticResult> {
     return pulumi.output(args).apply((a: any) => getDiagnostic(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A pool of Virtual Machines.
+ * Gets a machine pool
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
 
@@ -85,7 +85,7 @@ export interface GetPoolResult {
     readonly type: string;
 }
 /**
- * A pool of Virtual Machines.
+ * Gets a machine pool
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Deployment information.
+ * Gets a deployment.
  */
 /** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
 export function getDeploymentAtSubscriptionScope(args: GetDeploymentAtSubscriptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtSubscriptionScopeResult> {
@@ -53,7 +53,7 @@ export interface GetDeploymentAtSubscriptionScopeResult {
     readonly type: string;
 }
 /**
- * Deployment information.
+ * Gets a deployment.
  */
 /** @deprecated Version 2018-05-01 will be removed in v2 of the provider. */
 export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {

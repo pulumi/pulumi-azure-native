@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A storage system being cached by a Cache.
+ * Returns a storage target from a cache.
  */
 /** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
@@ -79,7 +79,7 @@ export interface GetStorageTargetResult {
     readonly unknown?: outputs.storagecache.v20190801preview.UnknownTargetResponse;
 }
 /**
- * A storage system being cached by a Cache.
+ * Returns a storage target from a cache.
  */
 /** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {

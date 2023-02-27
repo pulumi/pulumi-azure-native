@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Details of a particular extension in HCI Cluster.
+ * Get particular Arc Extension of HCI Cluster.
  * API Version: 2021-01-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
@@ -119,7 +119,7 @@ export interface GetExtensionResult {
     readonly typeHandlerVersion?: string;
 }
 /**
- * Details of a particular extension in HCI Cluster.
+ * Get particular Arc Extension of HCI Cluster.
  * API Version: 2021-01-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {

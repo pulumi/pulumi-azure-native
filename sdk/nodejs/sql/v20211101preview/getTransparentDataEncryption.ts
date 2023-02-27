@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A logical database transparent data encryption state.
+ * Gets a logical database's transparent data encryption.
  */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
 
@@ -59,7 +59,7 @@ export interface GetTransparentDataEncryptionResult {
     readonly type: string;
 }
 /**
- * A logical database transparent data encryption state.
+ * Gets a logical database's transparent data encryption.
  */
 export function getTransparentDataEncryptionOutput(args: GetTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransparentDataEncryptionResult> {
     return pulumi.output(args).apply((a: any) => getTransparentDataEncryption(a, opts))

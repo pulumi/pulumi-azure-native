@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Gets an AuthorizationRule for a Namespace by rule name.
  */
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
@@ -60,7 +60,7 @@ export interface GetNamespaceAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Gets an AuthorizationRule for a Namespace by rule name.
  */
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {

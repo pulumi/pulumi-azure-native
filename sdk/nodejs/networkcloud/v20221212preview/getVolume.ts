@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get properties of the provided volume.
+ */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,6 +84,9 @@ export interface GetVolumeResult {
      */
     readonly type: string;
 }
+/**
+ * Get properties of the provided volume.
+ */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }

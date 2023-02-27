@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A sensitivity label.
+ * Gets the sensitivity label of a given column
  * API Version: 2021-03-01.
  */
 export function getSqlPoolSensitivityLabel(args: GetSqlPoolSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolSensitivityLabelResult> {
@@ -108,7 +108,7 @@ export interface GetSqlPoolSensitivityLabelResult {
     readonly type: string;
 }
 /**
- * A sensitivity label.
+ * Gets the sensitivity label of a given column
  * API Version: 2021-03-01.
  */
 export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {

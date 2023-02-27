@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Bastion Host resource.
+ * Gets the specified Bastion Host.
  */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
 
@@ -76,7 +76,7 @@ export interface GetBastionHostResult {
     readonly type: string;
 }
 /**
- * Bastion Host resource.
+ * Gets the specified Bastion Host.
  */
 export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
     return pulumi.output(args).apply((a: any) => getBastionHost(a, opts))

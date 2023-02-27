@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB container.
+ * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountSqlContainer(args: GetDatabaseAccountSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlContainerResult> {
@@ -100,7 +100,7 @@ export interface GetDatabaseAccountSqlContainerResult {
     readonly uniqueKeyPolicy?: outputs.documentdb.v20160331.UniqueKeyPolicyResponse;
 }
 /**
- * An Azure Cosmos DB container.
+ * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountSqlContainerOutput(args: GetDatabaseAccountSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountSqlContainerResult> {

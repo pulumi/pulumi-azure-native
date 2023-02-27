@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Configures where to store the OMS agent data for workspaces under a scope
+ * Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
  */
 export function getWorkspaceSetting(args: GetWorkspaceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSettingResult> {
 
@@ -48,7 +48,7 @@ export interface GetWorkspaceSettingResult {
     readonly workspaceId: string;
 }
 /**
- * Configures where to store the OMS agent data for workspaces under a scope
+ * Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
  */
 export function getWorkspaceSettingOutput(args: GetWorkspaceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSettingResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceSetting(a, opts))

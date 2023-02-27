@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Contains information about a database Threat Detection policy.
+ * Gets a database's threat detection policy.
  */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
 
@@ -91,7 +91,7 @@ export interface GetDatabaseThreatDetectionPolicyResult {
     readonly useServerDefault?: string;
 }
 /**
- * Contains information about a database Threat Detection policy.
+ * Gets a database's threat detection policy.
  */
 export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseThreatDetectionPolicy(a, opts))

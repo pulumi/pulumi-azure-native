@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Static Site Custom Domain Overview ARM resource.
+ * Gets an existing custom domain for a particular static site.
  * API Version: 2020-12-01.
  */
 export function getStaticSiteCustomDomain(args: GetStaticSiteCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteCustomDomainResult> {
@@ -72,7 +72,7 @@ export interface GetStaticSiteCustomDomainResult {
     readonly validationToken: string;
 }
 /**
- * Static Site Custom Domain Overview ARM resource.
+ * Gets an existing custom domain for a particular static site.
  * API Version: 2020-12-01.
  */
 export function getStaticSiteCustomDomainOutput(args: GetStaticSiteCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteCustomDomainResult> {

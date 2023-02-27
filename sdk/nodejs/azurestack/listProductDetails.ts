@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Extended description about the product required for installing it into Azure Stack.
+ * Returns the extended properties of a product.
  * API Version: 2017-06-01.
  */
 export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductDetailsResult> {
@@ -86,7 +86,7 @@ export interface ListProductDetailsResult {
     readonly vmScaleSetEnabled: boolean;
 }
 /**
- * Extended description about the product required for installing it into Azure Stack.
+ * Returns the extended properties of a product.
  * API Version: 2017-06-01.
  */
 export function listProductDetailsOutput(args: ListProductDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductDetailsResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * VirtualNetworkGatewayNatRule Resource.
+ * Retrieves the details of a nat rule.
  */
 export function getVirtualNetworkGatewayNatRule(args: GetVirtualNetworkGatewayNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayNatRuleResult> {
 
@@ -77,7 +77,7 @@ export interface GetVirtualNetworkGatewayNatRuleResult {
     readonly type: string;
 }
 /**
- * VirtualNetworkGatewayNatRule Resource.
+ * Retrieves the details of a nat rule.
  */
 export function getVirtualNetworkGatewayNatRuleOutput(args: GetVirtualNetworkGatewayNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayNatRuleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayNatRule(a, opts))

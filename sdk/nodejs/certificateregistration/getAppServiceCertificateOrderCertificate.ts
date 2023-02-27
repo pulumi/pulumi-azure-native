@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Key Vault container ARM resource for a certificate that is purchased through Azure.
+ * Get the certificate associated with a certificate order.
  * API Version: 2020-10-01.
  */
 export function getAppServiceCertificateOrderCertificate(args: GetAppServiceCertificateOrderCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderCertificateResult> {
@@ -82,7 +82,7 @@ export interface GetAppServiceCertificateOrderCertificateResult {
     readonly type: string;
 }
 /**
- * Key Vault container ARM resource for a certificate that is purchased through Azure.
+ * Get the certificate associated with a certificate order.
  * API Version: 2020-10-01.
  */
 export function getAppServiceCertificateOrderCertificateOutput(args: GetAppServiceCertificateOrderCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderCertificateResult> {

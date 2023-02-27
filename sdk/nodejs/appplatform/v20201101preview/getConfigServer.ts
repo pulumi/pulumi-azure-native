@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Config Server resource
+ * Get the config server and its properties.
  */
 export function getConfigServer(args: GetConfigServerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServerResult> {
 
@@ -52,7 +52,7 @@ export interface GetConfigServerResult {
     readonly type: string;
 }
 /**
- * Config Server resource
+ * Get the config server and its properties.
  */
 export function getConfigServerOutput(args: GetConfigServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServerResult> {
     return pulumi.output(args).apply((a: any) => getConfigServer(a, opts))

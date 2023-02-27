@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * StaticMember Item.
+ * Gets the specified static member.
  */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
 
@@ -78,7 +78,7 @@ export interface GetStaticMemberResult {
     readonly type: string;
 }
 /**
- * StaticMember Item.
+ * Gets the specified static member.
  */
 export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticMemberResult> {
     return pulumi.output(args).apply((a: any) => getStaticMember(a, opts))

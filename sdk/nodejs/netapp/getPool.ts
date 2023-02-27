@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Capacity pool resource
+ * Get details of the specified capacity pool
  * API Version: 2020-12-01.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
@@ -87,7 +87,7 @@ export interface GetPoolResult {
     readonly utilizedThroughputMibps: number;
 }
 /**
- * Capacity pool resource
+ * Get details of the specified capacity pool
  * API Version: 2020-12-01.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Description of hybrid connection resource.
+ * Returns the description for the specified hybrid connection.
  * API Version: 2017-04-01.
  */
 export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionResult> {
@@ -71,7 +71,7 @@ export interface GetHybridConnectionResult {
     readonly userMetadata?: string;
 }
 /**
- * Description of hybrid connection resource.
+ * Returns the description for the specified hybrid connection.
  * API Version: 2017-04-01.
  */
 export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {

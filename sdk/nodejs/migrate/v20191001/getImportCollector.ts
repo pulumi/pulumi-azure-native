@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get a Import collector.
+ */
 export function getImportCollector(args: GetImportCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetImportCollectorResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +42,9 @@ export interface GetImportCollectorResult {
     readonly properties: outputs.migrate.v20191001.ImportCollectorPropertiesResponse;
     readonly type: string;
 }
+/**
+ * Get a Import collector.
+ */
 export function getImportCollectorOutput(args: GetImportCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorResult> {
     return pulumi.output(args).apply((a: any) => getImportCollector(a, opts))
 }

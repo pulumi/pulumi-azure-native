@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The access keys for the given database account.
+ * Lists the access keys for the specified Azure Cosmos DB database account.
  */
 export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountKeysResult> {
 
@@ -49,7 +49,7 @@ export interface ListDatabaseAccountKeysResult {
     readonly secondaryReadonlyMasterKey: string;
 }
 /**
- * The access keys for the given database account.
+ * Lists the access keys for the specified Azure Cosmos DB database account.
  */
 export function listDatabaseAccountKeysOutput(args: ListDatabaseAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listDatabaseAccountKeys(a, opts))

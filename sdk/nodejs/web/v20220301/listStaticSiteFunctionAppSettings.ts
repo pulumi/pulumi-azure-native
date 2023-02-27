@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * String dictionary resource.
+ * Description for Gets the application settings of a static site.
  */
 export function listStaticSiteFunctionAppSettings(args: ListStaticSiteFunctionAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteFunctionAppSettingsResult> {
 
@@ -53,7 +53,7 @@ export interface ListStaticSiteFunctionAppSettingsResult {
     readonly type: string;
 }
 /**
- * String dictionary resource.
+ * Description for Gets the application settings of a static site.
  */
 export function listStaticSiteFunctionAppSettingsOutput(args: ListStaticSiteFunctionAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteFunctionAppSettingsResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteFunctionAppSettings(a, opts))

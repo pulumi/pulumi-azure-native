@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Invitation data transfer object.
+ * Get an invitation in a share
  */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
 
@@ -104,7 +104,7 @@ export interface GetInvitationResult {
     readonly userName: string;
 }
 /**
- * A Invitation data transfer object.
+ * Get an invitation in a share
  */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
     return pulumi.output(args).apply((a: any) => getInvitation(a, opts))

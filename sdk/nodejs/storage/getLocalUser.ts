@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The local user associated with the storage accounts.
+ * Get the local user of the storage account by username.
  * API Version: 2021-08-01.
  */
 export function getLocalUser(args: GetLocalUserArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalUserResult> {
@@ -86,7 +86,7 @@ export interface GetLocalUserResult {
     readonly type: string;
 }
 /**
- * The local user associated with the storage accounts.
+ * Get the local user of the storage account by username.
  * API Version: 2021-08-01.
  */
 export function getLocalUserOutput(args: GetLocalUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalUserResult> {

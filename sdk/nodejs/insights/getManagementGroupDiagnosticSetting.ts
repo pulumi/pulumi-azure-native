@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The management group diagnostic setting resource.
+ * Gets the active management group diagnostic settings for the specified resource.
  * API Version: 2020-01-01-preview.
  */
 export function getManagementGroupDiagnosticSetting(args: GetManagementGroupDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupDiagnosticSettingResult> {
@@ -77,7 +77,7 @@ export interface GetManagementGroupDiagnosticSettingResult {
     readonly workspaceId?: string;
 }
 /**
- * The management group diagnostic setting resource.
+ * Gets the active management group diagnostic settings for the specified resource.
  * API Version: 2020-01-01-preview.
  */
 export function getManagementGroupDiagnosticSettingOutput(args: GetManagementGroupDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupDiagnosticSettingResult> {

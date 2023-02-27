@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A custom API
+ * Gets a custom API by name for a specific subscription and resource group
  * API Version: 2016-06-01.
  */
 export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomApiResult> {
@@ -70,7 +70,7 @@ export interface GetCustomApiResult {
     readonly type: string;
 }
 /**
- * A custom API
+ * Gets a custom API by name for a specific subscription and resource group
  * API Version: 2016-06-01.
  */
 export function getCustomApiOutput(args: GetCustomApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomApiResult> {

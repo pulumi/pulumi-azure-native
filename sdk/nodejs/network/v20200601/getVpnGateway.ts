@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * VpnGateway Resource.
+ * Retrieves the details of a virtual wan vpn gateway.
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
 
@@ -84,7 +84,7 @@ export interface GetVpnGatewayResult {
     readonly vpnGatewayScaleUnit?: number;
 }
 /**
- * VpnGateway Resource.
+ * Retrieves the details of a virtual wan vpn gateway.
  */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))

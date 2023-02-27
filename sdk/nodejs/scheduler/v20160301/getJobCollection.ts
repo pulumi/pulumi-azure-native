@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets a job collection.
+ */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +56,9 @@ export interface GetJobCollectionResult {
      */
     readonly type: string;
 }
+/**
+ * Gets a job collection.
+ */
 export function getJobCollectionOutput(args: GetJobCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCollectionResult> {
     return pulumi.output(args).apply((a: any) => getJobCollection(a, opts))
 }

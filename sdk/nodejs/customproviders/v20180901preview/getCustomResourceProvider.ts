@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A manifest file that defines the custom resource provider resources.
+ * Gets the custom resource provider manifest.
  */
 export function getCustomResourceProvider(args: GetCustomResourceProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceProviderResult> {
 
@@ -72,7 +72,7 @@ export interface GetCustomResourceProviderResult {
     readonly validations?: outputs.customproviders.v20180901preview.CustomRPValidationsResponse[];
 }
 /**
- * A manifest file that defines the custom resource provider resources.
+ * Gets the custom resource provider manifest.
  */
 export function getCustomResourceProviderOutput(args: GetCustomResourceProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceProviderResult> {
     return pulumi.output(args).apply((a: any) => getCustomResourceProvider(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a DNS forwarding ruleset.
+ * Gets a DNS forwarding ruleset properties.
  * API Version: 2020-04-01-preview.
  */
 export function getDnsForwardingRuleset(args: GetDnsForwardingRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsForwardingRulesetResult> {
@@ -77,7 +77,7 @@ export interface GetDnsForwardingRulesetResult {
     readonly type: string;
 }
 /**
- * Describes a DNS forwarding ruleset.
+ * Gets a DNS forwarding ruleset properties.
  * API Version: 2020-04-01-preview.
  */
 export function getDnsForwardingRulesetOutput(args: GetDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsForwardingRulesetResult> {

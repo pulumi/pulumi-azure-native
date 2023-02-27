@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Definition of the connection type.
+ * Retrieve the connection type identified by connection type name.
  */
 export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionTypeResult> {
 
@@ -73,7 +73,7 @@ export interface GetConnectionTypeResult {
     readonly type: string;
 }
 /**
- * Definition of the connection type.
+ * Retrieve the connection type identified by connection type name.
  */
 export function getConnectionTypeOutput(args: GetConnectionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionTypeResult> {
     return pulumi.output(args).apply((a: any) => getConnectionType(a, opts))

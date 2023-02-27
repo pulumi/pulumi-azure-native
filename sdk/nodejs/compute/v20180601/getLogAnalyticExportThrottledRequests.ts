@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * LogAnalytics operation status response
+ * Export logs that show total throttled Api requests for this subscription in the given time window.
  */
 export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExportThrottledRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportThrottledRequestsResult> {
 
@@ -65,7 +65,7 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
     readonly properties: outputs.compute.v20180601.LogAnalyticsOutputResponse;
 }
 /**
- * LogAnalytics operation status response
+ * Export logs that show total throttled Api requests for this subscription in the given time window.
  */
 export function getLogAnalyticExportThrottledRequestsOutput(args: GetLogAnalyticExportThrottledRequestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportThrottledRequestsResult> {
     return pulumi.output(args).apply((a: any) => getLogAnalyticExportThrottledRequests(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Mobile network resource.
+ * Gets information about the specified mobile network.
  * API Version: 2022-04-01-preview.
  */
 export function getMobileNetwork(args: GetMobileNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetMobileNetworkResult> {
@@ -97,7 +97,7 @@ export interface GetMobileNetworkResult {
     readonly type: string;
 }
 /**
- * Mobile network resource.
+ * Gets information about the specified mobile network.
  * API Version: 2022-04-01-preview.
  */
 export function getMobileNetworkOutput(args: GetMobileNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMobileNetworkResult> {

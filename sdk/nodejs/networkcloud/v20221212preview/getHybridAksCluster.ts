@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The details are specific to the Network Cloud use of the Hybrid AKS cluster.
+ * Get the additional details related to the provided Hybrid AKS provisioned cluster.
  */
 export function getHybridAksCluster(args: GetHybridAksClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridAksClusterResult> {
 
@@ -116,7 +116,7 @@ export interface GetHybridAksClusterResult {
     readonly workerNodes: outputs.networkcloud.v20221212preview.NodeConfigurationResponse[];
 }
 /**
- * The details are specific to the Network Cloud use of the Hybrid AKS cluster.
+ * Get the additional details related to the provided Hybrid AKS provisioned cluster.
  */
 export function getHybridAksClusterOutput(args: GetHybridAksClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridAksClusterResult> {
     return pulumi.output(args).apply((a: any) => getHybridAksCluster(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An ADLS Gen2 file system data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getADLSGen2FileSystemDataSetMapping(args: GetADLSGen2FileSystemDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FileSystemDataSetMappingResult> {
 
@@ -88,7 +88,7 @@ export interface GetADLSGen2FileSystemDataSetMappingResult {
     readonly type: string;
 }
 /**
- * An ADLS Gen2 file system data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getADLSGen2FileSystemDataSetMappingOutput(args: GetADLSGen2FileSystemDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FileSystemDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen2FileSystemDataSetMapping(a, opts))

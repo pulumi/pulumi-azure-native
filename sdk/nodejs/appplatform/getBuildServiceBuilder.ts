@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * KPack Builder resource
+ * Get a KPack builder.
  * API Version: 2022-01-01-preview.
  */
 export function getBuildServiceBuilder(args: GetBuildServiceBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuilderResult> {
@@ -67,7 +67,7 @@ export interface GetBuildServiceBuilderResult {
     readonly type: string;
 }
 /**
- * KPack Builder resource
+ * Get a KPack builder.
  * API Version: 2022-01-01-preview.
  */
 export function getBuildServiceBuilderOutput(args: GetBuildServiceBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuilderResult> {

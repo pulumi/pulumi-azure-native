@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a ApplicationGroup definition.
+ * Get an application group.
  * API Version: 2021-02-01-preview.
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
@@ -104,7 +104,7 @@ export interface GetApplicationGroupResult {
     readonly workspaceArmPath: string;
 }
 /**
- * Represents a ApplicationGroup definition.
+ * Get an application group.
  * API Version: 2021-02-01-preview.
  */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {

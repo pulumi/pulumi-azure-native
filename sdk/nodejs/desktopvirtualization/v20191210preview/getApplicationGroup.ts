@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a ApplicationGroup definition.
+ * Get an application group.
  */
 /** @deprecated Version 2019-12-10-preview will be removed in v2 of the provider. */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
@@ -75,7 +75,7 @@ export interface GetApplicationGroupResult {
     readonly workspaceArmPath: string;
 }
 /**
- * Represents a ApplicationGroup definition.
+ * Get an application group.
  */
 /** @deprecated Version 2019-12-10-preview will be removed in v2 of the provider. */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {

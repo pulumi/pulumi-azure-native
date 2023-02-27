@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Storage resource payload.
+ * Get the storage resource.
  * API Version: 2021-09-01-preview.
  */
 export function getStorage(args: GetStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageResult> {
@@ -62,7 +62,7 @@ export interface GetStorageResult {
     readonly type: string;
 }
 /**
- * Storage resource payload.
+ * Get the storage resource.
  * API Version: 2021-09-01-preview.
  */
 export function getStorageOutput(args: GetStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageResult> {

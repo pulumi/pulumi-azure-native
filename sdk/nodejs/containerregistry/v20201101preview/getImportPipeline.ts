@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents an import pipeline for a container registry.
+ * Gets the properties of the import pipeline.
  */
 export function getImportPipeline(args: GetImportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImportPipelineResult> {
 
@@ -81,7 +81,7 @@ export interface GetImportPipelineResult {
     readonly type: string;
 }
 /**
- * An object that represents an import pipeline for a container registry.
+ * Gets the properties of the import pipeline.
  */
 export function getImportPipelineOutput(args: GetImportPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportPipelineResult> {
     return pulumi.output(args).apply((a: any) => getImportPipeline(a, opts))

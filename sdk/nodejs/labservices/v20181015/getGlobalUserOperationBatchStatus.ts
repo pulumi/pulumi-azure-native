@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Status Details of the long running operation for an environment
+ * Get batch operation status
  */
 export function getGlobalUserOperationBatchStatus(args: GetGlobalUserOperationBatchStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationBatchStatusResult> {
 
@@ -40,7 +40,7 @@ export interface GetGlobalUserOperationBatchStatusResult {
     readonly items: outputs.labservices.v20181015.OperationBatchStatusResponseItemResponse[];
 }
 /**
- * Status Details of the long running operation for an environment
+ * Get batch operation status
  */
 export function getGlobalUserOperationBatchStatusOutput(args: GetGlobalUserOperationBatchStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationBatchStatusResult> {
     return pulumi.output(args).apply((a: any) => getGlobalUserOperationBatchStatus(a, opts))

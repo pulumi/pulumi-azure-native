@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The extended info of the manager.
+ * Returns the extended information of the specified manager name.
  * API Version: 2017-06-01.
  */
 export function getManagerExtendedInfo(args: GetManagerExtendedInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerExtendedInfoResult> {
@@ -78,7 +78,7 @@ export interface GetManagerExtendedInfoResult {
     readonly version?: string;
 }
 /**
- * The extended info of the manager.
+ * Returns the extended information of the specified manager name.
  * API Version: 2017-06-01.
  */
 export function getManagerExtendedInfoOutput(args: GetManagerExtendedInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerExtendedInfoResult> {

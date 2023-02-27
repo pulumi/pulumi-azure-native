@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The role assignment
+ * Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
  * API Version: 2019-10-01-preview.
  */
 export function getBillingRoleAssignmentByDepartment(args: GetBillingRoleAssignmentByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByDepartmentResult> {
@@ -91,7 +91,7 @@ export interface GetBillingRoleAssignmentByDepartmentResult {
     readonly userEmailAddress?: string;
 }
 /**
- * The role assignment
+ * Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
  * API Version: 2019-10-01-preview.
  */
 export function getBillingRoleAssignmentByDepartmentOutput(args: GetBillingRoleAssignmentByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByDepartmentResult> {

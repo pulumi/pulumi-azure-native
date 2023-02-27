@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents office data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getOfficeDataConnector(args: GetOfficeDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeDataConnectorResult> {
@@ -71,7 +71,7 @@ export interface GetOfficeDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents office data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getOfficeDataConnectorOutput(args: GetOfficeDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeDataConnectorResult> {

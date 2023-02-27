@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Security Standard on a resource
+ * Get a specific security standard for the requested scope
  * API Version: 2021-08-01-preview.
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
@@ -93,7 +93,7 @@ export interface GetStandardResult {
     readonly type: string;
 }
 /**
- * Security Standard on a resource
+ * Get a specific security standard for the requested scope
  * API Version: 2021-08-01-preview.
  */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {

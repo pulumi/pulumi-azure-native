@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * RouteTable resource in a virtual hub.
+ * Retrieves the details of a RouteTable.
  * API Version: 2020-11-01.
  */
 export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetHubRouteTableResult> {
@@ -78,7 +78,7 @@ export interface GetHubRouteTableResult {
     readonly type: string;
 }
 /**
- * RouteTable resource in a virtual hub.
+ * Retrieves the details of a RouteTable.
  * API Version: 2020-11-01.
  */
 export function getHubRouteTableOutput(args: GetHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubRouteTableResult> {

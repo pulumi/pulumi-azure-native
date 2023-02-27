@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Network Manager Connection resource
+ * Get a specified connection created by this management group.
  * API Version: 2021-05-01-preview.
  */
 export function getManagementGroupNetworkManagerConnection(args: GetManagementGroupNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupNetworkManagerConnectionResult> {
@@ -65,7 +65,7 @@ export interface GetManagementGroupNetworkManagerConnectionResult {
     readonly type: string;
 }
 /**
- * The Network Manager Connection resource
+ * Get a specified connection created by this management group.
  * API Version: 2021-05-01-preview.
  */
 export function getManagementGroupNetworkManagerConnectionOutput(args: GetManagementGroupNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupNetworkManagerConnectionResult> {

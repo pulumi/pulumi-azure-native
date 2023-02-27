@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents MicrosoftSecurityIncidentCreation rule.
+ * Gets the alert rule.
  * API Version: 2020-01-01.
  */
 export function getMicrosoftSecurityIncidentCreationAlertRule(args: GetMicrosoftSecurityIncidentCreationAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
@@ -96,7 +96,7 @@ export interface GetMicrosoftSecurityIncidentCreationAlertRuleResult {
     readonly type: string;
 }
 /**
- * Represents MicrosoftSecurityIncidentCreation rule.
+ * Gets the alert rule.
  * API Version: 2020-01-01.
  */
 export function getMicrosoftSecurityIncidentCreationAlertRuleOutput(args: GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {

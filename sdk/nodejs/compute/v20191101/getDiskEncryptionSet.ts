@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * disk encryption set resource.
+ * Gets information about a disk encryption set.
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
@@ -74,7 +74,7 @@ export interface GetDiskEncryptionSetResult {
     readonly type: string;
 }
 /**
- * disk encryption set resource.
+ * Gets information about a disk encryption set.
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {

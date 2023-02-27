@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get information about a virtual machine image template
+ */
 /** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider. */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
     pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.")
@@ -75,6 +78,9 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly type: string;
 }
+/**
+ * Get information about a virtual machine image template
+ */
 /** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider. */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))

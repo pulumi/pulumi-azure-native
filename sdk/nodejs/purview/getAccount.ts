@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Account resource
+ * Get an account
  * API Version: 2020-12-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -114,7 +114,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * Account resource
+ * Get an account
  * API Version: 2020-12-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

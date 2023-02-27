@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB MongoDB database.
+ * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
 export function getDatabaseAccountMongoDBDatabase(args: GetDatabaseAccountMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountMongoDBDatabaseResult> {
@@ -60,7 +60,7 @@ export interface GetDatabaseAccountMongoDBDatabaseResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB MongoDB database.
+ * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
 export function getDatabaseAccountMongoDBDatabaseOutput(args: GetDatabaseAccountMongoDBDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountMongoDBDatabaseResult> {

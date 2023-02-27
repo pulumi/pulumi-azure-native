@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Information about a partner registration.
+ * Gets a partner registration with the specified parameters.
  */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
 
@@ -120,7 +120,7 @@ export interface GetPartnerRegistrationResult {
     readonly visibilityState?: string;
 }
 /**
- * Information about a partner registration.
+ * Gets a partner registration with the specified parameters.
  */
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getPartnerRegistration(a, opts))

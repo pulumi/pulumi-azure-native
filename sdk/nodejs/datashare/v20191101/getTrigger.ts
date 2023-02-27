@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Trigger data transfer object.
+ * Get a Trigger in a shareSubscription
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
@@ -61,7 +61,7 @@ export interface GetTriggerResult {
     readonly type: string;
 }
 /**
- * A Trigger data transfer object.
+ * Get a Trigger in a shareSubscription
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {

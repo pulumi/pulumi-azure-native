@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Kubernetes cluster specialized for web workloads by Azure App Service
+ * Get the properties of a Kubernetes Environment.
  */
 export function getKubeEnvironment(args: GetKubeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKubeEnvironmentResult> {
 
@@ -97,7 +97,7 @@ export interface GetKubeEnvironmentResult {
     readonly type: string;
 }
 /**
- * A Kubernetes cluster specialized for web workloads by Azure App Service
+ * Get the properties of a Kubernetes Environment.
  */
 export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubeEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getKubeEnvironment(a, opts))

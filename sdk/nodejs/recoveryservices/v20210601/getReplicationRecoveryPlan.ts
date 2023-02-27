@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Recovery plan details.
+ * Gets the details of the recovery plan.
  */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
 
@@ -61,7 +61,7 @@ export interface GetReplicationRecoveryPlanResult {
     readonly type: string;
 }
 /**
- * Recovery plan details.
+ * Gets the details of the recovery plan.
  */
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))

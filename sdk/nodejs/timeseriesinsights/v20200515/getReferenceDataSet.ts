@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+ * Gets the reference data set with the specified name in the specified environment.
  */
 export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReferenceDataSetResult> {
 
@@ -77,7 +77,7 @@ export interface GetReferenceDataSetResult {
     readonly type: string;
 }
 /**
- * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+ * Gets the reference data set with the specified name in the specified environment.
  */
 export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceDataSetResult> {
     return pulumi.output(args).apply((a: any) => getReferenceDataSet(a, opts))

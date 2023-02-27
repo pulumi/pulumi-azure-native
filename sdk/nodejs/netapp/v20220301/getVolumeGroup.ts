@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Volume group resource for create
+ * Get details of the specified volume group
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
 
@@ -69,7 +69,7 @@ export interface GetVolumeGroupResult {
     readonly volumes?: outputs.netapp.v20220301.VolumeGroupVolumePropertiesResponse[];
 }
 /**
- * Volume group resource for create
+ * Get details of the specified volume group
  */
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
     return pulumi.output(args).apply((a: any) => getVolumeGroup(a, opts))

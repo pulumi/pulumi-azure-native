@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * String dictionary resource.
+ * Gets the application settings of an app.
  * API Version: 2020-12-01.
  */
 export function listWebAppApplicationSettings(args: ListWebAppApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsResult> {
@@ -54,7 +54,7 @@ export interface ListWebAppApplicationSettingsResult {
     readonly type: string;
 }
 /**
- * String dictionary resource.
+ * Gets the application settings of an app.
  * API Version: 2020-12-01.
  */
 export function listWebAppApplicationSettingsOutput(args: ListWebAppApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Office Microsoft Project data connector.
+ * Gets a data connector.
  */
 export function getOffice365ProjectDataConnector(args: GetOffice365ProjectDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOffice365ProjectDataConnectorResult> {
 
@@ -74,7 +74,7 @@ export interface GetOffice365ProjectDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents Office Microsoft Project data connector.
+ * Gets a data connector.
  */
 export function getOffice365ProjectDataConnectorOutput(args: GetOffice365ProjectDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOffice365ProjectDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOffice365ProjectDataConnector(a, opts))

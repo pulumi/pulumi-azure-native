@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents an image from the Azure Marketplace
+ * Get gallery image
  * API Version: 2018-10-15.
  */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
@@ -115,7 +115,7 @@ export interface GetGalleryImageResult {
     readonly uniqueIdentifier?: string;
 }
 /**
- * Represents an image from the Azure Marketplace
+ * Get gallery image
  * API Version: 2018-10-15.
  */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {

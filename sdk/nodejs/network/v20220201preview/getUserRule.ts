@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network base rule.
+ * Gets a user rule.
  */
 /** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
 export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleResult> {
@@ -77,7 +77,7 @@ export interface GetUserRuleResult {
     readonly type: string;
 }
 /**
- * Network base rule.
+ * Gets a user rule.
  */
 /** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
 export function getUserRuleOutput(args: GetUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleResult> {

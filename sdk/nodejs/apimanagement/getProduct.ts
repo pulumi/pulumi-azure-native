@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Product details.
+ * Gets the details of the product specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
@@ -79,7 +79,7 @@ export interface GetProductResult {
     readonly type: string;
 }
 /**
- * Product details.
+ * Gets the details of the product specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {

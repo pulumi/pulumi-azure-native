@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Event Subscription
+ * Get properties of an event subscription.
  * API Version: 2020-06-01.
  */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
@@ -89,7 +89,7 @@ export interface GetEventSubscriptionResult {
     readonly type: string;
 }
 /**
- * Event Subscription
+ * Get properties of an event subscription.
  * API Version: 2020-06-01.
  */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {

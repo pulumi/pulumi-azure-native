@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Description of the shared access key.
+ * List primary and secondary keys for a specific key name
  * API Version: 2020-03-01.
  */
 export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysForKeyNameResult> {
@@ -55,7 +55,7 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
     readonly secondaryKey?: string;
 }
 /**
- * Description of the shared access key.
+ * List primary and secondary keys for a specific key name
  * API Version: 2020-03-01.
  */
 export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {

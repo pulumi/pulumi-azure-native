@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * P2SVpnGateway Resource.
+ * Retrieves the details of a virtual wan p2s vpn gateway.
  * API Version: 2020-11-01.
  */
 export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayResult> {
@@ -93,7 +93,7 @@ export interface GetP2sVpnGatewayResult {
     readonly vpnServerConfiguration?: outputs.network.SubResourceResponse;
 }
 /**
- * P2SVpnGateway Resource.
+ * Retrieves the details of a virtual wan p2s vpn gateway.
  * API Version: 2020-11-01.
  */
 export function getP2sVpnGatewayOutput(args: GetP2sVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayResult> {

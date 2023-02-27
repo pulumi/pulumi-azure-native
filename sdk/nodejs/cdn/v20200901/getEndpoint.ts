@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
+ * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -141,7 +141,7 @@ export interface GetEndpointResult {
     readonly webApplicationFirewallPolicyLink?: outputs.cdn.v20200901.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink;
 }
 /**
- * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
+ * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Managed Network resource
+ * Gets the specified Network Manager.
  * API Version: 2021-02-01-preview.
  */
 export function getNetworkManager(args: GetNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerResult> {
@@ -85,7 +85,7 @@ export interface GetNetworkManagerResult {
     readonly type: string;
 }
 /**
- * The Managed Network resource
+ * Gets the specified Network Manager.
  * API Version: 2021-02-01-preview.
  */
 export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Route resource.
+ * Gets the specified route from a route table.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
 
@@ -66,7 +66,7 @@ export interface GetRouteResult {
     readonly provisioningState?: string;
 }
 /**
- * Route resource.
+ * Gets the specified route from a route table.
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))

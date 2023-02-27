@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The policy assignment.
+ * This operation retrieves a single policy assignment, given its name and the scope it was created at.
  * API Version: 2020-09-01.
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
@@ -93,7 +93,7 @@ export interface GetPolicyAssignmentResult {
     readonly type: string;
 }
 /**
- * The policy assignment.
+ * This operation retrieves a single policy assignment, given its name and the scope it was created at.
  * API Version: 2020-09-01.
  */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {

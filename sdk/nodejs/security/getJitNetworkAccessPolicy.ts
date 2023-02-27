@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Policies for protecting resources using Just-in-Time access control for the subscription, location
  * API Version: 2020-01-01.
  */
 export function getJitNetworkAccessPolicy(args: GetJitNetworkAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetJitNetworkAccessPolicyResult> {
@@ -67,6 +68,7 @@ export interface GetJitNetworkAccessPolicyResult {
     readonly virtualMachines: outputs.security.JitNetworkAccessPolicyVirtualMachineResponse[];
 }
 /**
+ * Policies for protecting resources using Just-in-Time access control for the subscription, location
  * API Version: 2020-01-01.
  */
 export function getJitNetworkAccessPolicyOutput(args: GetJitNetworkAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitNetworkAccessPolicyResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Workspace data table definition.
+ * Gets a Log Analytics workspace table.
  * API Version: 2021-12-01-preview.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
@@ -98,7 +98,7 @@ export interface GetTableResult {
     readonly type: string;
 }
 /**
- * Workspace data table definition.
+ * Gets a Log Analytics workspace table.
  * API Version: 2021-12-01-preview.
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {

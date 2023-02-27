@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Premier add-on.
+ * Gets a named add-on of an app.
  */
 export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnSlotResult> {
 
@@ -94,7 +94,7 @@ export interface GetWebAppPremierAddOnSlotResult {
     readonly vendor?: string;
 }
 /**
- * Premier add-on.
+ * Gets a named add-on of an app.
  */
 export function getWebAppPremierAddOnSlotOutput(args: GetWebAppPremierAddOnSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPremierAddOnSlot(a, opts))

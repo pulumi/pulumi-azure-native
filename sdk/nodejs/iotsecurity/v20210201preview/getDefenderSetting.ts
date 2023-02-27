@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * IoT Defender settings
+ * Get IoT Defender Settings
  */
 export function getDefenderSetting(args?: GetDefenderSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDefenderSettingResult> {
     args = args || {};

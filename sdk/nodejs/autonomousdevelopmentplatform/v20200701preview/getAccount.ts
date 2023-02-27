@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An ADP account.
+ * Gets the properties of an ADP account.
  */
 /** @deprecated Version 2020-07-01-preview will be removed in v2 of the provider. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -70,7 +70,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * An ADP account.
+ * Gets the properties of an ADP account.
  */
 /** @deprecated Version 2020-07-01-preview will be removed in v2 of the provider. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

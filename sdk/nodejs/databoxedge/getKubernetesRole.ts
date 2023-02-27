@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Kubernetes role.
+ * Gets a specific role by name.
  * API Version: 2020-12-01.
  */
 export function getKubernetesRole(args: GetKubernetesRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesRoleResult> {
@@ -87,7 +87,7 @@ export interface GetKubernetesRoleResult {
     readonly type: string;
 }
 /**
- * Kubernetes role.
+ * Gets a specific role by name.
  * API Version: 2020-12-01.
  */
 export function getKubernetesRoleOutput(args: GetKubernetesRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesRoleResult> {

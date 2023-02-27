@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Dataset resource type.
+ * Gets a dataset.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
@@ -63,7 +63,7 @@ export interface GetDatasetResult {
     readonly type: string;
 }
 /**
- * Dataset resource type.
+ * Gets a dataset.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {

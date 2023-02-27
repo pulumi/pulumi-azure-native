@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Sync Group object.
+ * Get a given SyncGroup.
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
 
@@ -65,7 +65,7 @@ export interface GetSyncGroupResult {
     readonly uniqueId: string;
 }
 /**
- * Sync Group object.
+ * Get a given SyncGroup.
  */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
     return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))

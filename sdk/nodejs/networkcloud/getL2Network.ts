@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get properties of the provided layer 2 (L2) network.
  * API Version: 2022-12-12-preview.
  */
 export function getL2Network(args: GetL2NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL2NetworkResult> {
@@ -97,6 +98,7 @@ export interface GetL2NetworkResult {
     readonly virtualMachinesAssociatedIds: string[];
 }
 /**
+ * Get properties of the provided layer 2 (L2) network.
  * API Version: 2022-12-12-preview.
  */
 export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a read only following database.
+ * Returns a database.
  */
 export function getReadOnlyFollowingDatabase(args: GetReadOnlyFollowingDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadOnlyFollowingDatabaseResult> {
 
@@ -102,7 +102,7 @@ export interface GetReadOnlyFollowingDatabaseResult {
     readonly type: string;
 }
 /**
- * Class representing a read only following database.
+ * Returns a database.
  */
 export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getReadOnlyFollowingDatabase(a, opts))

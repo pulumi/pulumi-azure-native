@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Value object for saved search results.
+ * Gets the specified saved search for a given workspace.
  */
 /** @deprecated Version 2015-03-20 will be removed in v2 of the provider. */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
@@ -79,7 +79,7 @@ export interface GetSavedSearchResult {
     readonly version?: number;
 }
 /**
- * Value object for saved search results.
+ * Gets the specified saved search for a given workspace.
  */
 /** @deprecated Version 2015-03-20 will be removed in v2 of the provider. */
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {

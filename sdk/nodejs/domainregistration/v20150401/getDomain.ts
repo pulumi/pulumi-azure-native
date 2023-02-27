@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Information about a domain.
+ * Get a domain.
  */
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
@@ -120,7 +120,7 @@ export interface GetDomainResult {
     readonly type: string;
 }
 /**
- * Information about a domain.
+ * Get a domain.
  */
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Cloud Endpoint object.
+ * Get a given CloudEndpoint.
  */
 /** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
@@ -93,7 +93,7 @@ export interface GetCloudEndpointResult {
     readonly type: string;
 }
 /**
- * Cloud Endpoint object.
+ * Get a given CloudEndpoint.
  */
 /** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {

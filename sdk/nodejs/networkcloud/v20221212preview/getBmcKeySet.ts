@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get baseboard management controller key set of the provided cluster.
+ */
 export function getBmcKeySet(args: GetBmcKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBmcKeySetResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,6 +101,9 @@ export interface GetBmcKeySetResult {
      */
     readonly userListStatus: outputs.networkcloud.v20221212preview.KeySetUserStatusResponse[];
 }
+/**
+ * Get baseboard management controller key set of the provided cluster.
+ */
 export function getBmcKeySetOutput(args: GetBmcKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBmcKeySetResult> {
     return pulumi.output(args).apply((a: any) => getBmcKeySet(a, opts))
 }

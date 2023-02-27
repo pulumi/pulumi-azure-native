@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Collection of consent links
+ * Lists the consent links of a connection
  */
 export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionConsentLinksResult> {
 
@@ -50,7 +50,7 @@ export interface ListConnectionConsentLinksResult {
     readonly value?: outputs.web.v20160601.ConsentLinkDefinitionResponse[];
 }
 /**
- * Collection of consent links
+ * Lists the consent links of a connection
  */
 export function listConnectionConsentLinksOutput(args: ListConnectionConsentLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionConsentLinksResult> {
     return pulumi.output(args).apply((a: any) => listConnectionConsentLinks(a, opts))

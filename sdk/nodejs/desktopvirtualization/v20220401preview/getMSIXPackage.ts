@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Schema for MSIX Package properties.
+ * Get a msixpackage.
  */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
 
@@ -101,7 +101,7 @@ export interface GetMSIXPackageResult {
     readonly version?: string;
 }
 /**
- * Schema for MSIX Package properties.
+ * Get a msixpackage.
  */
 export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSIXPackageResult> {
     return pulumi.output(args).apply((a: any) => getMSIXPackage(a, opts))

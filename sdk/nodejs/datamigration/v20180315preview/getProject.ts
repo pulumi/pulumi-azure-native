@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A project resource
+ * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  */
 /** @deprecated Version 2018-03-15-preview will be removed in v2 of the provider. */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
@@ -91,7 +91,7 @@ export interface GetProjectResult {
     readonly type: string;
 }
 /**
- * A project resource
+ * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  */
 /** @deprecated Version 2018-03-15-preview will be removed in v2 of the provider. */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {

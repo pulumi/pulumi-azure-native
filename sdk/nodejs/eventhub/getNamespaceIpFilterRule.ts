@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Single item in a List or Get IpFilterRules operation
+ * Gets an IpFilterRule for a Namespace by rule name.
  * API Version: 2018-01-01-preview.
  */
 export function getNamespaceIpFilterRule(args: GetNamespaceIpFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceIpFilterRuleResult> {
@@ -63,7 +63,7 @@ export interface GetNamespaceIpFilterRuleResult {
     readonly type: string;
 }
 /**
- * Single item in a List or Get IpFilterRules operation
+ * Gets an IpFilterRule for a Namespace by rule name.
  * API Version: 2018-01-01-preview.
  */
 export function getNamespaceIpFilterRuleOutput(args: GetNamespaceIpFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceIpFilterRuleResult> {

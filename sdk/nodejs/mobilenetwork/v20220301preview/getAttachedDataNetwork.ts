@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Attached data network resource.
+ * Gets information about the specified attached data network.
  */
 export function getAttachedDataNetwork(args: GetAttachedDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDataNetworkResult> {
 
@@ -118,7 +118,7 @@ export interface GetAttachedDataNetworkResult {
     readonly userPlaneDataInterface: outputs.mobilenetwork.v20220301preview.InterfacePropertiesResponse;
 }
 /**
- * Attached data network resource.
+ * Gets information about the specified attached data network.
  */
 export function getAttachedDataNetworkOutput(args: GetAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getAttachedDataNetwork(a, opts))

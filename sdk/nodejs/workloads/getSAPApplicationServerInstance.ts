@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Define the SAP Application Server Instance resource.
+ * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
  * API Version: 2021-12-01-preview.
  */
 export function getSAPApplicationServerInstance(args: GetSAPApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPApplicationServerInstanceResult> {
@@ -126,7 +126,7 @@ export interface GetSAPApplicationServerInstanceResult {
     readonly virtualMachineId: string;
 }
 /**
- * Define the SAP Application Server Instance resource.
+ * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
  * API Version: 2021-12-01-preview.
  */
 export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {

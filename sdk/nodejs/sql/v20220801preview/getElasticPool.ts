@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An elastic pool.
+ * Gets an elastic pool.
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
 
@@ -119,7 +119,7 @@ export interface GetElasticPoolResult {
     readonly zoneRedundant?: boolean;
 }
 /**
- * An elastic pool.
+ * Gets an elastic pool.
  */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
     return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))

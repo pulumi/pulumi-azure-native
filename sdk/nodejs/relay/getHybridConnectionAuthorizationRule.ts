@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Description of a namespace authorization rule.
+ * Hybrid connection authorization rule for a hybrid connection by name.
  * API Version: 2017-04-01.
  */
 export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionAuthorizationRuleResult> {
@@ -60,7 +60,7 @@ export interface GetHybridConnectionAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Description of a namespace authorization rule.
+ * Hybrid connection authorization rule for a hybrid connection by name.
  * API Version: 2017-04-01.
  */
 export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {

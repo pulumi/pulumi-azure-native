@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL DW table data set.
+ * Get a DataSet in a share
  */
 export function getSqlDWTableDataSet(args: GetSqlDWTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDWTableDataSetResult> {
 
@@ -80,7 +80,7 @@ export interface GetSqlDWTableDataSetResult {
     readonly type: string;
 }
 /**
- * A SQL DW table data set.
+ * Get a DataSet in a share
  */
 export function getSqlDWTableDataSetOutput(args: GetSqlDWTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetResult> {
     return pulumi.output(args).apply((a: any) => getSqlDWTableDataSet(a, opts))

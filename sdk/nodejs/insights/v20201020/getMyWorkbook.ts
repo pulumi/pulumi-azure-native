@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Application Insights private workbook definition.
+ * Get a single private workbook by its resourceName.
  */
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
 
@@ -100,7 +100,7 @@ export interface GetMyWorkbookResult {
     readonly version?: string;
 }
 /**
- * An Application Insights private workbook definition.
+ * Get a single private workbook by its resourceName.
  */
 export function getMyWorkbookOutput(args: GetMyWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMyWorkbookResult> {
     return pulumi.output(args).apply((a: any) => getMyWorkbook(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Kusto cluster data set mapping
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getKustoClusterDataSetMapping(args: GetKustoClusterDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoClusterDataSetMappingResult> {
 
@@ -80,7 +80,7 @@ export interface GetKustoClusterDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A Kusto cluster data set mapping
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getKustoClusterDataSetMappingOutput(args: GetKustoClusterDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getKustoClusterDataSetMapping(a, opts))

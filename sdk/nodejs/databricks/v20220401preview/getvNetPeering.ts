@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Peerings in a VirtualNetwork resource
+ * Gets the workspace vNet Peering.
  */
 export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetvNetPeeringResult> {
 
@@ -93,7 +93,7 @@ export interface GetvNetPeeringResult {
     readonly useRemoteGateways?: boolean;
 }
 /**
- * Peerings in a VirtualNetwork resource
+ * Gets the workspace vNet Peering.
  */
 export function getvNetPeeringOutput(args: GetvNetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvNetPeeringResult> {
     return pulumi.output(args).apply((a: any) => getvNetPeering(a, opts))

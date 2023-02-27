@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * GetBitLockerKeys response
+ * Returns the BitLocker Keys for all drives in the specified job.
  */
 export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListBitLockerKeyResult> {
 
@@ -40,7 +40,7 @@ export interface ListBitLockerKeyResult {
     readonly value?: outputs.importexport.v20200801.DriveBitLockerKeyResponse[];
 }
 /**
- * GetBitLockerKeys response
+ * Returns the BitLocker Keys for all drives in the specified job.
  */
 export function listBitLockerKeyOutput(args: ListBitLockerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBitLockerKeyResult> {
     return pulumi.output(args).apply((a: any) => listBitLockerKey(a, opts))

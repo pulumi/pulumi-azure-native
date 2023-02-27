@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response for Volume request.
+ * Get an Volume.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
 
@@ -82,7 +82,7 @@ export interface GetVolumeResult {
     readonly volumeId: string;
 }
 /**
- * Response for Volume request.
+ * Get an Volume.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))

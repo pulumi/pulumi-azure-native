@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An object that represents a container registry.
+ * Gets the properties of the specified container registry.
  * API Version: 2019-05-01.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
@@ -93,7 +93,7 @@ export interface GetRegistryResult {
     readonly type: string;
 }
 /**
- * An object that represents a container registry.
+ * Gets the properties of the specified container registry.
  * API Version: 2019-05-01.
  */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {

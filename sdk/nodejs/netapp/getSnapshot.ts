@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Snapshot of a Volume
+ * Get details of the specified snapshot
  * API Version: 2020-12-01.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
@@ -77,7 +77,7 @@ export interface GetSnapshotResult {
     readonly type: string;
 }
 /**
- * Snapshot of a Volume
+ * Get details of the specified snapshot
  * API Version: 2020-12-01.
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {

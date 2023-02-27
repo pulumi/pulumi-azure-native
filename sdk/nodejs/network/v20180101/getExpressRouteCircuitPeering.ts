@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Peering in an ExpressRouteCircuit resource.
+ * Gets the specified authorization from the specified express route circuit.
  */
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
@@ -123,7 +123,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     readonly vlanId?: number;
 }
 /**
- * Peering in an ExpressRouteCircuit resource.
+ * Gets the specified authorization from the specified express route circuit.
  */
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getExpressRouteCircuitPeeringOutput(args: GetExpressRouteCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitPeeringResult> {

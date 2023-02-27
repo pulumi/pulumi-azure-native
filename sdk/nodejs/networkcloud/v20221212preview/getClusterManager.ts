@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get the properties of the provided cluster manager.
+ */
 export function getClusterManager(args: GetClusterManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterManagerResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,6 +97,9 @@ export interface GetClusterManagerResult {
      */
     readonly vmSize?: string;
 }
+/**
+ * Get the properties of the provided cluster manager.
+ */
 export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterManagerResult> {
     return pulumi.output(args).apply((a: any) => getClusterManager(a, opts))
 }

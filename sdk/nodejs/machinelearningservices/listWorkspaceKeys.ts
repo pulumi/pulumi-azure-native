@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
  * API Version: 2021-01-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
@@ -38,6 +39,7 @@ export interface ListWorkspaceKeysResult {
     readonly userStorageResourceId: string;
 }
 /**
+ * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
  * API Version: 2021-01-01.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {

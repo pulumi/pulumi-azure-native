@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Monitor Workspace definition
+ * Returns the specific Azure Monitor workspace
  */
 export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureMonitorWorkspaceResult> {
 
@@ -80,7 +80,7 @@ export interface GetAzureMonitorWorkspaceResult {
     readonly type: string;
 }
 /**
- * An Azure Monitor Workspace definition
+ * Returns the specific Azure Monitor workspace
  */
 export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getAzureMonitorWorkspace(a, opts))

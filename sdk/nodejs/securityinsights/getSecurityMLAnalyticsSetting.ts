@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Security ML Analytics Setting
+ * Gets the Security ML Analytics Settings.
  * API Version: 2022-05-01-preview.
  */
 /** @deprecated Please use one of the variants: AnomalySecurityMLAnalyticsSettings. */
@@ -68,7 +68,7 @@ export interface GetSecurityMLAnalyticsSettingResult {
     readonly type: string;
 }
 /**
- * Security ML Analytics Setting
+ * Gets the Security ML Analytics Settings.
  * API Version: 2022-05-01-preview.
  */
 /** @deprecated Please use one of the variants: AnomalySecurityMLAnalyticsSettings. */

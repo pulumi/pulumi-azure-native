@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Service Registry resource
+ * Get the Service Registry and its properties.
  */
 export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRegistryResult> {
 
@@ -61,7 +61,7 @@ export interface GetServiceRegistryResult {
     readonly type: string;
 }
 /**
- * Service Registry resource
+ * Get the Service Registry and its properties.
  */
 export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRegistryResult> {
     return pulumi.output(args).apply((a: any) => getServiceRegistry(a, opts))

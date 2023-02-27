@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Properties of the file share, including Id, resource name, resource type, Etag.
+ * Gets properties of a specified share.
  */
 /** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
@@ -68,7 +68,7 @@ export interface GetFileShareResult {
     readonly type: string;
 }
 /**
- * Properties of the file share, including Id, resource name, resource type, Etag.
+ * Gets properties of a specified share.
  */
 /** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {

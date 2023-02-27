@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The StorSimple Manager
+ * Returns the properties of the specified manager name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerResult> {
@@ -74,7 +74,7 @@ export interface GetManagerResult {
     readonly type: string;
 }
 /**
- * The StorSimple Manager
+ * Returns the properties of the specified manager name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerResult> {

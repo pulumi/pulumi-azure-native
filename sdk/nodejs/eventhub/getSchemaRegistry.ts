@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Single item in List or Get Schema Group operation
+ * Gets the details of an EventHub schema group.
  * API Version: 2022-01-01-preview.
  */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
@@ -80,7 +80,7 @@ export interface GetSchemaRegistryResult {
     readonly updatedAtUtc: string;
 }
 /**
- * Single item in List or Get Schema Group operation
+ * Gets the details of an EventHub schema group.
  * API Version: 2022-01-01-preview.
  */
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {

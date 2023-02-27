@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Data Lake Store virtual network rule information.
+ * Gets the specified Data Lake Store virtual network rule.
  * API Version: 2016-11-01.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
@@ -55,7 +55,7 @@ export interface GetVirtualNetworkRuleResult {
     readonly type: string;
 }
 /**
- * Data Lake Store virtual network rule information.
+ * Gets the specified Data Lake Store virtual network rule.
  * API Version: 2016-11-01.
  */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {

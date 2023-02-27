@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Hub resource.
+ * Gets information about the specified hub.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
@@ -78,7 +78,7 @@ export interface GetHubResult {
     readonly webEndpoint: string;
 }
 /**
- * Hub resource.
+ * Gets information about the specified hub.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {

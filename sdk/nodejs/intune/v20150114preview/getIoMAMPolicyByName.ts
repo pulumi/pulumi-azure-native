@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * iOS Policy entity for Intune MAM.
+ * Returns Intune iOS policies.
  */
 export function getIoMAMPolicyByName(args: GetIoMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetIoMAMPolicyByNameResult> {
 
@@ -78,7 +78,7 @@ export interface GetIoMAMPolicyByNameResult {
     readonly type: string;
 }
 /**
- * iOS Policy entity for Intune MAM.
+ * Returns Intune iOS policies.
  */
 export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
     return pulumi.output(args).apply((a: any) => getIoMAMPolicyByName(a, opts))

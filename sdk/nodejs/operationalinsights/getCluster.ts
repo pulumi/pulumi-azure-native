@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The top level Log Analytics cluster resource container.
+ * Gets a Log Analytics cluster instance.
  * API Version: 2020-10-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -101,7 +101,7 @@ export interface GetClusterResult {
     readonly type: string;
 }
 /**
- * The top level Log Analytics cluster resource container.
+ * Gets a Log Analytics cluster instance.
  * API Version: 2020-10-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

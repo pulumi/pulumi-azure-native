@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Get Storage Account ManagementPolicies operation response.
+ * Gets the managementpolicy associated with the specified storage account.
  */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
 
@@ -61,7 +61,7 @@ export interface GetManagementPolicyResult {
     readonly type: string;
 }
 /**
- * The Get Storage Account ManagementPolicies operation response.
+ * Gets the managementpolicy associated with the specified storage account.
  */
 export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {
     return pulumi.output(args).apply((a: any) => getManagementPolicy(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The status of the Canonical support plan.
+ * Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
  */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
 
@@ -49,7 +49,7 @@ export interface GetSupportPlanTypeResult {
     readonly type: string;
 }
 /**
- * The status of the Canonical support plan.
+ * Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
  */
 export function getSupportPlanTypeOutput(args: GetSupportPlanTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportPlanTypeResult> {
     return pulumi.output(args).apply((a: any) => getSupportPlanType(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Gateway authentication keys.
+ * Retrieves gateway keys.
  */
 export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListGatewayKeysResult> {
 
@@ -46,7 +46,7 @@ export interface ListGatewayKeysResult {
     readonly secondary?: string;
 }
 /**
- * Gateway authentication keys.
+ * Retrieves gateway keys.
  */
 export function listGatewayKeysOutput(args: ListGatewayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayKeysResult> {
     return pulumi.output(args).apply((a: any) => listGatewayKeys(a, opts))

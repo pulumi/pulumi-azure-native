@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Friendly Routes name mapping to the any Routes or secret related information.
+ * Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
  * API Version: 2020-09-01.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
@@ -116,7 +116,7 @@ export interface GetRouteResult {
     readonly type: string;
 }
 /**
- * Friendly Routes name mapping to the any Routes or secret related information.
+ * Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
  * API Version: 2020-09-01.
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {

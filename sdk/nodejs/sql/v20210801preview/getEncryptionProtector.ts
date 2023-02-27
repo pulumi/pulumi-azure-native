@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The server encryption protector.
+ * Gets a server encryption protector.
  */
 export function getEncryptionProtector(args: GetEncryptionProtectorArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionProtectorResult> {
 
@@ -82,7 +82,7 @@ export interface GetEncryptionProtectorResult {
     readonly uri: string;
 }
 /**
- * The server encryption protector.
+ * Gets a server encryption protector.
  */
 export function getEncryptionProtectorOutput(args: GetEncryptionProtectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionProtectorResult> {
     return pulumi.output(args).apply((a: any) => getEncryptionProtector(a, opts))

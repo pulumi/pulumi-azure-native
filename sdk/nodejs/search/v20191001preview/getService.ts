@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes an Azure Cognitive Search service and its current state.
+ * Gets the Search service with the given name in the given resource group.
  */
 /** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
@@ -98,7 +98,7 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * Describes an Azure Cognitive Search service and its current state.
+ * Gets the Search service with the given name in the given resource group.
  */
 /** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {

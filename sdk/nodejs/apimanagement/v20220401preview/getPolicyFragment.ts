@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Policy fragment contract details.
+ * Gets a policy fragment.
  */
 export function getPolicyFragment(args: GetPolicyFragmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFragmentResult> {
 
@@ -67,7 +67,7 @@ export interface GetPolicyFragmentResult {
     readonly value: string;
 }
 /**
- * Policy fragment contract details.
+ * Gets a policy fragment.
  */
 export function getPolicyFragmentOutput(args: GetPolicyFragmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFragmentResult> {
     return pulumi.output(args).apply((a: any) => getPolicyFragment(a, opts))

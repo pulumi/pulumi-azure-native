@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a Kusto database.
+ * Returns a database.
  * API Version: 2021-04-01-preview.
  */
 /** @deprecated Please use one of the variants: ReadWriteDatabase. */
@@ -73,7 +73,7 @@ export interface GetDatabaseResult {
     readonly type: string;
 }
 /**
- * Class representing a Kusto database.
+ * Returns a database.
  * API Version: 2021-04-01-preview.
  */
 /** @deprecated Please use one of the variants: ReadWriteDatabase. */

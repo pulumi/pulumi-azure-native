@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Role Assignments
+ * Get the specified role assignment.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
 
@@ -102,7 +102,7 @@ export interface GetRoleAssignmentResult {
     readonly updatedOn?: string;
 }
 /**
- * Role Assignments
+ * Get the specified role assignment.
  */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRoleAssignment(a, opts))
