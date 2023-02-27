@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetStaticSitePrivateEndpointConnection
     {
         /// <summary>
-        /// Remote Private Endpoint Connection ARM resource.
+        /// Gets a private endpoint connection
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetStaticSitePrivateEndpointConnectionResult> InvokeAsync(GetStaticSitePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Remote Private Endpoint Connection ARM resource.
+        /// Gets a private endpoint connection
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetStaticSitePrivateEndpointConnectionResult> Invoke(GetStaticSitePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

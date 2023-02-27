@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview
     public static class GetProactiveDetectionConfiguration
     {
         /// <summary>
-        /// A ProactiveDetection configuration definition.
+        /// Get the ProactiveDetection configuration for this configuration id.
         /// </summary>
         public static Task<GetProactiveDetectionConfigurationResult> InvokeAsync(GetProactiveDetectionConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProactiveDetectionConfigurationResult>("azure-native:insights/v20180501preview:getProactiveDetectionConfiguration", args ?? new GetProactiveDetectionConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A ProactiveDetection configuration definition.
+        /// Get the ProactiveDetection configuration for this configuration id.
         /// </summary>
         public static Output<GetProactiveDetectionConfigurationResult> Invoke(GetProactiveDetectionConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProactiveDetectionConfigurationResult>("azure-native:insights/v20180501preview:getProactiveDetectionConfiguration", args ?? new GetProactiveDetectionConfigurationInvokeArgs(), options.WithDefaults());

@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public static class GetDisk
     {
         /// <summary>
-        /// A Disk.
+        /// Get disk.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:devtestlab/v20160515:getDisk", args ?? new GetDiskArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Disk.
+        /// Get disk.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:devtestlab/v20160515:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());

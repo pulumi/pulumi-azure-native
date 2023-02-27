@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
     public static class GetGroup
     {
         /// <summary>
-        /// Contract details.
+        /// Gets the details of the group specified by its identifier.
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:apimanagement/v20200601preview:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Contract details.
+        /// Gets the details of the group specified by its identifier.
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:apimanagement/v20200601preview:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

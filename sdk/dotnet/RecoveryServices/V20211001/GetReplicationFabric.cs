@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001
     public static class GetReplicationFabric
     {
         /// <summary>
-        /// Fabric definition.
+        /// Gets the details of an Azure Site Recovery fabric.
         /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices/v20211001:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Fabric definition.
+        /// Gets the details of an Azure Site Recovery fabric.
         /// </summary>
         public static Output<GetReplicationFabricResult> Invoke(GetReplicationFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices/v20211001:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithDefaults());

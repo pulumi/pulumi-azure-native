@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppFunctionKeys
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Get function keys for a function in a web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppFunctionKeysResult> InvokeAsync(ListWebAppFunctionKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionKeysResult>("azure-native:web:listWebAppFunctionKeys", args ?? new ListWebAppFunctionKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Get function keys for a function in a web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppFunctionKeysResult> Invoke(ListWebAppFunctionKeysInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public static class GetSecret
     {
         /// <summary>
-        /// This type describes a secret resource.
+        /// Gets the information about the secret resource with the given name. The information include the description and other properties of the secret.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:servicefabricmesh:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This type describes a secret resource.
+        /// Gets the information about the secret resource with the given name. The information include the description and other properties of the secret.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)

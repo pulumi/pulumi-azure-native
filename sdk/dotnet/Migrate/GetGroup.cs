@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Migrate
     public static class GetGroup
     {
         /// <summary>
-        /// A group created in a Migration project.
+        /// Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
         /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:migrate:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A group created in a Migration project.
+        /// Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
         /// API Version: 2019-10-01.
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)

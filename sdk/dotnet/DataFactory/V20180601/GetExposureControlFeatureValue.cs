@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     public static class GetExposureControlFeatureValue
     {
         /// <summary>
-        /// The exposure control response.
+        /// Get exposure control feature for specific location.
         /// </summary>
         public static Task<GetExposureControlFeatureValueResult> InvokeAsync(GetExposureControlFeatureValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExposureControlFeatureValueResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValue", args ?? new GetExposureControlFeatureValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The exposure control response.
+        /// Get exposure control feature for specific location.
         /// </summary>
         public static Output<GetExposureControlFeatureValueResult> Invoke(GetExposureControlFeatureValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExposureControlFeatureValueResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValue", args ?? new GetExposureControlFeatureValueInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     public static class GetAuthorizationLoginLinkPost
     {
         /// <summary>
-        /// Authorization login response contract.
+        /// Gets authorization login links.
         /// </summary>
         public static Task<GetAuthorizationLoginLinkPostResult> InvokeAsync(GetAuthorizationLoginLinkPostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationLoginLinkPostResult>("azure-native:apimanagement/v20220801:getAuthorizationLoginLinkPost", args ?? new GetAuthorizationLoginLinkPostArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Authorization login response contract.
+        /// Gets authorization login links.
         /// </summary>
         public static Output<GetAuthorizationLoginLinkPostResult> Invoke(GetAuthorizationLoginLinkPostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationLoginLinkPostResult>("azure-native:apimanagement/v20220801:getAuthorizationLoginLinkPost", args ?? new GetAuthorizationLoginLinkPostInvokeArgs(), options.WithDefaults());

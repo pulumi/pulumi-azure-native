@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.PowerBI
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// 
+        /// Get a specific private endpoint connection for Power BI by private endpoint name.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:powerbi:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Get a specific private endpoint connection for Power BI by private endpoint name.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

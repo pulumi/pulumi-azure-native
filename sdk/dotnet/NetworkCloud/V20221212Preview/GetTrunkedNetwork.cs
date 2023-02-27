@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
     public static class GetTrunkedNetwork
     {
+        /// <summary>
+        /// Get properties of the provided trunked network.
+        /// </summary>
         public static Task<GetTrunkedNetworkResult> InvokeAsync(GetTrunkedNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrunkedNetworkResult>("azure-native:networkcloud/v20221212preview:getTrunkedNetwork", args ?? new GetTrunkedNetworkArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get properties of the provided trunked network.
+        /// </summary>
         public static Output<GetTrunkedNetworkResult> Invoke(GetTrunkedNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrunkedNetworkResult>("azure-native:networkcloud/v20221212preview:getTrunkedNetwork", args ?? new GetTrunkedNetworkInvokeArgs(), options.WithDefaults());
     }

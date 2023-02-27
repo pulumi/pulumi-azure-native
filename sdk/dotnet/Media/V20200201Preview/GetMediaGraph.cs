@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20200201Preview
     public static class GetMediaGraph
     {
         /// <summary>
-        /// The Media Graph.
+        /// Get the details of a Media Graph in the Media Services account.
         /// </summary>
         public static Task<GetMediaGraphResult> InvokeAsync(GetMediaGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-native:media/v20200201preview:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Media Graph.
+        /// Get the details of a Media Graph in the Media Services account.
         /// </summary>
         public static Output<GetMediaGraphResult> Invoke(GetMediaGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaGraphResult>("azure-native:media/v20200201preview:getMediaGraph", args ?? new GetMediaGraphInvokeArgs(), options.WithDefaults());

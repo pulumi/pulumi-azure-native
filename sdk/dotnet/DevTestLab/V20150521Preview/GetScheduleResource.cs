@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     public static class GetScheduleResource
     {
         /// <summary>
-        /// A schedule.
+        /// Get schedule.
         /// </summary>
         public static Task<GetScheduleResourceResult> InvokeAsync(GetScheduleResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResourceResult>("azure-native:devtestlab/v20150521preview:getScheduleResource", args ?? new GetScheduleResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A schedule.
+        /// Get schedule.
         /// </summary>
         public static Output<GetScheduleResourceResult> Invoke(GetScheduleResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResourceResult>("azure-native:devtestlab/v20150521preview:getScheduleResource", args ?? new GetScheduleResourceInvokeArgs(), options.WithDefaults());

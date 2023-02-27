@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.ContainerService.V20160930
     public static class GetContainerService
     {
         /// <summary>
-        /// Container service.
+        /// Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents. 
         /// </summary>
         public static Task<GetContainerServiceResult> InvokeAsync(GetContainerServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-native:containerservice/v20160930:getContainerService", args ?? new GetContainerServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Container service.
+        /// Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents. 
         /// </summary>
         public static Output<GetContainerServiceResult> Invoke(GetContainerServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerServiceResult>("azure-native:containerservice/v20160930:getContainerService", args ?? new GetContainerServiceInvokeArgs(), options.WithDefaults());

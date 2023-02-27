@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetFrontDoor
     {
         /// <summary>
-        /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+        /// Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-native:network:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+        /// Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetFrontDoorResult> Invoke(GetFrontDoorInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20221001Preview
     public static class GetTrafficControllerInterface
     {
         /// <summary>
-        /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
+        /// Get a TrafficController
         /// </summary>
         public static Task<GetTrafficControllerInterfaceResult> InvokeAsync(GetTrafficControllerInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking/v20221001preview:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
+        /// Get a TrafficController
         /// </summary>
         public static Output<GetTrafficControllerInterfaceResult> Invoke(GetTrafficControllerInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficControllerInterfaceResult>("azure-native:servicenetworking/v20221001preview:getTrafficControllerInterface", args ?? new GetTrafficControllerInterfaceInvokeArgs(), options.WithDefaults());

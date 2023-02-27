@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.App.V20220301
     public static class GetManagedEnvironment
     {
         /// <summary>
-        /// An environment for hosting container apps
+        /// Get the properties of a Managed Environment used to host container apps.
         /// </summary>
         public static Task<GetManagedEnvironmentResult> InvokeAsync(GetManagedEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentResult>("azure-native:app/v20220301:getManagedEnvironment", args ?? new GetManagedEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An environment for hosting container apps
+        /// Get the properties of a Managed Environment used to host container apps.
         /// </summary>
         public static Output<GetManagedEnvironmentResult> Invoke(GetManagedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentResult>("azure-native:app/v20220301:getManagedEnvironment", args ?? new GetManagedEnvironmentInvokeArgs(), options.WithDefaults());

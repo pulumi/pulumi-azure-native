@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
     public static class GetPrivateAtlase
     {
         /// <summary>
-        /// An Azure resource which represents which will provision the ability to create private location data.
+        /// [Deprecated] Get a Private Atlas resource.
         /// </summary>
         public static Task<GetPrivateAtlaseResult> InvokeAsync(GetPrivateAtlaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAtlaseResult>("azure-native:maps/v20200201preview:getPrivateAtlase", args ?? new GetPrivateAtlaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure resource which represents which will provision the ability to create private location data.
+        /// [Deprecated] Get a Private Atlas resource.
         /// </summary>
         public static Output<GetPrivateAtlaseResult> Invoke(GetPrivateAtlaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAtlaseResult>("azure-native:maps/v20200201preview:getPrivateAtlase", args ?? new GetPrivateAtlaseInvokeArgs(), options.WithDefaults());

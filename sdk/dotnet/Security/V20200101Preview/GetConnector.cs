@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
     public static class GetConnector
     {
         /// <summary>
-        /// The connector setting
+        /// Details of a specific cloud account connector
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:security/v20200101preview:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The connector setting
+        /// Details of a specific cloud account connector
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:security/v20200101preview:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

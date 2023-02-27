@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20201201
     public static class ListWebAppSitePushSettingsSlot
     {
         /// <summary>
-        /// Push settings for the App.
+        /// Gets the Push settings associated with web app.
         /// </summary>
         public static Task<ListWebAppSitePushSettingsSlotResult> InvokeAsync(ListWebAppSitePushSettingsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsSlotResult>("azure-native:web/v20201201:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Push settings for the App.
+        /// Gets the Push settings associated with web app.
         /// </summary>
         public static Output<ListWebAppSitePushSettingsSlotResult> Invoke(ListWebAppSitePushSettingsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSitePushSettingsSlotResult>("azure-native:web/v20201201:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotInvokeArgs(), options.WithDefaults());

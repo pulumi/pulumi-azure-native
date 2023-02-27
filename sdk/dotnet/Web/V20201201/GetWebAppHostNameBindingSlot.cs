@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20201201
     public static class GetWebAppHostNameBindingSlot
     {
         /// <summary>
-        /// A hostname binding object.
+        /// Get the named hostname binding for an app (or deployment slot, if specified).
         /// </summary>
         public static Task<GetWebAppHostNameBindingSlotResult> InvokeAsync(GetWebAppHostNameBindingSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingSlotResult>("azure-native:web/v20201201:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A hostname binding object.
+        /// Get the named hostname binding for an app (or deployment slot, if specified).
         /// </summary>
         public static Output<GetWebAppHostNameBindingSlotResult> Invoke(GetWebAppHostNameBindingSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHostNameBindingSlotResult>("azure-native:web/v20201201:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotInvokeArgs(), options.WithDefaults());

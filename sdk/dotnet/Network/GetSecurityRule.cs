@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetSecurityRule
     {
         /// <summary>
-        /// Network security rule.
+        /// Get the specified network security rule.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Network security rule.
+        /// Get the specified network security rule.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOptions? options = null)

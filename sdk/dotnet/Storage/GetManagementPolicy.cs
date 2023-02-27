@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Storage
     public static class GetManagementPolicy
     {
         /// <summary>
-        /// The Get Storage Account ManagementPolicies operation response.
+        /// Gets the managementpolicy associated with the specified storage account.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Get Storage Account ManagementPolicies operation response.
+        /// Gets the managementpolicy associated with the specified storage account.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview
     public static class GetPostgresInstance
     {
         /// <summary>
-        /// A Postgres Instance.
+        /// Retrieves a postgres Instance resource
         /// </summary>
         public static Task<GetPostgresInstanceResult> InvokeAsync(GetPostgresInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPostgresInstanceResult>("azure-native:azurearcdata/v20210701preview:getPostgresInstance", args ?? new GetPostgresInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Postgres Instance.
+        /// Retrieves a postgres Instance resource
         /// </summary>
         public static Output<GetPostgresInstanceResult> Invoke(GetPostgresInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostgresInstanceResult>("azure-native:azurearcdata/v20210701preview:getPostgresInstance", args ?? new GetPostgresInstanceInvokeArgs(), options.WithDefaults());

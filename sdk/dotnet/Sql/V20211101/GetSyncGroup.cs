@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20211101
     public static class GetSyncGroup
     {
         /// <summary>
-        /// An Azure SQL Database sync group.
+        /// Gets a sync group.
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:sql/v20211101:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure SQL Database sync group.
+        /// Gets a sync group.
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:sql/v20211101:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());

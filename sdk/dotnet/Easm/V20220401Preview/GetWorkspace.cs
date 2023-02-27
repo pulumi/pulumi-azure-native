@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Easm.V20220401Preview
     public static class GetWorkspace
     {
         /// <summary>
-        /// Workspace details.
+        /// Returns a workspace with the given name.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:easm/v20220401preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workspace details.
+        /// Returns a workspace with the given name.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:easm/v20220401preview:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

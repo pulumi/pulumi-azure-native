@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     public static class GetReplicationPolicy
     {
         /// <summary>
-        /// Protection profile details.
+        /// Gets the details of a replication policy.
         /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationPolicyResult> InvokeAsync(GetReplicationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure-native:recoveryservices:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Protection profile details.
+        /// Gets the details of a replication policy.
         /// API Version: 2018-07-10.
         /// </summary>
         public static Output<GetReplicationPolicyResult> Invoke(GetReplicationPolicyInvokeArgs args, InvokeOptions? options = null)

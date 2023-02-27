@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
     public static class GetDevice
     {
         /// <summary>
-        /// The Data Box Edge/Gateway device.
+        /// Gets the properties of the Data Box Edge/Data Box Gateway device.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:databoxedge/v20190701:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Data Box Edge/Gateway device.
+        /// Gets the properties of the Data Box Edge/Data Box Gateway device.
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:databoxedge/v20190701:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());

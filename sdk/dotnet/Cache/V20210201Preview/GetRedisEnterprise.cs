@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
     public static class GetRedisEnterprise
     {
         /// <summary>
-        /// Describes the RedisEnterprise cluster
+        /// Gets information about a RedisEnterprise cluster
         /// </summary>
         public static Task<GetRedisEnterpriseResult> InvokeAsync(GetRedisEnterpriseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:cache/v20210201preview:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes the RedisEnterprise cluster
+        /// Gets information about a RedisEnterprise cluster
         /// </summary>
         public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:cache/v20210201preview:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithDefaults());

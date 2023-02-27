@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
     public static class GetSqlPoolWorkloadGroup
     {
         /// <summary>
-        /// Workload group operations for a sql pool
+        /// Get a Sql pool's workload group.
         /// </summary>
         public static Task<GetSqlPoolWorkloadGroupResult> InvokeAsync(GetSqlPoolWorkloadGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadGroupResult>("azure-native:synapse/v20190601preview:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workload group operations for a sql pool
+        /// Get a Sql pool's workload group.
         /// </summary>
         public static Output<GetSqlPoolWorkloadGroupResult> Invoke(GetSqlPoolWorkloadGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadGroupResult>("azure-native:synapse/v20190601preview:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupInvokeArgs(), options.WithDefaults());

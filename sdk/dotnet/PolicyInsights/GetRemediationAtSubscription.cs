@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.PolicyInsights
     public static class GetRemediationAtSubscription
     {
         /// <summary>
-        /// The remediation definition.
+        /// Gets an existing remediation at subscription scope.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Task<GetRemediationAtSubscriptionResult> InvokeAsync(GetRemediationAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtSubscriptionResult>("azure-native:policyinsights:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The remediation definition.
+        /// Gets an existing remediation at subscription scope.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Output<GetRemediationAtSubscriptionResult> Invoke(GetRemediationAtSubscriptionInvokeArgs args, InvokeOptions? options = null)

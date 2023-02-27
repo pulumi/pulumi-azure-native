@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
     public static class GetConnectorDryrun
     {
         /// <summary>
-        /// a dryrun job resource
+        /// get a dryrun job
         /// </summary>
         public static Task<GetConnectorDryrunResult> InvokeAsync(GetConnectorDryrunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorDryrunResult>("azure-native:servicelinker/v20221101preview:getConnectorDryrun", args ?? new GetConnectorDryrunArgs(), options.WithDefaults());
 
         /// <summary>
-        /// a dryrun job resource
+        /// get a dryrun job
         /// </summary>
         public static Output<GetConnectorDryrunResult> Invoke(GetConnectorDryrunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorDryrunResult>("azure-native:servicelinker/v20221101preview:getConnectorDryrun", args ?? new GetConnectorDryrunInvokeArgs(), options.WithDefaults());

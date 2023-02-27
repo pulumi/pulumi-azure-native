@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListStaticSiteUsers
     {
         /// <summary>
-        /// Collection of static site custom users.
+        /// Gets the list of users of a static site.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListStaticSiteUsersResult> InvokeAsync(ListStaticSiteUsersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-native:web:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collection of static site custom users.
+        /// Gets the list of users of a static site.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListStaticSiteUsersResult> Invoke(ListStaticSiteUsersInvokeArgs args, InvokeOptions? options = null)

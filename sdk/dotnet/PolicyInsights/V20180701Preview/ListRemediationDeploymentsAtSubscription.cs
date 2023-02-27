@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
     public static class ListRemediationDeploymentsAtSubscription
     {
         /// <summary>
-        /// List of deployments for a remediation.
+        /// Gets all deployments for a remediation at subscription scope.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtSubscriptionResult> InvokeAsync(ListRemediationDeploymentsAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20180701preview:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of deployments for a remediation.
+        /// Gets all deployments for a remediation at subscription scope.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtSubscriptionResult> Invoke(ListRemediationDeploymentsAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20180701preview:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionInvokeArgs(), options.WithDefaults());

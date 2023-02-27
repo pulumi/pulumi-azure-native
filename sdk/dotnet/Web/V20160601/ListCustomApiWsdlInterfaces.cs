@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20160601
     public static class ListCustomApiWsdlInterfaces
     {
         /// <summary>
-        /// A list of custom API WSDL interfaces
+        /// This returns the list of interfaces in the WSDL
         /// </summary>
         public static Task<ListCustomApiWsdlInterfacesResult> InvokeAsync(ListCustomApiWsdlInterfacesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCustomApiWsdlInterfacesResult>("azure-native:web/v20160601:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A list of custom API WSDL interfaces
+        /// This returns the list of interfaces in the WSDL
         /// </summary>
         public static Output<ListCustomApiWsdlInterfacesResult> Invoke(ListCustomApiWsdlInterfacesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCustomApiWsdlInterfacesResult>("azure-native:web/v20160601:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesInvokeArgs(), options.WithDefaults());

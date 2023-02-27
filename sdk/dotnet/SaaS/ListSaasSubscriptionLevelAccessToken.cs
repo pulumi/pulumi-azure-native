@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SaaS
     public static class ListSaasSubscriptionLevelAccessToken
     {
         /// <summary>
-        /// the ISV access token result response.
+        /// Gets the ISV access token for a specified Subscription Level SaaS.
         /// API Version: 2018-03-01-beta.
         /// </summary>
         public static Task<ListSaasSubscriptionLevelAccessTokenResult> InvokeAsync(ListSaasSubscriptionLevelAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSaasSubscriptionLevelAccessTokenResult>("azure-native:saas:listSaasSubscriptionLevelAccessToken", args ?? new ListSaasSubscriptionLevelAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
-        /// the ISV access token result response.
+        /// Gets the ISV access token for a specified Subscription Level SaaS.
         /// API Version: 2018-03-01-beta.
         /// </summary>
         public static Output<ListSaasSubscriptionLevelAccessTokenResult> Invoke(ListSaasSubscriptionLevelAccessTokenInvokeArgs args, InvokeOptions? options = null)

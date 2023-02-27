@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public static class GetServiceRunner
     {
         /// <summary>
-        /// A container for a managed identity to execute DevTest lab services.
+        /// Get service runner.
         /// </summary>
         public static Task<GetServiceRunnerResult> InvokeAsync(GetServiceRunnerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceRunnerResult>("azure-native:devtestlab/v20160515:getServiceRunner", args ?? new GetServiceRunnerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A container for a managed identity to execute DevTest lab services.
+        /// Get service runner.
         /// </summary>
         public static Output<GetServiceRunnerResult> Invoke(GetServiceRunnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceRunnerResult>("azure-native:devtestlab/v20160515:getServiceRunner", args ?? new GetServiceRunnerInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public static class GetSpacecraft
     {
         /// <summary>
-        /// Customer creates a spacecraft resource to schedule a contact.
+        /// Gets the specified spacecraft in a specified resource group.
         /// </summary>
         public static Task<GetSpacecraftResult> InvokeAsync(GetSpacecraftArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpacecraftResult>("azure-native:orbital/v20220301:getSpacecraft", args ?? new GetSpacecraftArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Customer creates a spacecraft resource to schedule a contact.
+        /// Gets the specified spacecraft in a specified resource group.
         /// </summary>
         public static Output<GetSpacecraftResult> Invoke(GetSpacecraftInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpacecraftResult>("azure-native:orbital/v20220301:getSpacecraft", args ?? new GetSpacecraftInvokeArgs(), options.WithDefaults());

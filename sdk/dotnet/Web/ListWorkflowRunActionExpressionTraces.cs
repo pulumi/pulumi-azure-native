@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListWorkflowRunActionExpressionTraces
     {
         /// <summary>
-        /// The expression traces.
+        /// Lists a workflow run expression trace.
         /// API Version: 2022-03-01.
         /// </summary>
         public static Task<ListWorkflowRunActionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionExpressionTracesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-native:web:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The expression traces.
+        /// Lists a workflow run expression trace.
         /// API Version: 2022-03-01.
         /// </summary>
         public static Output<ListWorkflowRunActionExpressionTracesResult> Invoke(ListWorkflowRunActionExpressionTracesInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20210901
     public static class GetExtension
     {
         /// <summary>
-        /// The Extension object.
+        /// Gets Kubernetes Cluster Extension.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:kubernetesconfiguration/v20210901:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Extension object.
+        /// Gets Kubernetes Cluster Extension.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:kubernetesconfiguration/v20210901:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());

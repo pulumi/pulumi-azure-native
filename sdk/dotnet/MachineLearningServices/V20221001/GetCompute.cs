@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001
     public static class GetCompute
     {
         /// <summary>
-        /// Machine Learning compute object wrapped into ARM resource envelope.
+        /// Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
         /// </summary>
         public static Task<GetComputeResult> InvokeAsync(GetComputeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeResult>("azure-native:machinelearningservices/v20221001:getCompute", args ?? new GetComputeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Machine Learning compute object wrapped into ARM resource envelope.
+        /// Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
         /// </summary>
         public static Output<GetComputeResult> Invoke(GetComputeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeResult>("azure-native:machinelearningservices/v20221001:getCompute", args ?? new GetComputeInvokeArgs(), options.WithDefaults());

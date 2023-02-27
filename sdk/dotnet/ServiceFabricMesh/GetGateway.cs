@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public static class GetGateway
     {
         /// <summary>
-        /// This type describes a gateway resource.
+        /// Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:servicefabricmesh:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This type describes a gateway resource.
+        /// Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)

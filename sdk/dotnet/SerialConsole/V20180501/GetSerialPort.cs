@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
     public static class GetSerialPort
     {
         /// <summary>
-        /// Represents the serial port of the parent resource.
+        /// Gets the configured settings for a serial port
         /// </summary>
         public static Task<GetSerialPortResult> InvokeAsync(GetSerialPortArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents the serial port of the parent resource.
+        /// Gets the configured settings for a serial port
         /// </summary>
         public static Output<GetSerialPortResult> Invoke(GetSerialPortInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortInvokeArgs(), options.WithDefaults());

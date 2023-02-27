@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetDatabase
     {
         /// <summary>
-        /// Class representing a Kusto database.
+        /// Returns a database.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:synapse:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a Kusto database.
+        /// Returns a database.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)

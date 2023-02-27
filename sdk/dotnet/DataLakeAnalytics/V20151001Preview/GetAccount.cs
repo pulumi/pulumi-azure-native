@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
     public static class GetAccount
     {
         /// <summary>
-        /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+        /// Gets details of the specified Data Lake Analytics account.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:datalakeanalytics/v20151001preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+        /// Gets details of the specified Data Lake Analytics account.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakeanalytics/v20151001preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

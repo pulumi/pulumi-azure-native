@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets the specified private endpoint connection associated with the service.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:healthcareapis/v20210601preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets the specified private endpoint connection associated with the service.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:healthcareapis/v20210601preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

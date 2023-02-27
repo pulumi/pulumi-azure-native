@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automation
     public static class GetCertificate
     {
         /// <summary>
-        /// Definition of the certificate.
+        /// Retrieve the certificate identified by certificate name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:automation:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the certificate.
+        /// Retrieve the certificate identified by certificate name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)

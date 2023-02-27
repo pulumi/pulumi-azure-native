@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class ListFirewallPolicyIdpsSignaturesFilterValue
     {
         /// <summary>
-        /// Describes the list of all possible values for a specific filter value
+        /// Retrieves the current filter values for the signatures overrides
         /// API Version: 2022-01-01.
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignaturesFilterValueResult> InvokeAsync(ListFirewallPolicyIdpsSignaturesFilterValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes the list of all possible values for a specific filter value
+        /// Retrieves the current filter values for the signatures overrides
         /// API Version: 2022-01-01.
         /// </summary>
         public static Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> Invoke(ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs args, InvokeOptions? options = null)

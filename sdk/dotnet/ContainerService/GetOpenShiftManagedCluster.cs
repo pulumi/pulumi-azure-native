@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ContainerService
     public static class GetOpenShiftManagedCluster
     {
         /// <summary>
-        /// OpenShift Managed cluster.
+        /// Gets the details of the managed OpenShift cluster with a specified resource group and name.
         /// API Version: 2019-04-30.
         /// </summary>
         public static Task<GetOpenShiftManagedClusterResult> InvokeAsync(GetOpenShiftManagedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftManagedClusterResult>("azure-native:containerservice:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// OpenShift Managed cluster.
+        /// Gets the details of the managed OpenShift cluster with a specified resource group and name.
         /// API Version: 2019-04-30.
         /// </summary>
         public static Output<GetOpenShiftManagedClusterResult> Invoke(GetOpenShiftManagedClusterInvokeArgs args, InvokeOptions? options = null)

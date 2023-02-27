@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetOutboundFirewallRule
     {
         /// <summary>
-        /// An Azure SQL DB Server Outbound Firewall Rule.
+        /// Gets an outbound firewall rule.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetOutboundFirewallRuleResult> InvokeAsync(GetOutboundFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutboundFirewallRuleResult>("azure-native:sql:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure SQL DB Server Outbound Firewall Rule.
+        /// Gets an outbound firewall rule.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetOutboundFirewallRuleResult> Invoke(GetOutboundFirewallRuleInvokeArgs args, InvokeOptions? options = null)

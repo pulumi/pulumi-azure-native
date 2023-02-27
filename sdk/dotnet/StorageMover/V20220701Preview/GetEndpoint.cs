@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     public static class GetEndpoint
     {
         /// <summary>
-        /// The Endpoint resource, which contains information about file sources and targets.
+        /// Gets an Endpoint resource.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:storagemover/v20220701preview:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Endpoint resource, which contains information about file sources and targets.
+        /// Gets an Endpoint resource.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:storagemover/v20220701preview:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());

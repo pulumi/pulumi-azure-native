@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Relay.V20160701
     public static class GetWCFRelay
     {
         /// <summary>
-        /// Description of WcfRelays Resource.
+        /// Returns the description for the specified WCFRelays.
         /// </summary>
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-native:relay/v20160701:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of WcfRelays Resource.
+        /// Returns the description for the specified WCFRelays.
         /// </summary>
         public static Output<GetWCFRelayResult> Invoke(GetWCFRelayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWCFRelayResult>("azure-native:relay/v20160701:getWCFRelay", args ?? new GetWCFRelayInvokeArgs(), options.WithDefaults());

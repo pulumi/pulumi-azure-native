@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20220301
     public static class ListWebAppApplicationSettings
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Description for Gets the application settings of an app.
         /// </summary>
         public static Task<ListWebAppApplicationSettingsResult> InvokeAsync(ListWebAppApplicationSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsResult>("azure-native:web/v20220301:listWebAppApplicationSettings", args ?? new ListWebAppApplicationSettingsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Description for Gets the application settings of an app.
         /// </summary>
         public static Output<ListWebAppApplicationSettingsResult> Invoke(ListWebAppApplicationSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppApplicationSettingsResult>("azure-native:web/v20220301:listWebAppApplicationSettings", args ?? new ListWebAppApplicationSettingsInvokeArgs(), options.WithDefaults());

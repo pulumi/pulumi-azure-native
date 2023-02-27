@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevTestLab
     public static class ListVirtualMachineApplicableSchedules
     {
         /// <summary>
-        /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+        /// Lists the applicable start/stop schedules, if any.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<ListVirtualMachineApplicableSchedulesResult> InvokeAsync(ListVirtualMachineApplicableSchedulesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+        /// Lists the applicable start/stop schedules, if any.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<ListVirtualMachineApplicableSchedulesResult> Invoke(ListVirtualMachineApplicableSchedulesInvokeArgs args, InvokeOptions? options = null)

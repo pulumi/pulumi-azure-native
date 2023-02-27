@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     public static class GetTrigger
     {
         /// <summary>
-        /// Trigger details.
+        /// Get a specific trigger by name.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:databoxedge/v20200901preview:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Trigger details.
+        /// Get a specific trigger by name.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:databoxedge/v20200901preview:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());

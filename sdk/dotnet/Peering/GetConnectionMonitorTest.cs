@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Peering
     public static class GetConnectionMonitorTest
     {
         /// <summary>
-        /// The Connection Monitor Test class.
+        /// Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
         /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetConnectionMonitorTestResult> InvokeAsync(GetConnectionMonitorTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Connection Monitor Test class.
+        /// Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
         /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOptions? options = null)

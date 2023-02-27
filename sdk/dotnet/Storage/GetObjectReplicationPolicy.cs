@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Storage
     public static class GetObjectReplicationPolicy
     {
         /// <summary>
-        /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+        /// Get the object replication policy of the storage account by policy ID.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+        /// Get the object replication policy of the storage account by policy ID.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetObjectReplicationPolicyResult> Invoke(GetObjectReplicationPolicyInvokeArgs args, InvokeOptions? options = null)

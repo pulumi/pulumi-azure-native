@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Marketplace
     public static class ListPrivateStoreSubscriptionsContext
     {
         /// <summary>
-        /// List of subscription Ids in the private store
+        /// List all the subscriptions in the private store context
         /// API Version: 2021-12-01.
         /// </summary>
         public static Task<ListPrivateStoreSubscriptionsContextResult> InvokeAsync(ListPrivateStoreSubscriptionsContextArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreSubscriptionsContextResult>("azure-native:marketplace:listPrivateStoreSubscriptionsContext", args ?? new ListPrivateStoreSubscriptionsContextArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of subscription Ids in the private store
+        /// List all the subscriptions in the private store context
         /// API Version: 2021-12-01.
         /// </summary>
         public static Output<ListPrivateStoreSubscriptionsContextResult> Invoke(ListPrivateStoreSubscriptionsContextInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Kusto
     public static class GetIotHubDataConnection
     {
         /// <summary>
-        /// Class representing an iot hub data connection.
+        /// Returns a data connection.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetIotHubDataConnectionResult> InvokeAsync(GetIotHubDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:kusto:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing an iot hub data connection.
+        /// Returns a data connection.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetDefaultUserRule
     {
         /// <summary>
-        /// Network security default user rule.
+        /// Gets a user rule.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetDefaultUserRuleResult> InvokeAsync(GetDefaultUserRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultUserRuleResult>("azure-native:network:getDefaultUserRule", args ?? new GetDefaultUserRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Network security default user rule.
+        /// Gets a user rule.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetDefaultUserRuleResult> Invoke(GetDefaultUserRuleInvokeArgs args, InvokeOptions? options = null)

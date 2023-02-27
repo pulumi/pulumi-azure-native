@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     public static class GetWorkspace
     {
         /// <summary>
-        /// A workspace
+        /// Gets a workspace
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:synapse/v20201201:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A workspace
+        /// Gets a workspace
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:synapse/v20201201:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
     public static class GetProject
     {
         /// <summary>
-        /// The Project resource.
+        /// Gets a Project resource.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:storagemover/v20230301:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Project resource.
+        /// Gets a Project resource.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:storagemover/v20230301:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());

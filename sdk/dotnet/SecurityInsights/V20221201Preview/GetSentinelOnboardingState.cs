@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
     public static class GetSentinelOnboardingState
     {
         /// <summary>
-        /// Sentinel onboarding state
+        /// Get Sentinel onboarding state
         /// </summary>
         public static Task<GetSentinelOnboardingStateResult> InvokeAsync(GetSentinelOnboardingStateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSentinelOnboardingStateResult>("azure-native:securityinsights/v20221201preview:getSentinelOnboardingState", args ?? new GetSentinelOnboardingStateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Sentinel onboarding state
+        /// Get Sentinel onboarding state
         /// </summary>
         public static Output<GetSentinelOnboardingStateResult> Invoke(GetSentinelOnboardingStateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSentinelOnboardingStateResult>("azure-native:securityinsights/v20221201preview:getSentinelOnboardingState", args ?? new GetSentinelOnboardingStateInvokeArgs(), options.WithDefaults());

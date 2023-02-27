@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     public static class GetAssessment
     {
         /// <summary>
-        /// Security assessment on a resource
+        /// Get a security assessment on your scanned resource
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security/v20190101preview:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security assessment on a resource
+        /// Get a security assessment on your scanned resource
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security/v20190101preview:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());

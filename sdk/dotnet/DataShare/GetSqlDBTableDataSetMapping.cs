@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class GetSqlDBTableDataSetMapping
     {
         /// <summary>
-        /// A SQL DB Table data set mapping.
+        /// Get a DataSetMapping in a shareSubscription
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSqlDBTableDataSetMappingResult> InvokeAsync(GetSqlDBTableDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetMappingResult>("azure-native:datashare:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A SQL DB Table data set mapping.
+        /// Get a DataSetMapping in a shareSubscription
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetSqlDBTableDataSetMappingResult> Invoke(GetSqlDBTableDataSetMappingInvokeArgs args, InvokeOptions? options = null)

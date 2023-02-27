@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
     public static class GetAccessReviewScheduleDefinitionById
     {
         /// <summary>
-        /// Access Review Schedule Definition.
+        /// Get single access review definition
         /// </summary>
         public static Task<GetAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetAccessReviewScheduleDefinitionByIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization/v20211116preview:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Access Review Schedule Definition.
+        /// Get single access review definition
         /// </summary>
         public static Output<GetAccessReviewScheduleDefinitionByIdResult> Invoke(GetAccessReviewScheduleDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization/v20211116preview:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());

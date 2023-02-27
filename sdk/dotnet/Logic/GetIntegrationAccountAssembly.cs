@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Logic
     public static class GetIntegrationAccountAssembly
     {
         /// <summary>
-        /// The assembly definition.
+        /// Get an assembly for an integration account.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountAssemblyResult> InvokeAsync(GetIntegrationAccountAssemblyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAssemblyResult>("azure-native:logic:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The assembly definition.
+        /// Get an assembly for an integration account.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationAccountAssemblyResult> Invoke(GetIntegrationAccountAssemblyInvokeArgs args, InvokeOptions? options = null)

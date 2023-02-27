@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StorSimple
     public static class GetVolume
     {
         /// <summary>
-        /// The volume.
+        /// Returns the properties of the specified volume name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:storsimple:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The volume.
+        /// Returns the properties of the specified volume name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)

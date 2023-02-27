@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221001
     public static class GetPrivateEndpointConnectionProxy
     {
         /// <summary>
-        /// Private endpoint connection proxy details.
+        /// (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionProxyResult> InvokeAsync(GetPrivateEndpointConnectionProxyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionProxyResult>("azure-native:deviceupdate/v20221001:getPrivateEndpointConnectionProxy", args ?? new GetPrivateEndpointConnectionProxyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private endpoint connection proxy details.
+        /// (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionProxyResult> Invoke(GetPrivateEndpointConnectionProxyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionProxyResult>("azure-native:deviceupdate/v20221001:getPrivateEndpointConnectionProxy", args ?? new GetPrivateEndpointConnectionProxyInvokeArgs(), options.WithDefaults());

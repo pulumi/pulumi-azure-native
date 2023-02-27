@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HanaOnAzure
     public static class GetHanaInstance
     {
         /// <summary>
-        /// HANA instance info on Azure (ARM properties and HANA properties)
+        /// Gets properties of a SAP HANA instance for the specified subscription, resource group, and instance name.
         /// API Version: 2017-11-03-preview.
         /// </summary>
         public static Task<GetHanaInstanceResult> InvokeAsync(GetHanaInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-native:hanaonazure:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// HANA instance info on Azure (ARM properties and HANA properties)
+        /// Gets properties of a SAP HANA instance for the specified subscription, resource group, and instance name.
         /// API Version: 2017-11-03-preview.
         /// </summary>
         public static Output<GetHanaInstanceResult> Invoke(GetHanaInstanceInvokeArgs args, InvokeOptions? options = null)

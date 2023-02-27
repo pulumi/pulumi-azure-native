@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class GetRule
     {
         /// <summary>
-        /// Description of Rule Resource.
+        /// Retrieves the description for the specified rule.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:servicebus:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of Rule Resource.
+        /// Retrieves the description for the specified rule.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)

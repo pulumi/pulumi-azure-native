@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20220801
     public static class GetAsset
     {
         /// <summary>
-        /// An Asset.
+        /// Get the details of an Asset in the Media Services account
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:media/v20220801:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Asset.
+        /// Get the details of an Asset in the Media Services account
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media/v20220801:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());

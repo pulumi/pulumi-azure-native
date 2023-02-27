@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200301
     public static class GetLocalNetworkGateway
     {
         /// <summary>
-        /// A common class for general resource information.
+        /// Gets the specified local network gateway in a resource group.
         /// </summary>
         public static Task<GetLocalNetworkGatewayResult> InvokeAsync(GetLocalNetworkGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalNetworkGatewayResult>("azure-native:network/v20200301:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A common class for general resource information.
+        /// Gets the specified local network gateway in a resource group.
         /// </summary>
         public static Output<GetLocalNetworkGatewayResult> Invoke(GetLocalNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNetworkGatewayResult>("azure-native:network/v20200301:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayInvokeArgs(), options.WithDefaults());

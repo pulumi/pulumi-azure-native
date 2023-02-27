@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20210301
     public static class GetIntegrationRuntimeStatus
     {
         /// <summary>
-        /// Integration runtime status response.
+        /// Get the integration runtime status
         /// </summary>
         public static Task<GetIntegrationRuntimeStatusResult> InvokeAsync(GetIntegrationRuntimeStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeStatusResult>("azure-native:synapse/v20210301:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Integration runtime status response.
+        /// Get the integration runtime status
         /// </summary>
         public static Output<GetIntegrationRuntimeStatusResult> Invoke(GetIntegrationRuntimeStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeStatusResult>("azure-native:synapse/v20210301:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusInvokeArgs(), options.WithDefaults());

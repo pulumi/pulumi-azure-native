@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
     public static class GetSecurityConnectorApplication
     {
         /// <summary>
-        /// Security Application over a given scope
+        /// Get a specific application for the requested scope by applicationId
         /// </summary>
         public static Task<GetSecurityConnectorApplicationResult> InvokeAsync(GetSecurityConnectorApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConnectorApplicationResult>("azure-native:security/v20220701preview:getSecurityConnectorApplication", args ?? new GetSecurityConnectorApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security Application over a given scope
+        /// Get a specific application for the requested scope by applicationId
         /// </summary>
         public static Output<GetSecurityConnectorApplicationResult> Invoke(GetSecurityConnectorApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorApplicationResult>("azure-native:security/v20220701preview:getSecurityConnectorApplication", args ?? new GetSecurityConnectorApplicationInvokeArgs(), options.WithDefaults());

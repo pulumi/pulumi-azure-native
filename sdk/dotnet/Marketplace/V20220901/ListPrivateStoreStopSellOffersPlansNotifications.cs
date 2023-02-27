@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Marketplace.V20220901
     public static class ListPrivateStoreStopSellOffersPlansNotifications
     {
         /// <summary>
-        /// List of stop sell offers and plans notifications.
+        /// List stop sell notifications for both stop sell offers and stop sell plans
         /// </summary>
         public static Task<ListPrivateStoreStopSellOffersPlansNotificationsResult> InvokeAsync(ListPrivateStoreStopSellOffersPlansNotificationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreStopSellOffersPlansNotificationsResult>("azure-native:marketplace/v20220901:listPrivateStoreStopSellOffersPlansNotifications", args ?? new ListPrivateStoreStopSellOffersPlansNotificationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of stop sell offers and plans notifications.
+        /// List stop sell notifications for both stop sell offers and stop sell plans
         /// </summary>
         public static Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> Invoke(ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreStopSellOffersPlansNotificationsResult>("azure-native:marketplace/v20220901:listPrivateStoreStopSellOffersPlansNotifications", args ?? new ListPrivateStoreStopSellOffersPlansNotificationsInvokeArgs(), options.WithDefaults());

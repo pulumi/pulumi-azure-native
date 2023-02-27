@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public static class ListEndpointCredentials
     {
         /// <summary>
-        /// The endpoint access for the target resource.
+        /// Gets the endpoint access credentials to the resource.
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<ListEndpointCredentialsResult> InvokeAsync(ListEndpointCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The endpoint access for the target resource.
+        /// Gets the endpoint access credentials to the resource.
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<ListEndpointCredentialsResult> Invoke(ListEndpointCredentialsInvokeArgs args, InvokeOptions? options = null)

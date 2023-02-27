@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Maps
     public static class GetCreator
     {
         /// <summary>
-        /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+        /// Get a Maps Creator resource.
         /// API Version: 2020-02-01-preview.
         /// </summary>
         public static Task<GetCreatorResult> InvokeAsync(GetCreatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azure-native:maps:getCreator", args ?? new GetCreatorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+        /// Get a Maps Creator resource.
         /// API Version: 2020-02-01-preview.
         /// </summary>
         public static Output<GetCreatorResult> Invoke(GetCreatorInvokeArgs args, InvokeOptions? options = null)

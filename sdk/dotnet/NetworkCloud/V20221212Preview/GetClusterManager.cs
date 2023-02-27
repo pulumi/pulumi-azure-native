@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
     public static class GetClusterManager
     {
+        /// <summary>
+        /// Get the properties of the provided cluster manager.
+        /// </summary>
         public static Task<GetClusterManagerResult> InvokeAsync(GetClusterManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterManagerResult>("azure-native:networkcloud/v20221212preview:getClusterManager", args ?? new GetClusterManagerArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get the properties of the provided cluster manager.
+        /// </summary>
         public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud/v20221212preview:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());
     }

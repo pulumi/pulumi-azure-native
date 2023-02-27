@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220901
     public static class GetSecurityAdminConfiguration
     {
         /// <summary>
-        /// Defines the security admin configuration
+        /// Retrieves a network manager security admin configuration.
         /// </summary>
         public static Task<GetSecurityAdminConfigurationResult> InvokeAsync(GetSecurityAdminConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityAdminConfigurationResult>("azure-native:network/v20220901:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the security admin configuration
+        /// Retrieves a network manager security admin configuration.
         /// </summary>
         public static Output<GetSecurityAdminConfigurationResult> Invoke(GetSecurityAdminConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityAdminConfigurationResult>("azure-native:network/v20220901:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationInvokeArgs(), options.WithDefaults());

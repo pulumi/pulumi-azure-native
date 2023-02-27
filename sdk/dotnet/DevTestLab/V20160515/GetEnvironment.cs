@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public static class GetEnvironment
     {
         /// <summary>
-        /// An environment, which is essentially an ARM template deployment.
+        /// Get environment.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:devtestlab/v20160515:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An environment, which is essentially an ARM template deployment.
+        /// Get environment.
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:devtestlab/v20160515:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());

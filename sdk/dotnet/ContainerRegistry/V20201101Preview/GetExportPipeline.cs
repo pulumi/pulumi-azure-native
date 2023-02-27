@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
     public static class GetExportPipeline
     {
         /// <summary>
-        /// An object that represents an export pipeline for a container registry.
+        /// Gets the properties of the export pipeline.
         /// </summary>
         public static Task<GetExportPipelineResult> InvokeAsync(GetExportPipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportPipelineResult>("azure-native:containerregistry/v20201101preview:getExportPipeline", args ?? new GetExportPipelineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents an export pipeline for a container registry.
+        /// Gets the properties of the export pipeline.
         /// </summary>
         public static Output<GetExportPipelineResult> Invoke(GetExportPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportPipelineResult>("azure-native:containerregistry/v20201101preview:getExportPipeline", args ?? new GetExportPipelineInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
     public static class GetguestDiagnosticsSetting
     {
         /// <summary>
-        /// Virtual machine guest diagnostics settings resource.
+        /// Gets guest diagnostics settings.
         /// </summary>
         public static Task<GetguestDiagnosticsSettingResult> InvokeAsync(GetguestDiagnosticsSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azure-native:insights/v20180601preview:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Virtual machine guest diagnostics settings resource.
+        /// Gets guest diagnostics settings.
         /// </summary>
         public static Output<GetguestDiagnosticsSettingResult> Invoke(GetguestDiagnosticsSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetguestDiagnosticsSettingResult>("azure-native:insights/v20180601preview:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingInvokeArgs(), options.WithDefaults());

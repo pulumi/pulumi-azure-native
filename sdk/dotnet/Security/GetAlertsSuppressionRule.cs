@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Security
     public static class GetAlertsSuppressionRule
     {
         /// <summary>
-        /// Describes the suppression rule
+        /// Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetAlertsSuppressionRuleResult> InvokeAsync(GetAlertsSuppressionRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertsSuppressionRuleResult>("azure-native:security:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes the suppression rule
+        /// Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Output<GetAlertsSuppressionRuleResult> Invoke(GetAlertsSuppressionRuleInvokeArgs args, InvokeOptions? options = null)

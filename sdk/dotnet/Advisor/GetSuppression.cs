@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Advisor
     public static class GetSuppression
     {
         /// <summary>
-        /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+        /// Obtains the details of a suppression.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+        /// Obtains the details of a suppression.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOptions? options = null)

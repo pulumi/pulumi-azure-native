@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
     public static class GetWebPubSubHub
     {
         /// <summary>
-        /// A hub setting
+        /// Get a hub setting.
         /// </summary>
         public static Task<GetWebPubSubHubResult> InvokeAsync(GetWebPubSubHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubHubResult>("azure-native:webpubsub/v20211001:getWebPubSubHub", args ?? new GetWebPubSubHubArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A hub setting
+        /// Get a hub setting.
         /// </summary>
         public static Output<GetWebPubSubHubResult> Invoke(GetWebPubSubHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubHubResult>("azure-native:webpubsub/v20211001:getWebPubSubHub", args ?? new GetWebPubSubHubInvokeArgs(), options.WithDefaults());

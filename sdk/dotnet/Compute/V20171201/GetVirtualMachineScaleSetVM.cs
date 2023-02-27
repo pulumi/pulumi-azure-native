@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Compute.V20171201
     public static class GetVirtualMachineScaleSetVM
     {
         /// <summary>
-        /// Describes a virtual machine scale set virtual machine.
+        /// Gets a virtual machine from a VM scale set.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMResult> InvokeAsync(GetVirtualMachineScaleSetVMArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-native:compute/v20171201:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a virtual machine scale set virtual machine.
+        /// Gets a virtual machine from a VM scale set.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMResult> Invoke(GetVirtualMachineScaleSetVMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMResult>("azure-native:compute/v20171201:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMInvokeArgs(), options.WithDefaults());

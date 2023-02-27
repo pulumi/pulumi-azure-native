@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
     public static class ListBlockchainMemberApiKeys
     {
         /// <summary>
-        /// Collection of the API key payload which is exposed in the response of the resource provider.
+        /// Lists the API keys for a blockchain member.
         /// </summary>
         public static Task<ListBlockchainMemberApiKeysResult> InvokeAsync(ListBlockchainMemberApiKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBlockchainMemberApiKeysResult>("azure-native:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collection of the API key payload which is exposed in the response of the resource provider.
+        /// Lists the API keys for a blockchain member.
         /// </summary>
         public static Output<ListBlockchainMemberApiKeysResult> Invoke(ListBlockchainMemberApiKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBlockchainMemberApiKeysResult>("azure-native:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysInvokeArgs(), options.WithDefaults());

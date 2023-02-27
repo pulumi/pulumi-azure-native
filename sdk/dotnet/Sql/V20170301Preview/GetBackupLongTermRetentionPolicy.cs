@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
     public static class GetBackupLongTermRetentionPolicy
     {
         /// <summary>
-        /// A long term retention policy.
+        /// Gets a database's long term retention policy.
         /// </summary>
         public static Task<GetBackupLongTermRetentionPolicyResult> InvokeAsync(GetBackupLongTermRetentionPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupLongTermRetentionPolicyResult>("azure-native:sql/v20170301preview:getBackupLongTermRetentionPolicy", args ?? new GetBackupLongTermRetentionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A long term retention policy.
+        /// Gets a database's long term retention policy.
         /// </summary>
         public static Output<GetBackupLongTermRetentionPolicyResult> Invoke(GetBackupLongTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupLongTermRetentionPolicyResult>("azure-native:sql/v20170301preview:getBackupLongTermRetentionPolicy", args ?? new GetBackupLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());

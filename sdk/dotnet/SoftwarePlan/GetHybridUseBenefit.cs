@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SoftwarePlan
     public static class GetHybridUseBenefit
     {
         /// <summary>
-        /// Response on GET of a hybrid use benefit
+        /// Gets a given plan ID
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetHybridUseBenefitResult> InvokeAsync(GetHybridUseBenefitArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response on GET of a hybrid use benefit
+        /// Gets a given plan ID
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetHybridUseBenefitResult> Invoke(GetHybridUseBenefitInvokeArgs args, InvokeOptions? options = null)

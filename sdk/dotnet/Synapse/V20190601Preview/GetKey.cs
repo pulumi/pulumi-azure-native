@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
     public static class GetKey
     {
         /// <summary>
-        /// A workspace key
+        /// Gets a workspace key
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:synapse/v20190601preview:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A workspace key
+        /// Gets a workspace key
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse/v20190601preview:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());

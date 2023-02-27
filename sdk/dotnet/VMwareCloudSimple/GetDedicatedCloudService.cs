@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     public static class GetDedicatedCloudService
     {
         /// <summary>
-        /// Dedicated cloud service model
+        /// Returns Dedicate Cloud Service
         /// API Version: 2019-04-01.
         /// </summary>
         public static Task<GetDedicatedCloudServiceResult> InvokeAsync(GetDedicatedCloudServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudServiceResult>("azure-native:vmwarecloudsimple:getDedicatedCloudService", args ?? new GetDedicatedCloudServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Dedicated cloud service model
+        /// Returns Dedicate Cloud Service
         /// API Version: 2019-04-01.
         /// </summary>
         public static Output<GetDedicatedCloudServiceResult> Invoke(GetDedicatedCloudServiceInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class GetBlobContainerDataSet
     {
         /// <summary>
-        /// An Azure storage blob container data set.
+        /// Get a DataSet in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetBlobContainerDataSetResult> InvokeAsync(GetBlobContainerDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerDataSetResult>("azure-native:datashare:getBlobContainerDataSet", args ?? new GetBlobContainerDataSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure storage blob container data set.
+        /// Get a DataSet in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetBlobContainerDataSetResult> Invoke(GetBlobContainerDataSetInvokeArgs args, InvokeOptions? options = null)

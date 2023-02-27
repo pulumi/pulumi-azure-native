@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetKustoPoolAttachedDatabaseConfiguration
     {
         /// <summary>
-        /// Class representing an attached database configuration.
+        /// Returns an attached database configuration.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetKustoPoolAttachedDatabaseConfigurationResult> InvokeAsync(GetKustoPoolAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing an attached database configuration.
+        /// Returns an attached database configuration.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetKustoPoolAttachedDatabaseConfigurationResult> Invoke(GetKustoPoolAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)

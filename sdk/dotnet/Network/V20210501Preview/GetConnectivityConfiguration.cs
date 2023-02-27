@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
     public static class GetConnectivityConfiguration
     {
         /// <summary>
-        /// The network manager connectivity configuration resource
+        /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
         /// </summary>
         public static Task<GetConnectivityConfigurationResult> InvokeAsync(GetConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectivityConfigurationResult>("azure-native:network/v20210501preview:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The network manager connectivity configuration resource
+        /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
         /// </summary>
         public static Output<GetConnectivityConfigurationResult> Invoke(GetConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectivityConfigurationResult>("azure-native:network/v20210501preview:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationInvokeArgs(), options.WithDefaults());

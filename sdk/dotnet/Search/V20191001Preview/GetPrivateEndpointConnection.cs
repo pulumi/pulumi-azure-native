@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+        /// Gets the details of the private endpoint connection to the Search service in the given resource group.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:search/v20191001preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+        /// Gets the details of the private endpoint connection to the Search service in the given resource group.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:search/v20191001preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

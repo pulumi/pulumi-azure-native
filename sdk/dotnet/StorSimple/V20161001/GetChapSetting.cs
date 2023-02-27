@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public static class GetChapSetting
     {
         /// <summary>
-        /// Challenge-Handshake Authentication Protocol (CHAP) setting
+        /// Returns the properties of the specified chap setting name.
         /// </summary>
         public static Task<GetChapSettingResult> InvokeAsync(GetChapSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChapSettingResult>("azure-native:storsimple/v20161001:getChapSetting", args ?? new GetChapSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Challenge-Handshake Authentication Protocol (CHAP) setting
+        /// Returns the properties of the specified chap setting name.
         /// </summary>
         public static Output<GetChapSettingResult> Invoke(GetChapSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChapSettingResult>("azure-native:storsimple/v20161001:getChapSetting", args ?? new GetChapSettingInvokeArgs(), options.WithDefaults());

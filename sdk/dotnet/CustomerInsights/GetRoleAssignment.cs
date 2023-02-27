@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomerInsights
     public static class GetRoleAssignment
     {
         /// <summary>
-        /// The Role Assignment resource format.
+        /// Gets the role assignment in the hub.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:customerinsights:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Role Assignment resource format.
+        /// Gets the role assignment in the hub.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)

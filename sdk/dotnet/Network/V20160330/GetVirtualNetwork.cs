@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Network.V20160330
     public static class GetVirtualNetwork
     {
         /// <summary>
-        /// Virtual Network resource
+        /// The Get VirtualNetwork operation retrieves information about the specified virtual network.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:network/v20160330:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Virtual Network resource
+        /// The Get VirtualNetwork operation retrieves information about the specified virtual network.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:network/v20160330:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());

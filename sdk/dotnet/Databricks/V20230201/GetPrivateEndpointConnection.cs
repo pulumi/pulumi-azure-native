@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Databricks.V20230201
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// The private endpoint connection of a workspace
+        /// Get a private endpoint connection properties for a workspace
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:databricks/v20230201:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The private endpoint connection of a workspace
+        /// Get a private endpoint connection properties for a workspace
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:databricks/v20230201:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

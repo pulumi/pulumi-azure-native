@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
     public static class GetWebPubSubPrivateEndpointConnection
     {
         /// <summary>
-        /// A private endpoint connection to an azure resource
+        /// Get the specified private endpoint connection
         /// </summary>
         public static Task<GetWebPubSubPrivateEndpointConnectionResult> InvokeAsync(GetWebPubSubPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub/v20211001:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private endpoint connection to an azure resource
+        /// Get the specified private endpoint connection
         /// </summary>
         public static Output<GetWebPubSubPrivateEndpointConnectionResult> Invoke(GetWebPubSubPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub/v20211001:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

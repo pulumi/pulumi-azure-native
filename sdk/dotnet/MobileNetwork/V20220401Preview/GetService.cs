@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
     public static class GetService
     {
         /// <summary>
-        /// Service resource.
+        /// Gets information about the specified service.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:mobilenetwork/v20220401preview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Service resource.
+        /// Gets information about the specified service.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:mobilenetwork/v20220401preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

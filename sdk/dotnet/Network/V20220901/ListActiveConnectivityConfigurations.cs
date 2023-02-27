@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220901
     public static class ListActiveConnectivityConfigurations
     {
         /// <summary>
-        /// Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
+        /// Lists active connectivity configurations in a network manager.
         /// </summary>
         public static Task<ListActiveConnectivityConfigurationsResult> InvokeAsync(ListActiveConnectivityConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListActiveConnectivityConfigurationsResult>("azure-native:network/v20220901:listActiveConnectivityConfigurations", args ?? new ListActiveConnectivityConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
+        /// Lists active connectivity configurations in a network manager.
         /// </summary>
         public static Output<ListActiveConnectivityConfigurationsResult> Invoke(ListActiveConnectivityConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveConnectivityConfigurationsResult>("azure-native:network/v20220901:listActiveConnectivityConfigurations", args ?? new ListActiveConnectivityConfigurationsInvokeArgs(), options.WithDefaults());

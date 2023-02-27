@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20190701
     public static class GetVpnGateway
     {
         /// <summary>
-        /// VpnGateway Resource.
+        /// Retrieves the details of a virtual wan vpn gateway.
         /// </summary>
         public static Task<GetVpnGatewayResult> InvokeAsync(GetVpnGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("azure-native:network/v20190701:getVpnGateway", args ?? new GetVpnGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// VpnGateway Resource.
+        /// Retrieves the details of a virtual wan vpn gateway.
         /// </summary>
         public static Output<GetVpnGatewayResult> Invoke(GetVpnGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnGatewayResult>("azure-native:network/v20190701:getVpnGateway", args ?? new GetVpnGatewayInvokeArgs(), options.WithDefaults());

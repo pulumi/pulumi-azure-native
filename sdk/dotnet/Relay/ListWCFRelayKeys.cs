@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Relay
     public static class ListWCFRelayKeys
     {
         /// <summary>
-        /// Namespace/Relay Connection String
+        /// Primary and secondary connection strings to the WCF relay.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListWCFRelayKeysResult> InvokeAsync(ListWCFRelayKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWCFRelayKeysResult>("azure-native:relay:listWCFRelayKeys", args ?? new ListWCFRelayKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/Relay Connection String
+        /// Primary and secondary connection strings to the WCF relay.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListWCFRelayKeysResult> Invoke(ListWCFRelayKeysInvokeArgs args, InvokeOptions? options = null)

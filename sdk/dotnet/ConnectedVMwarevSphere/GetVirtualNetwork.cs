@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public static class GetVirtualNetwork
     {
         /// <summary>
-        /// Define the virtualNetwork.
+        /// Implements virtual network GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:connectedvmwarevsphere:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the virtualNetwork.
+        /// Implements virtual network GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)

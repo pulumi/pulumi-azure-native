@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetIpAllocation
     {
         /// <summary>
-        /// IpAllocation resource.
+        /// Gets the specified IpAllocation by resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetIpAllocationResult> InvokeAsync(GetIpAllocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-native:network:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// IpAllocation resource.
+        /// Gets the specified IpAllocation by resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetIpAllocationResult> Invoke(GetIpAllocationInvokeArgs args, InvokeOptions? options = null)

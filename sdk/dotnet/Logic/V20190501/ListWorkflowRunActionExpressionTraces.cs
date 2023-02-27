@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public static class ListWorkflowRunActionExpressionTraces
     {
         /// <summary>
-        /// The expression traces.
+        /// Lists a workflow run expression trace.
         /// </summary>
         public static Task<ListWorkflowRunActionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionExpressionTracesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic/v20190501:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The expression traces.
+        /// Lists a workflow run expression trace.
         /// </summary>
         public static Output<ListWorkflowRunActionExpressionTracesResult> Invoke(ListWorkflowRunActionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic/v20190501:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesInvokeArgs(), options.WithDefaults());

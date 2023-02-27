@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
     public static class GetStartStopManagedInstanceSchedule
     {
         /// <summary>
-        /// Managed instance's Start/Stop schedule.
+        /// Gets the managed instance's Start/Stop schedule.
         /// </summary>
         public static Task<GetStartStopManagedInstanceScheduleResult> InvokeAsync(GetStartStopManagedInstanceScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStartStopManagedInstanceScheduleResult>("azure-native:sql/v20220801preview:getStartStopManagedInstanceSchedule", args ?? new GetStartStopManagedInstanceScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Managed instance's Start/Stop schedule.
+        /// Gets the managed instance's Start/Stop schedule.
         /// </summary>
         public static Output<GetStartStopManagedInstanceScheduleResult> Invoke(GetStartStopManagedInstanceScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStartStopManagedInstanceScheduleResult>("azure-native:sql/v20220801preview:getStartStopManagedInstanceSchedule", args ?? new GetStartStopManagedInstanceScheduleInvokeArgs(), options.WithDefaults());

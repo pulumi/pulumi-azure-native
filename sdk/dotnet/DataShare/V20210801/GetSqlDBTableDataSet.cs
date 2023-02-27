@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     public static class GetSqlDBTableDataSet
     {
         /// <summary>
-        /// A SQL DB table data set.
+        /// Get a DataSet in a share
         /// </summary>
         public static Task<GetSqlDBTableDataSetResult> InvokeAsync(GetSqlDBTableDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetResult>("azure-native:datashare/v20210801:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A SQL DB table data set.
+        /// Get a DataSet in a share
         /// </summary>
         public static Output<GetSqlDBTableDataSetResult> Invoke(GetSqlDBTableDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetResult>("azure-native:datashare/v20210801:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetInvokeArgs(), options.WithDefaults());

@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public static class GetPublishedBlueprint
     {
         /// <summary>
-        /// Represents a published Blueprint.
+        /// Get a published Blueprint.
         /// </summary>
         public static Task<GetPublishedBlueprintResult> InvokeAsync(GetPublishedBlueprintArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublishedBlueprintResult>("azure-native:blueprint/v20171111preview:getPublishedBlueprint", args ?? new GetPublishedBlueprintArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a published Blueprint.
+        /// Get a published Blueprint.
         /// </summary>
         public static Output<GetPublishedBlueprintResult> Invoke(GetPublishedBlueprintInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublishedBlueprintResult>("azure-native:blueprint/v20171111preview:getPublishedBlueprint", args ?? new GetPublishedBlueprintInvokeArgs(), options.WithDefaults());

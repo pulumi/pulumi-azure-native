@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppBackupConfiguration
     {
         /// <summary>
-        /// Description of a backup which will be performed.
+        /// Gets the backup configuration of an app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppBackupConfigurationResult> InvokeAsync(ListWebAppBackupConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationResult>("azure-native:web:listWebAppBackupConfiguration", args ?? new ListWebAppBackupConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a backup which will be performed.
+        /// Gets the backup configuration of an app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppBackupConfigurationResult> Invoke(ListWebAppBackupConfigurationInvokeArgs args, InvokeOptions? options = null)

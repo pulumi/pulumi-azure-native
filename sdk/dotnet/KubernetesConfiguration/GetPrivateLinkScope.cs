@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     public static class GetPrivateLinkScope
     {
         /// <summary>
-        /// An Azure Arc PrivateLinkScope definition.
+        /// Returns a Azure Arc PrivateLinkScope.
         /// API Version: 2022-04-02-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:kubernetesconfiguration:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Arc PrivateLinkScope definition.
+        /// Returns a Azure Arc PrivateLinkScope.
         /// API Version: 2022-04-02-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)

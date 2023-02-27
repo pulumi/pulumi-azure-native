@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppSiteExtensionSlot
     {
         /// <summary>
-        /// Site Extension Information.
+        /// Get site extension information by its ID for a web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppSiteExtensionSlotResult> InvokeAsync(GetWebAppSiteExtensionSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteExtensionSlotResult>("azure-native:web:getWebAppSiteExtensionSlot", args ?? new GetWebAppSiteExtensionSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Site Extension Information.
+        /// Get site extension information by its ID for a web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetWebAppSiteExtensionSlotResult> Invoke(GetWebAppSiteExtensionSlotInvokeArgs args, InvokeOptions? options = null)

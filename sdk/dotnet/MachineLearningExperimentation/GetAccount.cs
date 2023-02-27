@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
     public static class GetAccount
     {
         /// <summary>
-        /// An object that represents a machine learning team account.
+        /// Gets the properties of the specified machine learning team account.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:machinelearningexperimentation:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a machine learning team account.
+        /// Gets the properties of the specified machine learning team account.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)

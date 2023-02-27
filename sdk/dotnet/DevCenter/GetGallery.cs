@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevCenter
     public static class GetGallery
     {
         /// <summary>
-        /// Represents a gallery.
+        /// Gets a gallery
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:devcenter:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a gallery.
+        /// Gets a gallery
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)

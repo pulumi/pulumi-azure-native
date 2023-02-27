@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.LabServices
     public static class GetLab
     {
         /// <summary>
-        /// Represents a lab.
+        /// Get lab
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a lab.
+        /// Get lab
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)

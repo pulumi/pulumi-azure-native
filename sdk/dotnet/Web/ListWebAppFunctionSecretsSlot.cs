@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppFunctionSecretsSlot
     {
         /// <summary>
-        /// Function secrets.
+        /// Get function secrets for a function in a web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppFunctionSecretsSlotResult> InvokeAsync(ListWebAppFunctionSecretsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsSlotResult>("azure-native:web:listWebAppFunctionSecretsSlot", args ?? new ListWebAppFunctionSecretsSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Function secrets.
+        /// Get function secrets for a function in a web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppFunctionSecretsSlotResult> Invoke(ListWebAppFunctionSecretsSlotInvokeArgs args, InvokeOptions? options = null)

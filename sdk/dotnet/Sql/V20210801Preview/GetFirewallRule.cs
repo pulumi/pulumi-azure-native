@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     public static class GetFirewallRule
     {
         /// <summary>
-        /// A server firewall rule.
+        /// Gets a firewall rule.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:sql/v20210801preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A server firewall rule.
+        /// Gets a firewall rule.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:sql/v20210801preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());

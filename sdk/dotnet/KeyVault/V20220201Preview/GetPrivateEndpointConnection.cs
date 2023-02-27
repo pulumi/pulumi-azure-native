@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.KeyVault.V20220201Preview
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Private endpoint connection resource.
+        /// Gets the specified private endpoint connection associated with the key vault.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:keyvault/v20220201preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private endpoint connection resource.
+        /// Gets the specified private endpoint connection associated with the key vault.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:keyvault/v20220201preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

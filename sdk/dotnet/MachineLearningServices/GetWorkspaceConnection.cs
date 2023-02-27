@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetWorkspaceConnection
     {
         /// <summary>
-        /// Workspace connection.
+        /// Get the detail of a workspace connection.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetWorkspaceConnectionResult> InvokeAsync(GetWorkspaceConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-native:machinelearningservices:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workspace connection.
+        /// Get the detail of a workspace connection.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetWorkspaceConnectionResult> Invoke(GetWorkspaceConnectionInvokeArgs args, InvokeOptions? options = null)

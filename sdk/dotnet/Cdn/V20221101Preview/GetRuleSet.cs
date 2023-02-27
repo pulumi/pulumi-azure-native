@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
     public static class GetRuleSet
     {
         /// <summary>
-        /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
+        /// Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
         /// </summary>
         public static Task<GetRuleSetResult> InvokeAsync(GetRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-native:cdn/v20221101preview:getRuleSet", args ?? new GetRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
+        /// Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
         /// </summary>
         public static Output<GetRuleSetResult> Invoke(GetRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn/v20221101preview:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithDefaults());

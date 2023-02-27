@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DBforMariaDB
     public static class GetVirtualNetworkRule
     {
         /// <summary>
-        /// A virtual network rule.
+        /// Gets a virtual network rule.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbformariadb:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A virtual network rule.
+        /// Gets a virtual network rule.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)

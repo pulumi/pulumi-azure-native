@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     public static class GetGlobalUserOperationBatchStatus
     {
         /// <summary>
-        /// Status Details of the long running operation for an environment
+        /// Get batch operation status
         /// </summary>
         public static Task<GetGlobalUserOperationBatchStatusResult> InvokeAsync(GetGlobalUserOperationBatchStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices/v20181015:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Status Details of the long running operation for an environment
+        /// Get batch operation status
         /// </summary>
         public static Output<GetGlobalUserOperationBatchStatusResult> Invoke(GetGlobalUserOperationBatchStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices/v20181015:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusInvokeArgs(), options.WithDefaults());

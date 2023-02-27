@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public static class GetgalleryimageRetrieve
     {
         /// <summary>
-        /// The gallery image resource definition.
+        /// Gets galleryimages by resource name
         /// </summary>
         public static Task<GetgalleryimageRetrieveResult> InvokeAsync(GetgalleryimageRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetgalleryimageRetrieveResult>("azure-native:azurestackhci/v20210901preview:getgalleryimageRetrieve", args ?? new GetgalleryimageRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The gallery image resource definition.
+        /// Gets galleryimages by resource name
         /// </summary>
         public static Output<GetgalleryimageRetrieveResult> Invoke(GetgalleryimageRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetgalleryimageRetrieveResult>("azure-native:azurestackhci/v20210901preview:getgalleryimageRetrieve", args ?? new GetgalleryimageRetrieveInvokeArgs(), options.WithDefaults());

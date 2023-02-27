@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20210301
     public static class GetStaticSiteCustomDomain
     {
         /// <summary>
-        /// Static Site Custom Domain Overview ARM resource.
+        /// Gets an existing custom domain for a particular static site.
         /// </summary>
         public static Task<GetStaticSiteCustomDomainResult> InvokeAsync(GetStaticSiteCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteCustomDomainResult>("azure-native:web/v20210301:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Static Site Custom Domain Overview ARM resource.
+        /// Gets an existing custom domain for a particular static site.
         /// </summary>
         public static Output<GetStaticSiteCustomDomainResult> Invoke(GetStaticSiteCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteCustomDomainResult>("azure-native:web/v20210301:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainInvokeArgs(), options.WithDefaults());

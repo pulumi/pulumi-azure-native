@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
     public static class GetManagementConfiguration
     {
         /// <summary>
-        /// The container for solution.
+        /// Retrieves the user ManagementConfiguration.
         /// </summary>
         public static Task<GetManagementConfigurationResult> InvokeAsync(GetManagementConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementConfigurationResult>("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", args ?? new GetManagementConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The container for solution.
+        /// Retrieves the user ManagementConfiguration.
         /// </summary>
         public static Output<GetManagementConfigurationResult> Invoke(GetManagementConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementConfigurationResult>("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", args ?? new GetManagementConfigurationInvokeArgs(), options.WithDefaults());

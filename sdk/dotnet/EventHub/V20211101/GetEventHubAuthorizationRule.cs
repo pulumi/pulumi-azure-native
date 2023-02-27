@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     public static class GetEventHubAuthorizationRule
     {
         /// <summary>
-        /// Single item in a List or Get AuthorizationRule operation
+        /// Gets an AuthorizationRule for an Event Hub by rule name.
         /// </summary>
         public static Task<GetEventHubAuthorizationRuleResult> InvokeAsync(GetEventHubAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubAuthorizationRuleResult>("azure-native:eventhub/v20211101:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single item in a List or Get AuthorizationRule operation
+        /// Gets an AuthorizationRule for an Event Hub by rule name.
         /// </summary>
         public static Output<GetEventHubAuthorizationRuleResult> Invoke(GetEventHubAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubAuthorizationRuleResult>("azure-native:eventhub/v20211101:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleInvokeArgs(), options.WithDefaults());

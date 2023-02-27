@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20140401
     public static class GetDatabaseAdvisor
     {
         /// <summary>
-        /// Database Advisor.
+        /// Returns details of a Database Advisor.
         /// </summary>
         public static Task<GetDatabaseAdvisorResult> InvokeAsync(GetDatabaseAdvisorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAdvisorResult>("azure-native:sql/v20140401:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Database Advisor.
+        /// Returns details of a Database Advisor.
         /// </summary>
         public static Output<GetDatabaseAdvisorResult> Invoke(GetDatabaseAdvisorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAdvisorResult>("azure-native:sql/v20140401:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorInvokeArgs(), options.WithDefaults());

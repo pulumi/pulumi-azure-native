@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20180401
     public static class GetVirtualNetworkGatewayLearnedRoutes
     {
         /// <summary>
-        /// List of virtual network gateway routes
+        /// This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayLearnedRoutesResult> InvokeAsync(GetVirtualNetworkGatewayLearnedRoutesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayLearnedRoutesResult>("azure-native:network/v20180401:getVirtualNetworkGatewayLearnedRoutes", args ?? new GetVirtualNetworkGatewayLearnedRoutesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of virtual network gateway routes
+        /// This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayLearnedRoutesResult> Invoke(GetVirtualNetworkGatewayLearnedRoutesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayLearnedRoutesResult>("azure-native:network/v20180401:getVirtualNetworkGatewayLearnedRoutes", args ?? new GetVirtualNetworkGatewayLearnedRoutesInvokeArgs(), options.WithDefaults());

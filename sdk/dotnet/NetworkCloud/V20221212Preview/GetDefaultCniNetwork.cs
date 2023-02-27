@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
     public static class GetDefaultCniNetwork
     {
+        /// <summary>
+        /// Get properties of the provided default CNI network.
+        /// </summary>
         public static Task<GetDefaultCniNetworkResult> InvokeAsync(GetDefaultCniNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultCniNetworkResult>("azure-native:networkcloud/v20221212preview:getDefaultCniNetwork", args ?? new GetDefaultCniNetworkArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get properties of the provided default CNI network.
+        /// </summary>
         public static Output<GetDefaultCniNetworkResult> Invoke(GetDefaultCniNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultCniNetworkResult>("azure-native:networkcloud/v20221212preview:getDefaultCniNetwork", args ?? new GetDefaultCniNetworkInvokeArgs(), options.WithDefaults());
     }

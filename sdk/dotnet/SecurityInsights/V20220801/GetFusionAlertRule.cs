@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801
     public static class GetFusionAlertRule
     {
         /// <summary>
-        /// Represents Fusion alert rule.
+        /// Gets the alert rule.
         /// </summary>
         public static Task<GetFusionAlertRuleResult> InvokeAsync(GetFusionAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFusionAlertRuleResult>("azure-native:securityinsights/v20220801:getFusionAlertRule", args ?? new GetFusionAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents Fusion alert rule.
+        /// Gets the alert rule.
         /// </summary>
         public static Output<GetFusionAlertRuleResult> Invoke(GetFusionAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFusionAlertRuleResult>("azure-native:securityinsights/v20220801:getFusionAlertRule", args ?? new GetFusionAlertRuleInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.BotService
     public static class ListChannelWithKeys
     {
         /// <summary>
-        /// The ARM channel of list channel with keys operation response.
+        /// Lists a Channel registration for a Bot Service including secrets
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The ARM channel of list channel with keys operation response.
+        /// Lists a Channel registration for a Bot Service including secrets
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<ListChannelWithKeysResult> Invoke(ListChannelWithKeysInvokeArgs args, InvokeOptions? options = null)

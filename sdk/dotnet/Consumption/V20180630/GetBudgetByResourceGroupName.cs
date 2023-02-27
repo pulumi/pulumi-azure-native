@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Consumption.V20180630
     public static class GetBudgetByResourceGroupName
     {
         /// <summary>
-        /// A budget resource.
+        /// Gets the budget for a resource group under a subscription by budget name.
         /// </summary>
         public static Task<GetBudgetByResourceGroupNameResult> InvokeAsync(GetBudgetByResourceGroupNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetByResourceGroupNameResult>("azure-native:consumption/v20180630:getBudgetByResourceGroupName", args ?? new GetBudgetByResourceGroupNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A budget resource.
+        /// Gets the budget for a resource group under a subscription by budget name.
         /// </summary>
         public static Output<GetBudgetByResourceGroupNameResult> Invoke(GetBudgetByResourceGroupNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetByResourceGroupNameResult>("azure-native:consumption/v20180630:getBudgetByResourceGroupName", args ?? new GetBudgetByResourceGroupNameInvokeArgs(), options.WithDefaults());

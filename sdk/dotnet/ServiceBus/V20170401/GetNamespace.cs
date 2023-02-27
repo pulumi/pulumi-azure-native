@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
     public static class GetNamespace
     {
         /// <summary>
-        /// Description of a namespace resource.
+        /// Gets a description for the specified namespace.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:servicebus/v20170401:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a namespace resource.
+        /// Gets a description for the specified namespace.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus/v20170401:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());

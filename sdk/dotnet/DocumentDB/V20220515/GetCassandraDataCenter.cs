@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20220515
     public static class GetCassandraDataCenter
     {
         /// <summary>
-        /// A managed Cassandra data center.
+        /// Get the properties of a managed Cassandra data center.
         /// </summary>
         public static Task<GetCassandraDataCenterResult> InvokeAsync(GetCassandraDataCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCassandraDataCenterResult>("azure-native:documentdb/v20220515:getCassandraDataCenter", args ?? new GetCassandraDataCenterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A managed Cassandra data center.
+        /// Get the properties of a managed Cassandra data center.
         /// </summary>
         public static Output<GetCassandraDataCenterResult> Invoke(GetCassandraDataCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraDataCenterResult>("azure-native:documentdb/v20220515:getCassandraDataCenter", args ?? new GetCassandraDataCenterInvokeArgs(), options.WithDefaults());

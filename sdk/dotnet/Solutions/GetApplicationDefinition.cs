@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Solutions
     public static class GetApplicationDefinition
     {
         /// <summary>
-        /// Information about managed application definition.
+        /// Gets the managed application definition.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Information about managed application definition.
+        /// Gets the managed application definition.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOptions? options = null)

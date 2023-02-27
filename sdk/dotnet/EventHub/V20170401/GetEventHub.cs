@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20170401
     public static class GetEventHub
     {
         /// <summary>
-        /// Single item in List or Get Event Hub operation
+        /// Gets an Event Hubs description for the specified Event Hub.
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub/v20170401:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single item in List or Get Event Hub operation
+        /// Gets an Event Hubs description for the specified Event Hub.
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub/v20170401:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());

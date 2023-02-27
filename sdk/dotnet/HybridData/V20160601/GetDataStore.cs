@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.HybridData.V20160601
     public static class GetDataStore
     {
         /// <summary>
-        /// Data store.
+        /// This method gets the data store/repository by name.
         /// </summary>
         public static Task<GetDataStoreResult> InvokeAsync(GetDataStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-native:hybriddata/v20160601:getDataStore", args ?? new GetDataStoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data store.
+        /// This method gets the data store/repository by name.
         /// </summary>
         public static Output<GetDataStoreResult> Invoke(GetDataStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataStoreResult>("azure-native:hybriddata/v20160601:getDataStore", args ?? new GetDataStoreInvokeArgs(), options.WithDefaults());

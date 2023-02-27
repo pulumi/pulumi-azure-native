@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppPlatform
     public static class GetGateway
     {
         /// <summary>
-        /// Spring Cloud Gateway resource
+        /// Get the Spring Cloud Gateway and its properties.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:appplatform:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Spring Cloud Gateway resource
+        /// Get the Spring Cloud Gateway and its properties.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)

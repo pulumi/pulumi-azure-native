@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Resources.V20210401
     public static class GetDeploymentAtTenantScope
     {
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// </summary>
         public static Task<GetDeploymentAtTenantScopeResult> InvokeAsync(GetDeploymentAtTenantScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtTenantScopeResult>("azure-native:resources/v20210401:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// </summary>
         public static Output<GetDeploymentAtTenantScopeResult> Invoke(GetDeploymentAtTenantScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtTenantScopeResult>("azure-native:resources/v20210401:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeInvokeArgs(), options.WithDefaults());

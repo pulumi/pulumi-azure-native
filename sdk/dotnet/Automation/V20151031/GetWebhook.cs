@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automation.V20151031
     public static class GetWebhook
     {
         /// <summary>
-        /// Definition of the webhook type.
+        /// Retrieve the webhook identified by webhook name.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:automation/v20151031:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the webhook type.
+        /// Retrieve the webhook identified by webhook name.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:automation/v20151031:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210201
     public static class GetVirtualNetworkTap
     {
         /// <summary>
-        /// Virtual Network Tap resource.
+        /// Gets information about the specified virtual network tap.
         /// </summary>
         public static Task<GetVirtualNetworkTapResult> InvokeAsync(GetVirtualNetworkTapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkTapResult>("azure-native:network/v20210201:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Virtual Network Tap resource.
+        /// Gets information about the specified virtual network tap.
         /// </summary>
         public static Output<GetVirtualNetworkTapResult> Invoke(GetVirtualNetworkTapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkTapResult>("azure-native:network/v20210201:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapInvokeArgs(), options.WithDefaults());

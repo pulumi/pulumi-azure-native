@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     public static class GetShare
     {
         /// <summary>
-        /// A share data transfer object.
+        /// Get a share 
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:datashare/v20191101:getShare", args ?? new GetShareArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A share data transfer object.
+        /// Get a share 
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:datashare/v20191101:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());

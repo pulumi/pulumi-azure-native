@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppPlatform
     public static class ListServiceTestKeys
     {
         /// <summary>
-        /// Test keys payload
+        /// List test keys for a Service.
         /// API Version: 2020-07-01.
         /// </summary>
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Test keys payload
+        /// List test keys for a Service.
         /// API Version: 2020-07-01.
         /// </summary>
         public static Output<ListServiceTestKeysResult> Invoke(ListServiceTestKeysInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Authorization.V20200901
     public static class GetPolicyDefinitionAtManagementGroup
     {
         /// <summary>
-        /// The policy definition.
+        /// This operation retrieves the policy definition in the given management group with the given name.
         /// </summary>
         public static Task<GetPolicyDefinitionAtManagementGroupResult> InvokeAsync(GetPolicyDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization/v20200901:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The policy definition.
+        /// This operation retrieves the policy definition in the given management group with the given name.
         /// </summary>
         public static Output<GetPolicyDefinitionAtManagementGroupResult> Invoke(GetPolicyDefinitionAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization/v20200901:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupInvokeArgs(), options.WithDefaults());

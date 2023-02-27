@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     public static class GetCodelessApiPollingDataConnector
     {
         /// <summary>
-        /// Represents Codeless API Polling data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetCodelessApiPollingDataConnectorResult> InvokeAsync(GetCodelessApiPollingDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodelessApiPollingDataConnectorResult>("azure-native:securityinsights/v20220401preview:getCodelessApiPollingDataConnector", args ?? new GetCodelessApiPollingDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents Codeless API Polling data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetCodelessApiPollingDataConnectorResult> Invoke(GetCodelessApiPollingDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodelessApiPollingDataConnectorResult>("azure-native:securityinsights/v20220401preview:getCodelessApiPollingDataConnector", args ?? new GetCodelessApiPollingDataConnectorInvokeArgs(), options.WithDefaults());

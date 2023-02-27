@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     public static class GetPrivateEndpointConnectionsForMIPPolicySync
     {
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets the specified private endpoint connection associated with the service.
         /// API Version: 2021-03-25-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForMIPPolicySyncResult> InvokeAsync(GetPrivateEndpointConnectionsForMIPPolicySyncArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForMIPPolicySyncResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsForMIPPolicySync", args ?? new GetPrivateEndpointConnectionsForMIPPolicySyncArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets the specified private endpoint connection associated with the service.
         /// API Version: 2021-03-25-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsForMIPPolicySyncResult> Invoke(GetPrivateEndpointConnectionsForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)

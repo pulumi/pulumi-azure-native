@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20201001
     public static class GetWebAppPrivateEndpointConnection
     {
         /// <summary>
-        /// Private Endpoint Connection ARM resource.
+        /// Gets a private endpoint connection
         /// </summary>
         public static Task<GetWebAppPrivateEndpointConnectionResult> InvokeAsync(GetWebAppPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20201001:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private Endpoint Connection ARM resource.
+        /// Gets a private endpoint connection
         /// </summary>
         public static Output<GetWebAppPrivateEndpointConnectionResult> Invoke(GetWebAppPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/v20201001:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridContainerService
     public static class GetstorageSpaceRetrieve
     {
         /// <summary>
-        /// The storageSpaces resource definition.
+        /// Gets the Hybrid AKS storage space object
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetstorageSpaceRetrieveResult> InvokeAsync(GetstorageSpaceRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetstorageSpaceRetrieveResult>("azure-native:hybridcontainerservice:getstorageSpaceRetrieve", args ?? new GetstorageSpaceRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The storageSpaces resource definition.
+        /// Gets the Hybrid AKS storage space object
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetstorageSpaceRetrieveResult> Invoke(GetstorageSpaceRetrieveInvokeArgs args, InvokeOptions? options = null)

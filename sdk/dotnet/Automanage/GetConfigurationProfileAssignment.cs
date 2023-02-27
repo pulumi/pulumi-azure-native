@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automanage
     public static class GetConfigurationProfileAssignment
     {
         /// <summary>
-        /// Configuration profile assignment is an association between a VM and automanage profile configuration.
+        /// Get information about a configuration profile assignment
         /// API Version: 2020-06-30-preview.
         /// </summary>
         public static Task<GetConfigurationProfileAssignmentResult> InvokeAsync(GetConfigurationProfileAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileAssignmentResult>("azure-native:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration profile assignment is an association between a VM and automanage profile configuration.
+        /// Get information about a configuration profile assignment
         /// API Version: 2020-06-30-preview.
         /// </summary>
         public static Output<GetConfigurationProfileAssignmentResult> Invoke(GetConfigurationProfileAssignmentInvokeArgs args, InvokeOptions? options = null)

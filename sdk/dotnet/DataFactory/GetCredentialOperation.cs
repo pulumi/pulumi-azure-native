@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataFactory
     public static class GetCredentialOperation
     {
         /// <summary>
-        /// Credential resource type.
+        /// Gets a credential.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetCredentialOperationResult> InvokeAsync(GetCredentialOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialOperationResult>("azure-native:datafactory:getCredentialOperation", args ?? new GetCredentialOperationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Credential resource type.
+        /// Gets a credential.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetCredentialOperationResult> Invoke(GetCredentialOperationInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20180201
     public static class ListTopLevelDomainAgreements
     {
         /// <summary>
-        /// Collection of top-level domain legal agreements.
+        /// Gets all legal agreements that user needs to accept before purchasing a domain.
         /// </summary>
         public static Task<ListTopLevelDomainAgreementsResult> InvokeAsync(ListTopLevelDomainAgreementsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration/v20180201:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collection of top-level domain legal agreements.
+        /// Gets all legal agreements that user needs to accept before purchasing a domain.
         /// </summary>
         public static Output<ListTopLevelDomainAgreementsResult> Invoke(ListTopLevelDomainAgreementsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration/v20180201:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomProviders
     public static class GetCustomResourceProvider
     {
         /// <summary>
-        /// A manifest file that defines the custom resource provider resources.
+        /// Gets the custom resource provider manifest.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetCustomResourceProviderResult> InvokeAsync(GetCustomResourceProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceProviderResult>("azure-native:customproviders:getCustomResourceProvider", args ?? new GetCustomResourceProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A manifest file that defines the custom resource provider resources.
+        /// Gets the custom resource provider manifest.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetCustomResourceProviderResult> Invoke(GetCustomResourceProviderInvokeArgs args, InvokeOptions? options = null)

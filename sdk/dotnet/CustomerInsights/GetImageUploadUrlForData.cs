@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomerInsights
     public static class GetImageUploadUrlForData
     {
         /// <summary>
-        /// The image definition.
+        /// Gets data image upload URL.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetImageUploadUrlForDataResult> InvokeAsync(GetImageUploadUrlForDataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForDataResult>("azure-native:customerinsights:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The image definition.
+        /// Gets data image upload URL.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetImageUploadUrlForDataResult> Invoke(GetImageUploadUrlForDataInvokeArgs args, InvokeOptions? options = null)

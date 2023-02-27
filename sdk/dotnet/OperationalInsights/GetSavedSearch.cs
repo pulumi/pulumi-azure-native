@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     public static class GetSavedSearch
     {
         /// <summary>
-        /// Value object for saved search results.
+        /// Gets the specified saved search for a given workspace.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetSavedSearchResult> InvokeAsync(GetSavedSearchArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azure-native:operationalinsights:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Value object for saved search results.
+        /// Gets the specified saved search for a given workspace.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Output<GetSavedSearchResult> Invoke(GetSavedSearchInvokeArgs args, InvokeOptions? options = null)

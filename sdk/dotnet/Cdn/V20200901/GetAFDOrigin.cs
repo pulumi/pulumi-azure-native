@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     public static class GetAFDOrigin
     {
         /// <summary>
-        /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+        /// Gets an existing origin within an origin group.
         /// </summary>
         public static Task<GetAFDOriginResult> InvokeAsync(GetAFDOriginArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-native:cdn/v20200901:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithDefaults());
 
         /// <summary>
-        /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+        /// Gets an existing origin within an origin group.
         /// </summary>
         public static Output<GetAFDOriginResult> Invoke(GetAFDOriginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginResult>("azure-native:cdn/v20200901:getAFDOrigin", args ?? new GetAFDOriginInvokeArgs(), options.WithDefaults());

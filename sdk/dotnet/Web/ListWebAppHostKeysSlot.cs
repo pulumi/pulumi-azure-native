@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppHostKeysSlot
     {
         /// <summary>
-        /// Functions host level keys.
+        /// Get host secrets for a function app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppHostKeysSlotResult> InvokeAsync(ListWebAppHostKeysSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysSlotResult>("azure-native:web:listWebAppHostKeysSlot", args ?? new ListWebAppHostKeysSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Functions host level keys.
+        /// Get host secrets for a function app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppHostKeysSlotResult> Invoke(ListWebAppHostKeysSlotInvokeArgs args, InvokeOptions? options = null)

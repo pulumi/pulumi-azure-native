@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Relay
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>
-        /// Description of a namespace authorization rule.
+        /// Authorization rule for a namespace by name.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:relay:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a namespace authorization rule.
+        /// Authorization rule for a namespace by name.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)

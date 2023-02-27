@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class GetMigrationConfig
     {
         /// <summary>
-        /// Single item in List or Get Migration Config operation
+        /// Retrieves Migration Config
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-native:servicebus:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single item in List or Get Migration Config operation
+        /// Retrieves Migration Config
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetMigrationConfigResult> Invoke(GetMigrationConfigInvokeArgs args, InvokeOptions? options = null)

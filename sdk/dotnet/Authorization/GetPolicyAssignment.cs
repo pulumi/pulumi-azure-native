@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Authorization
     public static class GetPolicyAssignment
     {
         /// <summary>
-        /// The policy assignment.
+        /// This operation retrieves a single policy assignment, given its name and the scope it was created at.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetPolicyAssignmentResult> InvokeAsync(GetPolicyAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure-native:authorization:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The policy assignment.
+        /// This operation retrieves a single policy assignment, given its name and the scope it was created at.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetPolicyAssignmentResult> Invoke(GetPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)

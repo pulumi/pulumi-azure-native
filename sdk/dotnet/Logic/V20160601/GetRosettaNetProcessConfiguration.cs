@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Logic.V20160601
     public static class GetRosettaNetProcessConfiguration
     {
         /// <summary>
-        /// The integration account RosettaNet process configuration.
+        /// Gets an integration account RosettaNetProcessConfiguration.
         /// </summary>
         public static Task<GetRosettaNetProcessConfigurationResult> InvokeAsync(GetRosettaNetProcessConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRosettaNetProcessConfigurationResult>("azure-native:logic/v20160601:getRosettaNetProcessConfiguration", args ?? new GetRosettaNetProcessConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The integration account RosettaNet process configuration.
+        /// Gets an integration account RosettaNetProcessConfiguration.
         /// </summary>
         public static Output<GetRosettaNetProcessConfigurationResult> Invoke(GetRosettaNetProcessConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRosettaNetProcessConfigurationResult>("azure-native:logic/v20160601:getRosettaNetProcessConfiguration", args ?? new GetRosettaNetProcessConfigurationInvokeArgs(), options.WithDefaults());

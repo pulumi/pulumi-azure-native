@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public static class GetHostPool
     {
         /// <summary>
-        /// Represents a HostPool definition.
+        /// Get a host pool.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a HostPool definition.
+        /// Get a host pool.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)

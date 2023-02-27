@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210722Preview
     public static class GetPrometheusRuleGroup
     {
         /// <summary>
-        /// The Prometheus rule group resource.
+        /// Retrieve a Prometheus rule group definition.
         /// </summary>
         public static Task<GetPrometheusRuleGroupResult> InvokeAsync(GetPrometheusRuleGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement/v20210722preview:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Prometheus rule group resource.
+        /// Retrieve a Prometheus rule group definition.
         /// </summary>
         public static Output<GetPrometheusRuleGroupResult> Invoke(GetPrometheusRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement/v20210722preview:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupInvokeArgs(), options.WithDefaults());

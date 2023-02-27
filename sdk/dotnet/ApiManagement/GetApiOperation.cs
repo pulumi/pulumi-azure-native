@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiOperation
     {
         /// <summary>
-        /// Api Operation details.
+        /// Gets the details of the API Operation specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiOperationResult> InvokeAsync(GetApiOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiOperationResult>("azure-native:apimanagement:getApiOperation", args ?? new GetApiOperationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Api Operation details.
+        /// Gets the details of the API Operation specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiOperationResult> Invoke(GetApiOperationInvokeArgs args, InvokeOptions? options = null)

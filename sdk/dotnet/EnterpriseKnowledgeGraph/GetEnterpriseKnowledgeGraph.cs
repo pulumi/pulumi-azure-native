@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
     public static class GetEnterpriseKnowledgeGraph
     {
         /// <summary>
-        /// EnterpriseKnowledgeGraph resource definition
+        /// Returns a EnterpriseKnowledgeGraph service specified by the parameters.
         /// API Version: 2018-12-03.
         /// </summary>
         public static Task<GetEnterpriseKnowledgeGraphResult> InvokeAsync(GetEnterpriseKnowledgeGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithDefaults());
 
         /// <summary>
-        /// EnterpriseKnowledgeGraph resource definition
+        /// Returns a EnterpriseKnowledgeGraph service specified by the parameters.
         /// API Version: 2018-12-03.
         /// </summary>
         public static Output<GetEnterpriseKnowledgeGraphResult> Invoke(GetEnterpriseKnowledgeGraphInvokeArgs args, InvokeOptions? options = null)

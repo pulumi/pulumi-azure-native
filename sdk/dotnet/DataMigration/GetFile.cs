@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataMigration
     public static class GetFile
     {
         /// <summary>
-        /// A file resource
+        /// The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
         /// API Version: 2018-07-15-preview.
         /// </summary>
         public static Task<GetFileResult> InvokeAsync(GetFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("azure-native:datamigration:getFile", args ?? new GetFileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A file resource
+        /// The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
         /// API Version: 2018-07-15-preview.
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)

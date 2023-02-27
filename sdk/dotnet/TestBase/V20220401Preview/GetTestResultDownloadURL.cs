@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
     public static class GetTestResultDownloadURL
     {
         /// <summary>
-        /// The response of getting a download URL.
+        /// Gets the download URL of the test result.
         /// </summary>
         public static Task<GetTestResultDownloadURLResult> InvokeAsync(GetTestResultDownloadURLArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestResultDownloadURLResult>("azure-native:testbase/v20220401preview:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response of getting a download URL.
+        /// Gets the download URL of the test result.
         /// </summary>
         public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase/v20220401preview:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithDefaults());

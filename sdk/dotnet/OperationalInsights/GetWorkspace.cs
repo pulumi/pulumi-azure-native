@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     public static class GetWorkspace
     {
         /// <summary>
-        /// The top level Workspace resource container.
+        /// Gets a workspace instance.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The top level Workspace resource container.
+        /// Gets a workspace instance.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)

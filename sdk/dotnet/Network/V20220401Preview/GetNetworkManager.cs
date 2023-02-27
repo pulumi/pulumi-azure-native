@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
     public static class GetNetworkManager
     {
         /// <summary>
-        /// The Managed Network resource
+        /// Gets the specified Network Manager.
         /// </summary>
         public static Task<GetNetworkManagerResult> InvokeAsync(GetNetworkManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerResult>("azure-native:network/v20220401preview:getNetworkManager", args ?? new GetNetworkManagerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Managed Network resource
+        /// Gets the specified Network Manager.
         /// </summary>
         public static Output<GetNetworkManagerResult> Invoke(GetNetworkManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerResult>("azure-native:network/v20220401preview:getNetworkManager", args ?? new GetNetworkManagerInvokeArgs(), options.WithDefaults());

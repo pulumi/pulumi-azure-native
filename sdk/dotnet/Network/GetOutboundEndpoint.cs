@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetOutboundEndpoint
     {
         /// <summary>
-        /// Describes an outbound endpoint for a DNS resolver.
+        /// Gets properties of an outbound endpoint for a DNS resolver.
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetOutboundEndpointResult> InvokeAsync(GetOutboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutboundEndpointResult>("azure-native:network:getOutboundEndpoint", args ?? new GetOutboundEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes an outbound endpoint for a DNS resolver.
+        /// Gets properties of an outbound endpoint for a DNS resolver.
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Output<GetOutboundEndpointResult> Invoke(GetOutboundEndpointInvokeArgs args, InvokeOptions? options = null)

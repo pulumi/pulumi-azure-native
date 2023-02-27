@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Network.V20160330
     public static class GetRoute
     {
         /// <summary>
-        /// Route resource
+        /// The Get route operation retrieves information about the specified route from the route table.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network/v20160330:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Route resource
+        /// The Get route operation retrieves information about the specified route from the route table.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network/v20160330:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());

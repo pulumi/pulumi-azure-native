@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridNetwork
     public static class GetDevice
     {
         /// <summary>
-        /// Device resource.
+        /// Gets information about the specified device.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:hybridnetwork:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Device resource.
+        /// Gets information about the specified device.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)

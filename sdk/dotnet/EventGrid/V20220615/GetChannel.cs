@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     public static class GetChannel
     {
         /// <summary>
-        /// Channel info.
+        /// Get properties of a channel.
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:eventgrid/v20220615:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Channel info.
+        /// Get properties of a channel.
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:eventgrid/v20220615:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());

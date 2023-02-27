@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetBackend
     {
         /// <summary>
-        /// Backend details.
+        /// Gets the details of the backend specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetBackendResult> InvokeAsync(GetBackendArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackendResult>("azure-native:apimanagement:getBackend", args ?? new GetBackendArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Backend details.
+        /// Gets the details of the backend specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetBackendResult> Invoke(GetBackendInvokeArgs args, InvokeOptions? options = null)

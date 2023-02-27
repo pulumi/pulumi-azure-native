@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetIPv6FirewallRule
     {
         /// <summary>
-        /// An IPv6 server firewall rule.
+        /// Gets an IPv6 firewall rule.
         /// API Version: 2021-08-01-preview.
         /// </summary>
         public static Task<GetIPv6FirewallRuleResult> InvokeAsync(GetIPv6FirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPv6FirewallRuleResult>("azure-native:sql:getIPv6FirewallRule", args ?? new GetIPv6FirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An IPv6 server firewall rule.
+        /// Gets an IPv6 firewall rule.
         /// API Version: 2021-08-01-preview.
         /// </summary>
         public static Output<GetIPv6FirewallRuleResult> Invoke(GetIPv6FirewallRuleInvokeArgs args, InvokeOptions? options = null)

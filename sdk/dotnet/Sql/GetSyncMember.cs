@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetSyncMember
     {
         /// <summary>
-        /// An Azure SQL Database sync member.
+        /// Gets a sync member.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetSyncMemberResult> InvokeAsync(GetSyncMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncMemberResult>("azure-native:sql:getSyncMember", args ?? new GetSyncMemberArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure SQL Database sync member.
+        /// Gets a sync member.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetSyncMemberResult> Invoke(GetSyncMemberInvokeArgs args, InvokeOptions? options = null)

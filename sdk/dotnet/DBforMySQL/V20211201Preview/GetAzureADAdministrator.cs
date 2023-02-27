@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     public static class GetAzureADAdministrator
     {
         /// <summary>
-        /// Represents a Administrator.
+        /// Gets information about an azure ad administrator.
         /// </summary>
         public static Task<GetAzureADAdministratorResult> InvokeAsync(GetAzureADAdministratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureADAdministratorResult>("azure-native:dbformysql/v20211201preview:getAzureADAdministrator", args ?? new GetAzureADAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Administrator.
+        /// Gets information about an azure ad administrator.
         /// </summary>
         public static Output<GetAzureADAdministratorResult> Invoke(GetAzureADAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureADAdministratorResult>("azure-native:dbformysql/v20211201preview:getAzureADAdministrator", args ?? new GetAzureADAdministratorInvokeArgs(), options.WithDefaults());

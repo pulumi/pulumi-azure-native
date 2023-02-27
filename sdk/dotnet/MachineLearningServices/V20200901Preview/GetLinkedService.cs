@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
     public static class GetLinkedService
     {
         /// <summary>
-        /// Linked service.
+        /// Get the detail of a linked service.
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:machinelearningservices/v20200901preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Linked service.
+        /// Get the detail of a linked service.
         /// </summary>
         public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:machinelearningservices/v20200901preview:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());

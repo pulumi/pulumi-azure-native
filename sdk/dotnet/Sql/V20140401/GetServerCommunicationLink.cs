@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20140401
     public static class GetServerCommunicationLink
     {
         /// <summary>
-        /// Server communication link.
+        /// Returns a server communication link.
         /// </summary>
         public static Task<GetServerCommunicationLinkResult> InvokeAsync(GetServerCommunicationLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerCommunicationLinkResult>("azure-native:sql/v20140401:getServerCommunicationLink", args ?? new GetServerCommunicationLinkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Server communication link.
+        /// Returns a server communication link.
         /// </summary>
         public static Output<GetServerCommunicationLinkResult> Invoke(GetServerCommunicationLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCommunicationLinkResult>("azure-native:sql/v20140401:getServerCommunicationLink", args ?? new GetServerCommunicationLinkInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
     public static class GetBot
     {
         /// <summary>
-        /// Bot resource definition
+        /// Returns a BotService specified by the parameters.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:botservice/v20210501preview:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Bot resource definition
+        /// Returns a BotService specified by the parameters.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:botservice/v20210501preview:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());

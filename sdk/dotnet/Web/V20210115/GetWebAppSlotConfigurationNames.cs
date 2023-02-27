@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20210115
     public static class GetWebAppSlotConfigurationNames
     {
         /// <summary>
-        /// Slot Config names azure resource.
+        /// Gets the names of app settings and connection strings that stick to the slot (not swapped).
         /// </summary>
         public static Task<GetWebAppSlotConfigurationNamesResult> InvokeAsync(GetWebAppSlotConfigurationNamesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotConfigurationNamesResult>("azure-native:web/v20210115:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Slot Config names azure resource.
+        /// Gets the names of app settings and connection strings that stick to the slot (not swapped).
         /// </summary>
         public static Output<GetWebAppSlotConfigurationNamesResult> Invoke(GetWebAppSlotConfigurationNamesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSlotConfigurationNamesResult>("azure-native:web/v20210115:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesInvokeArgs(), options.WithDefaults());

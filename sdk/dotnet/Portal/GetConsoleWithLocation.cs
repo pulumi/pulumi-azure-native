@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Portal
     public static class GetConsoleWithLocation
     {
         /// <summary>
-        /// Cloud shell console
+        /// Gets the console for the user.
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetConsoleWithLocationResult> InvokeAsync(GetConsoleWithLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsoleWithLocationResult>("azure-native:portal:getConsoleWithLocation", args ?? new GetConsoleWithLocationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cloud shell console
+        /// Gets the console for the user.
         /// API Version: 2018-10-01.
         /// </summary>
         public static Output<GetConsoleWithLocationResult> Invoke(GetConsoleWithLocationInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SignalRService
     public static class GetSignalRCustomCertificate
     {
         /// <summary>
-        /// A custom certificate.
+        /// Get a custom certificate.
         /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetSignalRCustomCertificateResult> InvokeAsync(GetSignalRCustomCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRCustomCertificateResult>("azure-native:signalrservice:getSignalRCustomCertificate", args ?? new GetSignalRCustomCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A custom certificate.
+        /// Get a custom certificate.
         /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetSignalRCustomCertificateResult> Invoke(GetSignalRCustomCertificateInvokeArgs args, InvokeOptions? options = null)

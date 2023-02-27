@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetInstanceFailoverGroup
     {
         /// <summary>
-        /// An instance failover group.
+        /// Gets a failover group.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetInstanceFailoverGroupResult> InvokeAsync(GetInstanceFailoverGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceFailoverGroupResult>("azure-native:sql:getInstanceFailoverGroup", args ?? new GetInstanceFailoverGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An instance failover group.
+        /// Gets a failover group.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetInstanceFailoverGroupResult> Invoke(GetInstanceFailoverGroupInvokeArgs args, InvokeOptions? options = null)

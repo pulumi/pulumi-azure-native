@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Peering
     public static class GetPeerAsn
     {
         /// <summary>
-        /// The essential information related to the peer's ASN.
+        /// Gets the peer ASN with the specified name under the given subscription.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The essential information related to the peer's ASN.
+        /// Gets the peer ASN with the specified name under the given subscription.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOptions? options = null)

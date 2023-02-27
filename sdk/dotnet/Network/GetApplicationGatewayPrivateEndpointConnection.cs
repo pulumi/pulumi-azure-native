@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetApplicationGatewayPrivateEndpointConnection
     {
         /// <summary>
-        /// Private Endpoint connection on an application gateway.
+        /// Gets the specified private endpoint connection on application gateway.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetApplicationGatewayPrivateEndpointConnectionResult> InvokeAsync(GetApplicationGatewayPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayPrivateEndpointConnectionResult>("azure-native:network:getApplicationGatewayPrivateEndpointConnection", args ?? new GetApplicationGatewayPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private Endpoint connection on an application gateway.
+        /// Gets the specified private endpoint connection on application gateway.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetApplicationGatewayPrivateEndpointConnectionResult> Invoke(GetApplicationGatewayPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetIpFirewallRule
     {
         /// <summary>
-        /// IP firewall rule
+        /// Get a firewall rule
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetIpFirewallRuleResult> InvokeAsync(GetIpFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpFirewallRuleResult>("azure-native:synapse:getIpFirewallRule", args ?? new GetIpFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// IP firewall rule
+        /// Get a firewall rule
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetIpFirewallRuleResult> Invoke(GetIpFirewallRuleInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
     public static class GetManagedHsm
     {
         /// <summary>
-        /// Resource information with extended details.
+        /// Gets the specified managed HSM Pool.
         /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault/v20210601preview:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource information with extended details.
+        /// Gets the specified managed HSM Pool.
         /// </summary>
         public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault/v20210601preview:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithDefaults());

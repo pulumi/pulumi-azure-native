@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
     public static class GetOffice365ProjectDataConnector
     {
         /// <summary>
-        /// Represents Office Microsoft Project data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetOffice365ProjectDataConnectorResult> InvokeAsync(GetOffice365ProjectDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOffice365ProjectDataConnectorResult>("azure-native:securityinsights/v20220501preview:getOffice365ProjectDataConnector", args ?? new GetOffice365ProjectDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents Office Microsoft Project data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetOffice365ProjectDataConnectorResult> Invoke(GetOffice365ProjectDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOffice365ProjectDataConnectorResult>("azure-native:securityinsights/v20220501preview:getOffice365ProjectDataConnector", args ?? new GetOffice365ProjectDataConnectorInvokeArgs(), options.WithDefaults());

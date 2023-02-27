@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Features
     public static class GetSubscriptionFeatureRegistration
     {
         /// <summary>
-        /// Subscription feature registration details
+        /// Returns a feature registration
         /// API Version: 2021-07-01.
         /// </summary>
         public static Task<GetSubscriptionFeatureRegistrationResult> InvokeAsync(GetSubscriptionFeatureRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionFeatureRegistrationResult>("azure-native:features:getSubscriptionFeatureRegistration", args ?? new GetSubscriptionFeatureRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Subscription feature registration details
+        /// Returns a feature registration
         /// API Version: 2021-07-01.
         /// </summary>
         public static Output<GetSubscriptionFeatureRegistrationResult> Invoke(GetSubscriptionFeatureRegistrationInvokeArgs args, InvokeOptions? options = null)

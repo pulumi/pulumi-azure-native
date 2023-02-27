@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Relay.V20160701
     public static class ListHybridConnectionKeys
     {
         /// <summary>
-        /// Namespace/Relay Connection String
+        /// Primary and Secondary ConnectionStrings to the HybridConnection.
         /// </summary>
         public static Task<ListHybridConnectionKeysResult> InvokeAsync(ListHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListHybridConnectionKeysResult>("azure-native:relay/v20160701:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/Relay Connection String
+        /// Primary and Secondary ConnectionStrings to the HybridConnection.
         /// </summary>
         public static Output<ListHybridConnectionKeysResult> Invoke(ListHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListHybridConnectionKeysResult>("azure-native:relay/v20160701:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysInvokeArgs(), options.WithDefaults());

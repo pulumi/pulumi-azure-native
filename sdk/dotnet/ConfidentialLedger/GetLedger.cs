@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConfidentialLedger
     public static class GetLedger
     {
         /// <summary>
-        /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
+        /// Retrieves the properties of a Confidential Ledger.
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("azure-native:confidentialledger:getLedger", args ?? new GetLedgerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
+        /// Retrieves the properties of a Confidential Ledger.
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)

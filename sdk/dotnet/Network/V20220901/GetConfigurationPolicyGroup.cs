@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220901
     public static class GetConfigurationPolicyGroup
     {
         /// <summary>
-        /// VpnServerConfigurationPolicyGroup Resource.
+        /// Retrieves the details of a ConfigurationPolicyGroup.
         /// </summary>
         public static Task<GetConfigurationPolicyGroupResult> InvokeAsync(GetConfigurationPolicyGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationPolicyGroupResult>("azure-native:network/v20220901:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// VpnServerConfigurationPolicyGroup Resource.
+        /// Retrieves the details of a ConfigurationPolicyGroup.
         /// </summary>
         public static Output<GetConfigurationPolicyGroupResult> Invoke(GetConfigurationPolicyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationPolicyGroupResult>("azure-native:network/v20220901:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupInvokeArgs(), options.WithDefaults());

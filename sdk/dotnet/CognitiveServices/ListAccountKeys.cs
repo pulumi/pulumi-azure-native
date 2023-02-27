@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CognitiveServices
     public static class ListAccountKeys
     {
         /// <summary>
-        /// The access keys for the cognitive services account.
+        /// Lists the account keys for the specified Cognitive Services account.
         /// API Version: 2017-04-18.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:cognitiveservices:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The access keys for the cognitive services account.
+        /// Lists the account keys for the specified Cognitive Services account.
         /// API Version: 2017-04-18.
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)

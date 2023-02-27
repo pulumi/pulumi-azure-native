@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     public static class GetOfficePowerBIDataConnector
     {
         /// <summary>
-        /// Represents Office Microsoft PowerBI data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetOfficePowerBIDataConnectorResult> InvokeAsync(GetOfficePowerBIDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOfficePowerBIDataConnectorResult>("azure-native:securityinsights/v20220401preview:getOfficePowerBIDataConnector", args ?? new GetOfficePowerBIDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents Office Microsoft PowerBI data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetOfficePowerBIDataConnectorResult> Invoke(GetOfficePowerBIDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfficePowerBIDataConnectorResult>("azure-native:securityinsights/v20220401preview:getOfficePowerBIDataConnector", args ?? new GetOfficePowerBIDataConnectorInvokeArgs(), options.WithDefaults());

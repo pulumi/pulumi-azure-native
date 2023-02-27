@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
 {
     public static class GetIntegrationAccountAgreement
     {
+        /// <summary>
+        /// Gets an integration account agreement.
+        /// </summary>
         public static Task<GetIntegrationAccountAgreementResult> InvokeAsync(GetIntegrationAccountAgreementArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAgreementResult>("azure-native:logic/v20150801preview:getIntegrationAccountAgreement", args ?? new GetIntegrationAccountAgreementArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Gets an integration account agreement.
+        /// </summary>
         public static Output<GetIntegrationAccountAgreementResult> Invoke(GetIntegrationAccountAgreementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAgreementResult>("azure-native:logic/v20150801preview:getIntegrationAccountAgreement", args ?? new GetIntegrationAccountAgreementInvokeArgs(), options.WithDefaults());
     }

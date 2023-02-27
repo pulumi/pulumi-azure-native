@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevTestLab
     public static class GetSchedule
     {
         /// <summary>
-        /// A schedule.
+        /// Get schedule.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:devtestlab:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A schedule.
+        /// Get schedule.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetNetworkInterface
     {
         /// <summary>
-        /// A network interface in a resource group.
+        /// Gets information about the specified network interface.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A network interface in a resource group.
+        /// Gets information about the specified network interface.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)

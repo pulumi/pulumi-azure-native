@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     public static class GetElasticPool
     {
         /// <summary>
-        /// An elastic pool.
+        /// Gets an elastic pool.
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-native:sql/v20200202preview:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An elastic pool.
+        /// Gets an elastic pool.
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql/v20200202preview:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());

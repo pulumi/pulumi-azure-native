@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.App.V20220601Preview
     public static class GetConnectedEnvironment
     {
         /// <summary>
-        /// An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+        /// Get the properties of an connectedEnvironment.
         /// </summary>
         public static Task<GetConnectedEnvironmentResult> InvokeAsync(GetConnectedEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentResult>("azure-native:app/v20220601preview:getConnectedEnvironment", args ?? new GetConnectedEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+        /// Get the properties of an connectedEnvironment.
         /// </summary>
         public static Output<GetConnectedEnvironmentResult> Invoke(GetConnectedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentResult>("azure-native:app/v20220601preview:getConnectedEnvironment", args ?? new GetConnectedEnvironmentInvokeArgs(), options.WithDefaults());

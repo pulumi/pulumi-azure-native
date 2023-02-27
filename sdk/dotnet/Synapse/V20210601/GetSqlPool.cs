@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601
     public static class GetSqlPool
     {
         /// <summary>
-        /// A SQL Analytics pool
+        /// Get SQL pool properties
         /// </summary>
         public static Task<GetSqlPoolResult> InvokeAsync(GetSqlPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-native:synapse/v20210601:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A SQL Analytics pool
+        /// Get SQL pool properties
         /// </summary>
         public static Output<GetSqlPoolResult> Invoke(GetSqlPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolResult>("azure-native:synapse/v20210601:getSqlPool", args ?? new GetSqlPoolInvokeArgs(), options.WithDefaults());

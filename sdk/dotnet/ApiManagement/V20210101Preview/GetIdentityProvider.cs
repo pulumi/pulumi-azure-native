@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     public static class GetIdentityProvider
     {
         /// <summary>
-        /// Identity Provider details.
+        /// Gets the configuration details of the identity Provider configured in specified service instance.
         /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement/v20210101preview:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Identity Provider details.
+        /// Gets the configuration details of the identity Provider configured in specified service instance.
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement/v20210101preview:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Logic
     public static class GetIntegrationAccountCertificate
     {
         /// <summary>
-        /// The integration account certificate.
+        /// Gets an integration account certificate.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountCertificateResult> InvokeAsync(GetIntegrationAccountCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountCertificateResult>("azure-native:logic:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The integration account certificate.
+        /// Gets an integration account certificate.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationAccountCertificateResult> Invoke(GetIntegrationAccountCertificateInvokeArgs args, InvokeOptions? options = null)

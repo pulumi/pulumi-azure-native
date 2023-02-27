@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
     public static class GetProperty
     {
         /// <summary>
-        /// Property details.
+        /// Gets the details of the property specified by its identifier.
         /// </summary>
         public static Task<GetPropertyResult> InvokeAsync(GetPropertyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-native:apimanagement/v20170301:getProperty", args ?? new GetPropertyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Property details.
+        /// Gets the details of the property specified by its identifier.
         /// </summary>
         public static Output<GetPropertyResult> Invoke(GetPropertyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement/v20170301:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithDefaults());

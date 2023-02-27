@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     public static class GetGraphQLApiResolver
     {
         /// <summary>
-        /// GraphQL API Resolver details.
+        /// Gets the details of the GraphQL API Resolver specified by its identifier.
         /// </summary>
         public static Task<GetGraphQLApiResolverResult> InvokeAsync(GetGraphQLApiResolverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLApiResolverResult>("azure-native:apimanagement/v20220801:getGraphQLApiResolver", args ?? new GetGraphQLApiResolverArgs(), options.WithDefaults());
 
         /// <summary>
-        /// GraphQL API Resolver details.
+        /// Gets the details of the GraphQL API Resolver specified by its identifier.
         /// </summary>
         public static Output<GetGraphQLApiResolverResult> Invoke(GetGraphQLApiResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQLApiResolverResult>("azure-native:apimanagement/v20220801:getGraphQLApiResolver", args ?? new GetGraphQLApiResolverInvokeArgs(), options.WithDefaults());

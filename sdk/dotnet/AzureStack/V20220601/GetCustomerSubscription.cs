@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStack.V20220601
     public static class GetCustomerSubscription
     {
         /// <summary>
-        /// Customer subscription.
+        /// Returns the specified product.
         /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack/v20220601:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Customer subscription.
+        /// Returns the specified product.
         /// </summary>
         public static Output<GetCustomerSubscriptionResult> Invoke(GetCustomerSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerSubscriptionResult>("azure-native:azurestack/v20220601:getCustomerSubscription", args ?? new GetCustomerSubscriptionInvokeArgs(), options.WithDefaults());

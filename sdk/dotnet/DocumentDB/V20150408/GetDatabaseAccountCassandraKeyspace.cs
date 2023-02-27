@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
     public static class GetDatabaseAccountCassandraKeyspace
     {
         /// <summary>
-        /// An Azure Cosmos DB Cassandra keyspace.
+        /// Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
         /// </summary>
         public static Task<GetDatabaseAccountCassandraKeyspaceResult> InvokeAsync(GetDatabaseAccountCassandraKeyspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraKeyspaceResult>("azure-native:documentdb/v20150408:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Cosmos DB Cassandra keyspace.
+        /// Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
         /// </summary>
         public static Output<GetDatabaseAccountCassandraKeyspaceResult> Invoke(GetDatabaseAccountCassandraKeyspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountCassandraKeyspaceResult>("azure-native:documentdb/v20150408:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceInvokeArgs(), options.WithDefaults());

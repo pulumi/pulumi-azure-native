@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     public static class GetprivateLinkServicesForM365SecurityCenter
     {
         /// <summary>
-        /// The description of the service.
+        /// Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
         /// API Version: 2021-03-25-preview.
         /// </summary>
         public static Task<GetprivateLinkServicesForM365SecurityCenterResult> InvokeAsync(GetprivateLinkServicesForM365SecurityCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForM365SecurityCenterResult>("azure-native:m365securityandcompliance:getprivateLinkServicesForM365SecurityCenter", args ?? new GetprivateLinkServicesForM365SecurityCenterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The description of the service.
+        /// Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
         /// API Version: 2021-03-25-preview.
         /// </summary>
         public static Output<GetprivateLinkServicesForM365SecurityCenterResult> Invoke(GetprivateLinkServicesForM365SecurityCenterInvokeArgs args, InvokeOptions? options = null)

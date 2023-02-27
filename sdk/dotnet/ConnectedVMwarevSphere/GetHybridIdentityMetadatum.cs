@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public static class GetHybridIdentityMetadatum
     {
         /// <summary>
-        /// Defines the HybridIdentityMetadata.
+        /// Implements HybridIdentityMetadata GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetHybridIdentityMetadatumResult> InvokeAsync(GetHybridIdentityMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadatumResult>("azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the HybridIdentityMetadata.
+        /// Implements HybridIdentityMetadata GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOptions? options = null)

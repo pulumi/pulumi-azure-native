@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class ListDnsResolverByVirtualNetwork
     {
         /// <summary>
-        /// The response to an enumeration operation on sub-resources.
+        /// Lists DNS resolver resource IDs linked to a virtual network.
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<ListDnsResolverByVirtualNetworkResult> InvokeAsync(ListDnsResolverByVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDnsResolverByVirtualNetworkResult>("azure-native:network:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response to an enumeration operation on sub-resources.
+        /// Lists DNS resolver resource IDs linked to a virtual network.
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Output<ListDnsResolverByVirtualNetworkResult> Invoke(ListDnsResolverByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)

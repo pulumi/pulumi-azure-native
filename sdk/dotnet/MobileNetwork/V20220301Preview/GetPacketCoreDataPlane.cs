@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
     public static class GetPacketCoreDataPlane
     {
         /// <summary>
-        /// Packet core data plane resource.
+        /// Gets information about the specified packet core data plane.
         /// </summary>
         public static Task<GetPacketCoreDataPlaneResult> InvokeAsync(GetPacketCoreDataPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork/v20220301preview:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Packet core data plane resource.
+        /// Gets information about the specified packet core data plane.
         /// </summary>
         public static Output<GetPacketCoreDataPlaneResult> Invoke(GetPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork/v20220301preview:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());

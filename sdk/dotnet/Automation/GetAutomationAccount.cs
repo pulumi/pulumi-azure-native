@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automation
     public static class GetAutomationAccount
     {
         /// <summary>
-        /// Definition of the automation account type.
+        /// Get information about an Automation Account.
         /// API Version: 2021-06-22.
         /// </summary>
         public static Task<GetAutomationAccountResult> InvokeAsync(GetAutomationAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-native:automation:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the automation account type.
+        /// Get information about an Automation Account.
         /// API Version: 2021-06-22.
         /// </summary>
         public static Output<GetAutomationAccountResult> Invoke(GetAutomationAccountInvokeArgs args, InvokeOptions? options = null)

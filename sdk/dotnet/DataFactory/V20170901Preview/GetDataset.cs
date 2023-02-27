@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     public static class GetDataset
     {
         /// <summary>
-        /// Dataset resource type.
+        /// Gets a dataset.
         /// </summary>
         public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-native:datafactory/v20170901preview:getDataset", args ?? new GetDatasetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Dataset resource type.
+        /// Gets a dataset.
         /// </summary>
         public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("azure-native:datafactory/v20170901preview:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());

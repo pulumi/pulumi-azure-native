@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     public static class GetGatewayHostnameConfiguration
     {
         /// <summary>
-        /// Gateway hostname configuration details.
+        /// Gets the details of the Gateway hostname configuration specified by its identifier.
         /// </summary>
         public static Task<GetGatewayHostnameConfigurationResult> InvokeAsync(GetGatewayHostnameConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement/v20191201:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gateway hostname configuration details.
+        /// Gets the details of the Gateway hostname configuration specified by its identifier.
         /// </summary>
         public static Output<GetGatewayHostnameConfigurationResult> Invoke(GetGatewayHostnameConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement/v20191201:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationInvokeArgs(), options.WithDefaults());

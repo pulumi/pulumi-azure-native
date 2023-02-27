@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     public static class ListOpenIdConnectProviderSecrets
     {
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the client secret details of the OpenID Connect Provider.
         /// </summary>
         public static Task<ListOpenIdConnectProviderSecretsResult> InvokeAsync(ListOpenIdConnectProviderSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOpenIdConnectProviderSecretsResult>("azure-native:apimanagement/v20211201preview:listOpenIdConnectProviderSecrets", args ?? new ListOpenIdConnectProviderSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the client secret details of the OpenID Connect Provider.
         /// </summary>
         public static Output<ListOpenIdConnectProviderSecretsResult> Invoke(ListOpenIdConnectProviderSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOpenIdConnectProviderSecretsResult>("azure-native:apimanagement/v20211201preview:listOpenIdConnectProviderSecrets", args ?? new ListOpenIdConnectProviderSecretsInvokeArgs(), options.WithDefaults());

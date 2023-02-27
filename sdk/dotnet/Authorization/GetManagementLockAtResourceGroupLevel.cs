@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Authorization
     public static class GetManagementLockAtResourceGroupLevel
     {
         /// <summary>
-        /// The lock information.
+        /// Gets a management lock at the resource group level.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetManagementLockAtResourceGroupLevelResult> InvokeAsync(GetManagementLockAtResourceGroupLevelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The lock information.
+        /// Gets a management lock at the resource group level.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetManagementLockAtResourceGroupLevelResult> Invoke(GetManagementLockAtResourceGroupLevelInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Authorization.V20200701Preview
     public static class GetPolicyExemption
     {
         /// <summary>
-        /// The policy exemption.
+        /// This operation retrieves a single policy exemption, given its name and the scope it was created at.
         /// </summary>
         public static Task<GetPolicyExemptionResult> InvokeAsync(GetPolicyExemptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-native:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The policy exemption.
+        /// This operation retrieves a single policy exemption, given its name and the scope it was created at.
         /// </summary>
         public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());

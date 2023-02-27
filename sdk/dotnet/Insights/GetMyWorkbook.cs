@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetMyWorkbook
     {
         /// <summary>
-        /// An Application Insights private workbook definition.
+        /// Get a single private workbook by its resourceName.
         /// API Version: 2020-10-20.
         /// </summary>
         public static Task<GetMyWorkbookResult> InvokeAsync(GetMyWorkbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Application Insights private workbook definition.
+        /// Get a single private workbook by its resourceName.
         /// API Version: 2020-10-20.
         /// </summary>
         public static Output<GetMyWorkbookResult> Invoke(GetMyWorkbookInvokeArgs args, InvokeOptions? options = null)

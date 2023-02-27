@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     public static class GetDisasterRecoveryConfig
     {
         /// <summary>
-        /// Single item in List or Get Alias(Disaster Recovery configuration) operation
+        /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
         /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:eventhub/v20211101:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single item in List or Get Alias(Disaster Recovery configuration) operation
+        /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
         /// </summary>
         public static Output<GetDisasterRecoveryConfigResult> Invoke(GetDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:eventhub/v20211101:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());

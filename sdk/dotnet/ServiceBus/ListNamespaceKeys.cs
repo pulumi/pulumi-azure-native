@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class ListNamespaceKeys
     {
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Gets the primary and secondary connection strings for the namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:servicebus:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Gets the primary and secondary connection strings for the namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)

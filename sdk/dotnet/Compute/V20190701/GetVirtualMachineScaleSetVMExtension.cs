@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Compute.V20190701
     public static class GetVirtualMachineScaleSetVMExtension
     {
         /// <summary>
-        /// Describes a Virtual Machine Extension.
+        /// The operation to get the VMSS VM extension.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMExtensionResult> InvokeAsync(GetVirtualMachineScaleSetVMExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute/v20190701:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Virtual Machine Extension.
+        /// The operation to get the VMSS VM extension.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMExtensionResult> Invoke(GetVirtualMachineScaleSetVMExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute/v20190701:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionInvokeArgs(), options.WithDefaults());

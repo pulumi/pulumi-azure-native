@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
     public static class GetIngestionSetting
     {
         /// <summary>
-        /// Configures how to correlate scan data and logs with resources associated with the subscription.
+        /// Settings for ingesting security data and logs to correlate with resources associated with the subscription.
         /// </summary>
         public static Task<GetIngestionSettingResult> InvokeAsync(GetIngestionSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIngestionSettingResult>("azure-native:security/v20210115preview:getIngestionSetting", args ?? new GetIngestionSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configures how to correlate scan data and logs with resources associated with the subscription.
+        /// Settings for ingesting security data and logs to correlate with resources associated with the subscription.
         /// </summary>
         public static Output<GetIngestionSettingResult> Invoke(GetIngestionSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIngestionSettingResult>("azure-native:security/v20210115preview:getIngestionSetting", args ?? new GetIngestionSettingInvokeArgs(), options.WithDefaults());

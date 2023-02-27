@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ContainerService
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// A private endpoint connection
+        /// Gets the details of the private endpoint connection by managed cluster and resource group.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:containerservice:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private endpoint connection
+        /// Gets the details of the private endpoint connection by managed cluster and resource group.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

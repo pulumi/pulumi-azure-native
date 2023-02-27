@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class ListSourceControlRepositories
     {
         /// <summary>
-        /// List all the source controls.
+        /// Gets a list of repositories metadata.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<ListSourceControlRepositoriesResult> InvokeAsync(ListSourceControlRepositoriesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSourceControlRepositoriesResult>("azure-native:securityinsights:listSourceControlRepositories", args ?? new ListSourceControlRepositoriesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List all the source controls.
+        /// Gets a list of repositories metadata.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<ListSourceControlRepositoriesResult> Invoke(ListSourceControlRepositoriesInvokeArgs args, InvokeOptions? options = null)

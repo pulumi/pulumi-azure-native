@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
     public static class GetApplicationAccelerator
     {
         /// <summary>
-        /// Application accelerator resource
+        /// Get the application accelerator.
         /// </summary>
         public static Task<GetApplicationAcceleratorResult> InvokeAsync(GetApplicationAcceleratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationAcceleratorResult>("azure-native:appplatform/v20230101preview:getApplicationAccelerator", args ?? new GetApplicationAcceleratorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Application accelerator resource
+        /// Get the application accelerator.
         /// </summary>
         public static Output<GetApplicationAcceleratorResult> Invoke(GetApplicationAcceleratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationAcceleratorResult>("azure-native:appplatform/v20230101preview:getApplicationAccelerator", args ?? new GetApplicationAcceleratorInvokeArgs(), options.WithDefaults());

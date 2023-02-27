@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.VoiceServices.V20230131
     public static class GetTestLine
     {
         /// <summary>
-        /// A TestLine resource
+        /// Get a TestLine
         /// </summary>
         public static Task<GetTestLineResult> InvokeAsync(GetTestLineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestLineResult>("azure-native:voiceservices/v20230131:getTestLine", args ?? new GetTestLineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A TestLine resource
+        /// Get a TestLine
         /// </summary>
         public static Output<GetTestLineResult> Invoke(GetTestLineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestLineResult>("azure-native:voiceservices/v20230131:getTestLine", args ?? new GetTestLineInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ElasticSan
     public static class GetVolumeGroup
     {
         /// <summary>
-        /// Response for Volume Group request.
+        /// Get an VolumeGroups.
         /// API Version: 2021-11-20-preview.
         /// </summary>
         public static Task<GetVolumeGroupResult> InvokeAsync(GetVolumeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupResult>("azure-native:elasticsan:getVolumeGroup", args ?? new GetVolumeGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for Volume Group request.
+        /// Get an VolumeGroups.
         /// API Version: 2021-11-20-preview.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)

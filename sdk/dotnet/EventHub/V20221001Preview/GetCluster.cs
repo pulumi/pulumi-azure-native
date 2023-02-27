@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
     public static class GetCluster
     {
         /// <summary>
-        /// Single Event Hubs Cluster resource in List or Get operations.
+        /// Gets the resource description of the specified Event Hubs Cluster.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub/v20221001preview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single Event Hubs Cluster resource in List or Get operations.
+        /// Gets the resource description of the specified Event Hubs Cluster.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub/v20221001preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

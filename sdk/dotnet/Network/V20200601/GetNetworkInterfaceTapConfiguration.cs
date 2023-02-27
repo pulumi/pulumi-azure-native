@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200601
     public static class GetNetworkInterfaceTapConfiguration
     {
         /// <summary>
-        /// Tap configuration in a Network Interface.
+        /// Get the specified tap configuration on a network interface.
         /// </summary>
         public static Task<GetNetworkInterfaceTapConfigurationResult> InvokeAsync(GetNetworkInterfaceTapConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20200601:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Tap configuration in a Network Interface.
+        /// Get the specified tap configuration on a network interface.
         /// </summary>
         public static Output<GetNetworkInterfaceTapConfigurationResult> Invoke(GetNetworkInterfaceTapConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceTapConfigurationResult>("azure-native:network/v20200601:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationInvokeArgs(), options.WithDefaults());

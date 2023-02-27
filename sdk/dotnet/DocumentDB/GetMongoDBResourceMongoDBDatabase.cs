@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DocumentDB
     public static class GetMongoDBResourceMongoDBDatabase
     {
         /// <summary>
-        /// An Azure Cosmos DB MongoDB database.
+        /// Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
         /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetMongoDBResourceMongoDBDatabaseResult> InvokeAsync(GetMongoDBResourceMongoDBDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoDBDatabaseResult>("azure-native:documentdb:getMongoDBResourceMongoDBDatabase", args ?? new GetMongoDBResourceMongoDBDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Cosmos DB MongoDB database.
+        /// Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
         /// API Version: 2021-03-15.
         /// </summary>
         public static Output<GetMongoDBResourceMongoDBDatabaseResult> Invoke(GetMongoDBResourceMongoDBDatabaseInvokeArgs args, InvokeOptions? options = null)

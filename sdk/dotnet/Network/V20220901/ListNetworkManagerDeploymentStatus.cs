@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220901
     public static class ListNetworkManagerDeploymentStatus
     {
         /// <summary>
-        /// A list of Network Manager Deployment Status
+        /// Post to List of Network Manager Deployment Status.
         /// </summary>
         public static Task<ListNetworkManagerDeploymentStatusResult> InvokeAsync(ListNetworkManagerDeploymentStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerDeploymentStatusResult>("azure-native:network/v20220901:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A list of Network Manager Deployment Status
+        /// Post to List of Network Manager Deployment Status.
         /// </summary>
         public static Output<ListNetworkManagerDeploymentStatusResult> Invoke(ListNetworkManagerDeploymentStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNetworkManagerDeploymentStatusResult>("azure-native:network/v20220901:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusInvokeArgs(), options.WithDefaults());

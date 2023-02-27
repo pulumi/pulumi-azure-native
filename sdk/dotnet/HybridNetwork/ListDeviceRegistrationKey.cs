@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridNetwork
     public static class ListDeviceRegistrationKey
     {
         /// <summary>
-        /// The device registration key.
+        /// List the registration key for the device.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<ListDeviceRegistrationKeyResult> InvokeAsync(ListDeviceRegistrationKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeviceRegistrationKeyResult>("azure-native:hybridnetwork:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The device registration key.
+        /// List the registration key for the device.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<ListDeviceRegistrationKeyResult> Invoke(ListDeviceRegistrationKeyInvokeArgs args, InvokeOptions? options = null)

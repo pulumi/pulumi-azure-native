@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601
     public static class GetWorkspaceSqlAadAdmin
     {
         /// <summary>
-        /// Workspace active directory administrator
+        /// Gets a workspace SQL active directory admin
         /// </summary>
         public static Task<GetWorkspaceSqlAadAdminResult> InvokeAsync(GetWorkspaceSqlAadAdminArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSqlAadAdminResult>("azure-native:synapse/v20210601:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workspace active directory administrator
+        /// Gets a workspace SQL active directory admin
         /// </summary>
         public static Output<GetWorkspaceSqlAadAdminResult> Invoke(GetWorkspaceSqlAadAdminInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSqlAadAdminResult>("azure-native:synapse/v20210601:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminInvokeArgs(), options.WithDefaults());

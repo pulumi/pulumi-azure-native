@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EventHub
     public static class ListNamespaceKeys
     {
         /// <summary>
-        /// Namespace/EventHub Connection String
+        /// Gets the primary and secondary connection strings for the Namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:eventhub:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/EventHub Connection String
+        /// Gets the primary and secondary connection strings for the Namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public static class ListIntegrationAccountMapContentCallbackUrl
     {
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the content callback url.
         /// </summary>
         public static Task<ListIntegrationAccountMapContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountMapContentCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountMapContentCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the content callback url.
         /// </summary>
         public static Output<ListIntegrationAccountMapContentCallbackUrlResult> Invoke(ListIntegrationAccountMapContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountMapContentCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Cache
     public static class GetDatabase
     {
         /// <summary>
-        /// Describes a database on the RedisEnterprise cluster
+        /// Gets information about a database in a RedisEnterprise cluster.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:cache:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a database on the RedisEnterprise cluster
+        /// Gets information about a database in a RedisEnterprise cluster.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)

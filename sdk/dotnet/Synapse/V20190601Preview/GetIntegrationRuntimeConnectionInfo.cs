@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
     public static class GetIntegrationRuntimeConnectionInfo
     {
         /// <summary>
-        /// Connection information for encrypting the on-premises data source credentials.
+        /// Get connection info for an integration runtime
         /// </summary>
         public static Task<GetIntegrationRuntimeConnectionInfoResult> InvokeAsync(GetIntegrationRuntimeConnectionInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-native:synapse/v20190601preview:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Connection information for encrypting the on-premises data source credentials.
+        /// Get connection info for an integration runtime
         /// </summary>
         public static Output<GetIntegrationRuntimeConnectionInfoResult> Invoke(GetIntegrationRuntimeConnectionInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeConnectionInfoResult>("azure-native:synapse/v20190601preview:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoInvokeArgs(), options.WithDefaults());

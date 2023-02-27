@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20220301
     public static class ListWebAppAuthSettings
     {
         /// <summary>
-        /// Configuration settings for the Azure App Service Authentication / Authorization feature.
+        /// Description for Gets the Authentication/Authorization settings of an app.
         /// </summary>
         public static Task<ListWebAppAuthSettingsResult> InvokeAsync(ListWebAppAuthSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-native:web/v20220301:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration settings for the Azure App Service Authentication / Authorization feature.
+        /// Description for Gets the Authentication/Authorization settings of an app.
         /// </summary>
         public static Output<ListWebAppAuthSettingsResult> Invoke(ListWebAppAuthSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsResult>("azure-native:web/v20220301:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsInvokeArgs(), options.WithDefaults());

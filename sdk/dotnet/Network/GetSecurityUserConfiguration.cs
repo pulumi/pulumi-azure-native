@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetSecurityUserConfiguration
     {
         /// <summary>
-        /// Defines the security configuration
+        /// Retrieves a network manager security user configuration.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetSecurityUserConfigurationResult> InvokeAsync(GetSecurityUserConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityUserConfigurationResult>("azure-native:network:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the security configuration
+        /// Retrieves a network manager security user configuration.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetSecurityUserConfigurationResult> Invoke(GetSecurityUserConfigurationInvokeArgs args, InvokeOptions? options = null)

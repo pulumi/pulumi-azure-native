@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NetworkFunction.V20221101
     public static class GetCollectorPolicy
     {
         /// <summary>
-        /// Collector policy resource.
+        /// Gets the collector policy in a specified Traffic Collector
         /// </summary>
         public static Task<GetCollectorPolicyResult> InvokeAsync(GetCollectorPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCollectorPolicyResult>("azure-native:networkfunction/v20221101:getCollectorPolicy", args ?? new GetCollectorPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collector policy resource.
+        /// Gets the collector policy in a specified Traffic Collector
         /// </summary>
         public static Output<GetCollectorPolicyResult> Invoke(GetCollectorPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectorPolicyResult>("azure-native:networkfunction/v20221101:getCollectorPolicy", args ?? new GetCollectorPolicyInvokeArgs(), options.WithDefaults());

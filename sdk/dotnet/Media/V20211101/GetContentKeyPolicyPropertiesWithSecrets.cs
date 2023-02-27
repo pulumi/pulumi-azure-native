@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20211101
     public static class GetContentKeyPolicyPropertiesWithSecrets
     {
         /// <summary>
-        /// The properties of the Content Key Policy.
+        /// Get a Content Key Policy including secret values
         /// </summary>
         public static Task<GetContentKeyPolicyPropertiesWithSecretsResult> InvokeAsync(GetContentKeyPolicyPropertiesWithSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20211101:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The properties of the Content Key Policy.
+        /// Get a Content Key Policy including secret values
         /// </summary>
         public static Output<GetContentKeyPolicyPropertiesWithSecretsResult> Invoke(GetContentKeyPolicyPropertiesWithSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20211101:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsInvokeArgs(), options.WithDefaults());

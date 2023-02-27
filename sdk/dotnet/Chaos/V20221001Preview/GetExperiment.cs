@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Chaos.V20221001Preview
     public static class GetExperiment
     {
         /// <summary>
-        /// Model that represents a Experiment resource.
+        /// Get a Experiment resource.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:chaos/v20221001preview:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Model that represents a Experiment resource.
+        /// Get a Experiment resource.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:chaos/v20221001preview:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());

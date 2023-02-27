@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetIpGroup
     {
         /// <summary>
-        /// The IpGroups resource information.
+        /// Gets the specified ipGroups.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetIpGroupResult> InvokeAsync(GetIpGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure-native:network:getIpGroup", args ?? new GetIpGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The IpGroups resource information.
+        /// Gets the specified ipGroups.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOptions? options = null)

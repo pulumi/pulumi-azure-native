@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     public static class GetSchemaRegistry
     {
         /// <summary>
-        /// Single item in List or Get Schema Group operation
+        /// Gets the details of an EventHub schema group.
         /// </summary>
         public static Task<GetSchemaRegistryResult> InvokeAsync(GetSchemaRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryResult>("azure-native:eventhub/v20211101:getSchemaRegistry", args ?? new GetSchemaRegistryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single item in List or Get Schema Group operation
+        /// Gets the details of an EventHub schema group.
         /// </summary>
         public static Output<GetSchemaRegistryResult> Invoke(GetSchemaRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryResult>("azure-native:eventhub/v20211101:getSchemaRegistry", args ?? new GetSchemaRegistryInvokeArgs(), options.WithDefaults());

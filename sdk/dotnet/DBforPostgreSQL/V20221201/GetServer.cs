@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
     public static class GetServer
     {
         /// <summary>
-        /// Represents a server.
+        /// Gets information about a server.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbforpostgresql/v20221201:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a server.
+        /// Gets information about a server.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbforpostgresql/v20221201:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Orbital
     public static class ListSpacecraftAvailableContacts
     {
         /// <summary>
-        /// Response for the ListAvailableContacts API service call.
+        /// Return list of available contacts
         /// API Version: 2021-04-04-preview.
         /// </summary>
         public static Task<ListSpacecraftAvailableContactsResult> InvokeAsync(ListSpacecraftAvailableContactsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSpacecraftAvailableContactsResult>("azure-native:orbital:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for the ListAvailableContacts API service call.
+        /// Return list of available contacts
         /// API Version: 2021-04-04-preview.
         /// </summary>
         public static Output<ListSpacecraftAvailableContactsResult> Invoke(ListSpacecraftAvailableContactsInvokeArgs args, InvokeOptions? options = null)

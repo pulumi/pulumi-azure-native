@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Cache
     public static class GetPatchSchedule
     {
         /// <summary>
-        /// Response to put/get patch schedules for Redis cache.
+        /// Gets the patching schedule of a redis cache.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetPatchScheduleResult> InvokeAsync(GetPatchScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-native:cache:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response to put/get patch schedules for Redis cache.
+        /// Gets the patching schedule of a redis cache.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetPatchScheduleResult> Invoke(GetPatchScheduleInvokeArgs args, InvokeOptions? options = null)

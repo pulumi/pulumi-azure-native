@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetVirtualNetworkGatewayConnection
     {
         /// <summary>
-        /// A common class for general resource information.
+        /// Gets the specified virtual network gateway connection by resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayConnectionResult> InvokeAsync(GetVirtualNetworkGatewayConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-native:network:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A common class for general resource information.
+        /// Gets the specified virtual network gateway connection by resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayConnectionResult> Invoke(GetVirtualNetworkGatewayConnectionInvokeArgs args, InvokeOptions? options = null)

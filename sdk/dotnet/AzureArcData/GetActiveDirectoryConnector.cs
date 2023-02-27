@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AzureArcData
     public static class GetActiveDirectoryConnector
     {
         /// <summary>
-        /// Active directory connector resource
+        /// Retrieves an Active Directory connector resource
         /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Task<GetActiveDirectoryConnectorResult> InvokeAsync(GetActiveDirectoryConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveDirectoryConnectorResult>("azure-native:azurearcdata:getActiveDirectoryConnector", args ?? new GetActiveDirectoryConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Active directory connector resource
+        /// Retrieves an Active Directory connector resource
         /// API Version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetActiveDirectoryConnectorResult> Invoke(GetActiveDirectoryConnectorInvokeArgs args, InvokeOptions? options = null)

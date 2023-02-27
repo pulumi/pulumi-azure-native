@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     public static class GetDynamics365DataConnector
     {
         /// <summary>
-        /// Represents Dynamics365 data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetDynamics365DataConnectorResult> InvokeAsync(GetDynamics365DataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20210901preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents Dynamics365 data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetDynamics365DataConnectorResult> Invoke(GetDynamics365DataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamics365DataConnectorResult>("azure-native:securityinsights/v20210901preview:getDynamics365DataConnector", args ?? new GetDynamics365DataConnectorInvokeArgs(), options.WithDefaults());

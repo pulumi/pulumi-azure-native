@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Compute.V20220801
     public static class GetProximityPlacementGroup
     {
         /// <summary>
-        /// Specifies information about the proximity placement group.
+        /// Retrieves information about a proximity placement group .
         /// </summary>
         public static Task<GetProximityPlacementGroupResult> InvokeAsync(GetProximityPlacementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-native:compute/v20220801:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Specifies information about the proximity placement group.
+        /// Retrieves information about a proximity placement group .
         /// </summary>
         public static Output<GetProximityPlacementGroupResult> Invoke(GetProximityPlacementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProximityPlacementGroupResult>("azure-native:compute/v20220801:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupInvokeArgs(), options.WithDefaults());

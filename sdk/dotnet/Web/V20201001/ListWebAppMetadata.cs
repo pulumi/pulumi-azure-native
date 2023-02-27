@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20201001
     public static class ListWebAppMetadata
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the metadata of an app.
         /// </summary>
         public static Task<ListWebAppMetadataResult> InvokeAsync(ListWebAppMetadataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataResult>("azure-native:web/v20201001:listWebAppMetadata", args ?? new ListWebAppMetadataArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the metadata of an app.
         /// </summary>
         public static Output<ListWebAppMetadataResult> Invoke(ListWebAppMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataResult>("azure-native:web/v20201001:listWebAppMetadata", args ?? new ListWebAppMetadataInvokeArgs(), options.WithDefaults());

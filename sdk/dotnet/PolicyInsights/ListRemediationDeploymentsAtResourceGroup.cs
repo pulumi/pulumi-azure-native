@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.PolicyInsights
     public static class ListRemediationDeploymentsAtResourceGroup
     {
         /// <summary>
-        /// List of deployments for a remediation.
+        /// Gets all deployments for a remediation at resource group scope.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceGroupResult> InvokeAsync(ListRemediationDeploymentsAtResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", args ?? new ListRemediationDeploymentsAtResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of deployments for a remediation.
+        /// Gets all deployments for a remediation at resource group scope.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtResourceGroupResult> Invoke(ListRemediationDeploymentsAtResourceGroupInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public static class GetKubernetesRole
     {
         /// <summary>
-        /// Kubernetes role.
+        /// Gets a specific role by name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetKubernetesRoleResult> InvokeAsync(GetKubernetesRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Kubernetes role.
+        /// Gets a specific role by name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOptions? options = null)

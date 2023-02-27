@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
     public static class GetLinkedStorageAccount
     {
         /// <summary>
-        /// Linked storage accounts top level resource container.
+        /// Gets all linked storage account of a specific data source type associated with the specified workspace.
         /// </summary>
         public static Task<GetLinkedStorageAccountResult> InvokeAsync(GetLinkedStorageAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-native:operationalinsights/v20200301preview:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Linked storage accounts top level resource container.
+        /// Gets all linked storage account of a specific data source type associated with the specified workspace.
         /// </summary>
         public static Output<GetLinkedStorageAccountResult> Invoke(GetLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedStorageAccountResult>("azure-native:operationalinsights/v20200301preview:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountInvokeArgs(), options.WithDefaults());

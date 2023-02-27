@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20190801
     public static class ListWebAppConnectionStrings
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the connection strings of an app.
         /// </summary>
         public static Task<ListWebAppConnectionStringsResult> InvokeAsync(ListWebAppConnectionStringsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-native:web/v20190801:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the connection strings of an app.
         /// </summary>
         public static Output<ListWebAppConnectionStringsResult> Invoke(ListWebAppConnectionStringsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppConnectionStringsResult>("azure-native:web/v20190801:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsInvokeArgs(), options.WithDefaults());

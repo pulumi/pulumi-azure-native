@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Media
     public static class GetContentKeyPolicy
     {
         /// <summary>
-        /// A Content Key Policy resource.
+        /// Get the details of a Content Key Policy in the Media Services account
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetContentKeyPolicyResult> InvokeAsync(GetContentKeyPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyResult>("azure-native:media:getContentKeyPolicy", args ?? new GetContentKeyPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Content Key Policy resource.
+        /// Get the details of a Content Key Policy in the Media Services account
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetContentKeyPolicyResult> Invoke(GetContentKeyPolicyInvokeArgs args, InvokeOptions? options = null)

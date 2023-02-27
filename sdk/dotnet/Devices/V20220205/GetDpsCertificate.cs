@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Devices.V20220205
     public static class GetDpsCertificate
     {
         /// <summary>
-        /// The X509 Certificate.
+        /// Get the certificate from the provisioning service.
         /// </summary>
         public static Task<GetDpsCertificateResult> InvokeAsync(GetDpsCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDpsCertificateResult>("azure-native:devices/v20220205:getDpsCertificate", args ?? new GetDpsCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The X509 Certificate.
+        /// Get the certificate from the provisioning service.
         /// </summary>
         public static Output<GetDpsCertificateResult> Invoke(GetDpsCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsCertificateResult>("azure-native:devices/v20220205:getDpsCertificate", args ?? new GetDpsCertificateInvokeArgs(), options.WithDefaults());

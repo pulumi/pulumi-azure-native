@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public static class GetLab
     {
         /// <summary>
-        /// A lab.
+        /// Get lab.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:devtestlab/v20180915:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A lab.
+        /// Get lab.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:devtestlab/v20180915:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());

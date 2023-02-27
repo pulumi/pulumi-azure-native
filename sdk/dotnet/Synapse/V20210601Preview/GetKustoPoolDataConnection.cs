@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     public static class GetKustoPoolDataConnection
     {
         /// <summary>
-        /// Class representing a data connection.
+        /// Returns a data connection.
         /// </summary>
         public static Task<GetKustoPoolDataConnectionResult> InvokeAsync(GetKustoPoolDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolDataConnectionResult>("azure-native:synapse/v20210601preview:getKustoPoolDataConnection", args ?? new GetKustoPoolDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a data connection.
+        /// Returns a data connection.
         /// </summary>
         public static Output<GetKustoPoolDataConnectionResult> Invoke(GetKustoPoolDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolDataConnectionResult>("azure-native:synapse/v20210601preview:getKustoPoolDataConnection", args ?? new GetKustoPoolDataConnectionInvokeArgs(), options.WithDefaults());

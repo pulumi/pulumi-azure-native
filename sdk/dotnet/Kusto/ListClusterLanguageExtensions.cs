@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Kusto
     public static class ListClusterLanguageExtensions
     {
         /// <summary>
-        /// The list of language extension objects.
+        /// Returns a list of language extensions that can run within KQL queries.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListClusterLanguageExtensionsResult> InvokeAsync(ListClusterLanguageExtensionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-native:kusto:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of language extension objects.
+        /// Returns a list of language extensions that can run within KQL queries.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListClusterLanguageExtensionsResult> Invoke(ListClusterLanguageExtensionsInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetCertificate
     {
         /// <summary>
-        /// SSL certificate for an app.
+        /// Get a certificate.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:web:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SSL certificate for an app.
+        /// Get a certificate.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301
     public static class GetStreamingJob
     {
         /// <summary>
-        /// A streaming job object, containing all information associated with the named streaming job.
+        /// Gets details about the specified streaming job.
         /// </summary>
         public static Task<GetStreamingJobResult> InvokeAsync(GetStreamingJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-native:streamanalytics/v20160301:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A streaming job object, containing all information associated with the named streaming job.
+        /// Gets details about the specified streaming job.
         /// </summary>
         public static Output<GetStreamingJobResult> Invoke(GetStreamingJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingJobResult>("azure-native:streamanalytics/v20160301:getStreamingJob", args ?? new GetStreamingJobInvokeArgs(), options.WithDefaults());

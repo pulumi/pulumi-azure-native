@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Resources.V20201001
     public static class GetDeploymentScript
     {
         /// <summary>
-        /// Deployment script object.
+        /// Gets a deployment script with a given name.
         /// </summary>
         public static Task<GetDeploymentScriptResult> InvokeAsync(GetDeploymentScriptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-native:resources/v20201001:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Deployment script object.
+        /// Gets a deployment script with a given name.
         /// </summary>
         public static Output<GetDeploymentScriptResult> Invoke(GetDeploymentScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentScriptResult>("azure-native:resources/v20201001:getDeploymentScript", args ?? new GetDeploymentScriptInvokeArgs(), options.WithDefaults());

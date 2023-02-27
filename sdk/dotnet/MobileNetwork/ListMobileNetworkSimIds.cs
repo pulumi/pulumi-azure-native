@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     public static class ListMobileNetworkSimIds
     {
         /// <summary>
-        /// Response for list SIM IDs API service call.
+        /// Lists the IDs of all provisioned SIMs in a mobile network
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<ListMobileNetworkSimIdsResult> InvokeAsync(ListMobileNetworkSimIdsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMobileNetworkSimIdsResult>("azure-native:mobilenetwork:listMobileNetworkSimIds", args ?? new ListMobileNetworkSimIdsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for list SIM IDs API service call.
+        /// Lists the IDs of all provisioned SIMs in a mobile network
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<ListMobileNetworkSimIdsResult> Invoke(ListMobileNetworkSimIdsInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Cache
     public static class GetRedis
     {
         /// <summary>
-        /// A single Redis item in List or Get Operation.
+        /// Gets a Redis cache (resource description).
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetRedisResult> InvokeAsync(GetRedisArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azure-native:cache:getRedis", args ?? new GetRedisArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A single Redis item in List or Get Operation.
+        /// Gets a Redis cache (resource description).
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetRedisResult> Invoke(GetRedisInvokeArgs args, InvokeOptions? options = null)

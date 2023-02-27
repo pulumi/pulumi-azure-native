@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStack.V20220601
     public static class ListProducts
     {
         /// <summary>
-        /// Pageable list of products.
+        /// Returns a list of products.
         /// </summary>
         public static Task<ListProductsResult> InvokeAsync(ListProductsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProductsResult>("azure-native:azurestack/v20220601:listProducts", args ?? new ListProductsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Pageable list of products.
+        /// Returns a list of products.
         /// </summary>
         public static Output<ListProductsResult> Invoke(ListProductsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductsResult>("azure-native:azurestack/v20220601:listProducts", args ?? new ListProductsInvokeArgs(), options.WithDefaults());

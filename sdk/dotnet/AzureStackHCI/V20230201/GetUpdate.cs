@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230201
     public static class GetUpdate
     {
         /// <summary>
-        /// Update details
+        /// Get specified Update
         /// </summary>
         public static Task<GetUpdateResult> InvokeAsync(GetUpdateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUpdateResult>("azure-native:azurestackhci/v20230201:getUpdate", args ?? new GetUpdateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Update details
+        /// Get specified Update
         /// </summary>
         public static Output<GetUpdateResult> Invoke(GetUpdateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateResult>("azure-native:azurestackhci/v20230201:getUpdate", args ?? new GetUpdateInvokeArgs(), options.WithDefaults());

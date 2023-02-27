@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiIssueAttachment
     {
         /// <summary>
-        /// Issue Attachment Contract details.
+        /// Gets the details of the issue Attachment for an API specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiIssueAttachmentResult> InvokeAsync(GetApiIssueAttachmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueAttachmentResult>("azure-native:apimanagement:getApiIssueAttachment", args ?? new GetApiIssueAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Issue Attachment Contract details.
+        /// Gets the details of the issue Attachment for an API specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiIssueAttachmentResult> Invoke(GetApiIssueAttachmentInvokeArgs args, InvokeOptions? options = null)

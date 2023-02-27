@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     public static class GetSecret
     {
         /// <summary>
-        /// Friendly Secret name mapping to the any Secret or secret related information.
+        /// Gets an existing Secret within a profile.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn/v20210601:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Friendly Secret name mapping to the any Secret or secret related information.
+        /// Gets an existing Secret within a profile.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn/v20210601:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());

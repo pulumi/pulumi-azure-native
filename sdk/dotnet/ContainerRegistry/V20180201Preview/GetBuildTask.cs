@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
     public static class GetBuildTask
     {
         /// <summary>
-        /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+        /// Get the properties of a specified build task.
         /// </summary>
         public static Task<GetBuildTaskResult> InvokeAsync(GetBuildTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildTaskResult>("azure-native:containerregistry/v20180201preview:getBuildTask", args ?? new GetBuildTaskArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+        /// Get the properties of a specified build task.
         /// </summary>
         public static Output<GetBuildTaskResult> Invoke(GetBuildTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildTaskResult>("azure-native:containerregistry/v20180201preview:getBuildTask", args ?? new GetBuildTaskInvokeArgs(), options.WithDefaults());

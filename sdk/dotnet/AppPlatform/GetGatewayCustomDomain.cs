@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppPlatform
     public static class GetGatewayCustomDomain
     {
         /// <summary>
-        /// Custom domain of the Spring Cloud Gateway
+        /// Get the Spring Cloud Gateway custom domain.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetGatewayCustomDomainResult> InvokeAsync(GetGatewayCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCustomDomainResult>("azure-native:appplatform:getGatewayCustomDomain", args ?? new GetGatewayCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Custom domain of the Spring Cloud Gateway
+        /// Get the Spring Cloud Gateway custom domain.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetGatewayCustomDomainResult> Invoke(GetGatewayCustomDomainInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetDatabasePrincipalAssignment
     {
         /// <summary>
-        /// Class representing a database principal assignment.
+        /// Gets a Kusto pool database principalAssignment.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetDatabasePrincipalAssignmentResult> InvokeAsync(GetDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-native:synapse:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a database principal assignment.
+        /// Gets a Kusto pool database principalAssignment.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetDatabasePrincipalAssignmentResult> Invoke(GetDatabasePrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)

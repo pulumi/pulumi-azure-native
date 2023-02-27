@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomerInsights
     public static class GetPredictionTrainingResults
     {
         /// <summary>
-        /// The training results of the prediction.
+        /// Gets training results.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetPredictionTrainingResultsResult> InvokeAsync(GetPredictionTrainingResultsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPredictionTrainingResultsResult>("azure-native:customerinsights:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The training results of the prediction.
+        /// Gets training results.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetPredictionTrainingResultsResult> Invoke(GetPredictionTrainingResultsInvokeArgs args, InvokeOptions? options = null)

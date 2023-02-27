@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     public static class GetSAPDiskConfigurations
     {
         /// <summary>
-        /// The list of disk configuration for vmSku which are part of SAP deployment.
+        /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
         /// </summary>
         public static Task<GetSAPDiskConfigurationsResult> InvokeAsync(GetSAPDiskConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPDiskConfigurationsResult>("azure-native:workloads/v20211201preview:getSAPDiskConfigurations", args ?? new GetSAPDiskConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of disk configuration for vmSku which are part of SAP deployment.
+        /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
         /// </summary>
         public static Output<GetSAPDiskConfigurationsResult> Invoke(GetSAPDiskConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPDiskConfigurationsResult>("azure-native:workloads/v20211201preview:getSAPDiskConfigurations", args ?? new GetSAPDiskConfigurationsInvokeArgs(), options.WithDefaults());

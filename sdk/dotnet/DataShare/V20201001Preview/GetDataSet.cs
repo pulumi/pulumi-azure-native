@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public static class GetDataSet
     {
         /// <summary>
-        /// A DataSet data transfer object.
+        /// Get a DataSet in a share
         /// </summary>
         public static Task<GetDataSetResult> InvokeAsync(GetDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSetResult>("azure-native:datashare/v20201001preview:getDataSet", args ?? new GetDataSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A DataSet data transfer object.
+        /// Get a DataSet in a share
         /// </summary>
         public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("azure-native:datashare/v20201001preview:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());

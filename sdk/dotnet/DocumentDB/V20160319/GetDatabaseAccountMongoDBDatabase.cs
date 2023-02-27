@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
     public static class GetDatabaseAccountMongoDBDatabase
     {
         /// <summary>
-        /// An Azure Cosmos DB MongoDB database.
+        /// Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
         /// </summary>
         public static Task<GetDatabaseAccountMongoDBDatabaseResult> InvokeAsync(GetDatabaseAccountMongoDBDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/v20160319:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Cosmos DB MongoDB database.
+        /// Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
         /// </summary>
         public static Output<GetDatabaseAccountMongoDBDatabaseResult> Invoke(GetDatabaseAccountMongoDBDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/v20160319:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseInvokeArgs(), options.WithDefaults());

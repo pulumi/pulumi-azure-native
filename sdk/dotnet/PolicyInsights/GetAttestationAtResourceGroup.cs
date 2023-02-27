@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.PolicyInsights
     public static class GetAttestationAtResourceGroup
     {
         /// <summary>
-        /// An attestation resource.
+        /// Gets an existing attestation at resource group scope.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetAttestationAtResourceGroupResult> InvokeAsync(GetAttestationAtResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An attestation resource.
+        /// Gets an existing attestation at resource group scope.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetAttestationAtResourceGroupResult> Invoke(GetAttestationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)

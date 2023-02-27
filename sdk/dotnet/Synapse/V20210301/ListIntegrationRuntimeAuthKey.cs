@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20210301
     public static class ListIntegrationRuntimeAuthKey
     {
         /// <summary>
-        /// The integration runtime authentication keys.
+        /// List authentication keys in an integration runtime
         /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeyResult> InvokeAsync(ListIntegrationRuntimeAuthKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeyResult>("azure-native:synapse/v20210301:listIntegrationRuntimeAuthKey", args ?? new ListIntegrationRuntimeAuthKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The integration runtime authentication keys.
+        /// List authentication keys in an integration runtime
         /// </summary>
         public static Output<ListIntegrationRuntimeAuthKeyResult> Invoke(ListIntegrationRuntimeAuthKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationRuntimeAuthKeyResult>("azure-native:synapse/v20210301:listIntegrationRuntimeAuthKey", args ?? new ListIntegrationRuntimeAuthKeyInvokeArgs(), options.WithDefaults());

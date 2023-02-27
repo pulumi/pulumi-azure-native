@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
     public static class GetConfigurationProfileHCRPAssignment
     {
         /// <summary>
-        /// Configuration profile assignment is an association between a VM and automanage profile configuration.
+        /// Get information about a configuration profile assignment
         /// </summary>
         public static Task<GetConfigurationProfileHCRPAssignmentResult> InvokeAsync(GetConfigurationProfileHCRPAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileHCRPAssignmentResult>("azure-native:automanage/v20210430preview:getConfigurationProfileHCRPAssignment", args ?? new GetConfigurationProfileHCRPAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration profile assignment is an association between a VM and automanage profile configuration.
+        /// Get information about a configuration profile assignment
         /// </summary>
         public static Output<GetConfigurationProfileHCRPAssignmentResult> Invoke(GetConfigurationProfileHCRPAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCRPAssignmentResult>("azure-native:automanage/v20210430preview:getConfigurationProfileHCRPAssignment", args ?? new GetConfigurationProfileHCRPAssignmentInvokeArgs(), options.WithDefaults());

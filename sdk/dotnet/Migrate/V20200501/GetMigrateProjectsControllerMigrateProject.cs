@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Migrate.V20200501
     public static class GetMigrateProjectsControllerMigrateProject
     {
         /// <summary>
-        /// Migrate project.
+        /// Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
         /// </summary>
         public static Task<GetMigrateProjectsControllerMigrateProjectResult> InvokeAsync(GetMigrateProjectsControllerMigrateProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Migrate project.
+        /// Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
         /// </summary>
         public static Output<GetMigrateProjectsControllerMigrateProjectResult> Invoke(GetMigrateProjectsControllerMigrateProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public static class GetVideo
     {
         /// <summary>
-        /// The representation of a single video in a Video Analyzer account.
+        /// Retrieves an existing video resource within an account with a given name.
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Task<GetVideoResult> InvokeAsync(GetVideoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVideoResult>("azure-native:videoanalyzer:getVideo", args ?? new GetVideoArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The representation of a single video in a Video Analyzer account.
+        /// Retrieves an existing video resource within an account with a given name.
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Output<GetVideoResult> Invoke(GetVideoInvokeArgs args, InvokeOptions? options = null)

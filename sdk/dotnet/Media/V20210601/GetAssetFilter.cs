@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20210601
     public static class GetAssetFilter
     {
         /// <summary>
-        /// An Asset Filter.
+        /// Get the details of an Asset Filter associated with the specified Asset.
         /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media/v20210601:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Asset Filter.
+        /// Get the details of an Asset Filter associated with the specified Asset.
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media/v20210601:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Solutions
     public static class ListApplicationAllowedUpgradePlans
     {
         /// <summary>
-        /// The array of plan.
+        /// List allowed upgrade plans for application.
         /// API Version: 2021-07-01.
         /// </summary>
         public static Task<ListApplicationAllowedUpgradePlansResult> InvokeAsync(ListApplicationAllowedUpgradePlansArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplicationAllowedUpgradePlansResult>("azure-native:solutions:listApplicationAllowedUpgradePlans", args ?? new ListApplicationAllowedUpgradePlansArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The array of plan.
+        /// List allowed upgrade plans for application.
         /// API Version: 2021-07-01.
         /// </summary>
         public static Output<ListApplicationAllowedUpgradePlansResult> Invoke(ListApplicationAllowedUpgradePlansInvokeArgs args, InvokeOptions? options = null)

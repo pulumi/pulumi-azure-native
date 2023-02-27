@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
     public static class GetASCDataConnector
     {
         /// <summary>
-        /// Represents ASC (Azure Security Center) data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetASCDataConnectorResult> InvokeAsync(GetASCDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetASCDataConnectorResult>("azure-native:securityinsights/v20221001preview:getASCDataConnector", args ?? new GetASCDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents ASC (Azure Security Center) data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetASCDataConnectorResult> Invoke(GetASCDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetASCDataConnectorResult>("azure-native:securityinsights/v20221001preview:getASCDataConnector", args ?? new GetASCDataConnectorInvokeArgs(), options.WithDefaults());

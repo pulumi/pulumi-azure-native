@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EventGrid
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// 
+        /// Get a specific private endpoint connection under a topic or domain.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Get a specific private endpoint connection under a topic or domain.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

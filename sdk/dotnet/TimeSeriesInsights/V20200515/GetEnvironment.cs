@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
     public static class GetEnvironment
     {
         /// <summary>
-        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+        /// Gets the environment with the specified name in the specified subscription and resource group.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:timeseriesinsights/v20200515:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+        /// Gets the environment with the specified name in the specified subscription and resource group.
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:timeseriesinsights/v20200515:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EventGrid
     public static class ListPartnerNamespaceSharedAccessKeys
     {
         /// <summary>
-        /// Shared access keys of the partner namespace.
+        /// List the two keys used to publish to a partner namespace.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<ListPartnerNamespaceSharedAccessKeysResult> InvokeAsync(ListPartnerNamespaceSharedAccessKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPartnerNamespaceSharedAccessKeysResult>("azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Shared access keys of the partner namespace.
+        /// List the two keys used to publish to a partner namespace.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<ListPartnerNamespaceSharedAccessKeysResult> Invoke(ListPartnerNamespaceSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)

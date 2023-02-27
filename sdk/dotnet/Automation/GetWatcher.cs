@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automation
     public static class GetWatcher
     {
         /// <summary>
-        /// Definition of the watcher type.
+        /// Retrieve the watcher identified by watcher name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-native:automation:getWatcher", args ?? new GetWatcherArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the watcher type.
+        /// Retrieve the watcher identified by watcher name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOptions? options = null)

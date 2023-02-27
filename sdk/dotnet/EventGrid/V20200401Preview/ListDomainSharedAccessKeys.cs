@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
     public static class ListDomainSharedAccessKeys
     {
         /// <summary>
-        /// Shared access keys of the Domain.
+        /// List the two keys used to publish to a domain.
         /// </summary>
         public static Task<ListDomainSharedAccessKeysResult> InvokeAsync(ListDomainSharedAccessKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDomainSharedAccessKeysResult>("azure-native:eventgrid/v20200401preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Shared access keys of the Domain.
+        /// List the two keys used to publish to a domain.
         /// </summary>
         public static Output<ListDomainSharedAccessKeysResult> Invoke(ListDomainSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDomainSharedAccessKeysResult>("azure-native:eventgrid/v20200401preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysInvokeArgs(), options.WithDefaults());

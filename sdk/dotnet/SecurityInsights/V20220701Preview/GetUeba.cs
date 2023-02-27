@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220701Preview
     public static class GetUeba
     {
         /// <summary>
-        /// Settings with single toggle.
+        /// Gets a setting.
         /// </summary>
         public static Task<GetUebaResult> InvokeAsync(GetUebaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUebaResult>("azure-native:securityinsights/v20220701preview:getUeba", args ?? new GetUebaArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Settings with single toggle.
+        /// Gets a setting.
         /// </summary>
         public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights/v20220701preview:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
     public static class GetNotificationHub
     {
         /// <summary>
-        /// Description of a NotificationHub Resource.
+        /// Lists the notification hubs associated with a namespace.
         /// </summary>
         public static Task<GetNotificationHubResult> InvokeAsync(GetNotificationHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-native:notificationhubs/v20170401:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a NotificationHub Resource.
+        /// Lists the notification hubs associated with a namespace.
         /// </summary>
         public static Output<GetNotificationHubResult> Invoke(GetNotificationHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubResult>("azure-native:notificationhubs/v20170401:getNotificationHub", args ?? new GetNotificationHubInvokeArgs(), options.WithDefaults());

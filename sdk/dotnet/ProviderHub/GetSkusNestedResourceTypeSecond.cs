@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ProviderHub
     public static class GetSkusNestedResourceTypeSecond
     {
         /// <summary>
-        /// 
+        /// Gets the sku details for the given resource type and sku name.
         /// API Version: 2020-11-20.
         /// </summary>
         public static Task<GetSkusNestedResourceTypeSecondResult> InvokeAsync(GetSkusNestedResourceTypeSecondArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeSecondResult>("azure-native:providerhub:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Gets the sku details for the given resource type and sku name.
         /// API Version: 2020-11-20.
         /// </summary>
         public static Output<GetSkusNestedResourceTypeSecondResult> Invoke(GetSkusNestedResourceTypeSecondInvokeArgs args, InvokeOptions? options = null)

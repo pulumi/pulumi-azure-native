@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     public static class GetPacketCoreControlPlane
     {
         /// <summary>
-        /// Packet core control plane resource.
+        /// Gets information about the specified packet core control plane.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetPacketCoreControlPlaneResult> InvokeAsync(GetPacketCoreControlPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Packet core control plane resource.
+        /// Gets information about the specified packet core control plane.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetPacketCoreControlPlaneResult> Invoke(GetPacketCoreControlPlaneInvokeArgs args, InvokeOptions? options = null)

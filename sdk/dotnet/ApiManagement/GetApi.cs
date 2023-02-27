@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApi
     {
         /// <summary>
-        /// Api details.
+        /// Gets the details of the API specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure-native:apimanagement:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Api details.
+        /// Gets the details of the API specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)

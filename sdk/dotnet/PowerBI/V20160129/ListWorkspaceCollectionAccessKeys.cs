@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.PowerBI.V20160129
 {
     public static class ListWorkspaceCollectionAccessKeys
     {
+        /// <summary>
+        /// Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
+        /// </summary>
         public static Task<ListWorkspaceCollectionAccessKeysResult> InvokeAsync(ListWorkspaceCollectionAccessKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
+        /// </summary>
         public static Output<ListWorkspaceCollectionAccessKeysResult> Invoke(ListWorkspaceCollectionAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceCollectionAccessKeysResult>("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysInvokeArgs(), options.WithDefaults());
     }

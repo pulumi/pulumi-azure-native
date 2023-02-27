@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppConfiguration
     public static class ListConfigurationStoreKeyValue
     {
         /// <summary>
-        /// The result of a request to retrieve a key-value from the specified configuration store.
+        /// Lists a configuration store key-value.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<ListConfigurationStoreKeyValueResult> InvokeAsync(ListConfigurationStoreKeyValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The result of a request to retrieve a key-value from the specified configuration store.
+        /// Lists a configuration store key-value.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<ListConfigurationStoreKeyValueResult> Invoke(ListConfigurationStoreKeyValueInvokeArgs args, InvokeOptions? options = null)

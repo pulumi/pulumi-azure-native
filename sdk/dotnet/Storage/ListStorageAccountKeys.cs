@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Storage
     public static class ListStorageAccountKeys
     {
         /// <summary>
-        /// The response from the ListKeys operation.
+        /// Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:storage:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response from the ListKeys operation.
+        /// Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<ListStorageAccountKeysResult> Invoke(ListStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)

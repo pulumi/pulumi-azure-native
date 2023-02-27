@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public static class GetNotificationChannel
     {
         /// <summary>
-        /// A notification.
+        /// Get notification channel.
         /// </summary>
         public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("azure-native:devtestlab/v20180915:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A notification.
+        /// Get notification channel.
         /// </summary>
         public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("azure-native:devtestlab/v20180915:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Monitor.V20210603Preview
     public static class GetAzureMonitorWorkspace
     {
         /// <summary>
-        /// An Azure Monitor Workspace definition
+        /// Returns the specific Azure Monitor workspace
         /// </summary>
         public static Task<GetAzureMonitorWorkspaceResult> InvokeAsync(GetAzureMonitorWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureMonitorWorkspaceResult>("azure-native:monitor/v20210603preview:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Monitor Workspace definition
+        /// Returns the specific Azure Monitor workspace
         /// </summary>
         public static Output<GetAzureMonitorWorkspaceResult> Invoke(GetAzureMonitorWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureMonitorWorkspaceResult>("azure-native:monitor/v20210603preview:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public static class GetApplicationGroup
     {
         /// <summary>
-        /// Represents a ApplicationGroup definition.
+        /// Get an application group.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a ApplicationGroup definition.
+        /// Get an application group.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)

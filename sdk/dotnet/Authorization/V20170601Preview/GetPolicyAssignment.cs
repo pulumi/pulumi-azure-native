@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Authorization.V20170601Preview
     public static class GetPolicyAssignment
     {
         /// <summary>
-        /// The policy assignment.
+        /// Gets a policy assignment.
         /// </summary>
         public static Task<GetPolicyAssignmentResult> InvokeAsync(GetPolicyAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure-native:authorization/v20170601preview:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The policy assignment.
+        /// Gets a policy assignment.
         /// </summary>
         public static Output<GetPolicyAssignmentResult> Invoke(GetPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentResult>("azure-native:authorization/v20170601preview:getPolicyAssignment", args ?? new GetPolicyAssignmentInvokeArgs(), options.WithDefaults());

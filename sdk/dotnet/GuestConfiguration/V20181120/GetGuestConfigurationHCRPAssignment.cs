@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120
     public static class GetGuestConfigurationHCRPAssignment
     {
         /// <summary>
-        /// Guest configuration assignment is an association between a machine and guest configuration.
+        /// Get information about a guest configuration assignment
         /// </summary>
         public static Task<GetGuestConfigurationHCRPAssignmentResult> InvokeAsync(GetGuestConfigurationHCRPAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration/v20181120:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Guest configuration assignment is an association between a machine and guest configuration.
+        /// Get information about a guest configuration assignment
         /// </summary>
         public static Output<GetGuestConfigurationHCRPAssignmentResult> Invoke(GetGuestConfigurationHCRPAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration/v20181120:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentInvokeArgs(), options.WithDefaults());

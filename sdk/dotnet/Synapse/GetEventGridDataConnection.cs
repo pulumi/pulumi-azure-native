@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetEventGridDataConnection
     {
         /// <summary>
-        /// Class representing an Event Grid data connection.
+        /// Returns a data connection.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetEventGridDataConnectionResult> InvokeAsync(GetEventGridDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventGridDataConnectionResult>("azure-native:synapse:getEventGridDataConnection", args ?? new GetEventGridDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing an Event Grid data connection.
+        /// Returns a data connection.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetEventGridDataConnectionResult> Invoke(GetEventGridDataConnectionInvokeArgs args, InvokeOptions? options = null)

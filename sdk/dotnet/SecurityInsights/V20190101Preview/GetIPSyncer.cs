@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     public static class GetIPSyncer
     {
         /// <summary>
-        /// Settings with single toggle.
+        /// Gets a setting.
         /// </summary>
         public static Task<GetIPSyncerResult> InvokeAsync(GetIPSyncerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Settings with single toggle.
+        /// Gets a setting.
         /// </summary>
         public static Output<GetIPSyncerResult> Invoke(GetIPSyncerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerInvokeArgs(), options.WithDefaults());

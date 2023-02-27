@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
     public static class GetStorageMover
     {
         /// <summary>
-        /// The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+        /// Gets a Storage Mover resource.
         /// </summary>
         public static Task<GetStorageMoverResult> InvokeAsync(GetStorageMoverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageMoverResult>("azure-native:storagemover/v20230301:getStorageMover", args ?? new GetStorageMoverArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+        /// Gets a Storage Mover resource.
         /// </summary>
         public static Output<GetStorageMoverResult> Invoke(GetStorageMoverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageMoverResult>("azure-native:storagemover/v20230301:getStorageMover", args ?? new GetStorageMoverInvokeArgs(), options.WithDefaults());

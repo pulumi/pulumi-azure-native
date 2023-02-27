@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppPremierAddOnSlot
     {
         /// <summary>
-        /// Premier add-on.
+        /// Gets a named add-on of an app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppPremierAddOnSlotResult> InvokeAsync(GetWebAppPremierAddOnSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnSlotResult>("azure-native:web:getWebAppPremierAddOnSlot", args ?? new GetWebAppPremierAddOnSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Premier add-on.
+        /// Gets a named add-on of an app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetWebAppPremierAddOnSlotResult> Invoke(GetWebAppPremierAddOnSlotInvokeArgs args, InvokeOptions? options = null)

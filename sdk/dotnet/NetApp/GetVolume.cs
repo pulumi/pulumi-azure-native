@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.NetApp
     public static class GetVolume
     {
         /// <summary>
-        /// Volume resource
+        /// Get the details of the specified volume
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:netapp:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Volume resource
+        /// Get the details of the specified volume
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)

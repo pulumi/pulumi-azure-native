@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public static class GetSlice
     {
         /// <summary>
-        /// Network slice resource. Must be created in the same location as its parent mobile network.
+        /// Gets information about the specified network slice.
         /// </summary>
         public static Task<GetSliceResult> InvokeAsync(GetSliceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSliceResult>("azure-native:mobilenetwork/v20221101:getSlice", args ?? new GetSliceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Network slice resource. Must be created in the same location as its parent mobile network.
+        /// Gets information about the specified network slice.
         /// </summary>
         public static Output<GetSliceResult> Invoke(GetSliceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSliceResult>("azure-native:mobilenetwork/v20221101:getSlice", args ?? new GetSliceInvokeArgs(), options.WithDefaults());

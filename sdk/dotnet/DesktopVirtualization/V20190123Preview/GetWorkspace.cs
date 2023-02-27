@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
     public static class GetWorkspace
     {
         /// <summary>
-        /// Represents a Workspace definition.
+        /// Get a workspace.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:desktopvirtualization/v20190123preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Workspace definition.
+        /// Get a workspace.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:desktopvirtualization/v20190123preview:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

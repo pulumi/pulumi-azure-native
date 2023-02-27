@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20210501
     public static class GetWorkspaceAadAdmin
     {
         /// <summary>
-        /// Workspace active directory administrator
+        /// Gets a workspace active directory admin
         /// </summary>
         public static Task<GetWorkspaceAadAdminResult> InvokeAsync(GetWorkspaceAadAdminArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceAadAdminResult>("azure-native:synapse/v20210501:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workspace active directory administrator
+        /// Gets a workspace active directory admin
         /// </summary>
         public static Output<GetWorkspaceAadAdminResult> Invoke(GetWorkspaceAadAdminInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceAadAdminResult>("azure-native:synapse/v20210501:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminInvokeArgs(), options.WithDefaults());

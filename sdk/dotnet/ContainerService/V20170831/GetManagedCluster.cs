@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.ContainerService.V20170831
     public static class GetManagedCluster
     {
         /// <summary>
-        /// Managed cluster.
+        /// Gets the details of the managed cluster with a specified resource group and name.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice/v20170831:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Managed cluster.
+        /// Gets the details of the managed cluster with a specified resource group and name.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice/v20170831:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());

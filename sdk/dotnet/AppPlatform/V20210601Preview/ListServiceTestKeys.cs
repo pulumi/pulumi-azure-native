@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20210601Preview
     public static class ListServiceTestKeys
     {
         /// <summary>
-        /// Test keys payload
+        /// List test keys for a Service.
         /// </summary>
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-native:appplatform/v20210601preview:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Test keys payload
+        /// List test keys for a Service.
         /// </summary>
         public static Output<ListServiceTestKeysResult> Invoke(ListServiceTestKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServiceTestKeysResult>("azure-native:appplatform/v20210601preview:listServiceTestKeys", args ?? new ListServiceTestKeysInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class GetOfficeDataConnector
     {
         /// <summary>
-        /// Represents office data connector.
+        /// Gets a data connector.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetOfficeDataConnectorResult> InvokeAsync(GetOfficeDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOfficeDataConnectorResult>("azure-native:securityinsights:getOfficeDataConnector", args ?? new GetOfficeDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents office data connector.
+        /// Gets a data connector.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetOfficeDataConnectorResult> Invoke(GetOfficeDataConnectorInvokeArgs args, InvokeOptions? options = null)

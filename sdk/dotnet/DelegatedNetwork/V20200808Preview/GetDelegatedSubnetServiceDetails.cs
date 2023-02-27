@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
     public static class GetDelegatedSubnetServiceDetails
     {
         /// <summary>
-        /// Represents an instance of a orchestrator.
+        /// Gets details about the specified dnc DelegatedSubnet Link.
         /// </summary>
         public static Task<GetDelegatedSubnetServiceDetailsResult> InvokeAsync(GetDelegatedSubnetServiceDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an instance of a orchestrator.
+        /// Gets details about the specified dnc DelegatedSubnet Link.
         /// </summary>
         public static Output<GetDelegatedSubnetServiceDetailsResult> Invoke(GetDelegatedSubnetServiceDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedSubnetServiceDetailsResult>("azure-native:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsInvokeArgs(), options.WithDefaults());

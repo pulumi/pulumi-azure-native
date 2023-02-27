@@ -12,14 +12,16 @@ namespace Pulumi.AzureNative.RecoveryServices
     public static class GetProtectionIntent
     {
         /// <summary>
-        /// Base class for backup ProtectionIntent.
+        /// Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
+        /// call the GetItemOperationResult API.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Base class for backup ProtectionIntent.
+        /// Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
+        /// call the GetItemOperationResult API.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetProtectionIntentResult> Invoke(GetProtectionIntentInvokeArgs args, InvokeOptions? options = null)

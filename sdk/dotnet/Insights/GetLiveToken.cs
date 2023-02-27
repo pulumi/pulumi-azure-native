@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetLiveToken
     {
         /// <summary>
-        /// The response to a live token query.
+        /// **Gets an access token for live metrics stream data.**
         /// API Version: 2020-06-02-preview.
         /// </summary>
         public static Task<GetLiveTokenResult> InvokeAsync(GetLiveTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveTokenResult>("azure-native:insights:getLiveToken", args ?? new GetLiveTokenArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response to a live token query.
+        /// **Gets an access token for live metrics stream data.**
         /// API Version: 2020-06-02-preview.
         /// </summary>
         public static Output<GetLiveTokenResult> Invoke(GetLiveTokenInvokeArgs args, InvokeOptions? options = null)

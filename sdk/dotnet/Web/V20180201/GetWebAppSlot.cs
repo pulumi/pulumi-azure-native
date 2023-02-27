@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20180201
     public static class GetWebAppSlot
     {
         /// <summary>
-        /// A web app, a mobile app backend, or an API app.
+        /// Gets the details of a web, mobile, or API app.
         /// </summary>
         public static Task<GetWebAppSlotResult> InvokeAsync(GetWebAppSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotResult>("azure-native:web/v20180201:getWebAppSlot", args ?? new GetWebAppSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A web app, a mobile app backend, or an API app.
+        /// Gets the details of a web, mobile, or API app.
         /// </summary>
         public static Output<GetWebAppSlotResult> Invoke(GetWebAppSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSlotResult>("azure-native:web/v20180201:getWebAppSlot", args ?? new GetWebAppSlotInvokeArgs(), options.WithDefaults());

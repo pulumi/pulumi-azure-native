@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     public static class ListTenantAccessGitSecrets
     {
         /// <summary>
-        /// Tenant access information contract of the API Management service.
+        /// Gets the Git access configuration for the tenant.
         /// </summary>
         public static Task<ListTenantAccessGitSecretsResult> InvokeAsync(ListTenantAccessGitSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessGitSecretsResult>("azure-native:apimanagement/v20191201:listTenantAccessGitSecrets", args ?? new ListTenantAccessGitSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Tenant access information contract of the API Management service.
+        /// Gets the Git access configuration for the tenant.
         /// </summary>
         public static Output<ListTenantAccessGitSecretsResult> Invoke(ListTenantAccessGitSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTenantAccessGitSecretsResult>("azure-native:apimanagement/v20191201:listTenantAccessGitSecrets", args ?? new ListTenantAccessGitSecretsInvokeArgs(), options.WithDefaults());

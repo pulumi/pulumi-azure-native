@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
     public static class GetThreatIntelligenceAlertRule
     {
         /// <summary>
-        /// Represents Threat Intelligence alert rule.
+        /// Gets the alert rule.
         /// </summary>
         public static Task<GetThreatIntelligenceAlertRuleResult> InvokeAsync(GetThreatIntelligenceAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20211001preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents Threat Intelligence alert rule.
+        /// Gets the alert rule.
         /// </summary>
         public static Output<GetThreatIntelligenceAlertRuleResult> Invoke(GetThreatIntelligenceAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20211001preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleInvokeArgs(), options.WithDefaults());

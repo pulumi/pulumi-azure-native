@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automation
     public static class GetCredential
     {
         /// <summary>
-        /// Definition of the credential.
+        /// Retrieve the credential identified by credential name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:automation:getCredential", args ?? new GetCredentialArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the credential.
+        /// Retrieve the credential identified by credential name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)

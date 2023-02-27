@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     public static class GetAvailabilitySet
     {
         /// <summary>
-        /// The AvailabilitySets resource definition.
+        /// Implements AvailabilitySet GET method.
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-native:scvmm/v20200605preview:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AvailabilitySets resource definition.
+        /// Implements AvailabilitySet GET method.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:scvmm/v20200605preview:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());

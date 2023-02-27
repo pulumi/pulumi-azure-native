@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Get private endpoint connection under video analyzer account.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:videoanalyzer/v20211101preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Get private endpoint connection under video analyzer account.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:videoanalyzer/v20211101preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

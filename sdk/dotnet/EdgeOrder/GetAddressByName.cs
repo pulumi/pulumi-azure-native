@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EdgeOrder
     public static class GetAddressByName
     {
         /// <summary>
-        /// Address Resource.
+        /// Gets information about the specified address.
         /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetAddressByNameResult> InvokeAsync(GetAddressByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-native:edgeorder:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Address Resource.
+        /// Gets information about the specified address.
         /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetAddressByNameResult> Invoke(GetAddressByNameInvokeArgs args, InvokeOptions? options = null)

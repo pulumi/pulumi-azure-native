@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomerInsights
     public static class GetProfile
     {
         /// <summary>
-        /// The profile resource format.
+        /// Gets information about the specified profile.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:customerinsights:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The profile resource format.
+        /// Gets information about the specified profile.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)

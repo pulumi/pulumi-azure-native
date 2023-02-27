@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public static class ListManagerActivationKey
     {
         /// <summary>
-        /// The key.
+        /// Returns the activation key of the manager.
         /// </summary>
         public static Task<ListManagerActivationKeyResult> InvokeAsync(ListManagerActivationKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagerActivationKeyResult>("azure-native:storsimple/v20170601:listManagerActivationKey", args ?? new ListManagerActivationKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The key.
+        /// Returns the activation key of the manager.
         /// </summary>
         public static Output<ListManagerActivationKeyResult> Invoke(ListManagerActivationKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagerActivationKeyResult>("azure-native:storsimple/v20170601:listManagerActivationKey", args ?? new ListManagerActivationKeyInvokeArgs(), options.WithDefaults());

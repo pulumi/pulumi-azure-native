@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview
     public static class GetService
     {
         /// <summary>
-        /// The service resource.
+        /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:servicefabric/v20210101preview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The service resource.
+        /// Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:servicefabric/v20210101preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

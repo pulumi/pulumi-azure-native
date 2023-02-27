@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801
     public static class GetMDATPDataConnector
     {
         /// <summary>
-        /// Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetMDATPDataConnectorResult> InvokeAsync(GetMDATPDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMDATPDataConnectorResult>("azure-native:securityinsights/v20220801:getMDATPDataConnector", args ?? new GetMDATPDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetMDATPDataConnectorResult> Invoke(GetMDATPDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMDATPDataConnectorResult>("azure-native:securityinsights/v20220801:getMDATPDataConnector", args ?? new GetMDATPDataConnectorInvokeArgs(), options.WithDefaults());

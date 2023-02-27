@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     public static class GetThreatIntelligenceIndicator
     {
         /// <summary>
-        /// Threat intelligence information object.
+        /// View a threat intelligence indicator by name.
         /// </summary>
         public static Task<GetThreatIntelligenceIndicatorResult> InvokeAsync(GetThreatIntelligenceIndicatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights/v20230201:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Threat intelligence information object.
+        /// View a threat intelligence indicator by name.
         /// </summary>
         public static Output<GetThreatIntelligenceIndicatorResult> Invoke(GetThreatIntelligenceIndicatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights/v20230201:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorInvokeArgs(), options.WithDefaults());

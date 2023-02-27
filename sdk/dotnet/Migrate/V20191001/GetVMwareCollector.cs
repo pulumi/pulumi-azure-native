@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.Migrate.V20191001
 {
     public static class GetVMwareCollector
     {
+        /// <summary>
+        /// Get a VMware collector.
+        /// </summary>
         public static Task<GetVMwareCollectorResult> InvokeAsync(GetVMwareCollectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-native:migrate/v20191001:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get a VMware collector.
+        /// </summary>
         public static Output<GetVMwareCollectorResult> Invoke(GetVMwareCollectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVMwareCollectorResult>("azure-native:migrate/v20191001:getVMwareCollector", args ?? new GetVMwareCollectorInvokeArgs(), options.WithDefaults());
     }

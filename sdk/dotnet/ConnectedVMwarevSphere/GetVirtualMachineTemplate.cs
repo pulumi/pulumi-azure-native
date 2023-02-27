@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public static class GetVirtualMachineTemplate
     {
         /// <summary>
-        /// Define the virtualMachineTemplate.
+        /// Implements virtual machine template GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetVirtualMachineTemplateResult> InvokeAsync(GetVirtualMachineTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the virtualMachineTemplate.
+        /// Implements virtual machine template GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOptions? options = null)

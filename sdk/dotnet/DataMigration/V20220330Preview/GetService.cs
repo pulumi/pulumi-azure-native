@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
     public static class GetService
     {
         /// <summary>
-        /// An Azure Database Migration Service (classic) resource
+        /// The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:datamigration/v20220330preview:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Database Migration Service (classic) resource
+        /// The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:datamigration/v20220330preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210101Preview
     public static class GetExtension
     {
         /// <summary>
-        /// Details of a particular extension in HCI Cluster.
+        /// Get particular Arc Extension of HCI Cluster.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:azurestackhci/v20210101preview:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Details of a particular extension in HCI Cluster.
+        /// Get particular Arc Extension of HCI Cluster.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:azurestackhci/v20210101preview:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());

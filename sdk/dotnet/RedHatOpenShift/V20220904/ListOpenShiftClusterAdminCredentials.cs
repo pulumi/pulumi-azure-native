@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220904
     public static class ListOpenShiftClusterAdminCredentials
     {
         /// <summary>
-        /// OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
+        /// The operation returns the admin kubeconfig.
         /// </summary>
         public static Task<ListOpenShiftClusterAdminCredentialsResult> InvokeAsync(ListOpenShiftClusterAdminCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift/v20220904:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
+        /// The operation returns the admin kubeconfig.
         /// </summary>
         public static Output<ListOpenShiftClusterAdminCredentialsResult> Invoke(ListOpenShiftClusterAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift/v20220904:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200301
     public static class GetBastionHost
     {
         /// <summary>
-        /// Bastion Host resource.
+        /// Gets the specified Bastion Host.
         /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-native:network/v20200301:getBastionHost", args ?? new GetBastionHostArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Bastion Host resource.
+        /// Gets the specified Bastion Host.
         /// </summary>
         public static Output<GetBastionHostResult> Invoke(GetBastionHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBastionHostResult>("azure-native:network/v20200301:getBastionHost", args ?? new GetBastionHostInvokeArgs(), options.WithDefaults());

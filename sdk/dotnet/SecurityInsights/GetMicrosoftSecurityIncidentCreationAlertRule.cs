@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class GetMicrosoftSecurityIncidentCreationAlertRule
     {
         /// <summary>
-        /// Represents MicrosoftSecurityIncidentCreation rule.
+        /// Gets the alert rule.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetMicrosoftSecurityIncidentCreationAlertRuleResult> InvokeAsync(GetMicrosoftSecurityIncidentCreationAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents MicrosoftSecurityIncidentCreation rule.
+        /// Gets the alert rule.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> Invoke(GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs args, InvokeOptions? options = null)

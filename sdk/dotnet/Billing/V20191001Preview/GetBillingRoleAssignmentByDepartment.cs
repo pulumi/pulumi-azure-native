@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
     public static class GetBillingRoleAssignmentByDepartment
     {
         /// <summary>
-        /// The role assignment
+        /// Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
         /// </summary>
         public static Task<GetBillingRoleAssignmentByDepartmentResult> InvokeAsync(GetBillingRoleAssignmentByDepartmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The role assignment
+        /// Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
         /// </summary>
         public static Output<GetBillingRoleAssignmentByDepartmentResult> Invoke(GetBillingRoleAssignmentByDepartmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentInvokeArgs(), options.WithDefaults());

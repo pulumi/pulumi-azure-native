@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
     public static class GetManagedNetworkPeeringPolicy
     {
         /// <summary>
-        /// The Managed Network Peering Policy resource
+        /// The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
         /// </summary>
         public static Task<GetManagedNetworkPeeringPolicyResult> InvokeAsync(GetManagedNetworkPeeringPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Managed Network Peering Policy resource
+        /// The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
         /// </summary>
         public static Output<GetManagedNetworkPeeringPolicyResult> Invoke(GetManagedNetworkPeeringPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Kusto
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// A private endpoint connection
+        /// Gets a private endpoint connection.
         /// API Version: 2021-08-27.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:kusto:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private endpoint connection
+        /// Gets a private endpoint connection.
         /// API Version: 2021-08-27.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

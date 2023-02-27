@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public static class GetContact
     {
         /// <summary>
-        /// Customer creates a contact resource for a spacecraft resource.
+        /// Gets the specified contact in a specified resource group.
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital/v20220301:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Customer creates a contact resource for a spacecraft resource.
+        /// Gets the specified contact in a specified resource group.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital/v20220301:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());

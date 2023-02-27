@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Syntex.V20220915Preview
     public static class GetDocumentProcessor
     {
         /// <summary>
-        /// Document processor details
+        /// Returns a document processor for a given name.
         /// </summary>
         public static Task<GetDocumentProcessorResult> InvokeAsync(GetDocumentProcessorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentProcessorResult>("azure-native:syntex/v20220915preview:getDocumentProcessor", args ?? new GetDocumentProcessorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Document processor details
+        /// Returns a document processor for a given name.
         /// </summary>
         public static Output<GetDocumentProcessorResult> Invoke(GetDocumentProcessorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentProcessorResult>("azure-native:syntex/v20220915preview:getDocumentProcessor", args ?? new GetDocumentProcessorInvokeArgs(), options.WithDefaults());

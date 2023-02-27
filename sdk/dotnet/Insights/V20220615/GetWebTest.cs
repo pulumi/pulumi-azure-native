@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20220615
     public static class GetWebTest
     {
         /// <summary>
-        /// An Application Insights WebTest definition.
+        /// Get a specific Application Insights web test definition.
         /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights/v20220615:getWebTest", args ?? new GetWebTestArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Application Insights WebTest definition.
+        /// Get a specific Application Insights web test definition.
         /// </summary>
         public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights/v20220615:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20201120
     public static class GetWorkbookTemplate
     {
         /// <summary>
-        /// An Application Insights workbook template definition.
+        /// Get a single workbook template by its resourceName.
         /// </summary>
         public static Task<GetWorkbookTemplateResult> InvokeAsync(GetWorkbookTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookTemplateResult>("azure-native:insights/v20201120:getWorkbookTemplate", args ?? new GetWorkbookTemplateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Application Insights workbook template definition.
+        /// Get a single workbook template by its resourceName.
         /// </summary>
         public static Output<GetWorkbookTemplateResult> Invoke(GetWorkbookTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkbookTemplateResult>("azure-native:insights/v20201120:getWorkbookTemplate", args ?? new GetWorkbookTemplateInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Resources
     public static class GetDeploymentAtTenantScope
     {
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetDeploymentAtTenantScopeResult> InvokeAsync(GetDeploymentAtTenantScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetDeploymentAtTenantScopeResult> Invoke(GetDeploymentAtTenantScopeInvokeArgs args, InvokeOptions? options = null)

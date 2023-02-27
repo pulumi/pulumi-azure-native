@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220101
     public static class GetPrivateDnsZoneGroup
     {
         /// <summary>
-        /// Private dns zone group resource.
+        /// Gets the private dns zone group resource by specified private dns zone group name.
         /// </summary>
         public static Task<GetPrivateDnsZoneGroupResult> InvokeAsync(GetPrivateDnsZoneGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateDnsZoneGroupResult>("azure-native:network/v20220101:getPrivateDnsZoneGroup", args ?? new GetPrivateDnsZoneGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private dns zone group resource.
+        /// Gets the private dns zone group resource by specified private dns zone group name.
         /// </summary>
         public static Output<GetPrivateDnsZoneGroupResult> Invoke(GetPrivateDnsZoneGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateDnsZoneGroupResult>("azure-native:network/v20220101:getPrivateDnsZoneGroup", args ?? new GetPrivateDnsZoneGroupInvokeArgs(), options.WithDefaults());

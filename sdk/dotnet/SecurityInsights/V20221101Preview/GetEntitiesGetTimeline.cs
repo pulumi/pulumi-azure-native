@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
     public static class GetEntitiesGetTimeline
     {
         /// <summary>
-        /// The entity timeline result operation response.
+        /// Timeline for an entity.
         /// </summary>
         public static Task<GetEntitiesGetTimelineResult> InvokeAsync(GetEntitiesGetTimelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntitiesGetTimelineResult>("azure-native:securityinsights/v20221101preview:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The entity timeline result operation response.
+        /// Timeline for an entity.
         /// </summary>
         public static Output<GetEntitiesGetTimelineResult> Invoke(GetEntitiesGetTimelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntitiesGetTimelineResult>("azure-native:securityinsights/v20221101preview:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineInvokeArgs(), options.WithDefaults());

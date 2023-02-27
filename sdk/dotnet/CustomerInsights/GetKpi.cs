@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomerInsights
     public static class GetKpi
     {
         /// <summary>
-        /// The KPI resource format.
+        /// Gets a KPI in the hub.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetKpiResult> InvokeAsync(GetKpiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The KPI resource format.
+        /// Gets a KPI in the hub.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetKpiResult> Invoke(GetKpiInvokeArgs args, InvokeOptions? options = null)

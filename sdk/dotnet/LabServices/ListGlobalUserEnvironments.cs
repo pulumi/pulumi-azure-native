@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.LabServices
     public static class ListGlobalUserEnvironments
     {
         /// <summary>
-        /// Represents the list of environments owned by a user
+        /// List Environments for the user
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<ListGlobalUserEnvironmentsResult> InvokeAsync(ListGlobalUserEnvironmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserEnvironmentsResult>("azure-native:labservices:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents the list of environments owned by a user
+        /// List Environments for the user
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<ListGlobalUserEnvironmentsResult> Invoke(ListGlobalUserEnvironmentsInvokeArgs args, InvokeOptions? options = null)

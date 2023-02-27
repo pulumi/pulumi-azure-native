@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Compute
     public static class GetLogAnalyticExportThrottledRequests
     {
         /// <summary>
-        /// LogAnalytics operation status response
+        /// Export logs that show total throttled Api requests for this subscription in the given time window.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetLogAnalyticExportThrottledRequestsResult> InvokeAsync(GetLogAnalyticExportThrottledRequestsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportThrottledRequestsResult>("azure-native:compute:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// LogAnalytics operation status response
+        /// Export logs that show total throttled Api requests for this subscription in the given time window.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetLogAnalyticExportThrottledRequestsResult> Invoke(GetLogAnalyticExportThrottledRequestsInvokeArgs args, InvokeOptions? options = null)

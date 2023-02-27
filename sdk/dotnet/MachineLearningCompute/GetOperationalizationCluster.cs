@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MachineLearningCompute
     public static class GetOperationalizationCluster
     {
         /// <summary>
-        /// Instance of an Azure ML Operationalization Cluster resource.
+        /// Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
         /// API Version: 2017-08-01-preview.
         /// </summary>
         public static Task<GetOperationalizationClusterResult> InvokeAsync(GetOperationalizationClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azure-native:machinelearningcompute:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Instance of an Azure ML Operationalization Cluster resource.
+        /// Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
         /// API Version: 2017-08-01-preview.
         /// </summary>
         public static Output<GetOperationalizationClusterResult> Invoke(GetOperationalizationClusterInvokeArgs args, InvokeOptions? options = null)

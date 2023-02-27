@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Management.V20200501
     public static class GetManagementGroupSubscription
     {
         /// <summary>
-        /// The details of subscription under management group.
+        /// Retrieves details about given subscription which is associated with the management group.
         /// </summary>
         public static Task<GetManagementGroupSubscriptionResult> InvokeAsync(GetManagementGroupSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupSubscriptionResult>("azure-native:management/v20200501:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The details of subscription under management group.
+        /// Retrieves details about given subscription which is associated with the management group.
         /// </summary>
         public static Output<GetManagementGroupSubscriptionResult> Invoke(GetManagementGroupSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupSubscriptionResult>("azure-native:management/v20200501:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionInvokeArgs(), options.WithDefaults());

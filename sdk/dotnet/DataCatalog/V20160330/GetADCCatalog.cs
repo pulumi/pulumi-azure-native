@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
     public static class GetADCCatalog
     {
         /// <summary>
-        /// Azure Data Catalog.
+        /// The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
         /// </summary>
         public static Task<GetADCCatalogResult> InvokeAsync(GetADCCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-native:datacatalog/v20160330:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Data Catalog.
+        /// The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
         /// </summary>
         public static Output<GetADCCatalogResult> Invoke(GetADCCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADCCatalogResult>("azure-native:datacatalog/v20160330:getADCCatalog", args ?? new GetADCCatalogInvokeArgs(), options.WithDefaults());

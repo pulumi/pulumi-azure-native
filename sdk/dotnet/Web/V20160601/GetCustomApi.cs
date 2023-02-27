@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20160601
     public static class GetCustomApi
     {
         /// <summary>
-        /// A custom API
+        /// Gets a custom API by name for a specific subscription and resource group
         /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-native:web/v20160601:getCustomApi", args ?? new GetCustomApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A custom API
+        /// Gets a custom API by name for a specific subscription and resource group
         /// </summary>
         public static Output<GetCustomApiResult> Invoke(GetCustomApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomApiResult>("azure-native:web/v20160601:getCustomApi", args ?? new GetCustomApiInvokeArgs(), options.WithDefaults());

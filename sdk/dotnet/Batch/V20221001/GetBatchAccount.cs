@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Batch.V20221001
     public static class GetBatchAccount
     {
         /// <summary>
-        /// Contains information about an Azure Batch account.
+        /// Gets information about the specified Batch account.
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch/v20221001:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Contains information about an Azure Batch account.
+        /// Gets information about the specified Batch account.
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch/v20221001:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());

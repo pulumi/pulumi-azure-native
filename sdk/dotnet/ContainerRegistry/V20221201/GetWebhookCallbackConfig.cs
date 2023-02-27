@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20221201
     public static class GetWebhookCallbackConfig
     {
         /// <summary>
-        /// The configuration of service URI and custom headers for the webhook.
+        /// Gets the configuration of service URI and custom headers for the webhook.
         /// </summary>
         public static Task<GetWebhookCallbackConfigResult> InvokeAsync(GetWebhookCallbackConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-native:containerregistry/v20221201:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The configuration of service URI and custom headers for the webhook.
+        /// Gets the configuration of service URI and custom headers for the webhook.
         /// </summary>
         public static Output<GetWebhookCallbackConfigResult> Invoke(GetWebhookCallbackConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookCallbackConfigResult>("azure-native:containerregistry/v20221201:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigInvokeArgs(), options.WithDefaults());

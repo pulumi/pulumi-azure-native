@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201
     public static class GetApiPortal
     {
         /// <summary>
-        /// API portal resource
+        /// Get the API portal and its properties.
         /// </summary>
         public static Task<GetApiPortalResult> InvokeAsync(GetApiPortalArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiPortalResult>("azure-native:appplatform/v20221201:getApiPortal", args ?? new GetApiPortalArgs(), options.WithDefaults());
 
         /// <summary>
-        /// API portal resource
+        /// Get the API portal and its properties.
         /// </summary>
         public static Output<GetApiPortalResult> Invoke(GetApiPortalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform/v20221201:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithDefaults());

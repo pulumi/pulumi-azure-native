@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StorSimple
     public static class GetBackupPolicy
     {
         /// <summary>
-        /// The backup policy.
+        /// Gets the properties of the specified backup policy name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:storsimple:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The backup policy.
+        /// Gets the properties of the specified backup policy name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)

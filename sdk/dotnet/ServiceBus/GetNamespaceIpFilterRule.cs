@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class GetNamespaceIpFilterRule
     {
         /// <summary>
-        /// Single item in a List or Get IpFilterRules operation
+        /// Gets an IpFilterRule for a Namespace by rule name.
         /// API Version: 2018-01-01-preview.
         /// </summary>
         public static Task<GetNamespaceIpFilterRuleResult> InvokeAsync(GetNamespaceIpFilterRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-native:servicebus:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single item in a List or Get IpFilterRules operation
+        /// Gets an IpFilterRule for a Namespace by rule name.
         /// API Version: 2018-01-01-preview.
         /// </summary>
         public static Output<GetNamespaceIpFilterRuleResult> Invoke(GetNamespaceIpFilterRuleInvokeArgs args, InvokeOptions? options = null)

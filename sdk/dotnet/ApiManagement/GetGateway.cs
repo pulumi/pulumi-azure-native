@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetGateway
     {
         /// <summary>
-        /// Gateway details.
+        /// Gets the details of the Gateway specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:apimanagement:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gateway details.
+        /// Gets the details of the Gateway specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)

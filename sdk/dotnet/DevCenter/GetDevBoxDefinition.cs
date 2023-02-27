@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevCenter
     public static class GetDevBoxDefinition
     {
         /// <summary>
-        /// Represents a definition for a Developer Machine.
+        /// Gets a Dev Box definition
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetDevBoxDefinitionResult> InvokeAsync(GetDevBoxDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a definition for a Developer Machine.
+        /// Gets a Dev Box definition
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOptions? options = null)

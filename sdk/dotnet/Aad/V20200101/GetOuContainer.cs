@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Aad.V20200101
     public static class GetOuContainer
     {
         /// <summary>
-        /// Resource for OuContainer.
+        /// Get OuContainer in DomainService instance.
         /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-native:aad/v20200101:getOuContainer", args ?? new GetOuContainerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource for OuContainer.
+        /// Get OuContainer in DomainService instance.
         /// </summary>
         public static Output<GetOuContainerResult> Invoke(GetOuContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOuContainerResult>("azure-native:aad/v20200101:getOuContainer", args ?? new GetOuContainerInvokeArgs(), options.WithDefaults());

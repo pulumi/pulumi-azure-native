@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     public static class GetSAPApplicationServerInstance
     {
         /// <summary>
-        /// Define the SAP Application Server Instance resource.
+        /// Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
         /// </summary>
         public static Task<GetSAPApplicationServerInstanceResult> InvokeAsync(GetSAPApplicationServerInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPApplicationServerInstanceResult>("azure-native:workloads/v20221101preview:getSAPApplicationServerInstance", args ?? new GetSAPApplicationServerInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the SAP Application Server Instance resource.
+        /// Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
         /// </summary>
         public static Output<GetSAPApplicationServerInstanceResult> Invoke(GetSAPApplicationServerInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPApplicationServerInstanceResult>("azure-native:workloads/v20221101preview:getSAPApplicationServerInstance", args ?? new GetSAPApplicationServerInstanceInvokeArgs(), options.WithDefaults());

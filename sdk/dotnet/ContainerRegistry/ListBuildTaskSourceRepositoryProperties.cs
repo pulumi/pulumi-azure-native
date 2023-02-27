@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public static class ListBuildTaskSourceRepositoryProperties
     {
         /// <summary>
-        /// The properties of the source code repository.
+        /// Get the source control properties for a build task.
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Task<ListBuildTaskSourceRepositoryPropertiesResult> InvokeAsync(ListBuildTaskSourceRepositoryPropertiesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The properties of the source code repository.
+        /// Get the source control properties for a build task.
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Output<ListBuildTaskSourceRepositoryPropertiesResult> Invoke(ListBuildTaskSourceRepositoryPropertiesInvokeArgs args, InvokeOptions? options = null)

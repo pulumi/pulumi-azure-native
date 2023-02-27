@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Peering.V20190901Preview
     public static class GetPeering
     {
         /// <summary>
-        /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+        /// Gets an existing peering with the specified name under the given subscription and resource group.
         /// </summary>
         public static Task<GetPeeringResult> InvokeAsync(GetPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("azure-native:peering/v20190901preview:getPeering", args ?? new GetPeeringArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+        /// Gets an existing peering with the specified name under the given subscription and resource group.
         /// </summary>
         public static Output<GetPeeringResult> Invoke(GetPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringResult>("azure-native:peering/v20190901preview:getPeering", args ?? new GetPeeringInvokeArgs(), options.WithDefaults());

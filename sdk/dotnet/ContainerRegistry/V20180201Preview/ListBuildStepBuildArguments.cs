@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
     public static class ListBuildStepBuildArguments
     {
         /// <summary>
-        /// The list of build arguments for a build step.
+        /// List the build arguments for a step including the secret arguments.
         /// </summary>
         public static Task<ListBuildStepBuildArgumentsResult> InvokeAsync(ListBuildStepBuildArgumentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBuildStepBuildArgumentsResult>("azure-native:containerregistry/v20180201preview:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of build arguments for a build step.
+        /// List the build arguments for a step including the secret arguments.
         /// </summary>
         public static Output<ListBuildStepBuildArgumentsResult> Invoke(ListBuildStepBuildArgumentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBuildStepBuildArgumentsResult>("azure-native:containerregistry/v20180201preview:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsInvokeArgs(), options.WithDefaults());

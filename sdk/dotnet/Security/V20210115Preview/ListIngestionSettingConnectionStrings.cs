@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
     public static class ListIngestionSettingConnectionStrings
     {
         /// <summary>
-        /// Connection string for ingesting security data and logs
+        /// Connection strings for ingesting security scan logs and data.
         /// </summary>
         public static Task<ListIngestionSettingConnectionStringsResult> InvokeAsync(ListIngestionSettingConnectionStringsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIngestionSettingConnectionStringsResult>("azure-native:security/v20210115preview:listIngestionSettingConnectionStrings", args ?? new ListIngestionSettingConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Connection string for ingesting security data and logs
+        /// Connection strings for ingesting security scan logs and data.
         /// </summary>
         public static Output<ListIngestionSettingConnectionStringsResult> Invoke(ListIngestionSettingConnectionStringsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIngestionSettingConnectionStringsResult>("azure-native:security/v20210115preview:listIngestionSettingConnectionStrings", args ?? new ListIngestionSettingConnectionStringsInvokeArgs(), options.WithDefaults());

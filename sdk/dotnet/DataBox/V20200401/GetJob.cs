@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataBox.V20200401
     public static class GetJob
     {
         /// <summary>
-        /// Job Resource.
+        /// Gets information about the specified job.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:databox/v20200401:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Job Resource.
+        /// Gets information about the specified job.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox/v20200401:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

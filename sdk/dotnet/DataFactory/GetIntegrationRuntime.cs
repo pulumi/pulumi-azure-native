@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataFactory
     public static class GetIntegrationRuntime
     {
         /// <summary>
-        /// Integration runtime resource type.
+        /// Gets an integration runtime.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:datafactory:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Integration runtime resource type.
+        /// Gets an integration runtime.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOptions? options = null)

@@ -12,9 +12,15 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
     [Obsolete(@"Version 2014-08-01-preview will be removed in v2 of the provider.")]
     public static class GetJobCollection
     {
+        /// <summary>
+        /// Gets a job collection.
+        /// </summary>
         public static Task<GetJobCollectionResult> InvokeAsync(GetJobCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-native:scheduler/v20140801preview:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Gets a job collection.
+        /// </summary>
         public static Output<GetJobCollectionResult> Invoke(GetJobCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobCollectionResult>("azure-native:scheduler/v20140801preview:getJobCollection", args ?? new GetJobCollectionInvokeArgs(), options.WithDefaults());
     }

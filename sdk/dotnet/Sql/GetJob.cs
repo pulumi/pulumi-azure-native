@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetJob
     {
         /// <summary>
-        /// A job.
+        /// Gets a job.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:sql:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A job.
+        /// Gets a job.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)

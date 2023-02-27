@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetDnsResourceReferenceByTarResources
     {
         /// <summary>
-        /// Represents the properties of the Dns Resource Reference Result.
+        /// Returns the DNS records specified by the referencing targetResourceIds.
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetDnsResourceReferenceByTarResourcesResult> InvokeAsync(GetDnsResourceReferenceByTarResourcesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents the properties of the Dns Resource Reference Result.
+        /// Returns the DNS records specified by the referencing targetResourceIds.
         /// API Version: 2018-05-01.
         /// </summary>
         public static Output<GetDnsResourceReferenceByTarResourcesResult> Invoke(GetDnsResourceReferenceByTarResourcesInvokeArgs? args = null, InvokeOptions? options = null)

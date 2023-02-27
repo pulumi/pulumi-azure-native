@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public static class GetDeviceExtendedInformation
     {
         /// <summary>
-        /// The extended Info of the Data Box Edge/Gateway device.
+        /// Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDeviceExtendedInformationResult> InvokeAsync(GetDeviceExtendedInformationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-native:databoxedge:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The extended Info of the Data Box Edge/Gateway device.
+        /// Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetDeviceExtendedInformationResult> Invoke(GetDeviceExtendedInformationInvokeArgs args, InvokeOptions? options = null)

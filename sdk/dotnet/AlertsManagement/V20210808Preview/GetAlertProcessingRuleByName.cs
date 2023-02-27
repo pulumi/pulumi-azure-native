@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
     public static class GetAlertProcessingRuleByName
     {
         /// <summary>
-        /// Alert processing rule object containing target scopes, conditions and scheduling logic.
+        /// Get an alert processing rule by name.
         /// </summary>
         public static Task<GetAlertProcessingRuleByNameResult> InvokeAsync(GetAlertProcessingRuleByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Alert processing rule object containing target scopes, conditions and scheduling logic.
+        /// Get an alert processing rule by name.
         /// </summary>
         public static Output<GetAlertProcessingRuleByNameResult> Invoke(GetAlertProcessingRuleByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameInvokeArgs(), options.WithDefaults());

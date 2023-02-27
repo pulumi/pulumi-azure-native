@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public static class GetRole
     {
         /// <summary>
-        /// Compute role.
+        /// Gets a specific role by name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-native:databoxedge:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Compute role.
+        /// Gets a specific role by name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)

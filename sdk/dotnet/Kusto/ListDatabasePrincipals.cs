@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Kusto
     public static class ListDatabasePrincipals
     {
         /// <summary>
-        /// The list Kusto database principals operation response.
+        /// Returns a list of database principals of the given Kusto cluster and database.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list Kusto database principals operation response.
+        /// Returns a list of database principals of the given Kusto cluster and database.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListDatabasePrincipalsResult> Invoke(ListDatabasePrincipalsInvokeArgs args, InvokeOptions? options = null)

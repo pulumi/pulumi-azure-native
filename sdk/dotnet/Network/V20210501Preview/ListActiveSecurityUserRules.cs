@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
     public static class ListActiveSecurityUserRules
     {
         /// <summary>
-        /// Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
+        /// Lists Active Security User Rules in a network manager.
         /// </summary>
         public static Task<ListActiveSecurityUserRulesResult> InvokeAsync(ListActiveSecurityUserRulesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListActiveSecurityUserRulesResult>("azure-native:network/v20210501preview:listActiveSecurityUserRules", args ?? new ListActiveSecurityUserRulesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
+        /// Lists Active Security User Rules in a network manager.
         /// </summary>
         public static Output<ListActiveSecurityUserRulesResult> Invoke(ListActiveSecurityUserRulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityUserRulesResult>("azure-native:network/v20210501preview:listActiveSecurityUserRules", args ?? new ListActiveSecurityUserRulesInvokeArgs(), options.WithDefaults());

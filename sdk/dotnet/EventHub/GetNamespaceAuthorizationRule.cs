@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EventHub
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>
-        /// Single item in a List or Get AuthorizationRule operation
+        /// Gets an AuthorizationRule for a Namespace by rule name.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:eventhub:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single item in a List or Get AuthorizationRule operation
+        /// Gets an AuthorizationRule for a Namespace by rule name.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)

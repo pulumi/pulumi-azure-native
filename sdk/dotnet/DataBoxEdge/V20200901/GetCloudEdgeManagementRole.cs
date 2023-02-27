@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
     public static class GetCloudEdgeManagementRole
     {
         /// <summary>
-        /// CloudEdgeManagementRole role.
+        /// Gets a specific role by name.
         /// </summary>
         public static Task<GetCloudEdgeManagementRoleResult> InvokeAsync(GetCloudEdgeManagementRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge/v20200901:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// CloudEdgeManagementRole role.
+        /// Gets a specific role by name.
         /// </summary>
         public static Output<GetCloudEdgeManagementRoleResult> Invoke(GetCloudEdgeManagementRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge/v20200901:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleInvokeArgs(), options.WithDefaults());

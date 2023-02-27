@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetExtendedServerBlobAuditingPolicy
     {
         /// <summary>
-        /// An extended server blob auditing policy.
+        /// Gets an extended server's blob auditing policy.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetExtendedServerBlobAuditingPolicyResult> InvokeAsync(GetExtendedServerBlobAuditingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtendedServerBlobAuditingPolicyResult>("azure-native:sql:getExtendedServerBlobAuditingPolicy", args ?? new GetExtendedServerBlobAuditingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An extended server blob auditing policy.
+        /// Gets an extended server's blob auditing policy.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetExtendedServerBlobAuditingPolicyResult> Invoke(GetExtendedServerBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)

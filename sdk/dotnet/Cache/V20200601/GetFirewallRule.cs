@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cache.V20200601
     public static class GetFirewallRule
     {
         /// <summary>
-        /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+        /// Gets a single firewall rule in a specified redis cache.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:cache/v20200601:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+        /// Gets a single firewall rule in a specified redis cache.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:cache/v20200601:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());

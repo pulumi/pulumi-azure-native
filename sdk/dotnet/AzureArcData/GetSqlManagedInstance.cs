@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AzureArcData
     public static class GetSqlManagedInstance
     {
         /// <summary>
-        /// A SqlManagedInstance.
+        /// Retrieves a SQL Managed Instance resource
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetSqlManagedInstanceResult> InvokeAsync(GetSqlManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure-native:azurearcdata:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A SqlManagedInstance.
+        /// Retrieves a SQL Managed Instance resource
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetSqlManagedInstanceResult> Invoke(GetSqlManagedInstanceInvokeArgs args, InvokeOptions? options = null)

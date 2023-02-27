@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
 {
     public static class ListWorkspaceNotebookAccessToken
     {
+        /// <summary>
+        /// return notebook access token and refresh token
+        /// </summary>
         public static Task<ListWorkspaceNotebookAccessTokenResult> InvokeAsync(ListWorkspaceNotebookAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookAccessTokenResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// return notebook access token and refresh token
+        /// </summary>
         public static Output<ListWorkspaceNotebookAccessTokenResult> Invoke(ListWorkspaceNotebookAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceNotebookAccessTokenResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenInvokeArgs(), options.WithDefaults());
     }

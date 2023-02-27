@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160601
     public static class GetProtectionPolicy
     {
         /// <summary>
-        /// The base class for backup policy. Workload-specific backup policies are derived from this class.
+        /// Gets the details of the backup policy associated with the Recovery Services vault. This is an asynchronous operation. Use the GetPolicyOperationResult API to Get the operation status.
         /// </summary>
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-native:recoveryservices/v20160601:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The base class for backup policy. Workload-specific backup policies are derived from this class.
+        /// Gets the details of the backup policy associated with the Recovery Services vault. This is an asynchronous operation. Use the GetPolicyOperationResult API to Get the operation status.
         /// </summary>
         public static Output<GetProtectionPolicyResult> Invoke(GetProtectionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionPolicyResult>("azure-native:recoveryservices/v20160601:getProtectionPolicy", args ?? new GetProtectionPolicyInvokeArgs(), options.WithDefaults());

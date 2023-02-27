@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomerInsights
     public static class GetRelationship
     {
         /// <summary>
-        /// The relationship resource format.
+        /// Gets information about the specified relationship.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetRelationshipResult> InvokeAsync(GetRelationshipArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azure-native:customerinsights:getRelationship", args ?? new GetRelationshipArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The relationship resource format.
+        /// Gets information about the specified relationship.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetRelationshipResult> Invoke(GetRelationshipInvokeArgs args, InvokeOptions? options = null)

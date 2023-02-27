@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automation.V20220808
     public static class GetRunbook
     {
         /// <summary>
-        /// Definition of the runbook type.
+        /// Retrieve the runbook identified by runbook name.
         /// </summary>
         public static Task<GetRunbookResult> InvokeAsync(GetRunbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-native:automation/v20220808:getRunbook", args ?? new GetRunbookArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the runbook type.
+        /// Retrieve the runbook identified by runbook name.
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation/v20220808:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());

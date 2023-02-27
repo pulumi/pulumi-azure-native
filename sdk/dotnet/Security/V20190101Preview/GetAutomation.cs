@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     public static class GetAutomation
     {
         /// <summary>
-        /// The security automation resource.
+        /// Retrieves information about the model of a security automation.
         /// </summary>
         public static Task<GetAutomationResult> InvokeAsync(GetAutomationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-native:security/v20190101preview:getAutomation", args ?? new GetAutomationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The security automation resource.
+        /// Retrieves information about the model of a security automation.
         /// </summary>
         public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security/v20190101preview:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());

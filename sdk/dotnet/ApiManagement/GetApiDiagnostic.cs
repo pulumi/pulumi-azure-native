@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiDiagnostic
     {
         /// <summary>
-        /// Diagnostic details.
+        /// Gets the details of the Diagnostic for an API specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiDiagnosticResult> InvokeAsync(GetApiDiagnosticArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiDiagnosticResult>("azure-native:apimanagement:getApiDiagnostic", args ?? new GetApiDiagnosticArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Diagnostic details.
+        /// Gets the details of the Diagnostic for an API specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiDiagnosticResult> Invoke(GetApiDiagnosticInvokeArgs args, InvokeOptions? options = null)

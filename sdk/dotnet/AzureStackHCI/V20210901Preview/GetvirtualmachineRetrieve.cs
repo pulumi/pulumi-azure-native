@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public static class GetvirtualmachineRetrieve
     {
         /// <summary>
-        /// The virtual machine resource definition.
+        /// Gets virtual machines by resource name
         /// </summary>
         public static Task<GetvirtualmachineRetrieveResult> InvokeAsync(GetvirtualmachineRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetvirtualmachineRetrieveResult>("azure-native:azurestackhci/v20210901preview:getvirtualmachineRetrieve", args ?? new GetvirtualmachineRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The virtual machine resource definition.
+        /// Gets virtual machines by resource name
         /// </summary>
         public static Output<GetvirtualmachineRetrieveResult> Invoke(GetvirtualmachineRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetvirtualmachineRetrieveResult>("azure-native:azurestackhci/v20210901preview:getvirtualmachineRetrieve", args ?? new GetvirtualmachineRetrieveInvokeArgs(), options.WithDefaults());

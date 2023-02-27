@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Logic
     public static class ListIntegrationAccountSchemaContentCallbackUrl
     {
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the content callback url.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountSchemaContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountSchemaContentCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountSchemaContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountSchemaContentCallbackUrl", args ?? new ListIntegrationAccountSchemaContentCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the content callback url.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<ListIntegrationAccountSchemaContentCallbackUrlResult> Invoke(ListIntegrationAccountSchemaContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)

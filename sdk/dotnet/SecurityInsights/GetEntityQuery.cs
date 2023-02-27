@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class GetEntityQuery
     {
         /// <summary>
-        /// Specific entity query.
+        /// Gets an entity query.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetEntityQueryResult> InvokeAsync(GetEntityQueryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityQueryResult>("azure-native:securityinsights:getEntityQuery", args ?? new GetEntityQueryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Specific entity query.
+        /// Gets an entity query.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetEntityQueryResult> Invoke(GetEntityQueryInvokeArgs args, InvokeOptions? options = null)

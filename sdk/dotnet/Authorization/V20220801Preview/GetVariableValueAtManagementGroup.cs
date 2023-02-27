@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
     public static class GetVariableValueAtManagementGroup
     {
         /// <summary>
-        /// The variable value.
+        /// This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
         /// </summary>
         public static Task<GetVariableValueAtManagementGroupResult> InvokeAsync(GetVariableValueAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableValueAtManagementGroupResult>("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The variable value.
+        /// This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
         /// </summary>
         public static Output<GetVariableValueAtManagementGroupResult> Invoke(GetVariableValueAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueAtManagementGroupResult>("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupInvokeArgs(), options.WithDefaults());

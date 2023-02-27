@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20150501
     public static class GetAnalyticsItem
     {
         /// <summary>
-        /// Properties that define an Analytics item that is associated to an Application Insights component.
+        /// Gets a specific Analytics Items defined within an Application Insights component.
         /// </summary>
         public static Task<GetAnalyticsItemResult> InvokeAsync(GetAnalyticsItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-native:insights/v20150501:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Properties that define an Analytics item that is associated to an Application Insights component.
+        /// Gets a specific Analytics Items defined within an Application Insights component.
         /// </summary>
         public static Output<GetAnalyticsItemResult> Invoke(GetAnalyticsItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalyticsItemResult>("azure-native:insights/v20150501:getAnalyticsItem", args ?? new GetAnalyticsItemInvokeArgs(), options.WithDefaults());

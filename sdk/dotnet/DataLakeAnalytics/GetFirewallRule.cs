@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     public static class GetFirewallRule
     {
         /// <summary>
-        /// Data Lake Analytics firewall rule information.
+        /// Gets the specified Data Lake Analytics firewall rule.
         /// API Version: 2016-11-01.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:datalakeanalytics:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data Lake Analytics firewall rule information.
+        /// Gets the specified Data Lake Analytics firewall rule.
         /// API Version: 2016-11-01.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)

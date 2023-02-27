@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
     public static class GetHybridIdentityMetadatum
     {
         /// <summary>
-        /// Defines the hybridIdentityMetadata.
+        /// Get the hybrid identity metadata proxy resource.
         /// </summary>
         public static Task<GetHybridIdentityMetadatumResult> InvokeAsync(GetHybridIdentityMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadatumResult>("azure-native:hybridcontainerservice/v20220501preview:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the hybridIdentityMetadata.
+        /// Get the hybrid identity metadata proxy resource.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:hybridcontainerservice/v20220501preview:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithDefaults());

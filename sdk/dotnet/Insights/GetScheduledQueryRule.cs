@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetScheduledQueryRule
     {
         /// <summary>
-        /// The Log Search Rule resource.
+        /// Gets an Log Search rule
         /// API Version: 2018-04-16.
         /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:insights:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Log Search Rule resource.
+        /// Gets an Log Search rule
         /// API Version: 2018-04-16.
         /// </summary>
         public static Output<GetScheduledQueryRuleResult> Invoke(GetScheduledQueryRuleInvokeArgs args, InvokeOptions? options = null)

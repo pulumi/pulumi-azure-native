@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
     public static class GetGatewayCertificateAuthority
     {
         /// <summary>
-        /// Gateway certificate authority details.
+        /// Get assigned Gateway Certificate Authority details.
         /// </summary>
         public static Task<GetGatewayCertificateAuthorityResult> InvokeAsync(GetGatewayCertificateAuthorityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20220401preview:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gateway certificate authority details.
+        /// Get assigned Gateway Certificate Authority details.
         /// </summary>
         public static Output<GetGatewayCertificateAuthorityResult> Invoke(GetGatewayCertificateAuthorityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20220401preview:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityInvokeArgs(), options.WithDefaults());

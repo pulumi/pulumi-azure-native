@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221201
     public static class GetUpdateSummary
     {
         /// <summary>
-        /// Get the update summaries for the cluster
+        /// Get all Update summaries under the HCI cluster
         /// </summary>
         public static Task<GetUpdateSummaryResult> InvokeAsync(GetUpdateSummaryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUpdateSummaryResult>("azure-native:azurestackhci/v20221201:getUpdateSummary", args ?? new GetUpdateSummaryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the update summaries for the cluster
+        /// Get all Update summaries under the HCI cluster
         /// </summary>
         public static Output<GetUpdateSummaryResult> Invoke(GetUpdateSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateSummaryResult>("azure-native:azurestackhci/v20221201:getUpdateSummary", args ?? new GetUpdateSummaryInvokeArgs(), options.WithDefaults());

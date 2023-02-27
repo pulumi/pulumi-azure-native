@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
     public static class GetLinkedService
     {
         /// <summary>
-        /// The top level Linked service resource container.
+        /// Gets a linked service instance.
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:operationalinsights/v20190801preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The top level Linked service resource container.
+        /// Gets a linked service instance.
         /// </summary>
         public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:operationalinsights/v20190801preview:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());

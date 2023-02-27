@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
     public static class GetProvisionedCluster
     {
         /// <summary>
-        /// The provisionedClusters resource definition.
+        /// Gets the Hybrid AKS provisioned cluster
         /// </summary>
         public static Task<GetProvisionedClusterResult> InvokeAsync(GetProvisionedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProvisionedClusterResult>("azure-native:hybridcontainerservice/v20220501preview:getProvisionedCluster", args ?? new GetProvisionedClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The provisionedClusters resource definition.
+        /// Gets the Hybrid AKS provisioned cluster
         /// </summary>
         public static Output<GetProvisionedClusterResult> Invoke(GetProvisionedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisionedClusterResult>("azure-native:hybridcontainerservice/v20220501preview:getProvisionedCluster", args ?? new GetProvisionedClusterInvokeArgs(), options.WithDefaults());

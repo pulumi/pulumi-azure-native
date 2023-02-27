@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20211101
     public static class ListDisasterRecoveryConfigKeys
     {
         /// <summary>
-        /// Namespace/EventHub Connection String
+        /// Gets the primary and secondary connection strings for the Namespace.
         /// </summary>
         public static Task<ListDisasterRecoveryConfigKeysResult> InvokeAsync(ListDisasterRecoveryConfigKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-native:eventhub/v20211101:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/EventHub Connection String
+        /// Gets the primary and secondary connection strings for the Namespace.
         /// </summary>
         public static Output<ListDisasterRecoveryConfigKeysResult> Invoke(ListDisasterRecoveryConfigKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDisasterRecoveryConfigKeysResult>("azure-native:eventhub/v20211101:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysInvokeArgs(), options.WithDefaults());

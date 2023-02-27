@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
     public static class GetControllerDetails
     {
         /// <summary>
-        /// Represents an instance of a DNC controller.
+        /// Gets details about the specified dnc controller.
         /// </summary>
         public static Task<GetControllerDetailsResult> InvokeAsync(GetControllerDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetControllerDetailsResult>("azure-native:delegatednetwork/v20200808preview:getControllerDetails", args ?? new GetControllerDetailsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an instance of a DNC controller.
+        /// Gets details about the specified dnc controller.
         /// </summary>
         public static Output<GetControllerDetailsResult> Invoke(GetControllerDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetControllerDetailsResult>("azure-native:delegatednetwork/v20200808preview:getControllerDetails", args ?? new GetControllerDetailsInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AzureStack
     public static class GetLinkedSubscription
     {
         /// <summary>
-        /// Linked Subscription information.
+        /// Returns the properties of a Linked Subscription resource.
         /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Task<GetLinkedSubscriptionResult> InvokeAsync(GetLinkedSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-native:azurestack:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Linked Subscription information.
+        /// Returns the properties of a Linked Subscription resource.
         /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Output<GetLinkedSubscriptionResult> Invoke(GetLinkedSubscriptionInvokeArgs args, InvokeOptions? options = null)

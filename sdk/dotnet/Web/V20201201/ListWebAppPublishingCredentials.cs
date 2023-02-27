@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20201201
     public static class ListWebAppPublishingCredentials
     {
         /// <summary>
-        /// User credentials used for publishing activity.
+        /// Gets the Git/FTP publishing credentials of an app.
         /// </summary>
         public static Task<ListWebAppPublishingCredentialsResult> InvokeAsync(ListWebAppPublishingCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsResult>("azure-native:web/v20201201:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// User credentials used for publishing activity.
+        /// Gets the Git/FTP publishing credentials of an app.
         /// </summary>
         public static Output<ListWebAppPublishingCredentialsResult> Invoke(ListWebAppPublishingCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsResult>("azure-native:web/v20201201:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Resources.V20191001
     public static class GetResourceGroup
     {
         /// <summary>
-        /// Resource group information.
+        /// Gets a resource group.
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-native:resources/v20191001:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource group information.
+        /// Gets a resource group.
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources/v20191001:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());

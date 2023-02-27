@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Blockchain
     public static class GetBlockchainMember
     {
         /// <summary>
-        /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
+        /// Get details about a blockchain member.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetBlockchainMemberResult> InvokeAsync(GetBlockchainMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlockchainMemberResult>("azure-native:blockchain:getBlockchainMember", args ?? new GetBlockchainMemberArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
+        /// Get details about a blockchain member.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Output<GetBlockchainMemberResult> Invoke(GetBlockchainMemberInvokeArgs args, InvokeOptions? options = null)

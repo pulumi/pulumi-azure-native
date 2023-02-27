@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.HybridData.V20160601
     public static class GetDataManager
     {
         /// <summary>
-        /// The DataManager resource.
+        /// Gets information about the specified data manager resource.
         /// </summary>
         public static Task<GetDataManagerResult> InvokeAsync(GetDataManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-native:hybriddata/v20160601:getDataManager", args ?? new GetDataManagerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The DataManager resource.
+        /// Gets information about the specified data manager resource.
         /// </summary>
         public static Output<GetDataManagerResult> Invoke(GetDataManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataManagerResult>("azure-native:hybriddata/v20160601:getDataManager", args ?? new GetDataManagerInvokeArgs(), options.WithDefaults());

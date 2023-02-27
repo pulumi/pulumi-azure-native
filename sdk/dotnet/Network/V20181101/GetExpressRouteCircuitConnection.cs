@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20181101
     public static class GetExpressRouteCircuitConnection
     {
         /// <summary>
-        /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        /// Gets the specified Express Route Circuit Connection from the specified express route circuit.
         /// </summary>
         public static Task<GetExpressRouteCircuitConnectionResult> InvokeAsync(GetExpressRouteCircuitConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitConnectionResult>("azure-native:network/v20181101:getExpressRouteCircuitConnection", args ?? new GetExpressRouteCircuitConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        /// Gets the specified Express Route Circuit Connection from the specified express route circuit.
         /// </summary>
         public static Output<GetExpressRouteCircuitConnectionResult> Invoke(GetExpressRouteCircuitConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitConnectionResult>("azure-native:network/v20181101:getExpressRouteCircuitConnection", args ?? new GetExpressRouteCircuitConnectionInvokeArgs(), options.WithDefaults());

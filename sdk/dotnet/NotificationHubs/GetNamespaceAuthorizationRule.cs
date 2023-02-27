@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>
-        /// Description of a Namespace AuthorizationRules.
+        /// Gets an authorization rule for a namespace by name.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:notificationhubs:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a Namespace AuthorizationRules.
+        /// Gets an authorization rule for a namespace by name.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)

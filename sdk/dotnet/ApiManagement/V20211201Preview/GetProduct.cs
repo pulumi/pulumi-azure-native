@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     public static class GetProduct
     {
         /// <summary>
-        /// Product details.
+        /// Gets the details of the product specified by its identifier.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:apimanagement/v20211201preview:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Product details.
+        /// Gets the details of the product specified by its identifier.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:apimanagement/v20211201preview:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());

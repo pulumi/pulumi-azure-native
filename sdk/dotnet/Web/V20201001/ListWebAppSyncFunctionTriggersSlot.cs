@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20201001
     public static class ListWebAppSyncFunctionTriggersSlot
     {
         /// <summary>
-        /// Function secrets.
+        /// This is to allow calling via powershell and ARM template.
         /// </summary>
         public static Task<ListWebAppSyncFunctionTriggersSlotResult> InvokeAsync(ListWebAppSyncFunctionTriggersSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersSlotResult>("azure-native:web/v20201001:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Function secrets.
+        /// This is to allow calling via powershell and ARM template.
         /// </summary>
         public static Output<ListWebAppSyncFunctionTriggersSlotResult> Invoke(ListWebAppSyncFunctionTriggersSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSyncFunctionTriggersSlotResult>("azure-native:web/v20201001:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotInvokeArgs(), options.WithDefaults());

@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Management.V20200201
     public static class GetHierarchySetting
     {
         /// <summary>
-        /// Settings defined at the Management Group scope.
+        /// Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
         /// </summary>
         public static Task<GetHierarchySettingResult> InvokeAsync(GetHierarchySettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-native:management/v20200201:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Settings defined at the Management Group scope.
+        /// Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
         /// </summary>
         public static Output<GetHierarchySettingResult> Invoke(GetHierarchySettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHierarchySettingResult>("azure-native:management/v20200201:getHierarchySetting", args ?? new GetHierarchySettingInvokeArgs(), options.WithDefaults());

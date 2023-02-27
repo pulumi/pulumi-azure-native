@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class ListDisasterRecoveryConfigKeys
     {
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Gets the primary and secondary connection strings for the namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListDisasterRecoveryConfigKeysResult> InvokeAsync(ListDisasterRecoveryConfigKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Gets the primary and secondary connection strings for the namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListDisasterRecoveryConfigKeysResult> Invoke(ListDisasterRecoveryConfigKeysInvokeArgs args, InvokeOptions? options = null)

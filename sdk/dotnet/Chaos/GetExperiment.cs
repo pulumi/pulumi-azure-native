@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Chaos
     public static class GetExperiment
     {
         /// <summary>
-        /// Model that represents a Experiment resource.
+        /// Get a Experiment resource.
         /// API Version: 2021-09-15-preview.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:chaos:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Model that represents a Experiment resource.
+        /// Get a Experiment resource.
         /// API Version: 2021-09-15-preview.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)

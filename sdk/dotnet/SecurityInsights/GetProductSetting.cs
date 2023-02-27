@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class GetProductSetting
     {
         /// <summary>
-        /// The Setting.
+        /// Gets a setting.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetProductSettingResult> InvokeAsync(GetProductSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductSettingResult>("azure-native:securityinsights:getProductSetting", args ?? new GetProductSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Setting.
+        /// Gets a setting.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetProductSettingResult> Invoke(GetProductSettingInvokeArgs args, InvokeOptions? options = null)

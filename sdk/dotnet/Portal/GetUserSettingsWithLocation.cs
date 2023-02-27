@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Portal
     public static class GetUserSettingsWithLocation
     {
         /// <summary>
-        /// Response to get user settings
+        /// Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetUserSettingsWithLocationResult> InvokeAsync(GetUserSettingsWithLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsWithLocationResult>("azure-native:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response to get user settings
+        /// Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
         /// API Version: 2018-10-01.
         /// </summary>
         public static Output<GetUserSettingsWithLocationResult> Invoke(GetUserSettingsWithLocationInvokeArgs args, InvokeOptions? options = null)

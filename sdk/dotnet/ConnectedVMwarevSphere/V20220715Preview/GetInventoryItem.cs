@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
     public static class GetInventoryItem
     {
         /// <summary>
-        /// Defines the inventory item.
+        /// Implements InventoryItem GET method.
         /// </summary>
         public static Task<GetInventoryItemResult> InvokeAsync(GetInventoryItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInventoryItemResult>("azure-native:connectedvmwarevsphere/v20220715preview:getInventoryItem", args ?? new GetInventoryItemArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the inventory item.
+        /// Implements InventoryItem GET method.
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:connectedvmwarevsphere/v20220715preview:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());

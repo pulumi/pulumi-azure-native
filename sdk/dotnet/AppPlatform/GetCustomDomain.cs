@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppPlatform
     public static class GetCustomDomain
     {
         /// <summary>
-        /// Custom domain resource payload.
+        /// Get the custom domain of one lifecycle application.
         /// API Version: 2020-07-01.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:appplatform:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Custom domain resource payload.
+        /// Get the custom domain of one lifecycle application.
         /// API Version: 2020-07-01.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)

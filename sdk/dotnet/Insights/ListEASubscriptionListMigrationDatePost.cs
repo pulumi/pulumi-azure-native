@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Insights
     public static class ListEASubscriptionListMigrationDatePost
     {
         /// <summary>
-        /// Subscription migrate date information properties
+        /// list date to migrate to new pricing model.
         /// API Version: 2017-10-01.
         /// </summary>
         public static Task<ListEASubscriptionListMigrationDatePostResult> InvokeAsync(ListEASubscriptionListMigrationDatePostArgs? args = null, InvokeOptions? options = null)

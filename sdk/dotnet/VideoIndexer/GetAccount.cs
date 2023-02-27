@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.VideoIndexer
     public static class GetAccount
     {
         /// <summary>
-        /// An Azure Video Analyzer for Media account.
+        /// Gets the properties of an Azure Video Analyzer for Media account.
         /// API Version: 2021-10-18-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Video Analyzer for Media account.
+        /// Gets the properties of an Azure Video Analyzer for Media account.
         /// API Version: 2021-10-18-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)

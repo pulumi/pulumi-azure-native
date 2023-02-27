@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220901Preview
     public static class GetDeployment
     {
         /// <summary>
-        /// Deployment resource payload
+        /// Get a Deployment and its properties.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:appplatform/v20220901preview:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Deployment resource payload
+        /// Get a Deployment and its properties.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:appplatform/v20220901preview:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());

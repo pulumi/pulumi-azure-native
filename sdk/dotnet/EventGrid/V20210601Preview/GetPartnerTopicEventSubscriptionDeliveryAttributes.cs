@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
     public static class GetPartnerTopicEventSubscriptionDeliveryAttributes
     {
         /// <summary>
-        /// Result of the Get delivery attributes operation.
+        /// Get all delivery attributes for an event subscription of a partner topic.
         /// </summary>
         public static Task<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetPartnerTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20210601preview:getPartnerTopicEventSubscriptionDeliveryAttributes", args ?? new GetPartnerTopicEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of the Get delivery attributes operation.
+        /// Get all delivery attributes for an event subscription of a partner topic.
         /// </summary>
         public static Output<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20210601preview:getPartnerTopicEventSubscriptionDeliveryAttributes", args ?? new GetPartnerTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());

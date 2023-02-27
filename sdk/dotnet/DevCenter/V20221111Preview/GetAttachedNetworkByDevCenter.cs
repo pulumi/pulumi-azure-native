@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DevCenter.V20221111Preview
     public static class GetAttachedNetworkByDevCenter
     {
         /// <summary>
-        /// Represents an attached NetworkConnection.
+        /// Gets an attached NetworkConnection.
         /// </summary>
         public static Task<GetAttachedNetworkByDevCenterResult> InvokeAsync(GetAttachedNetworkByDevCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter/v20221111preview:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an attached NetworkConnection.
+        /// Gets an attached NetworkConnection.
         /// </summary>
         public static Output<GetAttachedNetworkByDevCenterResult> Invoke(GetAttachedNetworkByDevCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter/v20221111preview:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterInvokeArgs(), options.WithDefaults());

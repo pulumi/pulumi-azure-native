@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetEventHubDataConnection
     {
         /// <summary>
-        /// Class representing an event hub data connection.
+        /// Returns a data connection.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetEventHubDataConnectionResult> InvokeAsync(GetEventHubDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:synapse:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing an event hub data connection.
+        /// Returns a data connection.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOptions? options = null)

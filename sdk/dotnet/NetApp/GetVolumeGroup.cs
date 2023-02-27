@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.NetApp
     public static class GetVolumeGroup
     {
         /// <summary>
-        /// Volume group resource for create
+        /// Get details of the specified volume group
         /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetVolumeGroupResult> InvokeAsync(GetVolumeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Volume group resource for create
+        /// Get details of the specified volume group
         /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)

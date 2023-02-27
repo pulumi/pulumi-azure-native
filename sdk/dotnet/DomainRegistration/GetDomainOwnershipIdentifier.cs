@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DomainRegistration
     public static class GetDomainOwnershipIdentifier
     {
         /// <summary>
-        /// Domain ownership Identifier.
+        /// Get ownership identifier for domain
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Domain ownership Identifier.
+        /// Get ownership identifier for domain
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetDomainOwnershipIdentifierResult> Invoke(GetDomainOwnershipIdentifierInvokeArgs args, InvokeOptions? options = null)

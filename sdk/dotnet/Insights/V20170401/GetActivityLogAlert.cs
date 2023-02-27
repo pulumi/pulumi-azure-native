@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20170401
     public static class GetActivityLogAlert
     {
         /// <summary>
-        /// An activity log alert resource.
+        /// Get an activity log alert.
         /// </summary>
         public static Task<GetActivityLogAlertResult> InvokeAsync(GetActivityLogAlertArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-native:insights/v20170401:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An activity log alert resource.
+        /// Get an activity log alert.
         /// </summary>
         public static Output<GetActivityLogAlertResult> Invoke(GetActivityLogAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActivityLogAlertResult>("azure-native:insights/v20170401:getActivityLogAlert", args ?? new GetActivityLogAlertInvokeArgs(), options.WithDefaults());

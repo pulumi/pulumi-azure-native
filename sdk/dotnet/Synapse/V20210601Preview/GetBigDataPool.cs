@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     public static class GetBigDataPool
     {
         /// <summary>
-        /// A Big Data pool
+        /// Get a Big Data pool.
         /// </summary>
         public static Task<GetBigDataPoolResult> InvokeAsync(GetBigDataPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-native:synapse/v20210601preview:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Big Data pool
+        /// Get a Big Data pool.
         /// </summary>
         public static Output<GetBigDataPoolResult> Invoke(GetBigDataPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse/v20210601preview:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithDefaults());

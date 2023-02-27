@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DocumentDB
     public static class GetService
     {
         /// <summary>
-        /// Properties for the database account.
+        /// Gets the status of service.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:documentdb:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Properties for the database account.
+        /// Gets the status of service.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)

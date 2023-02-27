@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class ListFirewallPolicyIdpsSignature
     {
         /// <summary>
-        /// Query result
+        /// Retrieves the current status of IDPS signatures for the relevant policy
         /// API Version: 2022-01-01.
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignatureResult> InvokeAsync(ListFirewallPolicyIdpsSignatureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Query result
+        /// Retrieves the current status of IDPS signatures for the relevant policy
         /// API Version: 2022-01-01.
         /// </summary>
         public static Output<ListFirewallPolicyIdpsSignatureResult> Invoke(ListFirewallPolicyIdpsSignatureInvokeArgs args, InvokeOptions? options = null)

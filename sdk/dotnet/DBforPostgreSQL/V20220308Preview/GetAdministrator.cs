@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308Preview
     public static class GetAdministrator
     {
         /// <summary>
-        /// Represents an Active Directory administrator.
+        /// Gets information about a server.
         /// </summary>
         public static Task<GetAdministratorResult> InvokeAsync(GetAdministratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdministratorResult>("azure-native:dbforpostgresql/v20220308preview:getAdministrator", args ?? new GetAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an Active Directory administrator.
+        /// Gets information about a server.
         /// </summary>
         public static Output<GetAdministratorResult> Invoke(GetAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdministratorResult>("azure-native:dbforpostgresql/v20220308preview:getAdministrator", args ?? new GetAdministratorInvokeArgs(), options.WithDefaults());

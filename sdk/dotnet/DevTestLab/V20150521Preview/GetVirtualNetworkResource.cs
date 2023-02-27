@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     public static class GetVirtualNetworkResource
     {
         /// <summary>
-        /// A virtual network.
+        /// Get virtual network.
         /// </summary>
         public static Task<GetVirtualNetworkResourceResult> InvokeAsync(GetVirtualNetworkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A virtual network.
+        /// Get virtual network.
         /// </summary>
         public static Output<GetVirtualNetworkResourceResult> Invoke(GetVirtualNetworkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceInvokeArgs(), options.WithDefaults());

@@ -12,9 +12,15 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
     [Obsolete(@"Version 2015-06-01-preview will be removed in v2 of the provider.")]
     public static class GetAdaptiveApplicationControl
     {
+        /// <summary>
+        /// Gets an application control VM/server group.
+        /// </summary>
         public static Task<GetAdaptiveApplicationControlResult> InvokeAsync(GetAdaptiveApplicationControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdaptiveApplicationControlResult>("azure-native:security/v20150601preview:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Gets an application control VM/server group.
+        /// </summary>
         public static Output<GetAdaptiveApplicationControlResult> Invoke(GetAdaptiveApplicationControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdaptiveApplicationControlResult>("azure-native:security/v20150601preview:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlInvokeArgs(), options.WithDefaults());
     }

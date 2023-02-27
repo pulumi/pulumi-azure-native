@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public static class GetIntegrationAccountMap
     {
         /// <summary>
-        /// The integration account map.
+        /// Gets an integration account map.
         /// </summary>
         public static Task<GetIntegrationAccountMapResult> InvokeAsync(GetIntegrationAccountMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azure-native:logic/v20190501:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The integration account map.
+        /// Gets an integration account map.
         /// </summary>
         public static Output<GetIntegrationAccountMapResult> Invoke(GetIntegrationAccountMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountMapResult>("azure-native:logic/v20190501:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapInvokeArgs(), options.WithDefaults());

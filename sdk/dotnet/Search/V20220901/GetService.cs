@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Search.V20220901
     public static class GetService
     {
         /// <summary>
-        /// Describes an Azure Cognitive Search service and its current state.
+        /// Gets the search service with the given name in the given resource group.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:search/v20220901:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes an Azure Cognitive Search service and its current state.
+        /// Gets the search service with the given name in the given resource group.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:search/v20220901:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

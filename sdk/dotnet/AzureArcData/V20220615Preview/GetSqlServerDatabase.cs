@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureArcData.V20220615Preview
     public static class GetSqlServerDatabase
     {
         /// <summary>
-        /// Arc Sql Server database
+        /// Retrieves an Arc Sql Server database.
         /// </summary>
         public static Task<GetSqlServerDatabaseResult> InvokeAsync(GetSqlServerDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerDatabaseResult>("azure-native:azurearcdata/v20220615preview:getSqlServerDatabase", args ?? new GetSqlServerDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Arc Sql Server database
+        /// Retrieves an Arc Sql Server database.
         /// </summary>
         public static Output<GetSqlServerDatabaseResult> Invoke(GetSqlServerDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerDatabaseResult>("azure-native:azurearcdata/v20220615preview:getSqlServerDatabase", args ?? new GetSqlServerDatabaseInvokeArgs(), options.WithDefaults());

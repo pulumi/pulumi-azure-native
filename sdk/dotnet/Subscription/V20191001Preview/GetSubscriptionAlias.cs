@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
     public static class GetSubscriptionAlias
     {
         /// <summary>
-        /// Subscription Information with the alias.
+        /// Get Alias Subscription.
         /// </summary>
         public static Task<GetSubscriptionAliasResult> InvokeAsync(GetSubscriptionAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionAliasResult>("azure-native:subscription/v20191001preview:getSubscriptionAlias", args ?? new GetSubscriptionAliasArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Subscription Information with the alias.
+        /// Get Alias Subscription.
         /// </summary>
         public static Output<GetSubscriptionAliasResult> Invoke(GetSubscriptionAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionAliasResult>("azure-native:subscription/v20191001preview:getSubscriptionAlias", args ?? new GetSubscriptionAliasInvokeArgs(), options.WithDefaults());

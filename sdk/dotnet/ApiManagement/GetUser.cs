@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetUser
     {
         /// <summary>
-        /// User details.
+        /// Gets the details of the user specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:apimanagement:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
-        /// User details.
+        /// Gets the details of the user specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)

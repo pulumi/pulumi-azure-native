@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     public static class GetApplication
     {
         /// <summary>
-        /// This type describes an application resource.
+        /// Gets the information about the application resource with a given name. The information includes the information about the application's services and other runtime properties.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:servicefabricmesh/v20180701preview:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This type describes an application resource.
+        /// Gets the information about the application resource with a given name. The information includes the information about the application's services and other runtime properties.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:servicefabricmesh/v20180701preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

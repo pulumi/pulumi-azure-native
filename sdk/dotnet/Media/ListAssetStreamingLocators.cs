@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Media
     public static class ListAssetStreamingLocators
     {
         /// <summary>
-        /// The Streaming Locators associated with this Asset.
+        /// Lists Streaming Locators which are associated with this asset.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<ListAssetStreamingLocatorsResult> InvokeAsync(ListAssetStreamingLocatorsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAssetStreamingLocatorsResult>("azure-native:media:listAssetStreamingLocators", args ?? new ListAssetStreamingLocatorsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Streaming Locators associated with this Asset.
+        /// Lists Streaming Locators which are associated with this asset.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<ListAssetStreamingLocatorsResult> Invoke(ListAssetStreamingLocatorsInvokeArgs args, InvokeOptions? options = null)

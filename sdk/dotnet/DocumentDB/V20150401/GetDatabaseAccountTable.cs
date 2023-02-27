@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
     public static class GetDatabaseAccountTable
     {
         /// <summary>
-        /// An Azure Cosmos DB Table.
+        /// Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
         /// </summary>
         public static Task<GetDatabaseAccountTableResult> InvokeAsync(GetDatabaseAccountTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azure-native:documentdb/v20150401:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Cosmos DB Table.
+        /// Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
         /// </summary>
         public static Output<GetDatabaseAccountTableResult> Invoke(GetDatabaseAccountTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountTableResult>("azure-native:documentdb/v20150401:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableInvokeArgs(), options.WithDefaults());

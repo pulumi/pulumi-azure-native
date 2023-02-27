@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
     public static class ListNotificationHubKeys
     {
         /// <summary>
-        /// Namespace/NotificationHub Connection String
+        /// Gets the Primary and Secondary ConnectionStrings to the NotificationHub 
         /// </summary>
         public static Task<ListNotificationHubKeysResult> InvokeAsync(ListNotificationHubKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNotificationHubKeysResult>("azure-native:notificationhubs/v20140901:listNotificationHubKeys", args ?? new ListNotificationHubKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/NotificationHub Connection String
+        /// Gets the Primary and Secondary ConnectionStrings to the NotificationHub 
         /// </summary>
         public static Output<ListNotificationHubKeysResult> Invoke(ListNotificationHubKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNotificationHubKeysResult>("azure-native:notificationhubs/v20140901:listNotificationHubKeys", args ?? new ListNotificationHubKeysInvokeArgs(), options.WithDefaults());

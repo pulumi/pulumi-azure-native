@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.LabServices
     public static class GetLabPlan
     {
         /// <summary>
-        /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
+        /// Retrieves the properties of a Lab Plan.
         /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Task<GetLabPlanResult> InvokeAsync(GetLabPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabPlanResult>("azure-native:labservices:getLabPlan", args ?? new GetLabPlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
+        /// Retrieves the properties of a Lab Plan.
         /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Output<GetLabPlanResult> Invoke(GetLabPlanInvokeArgs args, InvokeOptions? options = null)

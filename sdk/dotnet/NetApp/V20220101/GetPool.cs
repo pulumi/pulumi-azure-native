@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NetApp.V20220101
     public static class GetPool
     {
         /// <summary>
-        /// Capacity pool resource
+        /// Get details of the specified capacity pool
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp/v20220101:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Capacity pool resource
+        /// Get details of the specified capacity pool
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp/v20220101:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());

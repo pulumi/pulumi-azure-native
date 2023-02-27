@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class GetTrigger
     {
         /// <summary>
-        /// A Trigger data transfer object.
+        /// Get a Trigger in a shareSubscription
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datashare:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Trigger data transfer object.
+        /// Get a Trigger in a shareSubscription
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)

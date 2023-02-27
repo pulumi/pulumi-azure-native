@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
     public static class ListClusterStreamingJobs
     {
         /// <summary>
-        /// A list of streaming jobs. Populated by a List operation.
+        /// Lists all of the streaming jobs in the given cluster.
         /// </summary>
         public static Task<ListClusterStreamingJobsResult> InvokeAsync(ListClusterStreamingJobsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A list of streaming jobs. Populated by a List operation.
+        /// Lists all of the streaming jobs in the given cluster.
         /// </summary>
         public static Output<ListClusterStreamingJobsResult> Invoke(ListClusterStreamingJobsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsInvokeArgs(), options.WithDefaults());

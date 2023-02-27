@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     public static class GetJobCredential
     {
         /// <summary>
-        /// A stored credential that can be used by a job to connect to target databases.
+        /// Gets a jobs credential.
         /// </summary>
         public static Task<GetJobCredentialResult> InvokeAsync(GetJobCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-native:sql/v20210801preview:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A stored credential that can be used by a job to connect to target databases.
+        /// Gets a jobs credential.
         /// </summary>
         public static Output<GetJobCredentialResult> Invoke(GetJobCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobCredentialResult>("azure-native:sql/v20210801preview:getJobCredential", args ?? new GetJobCredentialInvokeArgs(), options.WithDefaults());

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class GetSynchronizationSetting
     {
         /// <summary>
-        /// A Synchronization Setting data transfer object.
+        /// Get a synchronizationSetting in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSynchronizationSettingResult> InvokeAsync(GetSynchronizationSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSynchronizationSettingResult>("azure-native:datashare:getSynchronizationSetting", args ?? new GetSynchronizationSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Synchronization Setting data transfer object.
+        /// Get a synchronizationSetting in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetSynchronizationSettingResult> Invoke(GetSynchronizationSettingInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
     public static class ListLinkerConfigurations
     {
         /// <summary>
-        /// Configurations for source resource, include appSettings, connectionString and serviceBindings
+        /// list source configurations for a linker.
         /// </summary>
         public static Task<ListLinkerConfigurationsResult> InvokeAsync(ListLinkerConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLinkerConfigurationsResult>("azure-native:servicelinker/v20211101preview:listLinkerConfigurations", args ?? new ListLinkerConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configurations for source resource, include appSettings, connectionString and serviceBindings
+        /// list source configurations for a linker.
         /// </summary>
         public static Output<ListLinkerConfigurationsResult> Invoke(ListLinkerConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLinkerConfigurationsResult>("azure-native:servicelinker/v20211101preview:listLinkerConfigurations", args ?? new ListLinkerConfigurationsInvokeArgs(), options.WithDefaults());

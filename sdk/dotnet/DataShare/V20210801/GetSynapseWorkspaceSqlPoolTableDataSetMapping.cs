@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataShare.V20210801
     public static class GetSynapseWorkspaceSqlPoolTableDataSetMapping
     {
         /// <summary>
-        /// A Synapse Workspace Sql Pool Table data set mapping
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Task<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> InvokeAsync(GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult>("azure-native:datashare/v20210801:getSynapseWorkspaceSqlPoolTableDataSetMapping", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Synapse Workspace Sql Pool Table data set mapping
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Output<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> Invoke(GetSynapseWorkspaceSqlPoolTableDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult>("azure-native:datashare/v20210801:getSynapseWorkspaceSqlPoolTableDataSetMapping", args ?? new GetSynapseWorkspaceSqlPoolTableDataSetMappingInvokeArgs(), options.WithDefaults());

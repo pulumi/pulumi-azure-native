@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20210930Preview
     public static class GetUserAssignedIdentity
     {
         /// <summary>
-        /// Describes an identity resource.
+        /// Gets the identity.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20210930preview:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes an identity resource.
+        /// Gets the identity.
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20210930preview:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());

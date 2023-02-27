@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// A private endpoint connection
+        /// Gets a private endpoint connection.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:dbforpostgresql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private endpoint connection
+        /// Gets a private endpoint connection.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

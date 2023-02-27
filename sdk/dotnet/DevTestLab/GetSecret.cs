@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevTestLab
     public static class GetSecret
     {
         /// <summary>
-        /// A secret.
+        /// Get secret.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:devtestlab:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A secret.
+        /// Get secret.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)

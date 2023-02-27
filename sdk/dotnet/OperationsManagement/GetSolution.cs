@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.OperationsManagement
     public static class GetSolution
     {
         /// <summary>
-        /// The container for solution.
+        /// Retrieves the user solution.
         /// API Version: 2015-11-01-preview.
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:operationsmanagement:getSolution", args ?? new GetSolutionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The container for solution.
+        /// Retrieves the user solution.
         /// API Version: 2015-11-01-preview.
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
     public static class GetamlFilesystem
     {
         /// <summary>
-        /// An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        /// Returns an AML file system.
         /// </summary>
         public static Task<GetamlFilesystemResult> InvokeAsync(GetamlFilesystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetamlFilesystemResult>("azure-native:storagecache/v20230301preview:getamlFilesystem", args ?? new GetamlFilesystemArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        /// Returns an AML file system.
         /// </summary>
         public static Output<GetamlFilesystemResult> Invoke(GetamlFilesystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetamlFilesystemResult>("azure-native:storagecache/v20230301preview:getamlFilesystem", args ?? new GetamlFilesystemInvokeArgs(), options.WithDefaults());

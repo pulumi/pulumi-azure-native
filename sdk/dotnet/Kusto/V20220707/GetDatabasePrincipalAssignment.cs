@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Kusto.V20220707
     public static class GetDatabasePrincipalAssignment
     {
         /// <summary>
-        /// Class representing a database principal assignment.
+        /// Gets a Kusto cluster database principalAssignment.
         /// </summary>
         public static Task<GetDatabasePrincipalAssignmentResult> InvokeAsync(GetDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-native:kusto/v20220707:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a database principal assignment.
+        /// Gets a Kusto cluster database principalAssignment.
         /// </summary>
         public static Output<GetDatabasePrincipalAssignmentResult> Invoke(GetDatabasePrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabasePrincipalAssignmentResult>("azure-native:kusto/v20220707:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());

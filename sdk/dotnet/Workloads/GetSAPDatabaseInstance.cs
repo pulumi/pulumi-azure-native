@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Workloads
     public static class GetSAPDatabaseInstance
     {
         /// <summary>
-        /// Define the Database resource.
+        /// Gets the SAP Database Instance resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetSAPDatabaseInstanceResult> InvokeAsync(GetSAPDatabaseInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPDatabaseInstanceResult>("azure-native:workloads:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the Database resource.
+        /// Gets the SAP Database Instance resource.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetSAPDatabaseInstanceResult> Invoke(GetSAPDatabaseInstanceInvokeArgs args, InvokeOptions? options = null)

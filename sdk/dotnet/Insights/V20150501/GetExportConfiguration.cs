@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20150501
     public static class GetExportConfiguration
     {
         /// <summary>
-        /// Properties that define a Continuous Export configuration.
+        /// Get the Continuous Export configuration for this export id.
         /// </summary>
         public static Task<GetExportConfigurationResult> InvokeAsync(GetExportConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azure-native:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Properties that define a Continuous Export configuration.
+        /// Get the Continuous Export configuration for this export id.
         /// </summary>
         public static Output<GetExportConfigurationResult> Invoke(GetExportConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportConfigurationResult>("azure-native:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationInvokeArgs(), options.WithDefaults());

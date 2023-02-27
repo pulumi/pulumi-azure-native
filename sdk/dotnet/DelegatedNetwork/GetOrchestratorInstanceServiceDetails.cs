@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     public static class GetOrchestratorInstanceServiceDetails
     {
         /// <summary>
-        /// Represents an instance of a orchestrator.
+        /// Gets details about the orchestrator instance.
         /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetOrchestratorInstanceServiceDetailsResult> InvokeAsync(GetOrchestratorInstanceServiceDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an instance of a orchestrator.
+        /// Gets details about the orchestrator instance.
         /// API Version: 2021-03-15.
         /// </summary>
         public static Output<GetOrchestratorInstanceServiceDetailsResult> Invoke(GetOrchestratorInstanceServiceDetailsInvokeArgs args, InvokeOptions? options = null)

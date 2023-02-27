@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
     public static class GetDatabaseAccountSqlContainer
     {
         /// <summary>
-        /// An Azure Cosmos DB container.
+        /// Gets the SQL container under an existing Azure Cosmos DB database account.
         /// </summary>
         public static Task<GetDatabaseAccountSqlContainerResult> InvokeAsync(GetDatabaseAccountSqlContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountSqlContainerResult>("azure-native:documentdb/v20151106:getDatabaseAccountSqlContainer", args ?? new GetDatabaseAccountSqlContainerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Cosmos DB container.
+        /// Gets the SQL container under an existing Azure Cosmos DB database account.
         /// </summary>
         public static Output<GetDatabaseAccountSqlContainerResult> Invoke(GetDatabaseAccountSqlContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountSqlContainerResult>("azure-native:documentdb/v20151106:getDatabaseAccountSqlContainer", args ?? new GetDatabaseAccountSqlContainerInvokeArgs(), options.WithDefaults());

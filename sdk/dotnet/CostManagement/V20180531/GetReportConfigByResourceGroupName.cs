@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
     public static class GetReportConfigByResourceGroupName
     {
         /// <summary>
-        /// A report config resource.
+        /// Gets the report config for a resource group under a subscription by report config name.
         /// </summary>
         public static Task<GetReportConfigByResourceGroupNameResult> InvokeAsync(GetReportConfigByResourceGroupNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigByResourceGroupNameResult>("azure-native:costmanagement/v20180531:getReportConfigByResourceGroupName", args ?? new GetReportConfigByResourceGroupNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A report config resource.
+        /// Gets the report config for a resource group under a subscription by report config name.
         /// </summary>
         public static Output<GetReportConfigByResourceGroupNameResult> Invoke(GetReportConfigByResourceGroupNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportConfigByResourceGroupNameResult>("azure-native:costmanagement/v20180531:getReportConfigByResourceGroupName", args ?? new GetReportConfigByResourceGroupNameInvokeArgs(), options.WithDefaults());

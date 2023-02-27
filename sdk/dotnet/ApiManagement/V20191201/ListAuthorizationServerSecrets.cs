@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     public static class ListAuthorizationServerSecrets
     {
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the client secret details of the authorization server.
         /// </summary>
         public static Task<ListAuthorizationServerSecretsResult> InvokeAsync(ListAuthorizationServerSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20191201:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the client secret details of the authorization server.
         /// </summary>
         public static Output<ListAuthorizationServerSecretsResult> Invoke(ListAuthorizationServerSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20191201:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     public static class GetChannelFullUrl
     {
         /// <summary>
-        /// Full endpoint url of an event subscription
+        /// Get the full endpoint URL of a partner destination channel.
         /// </summary>
         public static Task<GetChannelFullUrlResult> InvokeAsync(GetChannelFullUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelFullUrlResult>("azure-native:eventgrid/v20220615:getChannelFullUrl", args ?? new GetChannelFullUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Full endpoint url of an event subscription
+        /// Get the full endpoint URL of a partner destination channel.
         /// </summary>
         public static Output<GetChannelFullUrlResult> Invoke(GetChannelFullUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelFullUrlResult>("azure-native:eventgrid/v20220615:getChannelFullUrl", args ?? new GetChannelFullUrlInvokeArgs(), options.WithDefaults());

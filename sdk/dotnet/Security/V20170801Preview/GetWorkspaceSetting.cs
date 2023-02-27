@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     public static class GetWorkspaceSetting
     {
         /// <summary>
-        /// Configures where to store the OMS agent data for workspaces under a scope
+        /// Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
         /// </summary>
         public static Task<GetWorkspaceSettingResult> InvokeAsync(GetWorkspaceSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSettingResult>("azure-native:security/v20170801preview:getWorkspaceSetting", args ?? new GetWorkspaceSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configures where to store the OMS agent data for workspaces under a scope
+        /// Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
         /// </summary>
         public static Output<GetWorkspaceSettingResult> Invoke(GetWorkspaceSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSettingResult>("azure-native:security/v20170801preview:getWorkspaceSetting", args ?? new GetWorkspaceSettingInvokeArgs(), options.WithDefaults());

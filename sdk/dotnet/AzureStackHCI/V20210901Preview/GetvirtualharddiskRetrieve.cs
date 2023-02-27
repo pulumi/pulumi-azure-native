@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public static class GetvirtualharddiskRetrieve
     {
         /// <summary>
-        /// The virtual hard disk resource definition.
+        /// Gets virtualharddisks by resource name
         /// </summary>
         public static Task<GetvirtualharddiskRetrieveResult> InvokeAsync(GetvirtualharddiskRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetvirtualharddiskRetrieveResult>("azure-native:azurestackhci/v20210901preview:getvirtualharddiskRetrieve", args ?? new GetvirtualharddiskRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The virtual hard disk resource definition.
+        /// Gets virtualharddisks by resource name
         /// </summary>
         public static Output<GetvirtualharddiskRetrieveResult> Invoke(GetvirtualharddiskRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetvirtualharddiskRetrieveResult>("azure-native:azurestackhci/v20210901preview:getvirtualharddiskRetrieve", args ?? new GetvirtualharddiskRetrieveInvokeArgs(), options.WithDefaults());

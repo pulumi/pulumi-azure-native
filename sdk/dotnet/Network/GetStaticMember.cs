@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetStaticMember
     {
         /// <summary>
-        /// StaticMember Item.
+        /// Gets the specified static member.
         /// API Version: 2022-02-01-preview.
         /// </summary>
         public static Task<GetStaticMemberResult> InvokeAsync(GetStaticMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberArgs(), options.WithDefaults());
 
         /// <summary>
-        /// StaticMember Item.
+        /// Gets the specified static member.
         /// API Version: 2022-02-01-preview.
         /// </summary>
         public static Output<GetStaticMemberResult> Invoke(GetStaticMemberInvokeArgs args, InvokeOptions? options = null)

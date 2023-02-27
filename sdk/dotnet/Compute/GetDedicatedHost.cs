@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Compute
     public static class GetDedicatedHost
     {
         /// <summary>
-        /// Specifies information about the Dedicated host.
+        /// Retrieves information about a dedicated host.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Specifies information about the Dedicated host.
+        /// Retrieves information about a dedicated host.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)

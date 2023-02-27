@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.NetworkFunction
     public static class GetAzureTrafficCollector
     {
         /// <summary>
-        /// Azure Traffic Collector resource.
+        /// Gets the specified Azure Traffic Collector in a specified resource group
         /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetAzureTrafficCollectorResult> InvokeAsync(GetAzureTrafficCollectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureTrafficCollectorResult>("azure-native:networkfunction:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Traffic Collector resource.
+        /// Gets the specified Azure Traffic Collector in a specified resource group
         /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetAzureTrafficCollectorResult> Invoke(GetAzureTrafficCollectorInvokeArgs args, InvokeOptions? options = null)

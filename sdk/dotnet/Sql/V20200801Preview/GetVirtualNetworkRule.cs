@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
     public static class GetVirtualNetworkRule
     {
         /// <summary>
-        /// A virtual network rule.
+        /// Gets a virtual network rule.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:sql/v20200801preview:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A virtual network rule.
+        /// Gets a virtual network rule.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:sql/v20200801preview:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());

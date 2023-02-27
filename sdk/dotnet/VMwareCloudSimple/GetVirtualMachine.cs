@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     public static class GetVirtualMachine
     {
         /// <summary>
-        /// Virtual machine model
+        /// Get virtual machine
         /// API Version: 2019-04-01.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:vmwarecloudsimple:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Virtual machine model
+        /// Get virtual machine
         /// API Version: 2019-04-01.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)

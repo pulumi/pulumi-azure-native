@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
     public static class GetStorageInsight
     {
         /// <summary>
-        /// The top level storage insight resource container.
+        /// Gets a storage insight instance.
         /// </summary>
         public static Task<GetStorageInsightResult> InvokeAsync(GetStorageInsightArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightResult>("azure-native:operationalinsights/v20150320:getStorageInsight", args ?? new GetStorageInsightArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The top level storage insight resource container.
+        /// Gets a storage insight instance.
         /// </summary>
         public static Output<GetStorageInsightResult> Invoke(GetStorageInsightInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageInsightResult>("azure-native:operationalinsights/v20150320:getStorageInsight", args ?? new GetStorageInsightInvokeArgs(), options.WithDefaults());

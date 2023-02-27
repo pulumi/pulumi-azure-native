@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     public static class GetAuthorizationAccessPolicy
     {
         /// <summary>
-        /// Authorization access policy contract.
+        /// Gets the details of the authorization access policy specified by its identifier.
         /// </summary>
         public static Task<GetAuthorizationAccessPolicyResult> InvokeAsync(GetAuthorizationAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationAccessPolicyResult>("azure-native:apimanagement/v20220801:getAuthorizationAccessPolicy", args ?? new GetAuthorizationAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Authorization access policy contract.
+        /// Gets the details of the authorization access policy specified by its identifier.
         /// </summary>
         public static Output<GetAuthorizationAccessPolicyResult> Invoke(GetAuthorizationAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationAccessPolicyResult>("azure-native:apimanagement/v20220801:getAuthorizationAccessPolicy", args ?? new GetAuthorizationAccessPolicyInvokeArgs(), options.WithDefaults());

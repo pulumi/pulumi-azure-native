@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public static class ListDeviceFailoverSets
     {
         /// <summary>
-        /// The list of failover sets.
+        /// Returns all failover sets for a given device and their eligibility for participating in a failover. A failover set refers to a set of volume containers that need to be failed-over as a single unit to maintain data integrity.
         /// </summary>
         public static Task<ListDeviceFailoverSetsResult> InvokeAsync(ListDeviceFailoverSetsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverSetsResult>("azure-native:storsimple/v20170601:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of failover sets.
+        /// Returns all failover sets for a given device and their eligibility for participating in a failover. A failover set refers to a set of volume containers that need to be failed-over as a single unit to maintain data integrity.
         /// </summary>
         public static Output<ListDeviceFailoverSetsResult> Invoke(ListDeviceFailoverSetsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeviceFailoverSetsResult>("azure-native:storsimple/v20170601:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsInvokeArgs(), options.WithDefaults());

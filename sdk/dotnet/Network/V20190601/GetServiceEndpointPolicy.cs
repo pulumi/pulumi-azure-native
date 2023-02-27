@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20190601
     public static class GetServiceEndpointPolicy
     {
         /// <summary>
-        /// Service End point policy resource.
+        /// Gets the specified service Endpoint Policies in a specified resource group.
         /// </summary>
         public static Task<GetServiceEndpointPolicyResult> InvokeAsync(GetServiceEndpointPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyResult>("azure-native:network/v20190601:getServiceEndpointPolicy", args ?? new GetServiceEndpointPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Service End point policy resource.
+        /// Gets the specified service Endpoint Policies in a specified resource group.
         /// </summary>
         public static Output<GetServiceEndpointPolicyResult> Invoke(GetServiceEndpointPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointPolicyResult>("azure-native:network/v20190601:getServiceEndpointPolicy", args ?? new GetServiceEndpointPolicyInvokeArgs(), options.WithDefaults());

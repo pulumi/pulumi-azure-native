@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
     public static class GetDomainTopic
     {
         /// <summary>
-        /// Domain Topic.
+        /// Get properties of a domain topic.
         /// </summary>
         public static Task<GetDomainTopicResult> InvokeAsync(GetDomainTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure-native:eventgrid/v20211015preview:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Domain Topic.
+        /// Get properties of a domain topic.
         /// </summary>
         public static Output<GetDomainTopicResult> Invoke(GetDomainTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicResult>("azure-native:eventgrid/v20211015preview:getDomainTopic", args ?? new GetDomainTopicInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     public static class GetprivateLinkServicesForMIPPolicySync
     {
         /// <summary>
-        /// The description of the service.
+        /// Get the metadata of a privateLinkServicesForMIPPolicySync resource.
         /// API Version: 2021-03-08.
         /// </summary>
         public static Task<GetprivateLinkServicesForMIPPolicySyncResult> InvokeAsync(GetprivateLinkServicesForMIPPolicySyncArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance:getprivateLinkServicesForMIPPolicySync", args ?? new GetprivateLinkServicesForMIPPolicySyncArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The description of the service.
+        /// Get the metadata of a privateLinkServicesForMIPPolicySync resource.
         /// API Version: 2021-03-08.
         /// </summary>
         public static Output<GetprivateLinkServicesForMIPPolicySyncResult> Invoke(GetprivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)

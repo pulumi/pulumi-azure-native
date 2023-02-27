@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Compute
     public static class GetGallery
     {
         /// <summary>
-        /// Specifies information about the Shared Image Gallery that you want to create or update.
+        /// Retrieves information about a Shared Image Gallery.
         /// API Version: 2020-09-30.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Specifies information about the Shared Image Gallery that you want to create or update.
+        /// Retrieves information about a Shared Image Gallery.
         /// API Version: 2020-09-30.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)

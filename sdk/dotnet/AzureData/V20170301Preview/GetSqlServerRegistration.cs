@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
     public static class GetSqlServerRegistration
     {
         /// <summary>
-        /// A SQL server registration.
+        /// Gets a SQL Server registration.
         /// </summary>
         public static Task<GetSqlServerRegistrationResult> InvokeAsync(GetSqlServerRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerRegistrationResult>("azure-native:azuredata/v20170301preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A SQL server registration.
+        /// Gets a SQL Server registration.
         /// </summary>
         public static Output<GetSqlServerRegistrationResult> Invoke(GetSqlServerRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerRegistrationResult>("azure-native:azuredata/v20170301preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationInvokeArgs(), options.WithDefaults());

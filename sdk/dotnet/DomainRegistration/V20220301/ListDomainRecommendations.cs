@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20220301
     public static class ListDomainRecommendations
     {
         /// <summary>
-        /// Collection of domain name identifiers.
+        /// Description for Get domain name recommendations based on keywords.
         /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration/v20220301:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collection of domain name identifiers.
+        /// Description for Get domain name recommendations based on keywords.
         /// </summary>
         public static Output<ListDomainRecommendationsResult> Invoke(ListDomainRecommendationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration/v20220301:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithDefaults());

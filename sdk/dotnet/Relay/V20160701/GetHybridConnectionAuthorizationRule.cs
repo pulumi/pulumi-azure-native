@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Relay.V20160701
     public static class GetHybridConnectionAuthorizationRule
     {
         /// <summary>
-        /// Description of a Namespace AuthorizationRules.
+        /// HybridConnection authorizationRule for a HybridConnection by name.
         /// </summary>
         public static Task<GetHybridConnectionAuthorizationRuleResult> InvokeAsync(GetHybridConnectionAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a Namespace AuthorizationRules.
+        /// HybridConnection authorizationRule for a HybridConnection by name.
         /// </summary>
         public static Output<GetHybridConnectionAuthorizationRuleResult> Invoke(GetHybridConnectionAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleInvokeArgs(), options.WithDefaults());

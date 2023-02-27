@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Network.V20170901
     public static class GetRecordSet
     {
         /// <summary>
-        /// Describes a DNS record set (a collection of DNS records with the same name and type).
+        /// Gets a record set.
         /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network/v20170901:getRecordSet", args ?? new GetRecordSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a DNS record set (a collection of DNS records with the same name and type).
+        /// Gets a record set.
         /// </summary>
         public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network/v20170901:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());

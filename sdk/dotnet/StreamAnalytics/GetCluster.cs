@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public static class GetCluster
     {
         /// <summary>
-        /// A Stream Analytics Cluster object
+        /// Gets information about the specified cluster.
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:streamanalytics:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Stream Analytics Cluster object
+        /// Gets information about the specified cluster.
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)

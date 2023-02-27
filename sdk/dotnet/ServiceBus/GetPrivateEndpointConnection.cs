@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Properties of the PrivateEndpointConnection.
+        /// Gets a description for the specified Private Endpoint Connection.
         /// API Version: 2018-01-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:servicebus:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Properties of the PrivateEndpointConnection.
+        /// Gets a description for the specified Private Endpoint Connection.
         /// API Version: 2018-01-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

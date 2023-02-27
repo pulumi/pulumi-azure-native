@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
     public static class GetPrediction
     {
         /// <summary>
-        /// The prediction resource format.
+        /// Gets a Prediction in the hub.
         /// </summary>
         public static Task<GetPredictionResult> InvokeAsync(GetPredictionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPredictionResult>("azure-native:customerinsights/v20170426:getPrediction", args ?? new GetPredictionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The prediction resource format.
+        /// Gets a Prediction in the hub.
         /// </summary>
         public static Output<GetPredictionResult> Invoke(GetPredictionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPredictionResult>("azure-native:customerinsights/v20170426:getPrediction", args ?? new GetPredictionInvokeArgs(), options.WithDefaults());

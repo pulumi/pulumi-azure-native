@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public static class GetToken
     {
         /// <summary>
-        /// An object that represents a token for a container registry.
+        /// Gets the properties of the specified token.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetTokenResult> InvokeAsync(GetTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-native:containerregistry:getToken", args ?? new GetTokenArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a token for a container registry.
+        /// Gets the properties of the specified token.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOptions? options = null)

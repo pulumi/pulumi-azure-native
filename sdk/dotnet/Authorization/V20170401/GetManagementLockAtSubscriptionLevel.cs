@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Authorization.V20170401
     public static class GetManagementLockAtSubscriptionLevel
     {
         /// <summary>
-        /// The lock information.
+        /// Gets a management lock at the subscription level.
         /// </summary>
         public static Task<GetManagementLockAtSubscriptionLevelResult> InvokeAsync(GetManagementLockAtSubscriptionLevelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization/v20170401:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The lock information.
+        /// Gets a management lock at the subscription level.
         /// </summary>
         public static Output<GetManagementLockAtSubscriptionLevelResult> Invoke(GetManagementLockAtSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization/v20170401:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelInvokeArgs(), options.WithDefaults());

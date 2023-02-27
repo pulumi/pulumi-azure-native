@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Search.V20150228
     public static class ListAdminKey
     {
         /// <summary>
-        /// Response containing the primary and secondary API keys for a given Azure Search service.
+        /// Returns the primary and secondary API keys for the given Azure Search service.
         /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search/v20150228:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response containing the primary and secondary API keys for a given Azure Search service.
+        /// Returns the primary and secondary API keys for the given Azure Search service.
         /// </summary>
         public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20150228:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithDefaults());

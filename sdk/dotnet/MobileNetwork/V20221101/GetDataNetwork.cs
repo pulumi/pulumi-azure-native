@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
     public static class GetDataNetwork
     {
         /// <summary>
-        /// Data network resource. Must be created in the same location as its parent mobile network.
+        /// Gets information about the specified data network.
         /// </summary>
         public static Task<GetDataNetworkResult> InvokeAsync(GetDataNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataNetworkResult>("azure-native:mobilenetwork/v20221101:getDataNetwork", args ?? new GetDataNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data network resource. Must be created in the same location as its parent mobile network.
+        /// Gets information about the specified data network.
         /// </summary>
         public static Output<GetDataNetworkResult> Invoke(GetDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataNetworkResult>("azure-native:mobilenetwork/v20221101:getDataNetwork", args ?? new GetDataNetworkInvokeArgs(), options.WithDefaults());

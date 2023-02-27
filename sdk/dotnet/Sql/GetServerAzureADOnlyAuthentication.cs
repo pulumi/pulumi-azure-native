@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetServerAzureADOnlyAuthentication
     {
         /// <summary>
-        /// Azure Active Directory only authentication.
+        /// Gets a specific Azure Active Directory only authentication property.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetServerAzureADOnlyAuthenticationResult> InvokeAsync(GetServerAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Active Directory only authentication.
+        /// Gets a specific Azure Active Directory only authentication property.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetServerAzureADOnlyAuthenticationResult> Invoke(GetServerAzureADOnlyAuthenticationInvokeArgs args, InvokeOptions? options = null)

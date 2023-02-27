@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
     public static class GetDiskPool
     {
         /// <summary>
-        /// Response for Disk pool request.
+        /// Get a Disk pool.
         /// </summary>
         public static Task<GetDiskPoolResult> InvokeAsync(GetDiskPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskPoolResult>("azure-native:storagepool/v20200315preview:getDiskPool", args ?? new GetDiskPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for Disk pool request.
+        /// Get a Disk pool.
         /// </summary>
         public static Output<GetDiskPoolResult> Invoke(GetDiskPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskPoolResult>("azure-native:storagepool/v20200315preview:getDiskPool", args ?? new GetDiskPoolInvokeArgs(), options.WithDefaults());

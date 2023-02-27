@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
     public static class GetCapability
     {
         /// <summary>
-        /// Model that represents a Capability resource.
+        /// Get a Capability resource that extends a Target resource.
         /// </summary>
         public static Task<GetCapabilityResult> InvokeAsync(GetCapabilityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapabilityResult>("azure-native:chaos/v20220701preview:getCapability", args ?? new GetCapabilityArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Model that represents a Capability resource.
+        /// Get a Capability resource that extends a Target resource.
         /// </summary>
         public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos/v20220701preview:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());

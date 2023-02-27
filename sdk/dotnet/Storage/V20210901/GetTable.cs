@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Storage.V20210901
     public static class GetTable
     {
         /// <summary>
-        /// Properties of the table, including Id, resource name, resource type.
+        /// Gets the table with the specified table name, under the specified account if it exists.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage/v20210901:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Properties of the table, including Id, resource name, resource type.
+        /// Gets the table with the specified table name, under the specified account if it exists.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage/v20210901:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());

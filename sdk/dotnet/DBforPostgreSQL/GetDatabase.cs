@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetDatabase
     {
         /// <summary>
-        /// Represents a Database.
+        /// Gets information about a database.
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbforpostgresql:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Database.
+        /// Gets information about a database.
         /// API Version: 2017-12-01.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)

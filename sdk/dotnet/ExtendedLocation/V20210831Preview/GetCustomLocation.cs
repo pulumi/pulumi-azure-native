@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210831Preview
     public static class GetCustomLocation
     {
         /// <summary>
-        /// Custom Locations definition.
+        /// Gets the details of the customLocation with a specified resource group and name.
         /// </summary>
         public static Task<GetCustomLocationResult> InvokeAsync(GetCustomLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomLocationResult>("azure-native:extendedlocation/v20210831preview:getCustomLocation", args ?? new GetCustomLocationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Custom Locations definition.
+        /// Gets the details of the customLocation with a specified resource group and name.
         /// </summary>
         public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation/v20210831preview:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());

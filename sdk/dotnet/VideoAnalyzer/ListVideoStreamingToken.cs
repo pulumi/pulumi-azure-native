@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public static class ListVideoStreamingToken
     {
         /// <summary>
-        /// Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+        /// Generates a streaming token used for authenticating video playback.
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Task<ListVideoStreamingTokenResult> InvokeAsync(ListVideoStreamingTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVideoStreamingTokenResult>("azure-native:videoanalyzer:listVideoStreamingToken", args ?? new ListVideoStreamingTokenArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+        /// Generates a streaming token used for authenticating video playback.
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Output<ListVideoStreamingTokenResult> Invoke(ListVideoStreamingTokenInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HDInsight
     public static class GetCluster
     {
         /// <summary>
-        /// The HDInsight cluster.
+        /// Gets the specified cluster.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:hdinsight:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The HDInsight cluster.
+        /// Gets the specified cluster.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)

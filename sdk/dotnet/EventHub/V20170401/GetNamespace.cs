@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20170401
     public static class GetNamespace
     {
         /// <summary>
-        /// Single Namespace item in List or Get Operation
+        /// Gets the description of the specified namespace.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:eventhub/v20170401:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single Namespace item in List or Get Operation
+        /// Gets the description of the specified namespace.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub/v20170401:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());

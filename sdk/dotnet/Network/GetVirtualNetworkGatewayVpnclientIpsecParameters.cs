@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetVirtualNetworkGatewayVpnclientIpsecParameters
     {
         /// <summary>
-        /// An IPSec parameters for a virtual network gateway P2S connection.
+        /// The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> InvokeAsync(GetVirtualNetworkGatewayVpnclientIpsecParametersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayVpnclientIpsecParametersResult>("azure-native:network:getVirtualNetworkGatewayVpnclientIpsecParameters", args ?? new GetVirtualNetworkGatewayVpnclientIpsecParametersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An IPSec parameters for a virtual network gateway P2S connection.
+        /// The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> Invoke(GetVirtualNetworkGatewayVpnclientIpsecParametersInvokeArgs args, InvokeOptions? options = null)

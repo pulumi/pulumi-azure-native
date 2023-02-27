@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     public static class GetApplicationGroup
     {
         /// <summary>
-        /// The Application Group object
+        /// Gets an ApplicationGroup for a Namespace.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:eventhub/v20220101preview:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Application Group object
+        /// Gets an ApplicationGroup for a Namespace.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:eventhub/v20220101preview:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());

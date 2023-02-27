@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Logic
     public static class GetWorkflow
     {
         /// <summary>
-        /// The workflow type.
+        /// Gets a workflow.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The workflow type.
+        /// Gets a workflow.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)

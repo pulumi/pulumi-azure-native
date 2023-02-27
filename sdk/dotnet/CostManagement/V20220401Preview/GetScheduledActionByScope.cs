@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.CostManagement.V20220401Preview
     public static class GetScheduledActionByScope
     {
         /// <summary>
-        /// Scheduled action definition.
+        /// Get the shared scheduled action from the given scope by name.
         /// </summary>
         public static Task<GetScheduledActionByScopeResult> InvokeAsync(GetScheduledActionByScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionByScopeResult>("azure-native:costmanagement/v20220401preview:getScheduledActionByScope", args ?? new GetScheduledActionByScopeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Scheduled action definition.
+        /// Get the shared scheduled action from the given scope by name.
         /// </summary>
         public static Output<GetScheduledActionByScopeResult> Invoke(GetScheduledActionByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionByScopeResult>("azure-native:costmanagement/v20220401preview:getScheduledActionByScope", args ?? new GetScheduledActionByScopeInvokeArgs(), options.WithDefaults());

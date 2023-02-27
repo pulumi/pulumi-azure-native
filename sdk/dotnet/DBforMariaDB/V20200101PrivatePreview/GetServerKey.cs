@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
     public static class GetServerKey
     {
         /// <summary>
-        /// A MariaDB Server key.
+        /// Gets a MariaDB Server key.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbformariadb/v20200101privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A MariaDB Server key.
+        /// Gets a MariaDB Server key.
         /// </summary>
         public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:dbformariadb/v20200101privatepreview:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());

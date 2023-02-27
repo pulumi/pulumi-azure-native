@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetAppServicePlan
     {
         /// <summary>
-        /// App Service plan.
+        /// Get an App Service plan.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// App Service plan.
+        /// Get an App Service plan.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)

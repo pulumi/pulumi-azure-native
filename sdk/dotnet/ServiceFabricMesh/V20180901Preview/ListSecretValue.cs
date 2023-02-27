@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     public static class ListSecretValue
     {
         /// <summary>
-        /// This type represents the unencrypted value of the secret.
+        /// Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
         /// </summary>
         public static Task<ListSecretValueResult> InvokeAsync(ListSecretValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:listSecretValue", args ?? new ListSecretValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This type represents the unencrypted value of the secret.
+        /// Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
         /// </summary>
         public static Output<ListSecretValueResult> Invoke(ListSecretValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:listSecretValue", args ?? new ListSecretValueInvokeArgs(), options.WithDefaults());

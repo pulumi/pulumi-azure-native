@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MachineLearning.V20160401
     public static class ListWorkspaceKeys
     {
         /// <summary>
-        /// Workspace authorization keys for a workspace.
+        /// List the authorization keys associated with this workspace.
         /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:machinelearning/v20160401:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workspace authorization keys for a workspace.
+        /// List the authorization keys associated with this workspace.
         /// </summary>
         public static Output<ListWorkspaceKeysResult> Invoke(ListWorkspaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceKeysResult>("azure-native:machinelearning/v20160401:listWorkspaceKeys", args ?? new ListWorkspaceKeysInvokeArgs(), options.WithDefaults());

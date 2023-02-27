@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Security
     public static class GetSecurityConnector
     {
         /// <summary>
-        /// The security connector resource.
+        /// Retrieves details of a specific security connector
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Task<GetSecurityConnectorResult> InvokeAsync(GetSecurityConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The security connector resource.
+        /// Retrieves details of a specific security connector
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Output<GetSecurityConnectorResult> Invoke(GetSecurityConnectorInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview
     public static class GetConfigurationAssignment
     {
         /// <summary>
-        /// Configuration Assignment
+        /// Get configuration for resource.
         /// </summary>
         public static Task<GetConfigurationAssignmentResult> InvokeAsync(GetConfigurationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentResult>("azure-native:maintenance/v20210401preview:getConfigurationAssignment", args ?? new GetConfigurationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration Assignment
+        /// Get configuration for resource.
         /// </summary>
         public static Output<GetConfigurationAssignmentResult> Invoke(GetConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentResult>("azure-native:maintenance/v20210401preview:getConfigurationAssignment", args ?? new GetConfigurationAssignmentInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
     public static class ListSqlMigrationServiceAuthKeys
     {
         /// <summary>
-        /// An authentication key.
+        /// Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
         /// </summary>
         public static Task<ListSqlMigrationServiceAuthKeysResult> InvokeAsync(ListSqlMigrationServiceAuthKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration/v20220330preview:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An authentication key.
+        /// Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
         /// </summary>
         public static Output<ListSqlMigrationServiceAuthKeysResult> Invoke(ListSqlMigrationServiceAuthKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration/v20220330preview:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysInvokeArgs(), options.WithDefaults());

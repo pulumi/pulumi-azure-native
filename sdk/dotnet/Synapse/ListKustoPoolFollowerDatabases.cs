@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class ListKustoPoolFollowerDatabases
     {
         /// <summary>
-        /// The list Kusto database principals operation response.
+        /// Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<ListKustoPoolFollowerDatabasesResult> InvokeAsync(ListKustoPoolFollowerDatabasesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolFollowerDatabasesResult>("azure-native:synapse:listKustoPoolFollowerDatabases", args ?? new ListKustoPoolFollowerDatabasesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list Kusto database principals operation response.
+        /// Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<ListKustoPoolFollowerDatabasesResult> Invoke(ListKustoPoolFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)

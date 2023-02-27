@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Cdn
     public static class GetRule
     {
         /// <summary>
-        /// Friendly Rules name mapping to the any Rules or secret related information.
+        /// Gets an existing delivery rule within a rule set.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:cdn:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Friendly Rules name mapping to the any Rules or secret related information.
+        /// Gets an existing delivery rule within a rule set.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)

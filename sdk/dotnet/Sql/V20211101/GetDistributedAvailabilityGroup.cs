@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20211101
     public static class GetDistributedAvailabilityGroup
     {
         /// <summary>
-        /// Distributed availability group between box and Sql Managed Instance.
+        /// Gets a distributed availability group info.
         /// </summary>
         public static Task<GetDistributedAvailabilityGroupResult> InvokeAsync(GetDistributedAvailabilityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributedAvailabilityGroupResult>("azure-native:sql/v20211101:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Distributed availability group between box and Sql Managed Instance.
+        /// Gets a distributed availability group info.
         /// </summary>
         public static Output<GetDistributedAvailabilityGroupResult> Invoke(GetDistributedAvailabilityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributedAvailabilityGroupResult>("azure-native:sql/v20211101:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupInvokeArgs(), options.WithDefaults());

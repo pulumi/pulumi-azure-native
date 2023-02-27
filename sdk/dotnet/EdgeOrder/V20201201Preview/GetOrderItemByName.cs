@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     public static class GetOrderItemByName
     {
         /// <summary>
-        /// Represents order item contract
+        /// Gets an order item.
         /// </summary>
         public static Task<GetOrderItemByNameResult> InvokeAsync(GetOrderItemByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderItemByNameResult>("azure-native:edgeorder/v20201201preview:getOrderItemByName", args ?? new GetOrderItemByNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents order item contract
+        /// Gets an order item.
         /// </summary>
         public static Output<GetOrderItemByNameResult> Invoke(GetOrderItemByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderItemByNameResult>("azure-native:edgeorder/v20201201preview:getOrderItemByName", args ?? new GetOrderItemByNameInvokeArgs(), options.WithDefaults());

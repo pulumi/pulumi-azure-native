@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20210115
     public static class ListSiteIdentifiersAssignedToHostName
     {
         /// <summary>
-        /// Collection of identifiers.
+        /// List all apps that are assigned to a hostname.
         /// </summary>
         public static Task<ListSiteIdentifiersAssignedToHostNameResult> InvokeAsync(ListSiteIdentifiersAssignedToHostNameArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSiteIdentifiersAssignedToHostNameResult>("azure-native:web/v20210115:listSiteIdentifiersAssignedToHostName", args ?? new ListSiteIdentifiersAssignedToHostNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collection of identifiers.
+        /// List all apps that are assigned to a hostname.
         /// </summary>
         public static Output<ListSiteIdentifiersAssignedToHostNameResult> Invoke(ListSiteIdentifiersAssignedToHostNameInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSiteIdentifiersAssignedToHostNameResult>("azure-native:web/v20210115:listSiteIdentifiersAssignedToHostName", args ?? new ListSiteIdentifiersAssignedToHostNameInvokeArgs(), options.WithDefaults());

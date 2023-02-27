@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.Security.V20200101
 {
     public static class GetJitNetworkAccessPolicy
     {
+        /// <summary>
+        /// Policies for protecting resources using Just-in-Time access control for the subscription, location
+        /// </summary>
         public static Task<GetJitNetworkAccessPolicyResult> InvokeAsync(GetJitNetworkAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJitNetworkAccessPolicyResult>("azure-native:security/v20200101:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Policies for protecting resources using Just-in-Time access control for the subscription, location
+        /// </summary>
         public static Output<GetJitNetworkAccessPolicyResult> Invoke(GetJitNetworkAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJitNetworkAccessPolicyResult>("azure-native:security/v20200101:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyInvokeArgs(), options.WithDefaults());
     }

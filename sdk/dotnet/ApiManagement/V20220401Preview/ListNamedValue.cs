@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
     public static class ListNamedValue
     {
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the secret of the named value specified by its identifier.
         /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-native:apimanagement/v20220401preview:listNamedValue", args ?? new ListNamedValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the secret of the named value specified by its identifier.
         /// </summary>
         public static Output<ListNamedValueResult> Invoke(ListNamedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamedValueResult>("azure-native:apimanagement/v20220401preview:listNamedValue", args ?? new ListNamedValueInvokeArgs(), options.WithDefaults());

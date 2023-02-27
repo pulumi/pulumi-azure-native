@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20221001
     public static class GetReplicationRecoveryPlan
     {
         /// <summary>
-        /// Recovery plan details.
+        /// Gets the details of the recovery plan.
         /// </summary>
         public static Task<GetReplicationRecoveryPlanResult> InvokeAsync(GetReplicationRecoveryPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryPlanResult>("azure-native:recoveryservices/v20221001:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Recovery plan details.
+        /// Gets the details of the recovery plan.
         /// </summary>
         public static Output<GetReplicationRecoveryPlanResult> Invoke(GetReplicationRecoveryPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationRecoveryPlanResult>("azure-native:recoveryservices/v20221001:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanInvokeArgs(), options.WithDefaults());

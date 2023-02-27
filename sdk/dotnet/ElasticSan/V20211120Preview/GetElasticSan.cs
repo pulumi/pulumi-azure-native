@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
     public static class GetElasticSan
     {
         /// <summary>
-        /// Response for ElasticSan request.
+        /// Get a ElasticSan.
         /// </summary>
         public static Task<GetElasticSanResult> InvokeAsync(GetElasticSanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticSanResult>("azure-native:elasticsan/v20211120preview:getElasticSan", args ?? new GetElasticSanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for ElasticSan request.
+        /// Get a ElasticSan.
         /// </summary>
         public static Output<GetElasticSanResult> Invoke(GetElasticSanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticSanResult>("azure-native:elasticsan/v20211120preview:getElasticSan", args ?? new GetElasticSanInvokeArgs(), options.WithDefaults());

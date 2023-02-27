@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
     public static class GetIncidentComment
     {
         /// <summary>
-        /// Represents an incident comment
+        /// Gets an incident comment.
         /// </summary>
         public static Task<GetIncidentCommentResult> InvokeAsync(GetIncidentCommentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCommentResult>("azure-native:securityinsights/v20221201preview:getIncidentComment", args ?? new GetIncidentCommentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an incident comment
+        /// Gets an incident comment.
         /// </summary>
         public static Output<GetIncidentCommentResult> Invoke(GetIncidentCommentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights/v20221201preview:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithDefaults());

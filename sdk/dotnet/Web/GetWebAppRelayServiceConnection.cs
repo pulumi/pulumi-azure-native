@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppRelayServiceConnection
     {
         /// <summary>
-        /// Hybrid Connection for an App Service app.
+        /// Gets a hybrid connection configuration by its name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppRelayServiceConnectionResult> InvokeAsync(GetWebAppRelayServiceConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-native:web:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Hybrid Connection for an App Service app.
+        /// Gets a hybrid connection configuration by its name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetWebAppRelayServiceConnectionResult> Invoke(GetWebAppRelayServiceConnectionInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     public static class GetmanagedAzResiliencyStatus
     {
         /// <summary>
-        /// Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
+        /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
         /// API Version: 2022-02-01-preview.
         /// </summary>
         public static Task<GetmanagedAzResiliencyStatusResult> InvokeAsync(GetmanagedAzResiliencyStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetmanagedAzResiliencyStatusResult>("azure-native:servicefabric:getmanagedAzResiliencyStatus", args ?? new GetmanagedAzResiliencyStatusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
+        /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
         /// API Version: 2022-02-01-preview.
         /// </summary>
         public static Output<GetmanagedAzResiliencyStatusResult> Invoke(GetmanagedAzResiliencyStatusInvokeArgs args, InvokeOptions? options = null)

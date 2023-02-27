@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     public static class GetVirtualMachineTemplate
     {
         /// <summary>
-        /// The VirtualMachineTemplates resource definition.
+        /// Implements VirtualMachineTemplate GET method.
         /// </summary>
         public static Task<GetVirtualMachineTemplateResult> InvokeAsync(GetVirtualMachineTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:scvmm/v20200605preview:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The VirtualMachineTemplates resource definition.
+        /// Implements VirtualMachineTemplate GET method.
         /// </summary>
         public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:scvmm/v20200605preview:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithDefaults());

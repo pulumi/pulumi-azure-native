@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220904
     public static class GetSecret
     {
         /// <summary>
-        /// Secret represents a secret.
+        /// The operation returns properties of a Secret.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:redhatopenshift/v20220904:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Secret represents a secret.
+        /// The operation returns properties of a Secret.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:redhatopenshift/v20220904:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());

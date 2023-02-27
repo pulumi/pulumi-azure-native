@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20151001
     public static class ListMediaServiceKeys
     {
         /// <summary>
-        /// The response body for a ListKeys API.
+        /// Lists the keys for a Media Service.
         /// </summary>
         public static Task<ListMediaServiceKeysResult> InvokeAsync(ListMediaServiceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceKeysResult>("azure-native:media/v20151001:listMediaServiceKeys", args ?? new ListMediaServiceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response body for a ListKeys API.
+        /// Lists the keys for a Media Service.
         /// </summary>
         public static Output<ListMediaServiceKeysResult> Invoke(ListMediaServiceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMediaServiceKeysResult>("azure-native:media/v20151001:listMediaServiceKeys", args ?? new ListMediaServiceKeysInvokeArgs(), options.WithDefaults());

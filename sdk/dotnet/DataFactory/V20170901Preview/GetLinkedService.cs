@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     public static class GetLinkedService
     {
         /// <summary>
-        /// Linked service resource type.
+        /// Gets a linked service.
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:datafactory/v20170901preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Linked service resource type.
+        /// Gets a linked service.
         /// </summary>
         public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:datafactory/v20170901preview:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());

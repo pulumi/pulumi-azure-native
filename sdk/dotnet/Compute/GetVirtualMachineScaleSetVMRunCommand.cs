@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Compute
     public static class GetVirtualMachineScaleSetVMRunCommand
     {
         /// <summary>
-        /// Describes a Virtual Machine run command.
+        /// The operation to get the VMSS VM run command.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMRunCommandResult> InvokeAsync(GetVirtualMachineScaleSetVMRunCommandArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Virtual Machine run command.
+        /// The operation to get the VMSS VM run command.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMRunCommandResult> Invoke(GetVirtualMachineScaleSetVMRunCommandInvokeArgs args, InvokeOptions? options = null)

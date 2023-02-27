@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
     public static class GetActionRuleByName
     {
         /// <summary>
-        /// Action rule object containing target scope, conditions and suppression logic
+        /// Get a specific action rule
         /// </summary>
         public static Task<GetActionRuleByNameResult> InvokeAsync(GetActionRuleByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Action rule object containing target scope, conditions and suppression logic
+        /// Get a specific action rule
         /// </summary>
         public static Output<GetActionRuleByNameResult> Invoke(GetActionRuleByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithDefaults());

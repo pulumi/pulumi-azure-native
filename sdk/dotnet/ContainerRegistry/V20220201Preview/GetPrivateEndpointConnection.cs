@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20220201Preview
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// An object that represents a private endpoint connection for a container registry.
+        /// Get the specified private endpoint connection associated with the container registry.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:containerregistry/v20220201preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a private endpoint connection for a container registry.
+        /// Get the specified private endpoint connection associated with the container registry.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:containerregistry/v20220201preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

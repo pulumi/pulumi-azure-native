@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Batch.V20151201
     public static class ListBatchAccountKeys
     {
         /// <summary>
-        /// A set of Azure Batch account keys.
+        /// Gets the account keys for the specified Batch account.
         /// </summary>
         public static Task<ListBatchAccountKeysResult> InvokeAsync(ListBatchAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-native:batch/v20151201:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A set of Azure Batch account keys.
+        /// Gets the account keys for the specified Batch account.
         /// </summary>
         public static Output<ListBatchAccountKeysResult> Invoke(ListBatchAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBatchAccountKeysResult>("azure-native:batch/v20151201:listBatchAccountKeys", args ?? new ListBatchAccountKeysInvokeArgs(), options.WithDefaults());

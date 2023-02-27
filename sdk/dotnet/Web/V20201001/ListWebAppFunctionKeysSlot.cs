@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20201001
     public static class ListWebAppFunctionKeysSlot
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Get function keys for a function in a web site, or a deployment slot.
         /// </summary>
         public static Task<ListWebAppFunctionKeysSlotResult> InvokeAsync(ListWebAppFunctionKeysSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionKeysSlotResult>("azure-native:web/v20201001:listWebAppFunctionKeysSlot", args ?? new ListWebAppFunctionKeysSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Get function keys for a function in a web site, or a deployment slot.
         /// </summary>
         public static Output<ListWebAppFunctionKeysSlotResult> Invoke(ListWebAppFunctionKeysSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionKeysSlotResult>("azure-native:web/v20201001:listWebAppFunctionKeysSlot", args ?? new ListWebAppFunctionKeysSlotInvokeArgs(), options.WithDefaults());

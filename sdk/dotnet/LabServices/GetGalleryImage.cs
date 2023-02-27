@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.LabServices
     public static class GetGalleryImage
     {
         /// <summary>
-        /// Represents an image from the Azure Marketplace
+        /// Get gallery image
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:labservices:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an image from the Azure Marketplace
+        /// Get gallery image
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)

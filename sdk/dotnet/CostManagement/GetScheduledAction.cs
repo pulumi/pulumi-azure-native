@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CostManagement
     public static class GetScheduledAction
     {
         /// <summary>
-        /// Scheduled action definition.
+        /// Get the private scheduled action by name.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Scheduled action definition.
+        /// Get the private scheduled action by name.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)

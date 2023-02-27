@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NetApp.V20210201
     public static class GetSnapshot
     {
         /// <summary>
-        /// Snapshot of a Volume
+        /// Get details of the specified snapshot
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:netapp/v20210201:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Snapshot of a Volume
+        /// Get details of the specified snapshot
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:netapp/v20210201:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());

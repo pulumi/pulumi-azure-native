@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public static class GetAccessControlRecord
     {
         /// <summary>
-        /// The access control record
+        /// Returns the properties of the specified access control record name.
         /// </summary>
         public static Task<GetAccessControlRecordResult> InvokeAsync(GetAccessControlRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessControlRecordResult>("azure-native:storsimple/v20161001:getAccessControlRecord", args ?? new GetAccessControlRecordArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The access control record
+        /// Returns the properties of the specified access control record name.
         /// </summary>
         public static Output<GetAccessControlRecordResult> Invoke(GetAccessControlRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessControlRecordResult>("azure-native:storsimple/v20161001:getAccessControlRecord", args ?? new GetAccessControlRecordInvokeArgs(), options.WithDefaults());

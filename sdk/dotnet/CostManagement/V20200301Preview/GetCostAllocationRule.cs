@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.CostManagement.V20200301Preview
     public static class GetCostAllocationRule
     {
         /// <summary>
-        /// The cost allocation rule model definition
+        /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
         /// </summary>
         public static Task<GetCostAllocationRuleResult> InvokeAsync(GetCostAllocationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-native:costmanagement/v20200301preview:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The cost allocation rule model definition
+        /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
         /// </summary>
         public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement/v20200301preview:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
     public static class GetTenantConfiguration
     {
         /// <summary>
-        /// Tenant configuration.
+        /// Gets the tenant configuration.
         /// </summary>
         public static Task<GetTenantConfigurationResult> InvokeAsync(GetTenantConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azure-native:portal/v20200901preview:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Tenant configuration.
+        /// Gets the tenant configuration.
         /// </summary>
         public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal/v20200901preview:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());

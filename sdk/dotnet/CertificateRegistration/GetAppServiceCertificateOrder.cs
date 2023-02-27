@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CertificateRegistration
     public static class GetAppServiceCertificateOrder
     {
         /// <summary>
-        /// SSL certificate purchase order.
+        /// Get a certificate order.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderResult> InvokeAsync(GetAppServiceCertificateOrderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SSL certificate purchase order.
+        /// Get a certificate order.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetAppServiceCertificateOrderResult> Invoke(GetAppServiceCertificateOrderInvokeArgs args, InvokeOptions? options = null)

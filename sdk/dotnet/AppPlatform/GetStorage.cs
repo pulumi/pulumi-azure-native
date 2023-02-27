@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppPlatform
     public static class GetStorage
     {
         /// <summary>
-        /// Storage resource payload.
+        /// Get the storage resource.
         /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetStorageResult> InvokeAsync(GetStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageResult>("azure-native:appplatform:getStorage", args ?? new GetStorageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Storage resource payload.
+        /// Get the storage resource.
         /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetStorageResult> Invoke(GetStorageInvokeArgs args, InvokeOptions? options = null)
