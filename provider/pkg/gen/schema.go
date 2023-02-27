@@ -595,7 +595,7 @@ func (g *packageGenerator) genResourceVariant(prov string, resource *resourceVar
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: g.formatDescription(resourceResponse, swagger.Info),
+			Description: g.formatDescription(resourceResponse.description, swagger.Info),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
@@ -636,7 +636,7 @@ func (g *packageGenerator) genResourceVariant(prov string, resource *resourceVar
 
 	if path.Get != nil && responseFunction != nil {
 		functionSpec := pschema.FunctionSpec{
-			Description:        g.formatDescription(resourceResponse, swagger.Info),
+			Description:        g.formatFunctionDescription(readOp, resourceResponse, swagger.Info),
 			DeprecationMessage: resource.deprecationMessage,
 			Inputs: &pschema.ObjectTypeSpec{
 				Description: requestFunction.description,
@@ -786,7 +786,7 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	}
 
 	functionSpec := pschema.FunctionSpec{
-		Description: g.formatDescription(response, swagger.Info),
+		Description: g.formatFunctionDescription(pathItem.Post, response, swagger.Info),
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
 			Type:        "object",
@@ -822,11 +822,19 @@ func providerApiToModule(prov, apiVersion string) string {
 	return fmt.Sprintf("%s/%s", strings.ToLower(prov), apiVersion)
 }
 
-func (g *packageGenerator) formatDescription(response *propertyBag, info *spec.Info) string {
-	if g.apiVersion == "" {
-		return fmt.Sprintf("%s\nAPI Version: %s.", response.description, info.Version)
+func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, response *propertyBag, info *spec.Info) string {
+	desc := response.description
+	if op.Description != "" {
+		desc = op.Description
 	}
-	return response.description
+	return g.formatDescription(desc, info)
+}
+
+func (g *packageGenerator) formatDescription(desc string, info *spec.Info) string {
+	if g.apiVersion == "" {
+		return fmt.Sprintf("%s\nAPI Version: %s.", desc, info.Version)
+	}
+	return desc
 }
 
 func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {
