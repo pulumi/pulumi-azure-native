@@ -4736,6 +4736,7 @@
       "BackupInstance",
       "BackupPolicy",
       "BackupVault",
+      "DppResourceGuardProxy",
       "ResourceGuard"
     ]
   },

@@ -5285,6 +5285,23 @@
         ]
       },
       {
+        "resourceType": "reservationOrders/changeDirectory",
+        "apiVersions": [
+          "2022-11-01-beta",
+          "2022-11-01",
+          "2022-06-02-privatepreview",
+          "2022-06-02-beta",
+          "2022-03-01-beta",
+          "2022-03-01",
+          "2022-02-16-privatepreview",
+          "2022-02-16-beta",
+          "2021-07-01",
+          "2020-11-15-preview",
+          "2020-11-15-beta",
+          "2020-11-15"
+        ]
+      },
+      {
         "resourceType": "reservationOrders/merge",
         "apiVersions": [
           "2022-11-01-beta",
@@ -20318,6 +20335,7 @@
       {
         "resourceType": "mediaservices/accountFilters",
         "apiVersions": [
+          "2023-01-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20328,6 +20346,7 @@
       {
         "resourceType": "mediaservices/assets",
         "apiVersions": [
+          "2023-01-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20340,6 +20359,7 @@
       {
         "resourceType": "mediaservices/assets/assetFilters",
         "apiVersions": [
+          "2023-01-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20350,6 +20370,7 @@
       {
         "resourceType": "mediaservices/assets/tracks",
         "apiVersions": [
+          "2023-01-01",
           "2022-08-01",
           "2021-11-01"
         ]
@@ -20357,6 +20378,7 @@
       {
         "resourceType": "mediaservices/contentKeyPolicies",
         "apiVersions": [
+          "2023-01-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20486,6 +20508,7 @@
       {
         "resourceType": "mediaservices/streamingLocators",
         "apiVersions": [
+          "2023-01-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -20498,6 +20521,7 @@
       {
         "resourceType": "mediaservices/streamingPolicies",
         "apiVersions": [
+          "2023-01-01",
           "2022-08-01",
           "2021-11-01",
           "2021-06-01",
@@ -39395,6 +39419,22 @@
         ]
       },
       {
+        "resourceType": "staticSites/builds/databaseConnections",
+        "apiVersions": [
+          "2022-03-01",
+          "2021-03-01",
+          "2021-02-01",
+          "2021-01-15",
+          "2021-01-01",
+          "2020-12-01",
+          "2020-10-01",
+          "2020-09-01",
+          "2020-06-01",
+          "2019-12-01-preview",
+          "2019-08-01"
+        ]
+      },
+      {
         "resourceType": "staticSites/builds/linkedBackends",
         "apiVersions": [
           "2022-03-01",
@@ -39419,6 +39459,22 @@
           "2021-01-15",
           "2021-01-01",
           "2020-12-01"
+        ]
+      },
+      {
+        "resourceType": "staticSites/databaseConnections",
+        "apiVersions": [
+          "2022-03-01",
+          "2021-03-01",
+          "2021-02-01",
+          "2021-01-15",
+          "2021-01-01",
+          "2020-12-01",
+          "2020-10-01",
+          "2020-09-01",
+          "2020-06-01",
+          "2019-12-01-preview",
+          "2019-08-01"
         ]
       },
       {
@@ -39612,6 +39668,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2023-04-01",
           "2022-11-01-preview",
           "2022-10-15-preview",
           "2021-12-01-preview"
@@ -39620,6 +39677,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2023-04-01",
           "2022-11-01-preview",
           "2022-10-15-preview",
           "2021-12-01-preview"
@@ -39635,6 +39693,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2023-04-01",
           "2022-11-01-preview",
           "2022-10-15-preview",
           "2021-12-01-preview"
@@ -39655,7 +39714,7 @@
         ]
       },
       {
-        "resourceType": "monitors/saplandscapemonitor",
+        "resourceType": "monitors/sapLandscapeMonitor",
         "apiVersions": [
           "2022-11-01-preview"
         ]
