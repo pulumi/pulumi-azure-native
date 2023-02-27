@@ -73,7 +73,7 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
                                       service_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAuthorizationServerSecretsResult:
     """
-    OAuth Server Secrets Contract.
+    Gets the client secret details of the authorization server.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -99,7 +99,7 @@ def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[str]
                                              service_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAuthorizationServerSecretsResult]:
     """
-    OAuth Server Secrets Contract.
+    Gets the client secret details of the authorization server.
 
 
     :param str authsid: Identifier of the authorization server.

@@ -181,7 +181,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    The resource proxy definition object for quantum workspace.
+    Returns the Workspace resource associated with the given name.
     API Version: 2019-11-04-preview.
 
 
@@ -214,7 +214,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    The resource proxy definition object for quantum workspace.
+    Returns the Workspace resource associated with the given name.
     API Version: 2019-11-04-preview.
 
 

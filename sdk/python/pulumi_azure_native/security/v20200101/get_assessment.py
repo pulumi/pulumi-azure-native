@@ -158,7 +158,7 @@ def get_assessment(assessment_name: Optional[str] = None,
                    resource_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
-    Security assessment on a resource
+    Get a security assessment on your scanned resource
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type
@@ -191,7 +191,7 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           resource_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
     """
-    Security assessment on a resource
+    Get a security assessment on your scanned resource
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type

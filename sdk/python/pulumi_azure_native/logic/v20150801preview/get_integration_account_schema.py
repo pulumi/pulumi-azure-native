@@ -191,7 +191,8 @@ def get_integration_account_schema(integration_account_name: Optional[str] = Non
                                    schema_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountSchemaResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets an integration account schema.
+
 
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
@@ -226,7 +227,8 @@ def get_integration_account_schema_output(integration_account_name: Optional[pul
                                           schema_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountSchemaResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets an integration account schema.
+
 
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.

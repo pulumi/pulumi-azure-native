@@ -120,7 +120,7 @@ def get_workspace_aad_admin(resource_group_name: Optional[str] = None,
                             workspace_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceAadAdminResult:
     """
-    Workspace active directory administrator
+    Gets a workspace active directory admin
     API Version: 2021-03-01.
 
 
@@ -148,7 +148,7 @@ def get_workspace_aad_admin_output(resource_group_name: Optional[pulumi.Input[st
                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceAadAdminResult]:
     """
-    Workspace active directory administrator
+    Gets a workspace active directory admin
     API Version: 2021-03-01.
 
 

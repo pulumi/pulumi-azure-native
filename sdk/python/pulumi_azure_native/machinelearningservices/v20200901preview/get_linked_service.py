@@ -110,7 +110,7 @@ def get_linked_service(link_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
-    Linked service.
+    Get the detail of a linked service.
 
 
     :param str link_name: Friendly name of the linked workspace
@@ -139,7 +139,7 @@ def get_linked_service_output(link_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServiceResult]:
     """
-    Linked service.
+    Get the detail of a linked service.
 
 
     :param str link_name: Friendly name of the linked workspace

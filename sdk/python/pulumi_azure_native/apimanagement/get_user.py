@@ -170,7 +170,7 @@ def get_user(resource_group_name: Optional[str] = None,
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    User details.
+    Gets the details of the user specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -205,7 +205,7 @@ def get_user_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     user_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    User details.
+    Gets the details of the user specified by its identifier.
     API Version: 2020-12-01.
 
 

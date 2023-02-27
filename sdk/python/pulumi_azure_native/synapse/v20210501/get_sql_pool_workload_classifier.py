@@ -147,7 +147,7 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
                                      workspace_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolWorkloadClassifierResult:
     """
-    Workload classifier operations for a data warehouse
+    Get a workload classifier of Sql pool's workload group.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -185,7 +185,7 @@ def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolWorkloadClassifierResult]:
     """
-    Workload classifier operations for a data warehouse
+    Get a workload classifier of Sql pool's workload group.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

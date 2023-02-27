@@ -214,6 +214,7 @@ def get_rack(rack_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRackResult:
     """
+    Get properties of the provided rack.
     API Version: 2022-12-12-preview.
 
 
@@ -249,6 +250,7 @@ def get_rack_output(rack_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRackResult]:
     """
+    Get properties of the provided rack.
     API Version: 2022-12-12-preview.
 
 

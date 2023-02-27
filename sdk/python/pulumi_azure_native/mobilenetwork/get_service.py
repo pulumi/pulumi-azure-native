@@ -230,7 +230,7 @@ def get_service(mobile_network_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Service resource.
+    Gets information about the specified service.
     API Version: 2022-04-01-preview.
 
 
@@ -270,7 +270,7 @@ def get_service_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Service resource.
+    Gets information about the specified service.
     API Version: 2022-04-01-preview.
 
 

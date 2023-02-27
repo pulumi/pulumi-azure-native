@@ -183,7 +183,7 @@ def get_kusto_pool_principal_assignment(kusto_pool_name: Optional[str] = None,
                                         workspace_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolPrincipalAssignmentResult:
     """
-    Class representing a cluster principal assignment.
+    Gets a Kusto pool principalAssignment.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.
@@ -221,7 +221,7 @@ def get_kusto_pool_principal_assignment_output(kusto_pool_name: Optional[pulumi.
                                                workspace_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolPrincipalAssignmentResult]:
     """
-    Class representing a cluster principal assignment.
+    Gets a Kusto pool principalAssignment.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.

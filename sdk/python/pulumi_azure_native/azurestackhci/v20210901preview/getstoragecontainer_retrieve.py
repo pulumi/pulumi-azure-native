@@ -187,7 +187,7 @@ def getstoragecontainer_retrieve(resource_group_name: Optional[str] = None,
                                  storagecontainers_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetstoragecontainerRetrieveResult:
     """
-    The storage container resource definition.
+    Gets storagecontainers by resource name
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -219,7 +219,7 @@ def getstoragecontainer_retrieve_output(resource_group_name: Optional[pulumi.Inp
                                         storagecontainers_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetstoragecontainerRetrieveResult]:
     """
-    The storage container resource definition.
+    Gets storagecontainers by resource name
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -128,7 +128,7 @@ def get_graph_resource_graph(account_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphResourceGraphResult:
     """
-    An Azure Cosmos DB Graph resource.
+    Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
     API Version: 2021-07-01-preview.
 
 
@@ -160,7 +160,7 @@ def get_graph_resource_graph_output(account_name: Optional[pulumi.Input[str]] = 
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphResourceGraphResult]:
     """
-    An Azure Cosmos DB Graph resource.
+    Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
     API Version: 2021-07-01-preview.
 
 

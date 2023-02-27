@@ -50,7 +50,7 @@ def list_database_principals(cluster_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasePrincipalsResult:
     """
-    The list Kusto database principals operation response.
+    Returns a list of database principals of the given Kusto cluster and database.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -74,7 +74,7 @@ def list_database_principals_output(cluster_name: Optional[pulumi.Input[str]] = 
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasePrincipalsResult]:
     """
-    The list Kusto database principals operation response.
+    Returns a list of database principals of the given Kusto cluster and database.
 
 
     :param str cluster_name: The name of the Kusto cluster.

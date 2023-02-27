@@ -277,7 +277,7 @@ def get_sim(resource_group_name: Optional[str] = None,
             sim_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimResult:
     """
-    Sim resource.
+    Gets information about the specified sim.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -317,7 +317,7 @@ def get_sim_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    sim_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimResult]:
     """
-    Sim resource.
+    Gets information about the specified sim.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

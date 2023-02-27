@@ -109,7 +109,7 @@ def get_sql_resource_sql_trigger(account_name: Optional[str] = None,
                                  trigger_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlTriggerResult:
     """
-    An Azure Cosmos DB trigger.
+    Gets the SQL trigger under an existing Azure Cosmos DB database account.
     API Version: 2021-03-15.
 
 
@@ -145,7 +145,7 @@ def get_sql_resource_sql_trigger_output(account_name: Optional[pulumi.Input[str]
                                         trigger_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlTriggerResult]:
     """
-    An Azure Cosmos DB trigger.
+    Gets the SQL trigger under an existing Azure Cosmos DB database account.
     API Version: 2021-03-15.
 
 

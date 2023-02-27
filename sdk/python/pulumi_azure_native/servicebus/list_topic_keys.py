@@ -122,7 +122,7 @@ def list_topic_keys(authorization_rule_name: Optional[str] = None,
                     topic_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicKeysResult:
     """
-    Namespace/ServiceBus Connection String
+    Gets the primary and secondary connection strings for the topic.
     API Version: 2017-04-01.
 
 
@@ -156,7 +156,7 @@ def list_topic_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] 
                            topic_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicKeysResult]:
     """
-    Namespace/ServiceBus Connection String
+    Gets the primary and secondary connection strings for the topic.
     API Version: 2017-04-01.
 
 

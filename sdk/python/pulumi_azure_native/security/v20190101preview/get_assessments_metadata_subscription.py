@@ -197,7 +197,7 @@ class AwaitableGetAssessmentsMetadataSubscriptionResult(GetAssessmentsMetadataSu
 def get_assessments_metadata_subscription(assessment_metadata_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentsMetadataSubscriptionResult:
     """
-    Security assessment metadata
+    Get metadata information on an assessment type in a specific subscription
 
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
@@ -228,7 +228,7 @@ def get_assessments_metadata_subscription(assessment_metadata_name: Optional[str
 def get_assessments_metadata_subscription_output(assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentsMetadataSubscriptionResult]:
     """
-    Security assessment metadata
+    Get metadata information on an assessment type in a specific subscription
 
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type

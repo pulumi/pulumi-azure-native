@@ -122,7 +122,7 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobContainerImmutabilityPolicyResult:
     """
-    The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+    Gets the existing immutability policy along with the corresponding ETag in response headers and body.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -155,7 +155,7 @@ def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobContainerImmutabilityPolicyResult]:
     """
-    The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+    Gets the existing immutability policy along with the corresponding ETag in response headers and body.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

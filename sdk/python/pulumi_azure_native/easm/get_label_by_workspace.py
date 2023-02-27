@@ -122,7 +122,7 @@ def get_label_by_workspace(label_name: Optional[str] = None,
                            workspace_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelByWorkspaceResult:
     """
-    Label details
+    Returns a label in the given workspace.
     API Version: 2022-04-01-preview.
 
 
@@ -153,7 +153,7 @@ def get_label_by_workspace_output(label_name: Optional[pulumi.Input[str]] = None
                                   workspace_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabelByWorkspaceResult]:
     """
-    Label details
+    Returns a label in the given workspace.
     API Version: 2022-04-01-preview.
 
 

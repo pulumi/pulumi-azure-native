@@ -147,7 +147,7 @@ def get_service(resource_group_name: Optional[str] = None,
                 resource_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    The description of the service.
+    Get the metadata of a service instance.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -177,7 +177,7 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        resource_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    The description of the service.
+    Get the metadata of a service instance.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

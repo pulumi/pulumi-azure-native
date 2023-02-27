@@ -124,7 +124,7 @@ def get_synapse_workspace_sql_pool_table_data_set(account_name: Optional[str] = 
                                                   share_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSynapseWorkspaceSqlPoolTableDataSetResult:
     """
-    A Synapse Workspace Sql Pool Table data set.
+    Get a DataSet in a share
 
 
     :param str account_name: The name of the share account.
@@ -157,7 +157,7 @@ def get_synapse_workspace_sql_pool_table_data_set_output(account_name: Optional[
                                                          share_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSynapseWorkspaceSqlPoolTableDataSetResult]:
     """
-    A Synapse Workspace Sql Pool Table data set.
+    Get a DataSet in a share
 
 
     :param str account_name: The name of the share account.

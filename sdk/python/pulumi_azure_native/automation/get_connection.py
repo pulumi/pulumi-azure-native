@@ -134,7 +134,7 @@ def get_connection(automation_account_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    Definition of the connection.
+    Retrieve the connection identified by connection name.
     API Version: 2019-06-01.
 
 
@@ -166,7 +166,7 @@ def get_connection_output(automation_account_name: Optional[pulumi.Input[str]] =
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    Definition of the connection.
+    Retrieve the connection identified by connection name.
     API Version: 2019-06-01.
 
 

@@ -190,7 +190,7 @@ def get_object_anchors_account(account_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectAnchorsAccountResult:
     """
-    ObjectAnchorsAccount Response.
+    Retrieve an Object Anchors Account.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -223,7 +223,7 @@ def get_object_anchors_account_output(account_name: Optional[pulumi.Input[str]] 
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectAnchorsAccountResult]:
     """
-    ObjectAnchorsAccount Response.
+    Retrieve an Object Anchors Account.
 
 
     :param str account_name: Name of an Mixed Reality Account.

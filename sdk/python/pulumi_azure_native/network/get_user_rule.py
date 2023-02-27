@@ -114,7 +114,7 @@ def get_user_rule(configuration_name: Optional[str] = None,
                   rule_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserRuleResult:
     """
-    Network base rule.
+    Gets a user rule.
     API Version: 2021-02-01-preview.
 
 
@@ -151,7 +151,7 @@ def get_user_rule_output(configuration_name: Optional[pulumi.Input[str]] = None,
                          rule_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserRuleResult]:
     """
-    Network base rule.
+    Gets a user rule.
     API Version: 2021-02-01-preview.
 
 

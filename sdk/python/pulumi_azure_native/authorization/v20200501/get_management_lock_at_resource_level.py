@@ -125,7 +125,7 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
                                           resource_type: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceLevelResult:
     """
-    The lock information.
+    Get the management lock of a resource or any level below resource.
 
 
     :param str lock_name: The name of lock.
@@ -164,7 +164,7 @@ def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Inpu
                                                  resource_type: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockAtResourceLevelResult]:
     """
-    The lock information.
+    Get the management lock of a resource or any level below resource.
 
 
     :param str lock_name: The name of lock.

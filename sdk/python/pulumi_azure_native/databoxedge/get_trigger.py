@@ -100,7 +100,7 @@ def get_trigger(device_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
-    Trigger details.
+    Get a specific trigger by name.
     API Version: 2020-12-01.
 
 
@@ -130,7 +130,7 @@ def get_trigger_output(device_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerResult]:
     """
-    Trigger details.
+    Get a specific trigger by name.
     API Version: 2020-12-01.
 
 

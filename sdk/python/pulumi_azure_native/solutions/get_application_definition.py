@@ -301,7 +301,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationDefinitionResult:
     """
-    Information about managed application definition.
+    Gets the managed application definition.
     API Version: 2019-07-01.
 
 
@@ -344,7 +344,7 @@ def get_application_definition_output(application_definition_name: Optional[pulu
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationDefinitionResult]:
     """
-    Information about managed application definition.
+    Gets the managed application definition.
     API Version: 2019-07-01.
 
 

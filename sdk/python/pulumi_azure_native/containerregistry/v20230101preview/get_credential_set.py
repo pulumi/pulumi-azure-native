@@ -147,7 +147,7 @@ def get_credential_set(credential_set_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialSetResult:
     """
-    An object that represents a credential set resource for a container registry.
+    Gets the properties of the specified credential set resource.
 
 
     :param str credential_set_name: The name of the credential set.
@@ -179,7 +179,7 @@ def get_credential_set_output(credential_set_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialSetResult]:
     """
-    An object that represents a credential set resource for a container registry.
+    Gets the properties of the specified credential set resource.
 
 
     :param str credential_set_name: The name of the credential set.

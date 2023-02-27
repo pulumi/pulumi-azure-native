@@ -121,7 +121,7 @@ def get_group(group_id: Optional[str] = None,
               service_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Contract details.
+    Gets the details of the group specified by its identifier.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -151,7 +151,7 @@ def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
                      service_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
-    Contract details.
+    Gets the details of the group specified by its identifier.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.

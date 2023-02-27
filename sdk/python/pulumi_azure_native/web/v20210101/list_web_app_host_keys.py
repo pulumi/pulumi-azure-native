@@ -72,7 +72,7 @@ def list_web_app_host_keys(name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHostKeysResult:
     """
-    Functions host level keys.
+    Get host secrets for a function app.
 
 
     :param str name: Site name.
@@ -95,7 +95,7 @@ def list_web_app_host_keys_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppHostKeysResult]:
     """
-    Functions host level keys.
+    Get host secrets for a function app.
 
 
     :param str name: Site name.

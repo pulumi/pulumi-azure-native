@@ -184,7 +184,7 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
                                                vm_scale_set_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMExtensionResult:
     """
-    Describes a VMSS VM Extension.
+    The operation to get the VMSS VM extension.
     API Version: 2021-03-01.
 
 
@@ -226,7 +226,7 @@ def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.In
                                                       vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMExtensionResult]:
     """
-    Describes a VMSS VM Extension.
+    The operation to get the VMSS VM extension.
     API Version: 2021-03-01.
 
 

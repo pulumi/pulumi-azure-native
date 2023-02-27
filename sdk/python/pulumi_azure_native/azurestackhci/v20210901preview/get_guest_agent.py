@@ -146,7 +146,7 @@ def get_guest_agent(name: Optional[str] = None,
                     virtual_machine_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestAgentResult:
     """
-    Defines the GuestAgent.
+    Implements GuestAgent GET method.
 
 
     :param str name: Name of the GuestAgent.
@@ -178,7 +178,7 @@ def get_guest_agent_output(name: Optional[pulumi.Input[str]] = None,
                            virtual_machine_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestAgentResult]:
     """
-    Defines the GuestAgent.
+    Implements GuestAgent GET method.
 
 
     :param str name: Name of the GuestAgent.

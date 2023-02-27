@@ -231,7 +231,7 @@ def get_event_hub_event_source(environment_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubEventSourceResult:
     """
-    An event source that receives its data from an Azure EventHub.
+    Gets the event source with the specified name in the specified environment.
     API Version: 2020-05-15.
 
 
@@ -271,7 +271,7 @@ def get_event_hub_event_source_output(environment_name: Optional[pulumi.Input[st
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubEventSourceResult]:
     """
-    An event source that receives its data from an Azure EventHub.
+    Gets the event source with the specified name in the specified environment.
     API Version: 2020-05-15.
 
 

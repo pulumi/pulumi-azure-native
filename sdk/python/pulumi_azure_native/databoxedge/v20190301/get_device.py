@@ -279,7 +279,7 @@ def get_device(device_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
-    The Data Box Edge/Gateway device.
+    Gets the properties of the data box edge/gateway device.
 
 
     :param str device_name: The device name.
@@ -320,7 +320,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
-    The Data Box Edge/Gateway device.
+    Gets the properties of the data box edge/gateway device.
 
 
     :param str device_name: The device name.

@@ -227,7 +227,7 @@ def get_agent(agent_name: Optional[str] = None,
               storage_mover_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentResult:
     """
-    The Agent resource.
+    Gets an Agent resource.
     API Version: 2022-07-01-preview.
 
 
@@ -267,7 +267,7 @@ def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
                      storage_mover_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentResult]:
     """
-    The Agent resource.
+    Gets an Agent resource.
     API Version: 2022-07-01-preview.
 
 

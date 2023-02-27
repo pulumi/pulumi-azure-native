@@ -222,7 +222,7 @@ def get_partner_topic_event_subscription(event_subscription_name: Optional[str] 
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionResult:
     """
-    Event Subscription
+    Get an event subscription of a partner topic.
     API Version: 2020-04-01-preview.
 
 
@@ -261,7 +261,7 @@ def get_partner_topic_event_subscription_output(event_subscription_name: Optiona
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionResult]:
     """
-    Event Subscription
+    Get an event subscription of a partner topic.
     API Version: 2020-04-01-preview.
 
 

@@ -80,7 +80,8 @@ def get_import_collector(import_collector_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImportCollectorResult:
     """
-    Use this data source to access information about an existing resource.
+    Get a Import collector.
+
 
     :param str import_collector_name: Unique name of a Import collector within a project.
     :param str project_name: Name of the Azure Migrate project.
@@ -107,7 +108,8 @@ def get_import_collector_output(import_collector_name: Optional[pulumi.Input[str
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportCollectorResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get a Import collector.
+
 
     :param str import_collector_name: Unique name of a Import collector within a project.
     :param str project_name: Name of the Azure Migrate project.

@@ -146,7 +146,7 @@ def get_managed_database_sensitivity_label(column_name: Optional[str] = None,
                                            table_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedDatabaseSensitivityLabelResult:
     """
-    A sensitivity label.
+    Gets the sensitivity label of a given column
 
 
     :param str column_name: The name of the column.
@@ -190,7 +190,7 @@ def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.I
                                                   table_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDatabaseSensitivityLabelResult]:
     """
-    A sensitivity label.
+    Gets the sensitivity label of a given column
 
 
     :param str column_name: The name of the column.

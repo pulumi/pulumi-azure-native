@@ -257,7 +257,7 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
                            rule_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultAdminRuleResult:
     """
-    Network default admin rule.
+    Gets a network manager security configuration admin rule.
     API Version: 2021-02-01-preview.
 
 
@@ -305,7 +305,7 @@ def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]
                                   rule_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultAdminRuleResult]:
     """
-    Network default admin rule.
+    Gets a network manager security configuration admin rule.
     API Version: 2021-02-01-preview.
 
 

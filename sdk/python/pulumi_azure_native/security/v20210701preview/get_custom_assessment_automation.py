@@ -169,7 +169,7 @@ def get_custom_assessment_automation(custom_assessment_automation_name: Optional
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomAssessmentAutomationResult:
     """
-    Custom Assessment Automation
+    Gets a single custom assessment automation by name for the provided subscription and resource group.
 
 
     :param str custom_assessment_automation_name: Name of the Custom Assessment Automation.
@@ -200,7 +200,7 @@ def get_custom_assessment_automation_output(custom_assessment_automation_name: O
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomAssessmentAutomationResult]:
     """
-    Custom Assessment Automation
+    Gets a single custom assessment automation by name for the provided subscription and resource group.
 
 
     :param str custom_assessment_automation_name: Name of the Custom Assessment Automation.

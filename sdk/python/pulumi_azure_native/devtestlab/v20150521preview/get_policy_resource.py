@@ -184,7 +184,7 @@ def get_policy_resource(lab_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResourceResult:
     """
-    A Policy.
+    Get policy.
 
 
     :param str lab_name: The name of the lab.
@@ -223,7 +223,7 @@ def get_policy_resource_output(lab_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResourceResult]:
     """
-    A Policy.
+    Get policy.
 
 
     :param str lab_name: The name of the lab.

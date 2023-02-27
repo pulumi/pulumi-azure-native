@@ -62,7 +62,7 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[str] = N
                                              top: Optional[int] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtResourceResult:
     """
-    List of deployments for a remediation.
+    Gets all deployments for a remediation at resource scope.
     API Version: 2019-07-01.
 
 
@@ -88,7 +88,7 @@ def list_remediation_deployments_at_resource_output(remediation_name: Optional[p
                                                     top: Optional[pulumi.Input[Optional[int]]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceResult]:
     """
-    List of deployments for a remediation.
+    Gets all deployments for a remediation at resource scope.
     API Version: 2019-07-01.
 
 

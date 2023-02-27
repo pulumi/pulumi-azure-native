@@ -229,7 +229,7 @@ def get_workbook(resource_group_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
-    An Application Insights workbook definition.
+    Get a single workbook by its resourceName.
     API Version: 2020-10-20.
 
 
@@ -266,7 +266,7 @@ def get_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
     """
-    An Application Insights workbook definition.
+    Get a single workbook by its resourceName.
     API Version: 2020-10-20.
 
 

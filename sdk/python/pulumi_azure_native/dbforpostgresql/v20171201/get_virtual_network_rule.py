@@ -109,7 +109,7 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
                              virtual_network_rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
-    A virtual network rule.
+    Gets a virtual network rule.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -138,7 +138,7 @@ def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
-    A virtual network rule.
+    Gets a virtual network rule.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

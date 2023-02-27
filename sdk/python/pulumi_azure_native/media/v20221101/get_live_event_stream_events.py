@@ -50,7 +50,7 @@ def get_live_event_stream_events(account_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveEventStreamEventsResult:
     """
-    Get live event stream events result.
+    Get stream events telemetry of a live event.
 
 
     :param str account_name: The Media Services account name.
@@ -74,7 +74,7 @@ def get_live_event_stream_events_output(account_name: Optional[pulumi.Input[str]
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveEventStreamEventsResult]:
     """
-    Get live event stream events result.
+    Get stream events telemetry of a live event.
 
 
     :param str account_name: The Media Services account name.

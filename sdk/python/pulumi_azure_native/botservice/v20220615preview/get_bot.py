@@ -157,7 +157,7 @@ def get_bot(resource_group_name: Optional[str] = None,
             resource_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
-    Bot resource definition
+    Returns a BotService specified by the parameters.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -187,7 +187,7 @@ def get_bot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    resource_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
-    Bot resource definition
+    Returns a BotService specified by the parameters.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.

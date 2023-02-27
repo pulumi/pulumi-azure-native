@@ -194,7 +194,7 @@ def get_lab_resource(name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResourceResult:
     """
-    A lab.
+    Get lab.
 
 
     :param str name: The name of the lab.
@@ -228,7 +228,7 @@ def get_lab_resource_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResourceResult]:
     """
-    A lab.
+    Get lab.
 
 
     :param str name: The name of the lab.

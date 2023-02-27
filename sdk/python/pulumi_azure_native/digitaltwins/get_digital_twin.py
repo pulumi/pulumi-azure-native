@@ -178,7 +178,7 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
                      resource_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDigitalTwinResult:
     """
-    The description of the DigitalTwins service.
+    Get DigitalTwinsInstances resource.
     API Version: 2020-12-01.
 
 
@@ -211,7 +211,7 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             resource_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinResult]:
     """
-    The description of the DigitalTwins service.
+    Get DigitalTwinsInstances resource.
     API Version: 2020-12-01.
 
 

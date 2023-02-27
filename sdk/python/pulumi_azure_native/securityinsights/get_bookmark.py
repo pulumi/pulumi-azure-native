@@ -242,7 +242,7 @@ def get_bookmark(bookmark_id: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkResult:
     """
-    Represents a bookmark in Azure Security Insights.
+    Gets a bookmark.
     API Version: 2020-01-01.
 
 
@@ -283,7 +283,7 @@ def get_bookmark_output(bookmark_id: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBookmarkResult]:
     """
-    Represents a bookmark in Azure Security Insights.
+    Gets a bookmark.
     API Version: 2020-01-01.
 
 

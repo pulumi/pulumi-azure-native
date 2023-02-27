@@ -62,7 +62,7 @@ def list_dns_forwarding_ruleset_by_virtual_network(resource_group_name: Optional
                                                    virtual_network_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDnsForwardingRulesetByVirtualNetworkResult:
     """
-    The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
+    Lists DNS forwarding ruleset resource IDs attached to a virtual network.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -87,7 +87,7 @@ def list_dns_forwarding_ruleset_by_virtual_network_output(resource_group_name: O
                                                           virtual_network_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDnsForwardingRulesetByVirtualNetworkResult]:
     """
-    The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
+    Lists DNS forwarding ruleset resource IDs attached to a virtual network.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

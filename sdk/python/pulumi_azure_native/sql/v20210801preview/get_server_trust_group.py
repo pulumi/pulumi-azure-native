@@ -98,7 +98,7 @@ def get_server_trust_group(location_name: Optional[str] = None,
                            server_trust_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerTrustGroupResult:
     """
-    A server trust group.
+    Gets a server trust group.
 
 
     :param str location_name: The name of the region where the resource is located.
@@ -126,7 +126,7 @@ def get_server_trust_group_output(location_name: Optional[pulumi.Input[str]] = N
                                   server_trust_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTrustGroupResult]:
     """
-    A server trust group.
+    Gets a server trust group.
 
 
     :param str location_name: The name of the region where the resource is located.

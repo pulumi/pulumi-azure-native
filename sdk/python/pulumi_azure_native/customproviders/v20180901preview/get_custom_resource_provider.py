@@ -145,7 +145,7 @@ def get_custom_resource_provider(resource_group_name: Optional[str] = None,
                                  resource_provider_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomResourceProviderResult:
     """
-    A manifest file that defines the custom resource provider resources.
+    Gets the custom resource provider manifest.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -174,7 +174,7 @@ def get_custom_resource_provider_output(resource_group_name: Optional[pulumi.Inp
                                         resource_provider_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomResourceProviderResult]:
     """
-    A manifest file that defines the custom resource provider resources.
+    Gets the custom resource provider manifest.
 
 
     :param str resource_group_name: The name of the resource group.

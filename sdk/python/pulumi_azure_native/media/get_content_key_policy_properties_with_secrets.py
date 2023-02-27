@@ -98,7 +98,7 @@ def get_content_key_policy_properties_with_secrets(account_name: Optional[str] =
                                                    resource_group_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentKeyPolicyPropertiesWithSecretsResult:
     """
-    The properties of the Content Key Policy.
+    Get a Content Key Policy including secret values
     API Version: 2020-05-01.
 
 
@@ -127,7 +127,7 @@ def get_content_key_policy_properties_with_secrets_output(account_name: Optional
                                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentKeyPolicyPropertiesWithSecretsResult]:
     """
-    The properties of the Content Key Policy.
+    Get a Content Key Policy including secret values
     API Version: 2020-05-01.
 
 

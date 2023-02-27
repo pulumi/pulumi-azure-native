@@ -119,7 +119,7 @@ def get_web_app_private_endpoint_connection(name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPrivateEndpointConnectionResult:
     """
-    Private Endpoint Connection ARM resource.
+    Gets a private endpoint connection
 
 
     :param str name: Name of the site.
@@ -148,7 +148,7 @@ def get_web_app_private_endpoint_connection_output(name: Optional[pulumi.Input[s
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPrivateEndpointConnectionResult]:
     """
-    Private Endpoint Connection ARM resource.
+    Gets a private endpoint connection
 
 
     :param str name: Name of the site.

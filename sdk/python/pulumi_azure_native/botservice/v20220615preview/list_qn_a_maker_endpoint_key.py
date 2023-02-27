@@ -84,7 +84,7 @@ def list_qn_a_maker_endpoint_key(authkey: Optional[str] = None,
                                  hostname: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListQnAMakerEndpointKeyResult:
     """
-    Schema for EndpointKeys generate/refresh operations.
+    Lists the QnA Maker endpoint keys
 
 
     :param str authkey: Subscription key which provides access to this API.
@@ -108,7 +108,7 @@ def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[
                                         hostname: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListQnAMakerEndpointKeyResult]:
     """
-    Schema for EndpointKeys generate/refresh operations.
+    Lists the QnA Maker endpoint keys
 
 
     :param str authkey: Subscription key which provides access to this API.

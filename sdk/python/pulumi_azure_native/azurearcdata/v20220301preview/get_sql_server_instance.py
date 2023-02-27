@@ -121,7 +121,7 @@ def get_sql_server_instance(resource_group_name: Optional[str] = None,
                             sql_server_instance_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerInstanceResult:
     """
-    A SqlServerInstance.
+    Retrieves a SQL Server Instance resource
 
 
     :param str resource_group_name: The name of the Azure resource group
@@ -148,7 +148,7 @@ def get_sql_server_instance_output(resource_group_name: Optional[pulumi.Input[st
                                    sql_server_instance_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerInstanceResult]:
     """
-    A SqlServerInstance.
+    Retrieves a SQL Server Instance resource
 
 
     :param str resource_group_name: The name of the Azure resource group

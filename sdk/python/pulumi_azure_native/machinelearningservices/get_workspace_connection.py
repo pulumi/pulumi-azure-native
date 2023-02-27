@@ -133,7 +133,7 @@ def get_workspace_connection(connection_name: Optional[str] = None,
                              workspace_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceConnectionResult:
     """
-    Workspace connection.
+    Get the detail of a workspace connection.
     API Version: 2021-01-01.
 
 
@@ -165,7 +165,7 @@ def get_workspace_connection_output(connection_name: Optional[pulumi.Input[str]]
                                     workspace_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceConnectionResult]:
     """
-    Workspace connection.
+    Get the detail of a workspace connection.
     API Version: 2021-01-01.
 
 

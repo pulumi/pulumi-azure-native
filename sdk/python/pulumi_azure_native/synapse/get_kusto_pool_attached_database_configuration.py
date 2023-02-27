@@ -171,7 +171,7 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
                                                    workspace_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolAttachedDatabaseConfigurationResult:
     """
-    Class representing an attached database configuration.
+    Returns an attached database configuration.
     API Version: 2021-06-01-preview.
 
 
@@ -209,7 +209,7 @@ def get_kusto_pool_attached_database_configuration_output(attached_database_conf
                                                           workspace_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolAttachedDatabaseConfigurationResult]:
     """
-    Class representing an attached database configuration.
+    Returns an attached database configuration.
     API Version: 2021-06-01-preview.
 
 

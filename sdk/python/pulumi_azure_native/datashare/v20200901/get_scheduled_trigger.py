@@ -184,7 +184,7 @@ def get_scheduled_trigger(account_name: Optional[str] = None,
                           trigger_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledTriggerResult:
     """
-    A type of trigger based on schedule
+    Get a Trigger in a shareSubscription
 
 
     :param str account_name: The name of the share account.
@@ -222,7 +222,7 @@ def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = Non
                                  trigger_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledTriggerResult]:
     """
-    A type of trigger based on schedule
+    Get a Trigger in a shareSubscription
 
 
     :param str account_name: The name of the share account.

@@ -205,7 +205,7 @@ def get_connector(connector_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    The connector resource format.
+    Gets a connector in the hub.
 
 
     :param str connector_name: The name of the connector.
@@ -242,7 +242,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    The connector resource format.
+    Gets a connector in the hub.
 
 
     :param str connector_name: The name of the connector.

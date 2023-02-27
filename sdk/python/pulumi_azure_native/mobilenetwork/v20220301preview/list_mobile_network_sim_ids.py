@@ -61,7 +61,7 @@ def list_mobile_network_sim_ids(mobile_network_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMobileNetworkSimIdsResult:
     """
-    Response for list sim ids API service call.
+    List sim ids under a mobile network.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -83,7 +83,7 @@ def list_mobile_network_sim_ids_output(mobile_network_name: Optional[pulumi.Inpu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMobileNetworkSimIdsResult]:
     """
-    Response for list sim ids API service call.
+    List sim ids under a mobile network.
 
 
     :param str mobile_network_name: The name of the mobile network.

@@ -134,7 +134,7 @@ def get_logger(logger_id: Optional[str] = None,
                service_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoggerResult:
     """
-    Logger details.
+    Gets the details of the logger specified by its identifier.
 
 
     :param str logger_id: Logger identifier. Must be unique in the API Management service instance.
@@ -165,7 +165,7 @@ def get_logger_output(logger_id: Optional[pulumi.Input[str]] = None,
                       service_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggerResult]:
     """
-    Logger details.
+    Gets the details of the logger specified by its identifier.
 
 
     :param str logger_id: Logger identifier. Must be unique in the API Management service instance.

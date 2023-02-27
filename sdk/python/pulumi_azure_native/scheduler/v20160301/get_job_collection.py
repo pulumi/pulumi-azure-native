@@ -106,7 +106,8 @@ def get_job_collection(job_collection_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobCollectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets a job collection.
+
 
     :param str job_collection_name: The job collection name.
     :param str resource_group_name: The resource group name.
@@ -131,7 +132,8 @@ def get_job_collection_output(job_collection_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobCollectionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets a job collection.
+
 
     :param str job_collection_name: The job collection name.
     :param str resource_group_name: The resource group name.

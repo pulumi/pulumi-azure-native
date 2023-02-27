@@ -255,7 +255,7 @@ def get_extension(arc_setting_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
-    Details of a particular extension in HCI Cluster.
+    Get particular Arc Extension of HCI Cluster.
     API Version: 2021-01-01-preview.
 
 
@@ -300,7 +300,7 @@ def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
-    Details of a particular extension in HCI Cluster.
+    Get particular Arc Extension of HCI Cluster.
     API Version: 2021-01-01-preview.
 
 

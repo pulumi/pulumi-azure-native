@@ -172,7 +172,7 @@ def get_sql_database(resource_group_name: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlDatabaseResult:
     """
-    A sql database resource.
+    Gets a SqlDatabase.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -207,7 +207,7 @@ def get_sql_database_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             workspace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlDatabaseResult]:
     """
-    A sql database resource.
+    Gets a SqlDatabase.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

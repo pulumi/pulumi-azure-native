@@ -326,7 +326,7 @@ def get_streaming_job(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingJobResult:
     """
-    A streaming job object, containing all information associated with the named streaming job.
+    Gets details about the specified streaming job.
     API Version: 2016-03-01.
 
 
@@ -374,7 +374,7 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingJobResult]:
     """
-    A streaming job object, containing all information associated with the named streaming job.
+    Gets details about the specified streaming job.
     API Version: 2016-03-01.
 
 

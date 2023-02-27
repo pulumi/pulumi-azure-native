@@ -205,7 +205,7 @@ def get_private_store_collection(collection_id: Optional[str] = None,
                                  private_store_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreCollectionResult:
     """
-    The Collection data structure.
+    Gets private store collection
 
 
     :param str collection_id: The collection ID
@@ -239,7 +239,7 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
                                         private_store_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
     """
-    The Collection data structure.
+    Gets private store collection
 
 
     :param str collection_id: The collection ID

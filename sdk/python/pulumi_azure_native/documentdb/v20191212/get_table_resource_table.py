@@ -109,7 +109,7 @@ def get_table_resource_table(account_name: Optional[str] = None,
                              table_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResourceTableResult:
     """
-    An Azure Cosmos DB Table.
+    Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -139,7 +139,7 @@ def get_table_resource_table_output(account_name: Optional[pulumi.Input[str]] = 
                                     table_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResourceTableResult]:
     """
-    An Azure Cosmos DB Table.
+    Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
 
 
     :param str account_name: Cosmos DB database account name.

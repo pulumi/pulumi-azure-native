@@ -109,7 +109,7 @@ def get_security_connector_application(application_id: Optional[str] = None,
                                        security_connector_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityConnectorApplicationResult:
     """
-    Security Application over a given scope
+    Get a specific application for the requested scope by applicationId
 
 
     :param str application_id: The security Application key - unique key for the standard application
@@ -138,7 +138,7 @@ def get_security_connector_application_output(application_id: Optional[pulumi.In
                                               security_connector_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityConnectorApplicationResult]:
     """
-    Security Application over a given scope
+    Get a specific application for the requested scope by applicationId
 
 
     :param str application_id: The security Application key - unique key for the standard application

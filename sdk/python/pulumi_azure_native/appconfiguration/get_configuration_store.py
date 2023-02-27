@@ -193,7 +193,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationStoreResult:
     """
-    The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+    Gets the properties of the specified configuration store.
     API Version: 2020-06-01.
 
 
@@ -227,7 +227,7 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationStoreResult]:
     """
-    The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+    Gets the properties of the specified configuration store.
     API Version: 2020-06-01.
 
 

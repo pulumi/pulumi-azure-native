@@ -188,7 +188,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDataNetworkResult:
     """
-    Attached data network resource. Must be created in the same location as its parent packet core data plane.
+    Gets information about the specified attached data network.
 
 
     :param str attached_data_network_name: The name of the attached data network.
@@ -226,7 +226,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDataNetworkResult]:
     """
-    Attached data network resource. Must be created in the same location as its parent packet core data plane.
+    Gets information about the specified attached data network.
 
 
     :param str attached_data_network_name: The name of the attached data network.

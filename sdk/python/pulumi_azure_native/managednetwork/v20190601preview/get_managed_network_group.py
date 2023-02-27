@@ -170,7 +170,7 @@ def get_managed_network_group(managed_network_group_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedNetworkGroupResult:
     """
-    The Managed Network Group resource
+    The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
 
 
     :param str managed_network_group_name: The name of the Managed Network Group.
@@ -204,7 +204,7 @@ def get_managed_network_group_output(managed_network_group_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedNetworkGroupResult]:
     """
-    The Managed Network Group resource
+    The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
 
 
     :param str managed_network_group_name: The name of the Managed Network Group.

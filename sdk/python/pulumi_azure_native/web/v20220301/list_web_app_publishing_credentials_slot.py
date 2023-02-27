@@ -145,7 +145,7 @@ def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
                                              slot: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppPublishingCredentialsSlotResult:
     """
-    User credentials used for publishing activity.
+    Description for Gets the Git/FTP publishing credentials of an app.
 
 
     :param str name: Name of the app.
@@ -177,7 +177,7 @@ def list_web_app_publishing_credentials_slot_output(name: Optional[pulumi.Input[
                                                     slot: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppPublishingCredentialsSlotResult]:
     """
-    User credentials used for publishing activity.
+    Description for Gets the Git/FTP publishing credentials of an app.
 
 
     :param str name: Name of the app.

@@ -97,7 +97,7 @@ def list_static_site_build_app_settings(environment_name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteBuildAppSettingsResult:
     """
-    String dictionary resource.
+    Gets the application settings of a static site build.
 
 
     :param str environment_name: The stage site identifier.
@@ -125,7 +125,7 @@ def list_static_site_build_app_settings_output(environment_name: Optional[pulumi
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteBuildAppSettingsResult]:
     """
-    String dictionary resource.
+    Gets the application settings of a static site build.
 
 
     :param str environment_name: The stage site identifier.

@@ -49,7 +49,7 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionFullUrlResult:
     """
-    Full endpoint url of an event subscription
+    Get the full endpoint URL for an event subscription of a partner topic.
     API Version: 2021-06-01-preview.
 
 
@@ -74,7 +74,7 @@ def get_partner_topic_event_subscription_full_url_output(event_subscription_name
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionFullUrlResult]:
     """
-    Full endpoint url of an event subscription
+    Get the full endpoint URL for an event subscription of a partner topic.
     API Version: 2021-06-01-preview.
 
 

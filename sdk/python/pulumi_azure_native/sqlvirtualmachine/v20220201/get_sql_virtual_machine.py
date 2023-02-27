@@ -302,7 +302,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
                             sql_virtual_machine_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineResult:
     """
-    A SQL virtual machine.
+    Gets a SQL virtual machine.
 
 
     :param str expand: The child resources to include in the response.
@@ -347,7 +347,7 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]]
                                    sql_virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
     """
-    A SQL virtual machine.
+    Gets a SQL virtual machine.
 
 
     :param str expand: The child resources to include in the response.

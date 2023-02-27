@@ -207,8 +207,7 @@ def list_task_details(registry_name: Optional[str] = None,
                       task_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTaskDetailsResult:
     """
-    The task that has the ARM resource and task properties.
-    The task will have all information to schedule a run against it.
+    Returns a task with extended information that includes all secrets.
 
 
     :param str registry_name: The name of the container registry.
@@ -245,8 +244,7 @@ def list_task_details_output(registry_name: Optional[pulumi.Input[str]] = None,
                              task_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTaskDetailsResult]:
     """
-    The task that has the ARM resource and task properties.
-    The task will have all information to schedule a run against it.
+    Returns a task with extended information that includes all secrets.
 
 
     :param str registry_name: The name of the container registry.

@@ -134,7 +134,7 @@ def get_catalog(catalog_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogResult:
     """
-    Represents a catalog.
+    Gets a catalog
     API Version: 2022-09-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCatalogResult]:
     """
-    Represents a catalog.
+    Gets a catalog
     API Version: 2022-09-01-preview.
 
 

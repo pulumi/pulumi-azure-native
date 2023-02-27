@@ -122,7 +122,7 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
                                site_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualApplianceSiteResult:
     """
-    Virtual Appliance Site resource.
+    Gets the specified Virtual Appliance Site.
     API Version: 2020-11-01.
 
 
@@ -153,7 +153,7 @@ def get_virtual_appliance_site_output(network_virtual_appliance_name: Optional[p
                                       site_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualApplianceSiteResult]:
     """
-    Virtual Appliance Site resource.
+    Gets the specified Virtual Appliance Site.
     API Version: 2020-11-01.
 
 

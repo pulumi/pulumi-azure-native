@@ -148,7 +148,7 @@ def list_web_app_site_push_settings(name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSitePushSettingsResult:
     """
-    Push settings for the App.
+    Gets the Push settings associated with web app.
 
 
     :param str name: Name of web app.
@@ -177,7 +177,7 @@ def list_web_app_site_push_settings_output(name: Optional[pulumi.Input[str]] = N
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSitePushSettingsResult]:
     """
-    Push settings for the App.
+    Gets the Push settings associated with web app.
 
 
     :param str name: Name of web app.

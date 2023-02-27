@@ -203,7 +203,7 @@ def get_topic(resource_group_name: Optional[str] = None,
               topic_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
-    EventGrid Topic
+    Get properties of a topic.
     API Version: 2020-06-01.
 
 
@@ -238,7 +238,7 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      topic_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
-    EventGrid Topic
+    Get properties of a topic.
     API Version: 2020-06-01.
 
 

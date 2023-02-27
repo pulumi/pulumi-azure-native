@@ -386,7 +386,7 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
                                   vm_scale_set_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetResult:
     """
-    Describes a Virtual Machine Scale Set.
+    Display information about a virtual machine scale set.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
@@ -438,7 +438,7 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
                                          vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
     """
-    Describes a Virtual Machine Scale Set.
+    Display information about a virtual machine scale set.
 
 
     :param str expand: The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation

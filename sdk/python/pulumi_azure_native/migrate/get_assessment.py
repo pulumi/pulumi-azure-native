@@ -99,7 +99,7 @@ def get_assessment(assessment_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
-    An assessment created for a group in the Migration project.
+    Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
     API Version: 2019-10-01.
 
 
@@ -131,7 +131,7 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
     """
-    An assessment created for a group in the Migration project.
+    Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
     API Version: 2019-10-01.
 
 

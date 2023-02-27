@@ -195,7 +195,7 @@ def get_adls_gen2_file_data_set_mapping(account_name: Optional[str] = None,
                                         share_subscription_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADLSGen2FileDataSetMappingResult:
     """
-    An ADLS Gen2 file data set mapping.
+    Get a DataSetMapping in a shareSubscription
 
 
     :param str account_name: The name of the share account.
@@ -234,7 +234,7 @@ def get_adls_gen2_file_data_set_mapping_output(account_name: Optional[pulumi.Inp
                                                share_subscription_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2FileDataSetMappingResult]:
     """
-    An ADLS Gen2 file data set mapping.
+    Get a DataSetMapping in a shareSubscription
 
 
     :param str account_name: The name of the share account.

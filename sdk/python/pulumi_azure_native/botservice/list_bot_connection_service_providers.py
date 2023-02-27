@@ -58,7 +58,7 @@ class AwaitableListBotConnectionServiceProvidersResult(ListBotConnectionServiceP
 
 def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionServiceProvidersResult:
     """
-    The list of bot service providers response.
+    Lists the available Service Providers for creating Connection Settings
     API Version: 2021-03-01.
     """
     __args__ = dict()

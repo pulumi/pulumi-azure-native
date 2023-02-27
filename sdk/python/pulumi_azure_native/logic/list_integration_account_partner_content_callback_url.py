@@ -113,7 +113,7 @@ def list_integration_account_partner_content_callback_url(integration_account_na
                                                           resource_group_name: Optional[str] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountPartnerContentCallbackUrlResult:
     """
-    The workflow trigger callback URL.
+    Get the content callback url.
     API Version: 2019-05-01.
 
 
@@ -149,7 +149,7 @@ def list_integration_account_partner_content_callback_url_output(integration_acc
                                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountPartnerContentCallbackUrlResult]:
     """
-    The workflow trigger callback URL.
+    Get the content callback url.
     API Version: 2019-05-01.
 
 

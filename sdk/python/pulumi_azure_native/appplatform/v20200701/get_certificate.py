@@ -86,7 +86,7 @@ def get_certificate(certificate_name: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Certificate resource payload.
+    Get the certificate resource.
 
 
     :param str certificate_name: The name of the certificate resource.
@@ -113,7 +113,7 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Certificate resource payload.
+    Get the certificate resource.
 
 
     :param str certificate_name: The name of the certificate resource.

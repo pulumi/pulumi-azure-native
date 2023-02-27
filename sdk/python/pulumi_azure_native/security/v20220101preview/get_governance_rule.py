@@ -241,7 +241,7 @@ def get_governance_rule(rule_id: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGovernanceRuleResult:
     """
-    Governance rule over a given scope
+    Get a specific governance rule for the requested scope by ruleId
 
 
     :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
@@ -278,7 +278,7 @@ def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
                                scope: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceRuleResult]:
     """
-    Governance rule over a given scope
+    Get a specific governance rule for the requested scope by ruleId
 
 
     :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)

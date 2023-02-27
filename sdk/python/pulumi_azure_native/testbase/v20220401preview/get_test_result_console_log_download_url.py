@@ -63,7 +63,7 @@ def get_test_result_console_log_download_url(log_file_name: Optional[str] = None
                                              test_result_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultConsoleLogDownloadURLResult:
     """
-    The response of getting a download URL.
+    Gets the download URL of the test execution console log file.
 
 
     :param str log_file_name: The log file name corresponding to the download URL.
@@ -94,7 +94,7 @@ def get_test_result_console_log_download_url_output(log_file_name: Optional[pulu
                                                     test_result_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultConsoleLogDownloadURLResult]:
     """
-    The response of getting a download URL.
+    Gets the download URL of the test execution console log file.
 
 
     :param str log_file_name: The log file name corresponding to the download URL.

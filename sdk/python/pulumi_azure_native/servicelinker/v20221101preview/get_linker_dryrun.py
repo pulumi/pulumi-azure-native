@@ -133,7 +133,7 @@ def get_linker_dryrun(dryrun_name: Optional[str] = None,
                       resource_uri: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkerDryrunResult:
     """
-    a dryrun job resource
+    get a dryrun job
 
 
     :param str dryrun_name: The name of dryrun.
@@ -161,7 +161,7 @@ def get_linker_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
                              resource_uri: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerDryrunResult]:
     """
-    a dryrun job resource
+    get a dryrun job
 
 
     :param str dryrun_name: The name of dryrun.

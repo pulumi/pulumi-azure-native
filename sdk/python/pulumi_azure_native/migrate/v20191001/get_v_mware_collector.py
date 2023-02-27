@@ -80,7 +80,8 @@ def get_v_mware_collector(project_name: Optional[str] = None,
                           vm_ware_collector_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMwareCollectorResult:
     """
-    Use this data source to access information about an existing resource.
+    Get a VMware collector.
+
 
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
@@ -107,7 +108,8 @@ def get_v_mware_collector_output(project_name: Optional[pulumi.Input[str]] = Non
                                  vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVMwareCollectorResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get a VMware collector.
+
 
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.

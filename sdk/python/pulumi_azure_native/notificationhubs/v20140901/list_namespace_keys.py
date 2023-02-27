@@ -61,7 +61,7 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamespaceKeysResult:
     """
-    Namespace/NotificationHub Connection String
+    Gets the Primary and Secondary ConnectionStrings to the namespace
 
 
     :param str authorization_rule_name: The connection string of the namespace for the specified authorizationRule.
@@ -86,7 +86,7 @@ def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[st
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNamespaceKeysResult]:
     """
-    Namespace/NotificationHub Connection String
+    Gets the Primary and Secondary ConnectionStrings to the namespace
 
 
     :param str authorization_rule_name: The connection string of the namespace for the specified authorizationRule.

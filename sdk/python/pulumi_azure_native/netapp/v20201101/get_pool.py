@@ -183,7 +183,7 @@ def get_pool(account_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
-    Capacity pool resource
+    Get details of the specified capacity pool
 
 
     :param str account_name: The name of the NetApp account
@@ -219,7 +219,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
-    Capacity pool resource
+    Get details of the specified capacity pool
 
 
     :param str account_name: The name of the NetApp account

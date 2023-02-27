@@ -134,7 +134,7 @@ class AwaitableGetReportConfigResult(GetReportConfigResult):
 def get_report_config(report_config_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportConfigResult:
     """
-    A report config resource.
+    Gets the report config for a subscription by report config name.
 
 
     :param str report_config_name: Report Config Name.
@@ -160,7 +160,7 @@ def get_report_config(report_config_name: Optional[str] = None,
 def get_report_config_output(report_config_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportConfigResult]:
     """
-    A report config resource.
+    Gets the report config for a subscription by report config name.
 
 
     :param str report_config_name: Report Config Name.

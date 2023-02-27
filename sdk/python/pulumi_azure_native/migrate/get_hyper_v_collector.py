@@ -80,6 +80,7 @@ def get_hyper_v_collector(hyper_v_collector_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHyperVCollectorResult:
     """
+    Get a Hyper-V collector.
     API Version: 2019-10-01.
 
 
@@ -108,6 +109,7 @@ def get_hyper_v_collector_output(hyper_v_collector_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHyperVCollectorResult]:
     """
+    Get a Hyper-V collector.
     API Version: 2019-10-01.
 
 

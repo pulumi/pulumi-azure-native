@@ -156,7 +156,7 @@ def getprivate_link_for_azure_ad(policy_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkForAzureAdResult:
     """
-    PrivateLink Policy configuration object.
+    Gets a private link policy with a given name.
     API Version: 2020-03-01.
 
 
@@ -187,7 +187,7 @@ def getprivate_link_for_azure_ad_output(policy_name: Optional[pulumi.Input[str]]
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkForAzureAdResult]:
     """
-    PrivateLink Policy configuration object.
+    Gets a private link policy with a given name.
     API Version: 2020-03-01.
 
 

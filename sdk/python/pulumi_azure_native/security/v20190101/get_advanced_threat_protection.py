@@ -84,7 +84,7 @@ def get_advanced_threat_protection(resource_id: Optional[str] = None,
                                    setting_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdvancedThreatProtectionResult:
     """
-    The Advanced Threat Protection resource.
+    Gets the Advanced Threat Protection settings for the specified resource.
 
 
     :param str resource_id: The identifier of the resource.
@@ -108,7 +108,7 @@ def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str
                                           setting_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdvancedThreatProtectionResult]:
     """
-    The Advanced Threat Protection resource.
+    Gets the Advanced Threat Protection settings for the specified resource.
 
 
     :param str resource_id: The identifier of the resource.

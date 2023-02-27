@@ -417,8 +417,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    The cluster resource
-
+    Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
     API Version: 2020-03-01.
 
 
@@ -469,8 +468,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    The cluster resource
-
+    Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
     API Version: 2020-03-01.
 
 

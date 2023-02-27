@@ -290,7 +290,7 @@ def get_runbook(automation_account_name: Optional[str] = None,
                 runbook_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRunbookResult:
     """
-    Definition of the runbook type.
+    Retrieve the runbook identified by runbook name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -334,7 +334,7 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        runbook_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRunbookResult]:
     """
-    Definition of the runbook type.
+    Retrieve the runbook identified by runbook name.
 
 
     :param str automation_account_name: The name of the automation account.

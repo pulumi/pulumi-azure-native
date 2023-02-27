@@ -122,7 +122,7 @@ def list_event_hub_keys(authorization_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEventHubKeysResult:
     """
-    Namespace/EventHub Connection String
+    Gets the ACS and SAS connection strings for the Event Hub.
     API Version: 2017-04-01.
 
 
@@ -156,7 +156,7 @@ def list_event_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[st
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEventHubKeysResult]:
     """
-    Namespace/EventHub Connection String
+    Gets the ACS and SAS connection strings for the Event Hub.
     API Version: 2017-04-01.
 
 

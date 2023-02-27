@@ -109,7 +109,7 @@ def get_custom_entity_store_assignment(custom_entity_store_assignment_name: Opti
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomEntityStoreAssignmentResult:
     """
-    Custom entity store assignment
+    Gets a single custom entity store assignment by name for the provided subscription and resource group.
     API Version: 2021-07-01-preview.
 
 
@@ -136,7 +136,7 @@ def get_custom_entity_store_assignment_output(custom_entity_store_assignment_nam
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomEntityStoreAssignmentResult]:
     """
-    Custom entity store assignment
+    Gets a single custom entity store assignment by name for the provided subscription and resource group.
     API Version: 2021-07-01-preview.
 
 

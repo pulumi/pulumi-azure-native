@@ -96,7 +96,7 @@ class AwaitableGetVendorResult(GetVendorResult):
 def get_vendor(vendor_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorResult:
     """
-    Vendor resource.
+    Gets information about the specified vendor.
     API Version: 2020-01-01-preview.
 
 
@@ -119,7 +119,7 @@ def get_vendor(vendor_name: Optional[str] = None,
 def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorResult]:
     """
-    Vendor resource.
+    Gets information about the specified vendor.
     API Version: 2020-01-01-preview.
 
 

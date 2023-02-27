@@ -241,7 +241,7 @@ def get_assignment(assignment_id: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssignmentResult:
     """
-    Security Assignment on a resource group over a given scope
+    Get a specific standard assignment for the requested scope by resourceId
 
 
     :param str assignment_id: The security assignment key - unique key for the standard assignment
@@ -278,7 +278,7 @@ def get_assignment_output(assignment_id: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
     """
-    Security Assignment on a resource group over a given scope
+    Get a specific standard assignment for the requested scope by resourceId
 
 
     :param str assignment_id: The security assignment key - unique key for the standard assignment

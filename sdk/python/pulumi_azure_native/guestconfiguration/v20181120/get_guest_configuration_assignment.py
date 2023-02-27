@@ -100,7 +100,7 @@ def get_guest_configuration_assignment(guest_configuration_assignment_name: Opti
                                        vm_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationAssignmentResult:
     """
-    Guest configuration assignment is an association between a machine and guest configuration.
+    Get information about a guest configuration assignment
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
@@ -129,7 +129,7 @@ def get_guest_configuration_assignment_output(guest_configuration_assignment_nam
                                               vm_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestConfigurationAssignmentResult]:
     """
-    Guest configuration assignment is an association between a machine and guest configuration.
+    Get information about a guest configuration assignment
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.

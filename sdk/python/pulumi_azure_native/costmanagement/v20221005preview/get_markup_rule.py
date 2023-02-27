@@ -146,7 +146,7 @@ def get_markup_rule(billing_account_id: Optional[str] = None,
                     name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMarkupRuleResult:
     """
-    Markup rule
+    Get a markup rule by its rule name.
 
 
     :param str billing_account_id: BillingAccount ID
@@ -178,7 +178,7 @@ def get_markup_rule_output(billing_account_id: Optional[pulumi.Input[str]] = Non
                            name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMarkupRuleResult]:
     """
-    Markup rule
+    Get a markup rule by its rule name.
 
 
     :param str billing_account_id: BillingAccount ID

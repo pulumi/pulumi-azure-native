@@ -470,7 +470,7 @@ def get_machine(expand: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineResult:
     """
-    Describes a hybrid machine.
+    Retrieves information about the model view or the instance view of a hybrid machine.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -529,7 +529,7 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineResult]:
     """
-    Describes a hybrid machine.
+    Retrieves information about the model view or the instance view of a hybrid machine.
 
 
     :param str expand: The expand expression to apply on the operation.

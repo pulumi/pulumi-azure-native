@@ -119,7 +119,7 @@ class AwaitableGetSecurityContactResult(GetSecurityContactResult):
 def get_security_contact(security_contact_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityContactResult:
     """
-    Contact details for security issues
+    Security contact configurations for the subscription
 
 
     :param str security_contact_name: Name of the security contact object
@@ -143,7 +143,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
 def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityContactResult]:
     """
-    Contact details for security issues
+    Security contact configurations for the subscription
 
 
     :param str security_contact_name: Name of the security contact object

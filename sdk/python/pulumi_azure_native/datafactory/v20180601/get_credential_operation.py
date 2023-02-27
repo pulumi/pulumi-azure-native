@@ -98,7 +98,7 @@ def get_credential_operation(credential_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialOperationResult:
     """
-    Credential resource type.
+    Gets a credential.
 
 
     :param str credential_name: Credential name
@@ -126,7 +126,7 @@ def get_credential_operation_output(credential_name: Optional[pulumi.Input[str]]
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialOperationResult]:
     """
-    Credential resource type.
+    Gets a credential.
 
 
     :param str credential_name: Credential name

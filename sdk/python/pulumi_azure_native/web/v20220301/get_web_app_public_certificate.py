@@ -121,7 +121,7 @@ def get_web_app_public_certificate(name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateResult:
     """
-    Public certificate object
+    Description for Get the named public certificate for an app (or deployment slot, if specified).
 
 
     :param str name: Name of the app.
@@ -151,7 +151,7 @@ def get_web_app_public_certificate_output(name: Optional[pulumi.Input[str]] = No
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPublicCertificateResult]:
     """
-    Public certificate object
+    Description for Get the named public certificate for an app (or deployment slot, if specified).
 
 
     :param str name: Name of the app.

@@ -145,7 +145,7 @@ def get_certificate(automation_account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Definition of the certificate.
+    Retrieve the certificate identified by certificate name.
     API Version: 2019-06-01.
 
 
@@ -178,7 +178,7 @@ def get_certificate_output(automation_account_name: Optional[pulumi.Input[str]] 
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Definition of the certificate.
+    Retrieve the certificate identified by certificate name.
     API Version: 2019-06-01.
 
 

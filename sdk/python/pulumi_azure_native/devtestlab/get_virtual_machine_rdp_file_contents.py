@@ -49,7 +49,7 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[str] = None,
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineRdpFileContentsResult:
     """
-    Represents a .rdp file
+    Gets a string that represents the contents of the RDP file for the virtual machine
     API Version: 2018-09-15.
 
 
@@ -74,7 +74,7 @@ def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineRdpFileContentsResult]:
     """
-    Represents a .rdp file
+    Gets a string that represents the contents of the RDP file for the virtual machine
     API Version: 2018-09-15.
 
 

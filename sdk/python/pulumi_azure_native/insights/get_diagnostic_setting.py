@@ -169,7 +169,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
                            resource_uri: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticSettingResult:
     """
-    The diagnostic setting resource.
+    Gets the active diagnostic settings for the specified resource.
     API Version: 2017-05-01-preview.
 
 
@@ -201,7 +201,7 @@ def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_uri: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticSettingResult]:
     """
-    The diagnostic setting resource.
+    Gets the active diagnostic settings for the specified resource.
     API Version: 2017-05-01-preview.
 
 

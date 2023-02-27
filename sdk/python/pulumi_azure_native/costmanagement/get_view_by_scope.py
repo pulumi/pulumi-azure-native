@@ -265,7 +265,7 @@ def get_view_by_scope(scope: Optional[str] = None,
                       view_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewByScopeResult:
     """
-    States and configurations of Cost Analysis.
+    Gets the view for the defined scope by view name.
     API Version: 2019-11-01.
 
 
@@ -305,7 +305,7 @@ def get_view_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
                              view_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewByScopeResult]:
     """
-    States and configurations of Cost Analysis.
+    Gets the view for the defined scope by view name.
     API Version: 2019-11-01.
 
 

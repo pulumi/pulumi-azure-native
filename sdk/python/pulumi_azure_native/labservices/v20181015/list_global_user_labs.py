@@ -48,7 +48,7 @@ class AwaitableListGlobalUserLabsResult(ListGlobalUserLabsResult):
 def list_global_user_labs(user_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGlobalUserLabsResult:
     """
-    Lists the labs owned by a user
+    List labs for the user.
 
 
     :param str user_name: The name of the user.
@@ -66,7 +66,7 @@ def list_global_user_labs(user_name: Optional[str] = None,
 def list_global_user_labs_output(user_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalUserLabsResult]:
     """
-    Lists the labs owned by a user
+    List labs for the user.
 
 
     :param str user_name: The name of the user.

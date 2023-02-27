@@ -95,7 +95,7 @@ def get_sync_identity_provider(child_resource_name: Optional[str] = None,
                                resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncIdentityProviderResult:
     """
-    SyncIdentityProvider represents a SyncIdentityProvider
+    The operation returns properties of a SyncIdentityProvider.
 
 
     :param str child_resource_name: The name of the SyncIdentityProvider resource.
@@ -123,7 +123,7 @@ def get_sync_identity_provider_output(child_resource_name: Optional[pulumi.Input
                                       resource_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncIdentityProviderResult]:
     """
-    SyncIdentityProvider represents a SyncIdentityProvider
+    The operation returns properties of a SyncIdentityProvider.
 
 
     :param str child_resource_name: The name of the SyncIdentityProvider resource.

@@ -221,7 +221,7 @@ def get_event_grid_data_connection(data_connection_name: Optional[str] = None,
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventGridDataConnectionResult:
     """
-    Class representing an Event Grid data connection.
+    Returns a data connection.
     API Version: 2021-04-01-preview.
 
 
@@ -266,7 +266,7 @@ def get_event_grid_data_connection_output(data_connection_name: Optional[pulumi.
                                           workspace_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
     """
-    Class representing an Event Grid data connection.
+    Returns a data connection.
     API Version: 2021-04-01-preview.
 
 

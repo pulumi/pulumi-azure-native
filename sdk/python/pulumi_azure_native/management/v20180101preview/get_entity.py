@@ -61,7 +61,7 @@ def get_entity(group_name: Optional[str] = None,
                skiptoken: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
-    Describes the result of the request to view entities.
+    List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
 
 
     :param str group_name: A filter which allows the call to be filtered for a specific group.
@@ -84,7 +84,7 @@ def get_entity_output(group_name: Optional[pulumi.Input[Optional[str]]] = None,
                       skiptoken: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
     """
-    Describes the result of the request to view entities.
+    List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
 
 
     :param str group_name: A filter which allows the call to be filtered for a specific group.

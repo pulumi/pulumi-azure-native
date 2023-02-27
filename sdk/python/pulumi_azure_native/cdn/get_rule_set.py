@@ -107,7 +107,7 @@ def get_rule_set(profile_name: Optional[str] = None,
                  rule_set_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleSetResult:
     """
-    Friendly RuleSet name mapping to the any RuleSet or secret related information.
+    Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
     API Version: 2020-09-01.
 
 
@@ -137,7 +137,7 @@ def get_rule_set_output(profile_name: Optional[pulumi.Input[str]] = None,
                         rule_set_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleSetResult]:
     """
-    Friendly RuleSet name mapping to the any RuleSet or secret related information.
+    Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
     API Version: 2020-09-01.
 
 

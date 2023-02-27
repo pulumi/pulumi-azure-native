@@ -131,7 +131,7 @@ def get_static_site_private_endpoint_connection(name: Optional[str] = None,
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSitePrivateEndpointConnectionResult:
     """
-    Remote Private Endpoint Connection ARM resource.
+    Gets a private endpoint connection
 
 
     :param str name: Name of the static site.
@@ -162,7 +162,7 @@ def get_static_site_private_endpoint_connection_output(name: Optional[pulumi.Inp
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSitePrivateEndpointConnectionResult]:
     """
-    Remote Private Endpoint Connection ARM resource.
+    Gets a private endpoint connection
 
 
     :param str name: Name of the static site.

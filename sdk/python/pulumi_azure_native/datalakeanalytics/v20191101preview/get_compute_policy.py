@@ -121,7 +121,7 @@ def get_compute_policy(account_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComputePolicyResult:
     """
-    Data Lake Analytics compute policy information.
+    Gets the specified Data Lake Analytics compute policy.
 
 
     :param str account_name: The name of the Data Lake Analytics account.
@@ -151,7 +151,7 @@ def get_compute_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputePolicyResult]:
     """
-    Data Lake Analytics compute policy information.
+    Gets the specified Data Lake Analytics compute policy.
 
 
     :param str account_name: The name of the Data Lake Analytics account.

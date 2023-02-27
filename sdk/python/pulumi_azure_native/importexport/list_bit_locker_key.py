@@ -49,7 +49,7 @@ def list_bit_locker_key(job_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBitLockerKeyResult:
     """
-    GetBitLockerKeys response
+    Returns the BitLocker Keys for all drives in the specified job.
     API Version: 2020-08-01.
 
 
@@ -71,7 +71,7 @@ def list_bit_locker_key_output(job_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBitLockerKeyResult]:
     """
-    GetBitLockerKeys response
+    Returns the BitLocker Keys for all drives in the specified job.
     API Version: 2020-08-01.
 
 

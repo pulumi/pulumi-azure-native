@@ -50,7 +50,7 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[str] = None,
                                                   virtual_network_gateway_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult:
     """
-    List of virtual network gateway routes.
+    This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
     API Version: 2020-11-01.
 
 
@@ -75,7 +75,7 @@ def get_virtual_network_gateway_advertised_routes_output(peer: Optional[pulumi.I
                                                          virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayAdvertisedRoutesResult]:
     """
-    List of virtual network gateway routes.
+    This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
     API Version: 2020-11-01.
 
 

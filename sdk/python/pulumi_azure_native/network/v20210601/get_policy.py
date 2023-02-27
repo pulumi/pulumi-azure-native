@@ -226,7 +226,7 @@ def get_policy(policy_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Defines web application firewall policy.
+    Retrieve protection policy with specified name within a resource group.
 
 
     :param str policy_name: The name of the Web Application Firewall Policy.
@@ -262,7 +262,7 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
-    Defines web application firewall policy.
+    Retrieve protection policy with specified name within a resource group.
 
 
     :param str policy_name: The name of the Web Application Firewall Policy.

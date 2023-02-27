@@ -134,7 +134,7 @@ def get_express_route_connection(connection_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteConnectionResult:
     """
-    ExpressRouteConnection resource.
+    Gets the specified ExpressRouteConnection.
 
 
     :param str connection_name: The name of the ExpressRoute connection.
@@ -165,7 +165,7 @@ def get_express_route_connection_output(connection_name: Optional[pulumi.Input[s
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteConnectionResult]:
     """
-    ExpressRouteConnection resource.
+    Gets the specified ExpressRouteConnection.
 
 
     :param str connection_name: The name of the ExpressRoute connection.

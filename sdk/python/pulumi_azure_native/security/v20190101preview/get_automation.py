@@ -181,7 +181,7 @@ def get_automation(automation_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationResult:
     """
-    The security automation resource.
+    Retrieves information about the model of a security automation.
 
 
     :param str automation_name: The security automation name.
@@ -213,7 +213,7 @@ def get_automation_output(automation_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationResult]:
     """
-    The security automation resource.
+    Retrieves information about the model of a security automation.
 
 
     :param str automation_name: The security automation name.

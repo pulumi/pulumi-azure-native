@@ -157,7 +157,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityLogAlertResult:
     """
-    An Activity Log Alert rule resource.
+    Get an Activity Log Alert rule.
     API Version: 2020-10-01.
 
 
@@ -188,7 +188,7 @@ def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityLogAlertResult]:
     """
-    An Activity Log Alert rule resource.
+    Get an Activity Log Alert rule.
     API Version: 2020-10-01.
 
 

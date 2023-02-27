@@ -109,7 +109,7 @@ def get_deployment_at_scope(deployment_name: Optional[str] = None,
                             scope: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtScopeResult:
     """
-    Deployment information.
+    Gets a deployment.
 
 
     :param str deployment_name: The name of the deployment.
@@ -135,7 +135,7 @@ def get_deployment_at_scope_output(deployment_name: Optional[pulumi.Input[str]] 
                                    scope: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtScopeResult]:
     """
-    Deployment information.
+    Gets a deployment.
 
 
     :param str deployment_name: The name of the deployment.

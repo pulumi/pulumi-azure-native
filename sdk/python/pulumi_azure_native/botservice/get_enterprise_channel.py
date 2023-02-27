@@ -145,7 +145,7 @@ def get_enterprise_channel(resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterpriseChannelResult:
     """
-    Enterprise Channel resource definition
+    Returns an Enterprise Channel specified by the parameters.
     API Version: 2018-07-12.
 
 
@@ -175,7 +175,7 @@ def get_enterprise_channel_output(resource_group_name: Optional[pulumi.Input[str
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseChannelResult]:
     """
-    Enterprise Channel resource definition
+    Returns an Enterprise Channel specified by the parameters.
     API Version: 2018-07-12.
 
 

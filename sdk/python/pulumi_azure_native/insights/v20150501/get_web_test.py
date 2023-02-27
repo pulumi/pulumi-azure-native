@@ -241,7 +241,7 @@ def get_web_test(resource_group_name: Optional[str] = None,
                  web_test_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebTestResult:
     """
-    An Application Insights web test definition.
+    Get a specific Application Insights web test definition.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -278,7 +278,7 @@ def get_web_test_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         web_test_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebTestResult]:
     """
-    An Application Insights web test definition.
+    Get a specific Application Insights web test definition.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

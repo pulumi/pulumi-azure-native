@@ -157,7 +157,7 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
                           resource_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookTemplateResult:
     """
-    An Application Insights workbook template definition.
+    Get a single workbook template by its resourceName.
     API Version: 2019-10-17-preview.
 
 
@@ -188,7 +188,7 @@ def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]
                                  resource_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookTemplateResult]:
     """
-    An Application Insights workbook template definition.
+    Get a single workbook template by its resourceName.
     API Version: 2019-10-17-preview.
 
 

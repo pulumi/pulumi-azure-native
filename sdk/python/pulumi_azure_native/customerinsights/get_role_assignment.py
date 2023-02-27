@@ -314,7 +314,7 @@ def get_role_assignment(assignment_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
-    The Role Assignment resource format.
+    Gets the role assignment in the hub.
     API Version: 2017-04-26.
 
 
@@ -361,7 +361,7 @@ def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = No
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
-    The Role Assignment resource format.
+    Gets the role assignment in the hub.
     API Version: 2017-04-26.
 
 

@@ -78,7 +78,7 @@ def get_factory_data_plane_access(access_resource_path: Optional[str] = None,
                                   start_time: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryDataPlaneAccessResult:
     """
-    Get Data Plane read only token response definition.
+    Get Data Plane access.
     API Version: 2018-06-01.
 
 
@@ -117,7 +117,7 @@ def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.I
                                          start_time: Optional[pulumi.Input[Optional[str]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryDataPlaneAccessResult]:
     """
-    Get Data Plane read only token response definition.
+    Get Data Plane access.
     API Version: 2018-06-01.
 
 

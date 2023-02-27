@@ -97,7 +97,7 @@ def get_database(database_name: Optional[str] = None,
                  server_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Represents a Database.
+    Gets information about a database.
     API Version: 2017-12-01.
 
 
@@ -126,7 +126,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         server_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Represents a Database.
+    Gets information about a database.
     API Version: 2017-12-01.
 
 

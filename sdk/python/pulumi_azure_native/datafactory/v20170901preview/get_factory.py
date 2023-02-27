@@ -159,7 +159,7 @@ def get_factory(factory_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryResult:
     """
-    Factory resource type.
+    Gets a factory.
 
 
     :param str factory_name: The factory name.
@@ -190,7 +190,7 @@ def get_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryResult]:
     """
-    Factory resource type.
+    Gets a factory.
 
 
     :param str factory_name: The factory name.

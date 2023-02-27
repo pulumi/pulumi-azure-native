@@ -50,7 +50,7 @@ def get_topic_event_subscription_delivery_attributes(event_subscription_name: Op
                                                      topic_name: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicEventSubscriptionDeliveryAttributesResult:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription for topic.
 
 
     :param str event_subscription_name: Name of the event subscription.
@@ -74,7 +74,7 @@ def get_topic_event_subscription_delivery_attributes_output(event_subscription_n
                                                             topic_name: Optional[pulumi.Input[str]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicEventSubscriptionDeliveryAttributesResult]:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription for topic.
 
 
     :param str event_subscription_name: Name of the event subscription.

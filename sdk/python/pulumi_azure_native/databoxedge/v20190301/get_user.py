@@ -100,7 +100,7 @@ def get_user(device_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+    Gets the properties of the specified user.
 
 
     :param str device_name: The device name.
@@ -129,7 +129,7 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+    Gets the properties of the specified user.
 
 
     :param str device_name: The device name.

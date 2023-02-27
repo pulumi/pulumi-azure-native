@@ -193,7 +193,7 @@ def get_web_app_function(function_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppFunctionResult:
     """
-    Web Job Information.
+    Get function information by its ID for web site, or a deployment slot.
 
 
     :param str function_name: Function name.
@@ -229,7 +229,7 @@ def get_web_app_function_output(function_name: Optional[pulumi.Input[str]] = Non
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppFunctionResult]:
     """
-    Web Job Information.
+    Get function information by its ID for web site, or a deployment slot.
 
 
     :param str function_name: Function name.

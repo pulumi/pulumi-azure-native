@@ -193,7 +193,7 @@ def get_appliance(resource_group_name: Optional[str] = None,
                   resource_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplianceResult:
     """
-    Appliances definition.
+    Gets the details of an Appliance with a specified resource group and name.
     API Version: 2021-10-31-preview.
 
 
@@ -227,7 +227,7 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          resource_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplianceResult]:
     """
-    Appliances definition.
+    Gets the details of an Appliance with a specified resource group and name.
     API Version: 2021-10-31-preview.
 
 

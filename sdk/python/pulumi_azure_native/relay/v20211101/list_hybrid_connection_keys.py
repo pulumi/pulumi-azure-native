@@ -98,7 +98,7 @@ def list_hybrid_connection_keys(authorization_rule_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListHybridConnectionKeysResult:
     """
-    Namespace/Relay Connection String
+    Primary and secondary connection strings to the hybrid connection.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -129,7 +129,7 @@ def list_hybrid_connection_keys_output(authorization_rule_name: Optional[pulumi.
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListHybridConnectionKeysResult]:
     """
-    Namespace/Relay Connection String
+    Primary and secondary connection strings to the hybrid connection.
 
 
     :param str authorization_rule_name: The authorization rule name.

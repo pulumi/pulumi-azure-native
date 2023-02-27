@@ -277,7 +277,7 @@ def get_hybrid_aks_cluster(hybrid_aks_cluster_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridAksClusterResult:
     """
-    The details are specific to the Network Cloud use of the Hybrid AKS cluster.
+    Get the additional details related to the provided Hybrid AKS provisioned cluster.
     API Version: 2022-12-12-preview.
 
 
@@ -318,7 +318,7 @@ def get_hybrid_aks_cluster_output(hybrid_aks_cluster_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridAksClusterResult]:
     """
-    The details are specific to the Network Cloud use of the Hybrid AKS cluster.
+    Get the additional details related to the provided Hybrid AKS provisioned cluster.
     API Version: 2022-12-12-preview.
 
 

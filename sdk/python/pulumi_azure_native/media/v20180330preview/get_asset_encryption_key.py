@@ -49,7 +49,7 @@ def get_asset_encryption_key(account_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetEncryptionKeyResult:
     """
-    The Asset Storage encryption key.
+    Gets the Asset storage encryption keys used to decrypt content created by version 2 of the Media Services API
 
 
     :param str account_name: The Media Services account name.
@@ -73,7 +73,7 @@ def get_asset_encryption_key_output(account_name: Optional[pulumi.Input[str]] = 
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetEncryptionKeyResult]:
     """
-    The Asset Storage encryption key.
+    Gets the Asset storage encryption keys used to decrypt content created by version 2 of the Media Services API
 
 
     :param str account_name: The Media Services account name.

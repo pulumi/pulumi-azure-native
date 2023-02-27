@@ -61,7 +61,7 @@ def list_registry_credentials(registry_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryCredentialsResult:
     """
-    The response from the ListCredentials operation.
+    Lists the login credentials for the specified container registry.
 
 
     :param str registry_name: The name of the container registry.
@@ -83,7 +83,7 @@ def list_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] 
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryCredentialsResult]:
     """
-    The response from the ListCredentials operation.
+    Lists the login credentials for the specified container registry.
 
 
     :param str registry_name: The name of the container registry.

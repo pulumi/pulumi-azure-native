@@ -122,7 +122,7 @@ def get_output(job_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutputResult:
     """
-    An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+    Gets details about the specified output.
     API Version: 2016-03-01.
 
 
@@ -153,7 +153,7 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutputResult]:
     """
-    An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+    Gets details about the specified output.
     API Version: 2016-03-01.
 
 

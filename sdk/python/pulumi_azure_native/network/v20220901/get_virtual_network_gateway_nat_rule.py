@@ -146,7 +146,7 @@ def get_virtual_network_gateway_nat_rule(nat_rule_name: Optional[str] = None,
                                          virtual_network_gateway_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayNatRuleResult:
     """
-    VirtualNetworkGatewayNatRule Resource.
+    Retrieves the details of a nat rule.
 
 
     :param str nat_rule_name: The name of the nat rule.
@@ -178,7 +178,7 @@ def get_virtual_network_gateway_nat_rule_output(nat_rule_name: Optional[pulumi.I
                                                 virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayNatRuleResult]:
     """
-    VirtualNetworkGatewayNatRule Resource.
+    Retrieves the details of a nat rule.
 
 
     :param str nat_rule_name: The name of the nat rule.

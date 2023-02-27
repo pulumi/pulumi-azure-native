@@ -145,7 +145,7 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
                    sync_agent_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncAgentResult:
     """
-    An Azure SQL Database sync agent.
+    Gets a sync agent.
     API Version: 2020-11-01-preview.
 
 
@@ -178,7 +178,7 @@ def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           sync_agent_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncAgentResult]:
     """
-    An Azure SQL Database sync agent.
+    Gets a sync agent.
     API Version: 2020-11-01-preview.
 
 

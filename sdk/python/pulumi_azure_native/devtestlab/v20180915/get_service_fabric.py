@@ -160,7 +160,7 @@ def get_service_fabric(expand: Optional[str] = None,
                        user_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceFabricResult:
     """
-    A Service Fabric.
+    Get service fabric.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
@@ -199,7 +199,7 @@ def get_service_fabric_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               user_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceFabricResult]:
     """
-    A Service Fabric.
+    Get service fabric.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'

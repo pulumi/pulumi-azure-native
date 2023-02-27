@@ -86,7 +86,7 @@ def get_topic_authorization_rule(authorization_rule_name: Optional[str] = None,
                                  topic_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicAuthorizationRuleResult:
     """
-    Description of a namespace authorization rule.
+    Returns the specified authorization rule.
     API Version: 2017-04-01.
 
 
@@ -117,7 +117,7 @@ def get_topic_authorization_rule_output(authorization_rule_name: Optional[pulumi
                                         topic_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicAuthorizationRuleResult]:
     """
-    Description of a namespace authorization rule.
+    Returns the specified authorization rule.
     API Version: 2017-04-01.
 
 

@@ -230,7 +230,7 @@ def get_private_link_service(expand: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServiceResult:
     """
-    Private link service resource.
+    Gets the specified private link service by resource group.
 
 
     :param str expand: Expands referenced resources.
@@ -269,7 +269,7 @@ def get_private_link_service_output(expand: Optional[pulumi.Input[Optional[str]]
                                     service_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServiceResult]:
     """
-    Private link service resource.
+    Gets the specified private link service by resource group.
 
 
     :param str expand: Expands referenced resources.

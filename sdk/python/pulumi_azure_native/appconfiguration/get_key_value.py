@@ -173,7 +173,7 @@ def get_key_value(config_store_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyValueResult:
     """
-    The key-value resource along with all resource properties.
+    Gets the properties of the specified key-value.
     API Version: 2020-07-01-preview.
 
 
@@ -208,7 +208,7 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyValueResult]:
     """
-    The key-value resource along with all resource properties.
+    Gets the properties of the specified key-value.
     API Version: 2020-07-01-preview.
 
 

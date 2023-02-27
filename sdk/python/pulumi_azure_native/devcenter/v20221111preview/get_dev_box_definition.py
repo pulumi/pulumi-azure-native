@@ -206,7 +206,7 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevBoxDefinitionResult:
     """
-    Represents a definition for a Developer Machine.
+    Gets a Dev Box definition
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
@@ -243,7 +243,7 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevBoxDefinitionResult]:
     """
-    Represents a definition for a Developer Machine.
+    Gets a Dev Box definition
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.

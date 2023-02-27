@@ -61,7 +61,7 @@ def list_lab_vhds(name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLabVhdsResult:
     """
-    The response of a list operation.
+    List disk images available for custom image creation.
 
 
     :param str name: The name of the lab.
@@ -83,7 +83,7 @@ def list_lab_vhds_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLabVhdsResult]:
     """
-    The response of a list operation.
+    List disk images available for custom image creation.
 
 
     :param str name: The name of the lab.

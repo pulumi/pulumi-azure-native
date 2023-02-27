@@ -147,7 +147,7 @@ def get_mec_role(device_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMECRoleResult:
     """
-    MEC role.
+    Gets a specific role by name.
 
 
     :param str device_name: The device name.
@@ -179,7 +179,7 @@ def get_mec_role_output(device_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMECRoleResult]:
     """
-    MEC role.
+    Gets a specific role by name.
 
 
     :param str device_name: The device name.

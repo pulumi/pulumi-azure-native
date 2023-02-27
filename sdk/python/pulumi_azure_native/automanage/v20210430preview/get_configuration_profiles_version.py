@@ -122,7 +122,7 @@ def get_configuration_profiles_version(configuration_profile_name: Optional[str]
                                        version_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfilesVersionResult:
     """
-    Definition of the configuration profile.
+    Get information about a configuration profile version
 
 
     :param str configuration_profile_name: The configuration profile name.
@@ -152,7 +152,7 @@ def get_configuration_profiles_version_output(configuration_profile_name: Option
                                               version_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfilesVersionResult]:
     """
-    Definition of the configuration profile.
+    Get information about a configuration profile version
 
 
     :param str configuration_profile_name: The configuration profile name.

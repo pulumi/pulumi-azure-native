@@ -133,7 +133,7 @@ def get_commitment_plan(commitment_plan_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanResult:
     """
-    An Azure ML commitment plan resource.
+    Retrieve an Azure ML commitment plan by its subscription, resource group and name.
     API Version: 2016-05-01-preview.
 
 
@@ -162,7 +162,7 @@ def get_commitment_plan_output(commitment_plan_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanResult]:
     """
-    An Azure ML commitment plan resource.
+    Retrieve an Azure ML commitment plan by its subscription, resource group and name.
     API Version: 2016-05-01-preview.
 
 

@@ -61,7 +61,7 @@ def get_test_base_account_file_upload_url(blob_name: Optional[str] = None,
                                           test_base_account_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestBaseAccountFileUploadUrlResult:
     """
-    The URL response
+    Gets the file upload URL of a Test Base Account.
 
 
     :param str blob_name: The custom file name of the uploaded blob.
@@ -86,7 +86,7 @@ def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Inpu
                                                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestBaseAccountFileUploadUrlResult]:
     """
-    The URL response
+    Gets the file upload URL of a Test Base Account.
 
 
     :param str blob_name: The custom file name of the uploaded blob.

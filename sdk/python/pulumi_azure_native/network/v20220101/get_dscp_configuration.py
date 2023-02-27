@@ -241,7 +241,7 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscpConfigurationResult:
     """
-    Differentiated Services Code Point configuration for any given network interface
+    Gets a DSCP Configuration.
 
 
     :param str dscp_configuration_name: The name of the resource.
@@ -278,7 +278,7 @@ def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscpConfigurationResult]:
     """
-    Differentiated Services Code Point configuration for any given network interface
+    Gets a DSCP Configuration.
 
 
     :param str dscp_configuration_name: The name of the resource.

@@ -184,7 +184,7 @@ def get_network_security_group(expand: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityGroupResult:
     """
-    NetworkSecurityGroup resource
+    The Get NetworkSecurityGroups operation retrieves information about the specified network security group.
 
 
     :param str expand: expand references resources.
@@ -220,7 +220,7 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
     """
-    NetworkSecurityGroup resource
+    The Get NetworkSecurityGroups operation retrieves information about the specified network security group.
 
 
     :param str expand: expand references resources.

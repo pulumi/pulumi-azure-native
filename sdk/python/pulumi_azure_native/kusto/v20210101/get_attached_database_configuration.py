@@ -158,7 +158,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDatabaseConfigurationResult:
     """
-    Class representing an attached database configuration.
+    Returns an attached database configuration.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
@@ -191,7 +191,7 @@ def get_attached_database_configuration_output(attached_database_configuration_n
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDatabaseConfigurationResult]:
     """
-    Class representing an attached database configuration.
+    Returns an attached database configuration.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.

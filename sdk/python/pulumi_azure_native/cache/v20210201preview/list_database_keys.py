@@ -61,7 +61,7 @@ def list_database_keys(cluster_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseKeysResult:
     """
-    The secret access keys used for authenticating connections to redis
+    Retrieves the access keys for the RedisEnterprise database.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -86,7 +86,7 @@ def list_database_keys_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseKeysResult]:
     """
-    The secret access keys used for authenticating connections to redis
+    Retrieves the access keys for the RedisEnterprise database.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

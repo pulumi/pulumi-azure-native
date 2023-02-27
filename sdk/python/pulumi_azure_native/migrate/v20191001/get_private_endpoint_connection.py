@@ -98,7 +98,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    A private endpoint connection for a project.
+    Get information related to a specific private endpoint connection in the project. Returns a json object of type 'privateEndpointConnections' as specified in the models section.
 
 
     :param str private_endpoint_connection_name: Unique name of a private endpoint connection within a project.
@@ -126,7 +126,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    A private endpoint connection for a project.
+    Get information related to a specific private endpoint connection in the project. Returns a json object of type 'privateEndpointConnections' as specified in the models section.
 
 
     :param str private_endpoint_connection_name: Unique name of a private endpoint connection within a project.

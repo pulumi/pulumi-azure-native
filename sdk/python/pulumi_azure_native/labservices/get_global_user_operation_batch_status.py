@@ -49,7 +49,7 @@ def get_global_user_operation_batch_status(urls: Optional[Sequence[str]] = None,
                                            user_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserOperationBatchStatusResult:
     """
-    Status Details of the long running operation for an environment
+    Get batch operation status
     API Version: 2018-10-15.
 
 
@@ -71,7 +71,7 @@ def get_global_user_operation_batch_status_output(urls: Optional[pulumi.Input[Se
                                                   user_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserOperationBatchStatusResult]:
     """
-    Status Details of the long running operation for an environment
+    Get batch operation status
     API Version: 2018-10-15.
 
 

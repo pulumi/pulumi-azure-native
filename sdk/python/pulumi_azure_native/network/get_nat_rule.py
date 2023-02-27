@@ -170,7 +170,7 @@ def get_nat_rule(gateway_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatRuleResult:
     """
-    VpnGatewayNatRule Resource.
+    Retrieves the details of a nat ruleGet.
     API Version: 2020-11-01.
 
 
@@ -205,7 +205,7 @@ def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatRuleResult]:
     """
-    VpnGatewayNatRule Resource.
+    Retrieves the details of a nat ruleGet.
     API Version: 2020-11-01.
 
 

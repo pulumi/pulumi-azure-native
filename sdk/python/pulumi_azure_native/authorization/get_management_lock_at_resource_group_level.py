@@ -109,7 +109,7 @@ def get_management_lock_at_resource_group_level(lock_name: Optional[str] = None,
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceGroupLevelResult:
     """
-    The lock information.
+    Gets a management lock at the resource group level.
     API Version: 2017-04-01.
 
 
@@ -136,7 +136,7 @@ def get_management_lock_at_resource_group_level_output(lock_name: Optional[pulum
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockAtResourceGroupLevelResult]:
     """
-    The lock information.
+    Gets a management lock at the resource group level.
     API Version: 2017-04-01.
 
 

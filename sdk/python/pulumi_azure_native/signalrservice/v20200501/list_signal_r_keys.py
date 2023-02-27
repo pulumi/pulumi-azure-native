@@ -84,7 +84,7 @@ def list_signal_r_keys(resource_group_name: Optional[str] = None,
                        resource_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSignalRKeysResult:
     """
-    A class represents the access keys of SignalR service.
+    Get the access keys of the SignalR resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -108,7 +108,7 @@ def list_signal_r_keys_output(resource_group_name: Optional[pulumi.Input[str]] =
                               resource_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSignalRKeysResult]:
     """
-    A class represents the access keys of SignalR service.
+    Get the access keys of the SignalR resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -119,7 +119,7 @@ def get_security_policy(profile_name: Optional[str] = None,
                         security_policy_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPolicyResult:
     """
-    SecurityPolicy association for AzureFrontDoor profile
+    Gets an existing security policy within a profile.
     API Version: 2020-09-01.
 
 
@@ -150,7 +150,7 @@ def get_security_policy_output(profile_name: Optional[pulumi.Input[str]] = None,
                                security_policy_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityPolicyResult]:
     """
-    SecurityPolicy association for AzureFrontDoor profile
+    Gets an existing security policy within a profile.
     API Version: 2020-09-01.
 
 

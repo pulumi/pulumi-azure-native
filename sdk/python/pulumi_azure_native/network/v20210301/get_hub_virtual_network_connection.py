@@ -146,7 +146,7 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
                                        virtual_hub_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubVirtualNetworkConnectionResult:
     """
-    HubVirtualNetworkConnection Resource.
+    Retrieves the details of a HubVirtualNetworkConnection.
 
 
     :param str connection_name: The name of the vpn connection.
@@ -178,7 +178,7 @@ def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.I
                                               virtual_hub_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubVirtualNetworkConnectionResult]:
     """
-    HubVirtualNetworkConnection Resource.
+    Retrieves the details of a HubVirtualNetworkConnection.
 
 
     :param str connection_name: The name of the vpn connection.

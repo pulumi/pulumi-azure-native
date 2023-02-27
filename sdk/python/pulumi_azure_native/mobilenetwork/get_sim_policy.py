@@ -254,7 +254,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
                    sim_policy_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimPolicyResult:
     """
-    SIM policy resource.
+    Gets information about the specified SIM policy.
     API Version: 2022-04-01-preview.
 
 
@@ -296,7 +296,7 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
                           sim_policy_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimPolicyResult]:
     """
-    SIM policy resource.
+    Gets information about the specified SIM policy.
     API Version: 2022-04-01-preview.
 
 

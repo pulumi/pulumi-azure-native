@@ -121,7 +121,7 @@ def get_virtual_router_peering(peering_name: Optional[str] = None,
                                virtual_router_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterPeeringResult:
     """
-    Virtual Router Peering resource.
+    Gets the specified Virtual Router Peering.
     API Version: 2022-01-01.
 
 
@@ -152,7 +152,7 @@ def get_virtual_router_peering_output(peering_name: Optional[pulumi.Input[str]] 
                                       virtual_router_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRouterPeeringResult]:
     """
-    Virtual Router Peering resource.
+    Gets the specified Virtual Router Peering.
     API Version: 2022-01-01.
 
 

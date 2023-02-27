@@ -205,7 +205,7 @@ def get_assignment(assignment_name: Optional[str] = None,
                    resource_scope: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssignmentResult:
     """
-    Represents a blueprint assignment.
+    Get a blueprint assignment.
     API Version: 2018-11-01-preview.
 
 
@@ -240,7 +240,7 @@ def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
                           resource_scope: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
     """
-    Represents a blueprint assignment.
+    Get a blueprint assignment.
     API Version: 2018-11-01-preview.
 
 

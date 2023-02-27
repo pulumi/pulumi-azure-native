@@ -196,7 +196,7 @@ def get_ml_behavior_analytics_alert_rule(operational_insights_resource_provider:
                                          workspace_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMLBehaviorAnalyticsAlertRuleResult:
     """
-    Represents MLBehaviorAnalytics alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -235,7 +235,7 @@ def get_ml_behavior_analytics_alert_rule_output(operational_insights_resource_pr
                                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMLBehaviorAnalyticsAlertRuleResult]:
     """
-    Represents MLBehaviorAnalytics alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

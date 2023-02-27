@@ -48,7 +48,7 @@ def get_global_user_operation_status(operation_url: Optional[str] = None,
                                      user_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserOperationStatusResult:
     """
-    Status Details of the long running operation for an environment
+    Gets the status of long running operation
     API Version: 2018-10-15.
 
 
@@ -70,7 +70,7 @@ def get_global_user_operation_status_output(operation_url: Optional[pulumi.Input
                                             user_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserOperationStatusResult]:
     """
-    Status Details of the long running operation for an environment
+    Gets the status of long running operation
     API Version: 2018-10-15.
 
 

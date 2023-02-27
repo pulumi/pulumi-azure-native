@@ -61,7 +61,7 @@ def get_exposure_control_feature_value(feature_name: Optional[str] = None,
                                        location_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExposureControlFeatureValueResult:
     """
-    The exposure control response.
+    Get exposure control feature for specific location.
     API Version: 2018-06-01.
 
 
@@ -87,7 +87,7 @@ def get_exposure_control_feature_value_output(feature_name: Optional[pulumi.Inpu
                                               location_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExposureControlFeatureValueResult]:
     """
-    The exposure control response.
+    Get exposure control feature for specific location.
     API Version: 2018-06-01.
 
 

@@ -171,7 +171,7 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
                            scope: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSubscriptionResult:
     """
-    Event Subscription
+    Get properties of an event subscription
 
 
     :param str event_subscription_name: Name of the event subscription
@@ -203,7 +203,7 @@ def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input
                                   scope: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
-    Event Subscription
+    Get properties of an event subscription
 
 
     :param str event_subscription_name: Name of the event subscription

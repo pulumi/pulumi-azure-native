@@ -111,7 +111,7 @@ def get_api_issue_comment(api_id: Optional[str] = None,
                           service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiIssueCommentResult:
     """
-    Issue Comment Contract details.
+    Gets the details of the issue Comment for an API specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -147,7 +147,7 @@ def get_api_issue_comment_output(api_id: Optional[pulumi.Input[str]] = None,
                                  service_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiIssueCommentResult]:
     """
-    Issue Comment Contract details.
+    Gets the details of the issue Comment for an API specified by its identifier.
     API Version: 2020-12-01.
 
 

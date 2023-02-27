@@ -158,7 +158,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
                        vcenter_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInventoryItemResult:
     """
-    Defines the inventory item.
+    Implements InventoryItem GET method.
     API Version: 2020-10-01-preview.
 
 
@@ -192,7 +192,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
                               vcenter_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
-    Defines the inventory item.
+    Implements InventoryItem GET method.
     API Version: 2020-10-01-preview.
 
 

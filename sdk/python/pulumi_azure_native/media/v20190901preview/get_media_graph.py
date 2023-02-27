@@ -146,7 +146,7 @@ def get_media_graph(account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMediaGraphResult:
     """
-    The Media Graph.
+    Get the details of a Media Graph in the Media Services account
 
 
     :param str account_name: The Media Services account name.
@@ -178,7 +178,7 @@ def get_media_graph_output(account_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMediaGraphResult]:
     """
-    The Media Graph.
+    Get the details of a Media Graph in the Media Services account
 
 
     :param str account_name: The Media Services account name.

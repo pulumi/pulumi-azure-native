@@ -60,7 +60,7 @@ def list_account_keys(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
-    The Account access keys.
+    List the authorization keys associated with this account.
 
 
     :param str account_name: The name of the account.
@@ -82,7 +82,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
-    The Account access keys.
+    List the authorization keys associated with this account.
 
 
     :param str account_name: The name of the account.

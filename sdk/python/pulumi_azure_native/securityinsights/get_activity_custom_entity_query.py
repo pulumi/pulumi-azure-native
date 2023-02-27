@@ -244,7 +244,7 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
                                      workspace_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityCustomEntityQueryResult:
     """
-    Represents Activity entity query.
+    Gets an entity query.
     API Version: 2021-03-01-preview.
 
 
@@ -288,7 +288,7 @@ def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Inp
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityCustomEntityQueryResult]:
     """
-    Represents Activity entity query.
+    Gets an entity query.
     API Version: 2021-03-01-preview.
 
 

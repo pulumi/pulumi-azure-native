@@ -84,7 +84,7 @@ def list_signal_r_keys(resource_group_name: Optional[str] = None,
                        resource_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSignalRKeysResult:
     """
-    A class represents the access keys of SignalR service.
+    Get the access keys of the SignalR resource.
     API Version: 2020-05-01.
 
 
@@ -109,7 +109,7 @@ def list_signal_r_keys_output(resource_group_name: Optional[pulumi.Input[str]] =
                               resource_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSignalRKeysResult]:
     """
-    A class represents the access keys of SignalR service.
+    Get the access keys of the SignalR resource.
     API Version: 2020-05-01.
 
 

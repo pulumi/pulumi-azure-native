@@ -218,7 +218,7 @@ def get_integration_account_schema(integration_account_name: Optional[str] = Non
                                    schema_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountSchemaResult:
     """
-    The integration account schema.
+    Gets an integration account schema.
 
 
     :param str integration_account_name: The integration account name.
@@ -256,7 +256,7 @@ def get_integration_account_schema_output(integration_account_name: Optional[pul
                                           schema_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountSchemaResult]:
     """
-    The integration account schema.
+    Gets an integration account schema.
 
 
     :param str integration_account_name: The integration account name.

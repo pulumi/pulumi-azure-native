@@ -145,7 +145,7 @@ def get_address_by_name(address_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddressByNameResult:
     """
-    Address Resource.
+    Gets information about the specified address.
     API Version: 2021-12-01.
 
 
@@ -175,7 +175,7 @@ def get_address_by_name_output(address_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddressByNameResult]:
     """
-    Address Resource.
+    Gets information about the specified address.
     API Version: 2021-12-01.
 
 

@@ -277,7 +277,7 @@ def get_android_mam_policy_by_name(host_name: Optional[str] = None,
                                    select: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAndroidMAMPolicyByNameResult:
     """
-    Android Policy entity for Intune MAM.
+    Returns AndroidMAMPolicy with given name.
 
 
     :param str host_name: Location hostName for the tenant
@@ -325,7 +325,7 @@ def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]]
                                           select: Optional[pulumi.Input[Optional[str]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAndroidMAMPolicyByNameResult]:
     """
-    Android Policy entity for Intune MAM.
+    Returns AndroidMAMPolicy with given name.
 
 
     :param str host_name: Location hostName for the tenant

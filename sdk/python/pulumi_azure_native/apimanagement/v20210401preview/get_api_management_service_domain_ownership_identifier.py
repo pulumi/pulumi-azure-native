@@ -45,7 +45,7 @@ class AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult(GetApiMana
 
 def get_api_management_service_domain_ownership_identifier(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult:
     """
-    Response of the GetDomainOwnershipIdentifier operation.
+    Get the custom domain ownership identifier for an API Management service.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

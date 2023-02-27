@@ -158,7 +158,7 @@ def get_extension(extension_id: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
-    Extension resource.
+    Get installed extension details by extension id.
 
 
     :param str extension_id: Id of extension resource.
@@ -191,7 +191,7 @@ def get_extension_output(extension_id: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
-    Extension resource.
+    Get installed extension details by extension id.
 
 
     :param str extension_id: Id of extension resource.

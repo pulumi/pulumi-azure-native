@@ -263,7 +263,7 @@ def get_topic(resource_group_name: Optional[str] = None,
               topic_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
-    EventGrid Topic
+    Get properties of a topic.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -302,7 +302,7 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      topic_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
-    EventGrid Topic
+    Get properties of a topic.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

@@ -134,7 +134,7 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
                                     sql_virtual_machine_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityGroupListenerResult:
     """
-    A SQL Server availability group listener.
+    Gets an availability group listener.
 
 
     :param str availability_group_listener_name: Name of the availability group listener.
@@ -165,7 +165,7 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
                                            sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityGroupListenerResult]:
     """
-    A SQL Server availability group listener.
+    Gets an availability group listener.
 
 
     :param str availability_group_listener_name: Name of the availability group listener.

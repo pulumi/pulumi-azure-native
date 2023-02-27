@@ -157,7 +157,7 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
                           resource_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookTemplateResult:
     """
-    An Application Insights workbook template definition.
+    Get a single workbook template by its resourceName.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -187,7 +187,7 @@ def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]
                                  resource_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookTemplateResult]:
     """
-    An Application Insights workbook template definition.
+    Get a single workbook template by its resourceName.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

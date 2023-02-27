@@ -84,7 +84,7 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
                           provider_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSupportPlanTypeResult:
     """
-    The status of the Canonical support plan.
+    Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
 
 
     :param str plan_type_name: The Canonical support plan type.
@@ -108,7 +108,7 @@ def get_support_plan_type_output(plan_type_name: Optional[pulumi.Input[str]] = N
                                  provider_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSupportPlanTypeResult]:
     """
-    The status of the Canonical support plan.
+    Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
 
 
     :param str plan_type_name: The Canonical support plan type.

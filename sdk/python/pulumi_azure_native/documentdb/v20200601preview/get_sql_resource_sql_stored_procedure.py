@@ -123,7 +123,7 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
                                           stored_procedure_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlStoredProcedureResult:
     """
-    An Azure Cosmos DB storedProcedure.
+    Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -160,7 +160,7 @@ def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.I
                                                  stored_procedure_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlStoredProcedureResult]:
     """
-    An Azure Cosmos DB storedProcedure.
+    Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.

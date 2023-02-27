@@ -60,7 +60,7 @@ def list_registry_build_source_upload_url(registry_name: Optional[str] = None,
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryBuildSourceUploadUrlResult:
     """
-    The properties of a response to source upload request.
+    Get the upload location for the user to be able to upload the source.
     API Version: 2019-06-01-preview.
 
 
@@ -83,7 +83,7 @@ def list_registry_build_source_upload_url_output(registry_name: Optional[pulumi.
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryBuildSourceUploadUrlResult]:
     """
-    The properties of a response to source upload request.
+    Get the upload location for the user to be able to upload the source.
     API Version: 2019-06-01-preview.
 
 

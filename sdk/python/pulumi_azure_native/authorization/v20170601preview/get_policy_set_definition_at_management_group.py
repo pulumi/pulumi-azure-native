@@ -145,7 +145,7 @@ def get_policy_set_definition_at_management_group(management_group_id: Optional[
                                                   policy_set_definition_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionAtManagementGroupResult:
     """
-    The policy set definition.
+    Gets the policy set definition at management group level.
 
 
     :param str management_group_id: The ID of the management group.
@@ -174,7 +174,7 @@ def get_policy_set_definition_at_management_group_output(management_group_id: Op
                                                          policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionAtManagementGroupResult]:
     """
-    The policy set definition.
+    Gets the policy set definition at management group level.
 
 
     :param str management_group_id: The ID of the management group.

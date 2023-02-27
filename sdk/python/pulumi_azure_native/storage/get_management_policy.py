@@ -98,7 +98,7 @@ def get_management_policy(account_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementPolicyResult:
     """
-    The Get Storage Account ManagementPolicies operation response.
+    Gets the managementpolicy associated with the specified storage account.
     API Version: 2021-02-01.
 
 
@@ -127,7 +127,7 @@ def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = Non
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementPolicyResult]:
     """
-    The Get Storage Account ManagementPolicies operation response.
+    Gets the managementpolicy associated with the specified storage account.
     API Version: 2021-02-01.
 
 

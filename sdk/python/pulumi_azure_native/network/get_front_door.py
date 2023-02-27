@@ -253,7 +253,7 @@ def get_front_door(front_door_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontDoorResult:
     """
-    Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+    Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
     API Version: 2020-05-01.
 
 
@@ -292,7 +292,7 @@ def get_front_door_output(front_door_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontDoorResult]:
     """
-    Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+    Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
     API Version: 2020-05-01.
 
 

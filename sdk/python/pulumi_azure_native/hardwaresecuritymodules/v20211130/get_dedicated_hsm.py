@@ -193,7 +193,7 @@ def get_dedicated_hsm(name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHsmResult:
     """
-    Resource information with extended details.
+    Gets the specified Azure dedicated HSM.
 
 
     :param str name: The name of the dedicated HSM.
@@ -226,7 +226,7 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHsmResult]:
     """
-    Resource information with extended details.
+    Gets the specified Azure dedicated HSM.
 
 
     :param str name: The name of the dedicated HSM.

@@ -125,7 +125,8 @@ def get_protected_item(container_name: Optional[str] = None,
                        vault_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectedItemResult:
     """
-    Base class for backup items.
+    Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
+    call the GetItemOperationResult API.
 
 
     :param str container_name: Container name associated with the backed up item.
@@ -164,7 +165,8 @@ def get_protected_item_output(container_name: Optional[pulumi.Input[str]] = None
                               vault_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectedItemResult]:
     """
-    Base class for backup items.
+    Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
+    call the GetItemOperationResult API.
 
 
     :param str container_name: Container name associated with the backed up item.

@@ -247,7 +247,7 @@ def get_connection(connection_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    API Connection
+    Gets a connection.
 
 
     :param str connection_name: The connection name.
@@ -285,7 +285,7 @@ def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    API Connection
+    Gets a connection.
 
 
     :param str connection_name: The connection name.

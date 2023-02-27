@@ -125,7 +125,8 @@ def get_protection_intent(fabric_name: Optional[str] = None,
                           vault_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionIntentResult:
     """
-    Base class for backup ProtectionIntent.
+    Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
+    call the GetItemOperationResult API.
 
 
     :param str fabric_name: Fabric name associated with the backed up item.
@@ -159,7 +160,8 @@ def get_protection_intent_output(fabric_name: Optional[pulumi.Input[str]] = None
                                  vault_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionIntentResult]:
     """
-    Base class for backup ProtectionIntent.
+    Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
+    call the GetItemOperationResult API.
 
 
     :param str fabric_name: Fabric name associated with the backed up item.

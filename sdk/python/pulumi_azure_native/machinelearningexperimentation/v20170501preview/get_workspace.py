@@ -169,7 +169,7 @@ def get_workspace(account_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    An object that represents a machine learning team account workspace.
+    Gets the properties of the specified machine learning workspace.
 
 
     :param str account_name: The name of the machine learning team account.
@@ -203,7 +203,7 @@ def get_workspace_output(account_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    An object that represents a machine learning team account workspace.
+    Gets the properties of the specified machine learning workspace.
 
 
     :param str account_name: The name of the machine learning team account.

@@ -100,7 +100,7 @@ def get_buildpack_binding(build_service_name: Optional[str] = None,
                           service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildpackBindingResult:
     """
-    Buildpack Binding Resource object
+    Get a buildpack binding by name.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -134,7 +134,7 @@ def get_buildpack_binding_output(build_service_name: Optional[pulumi.Input[str]]
                                  service_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildpackBindingResult]:
     """
-    Buildpack Binding Resource object
+    Get a buildpack binding by name.
 
 
     :param str build_service_name: The name of the build service resource.

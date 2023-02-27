@@ -88,7 +88,7 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[s
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionAuthorizationRuleResult:
     """
-    Description of a Namespace AuthorizationRules.
+    HybridConnection authorizationRule for a HybridConnection by name.
 
 
     :param str authorization_rule_name: The authorizationRule name.
@@ -119,7 +119,7 @@ def get_hybrid_connection_authorization_rule_output(authorization_rule_name: Opt
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridConnectionAuthorizationRuleResult]:
     """
-    Description of a Namespace AuthorizationRules.
+    HybridConnection authorizationRule for a HybridConnection by name.
 
 
     :param str authorization_rule_name: The authorizationRule name.

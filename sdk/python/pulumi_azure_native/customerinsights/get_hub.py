@@ -157,7 +157,7 @@ def get_hub(hub_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubResult:
     """
-    Hub resource.
+    Gets information about the specified hub.
     API Version: 2017-04-26.
 
 
@@ -188,7 +188,7 @@ def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubResult]:
     """
-    Hub resource.
+    Gets information about the specified hub.
     API Version: 2017-04-26.
 
 

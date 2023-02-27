@@ -181,7 +181,7 @@ def get_configuration(configuration_name: Optional[str] = None,
                       server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
-    Represents a Configuration.
+    Gets information about a configuration of server.
 
 
     :param str configuration_name: The name of the server configuration.
@@ -216,7 +216,7 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
                              server_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
-    Represents a Configuration.
+    Gets information about a configuration of server.
 
 
     :param str configuration_name: The name of the server configuration.

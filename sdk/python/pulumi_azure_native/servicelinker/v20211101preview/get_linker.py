@@ -157,7 +157,7 @@ def get_linker(linker_name: Optional[str] = None,
                resource_uri: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkerResult:
     """
-    Linker of source and target resource
+    Returns Linker resource for a given name.
 
 
     :param str linker_name: The name Linker resource.
@@ -187,7 +187,7 @@ def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
                       resource_uri: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerResult]:
     """
-    Linker of source and target resource
+    Returns Linker resource for a given name.
 
 
     :param str linker_name: The name Linker resource.

@@ -145,7 +145,7 @@ def get_enterprise_channel(resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterpriseChannelResult:
     """
-    Enterprise Channel resource definition
+    Returns an Enterprise Channel specified by the parameters.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -174,7 +174,7 @@ def get_enterprise_channel_output(resource_group_name: Optional[pulumi.Input[str
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseChannelResult]:
     """
-    Enterprise Channel resource definition
+    Returns an Enterprise Channel specified by the parameters.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.

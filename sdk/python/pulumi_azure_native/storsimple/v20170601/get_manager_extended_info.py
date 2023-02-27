@@ -168,7 +168,7 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerExtendedInfoResult:
     """
-    The extended info of the manager.
+    Returns the extended information of the specified manager name.
 
 
     :param str manager_name: The manager name
@@ -199,7 +199,7 @@ def get_manager_extended_info_output(manager_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerExtendedInfoResult]:
     """
-    The extended info of the manager.
+    Returns the extended information of the specified manager name.
 
 
     :param str manager_name: The manager name

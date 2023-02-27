@@ -133,7 +133,7 @@ def get_report_by_billing_account(billing_account_id: Optional[str] = None,
                                   report_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportByBillingAccountResult:
     """
-    A report resource.
+    Gets the report for a billing account by report name.
     API Version: 2018-08-01-preview.
 
 
@@ -162,7 +162,7 @@ def get_report_by_billing_account_output(billing_account_id: Optional[pulumi.Inp
                                          report_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByBillingAccountResult]:
     """
-    A report resource.
+    Gets the report for a billing account by report name.
     API Version: 2018-08-01-preview.
 
 

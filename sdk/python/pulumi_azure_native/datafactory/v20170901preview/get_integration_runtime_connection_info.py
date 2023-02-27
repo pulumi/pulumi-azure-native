@@ -109,7 +109,7 @@ def get_integration_runtime_connection_info(factory_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeConnectionInfoResult:
     """
-    Connection information for encrypting the on-premises data source credentials.
+    Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
 
 
     :param str factory_name: The factory name.
@@ -138,7 +138,7 @@ def get_integration_runtime_connection_info_output(factory_name: Optional[pulumi
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
     """
-    Connection information for encrypting the on-premises data source credentials.
+    Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
 
 
     :param str factory_name: The factory name.

@@ -133,7 +133,7 @@ def get_dev_center(dev_center_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevCenterResult:
     """
-    Represents a devcenter resource.
+    Gets a devcenter.
     API Version: 2022-09-01-preview.
 
 
@@ -162,7 +162,7 @@ def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevCenterResult]:
     """
-    Represents a devcenter resource.
+    Gets a devcenter.
     API Version: 2022-09-01-preview.
 
 

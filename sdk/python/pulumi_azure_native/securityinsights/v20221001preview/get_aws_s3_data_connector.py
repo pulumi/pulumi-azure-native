@@ -159,7 +159,7 @@ def get_aws_s3_data_connector(data_connector_id: Optional[str] = None,
                               workspace_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAwsS3DataConnectorResult:
     """
-    Represents Amazon Web Services S3 data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -192,7 +192,7 @@ def get_aws_s3_data_connector_output(data_connector_id: Optional[pulumi.Input[st
                                      workspace_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAwsS3DataConnectorResult]:
     """
-    Represents Amazon Web Services S3 data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

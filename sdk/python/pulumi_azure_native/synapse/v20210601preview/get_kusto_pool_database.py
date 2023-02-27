@@ -113,7 +113,7 @@ def get_kusto_pool_database(database_name: Optional[str] = None,
                             workspace_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolDatabaseResult:
     """
-    Class representing a Kusto database.
+    Returns a database.
 
 
     :param str database_name: The name of the database in the Kusto pool.
@@ -146,7 +146,7 @@ def get_kusto_pool_database_output(database_name: Optional[pulumi.Input[str]] = 
                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolDatabaseResult]:
     """
-    Class representing a Kusto database.
+    Returns a database.
 
 
     :param str database_name: The name of the database in the Kusto pool.

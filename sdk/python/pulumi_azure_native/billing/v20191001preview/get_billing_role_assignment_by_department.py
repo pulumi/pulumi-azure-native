@@ -193,7 +193,7 @@ def get_billing_role_assignment_by_department(billing_account_name: Optional[str
                                               department_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingRoleAssignmentByDepartmentResult:
     """
-    The role assignment
+    Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -229,7 +229,7 @@ def get_billing_role_assignment_by_department_output(billing_account_name: Optio
                                                      department_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingRoleAssignmentByDepartmentResult]:
     """
-    The role assignment
+    Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

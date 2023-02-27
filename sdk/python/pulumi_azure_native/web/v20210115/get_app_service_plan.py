@@ -386,7 +386,7 @@ def get_app_service_plan(name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServicePlanResult:
     """
-    App Service plan.
+    Get an App Service plan.
 
 
     :param str name: Name of the App Service plan.
@@ -435,7 +435,7 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServicePlanResult]:
     """
-    App Service plan.
+    Get an App Service plan.
 
 
     :param str name: Name of the App Service plan.

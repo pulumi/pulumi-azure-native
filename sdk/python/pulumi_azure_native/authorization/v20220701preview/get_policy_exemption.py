@@ -193,7 +193,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
                          scope: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyExemptionResult:
     """
-    The policy exemption.
+    This operation retrieves a single policy exemption, given its name and the scope it was created at.
 
 
     :param str policy_exemption_name: The name of the policy exemption to delete.
@@ -226,7 +226,7 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
                                 scope: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyExemptionResult]:
     """
-    The policy exemption.
+    This operation retrieves a single policy exemption, given its name and the scope it was created at.
 
 
     :param str policy_exemption_name: The name of the policy exemption to delete.

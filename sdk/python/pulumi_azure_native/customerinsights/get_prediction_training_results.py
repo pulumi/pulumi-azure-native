@@ -98,7 +98,7 @@ def get_prediction_training_results(hub_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionTrainingResultsResult:
     """
-    The training results of the prediction.
+    Gets training results.
     API Version: 2017-04-26.
 
 
@@ -127,7 +127,7 @@ def get_prediction_training_results_output(hub_name: Optional[pulumi.Input[str]]
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredictionTrainingResultsResult]:
     """
-    The training results of the prediction.
+    Gets training results.
     API Version: 2017-04-26.
 
 

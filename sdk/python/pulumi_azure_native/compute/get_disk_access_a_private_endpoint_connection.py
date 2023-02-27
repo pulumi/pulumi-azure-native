@@ -110,7 +110,7 @@ def get_disk_access_a_private_endpoint_connection(disk_access_name: Optional[str
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessAPrivateEndpointConnectionResult:
     """
-    The Private Endpoint Connection resource.
+    Gets information about a private endpoint connection under a disk access resource.
     API Version: 2020-12-01.
 
 
@@ -140,7 +140,7 @@ def get_disk_access_a_private_endpoint_connection_output(disk_access_name: Optio
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessAPrivateEndpointConnectionResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets information about a private endpoint connection under a disk access resource.
     API Version: 2020-12-01.
 
 

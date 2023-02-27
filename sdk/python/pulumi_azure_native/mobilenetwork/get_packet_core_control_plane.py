@@ -301,7 +301,7 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreControlPlaneResult:
     """
-    Packet core control plane resource.
+    Gets information about the specified packet core control plane.
     API Version: 2022-04-01-preview.
 
 
@@ -344,7 +344,7 @@ def get_packet_core_control_plane_output(packet_core_control_plane_name: Optiona
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCoreControlPlaneResult]:
     """
-    Packet core control plane resource.
+    Gets information about the specified packet core control plane.
     API Version: 2022-04-01-preview.
 
 

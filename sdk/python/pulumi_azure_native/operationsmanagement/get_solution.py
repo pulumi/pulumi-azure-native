@@ -121,7 +121,7 @@ def get_solution(resource_group_name: Optional[str] = None,
                  solution_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
-    The container for solution.
+    Retrieves the user solution.
     API Version: 2015-11-01-preview.
 
 
@@ -149,7 +149,7 @@ def get_solution_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         solution_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
     """
-    The container for solution.
+    Retrieves the user solution.
     API Version: 2015-11-01-preview.
 
 

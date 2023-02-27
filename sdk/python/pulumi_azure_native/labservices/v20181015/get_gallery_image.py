@@ -243,7 +243,7 @@ def get_gallery_image(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
-    Represents an image from the Azure Marketplace
+    Get gallery image
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=author)'
@@ -286,7 +286,7 @@ def get_gallery_image_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
-    Represents an image from the Azure Marketplace
+    Get gallery image
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=author)'

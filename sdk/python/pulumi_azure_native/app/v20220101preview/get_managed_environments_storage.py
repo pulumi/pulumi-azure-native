@@ -98,7 +98,7 @@ def get_managed_environments_storage(env_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentsStorageResult:
     """
-    Storage resource for managedEnvironment.
+    Get storage for a managedEnvironment.
 
 
     :param str env_name: Name of the Environment.
@@ -126,7 +126,7 @@ def get_managed_environments_storage_output(env_name: Optional[pulumi.Input[str]
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentsStorageResult]:
     """
-    Storage resource for managedEnvironment.
+    Get storage for a managedEnvironment.
 
 
     :param str env_name: Name of the Environment.

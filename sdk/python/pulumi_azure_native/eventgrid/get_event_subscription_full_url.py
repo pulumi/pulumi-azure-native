@@ -48,7 +48,7 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
                                     scope: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSubscriptionFullUrlResult:
     """
-    Full endpoint url of an event subscription
+    Get the full endpoint URL for an event subscription.
     API Version: 2020-06-01.
 
 
@@ -70,7 +70,7 @@ def get_event_subscription_full_url_output(event_subscription_name: Optional[pul
                                            scope: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionFullUrlResult]:
     """
-    Full endpoint url of an event subscription
+    Get the full endpoint URL for an event subscription.
     API Version: 2020-06-01.
 
 

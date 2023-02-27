@@ -241,7 +241,7 @@ def get_action_group(action_group_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionGroupResult:
     """
-    An action group resource.
+    Get an action group.
     API Version: 2019-06-01.
 
 
@@ -279,7 +279,7 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
     """
-    An action group resource.
+    Get an action group.
     API Version: 2019-06-01.
 
 

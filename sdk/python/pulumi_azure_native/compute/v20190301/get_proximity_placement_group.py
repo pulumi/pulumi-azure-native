@@ -147,7 +147,7 @@ def get_proximity_placement_group(proximity_placement_group_name: Optional[str] 
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
-    Specifies information about the proximity placement group.
+    Retrieves information about a proximity placement group .
 
 
     :param str proximity_placement_group_name: The name of the proximity placement group.
@@ -177,7 +177,7 @@ def get_proximity_placement_group_output(proximity_placement_group_name: Optiona
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
     """
-    Specifies information about the proximity placement group.
+    Retrieves information about a proximity placement group .
 
 
     :param str proximity_placement_group_name: The name of the proximity placement group.

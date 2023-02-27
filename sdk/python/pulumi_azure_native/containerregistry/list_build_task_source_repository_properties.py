@@ -86,7 +86,7 @@ def list_build_task_source_repository_properties(build_task_name: Optional[str] 
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBuildTaskSourceRepositoryPropertiesResult:
     """
-    The properties of the source code repository.
+    Get the source control properties for a build task.
     API Version: 2018-02-01-preview.
 
 
@@ -114,7 +114,7 @@ def list_build_task_source_repository_properties_output(build_task_name: Optiona
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildTaskSourceRepositoryPropertiesResult]:
     """
-    The properties of the source code repository.
+    Get the source control properties for a build task.
     API Version: 2018-02-01-preview.
 
 

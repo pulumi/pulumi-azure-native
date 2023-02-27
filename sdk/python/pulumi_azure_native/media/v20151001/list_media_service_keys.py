@@ -96,7 +96,7 @@ def list_media_service_keys(media_service_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceKeysResult:
     """
-    The response body for a ListKeys API.
+    Lists the keys for a Media Service.
 
 
     :param str media_service_name: Name of the Media Service.
@@ -121,7 +121,7 @@ def list_media_service_keys_output(media_service_name: Optional[pulumi.Input[str
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMediaServiceKeysResult]:
     """
-    The response body for a ListKeys API.
+    Lists the keys for a Media Service.
 
 
     :param str media_service_name: Name of the Media Service.

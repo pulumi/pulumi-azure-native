@@ -157,7 +157,7 @@ def get_dns_forwarding_ruleset(dns_forwarding_ruleset_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsForwardingRulesetResult:
     """
-    Describes a DNS forwarding ruleset.
+    Gets a DNS forwarding ruleset properties.
     API Version: 2020-04-01-preview.
 
 
@@ -188,7 +188,7 @@ def get_dns_forwarding_ruleset_output(dns_forwarding_ruleset_name: Optional[pulu
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsForwardingRulesetResult]:
     """
-    Describes a DNS forwarding ruleset.
+    Gets a DNS forwarding ruleset properties.
     API Version: 2020-04-01-preview.
 
 

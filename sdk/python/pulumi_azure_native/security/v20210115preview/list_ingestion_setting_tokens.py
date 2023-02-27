@@ -47,7 +47,7 @@ class AwaitableListIngestionSettingTokensResult(ListIngestionSettingTokensResult
 def list_ingestion_setting_tokens(ingestion_setting_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIngestionSettingTokensResult:
     """
-    Configures how to correlate scan data and logs with resources associated with the subscription.
+    Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting
@@ -65,7 +65,7 @@ def list_ingestion_setting_tokens(ingestion_setting_name: Optional[str] = None,
 def list_ingestion_setting_tokens_output(ingestion_setting_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIngestionSettingTokensResult]:
     """
-    Configures how to correlate scan data and logs with resources associated with the subscription.
+    Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting

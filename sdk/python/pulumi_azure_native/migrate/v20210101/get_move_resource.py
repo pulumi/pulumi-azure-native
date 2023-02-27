@@ -86,7 +86,7 @@ def get_move_resource(move_collection_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMoveResourceResult:
     """
-    Defines the move resource.
+    Gets the Move Resource.
 
 
     :param str move_collection_name: The Move Collection Name.
@@ -113,7 +113,7 @@ def get_move_resource_output(move_collection_name: Optional[pulumi.Input[str]] =
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMoveResourceResult]:
     """
-    Defines the move resource.
+    Gets the Move Resource.
 
 
     :param str move_collection_name: The Move Collection Name.

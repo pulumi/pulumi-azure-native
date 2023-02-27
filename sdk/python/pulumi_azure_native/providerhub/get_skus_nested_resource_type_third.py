@@ -83,6 +83,7 @@ def get_skus_nested_resource_type_third(nested_resource_type_first: Optional[str
                                         sku: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusNestedResourceTypeThirdResult:
     """
+    Gets the sku details for the given resource type and sku name.
     API Version: 2020-11-20.
 
 
@@ -119,6 +120,7 @@ def get_skus_nested_resource_type_third_output(nested_resource_type_first: Optio
                                                sku: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusNestedResourceTypeThirdResult]:
     """
+    Gets the sku details for the given resource type and sku name.
     API Version: 2020-11-20.
 
 

@@ -62,7 +62,7 @@ def list_configuration_store_keys(config_store_name: Optional[str] = None,
                                   skip_token: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationStoreKeysResult:
     """
-    The result of a request to list API keys.
+    Lists the access key for the specified configuration store.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -87,7 +87,7 @@ def list_configuration_store_keys_output(config_store_name: Optional[pulumi.Inpu
                                          skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConfigurationStoreKeysResult]:
     """
-    The result of a request to list API keys.
+    Lists the access key for the specified configuration store.
 
 
     :param str config_store_name: The name of the configuration store.

@@ -159,7 +159,7 @@ def get_sync_group(database_name: Optional[str] = None,
                    sync_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
-    An Azure SQL Database sync group.
+    Gets a sync group.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.
@@ -195,7 +195,7 @@ def get_sync_group_output(database_name: Optional[pulumi.Input[str]] = None,
                           sync_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
-    An Azure SQL Database sync group.
+    Gets a sync group.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.

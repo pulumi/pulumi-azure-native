@@ -158,7 +158,7 @@ def get_schedule(lab_name: Optional[str] = None,
                  schedule_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
-    Schedule for automatically turning virtual machines in a lab on and off at specified times.
+    Returns the properties of a lab Schedule.
     API Version: 2021-10-01-preview.
 
 
@@ -192,7 +192,7 @@ def get_schedule_output(lab_name: Optional[pulumi.Input[str]] = None,
                         schedule_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
-    Schedule for automatically turning virtual machines in a lab on and off at specified times.
+    Returns the properties of a lab Schedule.
     API Version: 2021-10-01-preview.
 
 

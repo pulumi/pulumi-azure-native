@@ -134,7 +134,7 @@ def get_content_key_policy(account_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentKeyPolicyResult:
     """
-    A Content Key Policy resource.
+    Get the details of a Content Key Policy in the Media Services account
 
 
     :param str account_name: The Media Services account name.
@@ -165,7 +165,7 @@ def get_content_key_policy_output(account_name: Optional[pulumi.Input[str]] = No
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentKeyPolicyResult]:
     """
-    A Content Key Policy resource.
+    Get the details of a Content Key Policy in the Media Services account
 
 
     :param str account_name: The Media Services account name.

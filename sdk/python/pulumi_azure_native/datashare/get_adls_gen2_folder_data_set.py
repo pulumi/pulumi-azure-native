@@ -172,7 +172,7 @@ def get_adls_gen2_folder_data_set(account_name: Optional[str] = None,
                                   share_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADLSGen2FolderDataSetResult:
     """
-    An ADLS Gen 2 folder data set.
+    Get a DataSet in a share
     API Version: 2020-09-01.
 
 
@@ -210,7 +210,7 @@ def get_adls_gen2_folder_data_set_output(account_name: Optional[pulumi.Input[str
                                          share_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2FolderDataSetResult]:
     """
-    An ADLS Gen 2 folder data set.
+    Get a DataSet in a share
     API Version: 2020-09-01.
 
 

@@ -98,7 +98,7 @@ def get_service_registry(resource_group_name: Optional[str] = None,
                          service_registry_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceRegistryResult:
     """
-    Service Registry resource
+    Get the Service Registry and its properties.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -126,7 +126,7 @@ def get_service_registry_output(resource_group_name: Optional[pulumi.Input[str]]
                                 service_registry_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceRegistryResult]:
     """
-    Service Registry resource
+    Get the Service Registry and its properties.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

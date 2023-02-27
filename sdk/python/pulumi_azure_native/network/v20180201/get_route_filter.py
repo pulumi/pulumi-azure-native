@@ -148,7 +148,7 @@ def get_route_filter(expand: Optional[str] = None,
                      route_filter_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteFilterResult:
     """
-    Route Filter Resource.
+    Gets the specified route filter.
 
 
     :param str expand: Expands referenced express route bgp peering resources.
@@ -181,7 +181,7 @@ def get_route_filter_output(expand: Optional[pulumi.Input[Optional[str]]] = None
                             route_filter_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteFilterResult]:
     """
-    Route Filter Resource.
+    Gets the specified route filter.
 
 
     :param str expand: Expands referenced express route bgp peering resources.

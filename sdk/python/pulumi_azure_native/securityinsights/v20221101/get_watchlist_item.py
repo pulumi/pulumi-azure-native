@@ -219,7 +219,7 @@ def get_watchlist_item(resource_group_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatchlistItemResult:
     """
-    Represents a Watchlist Item in Azure Security Insights.
+    Get a watchlist item.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -260,7 +260,7 @@ def get_watchlist_item_output(resource_group_name: Optional[pulumi.Input[str]] =
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatchlistItemResult]:
     """
-    Represents a Watchlist Item in Azure Security Insights.
+    Get a watchlist item.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -79,6 +79,7 @@ def get_resource_type_registration(provider_namespace: Optional[str] = None,
                                    resource_type: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceTypeRegistrationResult:
     """
+    Gets a resource type details in the given subscription and provider.
     API Version: 2020-11-20.
 
 
@@ -103,6 +104,7 @@ def get_resource_type_registration_output(provider_namespace: Optional[pulumi.In
                                           resource_type: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
     """
+    Gets a resource type details in the given subscription and provider.
     API Version: 2020-11-20.
 
 

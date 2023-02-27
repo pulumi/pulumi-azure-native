@@ -86,7 +86,7 @@ def get_api_wiki(api_id: Optional[str] = None,
                  service_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiWikiResult:
     """
-    Wiki properties
+    Gets the details of the Wiki for an API specified by its identifier.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -113,7 +113,7 @@ def get_api_wiki_output(api_id: Optional[pulumi.Input[str]] = None,
                         service_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiWikiResult]:
     """
-    Wiki properties
+    Gets the details of the Wiki for an API specified by its identifier.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.

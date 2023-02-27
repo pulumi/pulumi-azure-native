@@ -243,7 +243,7 @@ def get_service(application_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    The service resource.
+    Get a Service Fabric service resource created or in the process of being created in the Service Fabric application resource.
     API Version: 2020-03-01.
 
 
@@ -287,7 +287,7 @@ def get_service_output(application_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    The service resource.
+    Get a Service Fabric service resource created or in the process of being created in the Service Fabric application resource.
     API Version: 2020-03-01.
 
 

@@ -97,7 +97,7 @@ def list_web_app_metadata_slot(name: Optional[str] = None,
                                slot: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppMetadataSlotResult:
     """
-    String dictionary resource.
+    Description for Gets the metadata of an app.
 
 
     :param str name: Name of the app.
@@ -125,7 +125,7 @@ def list_web_app_metadata_slot_output(name: Optional[pulumi.Input[str]] = None,
                                       slot: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppMetadataSlotResult]:
     """
-    String dictionary resource.
+    Description for Gets the metadata of an app.
 
 
     :param str name: Name of the app.

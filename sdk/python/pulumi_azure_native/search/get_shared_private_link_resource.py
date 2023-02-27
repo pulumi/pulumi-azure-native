@@ -86,7 +86,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
                                      shared_private_link_resource_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedPrivateLinkResourceResult:
     """
-    Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+    Gets the details of the shared private link resource managed by the search service in the given resource group.
     API Version: 2020-08-01.
 
 
@@ -114,7 +114,7 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
                                             shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedPrivateLinkResourceResult]:
     """
-    Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+    Gets the details of the shared private link resource managed by the search service in the given resource group.
     API Version: 2020-08-01.
 
 

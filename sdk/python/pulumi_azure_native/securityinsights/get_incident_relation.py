@@ -148,7 +148,7 @@ def get_incident_relation(incident_id: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentRelationResult:
     """
-    Represents a relation between two resources
+    Gets an incident relation.
     API Version: 2021-03-01-preview.
 
 
@@ -187,7 +187,7 @@ def get_incident_relation_output(incident_id: Optional[pulumi.Input[str]] = None
                                  workspace_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentRelationResult]:
     """
-    Represents a relation between two resources
+    Gets an incident relation.
     API Version: 2021-03-01-preview.
 
 

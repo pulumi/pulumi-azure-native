@@ -60,7 +60,7 @@ def list_redis_keys(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRedisKeysResult:
     """
-    Redis cache access keys.
+    Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
     API Version: 2020-06-01.
 
 
@@ -83,7 +83,7 @@ def list_redis_keys_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRedisKeysResult]:
     """
-    Redis cache access keys.
+    Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
     API Version: 2020-06-01.
 
 

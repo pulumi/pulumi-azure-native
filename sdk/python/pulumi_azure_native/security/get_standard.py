@@ -205,7 +205,7 @@ def get_standard(resource_group_name: Optional[str] = None,
                  standard_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardResult:
     """
-    Security Standard on a resource
+    Get a specific security standard for the requested scope
     API Version: 2021-08-01-preview.
 
 
@@ -240,7 +240,7 @@ def get_standard_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         standard_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardResult]:
     """
-    Security Standard on a resource
+    Get a specific security standard for the requested scope
     API Version: 2021-08-01-preview.
 
 

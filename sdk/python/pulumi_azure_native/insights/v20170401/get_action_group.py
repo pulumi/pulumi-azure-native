@@ -193,7 +193,7 @@ def get_action_group(action_group_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionGroupResult:
     """
-    An action group resource.
+    Get an action group.
 
 
     :param str action_group_name: The name of the action group.
@@ -226,7 +226,7 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
     """
-    An action group resource.
+    Get an action group.
 
 
     :param str action_group_name: The name of the action group.

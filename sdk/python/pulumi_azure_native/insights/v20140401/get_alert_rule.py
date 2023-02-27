@@ -183,7 +183,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
                    rule_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleResult:
     """
-    The alert rule resource.
+    Gets a classic metric alert rule
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -216,7 +216,7 @@ def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           rule_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
     """
-    The alert rule resource.
+    Gets a classic metric alert rule
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

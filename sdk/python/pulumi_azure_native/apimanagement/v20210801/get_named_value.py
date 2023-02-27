@@ -134,7 +134,7 @@ def get_named_value(named_value_id: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamedValueResult:
     """
-    NamedValue details.
+    Gets the details of the named value specified by its identifier.
 
 
     :param str named_value_id: Identifier of the NamedValue.
@@ -165,7 +165,7 @@ def get_named_value_output(named_value_id: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedValueResult]:
     """
-    NamedValue details.
+    Gets the details of the named value specified by its identifier.
 
 
     :param str named_value_id: Identifier of the NamedValue.

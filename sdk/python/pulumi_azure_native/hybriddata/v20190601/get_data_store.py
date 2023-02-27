@@ -134,7 +134,7 @@ def get_data_store(data_manager_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataStoreResult:
     """
-    Data store.
+    This method gets the data store/repository by name.
 
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -165,7 +165,7 @@ def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataStoreResult]:
     """
-    Data store.
+    This method gets the data store/repository by name.
 
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

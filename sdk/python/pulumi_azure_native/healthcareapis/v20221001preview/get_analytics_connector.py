@@ -182,7 +182,7 @@ def get_analytics_connector(analytics_connector_name: Optional[str] = None,
                             workspace_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnalyticsConnectorResult:
     """
-    Analytics Connector definition.
+    Gets the properties of the specified Analytics Connector.
 
 
     :param str analytics_connector_name: The name of Analytics Connector resource.
@@ -217,7 +217,7 @@ def get_analytics_connector_output(analytics_connector_name: Optional[pulumi.Inp
                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyticsConnectorResult]:
     """
-    Analytics Connector definition.
+    Gets the properties of the specified Analytics Connector.
 
 
     :param str analytics_connector_name: The name of Analytics Connector resource.

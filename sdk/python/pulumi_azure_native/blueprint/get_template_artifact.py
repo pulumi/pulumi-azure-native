@@ -159,7 +159,7 @@ def get_template_artifact(artifact_name: Optional[str] = None,
                           resource_scope: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateArtifactResult:
     """
-    Blueprint artifact that deploys a Resource Manager template.
+    Get a blueprint artifact.
     API Version: 2018-11-01-preview.
 
 
@@ -193,7 +193,7 @@ def get_template_artifact_output(artifact_name: Optional[pulumi.Input[str]] = No
                                  resource_scope: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateArtifactResult]:
     """
-    Blueprint artifact that deploys a Resource Manager template.
+    Get a blueprint artifact.
     API Version: 2018-11-01-preview.
 
 

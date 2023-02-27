@@ -238,6 +238,7 @@ def get_trunked_network(resource_group_name: Optional[str] = None,
                         trunked_network_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrunkedNetworkResult:
     """
+    Get properties of the provided trunked network.
     API Version: 2022-12-12-preview.
 
 
@@ -275,6 +276,7 @@ def get_trunked_network_output(resource_group_name: Optional[pulumi.Input[str]] 
                                trunked_network_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrunkedNetworkResult]:
     """
+    Get properties of the provided trunked network.
     API Version: 2022-12-12-preview.
 
 

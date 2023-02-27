@@ -101,7 +101,7 @@ def get_synchronization_setting(account_name: Optional[str] = None,
                                 synchronization_setting_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSynchronizationSettingResult:
     """
-    A Synchronization Setting data transfer object.
+    Get a synchronizationSetting in a share
     API Version: 2020-09-01.
 
 
@@ -134,7 +134,7 @@ def get_synchronization_setting_output(account_name: Optional[pulumi.Input[str]]
                                        synchronization_setting_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSynchronizationSettingResult]:
     """
-    A Synchronization Setting data transfer object.
+    Get a synchronizationSetting in a share
     API Version: 2020-09-01.
 
 

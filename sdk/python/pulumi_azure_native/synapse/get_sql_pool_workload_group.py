@@ -146,7 +146,7 @@ def get_sql_pool_workload_group(resource_group_name: Optional[str] = None,
                                 workspace_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolWorkloadGroupResult:
     """
-    Workload group operations for a sql pool
+    Get a Sql pool's workload group.
     API Version: 2021-03-01.
 
 
@@ -182,7 +182,7 @@ def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Inpu
                                        workspace_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolWorkloadGroupResult]:
     """
-    Workload group operations for a sql pool
+    Get a Sql pool's workload group.
     API Version: 2021-03-01.
 
 

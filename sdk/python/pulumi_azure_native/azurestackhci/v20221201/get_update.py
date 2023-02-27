@@ -302,7 +302,7 @@ def get_update(cluster_name: Optional[str] = None,
                update_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateResult:
     """
-    Update details
+    Get specified Update
 
 
     :param str cluster_name: The name of the cluster.
@@ -347,7 +347,7 @@ def get_update_output(cluster_name: Optional[pulumi.Input[str]] = None,
                       update_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUpdateResult]:
     """
-    Update details
+    Get specified Update
 
 
     :param str cluster_name: The name of the cluster.

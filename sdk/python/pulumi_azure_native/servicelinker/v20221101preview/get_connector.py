@@ -195,7 +195,7 @@ def get_connector(connector_name: Optional[str] = None,
                   subscription_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Linker of source and target resource
+    Returns Connector resource for a given name.
 
 
     :param str connector_name: The name of resource.
@@ -234,7 +234,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    Linker of source and target resource
+    Returns Connector resource for a given name.
 
 
     :param str connector_name: The name of resource.

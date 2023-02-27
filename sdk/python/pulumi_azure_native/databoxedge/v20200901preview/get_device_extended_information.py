@@ -156,7 +156,7 @@ def get_device_extended_information(device_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceExtendedInformationResult:
     """
-    The extended Info of the Data Box Edge/Gateway device.
+    Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
 
 
     :param str device_name: The device name.
@@ -186,7 +186,7 @@ def get_device_extended_information_output(device_name: Optional[pulumi.Input[st
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceExtendedInformationResult]:
     """
-    The extended Info of the Data Box Edge/Gateway device.
+    Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
 
 
     :param str device_name: The device name.

@@ -169,7 +169,7 @@ def get_network_manager(network_manager_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkManagerResult:
     """
-    The Managed Network resource
+    Gets the specified Network Manager.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -200,7 +200,7 @@ def get_network_manager_output(network_manager_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerResult]:
     """
-    The Managed Network resource
+    Gets the specified Network Manager.
 
 
     :param str network_manager_name: The name of the network manager.

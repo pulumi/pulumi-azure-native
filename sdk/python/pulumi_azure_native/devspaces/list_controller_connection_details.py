@@ -47,6 +47,7 @@ def list_controller_connection_details(name: Optional[str] = None,
                                        target_container_host_resource_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListControllerConnectionDetailsResult:
     """
+    Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
     API Version: 2019-04-01.
 
 
@@ -71,6 +72,7 @@ def list_controller_connection_details_output(name: Optional[pulumi.Input[str]] 
                                               target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListControllerConnectionDetailsResult]:
     """
+    Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
     API Version: 2019-04-01.
 
 

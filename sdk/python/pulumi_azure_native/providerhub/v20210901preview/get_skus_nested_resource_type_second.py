@@ -94,7 +94,8 @@ def get_skus_nested_resource_type_second(nested_resource_type_first: Optional[st
                                          sku: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusNestedResourceTypeSecondResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets the sku details for the given resource type and sku name.
+
 
     :param str nested_resource_type_first: The first child resource type.
     :param str nested_resource_type_second: The second child resource type.
@@ -127,7 +128,8 @@ def get_skus_nested_resource_type_second_output(nested_resource_type_first: Opti
                                                 sku: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusNestedResourceTypeSecondResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets the sku details for the given resource type and sku name.
+
 
     :param str nested_resource_type_first: The first child resource type.
     :param str nested_resource_type_second: The second child resource type.

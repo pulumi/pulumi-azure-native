@@ -181,7 +181,7 @@ def get_managed_database(database_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedDatabaseResult:
     """
-    A managed database resource.
+    Gets a managed database.
     API Version: 2020-11-01-preview.
 
 
@@ -217,7 +217,7 @@ def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = Non
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDatabaseResult]:
     """
-    A managed database resource.
+    Gets a managed database.
     API Version: 2020-11-01-preview.
 
 

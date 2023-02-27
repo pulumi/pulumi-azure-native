@@ -49,7 +49,7 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
                                       service_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAuthorizationServerSecretsResult:
     """
-    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Gets the client secret details of the authorization server.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -73,7 +73,7 @@ def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[str]
                                              service_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAuthorizationServerSecretsResult]:
     """
-    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Gets the client secret details of the authorization server.
 
 
     :param str authsid: Identifier of the authorization server.

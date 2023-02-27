@@ -109,7 +109,7 @@ def get_content_type(content_type_id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentTypeResult:
     """
-    Content type contract details.
+    Gets API Management content type details
 
 
     :param str content_type_id: Content type identifier.
@@ -138,7 +138,7 @@ def get_content_type_output(content_type_id: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentTypeResult]:
     """
-    Content type contract details.
+    Gets API Management content type details
 
 
     :param str content_type_id: Content type identifier.

@@ -121,7 +121,7 @@ def get_linked_service(linked_service_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
-    The top level Linked service resource container.
+    Gets a linked service instance.
     API Version: 2020-08-01.
 
 
@@ -152,7 +152,7 @@ def get_linked_service_output(linked_service_name: Optional[pulumi.Input[str]] =
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServiceResult]:
     """
-    The top level Linked service resource container.
+    Gets a linked service instance.
     API Version: 2020-08-01.
 
 

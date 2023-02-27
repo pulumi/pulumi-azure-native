@@ -157,7 +157,7 @@ def get_load_test(load_test_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadTestResult:
     """
-    LoadTest details
+    Get a LoadTest resource.
     API Version: 2021-12-01-preview.
 
 
@@ -188,7 +188,7 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadTestResult]:
     """
-    LoadTest details
+    Get a LoadTest resource.
     API Version: 2021-12-01-preview.
 
 

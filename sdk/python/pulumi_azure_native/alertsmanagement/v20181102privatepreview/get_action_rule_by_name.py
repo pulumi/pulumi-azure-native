@@ -111,7 +111,7 @@ def get_action_rule_by_name(action_rule_name: Optional[str] = None,
                             resource_group: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionRuleByNameResult:
     """
-    Action rule object containing target scope, conditions and suppression logic
+    Get a specific action rule
 
 
     :param str action_rule_name: The name of action rule that needs to be fetched
@@ -138,7 +138,7 @@ def get_action_rule_by_name_output(action_rule_name: Optional[pulumi.Input[str]]
                                    resource_group: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionRuleByNameResult]:
     """
-    Action rule object containing target scope, conditions and suppression logic
+    Get a specific action rule
 
 
     :param str action_rule_name: The name of action rule that needs to be fetched

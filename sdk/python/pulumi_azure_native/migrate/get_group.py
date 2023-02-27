@@ -98,7 +98,7 @@ def get_group(group_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    A group created in a Migration project.
+    Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
     API Version: 2019-10-01.
 
 
@@ -127,7 +127,7 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
-    A group created in a Migration project.
+    Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
     API Version: 2019-10-01.
 
 

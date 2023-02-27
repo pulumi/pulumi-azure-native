@@ -87,7 +87,7 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
                          target_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobTargetGroupResult:
     """
-    A group of job targets.
+    Gets a target group.
     API Version: 2020-11-01-preview.
 
 
@@ -118,7 +118,7 @@ def get_job_target_group_output(job_agent_name: Optional[pulumi.Input[str]] = No
                                 target_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobTargetGroupResult]:
     """
-    A group of job targets.
+    Gets a target group.
     API Version: 2020-11-01-preview.
 
 

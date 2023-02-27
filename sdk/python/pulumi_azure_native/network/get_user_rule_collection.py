@@ -147,7 +147,7 @@ def get_user_rule_collection(configuration_name: Optional[str] = None,
                              rule_collection_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserRuleCollectionResult:
     """
-    Defines the rule collection.
+    Gets a network manager security user configuration rule collection.
     API Version: 2021-02-01-preview.
 
 
@@ -183,7 +183,7 @@ def get_user_rule_collection_output(configuration_name: Optional[pulumi.Input[st
                                     rule_collection_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserRuleCollectionResult]:
     """
-    Defines the rule collection.
+    Gets a network manager security user configuration rule collection.
     API Version: 2021-02-01-preview.
 
 

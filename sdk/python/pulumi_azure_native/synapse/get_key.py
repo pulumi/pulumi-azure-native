@@ -97,7 +97,7 @@ def get_key(key_name: Optional[str] = None,
             workspace_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    A workspace key
+    Gets a workspace key
     API Version: 2021-03-01.
 
 
@@ -126,7 +126,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    workspace_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
-    A workspace key
+    Gets a workspace key
     API Version: 2021-03-01.
 
 

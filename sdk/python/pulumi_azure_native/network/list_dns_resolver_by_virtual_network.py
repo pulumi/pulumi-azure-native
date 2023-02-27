@@ -62,7 +62,7 @@ def list_dns_resolver_by_virtual_network(resource_group_name: Optional[str] = No
                                          virtual_network_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDnsResolverByVirtualNetworkResult:
     """
-    The response to an enumeration operation on sub-resources.
+    Lists DNS resolver resource IDs linked to a virtual network.
     API Version: 2020-04-01-preview.
 
 
@@ -88,7 +88,7 @@ def list_dns_resolver_by_virtual_network_output(resource_group_name: Optional[pu
                                                 virtual_network_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDnsResolverByVirtualNetworkResult]:
     """
-    The response to an enumeration operation on sub-resources.
+    Lists DNS resolver resource IDs linked to a virtual network.
     API Version: 2020-04-01-preview.
 
 

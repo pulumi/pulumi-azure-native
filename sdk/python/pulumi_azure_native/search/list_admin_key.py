@@ -60,7 +60,7 @@ def list_admin_key(resource_group_name: Optional[str] = None,
                    search_service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAdminKeyResult:
     """
-    Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+    Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
     API Version: 2020-08-01.
 
 
@@ -83,7 +83,7 @@ def list_admin_key_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           search_service_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAdminKeyResult]:
     """
-    Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+    Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
     API Version: 2020-08-01.
 
 

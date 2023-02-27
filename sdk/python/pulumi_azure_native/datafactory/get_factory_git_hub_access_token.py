@@ -53,7 +53,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryGitHubAccessTokenResult:
     """
-    Get GitHub access token response definition.
+    Get GitHub Access Token.
     API Version: 2018-06-01.
 
 
@@ -87,7 +87,7 @@ def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryGitHubAccessTokenResult]:
     """
-    Get GitHub access token response definition.
+    Get GitHub Access Token.
     API Version: 2018-06-01.
 
 

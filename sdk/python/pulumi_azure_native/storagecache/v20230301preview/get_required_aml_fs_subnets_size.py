@@ -49,7 +49,7 @@ def get_required_aml_fs_subnets_size(sku: Optional[pulumi.InputType['SkuName']] 
                                      storage_capacity_ti_b: Optional[float] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRequiredAmlFSSubnetsSizeResult:
     """
-    Information about the number of available IP addresses that are required for the AML file system.
+    Get the number of available IP addresses needed for the AML file system information provided.
 
 
     :param pulumi.InputType['SkuName'] sku: SKU for the resource.
@@ -70,7 +70,7 @@ def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[
                                             storage_capacity_ti_b: Optional[pulumi.Input[Optional[float]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRequiredAmlFSSubnetsSizeResult]:
     """
-    Information about the number of available IP addresses that are required for the AML file system.
+    Get the number of available IP addresses needed for the AML file system information provided.
 
 
     :param pulumi.InputType['SkuName'] sku: SKU for the resource.

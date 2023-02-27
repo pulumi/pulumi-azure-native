@@ -93,7 +93,8 @@ def get_skus_nested_resource_type_first(nested_resource_type_first: Optional[str
                                         sku: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusNestedResourceTypeFirstResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets the sku details for the given resource type and sku name.
+
 
     :param str nested_resource_type_first: The first child resource type.
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -123,7 +124,8 @@ def get_skus_nested_resource_type_first_output(nested_resource_type_first: Optio
                                                sku: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusNestedResourceTypeFirstResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets the sku details for the given resource type and sku name.
+
 
     :param str nested_resource_type_first: The first child resource type.
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

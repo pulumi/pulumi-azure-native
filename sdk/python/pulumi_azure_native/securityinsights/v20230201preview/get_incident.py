@@ -335,7 +335,8 @@ def get_incident(incident_id: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets an incident.
+
 
     :param str incident_id: Incident ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -382,7 +383,8 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets an incident.
+
 
     :param str incident_id: Incident ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

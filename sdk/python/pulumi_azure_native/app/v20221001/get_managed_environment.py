@@ -279,7 +279,7 @@ def get_managed_environment(environment_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentResult:
     """
-    An environment for hosting container apps
+    Get the properties of a Managed Environment used to host container apps.
 
 
     :param str environment_name: Name of the Environment.
@@ -319,7 +319,7 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]]
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
     """
-    An environment for hosting container apps
+    Get the properties of a Managed Environment used to host container apps.
 
 
     :param str environment_name: Name of the Environment.

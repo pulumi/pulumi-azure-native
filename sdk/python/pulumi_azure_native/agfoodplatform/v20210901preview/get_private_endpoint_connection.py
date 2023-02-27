@@ -134,7 +134,7 @@ def get_private_endpoint_connection(farm_beats_resource_name: Optional[str] = No
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The private endpoint connection resource.
+    Get Private endpoint connection object.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.
@@ -165,7 +165,7 @@ def get_private_endpoint_connection_output(farm_beats_resource_name: Optional[pu
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The private endpoint connection resource.
+    Get Private endpoint connection object.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.

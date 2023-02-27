@@ -172,7 +172,7 @@ def get_adls_gen2_file_data_set(account_name: Optional[str] = None,
                                 share_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADLSGen2FileDataSetResult:
     """
-    An ADLS Gen 2 file data set.
+    Get a DataSet in a share
 
 
     :param str account_name: The name of the share account.
@@ -209,7 +209,7 @@ def get_adls_gen2_file_data_set_output(account_name: Optional[pulumi.Input[str]]
                                        share_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2FileDataSetResult]:
     """
-    An ADLS Gen 2 file data set.
+    Get a DataSet in a share
 
 
     :param str account_name: The name of the share account.

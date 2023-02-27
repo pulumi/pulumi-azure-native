@@ -205,7 +205,7 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationsGatewayResult:
     """
-    A CommunicationsGateway resource
+    Get a CommunicationsGateway
     API Version: 2022-12-01-preview.
 
 
@@ -240,7 +240,7 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationsGatewayResult]:
     """
-    A CommunicationsGateway resource
+    Get a CommunicationsGateway
     API Version: 2022-12-01-preview.
 
 

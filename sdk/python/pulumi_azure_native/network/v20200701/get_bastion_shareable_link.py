@@ -63,7 +63,7 @@ def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
                                vms: Optional[Sequence[pulumi.InputType['BastionShareableLink']]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionShareableLinkResult:
     """
-    Response for all the Bastion Shareable Link endpoints.
+    Return the Bastion Shareable Links for all the VMs specified in the request.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -88,7 +88,7 @@ def get_bastion_shareable_link_output(bastion_host_name: Optional[pulumi.Input[s
                                       vms: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['BastionShareableLink']]]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionShareableLinkResult]:
     """
-    Response for all the Bastion Shareable Link endpoints.
+    Return the Bastion Shareable Links for all the VMs specified in the request.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

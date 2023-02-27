@@ -169,7 +169,7 @@ def get_registration(registration_name: Optional[str] = None,
                      resource_group: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationResult:
     """
-    Registration information.
+    Returns the properties of an Azure Stack registration.
 
 
     :param str registration_name: Name of the Azure Stack registration.
@@ -200,7 +200,7 @@ def get_registration_output(registration_name: Optional[pulumi.Input[str]] = Non
                             resource_group: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationResult]:
     """
-    Registration information.
+    Returns the properties of an Azure Stack registration.
 
 
     :param str registration_name: Name of the Azure Stack registration.

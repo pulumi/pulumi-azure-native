@@ -232,7 +232,7 @@ def get_ti_taxii_data_connector(data_connector_id: Optional[str] = None,
                                 workspace_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTiTaxiiDataConnectorResult:
     """
-    Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -274,7 +274,7 @@ def get_ti_taxii_data_connector_output(data_connector_id: Optional[pulumi.Input[
                                        workspace_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTiTaxiiDataConnectorResult]:
     """
-    Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

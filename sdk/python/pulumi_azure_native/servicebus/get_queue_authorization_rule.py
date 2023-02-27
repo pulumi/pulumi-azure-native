@@ -86,7 +86,7 @@ def get_queue_authorization_rule(authorization_rule_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueAuthorizationRuleResult:
     """
-    Description of a namespace authorization rule.
+    Gets an authorization rule for a queue by rule name.
     API Version: 2017-04-01.
 
 
@@ -117,7 +117,7 @@ def get_queue_authorization_rule_output(authorization_rule_name: Optional[pulumi
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
     """
-    Description of a namespace authorization rule.
+    Gets an authorization rule for a queue by rule name.
     API Version: 2017-04-01.
 
 

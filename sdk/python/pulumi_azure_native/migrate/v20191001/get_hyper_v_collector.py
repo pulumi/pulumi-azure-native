@@ -80,7 +80,8 @@ def get_hyper_v_collector(hyper_v_collector_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHyperVCollectorResult:
     """
-    Use this data source to access information about an existing resource.
+    Get a Hyper-V collector.
+
 
     :param str hyper_v_collector_name: Unique name of a Hyper-V collector within a project.
     :param str project_name: Name of the Azure Migrate project.
@@ -107,7 +108,8 @@ def get_hyper_v_collector_output(hyper_v_collector_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHyperVCollectorResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get a Hyper-V collector.
+
 
     :param str hyper_v_collector_name: Unique name of a Hyper-V collector within a project.
     :param str project_name: Name of the Azure Migrate project.

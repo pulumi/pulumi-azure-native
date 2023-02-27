@@ -121,7 +121,7 @@ def get_cache(cache_id: Optional[str] = None,
               service_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
-    Cache details.
+    Gets the details of the Cache specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -152,7 +152,7 @@ def get_cache_output(cache_id: Optional[pulumi.Input[str]] = None,
                      service_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
     """
-    Cache details.
+    Gets the details of the Cache specified by its identifier.
     API Version: 2020-12-01.
 
 

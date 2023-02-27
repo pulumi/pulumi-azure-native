@@ -182,7 +182,7 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
                                               software_update_configuration_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSoftwareUpdateConfigurationByNameResult:
     """
-    Software update configuration properties.
+    Get a single software update configuration by name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -217,7 +217,7 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
                                                      software_update_configuration_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoftwareUpdateConfigurationByNameResult]:
     """
-    Software update configuration properties.
+    Get a single software update configuration by name.
 
 
     :param str automation_account_name: The name of the automation account.

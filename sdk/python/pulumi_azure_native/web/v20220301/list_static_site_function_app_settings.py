@@ -96,7 +96,7 @@ def list_static_site_function_app_settings(name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteFunctionAppSettingsResult:
     """
-    String dictionary resource.
+    Description for Gets the application settings of a static site.
 
 
     :param str name: Name of the static site.
@@ -121,7 +121,7 @@ def list_static_site_function_app_settings_output(name: Optional[pulumi.Input[st
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteFunctionAppSettingsResult]:
     """
-    String dictionary resource.
+    Description for Gets the application settings of a static site.
 
 
     :param str name: Name of the static site.

@@ -157,7 +157,7 @@ def getprivate_link_services_for_edm_upload(resource_group_name: Optional[str] =
                                             resource_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForEDMUploadResult:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForEDMUpload resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -187,7 +187,7 @@ def getprivate_link_services_for_edm_upload_output(resource_group_name: Optional
                                                    resource_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkServicesForEDMUploadResult]:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForEDMUpload resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

@@ -98,7 +98,7 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
                                                   resource_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceEventHubConsumerGroupResult:
     """
-    The properties of the EventHubConsumerGroupInfo object.
+    Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
     API Version: 2020-08-31.
 
 
@@ -130,7 +130,7 @@ def get_iot_hub_resource_event_hub_consumer_group_output(event_hub_endpoint_name
                                                          resource_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubResourceEventHubConsumerGroupResult]:
     """
-    The properties of the EventHubConsumerGroupInfo object.
+    Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
     API Version: 2020-08-31.
 
 

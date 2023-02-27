@@ -108,7 +108,7 @@ class AwaitableGetDeploymentAtTenantScopeResult(GetDeploymentAtTenantScopeResult
 def get_deployment_at_tenant_scope(deployment_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtTenantScopeResult:
     """
-    Deployment information.
+    Gets a deployment.
     API Version: 2021-01-01.
 
 
@@ -132,7 +132,7 @@ def get_deployment_at_tenant_scope(deployment_name: Optional[str] = None,
 def get_deployment_at_tenant_scope_output(deployment_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtTenantScopeResult]:
     """
-    Deployment information.
+    Gets a deployment.
     API Version: 2021-01-01.
 
 

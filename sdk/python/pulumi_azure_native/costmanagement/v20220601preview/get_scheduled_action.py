@@ -192,7 +192,7 @@ class AwaitableGetScheduledActionResult(GetScheduledActionResult):
 def get_scheduled_action(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledActionResult:
     """
-    Scheduled action definition.
+    Get the private scheduled action by name.
 
 
     :param str name: Scheduled action name.
@@ -222,7 +222,7 @@ def get_scheduled_action(name: Optional[str] = None,
 def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
-    Scheduled action definition.
+    Get the private scheduled action by name.
 
 
     :param str name: Scheduled action name.

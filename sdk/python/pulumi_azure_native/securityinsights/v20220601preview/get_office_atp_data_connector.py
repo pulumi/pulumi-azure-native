@@ -135,7 +135,7 @@ def get_office_atp_data_connector(data_connector_id: Optional[str] = None,
                                   workspace_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOfficeATPDataConnectorResult:
     """
-    Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -166,7 +166,7 @@ def get_office_atp_data_connector_output(data_connector_id: Optional[pulumi.Inpu
                                          workspace_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOfficeATPDataConnectorResult]:
     """
-    Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

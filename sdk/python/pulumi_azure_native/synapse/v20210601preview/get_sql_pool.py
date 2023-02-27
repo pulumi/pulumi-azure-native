@@ -218,7 +218,7 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolResult:
     """
-    A SQL Analytics pool
+    Get SQL pool properties
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -256,7 +256,7 @@ def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolResult]:
     """
-    A SQL Analytics pool
+    Get SQL pool properties
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

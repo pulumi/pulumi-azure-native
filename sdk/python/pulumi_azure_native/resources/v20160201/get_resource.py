@@ -174,7 +174,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
                  resource_type: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Resource information.
+    Returns a resource belonging to a resource group.
 
 
     :param str parent_resource_path: Resource identity.
@@ -215,7 +215,7 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
                         resource_type: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Resource information.
+    Returns a resource belonging to a resource group.
 
 
     :param str parent_resource_path: Resource identity.

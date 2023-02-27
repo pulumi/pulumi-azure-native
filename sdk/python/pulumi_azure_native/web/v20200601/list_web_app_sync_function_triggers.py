@@ -60,7 +60,7 @@ def list_web_app_sync_function_triggers(name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSyncFunctionTriggersResult:
     """
-    Function secrets.
+    This is to allow calling via powershell and ARM template.
 
 
     :param str name: Name of the app.
@@ -82,7 +82,7 @@ def list_web_app_sync_function_triggers_output(name: Optional[pulumi.Input[str]]
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersResult]:
     """
-    Function secrets.
+    This is to allow calling via powershell and ARM template.
 
 
     :param str name: Name of the app.

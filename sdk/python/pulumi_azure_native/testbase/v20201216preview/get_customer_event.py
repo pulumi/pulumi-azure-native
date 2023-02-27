@@ -112,7 +112,7 @@ def get_customer_event(customer_event_name: Optional[str] = None,
                        test_base_account_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerEventResult:
     """
-    The Customer Notification Event resource.
+    Gets a Test Base CustomerEvent.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.
@@ -142,7 +142,7 @@ def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] =
                               test_base_account_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerEventResult]:
     """
-    The Customer Notification Event resource.
+    Gets a Test Base CustomerEvent.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.

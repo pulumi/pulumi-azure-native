@@ -314,7 +314,7 @@ def get_job(expand: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Job Resource.
+    Gets information about the specified job.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -360,7 +360,7 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
-    Job Resource.
+    Gets information about the specified job.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.

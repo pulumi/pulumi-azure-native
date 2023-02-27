@@ -84,7 +84,7 @@ class AwaitableGetOnPremiseSensorResult(GetOnPremiseSensorResult):
 def get_on_premise_sensor(on_premise_sensor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnPremiseSensorResult:
     """
-    On-premise IoT sensor
+    Get on-premise IoT sensor
     API Version: 2021-02-01-preview.
 
 
@@ -106,7 +106,7 @@ def get_on_premise_sensor(on_premise_sensor_name: Optional[str] = None,
 def get_on_premise_sensor_output(on_premise_sensor_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnPremiseSensorResult]:
     """
-    On-premise IoT sensor
+    Get on-premise IoT sensor
     API Version: 2021-02-01-preview.
 
 

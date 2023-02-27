@@ -110,7 +110,7 @@ class AwaitableGetManagementLockAtSubscriptionLevelResult(GetManagementLockAtSub
 def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtSubscriptionLevelResult:
     """
-    The lock information.
+    Gets a management lock at the subscription level.
 
 
     :param str lock_name: The name of the lock to get.
@@ -134,7 +134,7 @@ def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
 def get_management_lock_at_subscription_level_output(lock_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockAtSubscriptionLevelResult]:
     """
-    The lock information.
+    Gets a management lock at the subscription level.
 
 
     :param str lock_name: The name of the lock to get.

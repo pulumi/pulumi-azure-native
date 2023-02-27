@@ -158,7 +158,7 @@ def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
                                      resource_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionWithSecretsResult:
     """
-    Bot channel resource definition
+    Get a Connection Setting registration for a Bot Service
     API Version: 2021-03-01.
 
 
@@ -192,7 +192,7 @@ def list_bot_connection_with_secrets_output(connection_name: Optional[pulumi.Inp
                                             resource_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBotConnectionWithSecretsResult]:
     """
-    Bot channel resource definition
+    Get a Connection Setting registration for a Bot Service
     API Version: 2021-03-01.
 
 

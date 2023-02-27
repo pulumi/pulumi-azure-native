@@ -96,7 +96,7 @@ def list_web_app_metadata(name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppMetadataResult:
     """
-    String dictionary resource.
+    Gets the metadata of an app.
     API Version: 2020-12-01.
 
 
@@ -122,7 +122,7 @@ def list_web_app_metadata_output(name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppMetadataResult]:
     """
-    String dictionary resource.
+    Gets the metadata of an app.
     API Version: 2020-12-01.
 
 

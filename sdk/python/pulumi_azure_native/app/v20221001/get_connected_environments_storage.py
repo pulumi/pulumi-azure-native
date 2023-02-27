@@ -98,7 +98,7 @@ def get_connected_environments_storage(connected_environment_name: Optional[str]
                                        storage_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedEnvironmentsStorageResult:
     """
-    Storage resource for connectedEnvironment.
+    Get storage for a connectedEnvironment.
 
 
     :param str connected_environment_name: Name of the Environment.
@@ -126,7 +126,7 @@ def get_connected_environments_storage_output(connected_environment_name: Option
                                               storage_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentsStorageResult]:
     """
-    Storage resource for connectedEnvironment.
+    Get storage for a connectedEnvironment.
 
 
     :param str connected_environment_name: Name of the Environment.

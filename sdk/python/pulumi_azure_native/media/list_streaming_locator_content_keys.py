@@ -50,7 +50,7 @@ def list_streaming_locator_content_keys(account_name: Optional[str] = None,
                                         streaming_locator_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStreamingLocatorContentKeysResult:
     """
-    Class of response for listContentKeys action
+    List Content Keys used by this Streaming Locator
     API Version: 2020-05-01.
 
 
@@ -75,7 +75,7 @@ def list_streaming_locator_content_keys_output(account_name: Optional[pulumi.Inp
                                                streaming_locator_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStreamingLocatorContentKeysResult]:
     """
-    Class of response for listContentKeys action
+    List Content Keys used by this Streaming Locator
     API Version: 2020-05-01.
 
 

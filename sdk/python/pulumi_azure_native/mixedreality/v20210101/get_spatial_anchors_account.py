@@ -193,7 +193,7 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpatialAnchorsAccountResult:
     """
-    SpatialAnchorsAccount Response.
+    Retrieve a Spatial Anchors Account.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -226,7 +226,7 @@ def get_spatial_anchors_account_output(account_name: Optional[pulumi.Input[str]]
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpatialAnchorsAccountResult]:
     """
-    SpatialAnchorsAccount Response.
+    Retrieve a Spatial Anchors Account.
 
 
     :param str account_name: Name of an Mixed Reality Account.

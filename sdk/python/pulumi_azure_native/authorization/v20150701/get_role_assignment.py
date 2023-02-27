@@ -87,7 +87,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
-    Role Assignments
+    Get the specified role assignment.
 
 
     :param str role_assignment_name: The name of the role assignment to get.
@@ -112,7 +112,7 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
                                scope: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
-    Role Assignments
+    Get the specified role assignment.
 
 
     :param str role_assignment_name: The name of the role assignment to get.

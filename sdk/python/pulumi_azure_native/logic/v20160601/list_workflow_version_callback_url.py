@@ -114,7 +114,7 @@ def list_workflow_version_callback_url(key_type: Optional['KeyType'] = None,
                                        workflow_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowVersionCallbackUrlResult:
     """
-    The workflow trigger callback URL.
+    Get the callback url for a trigger of a workflow version.
 
 
     :param 'KeyType' key_type: The key type.
@@ -152,7 +152,7 @@ def list_workflow_version_callback_url_output(key_type: Optional[pulumi.Input[Op
                                               workflow_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowVersionCallbackUrlResult]:
     """
-    The workflow trigger callback URL.
+    Get the callback url for a trigger of a workflow version.
 
 
     :param 'KeyType' key_type: The key type.

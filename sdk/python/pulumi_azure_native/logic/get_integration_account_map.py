@@ -194,7 +194,7 @@ def get_integration_account_map(integration_account_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountMapResult:
     """
-    The integration account map.
+    Gets an integration account map.
     API Version: 2019-05-01.
 
 
@@ -231,7 +231,7 @@ def get_integration_account_map_output(integration_account_name: Optional[pulumi
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountMapResult]:
     """
-    The integration account map.
+    Gets an integration account map.
     API Version: 2019-05-01.
 
 

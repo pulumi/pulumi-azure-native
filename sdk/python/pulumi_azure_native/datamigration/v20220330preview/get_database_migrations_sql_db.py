@@ -91,7 +91,7 @@ def get_database_migrations_sql_db(expand: Optional[str] = None,
                                    target_db_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseMigrationsSqlDbResult:
     """
-    Database Migration Resource for SQL Database.
+    Retrieve the Database Migration resource.
 
 
     :param str expand: Complete migration details be included in the response.
@@ -124,7 +124,7 @@ def get_database_migrations_sql_db_output(expand: Optional[pulumi.Input[Optional
                                           target_db_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseMigrationsSqlDbResult]:
     """
-    Database Migration Resource for SQL Database.
+    Retrieve the Database Migration resource.
 
 
     :param str expand: Complete migration details be included in the response.

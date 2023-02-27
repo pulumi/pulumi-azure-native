@@ -285,7 +285,7 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerRegistrationResult:
     """
-    Information about a partner registration.
+    Gets a partner registration with the specified parameters.
 
 
     :param str partner_registration_name: Name of the partner registration.
@@ -325,7 +325,7 @@ def get_partner_registration_output(partner_registration_name: Optional[pulumi.I
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerRegistrationResult]:
     """
-    Information about a partner registration.
+    Gets a partner registration with the specified parameters.
 
 
     :param str partner_registration_name: Name of the partner registration.

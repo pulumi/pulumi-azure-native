@@ -99,7 +99,7 @@ def get_patch_schedule(name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchScheduleResult:
     """
-    Response to put/get patch schedules for Redis cache.
+    Gets the patching schedule of a redis cache (requires Premium SKU).
 
 
     :param str name: The name of the redis cache.
@@ -125,7 +125,7 @@ def get_patch_schedule_output(name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPatchScheduleResult]:
     """
-    Response to put/get patch schedules for Redis cache.
+    Gets the patching schedule of a redis cache (requires Premium SKU).
 
 
     :param str name: The name of the redis cache.

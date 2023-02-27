@@ -191,6 +191,7 @@ def get_metrics_configuration(cluster_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricsConfigurationResult:
     """
+    Get metrics configuration of the provided cluster.
     API Version: 2022-12-12-preview.
 
 
@@ -227,6 +228,7 @@ def get_metrics_configuration_output(cluster_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricsConfigurationResult]:
     """
+    Get metrics configuration of the provided cluster.
     API Version: 2022-12-12-preview.
 
 

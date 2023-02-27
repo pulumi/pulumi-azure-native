@@ -181,7 +181,7 @@ def get_source_control(automation_account_name: Optional[str] = None,
                        source_control_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlResult:
     """
-    Definition of the source control.
+    Retrieve the source control identified by source control name.
     API Version: 2019-06-01.
 
 
@@ -217,7 +217,7 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[str
                               source_control_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlResult]:
     """
-    Definition of the source control.
+    Retrieve the source control identified by source control name.
     API Version: 2019-06-01.
 
 

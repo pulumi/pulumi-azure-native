@@ -133,7 +133,7 @@ def get_bot(bot_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
-    HealthBot resource definition
+    Get a HealthBot.
     API Version: 2020-12-08.
 
 
@@ -162,7 +162,7 @@ def get_bot_output(bot_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
-    HealthBot resource definition
+    Get a HealthBot.
     API Version: 2020-12-08.
 
 

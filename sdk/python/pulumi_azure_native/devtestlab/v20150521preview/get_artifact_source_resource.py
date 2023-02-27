@@ -195,7 +195,7 @@ def get_artifact_source_resource(lab_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactSourceResourceResult:
     """
-    Properties of an artifact source.
+    Get artifact source.
 
 
     :param str lab_name: The name of the lab.
@@ -232,7 +232,7 @@ def get_artifact_source_resource_output(lab_name: Optional[pulumi.Input[str]] = 
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArtifactSourceResourceResult]:
     """
-    Properties of an artifact source.
+    Get artifact source.
 
 
     :param str lab_name: The name of the lab.

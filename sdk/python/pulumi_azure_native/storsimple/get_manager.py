@@ -145,7 +145,7 @@ def get_manager(manager_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerResult:
     """
-    The StorSimple Manager.
+    Returns the properties of the specified manager name.
     API Version: 2017-06-01.
 
 
@@ -175,7 +175,7 @@ def get_manager_output(manager_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerResult]:
     """
-    The StorSimple Manager.
+    Returns the properties of the specified manager name.
     API Version: 2017-06-01.
 
 

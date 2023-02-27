@@ -123,7 +123,7 @@ def get_redis_linked_server(linked_server_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisLinkedServerResult:
     """
-    Response to put/get linked server (with properties) for Redis cache.
+    Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
 
 
     :param str linked_server_name: The name of the linked server.
@@ -154,7 +154,7 @@ def get_redis_linked_server_output(linked_server_name: Optional[pulumi.Input[str
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisLinkedServerResult]:
     """
-    Response to put/get linked server (with properties) for Redis cache.
+    Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
 
 
     :param str linked_server_name: The name of the linked server.

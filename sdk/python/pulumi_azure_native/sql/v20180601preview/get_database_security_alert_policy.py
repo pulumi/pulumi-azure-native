@@ -170,7 +170,7 @@ def get_database_security_alert_policy(database_name: Optional[str] = None,
                                        server_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseSecurityAlertPolicyResult:
     """
-    A database security alert policy.
+    Gets a  database's security alert policy.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.
@@ -207,7 +207,7 @@ def get_database_security_alert_policy_output(database_name: Optional[pulumi.Inp
                                               server_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseSecurityAlertPolicyResult]:
     """
-    A database security alert policy.
+    Gets a  database's security alert policy.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.

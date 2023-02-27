@@ -254,7 +254,7 @@ def get_kusto_pool(kusto_pool_name: Optional[str] = None,
                    workspace_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolResult:
     """
-    Class representing a Kusto kusto pool.
+    Gets a Kusto pool.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.
@@ -295,7 +295,7 @@ def get_kusto_pool_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
                           workspace_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolResult]:
     """
-    Class representing a Kusto kusto pool.
+    Gets a Kusto pool.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.

@@ -49,7 +49,7 @@ def list_agent_pool_queue_status(agent_pool_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAgentPoolQueueStatusResult:
     """
-    The QueueStatus of Agent Pool
+    Gets the count of queued runs for a given agent pool.
 
 
     :param str agent_pool_name: The name of the agent pool.
@@ -73,7 +73,7 @@ def list_agent_pool_queue_status_output(agent_pool_name: Optional[pulumi.Input[s
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAgentPoolQueueStatusResult]:
     """
-    The QueueStatus of Agent Pool
+    Gets the count of queued runs for a given agent pool.
 
 
     :param str agent_pool_name: The name of the agent pool.

@@ -108,7 +108,7 @@ def get_account(resource_group_name: Optional[str] = None,
                 resource_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    The response to an account resource GET request.
+    Gets the Visual Studio Team Services account resource details.
     API Version: 2014-04-01-preview.
 
 
@@ -135,7 +135,7 @@ def get_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        resource_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    The response to an account resource GET request.
+    Gets the Visual Studio Team Services account resource details.
     API Version: 2014-04-01-preview.
 
 

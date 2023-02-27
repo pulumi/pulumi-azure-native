@@ -50,7 +50,7 @@ def list_build_service_builder_deployments(build_service_name: Optional[str] = N
                                            service_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBuildServiceBuilderDeploymentsResult:
     """
-    A list of deployments resource ids.
+    List deployments that are using the builder.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -77,7 +77,7 @@ def list_build_service_builder_deployments_output(build_service_name: Optional[p
                                                   service_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildServiceBuilderDeploymentsResult]:
     """
-    A list of deployments resource ids.
+    List deployments that are using the builder.
 
 
     :param str build_service_name: The name of the build service resource.

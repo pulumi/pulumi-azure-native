@@ -110,7 +110,7 @@ def get_private_atlase(account_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateAtlaseResult:
     """
-    An Azure resource which represents which will provision the ability to create private location data.
+    [Deprecated] Get a Private Atlas resource.
     API Version: 2020-02-01-preview.
 
 
@@ -140,7 +140,7 @@ def get_private_atlase_output(account_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateAtlaseResult]:
     """
-    An Azure resource which represents which will provision the ability to create private location data.
+    [Deprecated] Get a Private Atlas resource.
     API Version: 2020-02-01-preview.
 
 

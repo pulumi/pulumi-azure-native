@@ -132,7 +132,7 @@ class AwaitableGetReportResult(GetReportResult):
 def get_report(report_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportResult:
     """
-    A report resource.
+    Gets the report for a subscription by report name.
     API Version: 2018-08-01-preview.
 
 
@@ -158,7 +158,7 @@ def get_report(report_name: Optional[str] = None,
 def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportResult]:
     """
-    A report resource.
+    Gets the report for a subscription by report name.
     API Version: 2018-08-01-preview.
 
 

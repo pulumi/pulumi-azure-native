@@ -385,7 +385,7 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
                                service_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceResult:
     """
-    A single API Management service resource in List or Get response.
+    Gets an API Management service resource description.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -434,7 +434,7 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
                                       service_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceResult]:
     """
-    A single API Management service resource in List or Get response.
+    Gets an API Management service resource description.
 
 
     :param str resource_group_name: The name of the resource group.

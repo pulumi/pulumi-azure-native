@@ -147,7 +147,7 @@ def get_read_write_database(cluster_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReadWriteDatabaseResult:
     """
-    Class representing a read write database.
+    Returns a database.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -179,7 +179,7 @@ def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = N
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadWriteDatabaseResult]:
     """
-    Class representing a read write database.
+    Returns a database.
 
 
     :param str cluster_name: The name of the Kusto cluster.

@@ -194,7 +194,7 @@ def getv_net_peering(peering_name: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetvNetPeeringResult:
     """
-    Peerings in a VirtualNetwork resource
+    Gets the workspace vNet Peering.
 
 
     :param str peering_name: The name of the workspace vNet peering.
@@ -230,7 +230,7 @@ def getv_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
                             workspace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetvNetPeeringResult]:
     """
-    Peerings in a VirtualNetwork resource
+    Gets the workspace vNet Peering.
 
 
     :param str peering_name: The name of the workspace vNet peering.

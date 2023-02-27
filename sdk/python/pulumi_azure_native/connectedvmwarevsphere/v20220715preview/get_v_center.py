@@ -253,7 +253,7 @@ def get_v_center(resource_group_name: Optional[str] = None,
                  vcenter_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVCenterResult:
     """
-    Defines the vCenter.
+    Implements vCenter GET method.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -291,7 +291,7 @@ def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         vcenter_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVCenterResult]:
     """
-    Defines the vCenter.
+    Implements vCenter GET method.
 
 
     :param str resource_group_name: The Resource Group Name.

@@ -197,7 +197,7 @@ def get_custom_image(expand: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomImageResult:
     """
-    A custom image.
+    Get custom image.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=vm)'
@@ -237,7 +237,7 @@ def get_custom_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomImageResult]:
     """
-    A custom image.
+    Get custom image.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=vm)'

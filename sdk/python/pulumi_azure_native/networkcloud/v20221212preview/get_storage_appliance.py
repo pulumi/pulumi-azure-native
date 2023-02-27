@@ -283,7 +283,8 @@ def get_storage_appliance(resource_group_name: Optional[str] = None,
                           storage_appliance_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageApplianceResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided storage appliance.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_appliance_name: The name of the storage appliance.
@@ -323,7 +324,8 @@ def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]
                                  storage_appliance_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageApplianceResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided storage appliance.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_appliance_name: The name of the storage appliance.

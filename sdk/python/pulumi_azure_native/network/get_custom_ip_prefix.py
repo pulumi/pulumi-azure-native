@@ -194,7 +194,7 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomIPPrefixResult:
     """
-    Custom IP prefix resource.
+    Gets the specified custom IP prefix in a specified resource group.
     API Version: 2020-11-01.
 
 
@@ -231,7 +231,7 @@ def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomIPPrefixResult]:
     """
-    Custom IP prefix resource.
+    Gets the specified custom IP prefix in a specified resource group.
     API Version: 2020-11-01.
 
 

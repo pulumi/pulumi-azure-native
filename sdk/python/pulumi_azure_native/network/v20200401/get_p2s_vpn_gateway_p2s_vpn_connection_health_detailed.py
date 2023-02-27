@@ -50,7 +50,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed(gateway_name: Optiona
                                                            vpn_user_names_filter: Optional[Sequence[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult:
     """
-    P2S Vpn connection detailed health written to sas url.
+    Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
 
 
     :param str gateway_name: The name of the P2SVpnGateway.
@@ -77,7 +77,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed_output(gateway_name: 
                                                                   vpn_user_names_filter: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult]:
     """
-    P2S Vpn connection detailed health written to sas url.
+    Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
 
 
     :param str gateway_name: The name of the P2SVpnGateway.

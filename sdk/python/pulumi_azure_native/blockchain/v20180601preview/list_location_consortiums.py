@@ -48,7 +48,7 @@ class AwaitableListLocationConsortiumsResult(ListLocationConsortiumsResult):
 def list_location_consortiums(location_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLocationConsortiumsResult:
     """
-    Collection of the consortium payload.
+    Lists the available consortiums for a subscription.
 
 
     :param str location_name: Location Name.
@@ -66,7 +66,7 @@ def list_location_consortiums(location_name: Optional[str] = None,
 def list_location_consortiums_output(location_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLocationConsortiumsResult]:
     """
-    Collection of the consortium payload.
+    Lists the available consortiums for a subscription.
 
 
     :param str location_name: Location Name.

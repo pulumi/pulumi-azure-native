@@ -145,7 +145,7 @@ def get_backup_vault(resource_group_name: Optional[str] = None,
                      vault_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupVaultResult:
     """
-    Backup Vault Resource
+    Returns a resource belonging to a resource group.
 
 
     :param str resource_group_name: The name of the resource group where the backup vault is present.
@@ -174,7 +174,7 @@ def get_backup_vault_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             vault_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
-    Backup Vault Resource
+    Returns a resource belonging to a resource group.
 
 
     :param str resource_group_name: The name of the resource group where the backup vault is present.

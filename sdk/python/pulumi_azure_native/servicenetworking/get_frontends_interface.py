@@ -158,7 +158,7 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
                             traffic_controller_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontendsInterfaceResult:
     """
-    Frontend Subresource of Traffic Controller.
+    Get a Traffic Controller Frontend
     API Version: 2022-10-01-preview.
 
 
@@ -192,7 +192,7 @@ def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = 
                                    traffic_controller_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontendsInterfaceResult]:
     """
-    Frontend Subresource of Traffic Controller.
+    Get a Traffic Controller Frontend
     API Version: 2022-10-01-preview.
 
 

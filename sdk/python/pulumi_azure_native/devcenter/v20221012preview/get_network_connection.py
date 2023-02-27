@@ -217,7 +217,7 @@ def get_network_connection(network_connection_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkConnectionResult:
     """
-    Network related settings
+    Gets a network connection resource
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
@@ -252,7 +252,7 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkConnectionResult]:
     """
-    Network related settings
+    Gets a network connection resource
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.

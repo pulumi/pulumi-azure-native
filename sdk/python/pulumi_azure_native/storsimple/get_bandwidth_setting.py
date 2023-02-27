@@ -110,7 +110,7 @@ def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthSettingResult:
     """
-    The bandwidth setting.
+    Returns the properties of the specified bandwidth setting name.
     API Version: 2017-06-01.
 
 
@@ -140,7 +140,7 @@ def get_bandwidth_setting_output(bandwidth_setting_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBandwidthSettingResult]:
     """
-    The bandwidth setting.
+    Returns the properties of the specified bandwidth setting name.
     API Version: 2017-06-01.
 
 

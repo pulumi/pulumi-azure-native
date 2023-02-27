@@ -227,6 +227,7 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterManagerResult:
     """
+    Get the properties of the provided cluster manager.
     API Version: 2022-12-12-preview.
 
 
@@ -263,6 +264,7 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterManagerResult]:
     """
+    Get the properties of the provided cluster manager.
     API Version: 2022-12-12-preview.
 
 

@@ -159,7 +159,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskEncryptionSetResult:
     """
-    disk encryption set resource.
+    Gets information about a disk encryption set.
 
 
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -190,7 +190,7 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
     """
-    disk encryption set resource.
+    Gets information about a disk encryption set.
 
 
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.

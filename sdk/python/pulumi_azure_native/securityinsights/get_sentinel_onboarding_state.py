@@ -111,7 +111,7 @@ def get_sentinel_onboarding_state(operational_insights_resource_provider: Option
                                   workspace_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSentinelOnboardingStateResult:
     """
-    Sentinel onboarding state
+    Get Sentinel onboarding state
     API Version: 2021-03-01-preview.
 
 
@@ -144,7 +144,7 @@ def get_sentinel_onboarding_state_output(operational_insights_resource_provider:
                                          workspace_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSentinelOnboardingStateResult]:
     """
-    Sentinel onboarding state
+    Get Sentinel onboarding state
     API Version: 2021-03-01-preview.
 
 

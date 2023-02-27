@@ -113,7 +113,7 @@ def list_integration_account_agreement_content_callback_url(agreement_name: Opti
                                                             resource_group_name: Optional[str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountAgreementContentCallbackUrlResult:
     """
-    The workflow trigger callback URL.
+    Get the content callback url.
 
 
     :param str agreement_name: The integration account agreement name.
@@ -148,7 +148,7 @@ def list_integration_account_agreement_content_callback_url_output(agreement_nam
                                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountAgreementContentCallbackUrlResult]:
     """
-    The workflow trigger callback URL.
+    Get the content callback url.
 
 
     :param str agreement_name: The integration account agreement name.

@@ -108,7 +108,7 @@ def get_workload_deployment_secret_configurations(modernize_project_name: Option
                                                   workload_deployment_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadDeploymentSecretConfigurationsResult:
     """
-    Workload deployment model.
+    Gets the secrets of the workload deployment.
 
 
     :param str modernize_project_name: ModernizeProject name.
@@ -140,7 +140,7 @@ def get_workload_deployment_secret_configurations_output(modernize_project_name:
                                                          workload_deployment_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadDeploymentSecretConfigurationsResult]:
     """
-    Workload deployment model.
+    Gets the secrets of the workload deployment.
 
 
     :param str modernize_project_name: ModernizeProject name.

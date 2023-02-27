@@ -231,7 +231,7 @@ def get_appliance(appliance_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplianceResult:
     """
-    Information about appliance.
+    Gets the appliance.
 
 
     :param str appliance_name: The name of the appliance.
@@ -268,7 +268,7 @@ def get_appliance_output(appliance_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplianceResult]:
     """
-    Information about appliance.
+    Gets the appliance.
 
 
     :param str appliance_name: The name of the appliance.

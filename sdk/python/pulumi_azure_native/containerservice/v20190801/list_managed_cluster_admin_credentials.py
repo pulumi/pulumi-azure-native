@@ -49,7 +49,7 @@ def list_managed_cluster_admin_credentials(resource_group_name: Optional[str] = 
                                            resource_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterAdminCredentialsResult:
     """
-    The list of credential result response.
+    Gets cluster admin credential of the managed cluster with a specified resource group and name.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -70,7 +70,7 @@ def list_managed_cluster_admin_credentials_output(resource_group_name: Optional[
                                                   resource_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterAdminCredentialsResult]:
     """
-    The list of credential result response.
+    Gets cluster admin credential of the managed cluster with a specified resource group and name.
 
 
     :param str resource_group_name: The name of the resource group.

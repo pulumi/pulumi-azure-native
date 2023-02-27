@@ -493,7 +493,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayResult:
     """
-    Application gateway resource.
+    Gets the specified application gateway.
     API Version: 2020-11-01.
 
 
@@ -552,7 +552,7 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayResult]:
     """
-    Application gateway resource.
+    Gets the specified application gateway.
     API Version: 2020-11-01.
 
 

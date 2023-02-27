@@ -126,7 +126,7 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
                                         resource_type: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentParentResult:
     """
-    Configuration Assignment
+    Get configuration for resource.
     API Version: 2021-04-01-preview.
 
 
@@ -169,7 +169,7 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
                                                resource_type: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentParentResult]:
     """
-    Configuration Assignment
+    Get configuration for resource.
     API Version: 2021-04-01-preview.
 
 

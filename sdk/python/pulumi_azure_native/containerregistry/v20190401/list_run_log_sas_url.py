@@ -49,7 +49,7 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
                          run_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRunLogSasUrlResult:
     """
-    The result of get log link operation.
+    Gets a link to download the run logs.
 
 
     :param str registry_name: The name of the container registry.
@@ -73,7 +73,7 @@ def list_run_log_sas_url_output(registry_name: Optional[pulumi.Input[str]] = Non
                                 run_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRunLogSasUrlResult]:
     """
-    The result of get log link operation.
+    Gets a link to download the run logs.
 
 
     :param str registry_name: The name of the container registry.

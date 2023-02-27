@@ -133,7 +133,7 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
                            scope: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridUseBenefitResult:
     """
-    Response on GET of a hybrid use benefit
+    Gets a given plan ID
     API Version: 2019-06-01-preview.
 
 
@@ -162,7 +162,7 @@ def get_hybrid_use_benefit_output(plan_id: Optional[pulumi.Input[str]] = None,
                                   scope: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridUseBenefitResult]:
     """
-    Response on GET of a hybrid use benefit
+    Gets a given plan ID
     API Version: 2019-06-01-preview.
 
 

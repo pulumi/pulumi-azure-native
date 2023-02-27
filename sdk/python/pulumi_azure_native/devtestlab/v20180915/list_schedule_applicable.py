@@ -62,7 +62,7 @@ def list_schedule_applicable(lab_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListScheduleApplicableResult:
     """
-    The response of a list operation.
+    Lists all applicable schedules
 
 
     :param str lab_name: The name of the lab.
@@ -87,7 +87,7 @@ def list_schedule_applicable_output(lab_name: Optional[pulumi.Input[str]] = None
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListScheduleApplicableResult]:
     """
-    The response of a list operation.
+    Lists all applicable schedules
 
 
     :param str lab_name: The name of the lab.

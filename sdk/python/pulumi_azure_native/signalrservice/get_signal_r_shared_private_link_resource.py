@@ -146,7 +146,7 @@ def get_signal_r_shared_private_link_resource(resource_group_name: Optional[str]
                                               shared_private_link_resource_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRSharedPrivateLinkResourceResult:
     """
-    Describes a Shared Private Link Resource
+    Get the specified shared private link resource
     API Version: 2021-04-01-preview.
 
 
@@ -179,7 +179,7 @@ def get_signal_r_shared_private_link_resource_output(resource_group_name: Option
                                                      shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRSharedPrivateLinkResourceResult]:
     """
-    Describes a Shared Private Link Resource
+    Get the specified shared private link resource
     API Version: 2021-04-01-preview.
 
 

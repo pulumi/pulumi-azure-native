@@ -157,7 +157,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Single Event Hubs Cluster resource in List or Get operations.
+    Gets the resource description of the specified Event Hubs Cluster.
     API Version: 2018-01-01-preview.
 
 
@@ -188,7 +188,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Single Event Hubs Cluster resource in List or Get operations.
+    Gets the resource description of the specified Event Hubs Cluster.
     API Version: 2018-01-01-preview.
 
 

@@ -181,7 +181,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
                              storage_sync_service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageSyncServiceResult:
     """
-    Storage Sync Service object.
+    Get a given StorageSyncService.
     API Version: 2020-03-01.
 
 
@@ -214,7 +214,7 @@ def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[s
                                     storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageSyncServiceResult]:
     """
-    Storage Sync Service object.
+    Get a given StorageSyncService.
     API Version: 2020-03-01.
 
 

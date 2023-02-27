@@ -195,7 +195,7 @@ def get_public_ip_address(public_ip_address_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIpAddressResult:
     """
-    PublicIPAddress resource
+    The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
 
 
     :param str public_ip_address_name: The name of the subnet.
@@ -229,7 +229,7 @@ def get_public_ip_address_output(public_ip_address_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpAddressResult]:
     """
-    PublicIPAddress resource
+    The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
 
 
     :param str public_ip_address_name: The name of the subnet.

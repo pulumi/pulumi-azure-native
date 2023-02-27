@@ -146,7 +146,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
                                        service_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
-    Gateway hostname configuration details.
+    Get details of a hostname configuration
     API Version: 2020-12-01.
 
 
@@ -182,7 +182,7 @@ def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[
                                               service_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayHostnameConfigurationResult]:
     """
-    Gateway hostname configuration details.
+    Get details of a hostname configuration
     API Version: 2020-12-01.
 
 

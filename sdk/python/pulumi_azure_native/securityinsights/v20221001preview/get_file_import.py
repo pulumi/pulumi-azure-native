@@ -242,7 +242,7 @@ def get_file_import(file_import_id: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileImportResult:
     """
-    Represents a file import in Azure Security Insights.
+    Gets a file import.
 
 
     :param str file_import_id: File import ID
@@ -282,7 +282,7 @@ def get_file_import_output(file_import_id: Optional[pulumi.Input[str]] = None,
                            workspace_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileImportResult]:
     """
-    Represents a file import in Azure Security Insights.
+    Gets a file import.
 
 
     :param str file_import_id: File import ID

@@ -229,7 +229,7 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
                  vpn_site_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnSiteResult:
     """
-    VpnSite Resource.
+    Retrieves the details of a VPN site.
     API Version: 2020-11-01.
 
 
@@ -266,7 +266,7 @@ def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         vpn_site_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnSiteResult]:
     """
-    VpnSite Resource.
+    Retrieves the details of a VPN site.
     API Version: 2020-11-01.
 
 

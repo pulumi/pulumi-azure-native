@@ -99,7 +99,7 @@ def get_replication_fabric(fabric_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationFabricResult:
     """
-    Fabric definition.
+    Gets the details of an Azure Site Recovery fabric.
 
 
     :param str fabric_name: Fabric name.
@@ -130,7 +130,7 @@ def get_replication_fabric_output(fabric_name: Optional[pulumi.Input[str]] = Non
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationFabricResult]:
     """
-    Fabric definition.
+    Gets the details of an Azure Site Recovery fabric.
 
 
     :param str fabric_name: Fabric name.

@@ -110,7 +110,7 @@ def get_application(application_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    The HDInsight cluster application
+    Gets properties of the specified application.
 
 
     :param str application_name: The constant value for the application name.
@@ -139,7 +139,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    The HDInsight cluster application
+    Gets properties of the specified application.
 
 
     :param str application_name: The constant value for the application name.

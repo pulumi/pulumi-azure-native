@@ -72,7 +72,7 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagerPublicEncryptionKeyResult:
     """
-    Represents the secrets encrypted using Symmetric Encryption Key.
+    Returns the symmetric encrypted public encryption key of the manager.
 
 
     :param str manager_name: The manager name
@@ -95,7 +95,7 @@ def list_manager_public_encryption_key_output(manager_name: Optional[pulumi.Inpu
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagerPublicEncryptionKeyResult]:
     """
-    Represents the secrets encrypted using Symmetric Encryption Key.
+    Returns the symmetric encrypted public encryption key of the manager.
 
 
     :param str manager_name: The manager name

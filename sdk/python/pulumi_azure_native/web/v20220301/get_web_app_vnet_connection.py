@@ -171,7 +171,7 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
                                 vnet_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionResult:
     """
-    Virtual Network information ARM resource.
+    Description for Gets a virtual network the app (or deployment slot) is connected to by name.
 
 
     :param str name: Name of the app.
@@ -205,7 +205,7 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
                                        vnet_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppVnetConnectionResult]:
     """
-    Virtual Network information ARM resource.
+    Description for Gets a virtual network the app (or deployment slot) is connected to by name.
 
 
     :param str name: Name of the app.

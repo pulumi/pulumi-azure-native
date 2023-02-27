@@ -456,7 +456,7 @@ def get_database(database_name: Optional[str] = None,
                  server_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    A database resource.
+    Gets a database.
     API Version: 2020-11-01-preview.
 
 
@@ -514,7 +514,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         server_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    A database resource.
+    Gets a database.
     API Version: 2020-11-01-preview.
 
 

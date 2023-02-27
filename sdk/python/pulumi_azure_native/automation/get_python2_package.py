@@ -242,7 +242,7 @@ def get_python2_package(automation_account_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPython2PackageResult:
     """
-    Definition of the module type.
+    Retrieve the python 2 package identified by package name.
     API Version: 2019-06-01.
 
 
@@ -283,7 +283,7 @@ def get_python2_package_output(automation_account_name: Optional[pulumi.Input[st
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPython2PackageResult]:
     """
-    Definition of the module type.
+    Retrieve the python 2 package identified by package name.
     API Version: 2019-06-01.
 
 

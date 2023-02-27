@@ -110,7 +110,7 @@ def get_private_endpoint_connection_controller_private_endpoint_connection(migra
                                                                            resource_group_name: Optional[str] = None,
                                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult:
     """
-    REST model used to encapsulate the user visible state of a PrivateEndpoint.
+    Get the private endpoint with the specified name.
 
 
     :param str migrate_project_name: Migrate project name.
@@ -139,7 +139,7 @@ def get_private_endpoint_connection_controller_private_endpoint_connection_outpu
                                                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult]:
     """
-    REST model used to encapsulate the user visible state of a PrivateEndpoint.
+    Get the private endpoint with the specified name.
 
 
     :param str migrate_project_name: Migrate project name.

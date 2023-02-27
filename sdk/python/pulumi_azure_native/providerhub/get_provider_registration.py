@@ -78,6 +78,7 @@ class AwaitableGetProviderRegistrationResult(GetProviderRegistrationResult):
 def get_provider_registration(provider_namespace: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderRegistrationResult:
     """
+    Gets the provider registration details.
     API Version: 2020-11-20.
 
 
@@ -99,6 +100,7 @@ def get_provider_registration(provider_namespace: Optional[str] = None,
 def get_provider_registration_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderRegistrationResult]:
     """
+    Gets the provider registration details.
     API Version: 2020-11-20.
 
 

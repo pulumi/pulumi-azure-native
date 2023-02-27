@@ -158,7 +158,7 @@ def get_transaction_node(blockchain_member_name: Optional[str] = None,
                          transaction_node_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransactionNodeResult:
     """
-    Payload of the transaction node which is the request/response of the resource provider.
+    Get the details of the transaction node.
 
 
     :param str blockchain_member_name: Blockchain member name.
@@ -191,7 +191,7 @@ def get_transaction_node_output(blockchain_member_name: Optional[pulumi.Input[st
                                 transaction_node_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransactionNodeResult]:
     """
-    Payload of the transaction node which is the request/response of the resource provider.
+    Get the details of the transaction node.
 
 
     :param str blockchain_member_name: Blockchain member name.

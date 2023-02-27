@@ -209,7 +209,7 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
                                   vm_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineExtensionResult:
     """
-    Describes a Virtual Machine Extension.
+    The operation to get the extension.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -250,7 +250,7 @@ def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[
                                          vm_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineExtensionResult]:
     """
-    Describes a Virtual Machine Extension.
+    The operation to get the extension.
 
 
     :param str expand: The expand expression to apply on the operation.

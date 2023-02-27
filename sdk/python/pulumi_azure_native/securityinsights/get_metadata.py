@@ -243,7 +243,7 @@ def get_metadata(metadata_name: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataResult:
     """
-    Metadata resource definition.
+    Get a Metadata.
     API Version: 2021-03-01-preview.
 
 
@@ -287,7 +287,7 @@ def get_metadata_output(metadata_name: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataResult]:
     """
-    Metadata resource definition.
+    Get a Metadata.
     API Version: 2021-03-01-preview.
 
 

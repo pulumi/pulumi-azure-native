@@ -111,7 +111,7 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
                                       workspace_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThreatIntelligenceIndicatorResult:
     """
-    Threat intelligence information object.
+    View a threat intelligence indicator by name.
 
 
     :param str name: Threat intelligence indicator name field.
@@ -140,7 +140,7 @@ def get_threat_intelligence_indicator_output(name: Optional[pulumi.Input[str]] =
                                              workspace_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThreatIntelligenceIndicatorResult]:
     """
-    Threat intelligence information object.
+    View a threat intelligence indicator by name.
 
 
     :param str name: Threat intelligence indicator name field.

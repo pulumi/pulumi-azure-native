@@ -100,7 +100,7 @@ def get_integration_runtime(factory_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeResult:
     """
-    Integration runtime resource type.
+    Gets an integration runtime.
 
 
     :param str factory_name: The factory name.
@@ -129,7 +129,7 @@ def get_integration_runtime_output(factory_name: Optional[pulumi.Input[str]] = N
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeResult]:
     """
-    Integration runtime resource type.
+    Gets an integration runtime.
 
 
     :param str factory_name: The factory name.

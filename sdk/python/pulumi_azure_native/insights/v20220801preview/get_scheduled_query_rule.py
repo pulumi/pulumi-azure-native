@@ -385,7 +385,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
                              rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledQueryRuleResult:
     """
-    The scheduled query rule resource.
+    Retrieve an scheduled query rule definition.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -434,7 +434,7 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     rule_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
     """
-    The scheduled query rule resource.
+    Retrieve an scheduled query rule definition.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

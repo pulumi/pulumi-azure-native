@@ -49,7 +49,7 @@ def list_secret_value(resource_group_name: Optional[str] = None,
                       secret_value_resource_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSecretValueResult:
     """
-    This type represents the unencrypted value of the secret.
+    Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
     API Version: 2018-09-01-preview.
 
 
@@ -74,7 +74,7 @@ def list_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              secret_value_resource_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSecretValueResult]:
     """
-    This type represents the unencrypted value of the secret.
+    Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
     API Version: 2018-09-01-preview.
 
 

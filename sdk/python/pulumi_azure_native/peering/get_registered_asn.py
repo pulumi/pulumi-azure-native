@@ -109,7 +109,7 @@ def get_registered_asn(peering_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredAsnResult:
     """
-    The customer's ASN that is registered by the peering service provider.
+    Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
     API Version: 2021-01-01.
 
 
@@ -139,7 +139,7 @@ def get_registered_asn_output(peering_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredAsnResult]:
     """
-    The customer's ASN that is registered by the peering service provider.
+    Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
     API Version: 2021-01-01.
 
 

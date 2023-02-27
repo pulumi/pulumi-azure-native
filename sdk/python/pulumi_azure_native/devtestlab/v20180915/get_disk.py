@@ -231,7 +231,7 @@ def get_disk(expand: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
-    A Disk.
+    Get disk.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=diskType)'
@@ -276,7 +276,7 @@ def get_disk_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
     """
-    A Disk.
+    Get disk.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=diskType)'

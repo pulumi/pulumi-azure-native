@@ -296,7 +296,7 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubResult:
     """
-    A class represent a resource.
+    Get the resource and its properties.
     API Version: 2021-04-01-preview.
 
 
@@ -338,7 +338,7 @@ def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            resource_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubResult]:
     """
-    A class represent a resource.
+    Get the resource and its properties.
     API Version: 2021-04-01-preview.
 
 

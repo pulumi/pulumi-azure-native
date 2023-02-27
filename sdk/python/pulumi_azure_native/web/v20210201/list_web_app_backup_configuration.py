@@ -145,7 +145,7 @@ def list_web_app_backup_configuration(name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupConfigurationResult:
     """
-    Description of a backup which will be performed.
+    Gets the backup configuration of an app.
 
 
     :param str name: Name of the app.
@@ -174,7 +174,7 @@ def list_web_app_backup_configuration_output(name: Optional[pulumi.Input[str]] =
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupConfigurationResult]:
     """
-    Description of a backup which will be performed.
+    Gets the backup configuration of an app.
 
 
     :param str name: Name of the app.

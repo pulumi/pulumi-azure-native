@@ -170,7 +170,7 @@ def get_saved_search(resource_group_name: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSavedSearchResult:
     """
-    Value object for saved search results.
+    Gets the specified saved search for a given workspace.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -204,7 +204,7 @@ def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             workspace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSavedSearchResult]:
     """
-    Value object for saved search results.
+    Gets the specified saved search for a given workspace.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

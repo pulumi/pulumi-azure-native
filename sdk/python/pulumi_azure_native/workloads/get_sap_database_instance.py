@@ -218,7 +218,7 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
                               sap_virtual_instance_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPDatabaseInstanceResult:
     """
-    Define the Database resource.
+    Gets the SAP Database Instance resource.
     API Version: 2021-12-01-preview.
 
 
@@ -257,7 +257,7 @@ def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Inp
                                      sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPDatabaseInstanceResult]:
     """
-    Define the Database resource.
+    Gets the SAP Database Instance resource.
     API Version: 2021-12-01-preview.
 
 

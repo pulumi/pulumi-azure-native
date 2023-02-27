@@ -170,7 +170,7 @@ def get_share(account_name: Optional[str] = None,
               share_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareResult:
     """
-    A share data transfer object.
+    Get a share
 
 
     :param str account_name: The name of the share account.
@@ -204,7 +204,7 @@ def get_share_output(account_name: Optional[pulumi.Input[str]] = None,
                      share_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
     """
-    A share data transfer object.
+    Get a share
 
 
     :param str account_name: The name of the share account.

@@ -158,7 +158,7 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceFailoverGroupResult:
     """
-    An instance failover group.
+    Gets a failover group.
 
 
     :param str failover_group_name: The name of the failover group.
@@ -191,7 +191,7 @@ def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Inpu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceFailoverGroupResult]:
     """
-    An instance failover group.
+    Gets a failover group.
 
 
     :param str failover_group_name: The name of the failover group.

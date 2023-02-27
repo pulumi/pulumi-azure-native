@@ -86,7 +86,7 @@ def get_table_service_properties(account_name: Optional[str] = None,
                                  table_service_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableServicePropertiesResult:
     """
-    The properties of a storage account’s Table service.
+    Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
     API Version: 2021-02-01.
 
 
@@ -114,7 +114,7 @@ def get_table_service_properties_output(account_name: Optional[pulumi.Input[str]
                                         table_service_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableServicePropertiesResult]:
     """
-    The properties of a storage account’s Table service.
+    Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
     API Version: 2021-02-01.
 
 

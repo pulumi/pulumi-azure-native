@@ -109,7 +109,7 @@ def get_schema(resource_group_name: Optional[str] = None,
                service_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaResult:
     """
-    Schema Contract details.
+    Gets the details of the Schema specified by its identifier.
     API Version: 2021-04-01-preview.
 
 
@@ -139,7 +139,7 @@ def get_schema_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       service_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
     """
-    Schema Contract details.
+    Gets the details of the Schema specified by its identifier.
     API Version: 2021-04-01-preview.
 
 

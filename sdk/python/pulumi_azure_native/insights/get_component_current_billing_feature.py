@@ -61,7 +61,7 @@ def get_component_current_billing_feature(resource_group_name: Optional[str] = N
                                           resource_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentCurrentBillingFeatureResult:
     """
-    An Application Insights component billing features
+    Returns current billing features for an Application Insights component.
     API Version: 2015-05-01.
 
 
@@ -84,7 +84,7 @@ def get_component_current_billing_feature_output(resource_group_name: Optional[p
                                                  resource_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentCurrentBillingFeatureResult]:
     """
-    An Application Insights component billing features
+    Returns current billing features for an Application Insights component.
     API Version: 2015-05-01.
 
 

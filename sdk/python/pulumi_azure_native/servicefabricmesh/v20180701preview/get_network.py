@@ -147,7 +147,7 @@ def get_network(network_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkResult:
     """
-    This type describes a network resource.
+    Gets the information about the network resource with a given name. This information includes the network description and other runtime information.
 
 
     :param str network_name: The identity of the network.
@@ -177,7 +177,7 @@ def get_network_output(network_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
     """
-    This type describes a network resource.
+    Gets the information about the network resource with a given name. This information includes the network description and other runtime information.
 
 
     :param str network_name: The identity of the network.

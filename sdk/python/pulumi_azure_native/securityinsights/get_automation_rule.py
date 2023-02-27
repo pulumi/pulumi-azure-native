@@ -183,7 +183,7 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationRuleResult:
     """
-    Represents an automation rule.
+    Gets the automation rule.
     API Version: 2019-01-01-preview.
 
 
@@ -222,7 +222,7 @@ def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[str]] =
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
-    Represents an automation rule.
+    Gets the automation rule.
     API Version: 2019-01-01-preview.
 
 

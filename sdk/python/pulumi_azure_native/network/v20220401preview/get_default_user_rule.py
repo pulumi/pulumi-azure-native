@@ -221,7 +221,7 @@ def get_default_user_rule(configuration_name: Optional[str] = None,
                           rule_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultUserRuleResult:
     """
-    Network security default user rule.
+    Gets a user rule.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -265,7 +265,7 @@ def get_default_user_rule_output(configuration_name: Optional[pulumi.Input[str]]
                                  rule_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultUserRuleResult]:
     """
-    Network security default user rule.
+    Gets a user rule.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

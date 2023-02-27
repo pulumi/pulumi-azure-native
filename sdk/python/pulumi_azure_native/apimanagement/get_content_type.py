@@ -109,7 +109,7 @@ def get_content_type(content_type_id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentTypeResult:
     """
-    Content type contract details.
+    Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
     API Version: 2020-12-01.
 
 
@@ -139,7 +139,7 @@ def get_content_type_output(content_type_id: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentTypeResult]:
     """
-    Content type contract details.
+    Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
     API Version: 2020-12-01.
 
 

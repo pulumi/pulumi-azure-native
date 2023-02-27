@@ -219,7 +219,7 @@ def get_student(billing_account_name: Optional[str] = None,
                 student_alias: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStudentResult:
     """
-    Student details.
+    Get the details for a specific student in the specified lab by student alias
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -260,7 +260,7 @@ def get_student_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                        student_alias: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudentResult]:
     """
-    Student details.
+    Get the details for a specific student in the specified lab by student alias
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

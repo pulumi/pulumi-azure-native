@@ -98,7 +98,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  storage_mover_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
-    The Endpoint resource, which contains information about file sources and targets.
+    Gets an Endpoint resource.
 
 
     :param str endpoint_name: The name of the Endpoint resource.
@@ -126,7 +126,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         storage_mover_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
-    The Endpoint resource, which contains information about file sources and targets.
+    Gets an Endpoint resource.
 
 
     :param str endpoint_name: The name of the Endpoint resource.

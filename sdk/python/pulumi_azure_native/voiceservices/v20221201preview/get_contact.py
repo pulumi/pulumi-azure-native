@@ -170,7 +170,7 @@ def get_contact(communications_gateway_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactResult:
     """
-    A Contact resource
+    Get a Contact
 
 
     :param str communications_gateway_name: Unique identifier for this deployment
@@ -204,7 +204,7 @@ def get_contact_output(communications_gateway_name: Optional[pulumi.Input[str]] 
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
     """
-    A Contact resource
+    Get a Contact
 
 
     :param str communications_gateway_name: Unique identifier for this deployment

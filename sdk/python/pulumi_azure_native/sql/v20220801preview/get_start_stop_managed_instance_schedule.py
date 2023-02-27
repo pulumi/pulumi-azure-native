@@ -146,7 +146,7 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[str
                                              start_stop_schedule_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStartStopManagedInstanceScheduleResult:
     """
-    Managed instance's Start/Stop schedule.
+    Gets the managed instance's Start/Stop schedule.
 
 
     :param str managed_instance_name: The name of the managed instance.
@@ -178,7 +178,7 @@ def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optio
                                                     start_stop_schedule_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStartStopManagedInstanceScheduleResult]:
     """
-    Managed instance's Start/Stop schedule.
+    Gets the managed instance's Start/Stop schedule.
 
 
     :param str managed_instance_name: The name of the managed instance.

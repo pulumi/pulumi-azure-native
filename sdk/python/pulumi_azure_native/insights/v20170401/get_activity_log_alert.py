@@ -157,7 +157,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityLogAlertResult:
     """
-    An activity log alert resource.
+    Get an activity log alert.
 
 
     :param str activity_log_alert_name: The name of the activity log alert.
@@ -187,7 +187,7 @@ def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityLogAlertResult]:
     """
-    An activity log alert resource.
+    Get an activity log alert.
 
 
     :param str activity_log_alert_name: The name of the activity log alert.

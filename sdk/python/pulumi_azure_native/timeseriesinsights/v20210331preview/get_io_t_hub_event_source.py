@@ -219,7 +219,7 @@ def get_io_t_hub_event_source(environment_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoTHubEventSourceResult:
     """
-    An event source that receives its data from an Azure IoTHub.
+    Gets the event source with the specified name in the specified environment.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -257,7 +257,7 @@ def get_io_t_hub_event_source_output(environment_name: Optional[pulumi.Input[str
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoTHubEventSourceResult]:
     """
-    An event source that receives its data from an Azure IoTHub.
+    Gets the event source with the specified name in the specified environment.
 
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.

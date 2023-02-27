@@ -61,7 +61,7 @@ def getmanaged_az_resiliency_status(cluster_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetmanagedAzResiliencyStatusResult:
     """
-    Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
+    Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
     API Version: 2022-02-01-preview.
 
 
@@ -84,7 +84,7 @@ def getmanaged_az_resiliency_status_output(cluster_name: Optional[pulumi.Input[s
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetmanagedAzResiliencyStatusResult]:
     """
-    Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
+    Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
     API Version: 2022-02-01-preview.
 
 

@@ -86,7 +86,7 @@ def get_cassandra_data_center(cluster_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraDataCenterResult:
     """
-    A managed Cassandra data center.
+    Get the properties of a managed Cassandra data center.
     API Version: 2021-03-01-preview.
 
 
@@ -114,7 +114,7 @@ def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraDataCenterResult]:
     """
-    A managed Cassandra data center.
+    Get the properties of a managed Cassandra data center.
     API Version: 2021-03-01-preview.
 
 

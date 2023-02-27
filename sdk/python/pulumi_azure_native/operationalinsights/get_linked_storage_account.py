@@ -97,7 +97,7 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
                                workspace_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedStorageAccountResult:
     """
-    Linked storage accounts top level resource container.
+    Gets all linked storage account of a specific data source type associated with the specified workspace.
     API Version: 2020-08-01.
 
 
@@ -126,7 +126,7 @@ def get_linked_storage_account_output(data_source_type: Optional[pulumi.Input[st
                                       workspace_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedStorageAccountResult]:
     """
-    Linked storage accounts top level resource container.
+    Gets all linked storage account of a specific data source type associated with the specified workspace.
     API Version: 2020-08-01.
 
 

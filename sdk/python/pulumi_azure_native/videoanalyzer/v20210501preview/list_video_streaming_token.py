@@ -61,7 +61,7 @@ def list_video_streaming_token(account_name: Optional[str] = None,
                                video_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVideoStreamingTokenResult:
     """
-    Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+    Generates a streaming token used for authenticating video playback.
 
 
     :param str account_name: The Azure Video Analyzer account name.
@@ -86,7 +86,7 @@ def list_video_streaming_token_output(account_name: Optional[pulumi.Input[str]] 
                                       video_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVideoStreamingTokenResult]:
     """
-    Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+    Generates a streaming token used for authenticating video playback.
 
 
     :param str account_name: The Azure Video Analyzer account name.

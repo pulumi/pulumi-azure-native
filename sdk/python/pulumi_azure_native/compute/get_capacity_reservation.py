@@ -183,7 +183,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationResult:
     """
-    Specifies information about the capacity reservation.
+    The operation that retrieves information about the capacity reservation.
     API Version: 2021-04-01.
 
 
@@ -222,7 +222,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
-    Specifies information about the capacity reservation.
+    The operation that retrieves information about the capacity reservation.
     API Version: 2021-04-01.
 
 

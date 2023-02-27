@@ -123,7 +123,7 @@ def get_eyes_on(resource_group_name: Optional[str] = None,
                 workspace_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEyesOnResult:
     """
-    Settings with single toggle.
+    Gets a setting.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -153,7 +153,7 @@ def get_eyes_on_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        workspace_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEyesOnResult]:
     """
-    Settings with single toggle.
+    Gets a setting.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

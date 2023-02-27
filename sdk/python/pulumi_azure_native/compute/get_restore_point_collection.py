@@ -146,7 +146,7 @@ def get_restore_point_collection(expand: Optional[str] = None,
                                  restore_point_collection_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestorePointCollectionResult:
     """
-    Create or update Restore Point collection parameters.
+    The operation to get the restore point collection.
     API Version: 2021-03-01.
 
 
@@ -179,7 +179,7 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[s
                                         restore_point_collection_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorePointCollectionResult]:
     """
-    Create or update Restore Point collection parameters.
+    The operation to get the restore point collection.
     API Version: 2021-03-01.
 
 

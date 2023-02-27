@@ -216,7 +216,7 @@ class AwaitableGetAttestationAtSubscriptionResult(GetAttestationAtSubscriptionRe
 def get_attestation_at_subscription(attestation_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationAtSubscriptionResult:
     """
-    An attestation resource.
+    Gets an existing attestation at subscription scope.
 
 
     :param str attestation_name: The name of the attestation.
@@ -248,7 +248,7 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
 def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationAtSubscriptionResult]:
     """
-    An attestation resource.
+    Gets an existing attestation at subscription scope.
 
 
     :param str attestation_name: The name of the attestation.

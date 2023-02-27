@@ -98,7 +98,7 @@ def get_storage(resource_group_name: Optional[str] = None,
                 storage_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageResult:
     """
-    Storage resource payload.
+    Get the storage resource.
     API Version: 2021-09-01-preview.
 
 
@@ -127,7 +127,7 @@ def get_storage_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        storage_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageResult]:
     """
-    Storage resource payload.
+    Get the storage resource.
     API Version: 2021-09-01-preview.
 
 

@@ -193,7 +193,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
                                   sql_virtual_machine_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineGroupResult:
     """
-    A SQL virtual machine group.
+    Gets a SQL virtual machine group.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -226,7 +226,7 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
                                          sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
     """
-    A SQL virtual machine group.
+    Gets a SQL virtual machine group.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -206,7 +206,7 @@ def get_machine_extension(extension_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineExtensionResult:
     """
-    Describes a Machine Extension.
+    The operation to get the extension.
     API Version: 2020-10-01-preview.
 
 
@@ -244,7 +244,7 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineExtensionResult]:
     """
-    Describes a Machine Extension.
+    The operation to get the extension.
     API Version: 2020-10-01-preview.
 
 

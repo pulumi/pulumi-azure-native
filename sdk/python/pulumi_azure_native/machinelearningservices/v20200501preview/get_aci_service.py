@@ -135,7 +135,7 @@ def get_aci_service(expand: Optional[bool] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetACIServiceResult:
     """
-    Machine Learning service object wrapped into ARM resource envelope.
+    Get a Service by name.
 
 
     :param bool expand: Set to True to include Model details.
@@ -169,7 +169,7 @@ def get_aci_service_output(expand: Optional[pulumi.Input[Optional[bool]]] = None
                            workspace_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetACIServiceResult]:
     """
-    Machine Learning service object wrapped into ARM resource envelope.
+    Get a Service by name.
 
 
     :param bool expand: Set to True to include Model details.

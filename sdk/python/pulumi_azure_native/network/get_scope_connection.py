@@ -134,7 +134,7 @@ def get_scope_connection(network_manager_name: Optional[str] = None,
                          scope_connection_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeConnectionResult:
     """
-    The Scope Connections resource
+    Get specified scope connection created by this Network Manager.
     API Version: 2022-02-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_scope_connection_output(network_manager_name: Optional[pulumi.Input[str]
                                 scope_connection_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeConnectionResult]:
     """
-    The Scope Connections resource
+    Get specified scope connection created by this Network Manager.
     API Version: 2022-02-01-preview.
 
 

@@ -158,7 +158,7 @@ def get_order_item_by_name(expand: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderItemByNameResult:
     """
-    Represents order item contract
+    Gets an order item.
     API Version: 2021-12-01.
 
 
@@ -192,7 +192,7 @@ def get_order_item_by_name_output(expand: Optional[pulumi.Input[Optional[str]]] 
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderItemByNameResult]:
     """
-    Represents order item contract
+    Gets an order item.
     API Version: 2021-12-01.
 
 

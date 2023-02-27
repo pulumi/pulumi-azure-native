@@ -97,7 +97,7 @@ def get_variable_value(variable_name: Optional[str] = None,
                        variable_value_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableValueResult:
     """
-    The variable value.
+    This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
 
 
     :param str variable_name: The name of the variable to operate on.
@@ -122,7 +122,7 @@ def get_variable_value_output(variable_name: Optional[pulumi.Input[str]] = None,
                               variable_value_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableValueResult]:
     """
-    The variable value.
+    This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
 
 
     :param str variable_name: The name of the variable to operate on.

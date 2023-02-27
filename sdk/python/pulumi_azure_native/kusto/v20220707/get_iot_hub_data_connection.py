@@ -219,7 +219,7 @@ def get_iot_hub_data_connection(cluster_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubDataConnectionResult:
     """
-    Class representing an iot hub data connection.
+    Returns a data connection.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -260,7 +260,7 @@ def get_iot_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str]]
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubDataConnectionResult]:
     """
-    Class representing an iot hub data connection.
+    Returns a data connection.
 
 
     :param str cluster_name: The name of the Kusto cluster.

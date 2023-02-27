@@ -119,7 +119,7 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkWatcherResult:
     """
-    Network watcher in a resource group.
+    Gets the specified network watcher by resource group.
 
 
     :param str network_watcher_name: The name of the network watcher.
@@ -147,7 +147,7 @@ def get_network_watcher_output(network_watcher_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkWatcherResult]:
     """
-    Network watcher in a resource group.
+    Gets the specified network watcher by resource group.
 
 
     :param str network_watcher_name: The name of the network watcher.

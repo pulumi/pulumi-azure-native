@@ -160,7 +160,7 @@ def get_order_item_by_name(expand: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderItemByNameResult:
     """
-    Represents order item contract
+    Gets an order item.
 
 
     :param str expand: $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
@@ -194,7 +194,7 @@ def get_order_item_by_name_output(expand: Optional[pulumi.Input[Optional[str]]] 
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderItemByNameResult]:
     """
-    Represents order item contract
+    Gets an order item.
 
 
     :param str expand: $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.

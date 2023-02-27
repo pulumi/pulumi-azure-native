@@ -58,7 +58,8 @@ def list_workflow_access_key_secret_keys(access_key_name: Optional[str] = None,
                                          workflow_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowAccessKeySecretKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Lists secret keys.
+
 
     :param str access_key_name: The workflow access key name.
     :param str resource_group_name: The resource group name.
@@ -82,7 +83,8 @@ def list_workflow_access_key_secret_keys_output(access_key_name: Optional[pulumi
                                                 workflow_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowAccessKeySecretKeysResult]:
     """
-    Use this data source to access information about an existing resource.
+    Lists secret keys.
+
 
     :param str access_key_name: The workflow access key name.
     :param str resource_group_name: The resource group name.

@@ -170,7 +170,7 @@ def get_server_advisor(advisor_name: Optional[str] = None,
                        server_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAdvisorResult:
     """
-    Database, Server or Elastic Pool Advisor.
+    Gets a server advisor.
 
 
     :param str advisor_name: The name of the Server Advisor.
@@ -204,7 +204,7 @@ def get_server_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None,
                               server_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerAdvisorResult]:
     """
-    Database, Server or Elastic Pool Advisor.
+    Gets a server advisor.
 
 
     :param str advisor_name: The name of the Server Advisor.

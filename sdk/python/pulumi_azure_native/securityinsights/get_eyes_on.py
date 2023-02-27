@@ -124,7 +124,7 @@ def get_eyes_on(operational_insights_resource_provider: Optional[str] = None,
                 workspace_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEyesOnResult:
     """
-    Settings with single toggle.
+    Gets a setting.
     API Version: 2021-03-01-preview.
 
 
@@ -158,7 +158,7 @@ def get_eyes_on_output(operational_insights_resource_provider: Optional[pulumi.I
                        workspace_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEyesOnResult]:
     """
-    Settings with single toggle.
+    Gets a setting.
     API Version: 2021-03-01-preview.
 
 

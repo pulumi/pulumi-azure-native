@@ -132,7 +132,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotDpsResourceResult:
     """
-    The description of the provisioning service.
+    Get the non-security related metadata of the provisioning service.
 
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.
@@ -161,7 +161,7 @@ def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotDpsResourceResult]:
     """
-    The description of the provisioning service.
+    Get the non-security related metadata of the provisioning service.
 
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.

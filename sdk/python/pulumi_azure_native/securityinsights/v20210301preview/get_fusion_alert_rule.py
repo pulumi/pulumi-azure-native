@@ -196,7 +196,7 @@ def get_fusion_alert_rule(operational_insights_resource_provider: Optional[str] 
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFusionAlertRuleResult:
     """
-    Represents Fusion alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -235,7 +235,7 @@ def get_fusion_alert_rule_output(operational_insights_resource_provider: Optiona
                                  workspace_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFusionAlertRuleResult]:
     """
-    Represents Fusion alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

@@ -277,7 +277,7 @@ def get_blockchain_member(blockchain_member_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlockchainMemberResult:
     """
-    Payload of the blockchain member which is exposed in the request/response of the resource provider.
+    Get details about a blockchain member.
 
 
     :param str blockchain_member_name: Blockchain member name.
@@ -317,7 +317,7 @@ def get_blockchain_member_output(blockchain_member_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlockchainMemberResult]:
     """
-    Payload of the blockchain member which is exposed in the request/response of the resource provider.
+    Get details about a blockchain member.
 
 
     :param str blockchain_member_name: Blockchain member name.

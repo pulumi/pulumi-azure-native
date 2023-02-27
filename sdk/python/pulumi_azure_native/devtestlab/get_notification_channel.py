@@ -195,7 +195,7 @@ def get_notification_channel(expand: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
-    A notification.
+    Get notification channel.
     API Version: 2018-09-15.
 
 
@@ -235,7 +235,7 @@ def get_notification_channel_output(expand: Optional[pulumi.Input[Optional[str]]
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
-    A notification.
+    Get notification channel.
     API Version: 2018-09-15.
 
 

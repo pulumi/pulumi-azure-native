@@ -62,7 +62,7 @@ def list_products(product_name: Optional[str] = None,
                   resource_group: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductsResult:
     """
-    Pageable list of products.
+    Returns a list of products.
     API Version: 2017-06-01.
 
 
@@ -88,7 +88,7 @@ def list_products_output(product_name: Optional[pulumi.Input[str]] = None,
                          resource_group: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductsResult]:
     """
-    Pageable list of products.
+    Returns a list of products.
     API Version: 2017-06-01.
 
 

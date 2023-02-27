@@ -242,7 +242,7 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppInstanceFunctionSlotResult:
     """
-    Function information.
+    Get function information by its ID for web site, or a deployment slot.
     API Version: 2020-12-01.
 
 
@@ -286,7 +286,7 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
                                               slot: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppInstanceFunctionSlotResult]:
     """
-    Function information.
+    Get function information by its ID for web site, or a deployment slot.
     API Version: 2020-12-01.
 
 

@@ -205,7 +205,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
                      server_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticPoolResult:
     """
-    Represents a database elastic pool.
+    Gets an elastic pool.
 
 
     :param str elastic_pool_name: The name of the elastic pool to be retrieved.
@@ -242,7 +242,7 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
                             server_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticPoolResult]:
     """
-    Represents a database elastic pool.
+    Gets an elastic pool.
 
 
     :param str elastic_pool_name: The name of the elastic pool to be retrieved.

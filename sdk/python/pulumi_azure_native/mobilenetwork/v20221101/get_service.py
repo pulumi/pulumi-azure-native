@@ -158,7 +158,7 @@ def get_service(mobile_network_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Service resource. Must be created in the same location as its parent mobile network.
+    Gets information about the specified service.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -191,7 +191,7 @@ def get_service_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Service resource. Must be created in the same location as its parent mobile network.
+    Gets information about the specified service.
 
 
     :param str mobile_network_name: The name of the mobile network.

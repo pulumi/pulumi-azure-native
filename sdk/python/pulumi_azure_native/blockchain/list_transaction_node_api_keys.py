@@ -50,7 +50,7 @@ def list_transaction_node_api_keys(blockchain_member_name: Optional[str] = None,
                                    transaction_node_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTransactionNodeApiKeysResult:
     """
-    Collection of the API key payload which is exposed in the response of the resource provider.
+    List the API keys for the transaction node.
     API Version: 2018-06-01-preview.
 
 
@@ -75,7 +75,7 @@ def list_transaction_node_api_keys_output(blockchain_member_name: Optional[pulum
                                           transaction_node_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTransactionNodeApiKeysResult]:
     """
-    Collection of the API key payload which is exposed in the response of the resource provider.
+    List the API keys for the transaction node.
     API Version: 2018-06-01-preview.
 
 

@@ -106,6 +106,7 @@ def get_job_collection(job_collection_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobCollectionResult:
     """
+    Gets a job collection.
     API Version: 2016-03-01.
 
 
@@ -132,6 +133,7 @@ def get_job_collection_output(job_collection_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobCollectionResult]:
     """
+    Gets a job collection.
     API Version: 2016-03-01.
 
 

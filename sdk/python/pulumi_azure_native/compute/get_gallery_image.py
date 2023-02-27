@@ -266,7 +266,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
-    Specifies information about the gallery image definition that you want to create or update.
+    Retrieves information about a gallery image definition.
     API Version: 2020-09-30.
 
 
@@ -309,7 +309,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
-    Specifies information about the gallery image definition that you want to create or update.
+    Retrieves information about a gallery image definition.
     API Version: 2020-09-30.
 
 

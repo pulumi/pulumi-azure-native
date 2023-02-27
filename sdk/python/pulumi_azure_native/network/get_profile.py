@@ -193,7 +193,7 @@ def get_profile(profile_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
-    Class representing a Traffic Manager profile.
+    Gets a Traffic Manager profile.
     API Version: 2018-08-01.
 
 
@@ -227,7 +227,7 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
-    Class representing a Traffic Manager profile.
+    Gets a Traffic Manager profile.
     API Version: 2018-08-01.
 
 

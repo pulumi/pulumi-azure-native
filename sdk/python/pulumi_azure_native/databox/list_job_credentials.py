@@ -61,7 +61,7 @@ def list_job_credentials(job_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobCredentialsResult:
     """
-    List of unencrypted credentials for accessing device.
+    This method gets the unencrypted secrets related to the job.
     API Version: 2020-11-01.
 
 
@@ -84,7 +84,7 @@ def list_job_credentials_output(job_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListJobCredentialsResult]:
     """
-    List of unencrypted credentials for accessing device.
+    This method gets the unencrypted secrets related to the job.
     API Version: 2020-11-01.
 
 

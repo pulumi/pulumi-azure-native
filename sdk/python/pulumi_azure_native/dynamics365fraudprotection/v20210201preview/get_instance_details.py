@@ -133,7 +133,7 @@ def get_instance_details(instance_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceDetailsResult:
     """
-    Represents an instance of a DFP instance resource.
+    Gets details about the specified instances.
 
 
     :param str instance_name: The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
@@ -161,7 +161,7 @@ def get_instance_details_output(instance_name: Optional[pulumi.Input[str]] = Non
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceDetailsResult]:
     """
-    Represents an instance of a DFP instance resource.
+    Gets details about the specified instances.
 
 
     :param str instance_name: The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.

@@ -494,7 +494,7 @@ def get_storage_account(account_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
-    The storage account.
+    Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
     API Version: 2021-02-01.
 
 
@@ -556,7 +556,7 @@ def get_storage_account_output(account_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountResult]:
     """
-    The storage account.
+    Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
     API Version: 2021-02-01.
 
 

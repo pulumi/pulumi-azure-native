@@ -203,7 +203,7 @@ def get_key(key_name: Optional[str] = None,
             vault_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    The key resource.
+    Gets the current version of the specified key from the specified key vault.
 
 
     :param str key_name: The name of the key to be retrieved.
@@ -240,7 +240,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    vault_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
-    The key resource.
+    Gets the current version of the specified key from the specified key vault.
 
 
     :param str key_name: The name of the key to be retrieved.

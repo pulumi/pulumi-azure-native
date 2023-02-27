@@ -122,7 +122,7 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
                                               resource_group_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVirtualMachineApplicableSchedulesResult:
     """
-    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    Lists the applicable start/stop schedules, if any.
 
 
     :param str lab_name: The name of the lab.
@@ -152,7 +152,7 @@ def list_virtual_machine_applicable_schedules_output(lab_name: Optional[pulumi.I
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVirtualMachineApplicableSchedulesResult]:
     """
-    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    Lists the applicable start/stop schedules, if any.
 
 
     :param str lab_name: The name of the lab.

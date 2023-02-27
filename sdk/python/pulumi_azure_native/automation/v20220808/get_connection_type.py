@@ -134,7 +134,7 @@ def get_connection_type(automation_account_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionTypeResult:
     """
-    Definition of the connection type.
+    Retrieve the connection type identified by connection type name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -165,7 +165,7 @@ def get_connection_type_output(automation_account_name: Optional[pulumi.Input[st
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionTypeResult]:
     """
-    Definition of the connection type.
+    Retrieve the connection type identified by connection type name.
 
 
     :param str automation_account_name: The name of the automation account.

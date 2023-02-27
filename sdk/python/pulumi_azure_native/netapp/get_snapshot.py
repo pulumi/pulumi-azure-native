@@ -123,7 +123,7 @@ def get_snapshot(account_name: Optional[str] = None,
                  volume_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
-    Snapshot of a Volume
+    Get details of the specified snapshot
     API Version: 2020-12-01.
 
 
@@ -160,7 +160,7 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
                         volume_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
-    Snapshot of a Volume
+    Get details of the specified snapshot
     API Version: 2020-12-01.
 
 

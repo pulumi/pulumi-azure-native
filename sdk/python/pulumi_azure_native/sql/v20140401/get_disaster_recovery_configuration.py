@@ -169,7 +169,7 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
                                         server_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDisasterRecoveryConfigurationResult:
     """
-    Represents a disaster recovery configuration.
+    Gets a disaster recovery configuration.
 
 
     :param str disaster_recovery_configuration_name: The name of the disaster recovery configuration.
@@ -203,7 +203,7 @@ def get_disaster_recovery_configuration_output(disaster_recovery_configuration_n
                                                server_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDisasterRecoveryConfigurationResult]:
     """
-    Represents a disaster recovery configuration.
+    Gets a disaster recovery configuration.
 
 
     :param str disaster_recovery_configuration_name: The name of the disaster recovery configuration.

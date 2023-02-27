@@ -98,7 +98,7 @@ def get_policy(format: Optional[str] = None,
                service_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Policy Contract details.
+    Get the Global policy definition of the Api Management service.
 
 
     :param str format: Policy Export Format.
@@ -129,7 +129,7 @@ def get_policy_output(format: Optional[pulumi.Input[Optional[str]]] = None,
                       service_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
-    Policy Contract details.
+    Get the Global policy definition of the Api Management service.
 
 
     :param str format: Policy Export Format.

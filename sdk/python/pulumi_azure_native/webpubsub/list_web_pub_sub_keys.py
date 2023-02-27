@@ -84,7 +84,7 @@ def list_web_pub_sub_keys(resource_group_name: Optional[str] = None,
                           resource_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebPubSubKeysResult:
     """
-    A class represents the access keys of the resource.
+    Get the access keys of the resource.
     API Version: 2021-04-01-preview.
 
 
@@ -109,7 +109,7 @@ def list_web_pub_sub_keys_output(resource_group_name: Optional[pulumi.Input[str]
                                  resource_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebPubSubKeysResult]:
     """
-    A class represents the access keys of the resource.
+    Get the access keys of the resource.
     API Version: 2021-04-01-preview.
 
 

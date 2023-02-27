@@ -181,7 +181,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
                                   sql_virtual_machine_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineGroupResult:
     """
-    A SQL virtual machine group.
+    Gets a SQL virtual machine group.
     API Version: 2017-03-01-preview.
 
 
@@ -214,7 +214,7 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
                                          sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
     """
-    A SQL virtual machine group.
+    Gets a SQL virtual machine group.
     API Version: 2017-03-01-preview.
 
 

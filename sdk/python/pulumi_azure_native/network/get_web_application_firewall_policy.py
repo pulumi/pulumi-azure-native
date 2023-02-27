@@ -205,7 +205,7 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebApplicationFirewallPolicyResult:
     """
-    Defines web application firewall policy.
+    Retrieve protection policy with specified name within a resource group.
     API Version: 2020-11-01.
 
 
@@ -240,7 +240,7 @@ def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Inpu
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebApplicationFirewallPolicyResult]:
     """
-    Defines web application firewall policy.
+    Retrieve protection policy with specified name within a resource group.
     API Version: 2020-11-01.
 
 

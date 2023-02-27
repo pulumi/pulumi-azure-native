@@ -205,7 +205,7 @@ def get_connector(connector_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    The Connector model definition
+    Get a connector definition
 
 
     :param str connector_name: Connector Name.
@@ -239,7 +239,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    The Connector model definition
+    Get a connector definition
 
 
     :param str connector_name: Connector Name.

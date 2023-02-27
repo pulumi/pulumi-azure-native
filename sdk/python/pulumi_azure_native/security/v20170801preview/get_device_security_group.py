@@ -121,7 +121,7 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
                               resource_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceSecurityGroupResult:
     """
-    The device security group resource
+    Use this method to get the device security group for the specified IoT Hub resource.
 
 
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
@@ -148,7 +148,7 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
                                      resource_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceSecurityGroupResult]:
     """
-    The device security group resource
+    Use this method to get the device security group for the specified IoT Hub resource.
 
 
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.

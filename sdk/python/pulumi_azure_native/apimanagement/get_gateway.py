@@ -98,7 +98,7 @@ def get_gateway(gateway_id: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
-    Gateway details.
+    Gets the details of the Gateway specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -127,7 +127,7 @@ def get_gateway_output(gateway_id: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
-    Gateway details.
+    Gets the details of the Gateway specified by its identifier.
     API Version: 2020-12-01.
 
 

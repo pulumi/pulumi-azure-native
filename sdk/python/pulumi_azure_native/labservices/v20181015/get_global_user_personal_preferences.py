@@ -63,7 +63,7 @@ def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRem
                                          user_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserPersonalPreferencesResult:
     """
-    Represents the PersonalPreferences for the user
+    Get personal preferences for a user
 
 
     :param Union[str, 'AddRemove'] add_remove: Enum indicating if user is adding or removing a favorite lab
@@ -91,7 +91,7 @@ def get_global_user_personal_preferences_output(add_remove: Optional[pulumi.Inpu
                                                 user_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserPersonalPreferencesResult]:
     """
-    Represents the PersonalPreferences for the user
+    Get personal preferences for a user
 
 
     :param Union[str, 'AddRemove'] add_remove: Enum indicating if user is adding or removing a favorite lab

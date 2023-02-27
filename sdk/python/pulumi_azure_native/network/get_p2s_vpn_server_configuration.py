@@ -194,7 +194,7 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
                                      virtual_wan_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnServerConfigurationResult:
     """
-    P2SVpnServerConfiguration Resource.
+    Retrieves the details of a P2SVpnServerConfiguration.
     API Version: 2019-07-01.
 
 
@@ -231,7 +231,7 @@ def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: 
                                             virtual_wan_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnServerConfigurationResult]:
     """
-    P2SVpnServerConfiguration Resource.
+    Retrieves the details of a P2SVpnServerConfiguration.
     API Version: 2019-07-01.
 
 

@@ -147,7 +147,7 @@ def get_scheduled_synchronization_setting(account_name: Optional[str] = None,
                                           synchronization_setting_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledSynchronizationSettingResult:
     """
-    A type of synchronization setting based on schedule
+    Get a synchronizationSetting in a share
 
 
     :param str account_name: The name of the share account.
@@ -182,7 +182,7 @@ def get_scheduled_synchronization_setting_output(account_name: Optional[pulumi.I
                                                  synchronization_setting_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledSynchronizationSettingResult]:
     """
-    A type of synchronization setting based on schedule
+    Get a synchronizationSetting in a share
 
 
     :param str account_name: The name of the share account.

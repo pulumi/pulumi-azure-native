@@ -130,6 +130,7 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetB2CTenantResult:
     """
+    Get the Azure AD B2C tenant resource.
     API Version: 2019-01-01-preview.
 
 
@@ -158,6 +159,7 @@ def get_b2_c_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            resource_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetB2CTenantResult]:
     """
+    Get the Azure AD B2C tenant resource.
     API Version: 2019-01-01-preview.
 
 

@@ -64,7 +64,7 @@ def list_effective_virtual_network_by_network_manager(conditional_members: Optio
                                                       top: Optional[int] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEffectiveVirtualNetworkByNetworkManagerResult:
     """
-    Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+    List effective virtual networks in a network manager.
 
 
     :param str conditional_members: Conditional Members.
@@ -95,7 +95,7 @@ def list_effective_virtual_network_by_network_manager_output(conditional_members
                                                              top: Optional[pulumi.Input[Optional[int]]] = None,
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEffectiveVirtualNetworkByNetworkManagerResult]:
     """
-    Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+    List effective virtual networks in a network manager.
 
 
     :param str conditional_members: Conditional Members.

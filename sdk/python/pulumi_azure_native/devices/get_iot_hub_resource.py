@@ -133,7 +133,7 @@ def get_iot_hub_resource(resource_group_name: Optional[str] = None,
                          resource_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceResult:
     """
-    The description of the IoT hub.
+    Get the non-security related metadata of an IoT hub.
     API Version: 2020-08-31.
 
 
@@ -162,7 +162,7 @@ def get_iot_hub_resource_output(resource_group_name: Optional[pulumi.Input[str]]
                                 resource_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubResourceResult]:
     """
-    The description of the IoT hub.
+    Get the non-security related metadata of an IoT hub.
     API Version: 2020-08-31.
 
 

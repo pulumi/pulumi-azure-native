@@ -166,6 +166,7 @@ def get_controller(name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerResult:
     """
+    Gets the properties for an Azure Dev Spaces Controller.
     API Version: 2019-04-01.
 
 
@@ -197,6 +198,7 @@ def get_controller_output(name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControllerResult]:
     """
+    Gets the properties for an Azure Dev Spaces Controller.
     API Version: 2019-04-01.
 
 

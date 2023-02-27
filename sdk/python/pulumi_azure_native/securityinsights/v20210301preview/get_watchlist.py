@@ -351,7 +351,7 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatchlistResult:
     """
-    Represents a Watchlist in Azure Security Insights.
+    Gets a watchlist, without its watchlist items.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -403,7 +403,7 @@ def get_watchlist_output(operational_insights_resource_provider: Optional[pulumi
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatchlistResult]:
     """
-    Represents a Watchlist in Azure Security Insights.
+    Gets a watchlist, without its watchlist items.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

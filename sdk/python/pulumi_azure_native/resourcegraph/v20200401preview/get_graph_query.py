@@ -169,7 +169,7 @@ def get_graph_query(resource_group_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQueryResult:
     """
-    Graph Query entity definition.
+    Get a single graph query by its resourceName.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -200,7 +200,7 @@ def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            resource_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphQueryResult]:
     """
-    Graph Query entity definition.
+    Get a single graph query by its resourceName.
 
 
     :param str resource_group_name: The name of the resource group.

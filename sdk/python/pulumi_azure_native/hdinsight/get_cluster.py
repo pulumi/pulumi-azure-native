@@ -133,7 +133,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    The HDInsight cluster.
+    Gets the specified cluster.
     API Version: 2018-06-01-preview.
 
 
@@ -162,7 +162,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    The HDInsight cluster.
+    Gets the specified cluster.
     API Version: 2018-06-01-preview.
 
 

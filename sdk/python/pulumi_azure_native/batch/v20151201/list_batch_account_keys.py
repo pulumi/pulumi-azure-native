@@ -60,7 +60,7 @@ def list_batch_account_keys(account_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBatchAccountKeysResult:
     """
-    A set of Azure Batch account keys.
+    Gets the account keys for the specified Batch account.
 
 
     :param str account_name: The name of the account.
@@ -82,7 +82,7 @@ def list_batch_account_keys_output(account_name: Optional[pulumi.Input[str]] = N
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBatchAccountKeysResult]:
     """
-    A set of Azure Batch account keys.
+    Gets the account keys for the specified Batch account.
 
 
     :param str account_name: The name of the account.

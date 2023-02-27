@@ -121,7 +121,7 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[str] 
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertProcessingRuleByNameResult:
     """
-    Alert processing rule object containing target scopes, conditions and scheduling logic.
+    Get an alert processing rule by name.
 
 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
@@ -148,7 +148,7 @@ def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optiona
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertProcessingRuleByNameResult]:
     """
-    Alert processing rule object containing target scopes, conditions and scheduling logic.
+    Get an alert processing rule by name.
 
 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.

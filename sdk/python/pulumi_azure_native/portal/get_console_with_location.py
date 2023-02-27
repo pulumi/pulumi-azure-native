@@ -49,7 +49,7 @@ def get_console_with_location(console_name: Optional[str] = None,
                               location: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleWithLocationResult:
     """
-    Cloud shell console
+    Gets the console for the user.
     API Version: 2018-10-01.
 
 
@@ -71,7 +71,7 @@ def get_console_with_location_output(console_name: Optional[pulumi.Input[str]] =
                                      location: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleWithLocationResult]:
     """
-    Cloud shell console
+    Gets the console for the user.
     API Version: 2018-10-01.
 
 

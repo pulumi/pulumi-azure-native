@@ -480,7 +480,7 @@ class AwaitableGetAccessReviewScheduleDefinitionByIdResult(GetAccessReviewSchedu
 def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessReviewScheduleDefinitionByIdResult:
     """
-    Access Review Schedule Definition.
+    Get single access review definition
 
 
     :param str schedule_definition_id: The id of the access review schedule definition.
@@ -534,7 +534,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
 def get_access_review_schedule_definition_by_id_output(schedule_definition_id: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessReviewScheduleDefinitionByIdResult]:
     """
-    Access Review Schedule Definition.
+    Get single access review definition
 
 
     :param str schedule_definition_id: The id of the access review schedule definition.

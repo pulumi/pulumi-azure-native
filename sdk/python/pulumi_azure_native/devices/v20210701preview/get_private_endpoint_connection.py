@@ -86,7 +86,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     resource_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The private endpoint connection of an IotHub
+    Get private endpoint connection properties
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection
@@ -113,7 +113,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            resource_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The private endpoint connection of an IotHub
+    Get private endpoint connection properties
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection

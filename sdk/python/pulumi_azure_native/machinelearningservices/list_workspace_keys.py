@@ -79,6 +79,7 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
+    Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
     API Version: 2021-01-01.
 
 
@@ -104,6 +105,7 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] 
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
+    Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
     API Version: 2021-01-01.
 
 

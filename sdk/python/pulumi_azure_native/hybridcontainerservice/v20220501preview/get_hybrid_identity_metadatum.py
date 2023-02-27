@@ -134,7 +134,7 @@ def get_hybrid_identity_metadatum(hybrid_identity_metadata_resource_name: Option
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridIdentityMetadatumResult:
     """
-    Defines the hybridIdentityMetadata.
+    Get the hybrid identity metadata proxy resource.
 
 
     :param str hybrid_identity_metadata_resource_name: Parameter for the name of the hybrid identity metadata resource.
@@ -165,7 +165,7 @@ def get_hybrid_identity_metadatum_output(hybrid_identity_metadata_resource_name:
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
-    Defines the hybridIdentityMetadata.
+    Get the hybrid identity metadata proxy resource.
 
 
     :param str hybrid_identity_metadata_resource_name: Parameter for the name of the hybrid identity metadata resource.

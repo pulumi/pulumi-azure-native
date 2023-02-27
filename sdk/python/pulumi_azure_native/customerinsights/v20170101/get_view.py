@@ -160,7 +160,7 @@ def get_view(hub_name: Optional[str] = None,
              view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
-    The view resource format.
+    Gets a view in the hub.
 
 
     :param str hub_name: The name of the hub.
@@ -197,7 +197,7 @@ def get_view_output(hub_name: Optional[pulumi.Input[str]] = None,
                     view_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
-    The view resource format.
+    Gets a view in the hub.
 
 
     :param str hub_name: The name of the hub.

@@ -229,7 +229,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    The top level Log Analytics cluster resource container.
+    Gets a Log Analytics cluster instance.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.
@@ -265,7 +265,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    The top level Log Analytics cluster resource container.
+    Gets a Log Analytics cluster instance.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.

@@ -134,7 +134,7 @@ def get_administrator(object_id: Optional[str] = None,
                       server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdministratorResult:
     """
-    Represents an Active Directory administrator.
+    Gets information about a server.
 
 
     :param str object_id: Guid of the objectId for the administrator.
@@ -165,7 +165,7 @@ def get_administrator_output(object_id: Optional[pulumi.Input[str]] = None,
                              server_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdministratorResult]:
     """
-    Represents an Active Directory administrator.
+    Gets information about a server.
 
 
     :param str object_id: Guid of the objectId for the administrator.

@@ -98,7 +98,7 @@ def get_web_pub_sub_hub(hub_name: Optional[str] = None,
                         resource_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubHubResult:
     """
-    A hub setting
+    Get a hub setting.
     API Version: 2021-10-01.
 
 
@@ -127,7 +127,7 @@ def get_web_pub_sub_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
                                resource_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubHubResult]:
     """
-    A hub setting
+    Get a hub setting.
     API Version: 2021-10-01.
 
 

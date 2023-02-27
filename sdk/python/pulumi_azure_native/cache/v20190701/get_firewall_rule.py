@@ -99,7 +99,7 @@ def get_firewall_rule(cache_name: Optional[str] = None,
                       rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+    Gets a single firewall rule in a specified redis cache.
 
 
     :param str cache_name: The name of the Redis cache.
@@ -128,7 +128,7 @@ def get_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = None,
                              rule_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
-    A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+    Gets a single firewall rule in a specified redis cache.
 
 
     :param str cache_name: The name of the Redis cache.

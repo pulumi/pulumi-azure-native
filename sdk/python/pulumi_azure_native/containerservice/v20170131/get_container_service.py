@@ -207,7 +207,7 @@ def get_container_service(container_service_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerServiceResult:
     """
-    Container service.
+    Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.
 
 
     :param str container_service_name: The name of the container service in the specified subscription and resource group.
@@ -242,7 +242,7 @@ def get_container_service_output(container_service_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerServiceResult]:
     """
-    Container service.
+    Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.
 
 
     :param str container_service_name: The name of the container service in the specified subscription and resource group.

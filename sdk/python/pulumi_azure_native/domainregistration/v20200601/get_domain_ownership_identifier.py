@@ -99,7 +99,7 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainOwnershipIdentifierResult:
     """
-    Domain ownership Identifier.
+    Get ownership identifier for domain
 
 
     :param str domain_name: Name of domain.
@@ -128,7 +128,7 @@ def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[st
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainOwnershipIdentifierResult]:
     """
-    Domain ownership Identifier.
+    Get ownership identifier for domain
 
 
     :param str domain_name: Name of domain.

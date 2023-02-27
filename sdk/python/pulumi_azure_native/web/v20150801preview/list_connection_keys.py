@@ -64,7 +64,8 @@ def list_connection_keys(connection_name: Optional[str] = None,
                          validity_time_span: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Lists connection keys.
+
 
     :param str connection_name: The connection name.
     :param str id: Resource Id
@@ -106,7 +107,8 @@ def list_connection_keys_output(connection_name: Optional[pulumi.Input[str]] = N
                                 validity_time_span: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionKeysResult]:
     """
-    Use this data source to access information about an existing resource.
+    Lists connection keys.
+
 
     :param str connection_name: The connection name.
     :param str id: Resource Id

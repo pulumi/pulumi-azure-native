@@ -120,7 +120,7 @@ def get_scope_assignment(scope: Optional[str] = None,
                          scope_assignment_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeAssignmentResult:
     """
-    The Managed Network resource
+    Get the specified scope assignment.
     API Version: 2019-06-01-preview.
 
 
@@ -148,7 +148,7 @@ def get_scope_assignment_output(scope: Optional[pulumi.Input[str]] = None,
                                 scope_assignment_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeAssignmentResult]:
     """
-    The Managed Network resource
+    Get the specified scope assignment.
     API Version: 2019-06-01-preview.
 
 

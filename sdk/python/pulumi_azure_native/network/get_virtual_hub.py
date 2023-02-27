@@ -325,7 +325,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
                     virtual_hub_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubResult:
     """
-    VirtualHub Resource.
+    Retrieves the details of a VirtualHub.
     API Version: 2020-11-01.
 
 
@@ -370,7 +370,7 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            virtual_hub_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubResult]:
     """
-    VirtualHub Resource.
+    Retrieves the details of a VirtualHub.
     API Version: 2020-11-01.
 
 

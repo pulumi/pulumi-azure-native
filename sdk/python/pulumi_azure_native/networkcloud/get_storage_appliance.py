@@ -283,6 +283,7 @@ def get_storage_appliance(resource_group_name: Optional[str] = None,
                           storage_appliance_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageApplianceResult:
     """
+    Get properties of the provided storage appliance.
     API Version: 2022-12-12-preview.
 
 
@@ -324,6 +325,7 @@ def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]
                                  storage_appliance_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageApplianceResult]:
     """
+    Get properties of the provided storage appliance.
     API Version: 2022-12-12-preview.
 
 

@@ -97,7 +97,7 @@ def list_static_site_build_function_app_settings(environment_name: Optional[str]
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteBuildFunctionAppSettingsResult:
     """
-    String dictionary resource.
+    Gets the application settings of a static site build.
     API Version: 2020-12-01.
 
 
@@ -126,7 +126,7 @@ def list_static_site_build_function_app_settings_output(environment_name: Option
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteBuildFunctionAppSettingsResult]:
     """
-    String dictionary resource.
+    Gets the application settings of a static site build.
     API Version: 2020-12-01.
 
 

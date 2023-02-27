@@ -133,7 +133,7 @@ def get_job(job_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Contains the job information.
+    Gets information about an existing job.
 
 
     :param str job_name: The name of the import/export job.
@@ -161,7 +161,7 @@ def get_job_output(job_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
-    Contains the job information.
+    Gets information about an existing job.
 
 
     :param str job_name: The name of the import/export job.

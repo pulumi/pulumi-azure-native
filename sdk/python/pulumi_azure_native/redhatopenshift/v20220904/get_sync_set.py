@@ -98,7 +98,7 @@ def get_sync_set(child_resource_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncSetResult:
     """
-    SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
+    The operation returns properties of a SyncSet.
 
 
     :param str child_resource_name: The name of the SyncSet resource.
@@ -126,7 +126,7 @@ def get_sync_set_output(child_resource_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncSetResult]:
     """
-    SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
+    The operation returns properties of a SyncSet.
 
 
     :param str child_resource_name: The name of the SyncSet resource.

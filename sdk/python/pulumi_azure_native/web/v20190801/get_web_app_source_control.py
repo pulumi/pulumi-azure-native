@@ -144,7 +144,7 @@ def get_web_app_source_control(name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSourceControlResult:
     """
-    Source control configuration for an app.
+    Gets the source control configuration of an app.
 
 
     :param str name: Name of the app.
@@ -173,7 +173,7 @@ def get_web_app_source_control_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSourceControlResult]:
     """
-    Source control configuration for an app.
+    Gets the source control configuration of an app.
 
 
     :param str name: Name of the app.

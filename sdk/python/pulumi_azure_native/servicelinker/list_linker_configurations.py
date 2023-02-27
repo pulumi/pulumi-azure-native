@@ -49,7 +49,7 @@ def list_linker_configurations(linker_name: Optional[str] = None,
                                resource_uri: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLinkerConfigurationsResult:
     """
-    Configurations for source resource, include appSettings, connectionString and serviceBindings
+    list source configurations for a linker.
     API Version: 2021-11-01-preview.
 
 
@@ -71,7 +71,7 @@ def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] =
                                       resource_uri: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
     """
-    Configurations for source resource, include appSettings, connectionString and serviceBindings
+    list source configurations for a linker.
     API Version: 2021-11-01-preview.
 
 

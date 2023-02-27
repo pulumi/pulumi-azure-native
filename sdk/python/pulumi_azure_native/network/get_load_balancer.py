@@ -242,7 +242,7 @@ def get_load_balancer(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
-    LoadBalancer resource.
+    Gets the specified load balancer.
     API Version: 2020-11-01.
 
 
@@ -283,7 +283,7 @@ def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
-    LoadBalancer resource.
+    Gets the specified load balancer.
     API Version: 2020-11-01.
 
 

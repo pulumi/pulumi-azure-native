@@ -121,7 +121,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceNetworkRuleSetResult:
     """
-    Description of NetworkRuleSet resource.
+    Gets NetworkRuleSet for a Namespace.
 
 
     :param str namespace_name: The namespace name
@@ -148,7 +148,7 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
     """
-    Description of NetworkRuleSet resource.
+    Gets NetworkRuleSet for a Namespace.
 
 
     :param str namespace_name: The namespace name

@@ -219,7 +219,7 @@ def get_gen1_environment(environment_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGen1EnvironmentResult:
     """
-    An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
+    Gets the environment with the specified name in the specified subscription and resource group.
     API Version: 2020-05-15.
 
 
@@ -258,7 +258,7 @@ def get_gen1_environment_output(environment_name: Optional[pulumi.Input[str]] = 
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGen1EnvironmentResult]:
     """
-    An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
+    Gets the environment with the specified name in the specified subscription and resource group.
     API Version: 2020-05-15.
 
 

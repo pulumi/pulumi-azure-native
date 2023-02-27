@@ -158,7 +158,7 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImportPipelineResult:
     """
-    An object that represents an import pipeline for a container registry.
+    Gets the properties of the import pipeline.
 
 
     :param str import_pipeline_name: The name of the import pipeline.
@@ -191,7 +191,7 @@ def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportPipelineResult]:
     """
-    An object that represents an import pipeline for a container registry.
+    Gets the properties of the import pipeline.
 
 
     :param str import_pipeline_name: The name of the import pipeline.

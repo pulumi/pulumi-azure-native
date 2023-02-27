@@ -109,7 +109,7 @@ def get_server_trust_certificate(certificate_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerTrustCertificateResult:
     """
-    Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+    Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
 
 
     :param str certificate_name: Name of of the certificate to get.
@@ -138,7 +138,7 @@ def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTrustCertificateResult]:
     """
-    Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+    Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
 
 
     :param str certificate_name: Name of of the certificate to get.

@@ -110,7 +110,7 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
                               resource_group: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerSubscriptionResult:
     """
-    Customer subscription.
+    Returns the specified product.
 
 
     :param str customer_subscription_name: Name of the product.
@@ -139,7 +139,7 @@ def get_customer_subscription_output(customer_subscription_name: Optional[pulumi
                                      resource_group: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerSubscriptionResult]:
     """
-    Customer subscription.
+    Returns the specified product.
 
 
     :param str customer_subscription_name: Name of the product.

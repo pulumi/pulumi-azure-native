@@ -171,7 +171,7 @@ def get_database_advisor(advisor_name: Optional[str] = None,
                          server_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAdvisorResult:
     """
-    Database, Server or Elastic Pool Advisor.
+    Gets a database advisor.
     API Version: 2020-11-01-preview.
 
 
@@ -209,7 +209,7 @@ def get_database_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None
                                 server_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAdvisorResult]:
     """
-    Database, Server or Elastic Pool Advisor.
+    Gets a database advisor.
     API Version: 2020-11-01-preview.
 
 

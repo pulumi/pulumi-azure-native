@@ -124,7 +124,7 @@ def get_dynamics365_data_connector(data_connector_id: Optional[str] = None,
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDynamics365DataConnectorResult:
     """
-    Represents Dynamics365 data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -157,7 +157,7 @@ def get_dynamics365_data_connector_output(data_connector_id: Optional[pulumi.Inp
                                           workspace_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDynamics365DataConnectorResult]:
     """
-    Represents Dynamics365 data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

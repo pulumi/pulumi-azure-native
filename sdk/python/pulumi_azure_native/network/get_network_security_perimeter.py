@@ -120,7 +120,7 @@ def get_network_security_perimeter(network_security_perimeter_name: Optional[str
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityPerimeterResult:
     """
-    The Network Security Perimeter resource
+    Gets the specified network security perimeter by the name.
     API Version: 2021-02-01-preview.
 
 
@@ -148,7 +148,7 @@ def get_network_security_perimeter_output(network_security_perimeter_name: Optio
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityPerimeterResult]:
     """
-    The Network Security Perimeter resource
+    Gets the specified network security perimeter by the name.
     API Version: 2021-02-01-preview.
 
 

@@ -64,7 +64,7 @@ def list_connected_cluster_user_credential(authentication_method: Optional[Union
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectedClusterUserCredentialResult:
     """
-    The list of credential result response.
+    Gets cluster user credentials of the connected cluster with a specified resource group and name.
     API Version: 2022-05-01-preview.
 
 
@@ -93,7 +93,7 @@ def list_connected_cluster_user_credential_output(authentication_method: Optiona
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedClusterUserCredentialResult]:
     """
-    The list of credential result response.
+    Gets cluster user credentials of the connected cluster with a specified resource group and name.
     API Version: 2022-05-01-preview.
 
 

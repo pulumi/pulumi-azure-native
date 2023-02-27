@@ -50,7 +50,7 @@ def get_deployment_log_file_url(app_name: Optional[str] = None,
                                 service_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentLogFileUrlResult:
     """
-    Log file URL payload
+    Get deployment log file URL
 
 
     :param str app_name: The name of the App resource.
@@ -77,7 +77,7 @@ def get_deployment_log_file_url_output(app_name: Optional[pulumi.Input[str]] = N
                                        service_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentLogFileUrlResult]:
     """
-    Log file URL payload
+    Get deployment log file URL
 
 
     :param str app_name: The name of the App resource.

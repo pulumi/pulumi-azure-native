@@ -156,7 +156,7 @@ class AwaitableGetSubscriptionDiagnosticSettingResult(GetSubscriptionDiagnosticS
 def get_subscription_diagnostic_setting(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionDiagnosticSettingResult:
     """
-    The subscription diagnostic setting resource.
+    Gets the active subscription diagnostic settings for the specified resource.
     API Version: 2017-05-01-preview.
 
 
@@ -184,7 +184,7 @@ def get_subscription_diagnostic_setting(name: Optional[str] = None,
 def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionDiagnosticSettingResult]:
     """
-    The subscription diagnostic setting resource.
+    Gets the active subscription diagnostic settings for the specified resource.
     API Version: 2017-05-01-preview.
 
 

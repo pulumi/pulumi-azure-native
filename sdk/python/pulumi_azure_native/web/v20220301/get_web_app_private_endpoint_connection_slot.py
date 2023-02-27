@@ -132,7 +132,7 @@ def get_web_app_private_endpoint_connection_slot(name: Optional[str] = None,
                                                  slot: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPrivateEndpointConnectionSlotResult:
     """
-    Remote Private Endpoint Connection ARM resource.
+    Description for Gets a private endpoint connection
 
 
     :param str name: Name of the site.
@@ -166,7 +166,7 @@ def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.In
                                                         slot: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPrivateEndpointConnectionSlotResult]:
     """
-    Remote Private Endpoint Connection ARM resource.
+    Description for Gets a private endpoint connection
 
 
     :param str name: Name of the site.

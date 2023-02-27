@@ -121,7 +121,7 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
                                       server_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAzureADAdministratorResult:
     """
-    An server Active Directory Administrator.
+    Returns an server Administrator.
 
 
     :param str administrator_name: Name of the server administrator resource.
@@ -151,7 +151,7 @@ def get_server_azure_ad_administrator_output(administrator_name: Optional[pulumi
                                              server_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerAzureADAdministratorResult]:
     """
-    An server Active Directory Administrator.
+    Returns an server Administrator.
 
 
     :param str administrator_name: Name of the server administrator resource.

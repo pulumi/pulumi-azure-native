@@ -253,7 +253,7 @@ def get_cache(cache_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
-    A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+    Returns a Cache.
     API Version: 2021-03-01.
 
 
@@ -292,7 +292,7 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
     """
-    A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+    Returns a Cache.
     API Version: 2021-03-01.
 
 

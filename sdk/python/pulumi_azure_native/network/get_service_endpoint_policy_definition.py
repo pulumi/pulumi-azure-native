@@ -121,7 +121,7 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
                                            service_endpoint_policy_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyDefinitionResult:
     """
-    Service Endpoint policy definitions.
+    Get the specified service endpoint policy definitions from service endpoint policy.
     API Version: 2020-11-01.
 
 
@@ -152,7 +152,7 @@ def get_service_endpoint_policy_definition_output(resource_group_name: Optional[
                                                   service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointPolicyDefinitionResult]:
     """
-    Service Endpoint policy definitions.
+    Get the specified service endpoint policy definitions from service endpoint policy.
     API Version: 2020-11-01.
 
 

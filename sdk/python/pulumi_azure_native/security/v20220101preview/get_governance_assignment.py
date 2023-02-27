@@ -146,7 +146,7 @@ def get_governance_assignment(assessment_name: Optional[str] = None,
                               scope: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGovernanceAssignmentResult:
     """
-    Governance assignment over a given scope
+    Get a specific governanceAssignment for the requested scope by AssignmentKey
 
 
     :param str assessment_name: The Assessment Key - A unique key for the assessment type
@@ -178,7 +178,7 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]
                                      scope: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceAssignmentResult]:
     """
-    Governance assignment over a given scope
+    Get a specific governanceAssignment for the requested scope by AssignmentKey
 
 
     :param str assessment_name: The Assessment Key - A unique key for the assessment type

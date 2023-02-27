@@ -157,7 +157,7 @@ def get_encryption_protector(encryption_protector_name: Optional[str] = None,
                              server_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEncryptionProtectorResult:
     """
-    The server encryption protector.
+    Gets a server encryption protector.
 
 
     :param str encryption_protector_name: The name of the encryption protector to be retrieved.
@@ -190,7 +190,7 @@ def get_encryption_protector_output(encryption_protector_name: Optional[pulumi.I
                                     server_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncryptionProtectorResult]:
     """
-    The server encryption protector.
+    Gets a server encryption protector.
 
 
     :param str encryption_protector_name: The name of the encryption protector to be retrieved.

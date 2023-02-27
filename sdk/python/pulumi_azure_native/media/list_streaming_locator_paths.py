@@ -62,7 +62,7 @@ def list_streaming_locator_paths(account_name: Optional[str] = None,
                                  streaming_locator_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStreamingLocatorPathsResult:
     """
-    Class of response for listPaths action
+    List Paths supported by this Streaming Locator
     API Version: 2020-05-01.
 
 
@@ -88,7 +88,7 @@ def list_streaming_locator_paths_output(account_name: Optional[pulumi.Input[str]
                                         streaming_locator_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStreamingLocatorPathsResult]:
     """
-    Class of response for listPaths action
+    List Paths supported by this Streaming Locator
     API Version: 2020-05-01.
 
 

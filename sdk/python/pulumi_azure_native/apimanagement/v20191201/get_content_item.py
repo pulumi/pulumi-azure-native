@@ -86,7 +86,7 @@ def get_content_item(content_item_id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentItemResult:
     """
-    Content type contract details.
+    Returns content item details
 
 
     :param str content_item_id: Content item identifier.
@@ -116,7 +116,7 @@ def get_content_item_output(content_item_id: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentItemResult]:
     """
-    Content type contract details.
+    Returns content item details
 
 
     :param str content_item_id: Content item identifier.

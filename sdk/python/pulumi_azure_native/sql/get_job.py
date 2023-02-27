@@ -111,7 +111,7 @@ def get_job(job_agent_name: Optional[str] = None,
             server_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    A job.
+    Gets a job.
     API Version: 2020-11-01-preview.
 
 
@@ -144,7 +144,7 @@ def get_job_output(job_agent_name: Optional[pulumi.Input[str]] = None,
                    server_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
-    A job.
+    Gets a job.
     API Version: 2020-11-01-preview.
 
 

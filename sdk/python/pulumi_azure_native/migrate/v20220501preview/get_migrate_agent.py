@@ -108,7 +108,7 @@ def get_migrate_agent(agent_name: Optional[str] = None,
                       subscription_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrateAgentResult:
     """
-    MigrateAgent model.
+    Gets the details of the modernizeProject agent.
 
 
     :param str agent_name: MigrateAgent name.
@@ -140,7 +140,7 @@ def get_migrate_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
                              subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrateAgentResult]:
     """
-    MigrateAgent model.
+    Gets the details of the modernizeProject agent.
 
 
     :param str agent_name: MigrateAgent name.

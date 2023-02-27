@@ -426,7 +426,7 @@ def list_web_app_auth_settings(name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsResult:
     """
-    Configuration settings for the Azure App Service Authentication / Authorization feature.
+    Gets the Authentication/Authorization settings of an app.
 
 
     :param str name: Name of the app.
@@ -475,7 +475,7 @@ def list_web_app_auth_settings_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAuthSettingsResult]:
     """
-    Configuration settings for the Azure App Service Authentication / Authorization feature.
+    Gets the Authentication/Authorization settings of an app.
 
 
     :param str name: Name of the app.

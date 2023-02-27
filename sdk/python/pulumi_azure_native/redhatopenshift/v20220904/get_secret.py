@@ -98,7 +98,7 @@ def get_secret(child_resource_name: Optional[str] = None,
                resource_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Secret represents a secret.
+    The operation returns properties of a Secret.
 
 
     :param str child_resource_name: The name of the Secret resource.
@@ -126,7 +126,7 @@ def get_secret_output(child_resource_name: Optional[pulumi.Input[str]] = None,
                       resource_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
-    Secret represents a secret.
+    The operation returns properties of a Secret.
 
 
     :param str child_resource_name: The name of the Secret resource.

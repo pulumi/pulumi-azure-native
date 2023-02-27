@@ -110,7 +110,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     storage_sync_service_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the storage sync service.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -139,7 +139,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the storage sync service.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

@@ -229,7 +229,7 @@ def get_server_details(resource_group_name: Optional[str] = None,
                        server_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerDetailsResult:
     """
-    Represents an instance of an Analysis Services resource.
+    Gets details about the specified Analysis Services server.
     API Version: 2017-08-01.
 
 
@@ -266,7 +266,7 @@ def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] =
                               server_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerDetailsResult]:
     """
-    Represents an instance of an Analysis Services resource.
+    Gets details about the specified Analysis Services server.
     API Version: 2017-08-01.
 
 

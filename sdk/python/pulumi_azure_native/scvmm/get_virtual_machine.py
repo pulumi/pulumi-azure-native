@@ -313,7 +313,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         virtual_machine_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    The VirtualMachines resource definition.
+    Implements VirtualMachine GET method.
     API Version: 2020-06-05-preview.
 
 
@@ -357,7 +357,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
-    The VirtualMachines resource definition.
+    Implements VirtualMachine GET method.
     API Version: 2020-06-05-preview.
 
 

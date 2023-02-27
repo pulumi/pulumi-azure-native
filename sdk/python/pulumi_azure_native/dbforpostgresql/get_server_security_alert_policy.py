@@ -157,7 +157,7 @@ def get_server_security_alert_policy(resource_group_name: Optional[str] = None,
                                      server_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerSecurityAlertPolicyResult:
     """
-    A server security alert policy.
+    Get a server's security alert policy.
     API Version: 2017-12-01.
 
 
@@ -191,7 +191,7 @@ def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi
                                             server_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerSecurityAlertPolicyResult]:
     """
-    A server security alert policy.
+    Get a server's security alert policy.
     API Version: 2017-12-01.
 
 

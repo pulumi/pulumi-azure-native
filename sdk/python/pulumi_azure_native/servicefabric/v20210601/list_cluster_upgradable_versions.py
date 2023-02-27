@@ -46,7 +46,7 @@ def list_cluster_upgradable_versions(cluster_name: Optional[str] = None,
                                      target_version: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterUpgradableVersionsResult:
     """
-    The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
+    If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -70,7 +70,7 @@ def list_cluster_upgradable_versions_output(cluster_name: Optional[pulumi.Input[
                                             target_version: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterUpgradableVersionsResult]:
     """
-    The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
+    If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
 
 
     :param str cluster_name: The name of the cluster resource.

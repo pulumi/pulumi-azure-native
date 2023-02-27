@@ -109,7 +109,7 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
                                         role_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterAccessProfileResult:
     """
-    Managed cluster Access Profile.
+    Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -138,7 +138,7 @@ def list_managed_cluster_access_profile_output(resource_group_name: Optional[pul
                                                role_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterAccessProfileResult]:
     """
-    Managed cluster Access Profile.
+    Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
 
 
     :param str resource_group_name: The name of the resource group.

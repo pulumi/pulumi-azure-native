@@ -122,7 +122,7 @@ def list_queue_keys(authorization_rule_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListQueueKeysResult:
     """
-    Namespace/ServiceBus Connection String
+    Primary and secondary connection strings to the queue.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -155,7 +155,7 @@ def list_queue_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] 
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListQueueKeysResult]:
     """
-    Namespace/ServiceBus Connection String
+    Primary and secondary connection strings to the queue.
 
 
     :param str authorization_rule_name: The authorization rule name.

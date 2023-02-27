@@ -181,7 +181,7 @@ def get_app(resource_group_name: Optional[str] = None,
             resource_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
-    The IoT Central application.
+    Get the metadata of an IoT Central application.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
@@ -213,7 +213,7 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    resource_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
-    The IoT Central application.
+    Get the metadata of an IoT Central application.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.

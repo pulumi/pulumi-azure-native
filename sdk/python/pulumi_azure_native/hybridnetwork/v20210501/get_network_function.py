@@ -253,7 +253,7 @@ def get_network_function(network_function_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFunctionResult:
     """
-    Network function resource response.
+    Gets information about the specified network function resource.
 
 
     :param str network_function_name: The name of the network function resource.
@@ -291,7 +291,7 @@ def get_network_function_output(network_function_name: Optional[pulumi.Input[str
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFunctionResult]:
     """
-    Network function resource response.
+    Gets information about the specified network function resource.
 
 
     :param str network_function_name: The name of the network function resource.

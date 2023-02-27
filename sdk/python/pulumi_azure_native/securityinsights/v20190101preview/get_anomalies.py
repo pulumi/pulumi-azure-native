@@ -111,7 +111,7 @@ def get_anomalies(operational_insights_resource_provider: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnomaliesResult:
     """
-    Settings with single toggle.
+    Gets a setting.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -143,7 +143,7 @@ def get_anomalies_output(operational_insights_resource_provider: Optional[pulumi
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomaliesResult]:
     """
-    Settings with single toggle.
+    Gets a setting.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

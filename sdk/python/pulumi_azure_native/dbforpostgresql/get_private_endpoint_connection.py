@@ -110,7 +110,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     server_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    A private endpoint connection
+    Gets a private endpoint connection.
     API Version: 2018-06-01.
 
 
@@ -140,7 +140,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            server_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    A private endpoint connection
+    Gets a private endpoint connection.
     API Version: 2018-06-01.
 
 

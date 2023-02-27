@@ -265,7 +265,7 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedClusterResult:
     """
-    Represents a connected cluster.
+    Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
     API Version: 2021-03-01.
 
 
@@ -305,7 +305,7 @@ def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedClusterResult]:
     """
-    Represents a connected cluster.
+    Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
     API Version: 2021-03-01.
 
 

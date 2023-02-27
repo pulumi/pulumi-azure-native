@@ -75,7 +75,7 @@ def get_image_upload_url_for_data(entity_type: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageUploadUrlForDataResult:
     """
-    The image definition.
+    Gets data image upload URL.
     API Version: 2017-04-26.
 
 
@@ -108,7 +108,7 @@ def get_image_upload_url_for_data_output(entity_type: Optional[pulumi.Input[Opti
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageUploadUrlForDataResult]:
     """
-    The image definition.
+    Gets data image upload URL.
     API Version: 2017-04-26.
 
 

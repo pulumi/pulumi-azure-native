@@ -187,7 +187,7 @@ def get_certificate(account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Contains information about a certificate.
+    Gets information about the specified certificate.
 
 
     :param str account_name: The name of the Batch account.
@@ -224,7 +224,7 @@ def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Contains information about a certificate.
+    Gets information about the specified certificate.
 
 
     :param str account_name: The name of the Batch account.

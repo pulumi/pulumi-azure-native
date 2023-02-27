@@ -98,7 +98,7 @@ def get_service_registry(resource_group_name: Optional[str] = None,
                          service_registry_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceRegistryResult:
     """
-    Service Registry resource
+    Get the Service Registry and its properties.
     API Version: 2022-01-01-preview.
 
 
@@ -127,7 +127,7 @@ def get_service_registry_output(resource_group_name: Optional[pulumi.Input[str]]
                                 service_registry_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceRegistryResult]:
     """
-    Service Registry resource
+    Get the Service Registry and its properties.
     API Version: 2022-01-01-preview.
 
 

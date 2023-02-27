@@ -122,7 +122,7 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
                           server_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGeoBackupPolicyResult:
     """
-    A Geo backup policy.
+    Gets a Geo backup policy for the given database resource.
 
 
     :param str database_name: The name of the database.
@@ -155,7 +155,7 @@ def get_geo_backup_policy_output(database_name: Optional[pulumi.Input[str]] = No
                                  server_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeoBackupPolicyResult]:
     """
-    A Geo backup policy.
+    Gets a Geo backup policy for the given database resource.
 
 
     :param str database_name: The name of the database.

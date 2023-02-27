@@ -67,7 +67,7 @@ def get_entity_insights(add_default_extended_time_range: Optional[bool] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityInsightsResult:
     """
-    The Get Insights result operation response.
+    Execute Insights for an entity.
     API Version: 2019-01-01-preview.
 
 
@@ -108,7 +108,7 @@ def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityInsightsResult]:
     """
-    The Get Insights result operation response.
+    Execute Insights for an entity.
     API Version: 2019-01-01-preview.
 
 

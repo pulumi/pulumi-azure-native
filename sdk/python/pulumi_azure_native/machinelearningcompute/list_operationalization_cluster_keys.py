@@ -109,7 +109,7 @@ def list_operationalization_cluster_keys(cluster_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOperationalizationClusterKeysResult:
     """
-    Credentials to resources in the cluster.
+    Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
     API Version: 2017-08-01-preview.
 
 
@@ -136,7 +136,7 @@ def list_operationalization_cluster_keys_output(cluster_name: Optional[pulumi.In
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOperationalizationClusterKeysResult]:
     """
-    Credentials to resources in the cluster.
+    Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
     API Version: 2017-08-01-preview.
 
 

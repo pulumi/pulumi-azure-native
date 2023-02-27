@@ -147,7 +147,7 @@ def get_cache_rule(cache_rule_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheRuleResult:
     """
-    An object that represents a cache rule for a container registry.
+    Gets the properties of the specified cache rule resource.
 
 
     :param str cache_rule_name: The name of the cache rule.
@@ -179,7 +179,7 @@ def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheRuleResult]:
     """
-    An object that represents a cache rule for a container registry.
+    Gets the properties of the specified cache rule resource.
 
 
     :param str cache_rule_name: The name of the cache rule.

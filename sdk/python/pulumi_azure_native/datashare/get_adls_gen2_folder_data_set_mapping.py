@@ -196,7 +196,7 @@ def get_adls_gen2_folder_data_set_mapping(account_name: Optional[str] = None,
                                           share_subscription_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADLSGen2FolderDataSetMappingResult:
     """
-    An ADLS Gen2 folder data set mapping.
+    Get a DataSetMapping in a shareSubscription
     API Version: 2020-09-01.
 
 
@@ -236,7 +236,7 @@ def get_adls_gen2_folder_data_set_mapping_output(account_name: Optional[pulumi.I
                                                  share_subscription_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2FolderDataSetMappingResult]:
     """
-    An ADLS Gen2 folder data set mapping.
+    Get a DataSetMapping in a shareSubscription
     API Version: 2020-09-01.
 
 

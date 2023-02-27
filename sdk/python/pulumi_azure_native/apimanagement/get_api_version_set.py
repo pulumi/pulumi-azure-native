@@ -133,7 +133,7 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
                         version_set_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiVersionSetResult:
     """
-    Api Version Set Contract details.
+    Gets the details of the Api Version Set specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -165,7 +165,7 @@ def get_api_version_set_output(resource_group_name: Optional[pulumi.Input[str]] 
                                version_set_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiVersionSetResult]:
     """
-    Api Version Set Contract details.
+    Gets the details of the Api Version Set specified by its identifier.
     API Version: 2020-12-01.
 
 

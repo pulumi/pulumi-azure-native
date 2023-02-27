@@ -157,7 +157,7 @@ def get_product(product_id: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Product details.
+    Gets the details of the product specified by its identifier.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -190,7 +190,7 @@ def get_product_output(product_id: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
-    Product details.
+    Gets the details of the product specified by its identifier.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

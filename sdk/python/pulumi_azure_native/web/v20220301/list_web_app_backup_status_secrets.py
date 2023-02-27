@@ -250,7 +250,7 @@ def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
                                        storage_account_url: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupStatusSecretsResult:
     """
-    Backup description.
+    Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
 
 
     :param str backup_id: ID of backup.
@@ -308,7 +308,7 @@ def list_web_app_backup_status_secrets_output(backup_id: Optional[pulumi.Input[s
                                               storage_account_url: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupStatusSecretsResult]:
     """
-    Backup description.
+    Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
 
 
     :param str backup_id: ID of backup.

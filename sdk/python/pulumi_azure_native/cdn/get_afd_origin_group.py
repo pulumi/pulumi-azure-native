@@ -167,7 +167,7 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginGroupResult:
     """
-    AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    Gets an existing origin group within a profile.
     API Version: 2020-09-01.
 
 
@@ -202,7 +202,7 @@ def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] =
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDOriginGroupResult]:
     """
-    AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    Gets an existing origin group within a profile.
     API Version: 2020-09-01.
 
 

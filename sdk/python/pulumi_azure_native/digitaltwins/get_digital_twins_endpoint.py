@@ -86,7 +86,7 @@ def get_digital_twins_endpoint(endpoint_name: Optional[str] = None,
                                resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDigitalTwinsEndpointResult:
     """
-    DigitalTwinsInstance endpoint resource.
+    Get DigitalTwinsInstances Endpoint.
     API Version: 2020-12-01.
 
 
@@ -114,7 +114,7 @@ def get_digital_twins_endpoint_output(endpoint_name: Optional[pulumi.Input[str]]
                                       resource_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinsEndpointResult]:
     """
-    DigitalTwinsInstance endpoint resource.
+    Get DigitalTwinsInstances Endpoint.
     API Version: 2020-12-01.
 
 

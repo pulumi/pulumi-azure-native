@@ -121,7 +121,7 @@ def get_media_service(media_service_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMediaServiceResult:
     """
-    The properties of a Media Service resource.
+    Gets a Media Service.
 
 
     :param str media_service_name: Name of the Media Service.
@@ -148,7 +148,7 @@ def get_media_service_output(media_service_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMediaServiceResult]:
     """
-    The properties of a Media Service resource.
+    Gets a Media Service.
 
 
     :param str media_service_name: Name of the Media Service.

@@ -251,6 +251,7 @@ def get_bare_metal_machine_key_set(bare_metal_machine_key_set_name: Optional[str
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBareMetalMachineKeySetResult:
     """
+    Get bare metal machine key set of the provided cluster.
     API Version: 2022-12-12-preview.
 
 
@@ -292,6 +293,7 @@ def get_bare_metal_machine_key_set_output(bare_metal_machine_key_set_name: Optio
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBareMetalMachineKeySetResult]:
     """
+    Get bare metal machine key set of the provided cluster.
     API Version: 2022-12-12-preview.
 
 

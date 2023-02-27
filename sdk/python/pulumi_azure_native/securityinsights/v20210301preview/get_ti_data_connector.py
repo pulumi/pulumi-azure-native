@@ -148,7 +148,7 @@ def get_ti_data_connector(data_connector_id: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTIDataConnectorResult:
     """
-    Represents threat intelligence data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -183,7 +183,7 @@ def get_ti_data_connector_output(data_connector_id: Optional[pulumi.Input[str]] 
                                  workspace_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTIDataConnectorResult]:
     """
-    Represents threat intelligence data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

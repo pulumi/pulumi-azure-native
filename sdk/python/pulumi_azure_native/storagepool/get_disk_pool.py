@@ -193,7 +193,7 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskPoolResult:
     """
-    Response for Disk pool request.
+    Get a Disk pool.
     API Version: 2020-03-15-preview.
 
 
@@ -227,7 +227,7 @@ def get_disk_pool_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskPoolResult]:
     """
-    Response for Disk pool request.
+    Get a Disk pool.
     API Version: 2020-03-15-preview.
 
 

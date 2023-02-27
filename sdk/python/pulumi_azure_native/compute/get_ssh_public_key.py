@@ -108,7 +108,7 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
                        ssh_public_key_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshPublicKeyResult:
     """
-    Specifies information about the SSH public key.
+    Retrieves information about an SSH public key.
     API Version: 2020-12-01.
 
 
@@ -135,7 +135,7 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] =
                               ssh_public_key_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshPublicKeyResult]:
     """
-    Specifies information about the SSH public key.
+    Retrieves information about an SSH public key.
     API Version: 2020-12-01.
 
 

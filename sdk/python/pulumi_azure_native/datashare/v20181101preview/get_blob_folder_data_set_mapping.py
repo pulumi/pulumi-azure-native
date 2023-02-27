@@ -183,7 +183,7 @@ def get_blob_folder_data_set_mapping(account_name: Optional[str] = None,
                                      share_subscription_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobFolderDataSetMappingResult:
     """
-    A Blob folder data set mapping.
+    Get a DataSetMapping in a shareSubscription
 
 
     :param str account_name: The name of the share account.
@@ -221,7 +221,7 @@ def get_blob_folder_data_set_mapping_output(account_name: Optional[pulumi.Input[
                                             share_subscription_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobFolderDataSetMappingResult]:
     """
-    A Blob folder data set mapping.
+    Get a DataSetMapping in a shareSubscription
 
 
     :param str account_name: The name of the share account.

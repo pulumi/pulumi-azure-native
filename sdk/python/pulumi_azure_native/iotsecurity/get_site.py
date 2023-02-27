@@ -108,7 +108,7 @@ class AwaitableGetSiteResult(GetSiteResult):
 def get_site(scope: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
-    IoT site model
+    Get IoT site
     API Version: 2021-02-01-preview.
 
 
@@ -132,7 +132,7 @@ def get_site(scope: Optional[str] = None,
 def get_site_output(scope: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
-    IoT site model
+    Get IoT site
     API Version: 2021-02-01-preview.
 
 

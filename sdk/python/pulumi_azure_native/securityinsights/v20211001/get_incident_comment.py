@@ -147,7 +147,7 @@ def get_incident_comment(incident_comment_id: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentCommentResult:
     """
-    Represents an incident comment
+    Gets a comment for a given incident.
 
 
     :param str incident_comment_id: Incident comment ID
@@ -182,7 +182,7 @@ def get_incident_comment_output(incident_comment_id: Optional[pulumi.Input[str]]
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentCommentResult]:
     """
-    Represents an incident comment
+    Gets a comment for a given incident.
 
 
     :param str incident_comment_id: Incident comment ID

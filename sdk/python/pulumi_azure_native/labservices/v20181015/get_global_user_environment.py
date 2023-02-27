@@ -50,7 +50,7 @@ def get_global_user_environment(environment_id: Optional[str] = None,
                                 user_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserEnvironmentResult:
     """
-    Represents the environments details
+    Gets the virtual machine details
 
 
     :param str environment_id: The resourceId of the environment
@@ -74,7 +74,7 @@ def get_global_user_environment_output(environment_id: Optional[pulumi.Input[str
                                        user_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserEnvironmentResult]:
     """
-    Represents the environments details
+    Gets the virtual machine details
 
 
     :param str environment_id: The resourceId of the environment

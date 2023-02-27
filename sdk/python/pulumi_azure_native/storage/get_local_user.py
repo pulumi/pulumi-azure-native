@@ -170,7 +170,7 @@ def get_local_user(account_name: Optional[str] = None,
                    username: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalUserResult:
     """
-    The local user associated with the storage accounts.
+    Get the local user of the storage account by username.
     API Version: 2021-08-01.
 
 
@@ -205,7 +205,7 @@ def get_local_user_output(account_name: Optional[pulumi.Input[str]] = None,
                           username: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalUserResult]:
     """
-    The local user associated with the storage accounts.
+    Get the local user of the storage account by username.
     API Version: 2021-08-01.
 
 

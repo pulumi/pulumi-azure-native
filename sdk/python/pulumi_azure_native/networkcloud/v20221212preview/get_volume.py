@@ -190,7 +190,8 @@ def get_volume(resource_group_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided volume.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume.
@@ -222,7 +223,8 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       volume_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided volume.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume.

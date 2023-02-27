@@ -182,7 +182,7 @@ def get_project_environment_type(environment_type_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectEnvironmentTypeResult:
     """
-    Represents an environment type.
+    Gets a project environment type.
     API Version: 2022-09-01-preview.
 
 
@@ -218,7 +218,7 @@ def get_project_environment_type_output(environment_type_name: Optional[pulumi.I
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectEnvironmentTypeResult]:
     """
-    Represents an environment type.
+    Gets a project environment type.
     API Version: 2022-09-01-preview.
 
 

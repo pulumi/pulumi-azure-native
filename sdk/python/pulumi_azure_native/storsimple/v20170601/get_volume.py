@@ -195,7 +195,7 @@ def get_volume(device_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    The volume.
+    Returns the properties of the specified volume name.
 
 
     :param str device_name: The device name
@@ -237,7 +237,7 @@ def get_volume_output(device_name: Optional[pulumi.Input[str]] = None,
                       volume_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
-    The volume.
+    Returns the properties of the specified volume name.
 
 
     :param str device_name: The device name

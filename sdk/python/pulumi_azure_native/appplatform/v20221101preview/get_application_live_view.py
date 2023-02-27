@@ -98,7 +98,7 @@ def get_application_live_view(application_live_view_name: Optional[str] = None,
                               service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationLiveViewResult:
     """
-    Application Live View resource
+    Get the Application Live  and its properties.
 
 
     :param str application_live_view_name: The name of Application Live View.
@@ -126,7 +126,7 @@ def get_application_live_view_output(application_live_view_name: Optional[pulumi
                                      service_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationLiveViewResult]:
     """
-    Application Live View resource
+    Get the Application Live  and its properties.
 
 
     :param str application_live_view_name: The name of Application Live View.

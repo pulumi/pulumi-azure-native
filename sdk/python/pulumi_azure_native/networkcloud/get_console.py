@@ -212,6 +212,7 @@ def get_console(console_name: Optional[str] = None,
                 virtual_machine_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleResult:
     """
+    Get properties of the provided virtual machine console.
     API Version: 2022-12-12-preview.
 
 
@@ -250,6 +251,7 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
                        virtual_machine_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleResult]:
     """
+    Get properties of the provided virtual machine console.
     API Version: 2022-12-12-preview.
 
 

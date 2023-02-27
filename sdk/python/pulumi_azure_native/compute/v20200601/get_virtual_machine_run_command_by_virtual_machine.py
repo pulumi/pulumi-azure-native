@@ -233,7 +233,7 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[str] = N
                                                        vm_name: Optional[str] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineRunCommandByVirtualMachineResult:
     """
-    Describes a Virtual Machine run command.
+    The operation to get the run command.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -276,7 +276,7 @@ def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[p
                                                               vm_name: Optional[pulumi.Input[str]] = None,
                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineRunCommandByVirtualMachineResult]:
     """
-    Describes a Virtual Machine run command.
+    The operation to get the run command.
 
 
     :param str expand: The expand expression to apply on the operation.

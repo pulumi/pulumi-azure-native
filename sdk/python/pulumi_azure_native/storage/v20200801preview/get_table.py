@@ -87,7 +87,7 @@ def get_table(account_name: Optional[str] = None,
               table_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
-    Properties of the table, including Id, resource name, resource type.
+    Gets the table with the specified table name, under the specified account if it exists.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -115,7 +115,7 @@ def get_table_output(account_name: Optional[pulumi.Input[str]] = None,
                      table_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """
-    Properties of the table, including Id, resource name, resource type.
+    Gets the table with the specified table name, under the specified account if it exists.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

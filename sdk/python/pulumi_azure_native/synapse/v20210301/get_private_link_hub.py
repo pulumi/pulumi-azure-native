@@ -121,7 +121,7 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkHubResult:
     """
-    A privateLinkHub
+    Gets a privateLinkHub
 
 
     :param str private_link_hub_name: Name of the privateLinkHub
@@ -148,7 +148,7 @@ def get_private_link_hub_output(private_link_hub_name: Optional[pulumi.Input[str
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkHubResult]:
     """
-    A privateLinkHub
+    Gets a privateLinkHub
 
 
     :param str private_link_hub_name: Name of the privateLinkHub

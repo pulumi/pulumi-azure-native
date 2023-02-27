@@ -86,7 +86,7 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
                                       service_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayCertificateAuthorityResult:
     """
-    Gateway certificate authority details.
+    Get assigned Gateway Certificate Authority details.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -116,7 +116,7 @@ def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Inp
                                              service_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayCertificateAuthorityResult]:
     """
-    Gateway certificate authority details.
+    Get assigned Gateway Certificate Authority details.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.

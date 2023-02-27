@@ -289,7 +289,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitResult:
     """
-    ExpressRouteCircuit resource.
+    Gets information about the specified express route circuit.
     API Version: 2020-11-01.
 
 
@@ -331,7 +331,7 @@ def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
     """
-    ExpressRouteCircuit resource.
+    Gets information about the specified express route circuit.
     API Version: 2020-11-01.
 
 

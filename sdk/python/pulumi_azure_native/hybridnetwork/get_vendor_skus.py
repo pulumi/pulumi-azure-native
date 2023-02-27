@@ -157,7 +157,7 @@ def get_vendor_skus(sku_name: Optional[str] = None,
                     vendor_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorSkusResult:
     """
-    Sku sub resource.
+    Gets information about the specified sku.
     API Version: 2020-01-01-preview.
 
 
@@ -188,7 +188,7 @@ def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
                            vendor_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkusResult]:
     """
-    Sku sub resource.
+    Gets information about the specified sku.
     API Version: 2020-01-01-preview.
 
 

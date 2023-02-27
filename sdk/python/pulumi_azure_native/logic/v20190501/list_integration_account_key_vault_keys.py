@@ -64,7 +64,7 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
                                             skip_token: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountKeyVaultKeysResult:
     """
-    Collection of key vault keys.
+    Gets the integration account's Key Vault keys.
 
 
     :param str integration_account_name: The integration account name.
@@ -92,7 +92,7 @@ def list_integration_account_key_vault_keys_output(integration_account_name: Opt
                                                    skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountKeyVaultKeysResult]:
     """
-    Collection of key vault keys.
+    Gets the integration account's Key Vault keys.
 
 
     :param str integration_account_name: The integration account name.

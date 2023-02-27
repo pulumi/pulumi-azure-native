@@ -87,7 +87,7 @@ def get_binding(app_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBindingResult:
     """
-    Binding resource payload
+    Get a Binding and its properties.
 
 
     :param str app_name: The name of the App resource.
@@ -117,7 +117,7 @@ def get_binding_output(app_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBindingResult]:
     """
-    Binding resource payload
+    Get a Binding and its properties.
 
 
     :param str app_name: The name of the App resource.

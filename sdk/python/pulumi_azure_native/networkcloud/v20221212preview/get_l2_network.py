@@ -226,7 +226,8 @@ def get_l2_network(l2_network_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL2NetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided layer 2 (L2) network.
+
 
     :param str l2_network_name: The name of the L2 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -261,7 +262,8 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2NetworkResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided layer 2 (L2) network.
+
 
     :param str l2_network_name: The name of the L2 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

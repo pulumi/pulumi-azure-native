@@ -85,7 +85,7 @@ def get_trusted_id_provider(account_name: Optional[str] = None,
                             trusted_id_provider_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustedIdProviderResult:
     """
-    Data Lake Store trusted identity provider information.
+    Gets the specified Data Lake Store trusted identity provider.
     API Version: 2016-11-01.
 
 
@@ -113,7 +113,7 @@ def get_trusted_id_provider_output(account_name: Optional[pulumi.Input[str]] = N
                                    trusted_id_provider_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedIdProviderResult]:
     """
-    Data Lake Store trusted identity provider information.
+    Gets the specified Data Lake Store trusted identity provider.
     API Version: 2016-11-01.
 
 

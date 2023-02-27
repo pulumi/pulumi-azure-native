@@ -183,7 +183,7 @@ def get_container_service(container_service_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerServiceResult:
     """
-    Container service
+    The operation to get a container service.
 
 
     :param str container_service_name: The name of the container service within the given subscription and resource group.
@@ -216,7 +216,7 @@ def get_container_service_output(container_service_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerServiceResult]:
     """
-    Container service
+    The operation to get a container service.
 
 
     :param str container_service_name: The name of the container service within the given subscription and resource group.

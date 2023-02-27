@@ -253,7 +253,7 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
                      rule_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricAlertResult:
     """
-    The metric alert resource.
+    Retrieve an alert rule definition.
     API Version: 2018-03-01.
 
 
@@ -292,7 +292,7 @@ def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             rule_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricAlertResult]:
     """
-    The metric alert resource.
+    Retrieve an alert rule definition.
     API Version: 2018-03-01.
 
 

@@ -98,7 +98,7 @@ def get_edge_module(account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEdgeModuleResult:
     """
-    The representation of an edge module.
+    Retrieves a specific existing edge module resource in the given Video Analyzer account.
 
 
     :param str account_name: The Azure Video Analyzer account name.
@@ -126,7 +126,7 @@ def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEdgeModuleResult]:
     """
-    The representation of an edge module.
+    Retrieves a specific existing edge module resource in the given Video Analyzer account.
 
 
     :param str account_name: The Azure Video Analyzer account name.

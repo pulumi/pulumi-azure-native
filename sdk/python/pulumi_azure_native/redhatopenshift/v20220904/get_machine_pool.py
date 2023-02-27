@@ -95,7 +95,7 @@ def get_machine_pool(child_resource_name: Optional[str] = None,
                      resource_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachinePoolResult:
     """
-    MachinePool represents a MachinePool
+    The operation returns properties of a MachinePool.
 
 
     :param str child_resource_name: The name of the MachinePool resource.
@@ -123,7 +123,7 @@ def get_machine_pool_output(child_resource_name: Optional[pulumi.Input[str]] = N
                             resource_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachinePoolResult]:
     """
-    MachinePool represents a MachinePool
+    The operation returns properties of a MachinePool.
 
 
     :param str child_resource_name: The name of the MachinePool resource.

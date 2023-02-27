@@ -120,7 +120,7 @@ class AwaitableGetResourceGroupResult(GetResourceGroupResult):
 def get_resource_group(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGroupResult:
     """
-    Resource group information.
+    Gets a resource group.
     API Version: 2019-05-01.
 
 
@@ -145,7 +145,7 @@ def get_resource_group(resource_group_name: Optional[str] = None,
 def get_resource_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupResult]:
     """
-    Resource group information.
+    Gets a resource group.
     API Version: 2019-05-01.
 
 

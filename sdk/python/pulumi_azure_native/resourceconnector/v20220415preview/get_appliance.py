@@ -193,7 +193,7 @@ def get_appliance(resource_group_name: Optional[str] = None,
                   resource_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplianceResult:
     """
-    Appliances definition.
+    Gets the details of an Appliance with a specified resource group and name.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -226,7 +226,7 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          resource_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplianceResult]:
     """
-    Appliances definition.
+    Gets the details of an Appliance with a specified resource group and name.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

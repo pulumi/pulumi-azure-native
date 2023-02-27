@@ -337,7 +337,7 @@ def get_redis(name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisResult:
     """
-    A single Redis item in List or Get Operation.
+    Gets a Redis cache (resource description).
     API Version: 2020-06-01.
 
 
@@ -383,7 +383,7 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisResult]:
     """
-    A single Redis item in List or Get Operation.
+    Gets a Redis cache (resource description).
     API Version: 2020-06-01.
 
 

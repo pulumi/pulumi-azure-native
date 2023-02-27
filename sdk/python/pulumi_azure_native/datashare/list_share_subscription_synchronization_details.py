@@ -66,7 +66,7 @@ def list_share_subscription_synchronization_details(account_name: Optional[str] 
                                                     synchronization_id: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSynchronizationDetailsResult:
     """
-    details of synchronization
+    List synchronization details
     API Version: 2020-09-01.
 
 
@@ -104,7 +104,7 @@ def list_share_subscription_synchronization_details_output(account_name: Optiona
                                                            synchronization_id: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSubscriptionSynchronizationDetailsResult]:
     """
-    details of synchronization
+    List synchronization details
     API Version: 2020-09-01.
 
 

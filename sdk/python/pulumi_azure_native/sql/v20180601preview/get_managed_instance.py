@@ -306,7 +306,7 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
-    An Azure SQL managed instance.
+    Gets a managed instance.
 
 
     :param str managed_instance_name: The name of the managed instance.
@@ -348,7 +348,7 @@ def get_managed_instance_output(managed_instance_name: Optional[pulumi.Input[str
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
-    An Azure SQL managed instance.
+    Gets a managed instance.
 
 
     :param str managed_instance_name: The name of the managed instance.

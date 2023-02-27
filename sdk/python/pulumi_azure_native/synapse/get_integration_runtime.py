@@ -98,7 +98,7 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
                             workspace_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeResult:
     """
-    Integration runtime resource type.
+    Get an integration runtime
     API Version: 2021-03-01.
 
 
@@ -127,7 +127,7 @@ def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Inp
                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeResult]:
     """
-    Integration runtime resource type.
+    Get an integration runtime
     API Version: 2021-03-01.
 
 

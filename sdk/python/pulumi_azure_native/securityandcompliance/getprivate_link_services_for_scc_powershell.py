@@ -157,7 +157,7 @@ def getprivate_link_services_for_scc_powershell(resource_group_name: Optional[st
                                                 resource_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForSCCPowershellResult:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForSCCPowershell resource.
     API Version: 2021-03-08.
 
 
@@ -188,7 +188,7 @@ def getprivate_link_services_for_scc_powershell_output(resource_group_name: Opti
                                                        resource_name: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkServicesForSCCPowershellResult]:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForSCCPowershell resource.
     API Version: 2021-03-08.
 
 

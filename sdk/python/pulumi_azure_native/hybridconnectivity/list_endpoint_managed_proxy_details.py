@@ -62,7 +62,7 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[str] = None,
                                         service: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointManagedProxyDetailsResult:
     """
-    Managed Proxy
+    Fetches the managed proxy details
     API Version: 2022-05-01-preview.
 
 
@@ -91,7 +91,7 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
                                                service: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointManagedProxyDetailsResult]:
     """
-    Managed Proxy
+    Fetches the managed proxy details
     API Version: 2022-05-01-preview.
 
 

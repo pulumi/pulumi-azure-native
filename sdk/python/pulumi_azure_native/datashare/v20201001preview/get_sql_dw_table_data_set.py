@@ -160,7 +160,7 @@ def get_sql_dw_table_data_set(account_name: Optional[str] = None,
                               share_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlDWTableDataSetResult:
     """
-    A SQL DW table data set.
+    Get a DataSet in a share
 
 
     :param str account_name: The name of the share account.
@@ -196,7 +196,7 @@ def get_sql_dw_table_data_set_output(account_name: Optional[pulumi.Input[str]] =
                                      share_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlDWTableDataSetResult]:
     """
-    A SQL DW table data set.
+    Get a DataSet in a share
 
 
     :param str account_name: The name of the share account.

@@ -44,7 +44,8 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceEdgePoliciesResult:
     """
-    Use this data source to access information about an existing resource.
+    List the media edge policies associated with the Media Services account.
+
 
     :param str account_name: The Media Services account name.
     :param str device_id: Unique identifier of the edge device.
@@ -67,7 +68,8 @@ def list_media_service_edge_policies_output(account_name: Optional[pulumi.Input[
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMediaServiceEdgePoliciesResult]:
     """
-    Use this data source to access information about an existing resource.
+    List the media edge policies associated with the Media Services account.
+
 
     :param str account_name: The Media Services account name.
     :param str device_id: Unique identifier of the edge device.

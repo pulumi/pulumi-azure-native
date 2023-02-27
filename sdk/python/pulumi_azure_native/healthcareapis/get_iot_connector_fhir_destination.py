@@ -147,7 +147,7 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
                                        workspace_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotConnectorFhirDestinationResult:
     """
-    IoT Connector FHIR destination definition.
+    Gets the properties of the specified Iot Connector FHIR destination.
     API Version: 2022-05-15.
 
 
@@ -183,7 +183,7 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
                                               workspace_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotConnectorFhirDestinationResult]:
     """
-    IoT Connector FHIR destination definition.
+    Gets the properties of the specified Iot Connector FHIR destination.
     API Version: 2022-05-15.
 
 

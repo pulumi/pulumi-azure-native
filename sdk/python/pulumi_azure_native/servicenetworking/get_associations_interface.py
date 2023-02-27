@@ -146,7 +146,7 @@ def get_associations_interface(association_name: Optional[str] = None,
                                traffic_controller_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssociationsInterfaceResult:
     """
-    Association Subresource of Traffic Controller
+    Get a Traffic Controller Association
     API Version: 2022-10-01-preview.
 
 
@@ -179,7 +179,7 @@ def get_associations_interface_output(association_name: Optional[pulumi.Input[st
                                       traffic_controller_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationsInterfaceResult]:
     """
-    Association Subresource of Traffic Controller
+    Get a Traffic Controller Association
     API Version: 2022-10-01-preview.
 
 

@@ -124,7 +124,7 @@ def get_subvolume(account_name: Optional[str] = None,
                   volume_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubvolumeResult:
     """
-    Subvolume Information properties
+    Returns the path associated with the subvolumeName provided
 
 
     :param str account_name: The name of the NetApp account
@@ -160,7 +160,7 @@ def get_subvolume_output(account_name: Optional[pulumi.Input[str]] = None,
                          volume_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubvolumeResult]:
     """
-    Subvolume Information properties
+    Returns the path associated with the subvolumeName provided
 
 
     :param str account_name: The name of the NetApp account

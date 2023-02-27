@@ -146,7 +146,7 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
                                           resource_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProactiveDetectionConfigurationResult:
     """
-    A ProactiveDetection configuration definition.
+    Get the ProactiveDetection configuration for this configuration id.
 
 
     :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
@@ -178,7 +178,7 @@ def get_proactive_detection_configuration_output(configuration_id: Optional[pulu
                                                  resource_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProactiveDetectionConfigurationResult]:
     """
-    A ProactiveDetection configuration definition.
+    Get the ProactiveDetection configuration for this configuration id.
 
 
     :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.

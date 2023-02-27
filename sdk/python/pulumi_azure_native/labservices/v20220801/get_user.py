@@ -182,7 +182,7 @@ def get_user(lab_name: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    User of a lab that can register for and use virtual machines within the lab.
+    Returns the properties of a lab user.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -217,7 +217,7 @@ def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    User of a lab that can register for and use virtual machines within the lab.
+    Returns the properties of a lab user.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.

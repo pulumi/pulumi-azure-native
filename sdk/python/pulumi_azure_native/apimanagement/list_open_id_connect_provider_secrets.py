@@ -49,7 +49,7 @@ def list_open_id_connect_provider_secrets(opid: Optional[str] = None,
                                           service_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenIdConnectProviderSecretsResult:
     """
-    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Gets the client secret details of the OpenID Connect Provider.
     API Version: 2020-12-01.
 
 
@@ -74,7 +74,7 @@ def list_open_id_connect_provider_secrets_output(opid: Optional[pulumi.Input[str
                                                  service_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOpenIdConnectProviderSecretsResult]:
     """
-    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Gets the client secret details of the OpenID Connect Provider.
     API Version: 2020-12-01.
 
 

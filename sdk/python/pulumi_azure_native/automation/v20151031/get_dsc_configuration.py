@@ -230,7 +230,7 @@ def get_dsc_configuration(automation_account_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscConfigurationResult:
     """
-    Definition of the configuration type.
+    Retrieve the configuration identified by configuration name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -269,7 +269,7 @@ def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscConfigurationResult]:
     """
-    Definition of the configuration type.
+    Retrieve the configuration identified by configuration name.
 
 
     :param str automation_account_name: The name of the automation account.

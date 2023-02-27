@@ -160,7 +160,7 @@ def get_blob_container_data_set(account_name: Optional[str] = None,
                                 share_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobContainerDataSetResult:
     """
-    An Azure storage blob container data set.
+    Get a DataSet in a share
     API Version: 2020-09-01.
 
 
@@ -197,7 +197,7 @@ def get_blob_container_data_set_output(account_name: Optional[pulumi.Input[str]]
                                        share_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobContainerDataSetResult]:
     """
-    An Azure storage blob container data set.
+    Get a DataSet in a share
     API Version: 2020-09-01.
 
 

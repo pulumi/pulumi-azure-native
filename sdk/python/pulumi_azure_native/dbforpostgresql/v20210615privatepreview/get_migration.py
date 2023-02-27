@@ -282,7 +282,7 @@ def get_migration(migration_name: Optional[str] = None,
                   target_db_server_subscription_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationResult:
     """
-    Represents a migration resource.
+    Gets details of a migration.
 
 
     :param str migration_name: The name of the migration.
@@ -331,7 +331,7 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
                          target_db_server_subscription_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationResult]:
     """
-    Represents a migration resource.
+    Gets details of a migration.
 
 
     :param str migration_name: The name of the migration.

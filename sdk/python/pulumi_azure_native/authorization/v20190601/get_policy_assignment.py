@@ -205,7 +205,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
                           scope: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentResult:
     """
-    The policy assignment.
+    This operation retrieves a single policy assignment, given its name and the scope it was created at.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.
@@ -239,7 +239,7 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
                                  scope: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
-    The policy assignment.
+    This operation retrieves a single policy assignment, given its name and the scope it was created at.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.

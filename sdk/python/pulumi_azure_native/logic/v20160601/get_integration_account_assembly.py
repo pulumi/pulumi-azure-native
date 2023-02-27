@@ -110,7 +110,7 @@ def get_integration_account_assembly(assembly_artifact_name: Optional[str] = Non
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountAssemblyResult:
     """
-    The assembly definition.
+    Get an assembly for an integration account.
 
 
     :param str assembly_artifact_name: The assembly artifact name.
@@ -139,7 +139,7 @@ def get_integration_account_assembly_output(assembly_artifact_name: Optional[pul
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountAssemblyResult]:
     """
-    The assembly definition.
+    Get an assembly for an integration account.
 
 
     :param str assembly_artifact_name: The assembly artifact name.

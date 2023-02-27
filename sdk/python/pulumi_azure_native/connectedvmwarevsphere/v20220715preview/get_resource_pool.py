@@ -331,7 +331,7 @@ def get_resource_pool(resource_group_name: Optional[str] = None,
                       resource_pool_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePoolResult:
     """
-    Define the resourcePool.
+    Implements resourcePool GET method.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -375,7 +375,7 @@ def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              resource_pool_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePoolResult]:
     """
-    Define the resourcePool.
+    Implements resourcePool GET method.
 
 
     :param str resource_group_name: The Resource Group Name.

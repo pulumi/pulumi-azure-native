@@ -110,7 +110,7 @@ def get_web_service(region: Optional[str] = None,
                     web_service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebServiceResult:
     """
-    Instance of an Azure ML web service resource.
+    Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
 
 
     :param str region: The region for which encrypted credential parameters are valid.
@@ -139,7 +139,7 @@ def get_web_service_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                            web_service_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebServiceResult]:
     """
-    Instance of an Azure ML web service resource.
+    Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
 
 
     :param str region: The region for which encrypted credential parameters are valid.

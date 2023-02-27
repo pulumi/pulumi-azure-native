@@ -87,7 +87,7 @@ def get_custom_domain(app_name: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
-    Custom domain resource payload.
+    Get the custom domain of one lifecycle application.
     API Version: 2020-07-01.
 
 
@@ -118,7 +118,7 @@ def get_custom_domain_output(app_name: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainResult]:
     """
-    Custom domain resource payload.
+    Get the custom domain of one lifecycle application.
     API Version: 2020-07-01.
 
 

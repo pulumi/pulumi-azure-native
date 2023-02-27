@@ -157,7 +157,7 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterPrincipalAssignmentResult:
     """
-    Class representing a cluster principal assignment.
+    Gets a Kusto cluster principalAssignment.
     API Version: 2021-01-01.
 
 
@@ -191,7 +191,7 @@ def get_cluster_principal_assignment_output(cluster_name: Optional[pulumi.Input[
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterPrincipalAssignmentResult]:
     """
-    Class representing a cluster principal assignment.
+    Gets a Kusto cluster principalAssignment.
     API Version: 2021-01-01.
 
 

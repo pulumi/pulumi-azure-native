@@ -52,7 +52,7 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
                                   subscription_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
     """
-    Collection of consent links
+    Lists the consent links of a connection
     API Version: 2016-06-01.
 
 
@@ -80,7 +80,7 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
                                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionConsentLinksResult]:
     """
-    Collection of consent links
+    Lists the consent links of a connection
     API Version: 2016-06-01.
 
 

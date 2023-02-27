@@ -182,7 +182,7 @@ def get_asset(account_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
-    An Asset.
+    Get the details of an Asset in the Media Services account
     API Version: 2020-05-01.
 
 
@@ -218,7 +218,7 @@ def get_asset_output(account_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetResult]:
     """
-    An Asset.
+    Get the details of an Asset in the Media Services account
     API Version: 2020-05-01.
 
 

@@ -166,7 +166,7 @@ def get_media_service(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMediaServiceResult:
     """
-    A Media Services account.
+    Get the details of a Media Services account
     API Version: 2020-05-01.
 
 
@@ -198,7 +198,7 @@ def get_media_service_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMediaServiceResult]:
     """
-    A Media Services account.
+    Get the details of a Media Services account
     API Version: 2020-05-01.
 
 

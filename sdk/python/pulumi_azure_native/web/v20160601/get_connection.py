@@ -119,7 +119,7 @@ def get_connection(connection_name: Optional[str] = None,
                    subscription_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    API connection
+    Get a specific connection
 
 
     :param str connection_name: Connection name
@@ -149,7 +149,7 @@ def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                           subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    API connection
+    Get a specific connection
 
 
     :param str connection_name: Connection name

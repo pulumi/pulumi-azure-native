@@ -219,7 +219,7 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubAuthorizationRuleResult:
     """
-    Description of a Namespace AuthorizationRules.
+    Gets an authorization rule for a NotificationHub by name.
     API Version: 2017-04-01.
 
 
@@ -261,7 +261,7 @@ def get_notification_hub_authorization_rule_output(authorization_rule_name: Opti
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationHubAuthorizationRuleResult]:
     """
-    Description of a Namespace AuthorizationRules.
+    Gets an authorization rule for a NotificationHub by name.
     API Version: 2017-04-01.
 
 

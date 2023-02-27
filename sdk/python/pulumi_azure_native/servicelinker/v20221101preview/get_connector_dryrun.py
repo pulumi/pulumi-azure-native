@@ -135,7 +135,7 @@ def get_connector_dryrun(dryrun_name: Optional[str] = None,
                          subscription_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorDryrunResult:
     """
-    a dryrun job resource
+    get a dryrun job
 
 
     :param str dryrun_name: The name of dryrun.
@@ -169,7 +169,7 @@ def get_connector_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
                                 subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorDryrunResult]:
     """
-    a dryrun job resource
+    get a dryrun job
 
 
     :param str dryrun_name: The name of dryrun.

@@ -122,7 +122,7 @@ def get_api_release(api_id: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiReleaseResult:
     """
-    Api Release details.
+    Returns the details of an API release.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -155,7 +155,7 @@ def get_api_release_output(api_id: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiReleaseResult]:
     """
-    Api Release details.
+    Returns the details of an API release.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.

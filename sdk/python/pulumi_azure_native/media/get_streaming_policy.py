@@ -158,7 +158,7 @@ def get_streaming_policy(account_name: Optional[str] = None,
                          streaming_policy_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingPolicyResult:
     """
-    A Streaming Policy resource
+    Get the details of a Streaming Policy in the Media Services account
     API Version: 2020-05-01.
 
 
@@ -192,7 +192,7 @@ def get_streaming_policy_output(account_name: Optional[pulumi.Input[str]] = None
                                 streaming_policy_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingPolicyResult]:
     """
-    A Streaming Policy resource
+    Get the details of a Streaming Policy in the Media Services account
     API Version: 2020-05-01.
 
 

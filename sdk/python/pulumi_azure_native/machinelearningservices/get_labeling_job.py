@@ -100,7 +100,7 @@ def get_labeling_job(include_job_instructions: Optional[bool] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelingJobResult:
     """
-    Machine Learning labeling job object wrapped into ARM resource envelope.
+    Gets a labeling job by id.
     API Version: 2020-09-01-preview.
 
 
@@ -135,7 +135,7 @@ def get_labeling_job_output(include_job_instructions: Optional[pulumi.Input[Opti
                             workspace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabelingJobResult]:
     """
-    Machine Learning labeling job object wrapped into ARM resource envelope.
+    Gets a labeling job by id.
     API Version: 2020-09-01-preview.
 
 

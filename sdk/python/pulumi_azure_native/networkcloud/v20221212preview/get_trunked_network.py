@@ -238,7 +238,8 @@ def get_trunked_network(resource_group_name: Optional[str] = None,
                         trunked_network_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrunkedNetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided trunked network.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str trunked_network_name: The name of the trunked network.
@@ -274,7 +275,8 @@ def get_trunked_network_output(resource_group_name: Optional[pulumi.Input[str]] 
                                trunked_network_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrunkedNetworkResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided trunked network.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str trunked_network_name: The name of the trunked network.

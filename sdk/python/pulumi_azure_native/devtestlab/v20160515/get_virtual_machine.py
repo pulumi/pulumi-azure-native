@@ -473,7 +473,7 @@ def get_virtual_machine(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    A virtual machine.
+    Get virtual machine.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
@@ -536,7 +536,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
-    A virtual machine.
+    Get virtual machine.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'

@@ -157,7 +157,7 @@ def getprivate_link_services_for_o365_management_activity_api(resource_group_nam
                                                               resource_name: Optional[str] = None,
                                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForO365ManagementActivityAPIResult:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
     API Version: 2021-03-08.
 
 
@@ -188,7 +188,7 @@ def getprivate_link_services_for_o365_management_activity_api_output(resource_gr
                                                                      resource_name: Optional[pulumi.Input[str]] = None,
                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkServicesForO365ManagementActivityAPIResult]:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
     API Version: 2021-03-08.
 
 

@@ -193,7 +193,7 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityDetailsResult:
     """
-    Represents an instance of a Dedicated Capacity resource.
+    Gets details about the specified dedicated capacity.
 
 
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
@@ -226,7 +226,7 @@ def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[s
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityDetailsResult]:
     """
-    Represents an instance of a Dedicated Capacity resource.
+    Gets details about the specified dedicated capacity.
 
 
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.

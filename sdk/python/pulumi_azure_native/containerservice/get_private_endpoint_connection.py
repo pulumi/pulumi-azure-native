@@ -110,7 +110,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     resource_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    A private endpoint connection
+    Gets the details of the private endpoint connection by managed cluster and resource group.
     API Version: 2021-03-01.
 
 
@@ -140,7 +140,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            resource_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    A private endpoint connection
+    Gets the details of the private endpoint connection by managed cluster and resource group.
     API Version: 2021-03-01.
 
 

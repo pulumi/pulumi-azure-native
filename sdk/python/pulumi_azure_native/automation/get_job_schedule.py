@@ -134,7 +134,7 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobScheduleResult:
     """
-    Definition of the job schedule.
+    Retrieve the job schedule identified by job schedule name.
     API Version: 2019-06-01.
 
 
@@ -166,7 +166,7 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]]
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobScheduleResult]:
     """
-    Definition of the job schedule.
+    Retrieve the job schedule identified by job schedule name.
     API Version: 2019-06-01.
 
 

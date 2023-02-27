@@ -109,7 +109,7 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
                                              group_id: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtManagementGroupScopeResult:
     """
-    Deployment information.
+    Gets a deployment.
     API Version: 2021-01-01.
 
 
@@ -136,7 +136,7 @@ def get_deployment_at_management_group_scope_output(deployment_name: Optional[pu
                                                     group_id: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtManagementGroupScopeResult]:
     """
-    Deployment information.
+    Gets a deployment.
     API Version: 2021-01-01.
 
 

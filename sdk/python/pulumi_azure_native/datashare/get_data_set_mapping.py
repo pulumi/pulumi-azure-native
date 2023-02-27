@@ -101,7 +101,7 @@ def get_data_set_mapping(account_name: Optional[str] = None,
                          share_subscription_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetMappingResult:
     """
-    A data set mapping data transfer object.
+    Get a DataSetMapping in a shareSubscription
     API Version: 2020-09-01.
 
 
@@ -134,7 +134,7 @@ def get_data_set_mapping_output(account_name: Optional[pulumi.Input[str]] = None
                                 share_subscription_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetMappingResult]:
     """
-    A data set mapping data transfer object.
+    Get a DataSetMapping in a shareSubscription
     API Version: 2020-09-01.
 
 

@@ -97,7 +97,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
                    sync_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
-    Sync Group object.
+    Get a given SyncGroup.
     API Version: 2020-03-01.
 
 
@@ -126,7 +126,7 @@ def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           sync_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
-    Sync Group object.
+    Get a given SyncGroup.
     API Version: 2020-03-01.
 
 

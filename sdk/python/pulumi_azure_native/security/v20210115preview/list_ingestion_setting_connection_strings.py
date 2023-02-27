@@ -48,7 +48,7 @@ class AwaitableListIngestionSettingConnectionStringsResult(ListIngestionSettingC
 def list_ingestion_setting_connection_strings(ingestion_setting_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIngestionSettingConnectionStringsResult:
     """
-    Connection string for ingesting security data and logs
+    Connection strings for ingesting security scan logs and data.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting
@@ -66,7 +66,7 @@ def list_ingestion_setting_connection_strings(ingestion_setting_name: Optional[s
 def list_ingestion_setting_connection_strings_output(ingestion_setting_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIngestionSettingConnectionStringsResult]:
     """
-    Connection string for ingesting security data and logs
+    Connection strings for ingesting security scan logs and data.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting

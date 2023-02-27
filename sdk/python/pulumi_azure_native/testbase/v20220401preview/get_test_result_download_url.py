@@ -62,7 +62,7 @@ def get_test_result_download_url(package_name: Optional[str] = None,
                                  test_result_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultDownloadURLResult:
     """
-    The response of getting a download URL.
+    Gets the download URL of the test result.
 
 
     :param str package_name: The resource name of the Test Base Package.
@@ -90,7 +90,7 @@ def get_test_result_download_url_output(package_name: Optional[pulumi.Input[str]
                                         test_result_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultDownloadURLResult]:
     """
-    The response of getting a download URL.
+    Gets the download URL of the test result.
 
 
     :param str package_name: The resource name of the Test Base Package.

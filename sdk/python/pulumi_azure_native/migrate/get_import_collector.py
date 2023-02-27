@@ -80,6 +80,7 @@ def get_import_collector(import_collector_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImportCollectorResult:
     """
+    Get a Import collector.
     API Version: 2019-10-01.
 
 
@@ -108,6 +109,7 @@ def get_import_collector_output(import_collector_name: Optional[pulumi.Input[str
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportCollectorResult]:
     """
+    Get a Import collector.
     API Version: 2019-10-01.
 
 

@@ -99,7 +99,7 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationDefinitionResult:
     """
-    Registration definition.
+    Gets the registration definition details.
 
 
     :param str registration_definition_id: Guid of the registration definition.
@@ -125,7 +125,7 @@ def get_registration_definition_output(registration_definition_id: Optional[pulu
                                        scope: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationDefinitionResult]:
     """
-    Registration definition.
+    Gets the registration definition details.
 
 
     :param str registration_definition_id: Guid of the registration definition.

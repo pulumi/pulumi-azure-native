@@ -323,7 +323,7 @@ def get_web_app_site_extension_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionSlotResult:
     """
-    Site Extension Information.
+    Get site extension information by its ID for a web site, or a deployment slot.
 
 
     :param str name: Site name.
@@ -373,7 +373,7 @@ def get_web_app_site_extension_slot_output(name: Optional[pulumi.Input[str]] = N
                                            slot: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSiteExtensionSlotResult]:
     """
-    Site Extension Information.
+    Get site extension information by its ID for a web site, or a deployment slot.
 
 
     :param str name: Site name.

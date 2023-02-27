@@ -313,7 +313,7 @@ def get_php_workload(php_workload_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPhpWorkloadResult:
     """
-    Php workload resource
+    Gets the PHP workload resource.
     API Version: 2021-12-01-preview.
 
 
@@ -357,7 +357,7 @@ def get_php_workload_output(php_workload_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPhpWorkloadResult]:
     """
-    Php workload resource
+    Gets the PHP workload resource.
     API Version: 2021-12-01-preview.
 
 

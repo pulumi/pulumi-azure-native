@@ -135,7 +135,7 @@ def getgetbot(resource_group_name: Optional[str] = None,
               resource_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetgetbotResult:
     """
-    HealthBot resource definition
+    Get a Healthcare Bot.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -164,7 +164,7 @@ def getgetbot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      resource_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetgetbotResult]:
     """
-    HealthBot resource definition
+    Get a Healthcare Bot.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.

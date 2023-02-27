@@ -111,7 +111,7 @@ def get_file(file_name: Optional[str] = None,
              service_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileResult:
     """
-    A file resource
+    The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
 
 
     :param str file_name: Name of the File
@@ -143,7 +143,7 @@ def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
                     service_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
     """
-    A file resource
+    The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
 
 
     :param str file_name: Name of the File

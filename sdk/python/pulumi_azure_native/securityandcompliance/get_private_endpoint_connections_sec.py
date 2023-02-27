@@ -122,7 +122,7 @@ def get_private_endpoint_connections_sec(private_endpoint_connection_name: Optio
                                          resource_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionsSecResult:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
     API Version: 2021-03-08.
 
 
@@ -153,7 +153,7 @@ def get_private_endpoint_connections_sec_output(private_endpoint_connection_name
                                                 resource_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionsSecResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
     API Version: 2021-03-08.
 
 

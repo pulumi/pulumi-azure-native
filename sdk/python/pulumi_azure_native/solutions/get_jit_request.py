@@ -193,7 +193,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitRequestResult:
     """
-    Information about JIT request definition.
+    Gets the JIT request.
     API Version: 2019-07-01.
 
 
@@ -227,7 +227,7 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJitRequestResult]:
     """
-    Information about JIT request definition.
+    Gets the JIT request.
     API Version: 2019-07-01.
 
 

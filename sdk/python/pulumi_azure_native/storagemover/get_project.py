@@ -110,7 +110,7 @@ def get_project(project_name: Optional[str] = None,
                 storage_mover_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
-    The Project resource.
+    Gets a Project resource.
     API Version: 2022-07-01-preview.
 
 
@@ -140,7 +140,7 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        storage_mover_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
-    The Project resource.
+    Gets a Project resource.
     API Version: 2022-07-01-preview.
 
 

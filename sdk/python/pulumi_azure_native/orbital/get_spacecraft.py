@@ -205,7 +205,7 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
                    spacecraft_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpacecraftResult:
     """
-    Customer creates a spacecraft resource to schedule a contact.
+    Gets the specified spacecraft in a specified resource group
     API Version: 2021-04-04-preview.
 
 
@@ -240,7 +240,7 @@ def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           spacecraft_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpacecraftResult]:
     """
-    Customer creates a spacecraft resource to schedule a contact.
+    Gets the specified spacecraft in a specified resource group
     API Version: 2021-04-04-preview.
 
 

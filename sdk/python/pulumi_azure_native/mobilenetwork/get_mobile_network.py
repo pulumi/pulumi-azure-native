@@ -217,7 +217,7 @@ def get_mobile_network(mobile_network_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMobileNetworkResult:
     """
-    Mobile network resource.
+    Gets information about the specified mobile network.
     API Version: 2022-04-01-preview.
 
 
@@ -253,7 +253,7 @@ def get_mobile_network_output(mobile_network_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMobileNetworkResult]:
     """
-    Mobile network resource.
+    Gets information about the specified mobile network.
     API Version: 2022-04-01-preview.
 
 

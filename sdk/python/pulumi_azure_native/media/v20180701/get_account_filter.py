@@ -110,7 +110,7 @@ def get_account_filter(account_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountFilterResult:
     """
-    An Account Filter.
+    Get the details of an Account Filter in the Media Services account.
 
 
     :param str account_name: The Media Services account name.
@@ -139,7 +139,7 @@ def get_account_filter_output(account_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountFilterResult]:
     """
-    An Account Filter.
+    Get the details of an Account Filter in the Media Services account.
 
 
     :param str account_name: The Media Services account name.

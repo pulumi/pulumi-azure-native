@@ -111,7 +111,7 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpFirewallRuleResult:
     """
-    IP firewall rule
+    Get a firewall rule
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -141,7 +141,7 @@ def get_ip_firewall_rule_output(resource_group_name: Optional[pulumi.Input[str]]
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpFirewallRuleResult]:
     """
-    IP firewall rule
+    Get a firewall rule
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

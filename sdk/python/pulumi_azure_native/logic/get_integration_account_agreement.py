@@ -206,7 +206,7 @@ def get_integration_account_agreement(agreement_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountAgreementResult:
     """
-    The integration account agreement.
+    Gets an integration account agreement.
     API Version: 2019-05-01.
 
 
@@ -244,7 +244,7 @@ def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Inp
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountAgreementResult]:
     """
-    The integration account agreement.
+    Gets an integration account agreement.
     API Version: 2019-05-01.
 
 

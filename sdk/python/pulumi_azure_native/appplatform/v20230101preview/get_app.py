@@ -123,7 +123,7 @@ def get_app(app_name: Optional[str] = None,
             sync_status: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
-    App resource payload
+    Get an App and its properties.
 
 
     :param str app_name: The name of the App resource.
@@ -156,7 +156,7 @@ def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
                    sync_status: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
-    App resource payload
+    Get an App and its properties.
 
 
     :param str app_name: The name of the App resource.

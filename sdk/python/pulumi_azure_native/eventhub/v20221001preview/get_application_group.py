@@ -134,7 +134,7 @@ def get_application_group(application_group_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGroupResult:
     """
-    The Application Group object
+    Gets an ApplicationGroup for a Namespace.
 
 
     :param str application_group_name: The Application Group name 
@@ -165,7 +165,7 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGroupResult]:
     """
-    The Application Group object
+    Gets an ApplicationGroup for a Namespace.
 
 
     :param str application_group_name: The Application Group name 

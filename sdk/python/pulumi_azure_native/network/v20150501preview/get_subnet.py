@@ -136,7 +136,7 @@ def get_subnet(resource_group_name: Optional[str] = None,
                virtual_network_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
-    Subnet in a VirtualNetwork resource
+    The Get subnet operation retrieves information about the specified subnet.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -168,7 +168,7 @@ def get_subnet_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       virtual_network_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
     """
-    Subnet in a VirtualNetwork resource
+    The Get subnet operation retrieves information about the specified subnet.
 
 
     :param str resource_group_name: The name of the resource group.

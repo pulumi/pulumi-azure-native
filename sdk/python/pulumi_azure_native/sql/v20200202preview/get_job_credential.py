@@ -86,7 +86,7 @@ def get_job_credential(credential_name: Optional[str] = None,
                        server_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobCredentialResult:
     """
-    A stored credential that can be used by a job to connect to target databases.
+    Gets a jobs credential.
 
 
     :param str credential_name: The name of the credential.
@@ -116,7 +116,7 @@ def get_job_credential_output(credential_name: Optional[pulumi.Input[str]] = Non
                               server_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobCredentialResult]:
     """
-    A stored credential that can be used by a job to connect to target databases.
+    Gets a jobs credential.
 
 
     :param str credential_name: The name of the credential.

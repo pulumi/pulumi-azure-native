@@ -158,7 +158,7 @@ def get_nsp_association(association_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspAssociationResult:
     """
-    The NSP resource association resource
+    Gets the specified NSP association by name.
 
 
     :param str association_name: The name of the NSP association.
@@ -191,7 +191,7 @@ def get_nsp_association_output(association_name: Optional[pulumi.Input[str]] = N
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspAssociationResult]:
     """
-    The NSP resource association resource
+    Gets the specified NSP association by name.
 
 
     :param str association_name: The name of the NSP association.

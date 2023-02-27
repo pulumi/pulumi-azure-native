@@ -62,7 +62,7 @@ def get_integration_runtime_status(integration_runtime_name: Optional[str] = Non
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeStatusResult:
     """
-    Integration runtime status response.
+    Get the integration runtime status
     API Version: 2021-03-01.
 
 
@@ -88,7 +88,7 @@ def get_integration_runtime_status_output(integration_runtime_name: Optional[pul
                                           workspace_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeStatusResult]:
     """
-    Integration runtime status response.
+    Get the integration runtime status
     API Version: 2021-03-01.
 
 

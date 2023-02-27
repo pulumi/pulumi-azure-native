@@ -182,7 +182,7 @@ def get_fusion_alert_rule(resource_group_name: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFusionAlertRuleResult:
     """
-    Represents Fusion alert rule.
+    Gets the alert rule.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -217,7 +217,7 @@ def get_fusion_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]
                                  workspace_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFusionAlertRuleResult]:
     """
-    Represents Fusion alert rule.
+    Gets the alert rule.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

@@ -61,7 +61,7 @@ def list_job_credentials(job_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobCredentialsResult:
     """
-    List of unencrypted credentials for accessing device.
+    This method gets the unencrypted secrets related to the job.
 
 
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -83,7 +83,7 @@ def list_job_credentials_output(job_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListJobCredentialsResult]:
     """
-    List of unencrypted credentials for accessing device.
+    This method gets the unencrypted secrets related to the job.
 
 
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

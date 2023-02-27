@@ -100,7 +100,7 @@ def get_replication_protection_container_mapping(fabric_name: Optional[str] = No
                                                  resource_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationProtectionContainerMappingResult:
     """
-    Protection container mapping object.
+    Gets the details of a protection container mapping.
     API Version: 2018-07-10.
 
 
@@ -135,7 +135,7 @@ def get_replication_protection_container_mapping_output(fabric_name: Optional[pu
                                                         resource_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationProtectionContainerMappingResult]:
     """
-    Protection container mapping object.
+    Gets the details of a protection container mapping.
     API Version: 2018-07-10.
 
 

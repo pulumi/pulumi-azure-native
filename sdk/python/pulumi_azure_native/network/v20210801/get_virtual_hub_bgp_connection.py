@@ -146,7 +146,7 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
                                    virtual_hub_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubBgpConnectionResult:
     """
-    Virtual Appliance Site resource.
+    Retrieves the details of a Virtual Hub Bgp Connection.
 
 
     :param str connection_name: The name of the connection.
@@ -178,7 +178,7 @@ def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input
                                           virtual_hub_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubBgpConnectionResult]:
     """
-    Virtual Appliance Site resource.
+    Retrieves the details of a Virtual Hub Bgp Connection.
 
 
     :param str connection_name: The name of the connection.

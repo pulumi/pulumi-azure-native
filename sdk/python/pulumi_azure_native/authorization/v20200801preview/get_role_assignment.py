@@ -217,7 +217,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
                         tenant_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
-    Role Assignments
+    Get a role assignment by scope and name.
 
 
     :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.
@@ -255,7 +255,7 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
                                tenant_id: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
-    Role Assignments
+    Get a role assignment by scope and name.
 
 
     :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.

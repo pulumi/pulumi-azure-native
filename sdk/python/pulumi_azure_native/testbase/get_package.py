@@ -266,7 +266,7 @@ def get_package(package_name: Optional[str] = None,
                 test_base_account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageResult:
     """
-    The Test Base Package resource.
+    Gets a Test Base Package.
     API Version: 2022-04-01-preview.
 
 
@@ -309,7 +309,7 @@ def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
                        test_base_account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
     """
-    The Test Base Package resource.
+    Gets a Test Base Package.
     API Version: 2022-04-01-preview.
 
 

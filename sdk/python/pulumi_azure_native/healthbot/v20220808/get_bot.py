@@ -145,7 +145,7 @@ def get_bot(bot_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
-    Azure Health Bot resource definition
+    Get a HealthBot.
 
 
     :param str bot_name: The name of the Bot resource.
@@ -174,7 +174,7 @@ def get_bot_output(bot_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
-    Azure Health Bot resource definition
+    Get a HealthBot.
 
 
     :param str bot_name: The name of the Bot resource.

@@ -135,7 +135,7 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionResult:
     """
-    Description of HybridConnection Resource.
+    Returns the description for the specified HybridConnection.
 
 
     :param str hybrid_connection_name: The hybrid connection name.
@@ -167,7 +167,7 @@ def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridConnectionResult]:
     """
-    Description of HybridConnection Resource.
+    Returns the description for the specified HybridConnection.
 
 
     :param str hybrid_connection_name: The hybrid connection name.

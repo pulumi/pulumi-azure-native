@@ -87,7 +87,7 @@ def get_build_step(build_task_name: Optional[str] = None,
                    step_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildStepResult:
     """
-    Build step resource properties
+    Gets the build step for a build task.
 
 
     :param str build_task_name: The name of the container registry build task.
@@ -117,7 +117,7 @@ def get_build_step_output(build_task_name: Optional[pulumi.Input[str]] = None,
                           step_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildStepResult]:
     """
-    Build step resource properties
+    Gets the build step for a build task.
 
 
     :param str build_task_name: The name of the container registry build task.

@@ -110,7 +110,7 @@ def get_authorization_provider(authorization_provider_id: Optional[str] = None,
                                service_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationProviderResult:
     """
-    Authorization Provider contract.
+    Gets the details of the authorization provider specified by its identifier.
 
 
     :param str authorization_provider_id: Identifier of the authorization provider.
@@ -139,7 +139,7 @@ def get_authorization_provider_output(authorization_provider_id: Optional[pulumi
                                       service_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationProviderResult]:
     """
-    Authorization Provider contract.
+    Gets the details of the authorization provider specified by its identifier.
 
 
     :param str authorization_provider_id: Identifier of the authorization provider.

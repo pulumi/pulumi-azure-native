@@ -112,7 +112,7 @@ def get_target(parent_provider_namespace: Optional[str] = None,
                target_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetResult:
     """
-    Model that represents a Target resource.
+    Get a Target resource that extends a tracked regional resource.
 
 
     :param str parent_provider_namespace: String that represents a resource provider namespace.
@@ -147,7 +147,7 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
                       target_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetResult]:
     """
-    Model that represents a Target resource.
+    Get a Target resource that extends a tracked regional resource.
 
 
     :param str parent_provider_namespace: String that represents a resource provider namespace.

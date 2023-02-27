@@ -145,7 +145,7 @@ def get_project(project_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
-    Represents a project resource.
+    Gets a specific project.
 
 
     :param str project_name: The name of the project.
@@ -174,7 +174,7 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
-    Represents a project resource.
+    Gets a specific project.
 
 
     :param str project_name: The name of the project.

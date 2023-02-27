@@ -86,7 +86,7 @@ def get_api_diagnostic(api_id: Optional[str] = None,
                        service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiDiagnosticResult:
     """
-    Diagnostic details.
+    Gets the details of the Diagnostic for an API specified by its identifier.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -116,7 +116,7 @@ def get_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = None,
                               service_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiDiagnosticResult]:
     """
-    Diagnostic details.
+    Gets the details of the Diagnostic for an API specified by its identifier.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.

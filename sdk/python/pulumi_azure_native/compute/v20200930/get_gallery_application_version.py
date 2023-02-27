@@ -136,7 +136,7 @@ def get_gallery_application_version(expand: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationVersionResult:
     """
-    Specifies information about the gallery Application Version that you want to create or update.
+    Retrieves information about a gallery Application Version.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -173,7 +173,7 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationVersionResult]:
     """
-    Specifies information about the gallery Application Version that you want to create or update.
+    Retrieves information about a gallery Application Version.
 
 
     :param str expand: The expand expression to apply on the operation.

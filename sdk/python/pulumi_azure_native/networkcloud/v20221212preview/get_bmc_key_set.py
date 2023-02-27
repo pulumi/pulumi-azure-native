@@ -227,7 +227,8 @@ def get_bmc_key_set(bmc_key_set_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBmcKeySetResult:
     """
-    Use this data source to access information about an existing resource.
+    Get baseboard management controller key set of the provided cluster.
+
 
     :param str bmc_key_set_name: The name of the baseboard management controller key set.
     :param str cluster_name: The name of the cluster.
@@ -265,7 +266,8 @@ def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBmcKeySetResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get baseboard management controller key set of the provided cluster.
+
 
     :param str bmc_key_set_name: The name of the baseboard management controller key set.
     :param str cluster_name: The name of the cluster.

@@ -212,7 +212,8 @@ def get_console(console_name: Optional[str] = None,
                 virtual_machine_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided virtual machine console.
+
 
     :param str console_name: The name of the virtual machine console.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -249,7 +250,8 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
                        virtual_machine_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided virtual machine console.
+
 
     :param str console_name: The name of the virtual machine console.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

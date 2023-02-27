@@ -160,7 +160,7 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupScheduleResult:
     """
-    The backup schedule.
+    Gets the properties of the specified backup schedule name.
 
 
     :param str backup_policy_name: The backup policy name.
@@ -199,7 +199,7 @@ def get_backup_schedule_output(backup_policy_name: Optional[pulumi.Input[str]] =
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupScheduleResult]:
     """
-    The backup schedule.
+    Gets the properties of the specified backup schedule name.
 
 
     :param str backup_policy_name: The backup policy name.

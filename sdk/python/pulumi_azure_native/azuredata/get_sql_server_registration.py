@@ -145,7 +145,7 @@ def get_sql_server_registration(resource_group_name: Optional[str] = None,
                                 sql_server_registration_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerRegistrationResult:
     """
-    A SQL server registration.
+    Gets a SQL Server registration.
     API Version: 2019-07-24-preview.
 
 
@@ -175,7 +175,7 @@ def get_sql_server_registration_output(resource_group_name: Optional[pulumi.Inpu
                                        sql_server_registration_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerRegistrationResult]:
     """
-    A SQL server registration.
+    Gets a SQL Server registration.
     API Version: 2019-07-24-preview.
 
 

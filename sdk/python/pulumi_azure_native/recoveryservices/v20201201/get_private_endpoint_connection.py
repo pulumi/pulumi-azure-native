@@ -122,7 +122,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     vault_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Private Endpoint Connection Response Properties
+    Get Private Endpoint Connection. This call is made by Backup Admin.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -152,7 +152,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            vault_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Private Endpoint Connection Response Properties
+    Get Private Endpoint Connection. This call is made by Backup Admin.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

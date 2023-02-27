@@ -157,7 +157,7 @@ def get_commitment_plan(commitment_plan_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanResult:
     """
-    Cognitive Services account commitment plan.
+    Returns a Cognitive Services commitment plan specified by the parameters.
 
 
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
@@ -187,7 +187,7 @@ def get_commitment_plan_output(commitment_plan_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanResult]:
     """
-    Cognitive Services account commitment plan.
+    Returns a Cognitive Services commitment plan specified by the parameters.
 
 
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account

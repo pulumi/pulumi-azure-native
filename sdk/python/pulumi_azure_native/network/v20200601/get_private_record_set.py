@@ -231,7 +231,7 @@ def get_private_record_set(private_zone_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateRecordSetResult:
     """
-    Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+    Gets a record set.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
@@ -273,7 +273,7 @@ def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[str]]
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateRecordSetResult]:
     """
-    Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+    Gets a record set.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).

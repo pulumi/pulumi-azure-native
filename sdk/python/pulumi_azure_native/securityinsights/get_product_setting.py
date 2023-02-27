@@ -113,7 +113,7 @@ def get_product_setting(operational_insights_resource_provider: Optional[str] = 
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductSettingResult:
     """
-    The Setting.
+    Gets a setting.
     API Version: 2021-03-01-preview.
 
 
@@ -147,7 +147,7 @@ def get_product_setting_output(operational_insights_resource_provider: Optional[
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductSettingResult]:
     """
-    The Setting.
+    Gets a setting.
     API Version: 2021-03-01-preview.
 
 

@@ -121,7 +121,7 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamespaceKeysResult:
     """
-    Namespace/EventHub Connection String
+    Gets the primary and secondary connection strings for the Namespace.
     API Version: 2017-04-01.
 
 
@@ -152,7 +152,7 @@ def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[st
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNamespaceKeysResult]:
     """
-    Namespace/EventHub Connection String
+    Gets the primary and secondary connection strings for the Namespace.
     API Version: 2017-04-01.
 
 

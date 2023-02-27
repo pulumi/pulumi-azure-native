@@ -86,7 +86,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     workspace_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The private endpoint connection of a workspace
+    Get a private endpoint connection properties for a workspace
     API Version: 2022-04-01-preview.
 
 
@@ -114,7 +114,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            workspace_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The private endpoint connection of a workspace
+    Get a private endpoint connection properties for a workspace
     API Version: 2022-04-01-preview.
 
 

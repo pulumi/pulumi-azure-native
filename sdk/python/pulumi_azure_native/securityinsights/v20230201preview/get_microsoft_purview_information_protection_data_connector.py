@@ -135,7 +135,7 @@ def get_microsoft_purview_information_protection_data_connector(data_connector_i
                                                                 workspace_name: Optional[str] = None,
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMicrosoftPurviewInformationProtectionDataConnectorResult:
     """
-    Represents Microsoft Purview Information Protection data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -166,7 +166,7 @@ def get_microsoft_purview_information_protection_data_connector_output(data_conn
                                                                        workspace_name: Optional[pulumi.Input[str]] = None,
                                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftPurviewInformationProtectionDataConnectorResult]:
     """
-    Represents Microsoft Purview Information Protection data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

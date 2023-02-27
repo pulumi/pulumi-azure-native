@@ -109,7 +109,7 @@ def get_integration_account(integration_account_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountResult:
     """
-    The integration account.
+    Gets an integration account.
 
 
     :param str integration_account_name: The integration account name.
@@ -135,7 +135,7 @@ def get_integration_account_output(integration_account_name: Optional[pulumi.Inp
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountResult]:
     """
-    The integration account.
+    Gets an integration account.
 
 
     :param str integration_account_name: The integration account name.

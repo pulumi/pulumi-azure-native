@@ -99,7 +99,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
                    workspace_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleResult:
     """
-    Alert rule.
+    Gets the alert rule.
     API Version: 2020-01-01.
 
 
@@ -129,7 +129,7 @@ def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           workspace_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
     """
-    Alert rule.
+    Gets the alert rule.
     API Version: 2020-01-01.
 
 

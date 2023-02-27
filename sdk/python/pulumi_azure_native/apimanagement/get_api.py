@@ -290,7 +290,7 @@ def get_api(api_id: Optional[str] = None,
             service_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiResult:
     """
-    Api details.
+    Gets the details of the API specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -335,7 +335,7 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
                    service_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
     """
-    Api details.
+    Gets the details of the API specified by its identifier.
     API Version: 2020-12-01.
 
 

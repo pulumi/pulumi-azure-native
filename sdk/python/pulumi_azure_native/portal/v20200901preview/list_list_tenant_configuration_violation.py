@@ -58,7 +58,7 @@ class AwaitableListListTenantConfigurationViolationResult(ListListTenantConfigur
 
 def list_list_tenant_configuration_violation(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListTenantConfigurationViolationResult:
     """
-    List of list of items that violate tenant's configuration.
+    Gets list of items that violate tenant's configuration.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

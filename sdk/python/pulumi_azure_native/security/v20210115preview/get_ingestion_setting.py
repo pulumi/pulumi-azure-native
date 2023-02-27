@@ -71,7 +71,7 @@ class AwaitableGetIngestionSettingResult(GetIngestionSettingResult):
 def get_ingestion_setting(ingestion_setting_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIngestionSettingResult:
     """
-    Configures how to correlate scan data and logs with resources associated with the subscription.
+    Settings for ingesting security data and logs to correlate with resources associated with the subscription.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting
@@ -91,7 +91,7 @@ def get_ingestion_setting(ingestion_setting_name: Optional[str] = None,
 def get_ingestion_setting_output(ingestion_setting_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIngestionSettingResult]:
     """
-    Configures how to correlate scan data and logs with resources associated with the subscription.
+    Settings for ingesting security data and logs to correlate with resources associated with the subscription.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting

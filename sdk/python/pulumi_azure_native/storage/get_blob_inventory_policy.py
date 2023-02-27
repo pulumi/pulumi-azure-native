@@ -110,7 +110,7 @@ def get_blob_inventory_policy(account_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobInventoryPolicyResult:
     """
-    The storage account blob inventory policy.
+    Gets the blob inventory policy associated with the specified storage account.
     API Version: 2021-02-01.
 
 
@@ -140,7 +140,7 @@ def get_blob_inventory_policy_output(account_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobInventoryPolicyResult]:
     """
-    The storage account blob inventory policy.
+    Gets the blob inventory policy associated with the specified storage account.
     API Version: 2021-02-01.
 
 

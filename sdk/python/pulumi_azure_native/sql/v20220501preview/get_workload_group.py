@@ -146,7 +146,7 @@ def get_workload_group(database_name: Optional[str] = None,
                        workload_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadGroupResult:
     """
-    Workload group operations for a data warehouse
+    Gets a workload group
 
 
     :param str database_name: The name of the database.
@@ -181,7 +181,7 @@ def get_workload_group_output(database_name: Optional[pulumi.Input[str]] = None,
                               workload_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadGroupResult]:
     """
-    Workload group operations for a data warehouse
+    Gets a workload group
 
 
     :param str database_name: The name of the database.

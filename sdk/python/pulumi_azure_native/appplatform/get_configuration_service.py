@@ -98,7 +98,7 @@ def get_configuration_service(configuration_service_name: Optional[str] = None,
                               service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationServiceResult:
     """
-    Application Configuration Service resource
+    Get the Application Configuration Service and its properties.
     API Version: 2022-01-01-preview.
 
 
@@ -127,7 +127,7 @@ def get_configuration_service_output(configuration_service_name: Optional[pulumi
                                      service_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationServiceResult]:
     """
-    Application Configuration Service resource
+    Get the Application Configuration Service and its properties.
     API Version: 2022-01-01-preview.
 
 

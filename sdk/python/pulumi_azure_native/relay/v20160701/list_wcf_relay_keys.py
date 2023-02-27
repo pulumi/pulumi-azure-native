@@ -98,7 +98,7 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWCFRelayKeysResult:
     """
-    Namespace/Relay Connection String
+    Primary and Secondary ConnectionStrings to the WCFRelays.
 
 
     :param str authorization_rule_name: The authorizationRule name.
@@ -129,7 +129,7 @@ def list_wcf_relay_keys_output(authorization_rule_name: Optional[pulumi.Input[st
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWCFRelayKeysResult]:
     """
-    Namespace/Relay Connection String
+    Primary and Secondary ConnectionStrings to the WCFRelays.
 
 
     :param str authorization_rule_name: The authorizationRule name.

@@ -122,7 +122,7 @@ def get_web_pub_sub_custom_domain(name: Optional[str] = None,
                                   resource_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubCustomDomainResult:
     """
-    A custom domain
+    Get a custom domain.
 
 
     :param str name: Custom domain name.
@@ -152,7 +152,7 @@ def get_web_pub_sub_custom_domain_output(name: Optional[pulumi.Input[str]] = Non
                                          resource_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubCustomDomainResult]:
     """
-    A custom domain
+    Get a custom domain.
 
 
     :param str name: Custom domain name.

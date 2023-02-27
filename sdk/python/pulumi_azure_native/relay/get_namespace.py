@@ -166,7 +166,7 @@ def get_namespace(namespace_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
-    Description of a namespace resource.
+    Returns the description for the specified namespace.
     API Version: 2017-04-01.
 
 
@@ -198,7 +198,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
-    Description of a namespace resource.
+    Returns the description for the specified namespace.
     API Version: 2017-04-01.
 
 

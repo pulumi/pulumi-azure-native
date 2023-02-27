@@ -50,7 +50,7 @@ def get_live_event_status(account_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveEventStatusResult:
     """
-    Get live event status result.
+    Gets status telemetry of a live event.
 
 
     :param str account_name: The Media Services account name.
@@ -74,7 +74,7 @@ def get_live_event_status_output(account_name: Optional[pulumi.Input[str]] = Non
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveEventStatusResult]:
     """
-    Get live event status result.
+    Gets status telemetry of a live event.
 
 
     :param str account_name: The Media Services account name.

@@ -98,7 +98,7 @@ def get_dev_tool_portal(dev_tool_portal_name: Optional[str] = None,
                         service_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevToolPortalResult:
     """
-    Dev Tool Portal resource
+    Get the Application Live  and its properties.
 
 
     :param str dev_tool_portal_name: The name of Dev Tool Portal.
@@ -126,7 +126,7 @@ def get_dev_tool_portal_output(dev_tool_portal_name: Optional[pulumi.Input[str]]
                                service_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevToolPortalResult]:
     """
-    Dev Tool Portal resource
+    Get the Application Live  and its properties.
 
 
     :param str dev_tool_portal_name: The name of Dev Tool Portal.

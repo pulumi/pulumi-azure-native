@@ -60,7 +60,7 @@ def list_saas_subscription_level_access_token(resource_group_name: Optional[str]
                                               resource_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSaasSubscriptionLevelAccessTokenResult:
     """
-    the ISV access token result response.
+    Gets the ISV access token for a specified Subscription Level SaaS.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -82,7 +82,7 @@ def list_saas_subscription_level_access_token_output(resource_group_name: Option
                                                      resource_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSaasSubscriptionLevelAccessTokenResult]:
     """
-    the ISV access token result response.
+    Gets the ISV access token for a specified Subscription Level SaaS.
 
 
     :param str resource_group_name: The name of the resource group.

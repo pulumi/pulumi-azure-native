@@ -158,7 +158,7 @@ def get_template_spec(expand: Optional[str] = None,
                       template_spec_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecResult:
     """
-    Template Spec object.
+    Gets a Template Spec with a given name.
 
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
@@ -191,7 +191,7 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              template_spec_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateSpecResult]:
     """
-    Template Spec object.
+    Gets a Template Spec with a given name.
 
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.

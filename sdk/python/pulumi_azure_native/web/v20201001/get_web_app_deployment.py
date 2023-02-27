@@ -206,7 +206,7 @@ def get_web_app_deployment(id: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDeploymentResult:
     """
-    User credentials used for publishing activity.
+    Get a deployment by its ID for an app, or a deployment slot.
 
 
     :param str id: Deployment ID.
@@ -243,7 +243,7 @@ def get_web_app_deployment_output(id: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDeploymentResult]:
     """
-    User credentials used for publishing activity.
+    Get a deployment by its ID for an app, or a deployment slot.
 
 
     :param str id: Deployment ID.

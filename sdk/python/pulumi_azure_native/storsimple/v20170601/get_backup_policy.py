@@ -170,7 +170,7 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
-    The backup policy.
+    Gets the properties of the specified backup policy name.
 
 
     :param str backup_policy_name: The name of backup policy to be fetched.
@@ -207,7 +207,7 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
-    The backup policy.
+    Gets the properties of the specified backup policy name.
 
 
     :param str backup_policy_name: The name of backup policy to be fetched.

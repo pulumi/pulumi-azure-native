@@ -85,7 +85,7 @@ def get_table(account_name: Optional[str] = None,
               table_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
-    Properties of the table, including Id, resource name, resource type.
+    Gets the table with the specified table name, under the specified account if it exists.
     API Version: 2021-02-01.
 
 
@@ -113,7 +113,7 @@ def get_table_output(account_name: Optional[pulumi.Input[str]] = None,
                      table_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """
-    Properties of the table, including Id, resource name, resource type.
+    Gets the table with the specified table name, under the specified account if it exists.
     API Version: 2021-02-01.
 
 

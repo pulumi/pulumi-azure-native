@@ -99,7 +99,7 @@ def get_key(key_name: Optional[str] = None,
             workspace_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    A workspace key
+    Gets a workspace key
 
 
     :param str key_name: The name of the workspace key
@@ -128,7 +128,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    workspace_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
-    A workspace key
+    Gets a workspace key
 
 
     :param str key_name: The name of the workspace key

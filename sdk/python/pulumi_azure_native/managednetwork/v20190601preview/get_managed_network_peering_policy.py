@@ -98,7 +98,7 @@ def get_managed_network_peering_policy(managed_network_name: Optional[str] = Non
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedNetworkPeeringPolicyResult:
     """
-    The Managed Network Peering Policy resource
+    The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
 
 
     :param str managed_network_name: The name of the Managed Network.
@@ -126,7 +126,7 @@ def get_managed_network_peering_policy_output(managed_network_name: Optional[pul
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedNetworkPeeringPolicyResult]:
     """
-    The Managed Network Peering Policy resource
+    The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
 
 
     :param str managed_network_name: The name of the Managed Network.

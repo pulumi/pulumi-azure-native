@@ -194,7 +194,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolSensitivityLabelResult:
     """
-    A sensitivity label.
+    Gets the sensitivity label of a given column
     API Version: 2021-03-01.
 
 
@@ -243,7 +243,7 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
                                           workspace_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolSensitivityLabelResult]:
     """
-    A sensitivity label.
+    Gets the sensitivity label of a given column
     API Version: 2021-03-01.
 
 

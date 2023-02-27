@@ -121,7 +121,7 @@ def get_sap_landscape_monitor(monitor_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapLandscapeMonitorResult:
     """
-    configuration associated with SAP Landscape Monitor Dashboard.
+    Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -148,7 +148,7 @@ def get_sap_landscape_monitor_output(monitor_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSapLandscapeMonitorResult]:
     """
-    configuration associated with SAP Landscape Monitor Dashboard.
+    Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
 
 
     :param str monitor_name: Name of the SAP monitor resource.

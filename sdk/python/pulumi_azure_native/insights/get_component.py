@@ -325,7 +325,7 @@ def get_component(resource_group_name: Optional[str] = None,
                   resource_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentResult:
     """
-    An Application Insights component definition.
+    Returns an Application Insights component.
     API Version: 2015-05-01.
 
 
@@ -370,7 +370,7 @@ def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          resource_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
     """
-    An Application Insights component definition.
+    Returns an Application Insights component.
     API Version: 2015-05-01.
 
 

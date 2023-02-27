@@ -51,7 +51,8 @@ def list_workspace_notebook_keys(resource_group_name: Optional[str] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    List keys of a notebook.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
@@ -72,7 +73,8 @@ def list_workspace_notebook_keys_output(resource_group_name: Optional[pulumi.Inp
                                         workspace_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookKeysResult]:
     """
-    Use this data source to access information about an existing resource.
+    List keys of a notebook.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.

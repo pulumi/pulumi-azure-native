@@ -61,7 +61,7 @@ def list_query_key_by_search_service(resource_group_name: Optional[str] = None,
                                      search_service_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListQueryKeyBySearchServiceResult:
     """
-    Response containing the query API keys for a given Azure Cognitive Search service.
+    Returns the list of query API keys for the given Azure Cognitive Search service.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -83,7 +83,7 @@ def list_query_key_by_search_service_output(resource_group_name: Optional[pulumi
                                             search_service_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListQueryKeyBySearchServiceResult]:
     """
-    Response containing the query API keys for a given Azure Cognitive Search service.
+    Returns the list of query API keys for the given Azure Cognitive Search service.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.

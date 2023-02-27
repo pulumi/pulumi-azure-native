@@ -110,7 +110,7 @@ def get_environment_type(dev_center_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentTypeResult:
     """
-    Represents an environment type.
+    Gets an environment type.
     API Version: 2022-09-01-preview.
 
 
@@ -140,7 +140,7 @@ def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = N
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentTypeResult]:
     """
-    Represents an environment type.
+    Gets an environment type.
     API Version: 2022-09-01-preview.
 
 

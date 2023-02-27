@@ -256,7 +256,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
-    Specifies information about the gallery Image Definition that you want to create or update.
+    Retrieves information about a gallery Image Definition.
 
 
     :param str gallery_image_name: The name of the gallery Image Definition to be retrieved.
@@ -298,7 +298,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
-    Specifies information about the gallery Image Definition that you want to create or update.
+    Retrieves information about a gallery Image Definition.
 
 
     :param str gallery_image_name: The name of the gallery Image Definition to be retrieved.

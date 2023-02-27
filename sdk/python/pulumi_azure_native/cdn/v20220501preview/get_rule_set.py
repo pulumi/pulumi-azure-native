@@ -119,7 +119,7 @@ def get_rule_set(profile_name: Optional[str] = None,
                  rule_set_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleSetResult:
     """
-    Friendly RuleSet name mapping to the any RuleSet or secret related information.
+    Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -149,7 +149,7 @@ def get_rule_set_output(profile_name: Optional[pulumi.Input[str]] = None,
                         rule_set_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleSetResult]:
     """
-    Friendly RuleSet name mapping to the any RuleSet or secret related information.
+    Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.

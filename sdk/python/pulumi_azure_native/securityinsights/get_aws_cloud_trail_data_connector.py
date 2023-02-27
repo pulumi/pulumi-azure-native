@@ -123,7 +123,7 @@ def get_aws_cloud_trail_data_connector(data_connector_id: Optional[str] = None,
                                        workspace_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAwsCloudTrailDataConnectorResult:
     """
-    Represents Amazon Web Services CloudTrail data connector.
+    Gets a data connector.
     API Version: 2020-01-01.
 
 
@@ -154,7 +154,7 @@ def get_aws_cloud_trail_data_connector_output(data_connector_id: Optional[pulumi
                                               workspace_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAwsCloudTrailDataConnectorResult]:
     """
-    Represents Amazon Web Services CloudTrail data connector.
+    Gets a data connector.
     API Version: 2020-01-01.
 
 

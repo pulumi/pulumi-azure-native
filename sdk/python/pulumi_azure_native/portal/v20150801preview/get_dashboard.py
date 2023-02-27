@@ -123,7 +123,7 @@ def get_dashboard(dashboard_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDashboardResult:
     """
-    The shared dashboard resource definition.
+    Gets the Dashboard.
 
 
     :param str dashboard_name: The name of the dashboard.
@@ -151,7 +151,7 @@ def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
     """
-    The shared dashboard resource definition.
+    Gets the Dashboard.
 
 
     :param str dashboard_name: The name of the dashboard.

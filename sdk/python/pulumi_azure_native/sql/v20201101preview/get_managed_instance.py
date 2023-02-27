@@ -388,7 +388,7 @@ def get_managed_instance(expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
-    An Azure SQL managed instance.
+    Gets a managed instance.
 
 
     :param str expand: The child resources to include in the response.
@@ -440,7 +440,7 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
-    An Azure SQL managed instance.
+    Gets a managed instance.
 
 
     :param str expand: The child resources to include in the response.

@@ -157,7 +157,7 @@ def getprivate_link_services_for_m365_compliance_center(resource_group_name: Opt
                                                         resource_name: Optional[str] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForM365ComplianceCenterResult:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -187,7 +187,7 @@ def getprivate_link_services_for_m365_compliance_center_output(resource_group_na
                                                                resource_name: Optional[pulumi.Input[str]] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkServicesForM365ComplianceCenterResult]:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

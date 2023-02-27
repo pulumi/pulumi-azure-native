@@ -352,7 +352,7 @@ def get_pool(account_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
-    Contains information about a pool.
+    Gets information about the specified pool.
 
 
     :param str account_name: The name of the Batch account.
@@ -404,7 +404,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
-    Contains information about a pool.
+    Gets information about the specified pool.
 
 
     :param str account_name: The name of the Batch account.

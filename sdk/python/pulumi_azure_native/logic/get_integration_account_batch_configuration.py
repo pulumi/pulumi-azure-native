@@ -110,7 +110,7 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountBatchConfigurationResult:
     """
-    The batch configuration resource definition.
+    Get a batch configuration for an integration account.
     API Version: 2019-05-01.
 
 
@@ -140,7 +140,7 @@ def get_integration_account_batch_configuration_output(batch_configuration_name:
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountBatchConfigurationResult]:
     """
-    The batch configuration resource definition.
+    Get a batch configuration for an integration account.
     API Version: 2019-05-01.
 
 

@@ -98,7 +98,7 @@ def get_storage(resource_group_name: Optional[str] = None,
                 storage_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageResult:
     """
-    Storage resource payload.
+    Get the storage resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -126,7 +126,7 @@ def get_storage_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        storage_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageResult]:
     """
-    Storage resource payload.
+    Get the storage resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

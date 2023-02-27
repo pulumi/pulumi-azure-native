@@ -184,7 +184,7 @@ def get_custom_image_resource(lab_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomImageResourceResult:
     """
-    A custom image.
+    Get custom image.
 
 
     :param str lab_name: The name of the lab.
@@ -220,7 +220,7 @@ def get_custom_image_resource_output(lab_name: Optional[pulumi.Input[str]] = Non
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomImageResourceResult]:
     """
-    A custom image.
+    Get custom image.
 
 
     :param str lab_name: The name of the lab.

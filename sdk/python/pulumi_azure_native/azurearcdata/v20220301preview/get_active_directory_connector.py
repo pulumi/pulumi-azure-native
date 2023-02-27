@@ -98,7 +98,7 @@ def get_active_directory_connector(active_directory_connector_name: Optional[str
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActiveDirectoryConnectorResult:
     """
-    Active directory connector resource
+    Retrieves an Active Directory connector resource
 
 
     :param str active_directory_connector_name: The name of the Active Directory connector instance
@@ -126,7 +126,7 @@ def get_active_directory_connector_output(active_directory_connector_name: Optio
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActiveDirectoryConnectorResult]:
     """
-    Active directory connector resource
+    Retrieves an Active Directory connector resource
 
 
     :param str active_directory_connector_name: The name of the Active Directory connector instance

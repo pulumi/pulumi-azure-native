@@ -134,7 +134,7 @@ def get_api_tag_description(api_id: Optional[str] = None,
                             tag_description_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiTagDescriptionResult:
     """
-    Contract details.
+    Get Tag description in scope of API
     API Version: 2020-12-01.
 
 
@@ -169,7 +169,7 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
                                    tag_description_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiTagDescriptionResult]:
     """
-    Contract details.
+    Get Tag description in scope of API
     API Version: 2020-12-01.
 
 

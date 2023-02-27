@@ -97,7 +97,7 @@ def get_documentation(documentation_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentationResult:
     """
-    Markdown documentation details.
+    Gets the details of the Documentation specified by its identifier.
 
 
     :param str documentation_id: Documentation identifier. Must be unique in the current API Management service instance.
@@ -125,7 +125,7 @@ def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = Non
                              service_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationResult]:
     """
-    Markdown documentation details.
+    Gets the details of the Documentation specified by its identifier.
 
 
     :param str documentation_id: Documentation identifier. Must be unique in the current API Management service instance.

@@ -98,7 +98,7 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
                                     transparent_data_encryption_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransparentDataEncryptionResult:
     """
-    Represents a database transparent data encryption configuration.
+    Gets a database's transparent data encryption configuration.
 
 
     :param str database_name: The name of the database for which the transparent data encryption applies.
@@ -129,7 +129,7 @@ def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[
                                            transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransparentDataEncryptionResult]:
     """
-    Represents a database transparent data encryption configuration.
+    Gets a database's transparent data encryption configuration.
 
 
     :param str database_name: The name of the database for which the transparent data encryption applies.

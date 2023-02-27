@@ -225,7 +225,7 @@ def get_signal_r(resource_group_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRResult:
     """
-    A class represent a SignalR service resource.
+    Get the SignalR service and its properties.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -261,7 +261,7 @@ def get_signal_r_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRResult]:
     """
-    A class represent a SignalR service resource.
+    Get the SignalR service and its properties.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -194,7 +194,7 @@ def get_project(account_name: Optional[str] = None,
                 workspace_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
-    An object that represents a machine learning project.
+    Gets the properties of the specified machine learning project.
     API Version: 2017-05-01-preview.
 
 
@@ -234,7 +234,7 @@ def get_project_output(account_name: Optional[pulumi.Input[str]] = None,
                        workspace_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
-    An object that represents a machine learning project.
+    Gets the properties of the specified machine learning project.
     API Version: 2017-05-01-preview.
 
 

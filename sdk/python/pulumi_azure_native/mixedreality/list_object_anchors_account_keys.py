@@ -60,7 +60,7 @@ def list_object_anchors_account_keys(account_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListObjectAnchorsAccountKeysResult:
     """
-    Developer Keys of account
+    List Both of the 2 Keys of an object anchors Account
     API Version: 2021-03-01-preview.
 
 
@@ -83,7 +83,7 @@ def list_object_anchors_account_keys_output(account_name: Optional[pulumi.Input[
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListObjectAnchorsAccountKeysResult]:
     """
-    Developer Keys of account
+    List Both of the 2 Keys of an object anchors Account
     API Version: 2021-03-01-preview.
 
 

@@ -86,7 +86,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationAssignmentResult:
     """
-    Registration assignment.
+    Gets the details of specified registration assignment.
     API Version: 2019-09-01.
 
 
@@ -114,7 +114,7 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
                                        scope: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationAssignmentResult]:
     """
-    Registration assignment.
+    Gets the details of specified registration assignment.
     API Version: 2019-09-01.
 
 

@@ -61,7 +61,7 @@ def list_sql_migration_service_monitoring_data(resource_group_name: Optional[str
                                                sql_migration_service_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSqlMigrationServiceMonitoringDataResult:
     """
-    Integration Runtime Monitoring Data.
+    Retrieve the Monitoring Data.
     API Version: 2021-10-30-preview.
 
 
@@ -84,7 +84,7 @@ def list_sql_migration_service_monitoring_data_output(resource_group_name: Optio
                                                       sql_migration_service_name: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSqlMigrationServiceMonitoringDataResult]:
     """
-    Integration Runtime Monitoring Data.
+    Retrieve the Monitoring Data.
     API Version: 2021-10-30-preview.
 
 

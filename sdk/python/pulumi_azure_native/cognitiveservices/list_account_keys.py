@@ -60,7 +60,7 @@ def list_account_keys(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
-    The access keys for the cognitive services account.
+    Lists the account keys for the specified Cognitive Services account.
     API Version: 2017-04-18.
 
 
@@ -83,7 +83,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
-    The access keys for the cognitive services account.
+    Lists the account keys for the specified Cognitive Services account.
     API Version: 2017-04-18.
 
 

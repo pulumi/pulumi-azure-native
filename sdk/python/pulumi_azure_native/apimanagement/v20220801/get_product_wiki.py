@@ -86,7 +86,7 @@ def get_product_wiki(product_id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductWikiResult:
     """
-    Wiki properties
+    Gets the details of the Wiki for a Product specified by its identifier.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -113,7 +113,7 @@ def get_product_wiki_output(product_id: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductWikiResult]:
     """
-    Wiki properties
+    Gets the details of the Wiki for a Product specified by its identifier.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

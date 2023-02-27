@@ -207,7 +207,7 @@ def get_sync_member(database_name: Optional[str] = None,
                     sync_member_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncMemberResult:
     """
-    An Azure SQL Database sync member.
+    Gets a sync member.
     API Version: 2020-11-01-preview.
 
 
@@ -251,7 +251,7 @@ def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
                            sync_member_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncMemberResult]:
     """
-    An Azure SQL Database sync member.
+    Gets a sync member.
     API Version: 2020-11-01-preview.
 
 

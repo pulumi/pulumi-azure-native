@@ -49,7 +49,7 @@ def list_named_value(named_value_id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamedValueResult:
     """
-    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Gets the secret value of the NamedValue.
 
 
     :param str named_value_id: Identifier of the NamedValue.
@@ -73,7 +73,7 @@ def list_named_value_output(named_value_id: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNamedValueResult]:
     """
-    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Gets the secret value of the NamedValue.
 
 
     :param str named_value_id: Identifier of the NamedValue.

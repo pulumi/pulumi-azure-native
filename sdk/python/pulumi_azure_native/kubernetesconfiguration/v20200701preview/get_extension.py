@@ -256,7 +256,7 @@ def get_extension(cluster_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
-    The Extension Instance object.
+    Gets details of the Kubernetes Cluster Extension Instance.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -303,7 +303,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
-    The Extension Instance object.
+    Gets details of the Kubernetes Cluster Extension Instance.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

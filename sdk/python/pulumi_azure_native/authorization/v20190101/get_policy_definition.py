@@ -155,7 +155,7 @@ class AwaitableGetPolicyDefinitionResult(GetPolicyDefinitionResult):
 def get_policy_definition(policy_definition_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefinitionResult:
     """
-    The policy definition.
+    This operation retrieves the policy definition in the given subscription with the given name.
 
 
     :param str policy_definition_name: The name of the policy definition to get.
@@ -182,7 +182,7 @@ def get_policy_definition(policy_definition_name: Optional[str] = None,
 def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefinitionResult]:
     """
-    The policy definition.
+    This operation retrieves the policy definition in the given subscription with the given name.
 
 
     :param str policy_definition_name: The name of the policy definition to get.

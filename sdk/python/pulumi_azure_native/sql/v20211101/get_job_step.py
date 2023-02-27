@@ -148,7 +148,7 @@ def get_job_step(job_agent_name: Optional[str] = None,
                  step_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobStepResult:
     """
-    A job step.
+    Gets a job step in a job's current version.
 
 
     :param str job_agent_name: The name of the job agent.
@@ -186,7 +186,7 @@ def get_job_step_output(job_agent_name: Optional[pulumi.Input[str]] = None,
                         step_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobStepResult]:
     """
-    A job step.
+    Gets a job step in a job's current version.
 
 
     :param str job_agent_name: The name of the job agent.

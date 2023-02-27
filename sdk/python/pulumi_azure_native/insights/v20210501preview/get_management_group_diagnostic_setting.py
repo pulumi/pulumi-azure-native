@@ -169,7 +169,7 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
                                             name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupDiagnosticSettingResult:
     """
-    The management group diagnostic setting resource.
+    Gets the active management group diagnostic settings for the specified resource.
 
 
     :param str management_group_id: The management group id.
@@ -200,7 +200,7 @@ def get_management_group_diagnostic_setting_output(management_group_id: Optional
                                                    name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupDiagnosticSettingResult]:
     """
-    The management group diagnostic setting resource.
+    Gets the active management group diagnostic settings for the specified resource.
 
 
     :param str management_group_id: The management group id.

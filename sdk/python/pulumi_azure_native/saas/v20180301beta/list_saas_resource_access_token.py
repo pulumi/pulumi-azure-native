@@ -59,7 +59,7 @@ class AwaitableListSaasResourceAccessTokenResult(ListSaasResourceAccessTokenResu
 def list_saas_resource_access_token(resource_id: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSaasResourceAccessTokenResult:
     """
-    the ISV access token result response.
+    Gets the ISV access token for a SaaS resource.
 
 
     :param str resource_id: The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
@@ -78,7 +78,7 @@ def list_saas_resource_access_token(resource_id: Optional[str] = None,
 def list_saas_resource_access_token_output(resource_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSaasResourceAccessTokenResult]:
     """
-    the ISV access token result response.
+    Gets the ISV access token for a SaaS resource.
 
 
     :param str resource_id: The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)

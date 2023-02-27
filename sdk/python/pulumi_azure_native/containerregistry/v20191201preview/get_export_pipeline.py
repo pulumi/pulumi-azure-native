@@ -146,7 +146,7 @@ def get_export_pipeline(export_pipeline_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportPipelineResult:
     """
-    An object that represents an export pipeline for a container registry.
+    Gets the properties of the export pipeline.
 
 
     :param str export_pipeline_name: The name of the export pipeline.
@@ -178,7 +178,7 @@ def get_export_pipeline_output(export_pipeline_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportPipelineResult]:
     """
-    An object that represents an export pipeline for a container registry.
+    Gets the properties of the export pipeline.
 
 
     :param str export_pipeline_name: The name of the export pipeline.

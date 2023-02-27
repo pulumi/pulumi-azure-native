@@ -48,7 +48,7 @@ def list_manager_activation_key(manager_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagerActivationKeyResult:
     """
-    The key.
+    Returns the activation key of the manager.
 
 
     :param str manager_name: The manager name
@@ -69,7 +69,7 @@ def list_manager_activation_key_output(manager_name: Optional[pulumi.Input[str]]
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagerActivationKeyResult]:
     """
-    The key.
+    Returns the activation key of the manager.
 
 
     :param str manager_name: The manager name

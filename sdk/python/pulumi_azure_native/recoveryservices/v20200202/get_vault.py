@@ -145,7 +145,7 @@ def get_vault(resource_group_name: Optional[str] = None,
               vault_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
-    Resource information, as returned by the resource provider.
+    Get the Vault details.
 
 
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -174,7 +174,7 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      vault_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
     """
-    Resource information, as returned by the resource provider.
+    Get the Vault details.
 
 
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.

@@ -218,7 +218,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDicomServiceResult:
     """
-    The description of Dicom Service
+    Gets the properties of the specified DICOM Service.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.
@@ -256,7 +256,7 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
                              workspace_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
-    The description of Dicom Service
+    Gets the properties of the specified DICOM Service.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.

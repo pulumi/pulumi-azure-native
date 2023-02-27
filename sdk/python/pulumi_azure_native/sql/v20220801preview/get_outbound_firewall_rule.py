@@ -85,7 +85,7 @@ def get_outbound_firewall_rule(outbound_rule_fqdn: Optional[str] = None,
                                server_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutboundFirewallRuleResult:
     """
-    An Azure SQL DB Server Outbound Firewall Rule.
+    Gets an outbound firewall rule.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -111,7 +111,7 @@ def get_outbound_firewall_rule_output(outbound_rule_fqdn: Optional[pulumi.Input[
                                       server_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutboundFirewallRuleResult]:
     """
-    An Azure SQL DB Server Outbound Firewall Rule.
+    Gets an outbound firewall rule.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

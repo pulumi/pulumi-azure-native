@@ -130,7 +130,7 @@ class AwaitableGetDefenderSettingResult(GetDefenderSettingResult):
 
 def get_defender_setting(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefenderSettingResult:
     """
-    IoT Defender settings
+    Get IoT Defender Settings
     API Version: 2021-02-01-preview.
     """
     __args__ = dict()

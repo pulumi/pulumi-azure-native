@@ -85,7 +85,7 @@ def get_server_azure_ad_only_authentication(authentication_name: Optional[str] =
                                             server_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAzureADOnlyAuthenticationResult:
     """
-    Azure Active Directory only authentication.
+    Gets a specific Azure Active Directory only authentication property.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.
@@ -112,7 +112,7 @@ def get_server_azure_ad_only_authentication_output(authentication_name: Optional
                                                    server_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerAzureADOnlyAuthenticationResult]:
     """
-    Azure Active Directory only authentication.
+    Gets a specific Azure Active Directory only authentication property.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.

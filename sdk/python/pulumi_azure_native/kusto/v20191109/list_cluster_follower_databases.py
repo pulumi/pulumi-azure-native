@@ -49,7 +49,7 @@ def list_cluster_follower_databases(cluster_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterFollowerDatabasesResult:
     """
-    The list Kusto database principals operation response.
+    Returns a list of databases that are owned by this cluster and were followed by another cluster.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -70,7 +70,7 @@ def list_cluster_follower_databases_output(cluster_name: Optional[pulumi.Input[s
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterFollowerDatabasesResult]:
     """
-    The list Kusto database principals operation response.
+    Returns a list of databases that are owned by this cluster and were followed by another cluster.
 
 
     :param str cluster_name: The name of the Kusto cluster.

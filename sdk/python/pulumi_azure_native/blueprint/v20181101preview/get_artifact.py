@@ -87,7 +87,7 @@ def get_artifact(artifact_name: Optional[str] = None,
                  resource_scope: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactResult:
     """
-    Represents a blueprint artifact.
+    Get a blueprint artifact.
 
 
     :param str artifact_name: Name of the blueprint artifact.
@@ -115,7 +115,7 @@ def get_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
                         resource_scope: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArtifactResult]:
     """
-    Represents a blueprint artifact.
+    Get a blueprint artifact.
 
 
     :param str artifact_name: Name of the blueprint artifact.

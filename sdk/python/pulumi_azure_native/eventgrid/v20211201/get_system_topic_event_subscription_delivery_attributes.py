@@ -50,7 +50,7 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
                                                             system_topic_name: Optional[str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicEventSubscriptionDeliveryAttributesResult:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -74,7 +74,7 @@ def get_system_topic_event_subscription_delivery_attributes_output(event_subscri
                                                                    system_topic_name: Optional[pulumi.Input[str]] = None,
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionDeliveryAttributesResult]:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

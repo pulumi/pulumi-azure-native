@@ -121,7 +121,7 @@ def get_service(resource_group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Service resource
+    Get a Service and its properties.
     API Version: 2020-07-01.
 
 
@@ -149,7 +149,7 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Service resource
+    Get a Service and its properties.
     API Version: 2020-07-01.
 
 

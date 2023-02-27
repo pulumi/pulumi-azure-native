@@ -133,7 +133,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    A Stream Analytics Cluster object
+    Gets information about the specified cluster.
 
 
     :param str cluster_name: The name of the cluster.
@@ -161,7 +161,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    A Stream Analytics Cluster object
+    Gets information about the specified cluster.
 
 
     :param str cluster_name: The name of the cluster.

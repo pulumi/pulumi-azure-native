@@ -220,7 +220,7 @@ def get_network_interface(expand: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
-    A NetworkInterface in a resource group
+    The Get network interface operation retrieves information about the specified network interface.
 
 
     :param str expand: expand references resources.
@@ -259,7 +259,7 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
-    A NetworkInterface in a resource group
+    The Get network interface operation retrieves information about the specified network interface.
 
 
     :param str expand: expand references resources.

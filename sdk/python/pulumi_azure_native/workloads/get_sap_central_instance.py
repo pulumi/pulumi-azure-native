@@ -278,7 +278,7 @@ def get_sap_central_instance(central_instance_name: Optional[str] = None,
                              sap_virtual_instance_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPCentralInstanceResult:
     """
-    Define the SAP Central Services Instance resource.
+    Gets the SAP Central Services Instance resource.
     API Version: 2021-12-01-preview.
 
 
@@ -322,7 +322,7 @@ def get_sap_central_instance_output(central_instance_name: Optional[pulumi.Input
                                     sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPCentralInstanceResult]:
     """
-    Define the SAP Central Services Instance resource.
+    Gets the SAP Central Services Instance resource.
     API Version: 2021-12-01-preview.
 
 

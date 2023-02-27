@@ -158,7 +158,7 @@ def get_ip_group(expand: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpGroupResult:
     """
-    The IpGroups resource information.
+    Gets the specified ipGroups.
 
 
     :param str expand: Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
@@ -191,7 +191,7 @@ def get_ip_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpGroupResult]:
     """
-    The IpGroups resource information.
+    Gets the specified ipGroups.
 
 
     :param str expand: Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.

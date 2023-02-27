@@ -110,7 +110,7 @@ def get_policy_fragment(format: Optional[str] = None,
                         service_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyFragmentResult:
     """
-    Policy fragment contract details.
+    Gets a policy fragment.
 
 
     :param str format: Policy fragment content format.
@@ -142,7 +142,7 @@ def get_policy_fragment_output(format: Optional[pulumi.Input[Optional[str]]] = N
                                service_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyFragmentResult]:
     """
-    Policy fragment contract details.
+    Gets a policy fragment.
 
 
     :param str format: Policy fragment content format.

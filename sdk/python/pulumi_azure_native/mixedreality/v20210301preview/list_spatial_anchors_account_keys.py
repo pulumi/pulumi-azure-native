@@ -60,7 +60,7 @@ def list_spatial_anchors_account_keys(account_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSpatialAnchorsAccountKeysResult:
     """
-    Developer Keys of account
+    List Both of the 2 Keys of a Spatial Anchors Account
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -82,7 +82,7 @@ def list_spatial_anchors_account_keys_output(account_name: Optional[pulumi.Input
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSpatialAnchorsAccountKeysResult]:
     """
-    Developer Keys of account
+    List Both of the 2 Keys of a Spatial Anchors Account
 
 
     :param str account_name: Name of an Mixed Reality Account.

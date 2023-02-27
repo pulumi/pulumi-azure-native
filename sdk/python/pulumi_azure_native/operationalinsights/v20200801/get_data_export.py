@@ -157,7 +157,7 @@ def get_data_export(data_export_name: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataExportResult:
     """
-    The top level data export resource container.
+    Gets a data export instance.
 
 
     :param str data_export_name: The data export rule name.
@@ -190,7 +190,7 @@ def get_data_export_output(data_export_name: Optional[pulumi.Input[str]] = None,
                            workspace_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataExportResult]:
     """
-    The top level data export resource container.
+    Gets a data export instance.
 
 
     :param str data_export_name: The data export rule name.

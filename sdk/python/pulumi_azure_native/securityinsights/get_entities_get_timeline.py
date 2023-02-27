@@ -68,7 +68,7 @@ def get_entities_get_timeline(end_time: Optional[str] = None,
                               workspace_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntitiesGetTimelineResult:
     """
-    The entity timeline result operation response.
+    Timeline for an entity.
     API Version: 2019-01-01-preview.
 
 
@@ -109,7 +109,7 @@ def get_entities_get_timeline_output(end_time: Optional[pulumi.Input[str]] = Non
                                      workspace_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntitiesGetTimelineResult]:
     """
-    The entity timeline result operation response.
+    Timeline for an entity.
     API Version: 2019-01-01-preview.
 
 

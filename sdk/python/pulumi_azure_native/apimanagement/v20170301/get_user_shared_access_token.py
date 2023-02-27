@@ -52,7 +52,7 @@ def get_user_shared_access_token(expiry: Optional[str] = None,
                                  uid: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSharedAccessTokenResult:
     """
-    Get User Token response details.
+    Gets the Shared Access Authorization Token for the User.
 
 
     :param str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -82,7 +82,7 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = No
                                         uid: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSharedAccessTokenResult]:
     """
-    Get User Token response details.
+    Gets the Shared Access Authorization Token for the User.
 
 
     :param str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.

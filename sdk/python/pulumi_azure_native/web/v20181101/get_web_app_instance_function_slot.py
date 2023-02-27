@@ -194,7 +194,7 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppInstanceFunctionSlotResult:
     """
-    Web Job Information.
+    Get function information by its ID for web site, or a deployment slot.
 
 
     :param str function_name: Function name.
@@ -233,7 +233,7 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
                                               slot: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppInstanceFunctionSlotResult]:
     """
-    Web Job Information.
+    Get function information by its ID for web site, or a deployment slot.
 
 
     :param str function_name: Function name.

@@ -124,7 +124,7 @@ def get_protection_policy(policy_name: Optional[str] = None,
                           vault_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionPolicyResult:
     """
-    The base class for backup policy. Workload-specific backup policies are derived from this class.
+    Gets the details of the backup policy associated with the Recovery Services vault. This is an asynchronous operation. Use the GetPolicyOperationResult API to Get the operation status.
 
 
     :param str policy_name: The backup policy name used in this GET operation.
@@ -155,7 +155,7 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
                                  vault_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionPolicyResult]:
     """
-    The base class for backup policy. Workload-specific backup policies are derived from this class.
+    Gets the details of the backup policy associated with the Recovery Services vault. This is an asynchronous operation. Use the GetPolicyOperationResult API to Get the operation status.
 
 
     :param str policy_name: The backup policy name used in this GET operation.

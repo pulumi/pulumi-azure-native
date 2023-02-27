@@ -147,7 +147,7 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
                                          resource_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedSubnetServiceDetailsResult:
     """
-    Represents an instance of a orchestrator.
+    Gets details about the specified dnc DelegatedSubnet Link.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -177,7 +177,7 @@ def get_delegated_subnet_service_details_output(resource_group_name: Optional[pu
                                                 resource_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedSubnetServiceDetailsResult]:
     """
-    Represents an instance of a orchestrator.
+    Gets details about the specified dnc DelegatedSubnet Link.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

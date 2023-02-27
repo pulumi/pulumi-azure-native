@@ -205,7 +205,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayResult:
     """
-    VpnGateway Resource.
+    Retrieves the details of a virtual wan vpn gateway.
     API Version: 2020-11-01.
 
 
@@ -240,7 +240,7 @@ def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
-    VpnGateway Resource.
+    Retrieves the details of a virtual wan vpn gateway.
     API Version: 2020-11-01.
 
 

@@ -62,7 +62,7 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotificationHubKeysResult:
     """
-    Namespace/NotificationHub Connection String
+    Gets the Primary and Secondary ConnectionStrings to the NotificationHub
 
 
     :param str authorization_rule_name: The connection string of the NotificationHub for the specified authorizationRule.
@@ -90,7 +90,7 @@ def list_notification_hub_keys_output(authorization_rule_name: Optional[pulumi.I
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNotificationHubKeysResult]:
     """
-    Namespace/NotificationHub Connection String
+    Gets the Primary and Secondary ConnectionStrings to the NotificationHub
 
 
     :param str authorization_rule_name: The connection string of the NotificationHub for the specified authorizationRule.

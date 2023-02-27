@@ -132,7 +132,7 @@ class AwaitableGetPartnerConfigurationResult(GetPartnerConfigurationResult):
 def get_partner_configuration(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerConfigurationResult:
     """
-    Partner configuration information
+    Get properties of a partner configuration.
     API Version: 2021-10-15-preview.
 
 
@@ -158,7 +158,7 @@ def get_partner_configuration(resource_group_name: Optional[str] = None,
 def get_partner_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerConfigurationResult]:
     """
-    Partner configuration information
+    Get properties of a partner configuration.
     API Version: 2021-10-15-preview.
 
 

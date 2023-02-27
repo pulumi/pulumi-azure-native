@@ -135,7 +135,7 @@ def get_authorization(authorization_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationResult:
     """
-    Authorization contract.
+    Gets the details of the authorization specified by its identifier.
 
 
     :param str authorization_id: Identifier of the authorization.
@@ -169,7 +169,7 @@ def get_authorization_output(authorization_id: Optional[pulumi.Input[str]] = Non
                              service_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationResult]:
     """
-    Authorization contract.
+    Gets the details of the authorization specified by its identifier.
 
 
     :param str authorization_id: Identifier of the authorization.

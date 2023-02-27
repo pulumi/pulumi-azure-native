@@ -60,7 +60,7 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemoteRenderingAccountKeysResult:
     """
-    Developer Keys of account
+    List Both of the 2 Keys of a Remote Rendering Account
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -82,7 +82,7 @@ def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Inpu
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemoteRenderingAccountKeysResult]:
     """
-    Developer Keys of account
+    List Both of the 2 Keys of a Remote Rendering Account
 
 
     :param str account_name: Name of an Mixed Reality Account.

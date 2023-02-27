@@ -182,7 +182,7 @@ def get_virtual_router(expand: Optional[str] = None,
                        virtual_router_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterResult:
     """
-    VirtualRouter Resource.
+    Gets the specified Virtual Router.
     API Version: 2022-01-01.
 
 
@@ -218,7 +218,7 @@ def get_virtual_router_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               virtual_router_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRouterResult]:
     """
-    VirtualRouter Resource.
+    Gets the specified Virtual Router.
     API Version: 2022-01-01.
 
 

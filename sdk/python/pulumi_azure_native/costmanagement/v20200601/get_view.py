@@ -228,7 +228,7 @@ class AwaitableGetViewResult(GetViewResult):
 def get_view(view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
-    States and configurations of Cost Analysis.
+    Gets the view by view name.
 
 
     :param str view_name: View name
@@ -261,7 +261,7 @@ def get_view(view_name: Optional[str] = None,
 def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
-    States and configurations of Cost Analysis.
+    Gets the view by view name.
 
 
     :param str view_name: View name

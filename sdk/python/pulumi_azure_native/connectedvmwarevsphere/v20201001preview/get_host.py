@@ -229,7 +229,7 @@ def get_host(host_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostResult:
     """
-    Define the host.
+    Implements host GET method.
 
 
     :param str host_name: Name of the host.
@@ -265,7 +265,7 @@ def get_host_output(host_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostResult]:
     """
-    Define the host.
+    Implements host GET method.
 
 
     :param str host_name: Name of the host.

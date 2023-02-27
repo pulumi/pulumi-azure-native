@@ -62,7 +62,7 @@ def get_deployment_remote_debugging_config(app_name: Optional[str] = None,
                                            service_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentRemoteDebuggingConfigResult:
     """
-    Remote debugging config.
+    Get remote debugging config.
 
 
     :param str app_name: The name of the App resource.
@@ -90,7 +90,7 @@ def get_deployment_remote_debugging_config_output(app_name: Optional[pulumi.Inpu
                                                   service_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentRemoteDebuggingConfigResult]:
     """
-    Remote debugging config.
+    Get remote debugging config.
 
 
     :param str app_name: The name of the App resource.

@@ -193,7 +193,7 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Device Update account details.
+    Returns account details for the given account name.
 
 
     :param str account_name: Account name.
@@ -226,7 +226,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    Device Update account details.
+    Returns account details for the given account name.
 
 
     :param str account_name: Account name.

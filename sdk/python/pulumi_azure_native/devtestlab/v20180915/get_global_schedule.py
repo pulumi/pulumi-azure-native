@@ -230,7 +230,7 @@ def get_global_schedule(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalScheduleResult:
     """
-    A schedule.
+    Get schedule.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
@@ -269,7 +269,7 @@ def get_global_schedule_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalScheduleResult]:
     """
-    A schedule.
+    Get schedule.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'

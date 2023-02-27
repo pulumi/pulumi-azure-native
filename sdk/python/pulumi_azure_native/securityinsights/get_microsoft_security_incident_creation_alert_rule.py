@@ -206,7 +206,7 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
                                                         workspace_name: Optional[str] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult:
     """
-    Represents MicrosoftSecurityIncidentCreation rule.
+    Gets the alert rule.
     API Version: 2020-01-01.
 
 
@@ -244,7 +244,7 @@ def get_microsoft_security_incident_creation_alert_rule_output(resource_group_na
                                                                workspace_name: Optional[pulumi.Input[str]] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftSecurityIncidentCreationAlertRuleResult]:
     """
-    Represents MicrosoftSecurityIncidentCreation rule.
+    Gets the alert rule.
     API Version: 2020-01-01.
 
 

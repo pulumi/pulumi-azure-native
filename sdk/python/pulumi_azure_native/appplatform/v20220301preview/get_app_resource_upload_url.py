@@ -61,7 +61,7 @@ def get_app_resource_upload_url(app_name: Optional[str] = None,
                                 service_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResourceUploadUrlResult:
     """
-    Resource upload definition payload
+    Get an resource upload URL for an App, which may be artifacts or source archive.
 
 
     :param str app_name: The name of the App resource.
@@ -86,7 +86,7 @@ def get_app_resource_upload_url_output(app_name: Optional[pulumi.Input[str]] = N
                                        service_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResourceUploadUrlResult]:
     """
-    Resource upload definition payload
+    Get an resource upload URL for an App, which may be artifacts or source archive.
 
 
     :param str app_name: The name of the App resource.

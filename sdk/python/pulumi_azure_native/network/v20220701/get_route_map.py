@@ -134,7 +134,7 @@ def get_route_map(resource_group_name: Optional[str] = None,
                   virtual_hub_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteMapResult:
     """
-    The RouteMap child resource of a Virtual hub.
+    Retrieves the details of a RouteMap.
 
 
     :param str resource_group_name: The resource group name of the RouteMap's resource group.
@@ -165,7 +165,7 @@ def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          virtual_hub_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteMapResult]:
     """
-    The RouteMap child resource of a Virtual hub.
+    Retrieves the details of a RouteMap.
 
 
     :param str resource_group_name: The resource group name of the RouteMap's resource group.

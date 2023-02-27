@@ -206,7 +206,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMSIXPackageResult:
     """
-    Schema for MSIX Package properties.
+    Get a msixpackage.
     API Version: 2021-02-01-preview.
 
 
@@ -244,7 +244,7 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMSIXPackageResult]:
     """
-    Schema for MSIX Package properties.
+    Get a msixpackage.
     API Version: 2021-02-01-preview.
 
 

@@ -218,7 +218,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedRegistryResult:
     """
-    An object that represents a connected registry for a container registry.
+    Gets the properties of the connected registry.
 
 
     :param str connected_registry_name: The name of the connected registry.
@@ -256,7 +256,7 @@ def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedRegistryResult]:
     """
-    An object that represents a connected registry for a container registry.
+    Gets the properties of the connected registry.
 
 
     :param str connected_registry_name: The name of the connected registry.

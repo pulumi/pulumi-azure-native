@@ -299,7 +299,7 @@ def get_domain(domain_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    Information about a domain.
+    Get a domain.
     API Version: 2020-10-01.
 
 
@@ -342,7 +342,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
-    Information about a domain.
+    Get a domain.
     API Version: 2020-10-01.
 
 

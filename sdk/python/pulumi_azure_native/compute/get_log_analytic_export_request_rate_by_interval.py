@@ -58,7 +58,7 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
                                                      to_time: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnalyticExportRequestRateByIntervalResult:
     """
-    LogAnalytics operation status response
+    Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
     API Version: 2020-12-01.
 
 
@@ -104,7 +104,7 @@ def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_u
                                                             to_time: Optional[pulumi.Input[str]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnalyticExportRequestRateByIntervalResult]:
     """
-    LogAnalytics operation status response
+    Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
     API Version: 2020-12-01.
 
 

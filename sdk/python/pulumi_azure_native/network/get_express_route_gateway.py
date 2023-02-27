@@ -157,7 +157,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteGatewayResult:
     """
-    ExpressRoute gateway resource.
+    Fetches the details of a ExpressRoute gateway in a resource group.
     API Version: 2020-11-01.
 
 
@@ -188,7 +188,7 @@ def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteGatewayResult]:
     """
-    ExpressRoute gateway resource.
+    Fetches the details of a ExpressRoute gateway in a resource group.
     API Version: 2020-11-01.
 
 

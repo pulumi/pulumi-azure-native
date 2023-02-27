@@ -169,6 +169,7 @@ def get_adaptive_application_control(asc_location: Optional[str] = None,
                                      group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdaptiveApplicationControlResult:
     """
+    Gets an application control VM/server group.
     API Version: 2020-01-01.
 
 
@@ -201,6 +202,7 @@ def get_adaptive_application_control_output(asc_location: Optional[pulumi.Input[
                                             group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdaptiveApplicationControlResult]:
     """
+    Gets an application control VM/server group.
     API Version: 2020-01-01.
 
 

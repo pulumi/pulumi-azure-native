@@ -99,7 +99,7 @@ def get_build_service_agent_pool(agent_pool_name: Optional[str] = None,
                                  service_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceAgentPoolResult:
     """
-    The build service agent pool resource
+    Get build service agent pool.
     API Version: 2022-01-01-preview.
 
 
@@ -131,7 +131,7 @@ def get_build_service_agent_pool_output(agent_pool_name: Optional[pulumi.Input[s
                                         service_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceAgentPoolResult]:
     """
-    The build service agent pool resource
+    Get build service agent pool.
     API Version: 2022-01-01-preview.
 
 

@@ -229,7 +229,7 @@ def get_subscription(resource_group_name: Optional[str] = None,
                      sid: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
-    Subscription details.
+    Gets the specified Subscription entity.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -268,7 +268,7 @@ def get_subscription_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             sid: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
-    Subscription details.
+    Gets the specified Subscription entity.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

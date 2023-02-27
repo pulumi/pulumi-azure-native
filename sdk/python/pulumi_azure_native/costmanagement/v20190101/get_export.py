@@ -133,7 +133,7 @@ def get_export(export_name: Optional[str] = None,
                scope: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    A export resource.
+    Gets the export for the defined scope by export name.
 
 
     :param str export_name: Export Name.
@@ -161,7 +161,7 @@ def get_export_output(export_name: Optional[pulumi.Input[str]] = None,
                       scope: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
-    A export resource.
+    Gets the export for the defined scope by export name.
 
 
     :param str export_name: Export Name.

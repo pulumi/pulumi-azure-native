@@ -209,7 +209,7 @@ def get_event_hub_data_connection(data_connection_name: Optional[str] = None,
                                   workspace_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubDataConnectionResult:
     """
-    Class representing an event hub data connection.
+    Returns a data connection.
     API Version: 2021-04-01-preview.
 
 
@@ -253,7 +253,7 @@ def get_event_hub_data_connection_output(data_connection_name: Optional[pulumi.I
                                          workspace_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubDataConnectionResult]:
     """
-    Class representing an event hub data connection.
+    Returns a data connection.
     API Version: 2021-04-01-preview.
 
 

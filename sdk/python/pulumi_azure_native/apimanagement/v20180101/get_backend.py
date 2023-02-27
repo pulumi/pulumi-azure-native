@@ -182,7 +182,7 @@ def get_backend(backendid: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackendResult:
     """
-    Backend details.
+    Gets the details of the backend specified by its identifier.
 
 
     :param str backendid: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -217,7 +217,7 @@ def get_backend_output(backendid: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackendResult]:
     """
-    Backend details.
+    Gets the details of the backend specified by its identifier.
 
 
     :param str backendid: Identifier of the Backend entity. Must be unique in the current API Management service instance.

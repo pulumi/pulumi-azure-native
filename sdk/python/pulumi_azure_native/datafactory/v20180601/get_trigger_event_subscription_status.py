@@ -61,7 +61,7 @@ def get_trigger_event_subscription_status(factory_name: Optional[str] = None,
                                           trigger_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerEventSubscriptionStatusResult:
     """
-    Defines the response of a trigger subscription operation.
+    Get a trigger's event subscription status.
 
 
     :param str factory_name: The factory name.
@@ -86,7 +86,7 @@ def get_trigger_event_subscription_status_output(factory_name: Optional[pulumi.I
                                                  trigger_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerEventSubscriptionStatusResult]:
     """
-    Defines the response of a trigger subscription operation.
+    Get a trigger's event subscription status.
 
 
     :param str factory_name: The factory name.

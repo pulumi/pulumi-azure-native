@@ -172,7 +172,7 @@ def get_event_channel(event_channel_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventChannelResult:
     """
-    Event Channel.
+    Get properties of an event channel.
 
 
     :param str event_channel_name: Name of the event channel.
@@ -206,7 +206,7 @@ def get_event_channel_output(event_channel_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventChannelResult]:
     """
-    Event Channel.
+    Get properties of an event channel.
 
 
     :param str event_channel_name: Name of the event channel.

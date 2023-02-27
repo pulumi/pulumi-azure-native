@@ -63,7 +63,7 @@ def list_active_security_admin_rules(network_manager_name: Optional[str] = None,
                                      skip_token: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListActiveSecurityAdminRulesResult:
     """
-    Result of the request to list active security admin rules. It contains a list of active security admin rules and a skiptoken to get the next set of results.
+    Lists active security admin rules in a network manager.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -91,7 +91,7 @@ def list_active_security_admin_rules_output(network_manager_name: Optional[pulum
                                             skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListActiveSecurityAdminRulesResult]:
     """
-    Result of the request to list active security admin rules. It contains a list of active security admin rules and a skiptoken to get the next set of results.
+    Lists active security admin rules in a network manager.
 
 
     :param str network_manager_name: The name of the network manager.

@@ -148,7 +148,7 @@ def get_schedule(pool_name: Optional[str] = None,
                  top: Optional[int] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
-    Represents a Schedule to execute a task.
+    Gets a schedule resource.
     API Version: 2022-09-01-preview.
 
 
@@ -187,7 +187,7 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
                         top: Optional[pulumi.Input[Optional[int]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
-    Represents a Schedule to execute a task.
+    Gets a schedule resource.
     API Version: 2022-09-01-preview.
 
 

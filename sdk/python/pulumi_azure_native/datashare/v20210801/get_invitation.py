@@ -209,7 +209,7 @@ def get_invitation(account_name: Optional[str] = None,
                    share_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInvitationResult:
     """
-    A Invitation data transfer object.
+    Get an invitation in a share
 
 
     :param str account_name: The name of the share account.
@@ -249,7 +249,7 @@ def get_invitation_output(account_name: Optional[pulumi.Input[str]] = None,
                           share_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInvitationResult]:
     """
-    A Invitation data transfer object.
+    Get an invitation in a share
 
 
     :param str account_name: The name of the share account.

@@ -133,7 +133,7 @@ def get_data_controller(data_controller_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataControllerResult:
     """
-    Data controller resource
+    Retrieves a dataController resource
 
 
     :param str data_controller_name: The name of the data controller
@@ -161,7 +161,7 @@ def get_data_controller_output(data_controller_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataControllerResult]:
     """
-    Data controller resource
+    Retrieves a dataController resource
 
 
     :param str data_controller_name: The name of the data controller

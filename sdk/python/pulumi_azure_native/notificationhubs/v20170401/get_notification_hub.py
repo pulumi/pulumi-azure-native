@@ -206,7 +206,7 @@ def get_notification_hub(namespace_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubResult:
     """
-    Description of a NotificationHub Resource.
+    Lists the notification hubs associated with a namespace.
 
 
     :param str namespace_name: The namespace name.
@@ -243,7 +243,7 @@ def get_notification_hub_output(namespace_name: Optional[pulumi.Input[str]] = No
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationHubResult]:
     """
-    Description of a NotificationHub Resource.
+    Lists the notification hubs associated with a namespace.
 
 
     :param str namespace_name: The namespace name.

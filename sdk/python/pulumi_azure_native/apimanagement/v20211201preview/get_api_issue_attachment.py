@@ -111,7 +111,7 @@ def get_api_issue_attachment(api_id: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiIssueAttachmentResult:
     """
-    Issue Attachment Contract details.
+    Gets the details of the issue Attachment for an API specified by its identifier.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -146,7 +146,7 @@ def get_api_issue_attachment_output(api_id: Optional[pulumi.Input[str]] = None,
                                     service_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiIssueAttachmentResult]:
     """
-    Issue Attachment Contract details.
+    Gets the details of the issue Attachment for an API specified by its identifier.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.

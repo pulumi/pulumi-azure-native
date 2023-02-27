@@ -51,7 +51,7 @@ def list_device_failover_tars(manager_name: Optional[str] = None,
                               volume_containers: Optional[Sequence[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverTarsResult:
     """
-    The list of all devices in a resource and their eligibility status as a failover target device.
+    Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
     API Version: 2017-06-01.
 
 
@@ -79,7 +79,7 @@ def list_device_failover_tars_output(manager_name: Optional[pulumi.Input[str]] =
                                      volume_containers: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceFailoverTarsResult]:
     """
-    The list of all devices in a resource and their eligibility status as a failover target device.
+    Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
     API Version: 2017-06-01.
 
 

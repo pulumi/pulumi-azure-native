@@ -84,7 +84,7 @@ def list_communication_service_keys(communication_service_name: Optional[str] = 
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCommunicationServiceKeysResult:
     """
-    A class representing the access keys of a CommunicationService.
+    Get the access keys of the CommunicationService resource.
     API Version: 2020-08-20.
 
 
@@ -109,7 +109,7 @@ def list_communication_service_keys_output(communication_service_name: Optional[
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCommunicationServiceKeysResult]:
     """
-    A class representing the access keys of a CommunicationService.
+    Get the access keys of the CommunicationService resource.
     API Version: 2020-08-20.
 
 

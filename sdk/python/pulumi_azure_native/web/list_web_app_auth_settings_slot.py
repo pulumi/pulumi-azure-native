@@ -593,7 +593,7 @@ def list_web_app_auth_settings_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsSlotResult:
     """
-    Configuration settings for the Azure App Service Authentication / Authorization feature.
+    Gets the Authentication/Authorization settings of an app.
     API Version: 2020-12-01.
 
 
@@ -659,7 +659,7 @@ def list_web_app_auth_settings_slot_output(name: Optional[pulumi.Input[str]] = N
                                            slot: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAuthSettingsSlotResult]:
     """
-    Configuration settings for the Azure App Service Authentication / Authorization feature.
+    Gets the Authentication/Authorization settings of an app.
     API Version: 2020-12-01.
 
 

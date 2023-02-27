@@ -136,7 +136,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     vault_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Private endpoint connection resource.
+    Gets the specified private endpoint connection associated with the key vault.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
@@ -168,7 +168,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            vault_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Private endpoint connection resource.
+    Gets the specified private endpoint connection associated with the key vault.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.

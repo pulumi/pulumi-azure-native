@@ -99,7 +99,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
                    sync_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
-    Sync Group object.
+    Get a given SyncGroup.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -128,7 +128,7 @@ def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           sync_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
-    Sync Group object.
+    Get a given SyncGroup.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

@@ -49,7 +49,7 @@ class AwaitableGetDnsResourceReferenceByTarResourcesResult(GetDnsResourceReferen
 def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Sequence[pulumi.InputType['SubResource']]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResourceReferenceByTarResourcesResult:
     """
-    Represents the properties of the Dns Resource Reference Result.
+    Returns the DNS records specified by the referencing targetResourceIds.
     API Version: 2018-05-01.
 
 
@@ -68,7 +68,7 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
 def get_dns_resource_reference_by_tar_resources_output(target_resources: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['SubResource']]]]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsResourceReferenceByTarResourcesResult]:
     """
-    Represents the properties of the Dns Resource Reference Result.
+    Returns the DNS records specified by the referencing targetResourceIds.
     API Version: 2018-05-01.
 
 

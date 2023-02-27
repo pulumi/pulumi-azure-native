@@ -110,7 +110,7 @@ def get_private_endpoint_connection(policy_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Private endpoint connection resource.
+    Gets the specified private endpoint connection associated with the given policy.
 
 
     :param str policy_name: The name of the private link policy in Azure AD.
@@ -139,7 +139,7 @@ def get_private_endpoint_connection_output(policy_name: Optional[pulumi.Input[st
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Private endpoint connection resource.
+    Gets the specified private endpoint connection associated with the given policy.
 
 
     :param str policy_name: The name of the private link policy in Azure AD.

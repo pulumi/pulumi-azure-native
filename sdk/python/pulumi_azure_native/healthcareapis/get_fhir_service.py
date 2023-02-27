@@ -266,7 +266,7 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFhirServiceResult:
     """
-    The description of Fhir Service
+    Gets the properties of the specified FHIR Service.
     API Version: 2022-05-15.
 
 
@@ -309,7 +309,7 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
                             workspace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
-    The description of Fhir Service
+    Gets the properties of the specified FHIR Service.
     API Version: 2022-05-15.
 
 

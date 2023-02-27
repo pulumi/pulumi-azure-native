@@ -302,7 +302,7 @@ def get_kpi(hub_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKpiResult:
     """
-    The KPI resource format.
+    Gets a KPI in the hub.
 
 
     :param str hub_name: The name of the hub.
@@ -347,7 +347,7 @@ def get_kpi_output(hub_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKpiResult]:
     """
-    The KPI resource format.
+    Gets a KPI in the hub.
 
 
     :param str hub_name: The name of the hub.

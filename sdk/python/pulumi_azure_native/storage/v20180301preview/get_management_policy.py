@@ -99,7 +99,7 @@ def get_management_policy(account_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementPolicyResult:
     """
-    The Get Storage Account ManagementPolicies operation response.
+    Gets the data policy rules associated with the specified storage account.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -128,7 +128,7 @@ def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = Non
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementPolicyResult]:
     """
-    The Get Storage Account ManagementPolicies operation response.
+    Gets the data policy rules associated with the specified storage account.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

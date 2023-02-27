@@ -220,7 +220,7 @@ def get_load_balancer(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
-    LoadBalancer resource
+    The Get network interface operation retrieves information about the specified network interface.
 
 
     :param str expand: expand references resources.
@@ -259,7 +259,7 @@ def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
-    LoadBalancer resource
+    The Get network interface operation retrieves information about the specified network interface.
 
 
     :param str expand: expand references resources.

@@ -172,7 +172,7 @@ def get_database_principal_assignment(database_name: Optional[str] = None,
                                       workspace_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasePrincipalAssignmentResult:
     """
-    Class representing a database principal assignment.
+    Gets a Kusto pool database principalAssignment.
 
 
     :param str database_name: The name of the database in the Kusto pool.
@@ -212,7 +212,7 @@ def get_database_principal_assignment_output(database_name: Optional[pulumi.Inpu
                                              workspace_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasePrincipalAssignmentResult]:
     """
-    Class representing a database principal assignment.
+    Gets a Kusto pool database principalAssignment.
 
 
     :param str database_name: The name of the database in the Kusto pool.

@@ -120,7 +120,8 @@ def get_private_endpoint_connection(parent_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Get a specific private endpoint connection under a topic, domain, or partner namespace.
+
 
     :param str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
     :param str parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
@@ -152,7 +153,8 @@ def get_private_endpoint_connection_output(parent_name: Optional[pulumi.Input[st
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get a specific private endpoint connection under a topic, domain, or partner namespace.
+
 
     :param str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
     :param str parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.

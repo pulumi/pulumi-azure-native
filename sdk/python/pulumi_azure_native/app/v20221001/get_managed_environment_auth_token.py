@@ -133,7 +133,7 @@ def get_managed_environment_auth_token(environment_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentAuthTokenResult:
     """
-    Environment Auth Token.
+    Checks if resource name is available.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -161,7 +161,7 @@ def get_managed_environment_auth_token_output(environment_name: Optional[pulumi.
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentAuthTokenResult]:
     """
-    Environment Auth Token.
+    Checks if resource name is available.
 
 
     :param str environment_name: Name of the Managed Environment.

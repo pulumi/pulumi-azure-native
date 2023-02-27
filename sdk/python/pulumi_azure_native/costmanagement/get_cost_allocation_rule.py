@@ -85,7 +85,7 @@ def get_cost_allocation_rule(billing_account_id: Optional[str] = None,
                              rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostAllocationRuleResult:
     """
-    The cost allocation rule model definition
+    Get a cost allocation rule by rule name and billing account or enterprise enrollment.
     API Version: 2020-03-01-preview.
 
 
@@ -110,7 +110,7 @@ def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[st
                                     rule_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostAllocationRuleResult]:
     """
-    The cost allocation rule model definition
+    Get a cost allocation rule by rule name and billing account or enterprise enrollment.
     API Version: 2020-03-01-preview.
 
 

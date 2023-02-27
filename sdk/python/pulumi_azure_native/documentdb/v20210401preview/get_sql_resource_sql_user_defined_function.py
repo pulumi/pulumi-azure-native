@@ -121,7 +121,7 @@ def get_sql_resource_sql_user_defined_function(account_name: Optional[str] = Non
                                                user_defined_function_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlUserDefinedFunctionResult:
     """
-    An Azure Cosmos DB userDefinedFunction.
+    Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -157,7 +157,7 @@ def get_sql_resource_sql_user_defined_function_output(account_name: Optional[pul
                                                       user_defined_function_name: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlUserDefinedFunctionResult]:
     """
-    An Azure Cosmos DB userDefinedFunction.
+    Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.

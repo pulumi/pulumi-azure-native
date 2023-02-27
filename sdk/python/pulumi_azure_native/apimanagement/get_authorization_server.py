@@ -266,7 +266,7 @@ def get_authorization_server(authsid: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
-    External OAuth authorization server settings.
+    Gets the details of the authorization server specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -309,7 +309,7 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
                                     service_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationServerResult]:
     """
-    External OAuth authorization server settings.
+    Gets the details of the authorization server specified by its identifier.
     API Version: 2020-12-01.
 
 

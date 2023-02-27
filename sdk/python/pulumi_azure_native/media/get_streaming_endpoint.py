@@ -302,7 +302,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
                            streaming_endpoint_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingEndpointResult:
     """
-    The streaming endpoint.
+    Gets a streaming endpoint.
     API Version: 2020-05-01.
 
 
@@ -348,7 +348,7 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
                                   streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingEndpointResult]:
     """
-    The streaming endpoint.
+    Gets a streaming endpoint.
     API Version: 2020-05-01.
 
 

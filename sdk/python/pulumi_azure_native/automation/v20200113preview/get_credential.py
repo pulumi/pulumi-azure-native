@@ -121,7 +121,7 @@ def get_credential(automation_account_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialResult:
     """
-    Definition of the credential.
+    Retrieve the credential identified by credential name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -151,7 +151,7 @@ def get_credential_output(automation_account_name: Optional[pulumi.Input[str]] =
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialResult]:
     """
-    Definition of the credential.
+    Retrieve the credential identified by credential name.
 
 
     :param str automation_account_name: The name of the automation account.

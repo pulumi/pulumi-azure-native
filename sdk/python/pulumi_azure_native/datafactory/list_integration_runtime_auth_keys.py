@@ -61,7 +61,7 @@ def list_integration_runtime_auth_keys(factory_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationRuntimeAuthKeysResult:
     """
-    The integration runtime authentication keys.
+    Retrieves the authentication keys for an integration runtime.
     API Version: 2018-06-01.
 
 
@@ -87,7 +87,7 @@ def list_integration_runtime_auth_keys_output(factory_name: Optional[pulumi.Inpu
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeysResult]:
     """
-    The integration runtime authentication keys.
+    Retrieves the authentication keys for an integration runtime.
     API Version: 2018-06-01.
 
 

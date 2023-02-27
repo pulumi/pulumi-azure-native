@@ -182,7 +182,7 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubPnsCredentialsResult:
     """
-    Description of a NotificationHub PNS Credentials.
+    Lists the PNS Credentials associated with a notification hub .
 
 
     :param str namespace_name: The namespace name.
@@ -217,7 +217,7 @@ def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationHubPnsCredentialsResult]:
     """
-    Description of a NotificationHub PNS Credentials.
+    Lists the PNS Credentials associated with a notification hub .
 
 
     :param str namespace_name: The namespace name.

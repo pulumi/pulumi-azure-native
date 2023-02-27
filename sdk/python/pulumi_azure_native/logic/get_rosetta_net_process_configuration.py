@@ -218,7 +218,7 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[str
                                           rosetta_net_process_configuration_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRosettaNetProcessConfigurationResult:
     """
-    The integration account RosettaNet process configuration.
+    Gets an integration account RosettaNetProcessConfiguration.
     API Version: 2016-06-01.
 
 
@@ -257,7 +257,7 @@ def get_rosetta_net_process_configuration_output(integration_account_name: Optio
                                                  rosetta_net_process_configuration_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRosettaNetProcessConfigurationResult]:
     """
-    The integration account RosettaNet process configuration.
+    Gets an integration account RosettaNetProcessConfiguration.
     API Version: 2016-06-01.
 
 

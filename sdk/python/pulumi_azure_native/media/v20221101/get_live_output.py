@@ -219,7 +219,7 @@ def get_live_output(account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveOutputResult:
     """
-    The Live Output.
+    Gets a live output.
 
 
     :param str account_name: The Media Services account name.
@@ -260,7 +260,7 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveOutputResult]:
     """
-    The Live Output.
+    Gets a live output.
 
 
     :param str account_name: The Media Services account name.

@@ -146,7 +146,7 @@ def get_azure_ad_administrator(administrator_name: Optional[str] = None,
                                server_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureADAdministratorResult:
     """
-    Represents a Administrator.
+    Gets information about an azure ad administrator.
 
 
     :param str administrator_name: The name of the Azure AD Administrator.
@@ -178,7 +178,7 @@ def get_azure_ad_administrator_output(administrator_name: Optional[pulumi.Input[
                                       server_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureADAdministratorResult]:
     """
-    Represents a Administrator.
+    Gets information about an azure ad administrator.
 
 
     :param str administrator_name: The name of the Azure AD Administrator.
