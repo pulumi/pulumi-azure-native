@@ -2,7 +2,7 @@
 
 test "${1}" = "" && echo "Usage: $0 <version>" && exit 1
 
-export VERSION=${1}
+VERSION=${1}
 
 # Tag root module
 git tag "v${VERSION}"
