@@ -20,7 +20,7 @@ jobs:
         with:
           submodules: true
           # We need a full checkout so we can push commits back
-          depth: 0
+          fetch-depth: 0
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
       - name: Update Pulumi/Pulumi
@@ -41,7 +41,7 @@ jobs:
           cd ..
           git update-index -q --refresh
           if ! git diff-files --quiet; then 
-          	echo "changes=1" >> $GITHUB_OUTPUT
+          	echo "changes=1" >> "$GITHUB_OUTPUT"
           fi
       - run: make ensure
       - name: Provider with Pulumi Upgrade

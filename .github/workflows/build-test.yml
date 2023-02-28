@@ -50,7 +50,7 @@ jobs:
           skip_dotnet_and_java: "true"
 
       - name: Build versions, schema and binaries
-        run: make versioner versions codegen schema provider --jobs=2
+        run: make versioner versions codegen schema provider
 
       - name: Artifact capture
         uses: ./.github/actions/prerequisites-artifact-capture
@@ -114,7 +114,7 @@ jobs:
         uses: ./.github/actions/check-worktree-clean
 
       - name: Update path
-        run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+        run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
 
       - name: Install Node dependencies
         run: yarn global add typescript
