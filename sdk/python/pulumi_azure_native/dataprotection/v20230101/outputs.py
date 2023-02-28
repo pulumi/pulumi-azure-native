@@ -42,7 +42,9 @@ __all__ = [
     'PolicyInfoResponse',
     'PolicyParametersResponse',
     'ProtectionStatusDetailsResponse',
+    'ResourceGuardOperationDetailResponse',
     'ResourceGuardOperationResponse',
+    'ResourceGuardProxyBaseResponse',
     'ResourceGuardResponse',
     'ResourceMoveDetailsResponse',
     'RetentionTagResponse',
@@ -2034,6 +2036,52 @@ class ProtectionStatusDetailsResponse(dict):
 
 
 @pulumi.output_type
+class ResourceGuardOperationDetailResponse(dict):
+    """
+    VaultCritical Operation protected by a resource guard
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultResourceRequest":
+            suggest = "default_resource_request"
+        elif key == "vaultCriticalOperation":
+            suggest = "vault_critical_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGuardOperationDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGuardOperationDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGuardOperationDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_resource_request: Optional[str] = None,
+                 vault_critical_operation: Optional[str] = None):
+        """
+        VaultCritical Operation protected by a resource guard
+        """
+        if default_resource_request is not None:
+            pulumi.set(__self__, "default_resource_request", default_resource_request)
+        if vault_critical_operation is not None:
+            pulumi.set(__self__, "vault_critical_operation", vault_critical_operation)
+
+    @property
+    @pulumi.getter(name="defaultResourceRequest")
+    def default_resource_request(self) -> Optional[str]:
+        return pulumi.get(self, "default_resource_request")
+
+    @property
+    @pulumi.getter(name="vaultCriticalOperation")
+    def vault_critical_operation(self) -> Optional[str]:
+        return pulumi.get(self, "vault_critical_operation")
+
+
+@pulumi.output_type
 class ResourceGuardOperationResponse(dict):
     """
     This class contains all the details about a critical operation.
@@ -2083,6 +2131,70 @@ class ResourceGuardOperationResponse(dict):
         Name of the critical operation.
         """
         return pulumi.get(self, "vault_critical_operation")
+
+
+@pulumi.output_type
+class ResourceGuardProxyBaseResponse(dict):
+    """
+    ResourceGuardProxyBase object, used in ResourceGuardProxyBaseResource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "resourceGuardOperationDetails":
+            suggest = "resource_guard_operation_details"
+        elif key == "resourceGuardResourceId":
+            suggest = "resource_guard_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGuardProxyBaseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGuardProxyBaseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGuardProxyBaseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 last_updated_time: Optional[str] = None,
+                 resource_guard_operation_details: Optional[Sequence['outputs.ResourceGuardOperationDetailResponse']] = None,
+                 resource_guard_resource_id: Optional[str] = None):
+        """
+        ResourceGuardProxyBase object, used in ResourceGuardProxyBaseResource
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if resource_guard_operation_details is not None:
+            pulumi.set(__self__, "resource_guard_operation_details", resource_guard_operation_details)
+        if resource_guard_resource_id is not None:
+            pulumi.set(__self__, "resource_guard_resource_id", resource_guard_resource_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[str]:
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationDetails")
+    def resource_guard_operation_details(self) -> Optional[Sequence['outputs.ResourceGuardOperationDetailResponse']]:
+        return pulumi.get(self, "resource_guard_operation_details")
+
+    @property
+    @pulumi.getter(name="resourceGuardResourceId")
+    def resource_guard_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "resource_guard_resource_id")
 
 
 @pulumi.output_type

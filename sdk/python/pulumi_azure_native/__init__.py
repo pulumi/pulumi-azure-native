@@ -7724,6 +7724,7 @@ _utilities.register(
    "azure-native:dataprotection/v20230101:BackupInstance": "BackupInstance",
    "azure-native:dataprotection/v20230101:BackupPolicy": "BackupPolicy",
    "azure-native:dataprotection/v20230101:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20230101:DppResourceGuardProxy": "DppResourceGuardProxy",
    "azure-native:dataprotection/v20230101:ResourceGuard": "ResourceGuard"
   }
  },

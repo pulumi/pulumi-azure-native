@@ -23,15 +23,15 @@ export function getStudent(args: GetStudentArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetStudentArgs {
     /**
-     * Billing account name.
+     * The ID that uniquely identifies a billing account.
      */
     billingAccountName: string;
     /**
-     * Billing profile name.
+     * The ID that uniquely identifies a billing profile.
      */
     billingProfileName: string;
     /**
-     * Invoice section name.
+     * The ID that uniquely identifies an invoice section.
      */
     invoiceSectionName: string;
     /**
@@ -114,15 +114,15 @@ export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.Invok
 
 export interface GetStudentOutputArgs {
     /**
-     * Billing account name.
+     * The ID that uniquely identifies a billing account.
      */
     billingAccountName: pulumi.Input<string>;
     /**
-     * Billing profile name.
+     * The ID that uniquely identifies a billing profile.
      */
     billingProfileName: pulumi.Input<string>;
     /**
-     * Invoice section name.
+     * The ID that uniquely identifies an invoice section.
      */
     invoiceSectionName: pulumi.Input<string>;
     /**

@@ -31,13 +31,13 @@ class StudentArgs:
                  subscription_invite_last_sent_date: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Student resource.
-        :param pulumi.Input[str] billing_account_name: Billing account name.
-        :param pulumi.Input[str] billing_profile_name: Billing profile name.
+        :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
+        :param pulumi.Input[str] billing_profile_name: The ID that uniquely identifies a billing profile.
         :param pulumi.Input['AmountArgs'] budget: Student Budget
         :param pulumi.Input[str] email: Student Email
         :param pulumi.Input[str] expiration_date: Date this student is set to expire from the lab.
         :param pulumi.Input[str] first_name: First Name
-        :param pulumi.Input[str] invoice_section_name: Invoice section name.
+        :param pulumi.Input[str] invoice_section_name: The ID that uniquely identifies an invoice section.
         :param pulumi.Input[str] last_name: Last Name
         :param pulumi.Input[Union[str, 'StudentRole']] role: Student Role
         :param pulumi.Input[str] student_alias: Student alias.
@@ -64,7 +64,7 @@ class StudentArgs:
     @pulumi.getter(name="billingAccountName")
     def billing_account_name(self) -> pulumi.Input[str]:
         """
-        Billing account name.
+        The ID that uniquely identifies a billing account.
         """
         return pulumi.get(self, "billing_account_name")
 
@@ -76,7 +76,7 @@ class StudentArgs:
     @pulumi.getter(name="billingProfileName")
     def billing_profile_name(self) -> pulumi.Input[str]:
         """
-        Billing profile name.
+        The ID that uniquely identifies a billing profile.
         """
         return pulumi.get(self, "billing_profile_name")
 
@@ -136,7 +136,7 @@ class StudentArgs:
     @pulumi.getter(name="invoiceSectionName")
     def invoice_section_name(self) -> pulumi.Input[str]:
         """
-        Invoice section name.
+        The ID that uniquely identifies an invoice section.
         """
         return pulumi.get(self, "invoice_section_name")
 
@@ -229,13 +229,13 @@ class Student(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] billing_account_name: Billing account name.
-        :param pulumi.Input[str] billing_profile_name: Billing profile name.
+        :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
+        :param pulumi.Input[str] billing_profile_name: The ID that uniquely identifies a billing profile.
         :param pulumi.Input[pulumi.InputType['AmountArgs']] budget: Student Budget
         :param pulumi.Input[str] email: Student Email
         :param pulumi.Input[str] expiration_date: Date this student is set to expire from the lab.
         :param pulumi.Input[str] first_name: First Name
-        :param pulumi.Input[str] invoice_section_name: Invoice section name.
+        :param pulumi.Input[str] invoice_section_name: The ID that uniquely identifies an invoice section.
         :param pulumi.Input[str] last_name: Last Name
         :param pulumi.Input[Union[str, 'StudentRole']] role: Student Role
         :param pulumi.Input[str] student_alias: Student alias.

@@ -144,7 +144,7 @@ class DppResourceGuardProxy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:DppResourceGuardProxy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:DppResourceGuardProxy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DppResourceGuardProxy, __self__).__init__(
             'azure-native:dataprotection/v20221001preview:DppResourceGuardProxy',

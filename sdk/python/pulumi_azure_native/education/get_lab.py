@@ -211,10 +211,10 @@ def get_lab(billing_account_name: Optional[str] = None,
     API Version: 2021-12-01-preview.
 
 
-    :param str billing_account_name: Billing account name.
-    :param str billing_profile_name: Billing profile name.
+    :param str billing_account_name: The ID that uniquely identifies a billing account.
+    :param str billing_profile_name: The ID that uniquely identifies a billing profile.
     :param bool include_budget: May be used to include budget information.
-    :param str invoice_section_name: Invoice section name.
+    :param str invoice_section_name: The ID that uniquely identifies an invoice section.
     """
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name
@@ -252,9 +252,9 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
     API Version: 2021-12-01-preview.
 
 
-    :param str billing_account_name: Billing account name.
-    :param str billing_profile_name: Billing profile name.
+    :param str billing_account_name: The ID that uniquely identifies a billing account.
+    :param str billing_profile_name: The ID that uniquely identifies a billing profile.
     :param bool include_budget: May be used to include budget information.
-    :param str invoice_section_name: Invoice section name.
+    :param str invoice_section_name: The ID that uniquely identifies an invoice section.
     """
     ...

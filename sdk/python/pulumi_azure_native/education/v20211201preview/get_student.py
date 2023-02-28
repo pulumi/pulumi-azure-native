@@ -222,9 +222,9 @@ def get_student(billing_account_name: Optional[str] = None,
     Student details.
 
 
-    :param str billing_account_name: Billing account name.
-    :param str billing_profile_name: Billing profile name.
-    :param str invoice_section_name: Invoice section name.
+    :param str billing_account_name: The ID that uniquely identifies a billing account.
+    :param str billing_profile_name: The ID that uniquely identifies a billing profile.
+    :param str invoice_section_name: The ID that uniquely identifies an invoice section.
     :param str student_alias: Student alias.
     """
     __args__ = dict()
@@ -263,9 +263,9 @@ def get_student_output(billing_account_name: Optional[pulumi.Input[str]] = None,
     Student details.
 
 
-    :param str billing_account_name: Billing account name.
-    :param str billing_profile_name: Billing profile name.
-    :param str invoice_section_name: Invoice section name.
+    :param str billing_account_name: The ID that uniquely identifies a billing account.
+    :param str billing_profile_name: The ID that uniquely identifies a billing profile.
+    :param str invoice_section_name: The ID that uniquely identifies an invoice section.
     :param str student_alias: Student alias.
     """
     ...

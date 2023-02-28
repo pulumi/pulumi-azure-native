@@ -166,11 +166,11 @@ export class Lab extends pulumi.CustomResource {
  */
 export interface LabArgs {
     /**
-     * Billing account name.
+     * The ID that uniquely identifies a billing account.
      */
     billingAccountName: pulumi.Input<string>;
     /**
-     * Billing profile name.
+     * The ID that uniquely identifies a billing profile.
      */
     billingProfileName: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface LabArgs {
      */
     expirationDate: pulumi.Input<string>;
     /**
-     * Invoice section name.
+     * The ID that uniquely identifies an invoice section.
      */
     invoiceSectionName: pulumi.Input<string>;
     /**
