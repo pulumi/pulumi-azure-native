@@ -28,7 +28,7 @@ type CustomResource struct {
 	Create func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
 	// resource outputs. If the requested resource does not exist, the second result is false.
-	Read func(context.Context, resource.PropertyMap) (map[string]interface{}, bool, error)
+	Read func(context.Context, string, resource.PropertyMap) (map[string]interface{}, bool, error)
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
 	Update func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
