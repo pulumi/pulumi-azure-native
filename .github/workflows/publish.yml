@@ -345,14 +345,11 @@ jobs:
       - name: Commit and tag
         working-directory: sdk/pulumi-azure-native-sdk
         run: |
-          VERSION="$(cat version.txt)"
           git config user.name "Pulumi Bot"
           git config user.email "bot@pulumi.com"
           git add .
-          git commit -m "$VERSION"
-          git tag "$VERSION"
-          # Find go.mod's, get parent dir name, concat with version, set as a tag
-          find "*/go.mod" -type f -exec sh -c 'dirname {$1} | xargs basename | xargs printf "%s/$VERSION" | xargs git tag' shell {} \;
+          git commit -m "v${{ inputs.version }}"
+          ../../.github/scripts/tag-go-modules.sh ${{ inputs.version }}
 
       - name: Publish to prerelease branch
         if: inputs.prerelease == true
