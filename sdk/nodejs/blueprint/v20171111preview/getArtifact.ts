@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a Blueprint artifact.
+ * Get a Blueprint artifact.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getArtifact(args: GetArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactResult> {
@@ -56,7 +56,7 @@ export interface GetArtifactResult {
     readonly type: string;
 }
 /**
- * Represents a Blueprint artifact.
+ * Get a Blueprint artifact.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getArtifactOutput(args: GetArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactResult> {

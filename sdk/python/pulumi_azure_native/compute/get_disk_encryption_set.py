@@ -181,7 +181,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskEncryptionSetResult:
     """
-    disk encryption set resource.
+    Gets information about a disk encryption set.
     API Version: 2020-12-01.
 
 
@@ -214,7 +214,7 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
     """
-    disk encryption set resource.
+    Gets information about a disk encryption set.
     API Version: 2020-12-01.
 
 

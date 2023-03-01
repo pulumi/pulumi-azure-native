@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A long term retention policy.
+ * Gets a managed database's long term retention policy.
  */
 export function getManagedInstanceLongTermRetentionPolicy(args: GetManagedInstanceLongTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceLongTermRetentionPolicyResult> {
 
@@ -71,7 +71,7 @@ export interface GetManagedInstanceLongTermRetentionPolicyResult {
     readonly yearlyRetention?: string;
 }
 /**
- * A long term retention policy.
+ * Gets a managed database's long term retention policy.
  */
 export function getManagedInstanceLongTermRetentionPolicyOutput(args: GetManagedInstanceLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceLongTermRetentionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstanceLongTermRetentionPolicy(a, opts))

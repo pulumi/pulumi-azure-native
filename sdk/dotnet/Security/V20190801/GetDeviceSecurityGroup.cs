@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20190801
     public static class GetDeviceSecurityGroup
     {
         /// <summary>
-        /// The device security group resource
+        /// Use this method to get the device security group for the specified IoT Hub resource.
         /// </summary>
         public static Task<GetDeviceSecurityGroupResult> InvokeAsync(GetDeviceSecurityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-native:security/v20190801:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The device security group resource
+        /// Use this method to get the device security group for the specified IoT Hub resource.
         /// </summary>
         public static Output<GetDeviceSecurityGroupResult> Invoke(GetDeviceSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceSecurityGroupResult>("azure-native:security/v20190801:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupInvokeArgs(), options.WithDefaults());

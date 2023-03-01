@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
     public static class GetSystemTopic
     {
         /// <summary>
-        /// EventGrid System Topic.
+        /// Get properties of a system topic.
         /// </summary>
         public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure-native:eventgrid/v20210601preview:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithDefaults());
 
         /// <summary>
-        /// EventGrid System Topic.
+        /// Get properties of a system topic.
         /// </summary>
         public static Output<GetSystemTopicResult> Invoke(GetSystemTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicResult>("azure-native:eventgrid/v20210601preview:getSystemTopic", args ?? new GetSystemTopicInvokeArgs(), options.WithDefaults());

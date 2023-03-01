@@ -81,7 +81,7 @@ class AwaitableGetTrafficManagerUserMetricsKeyResult(GetTrafficManagerUserMetric
 
 def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficManagerUserMetricsKeyResult:
     """
-    Class representing Traffic Manager User Metrics.
+    Get the subscription-level key used for Real User Metrics collection.
     API Version: 2018-08-01.
     """
     __args__ = dict()

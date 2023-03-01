@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An instance failover group.
+ * Gets a failover group.
  */
 export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFailoverGroupResult> {
 
@@ -77,7 +77,7 @@ export interface GetInstanceFailoverGroupResult {
     readonly type: string;
 }
 /**
- * An instance failover group.
+ * Gets a failover group.
  */
 export function getInstanceFailoverGroupOutput(args: GetInstanceFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceFailoverGroupResult> {
     return pulumi.output(args).apply((a: any) => getInstanceFailoverGroup(a, opts))

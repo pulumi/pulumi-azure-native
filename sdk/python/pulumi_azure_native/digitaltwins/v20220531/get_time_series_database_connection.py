@@ -98,7 +98,7 @@ def get_time_series_database_connection(resource_group_name: Optional[str] = Non
                                         time_series_database_connection_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTimeSeriesDatabaseConnectionResult:
     """
-    Describes a time series database connection resource.
+    Get the description of an existing time series database connection.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
@@ -126,7 +126,7 @@ def get_time_series_database_connection_output(resource_group_name: Optional[pul
                                                time_series_database_connection_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTimeSeriesDatabaseConnectionResult]:
     """
-    Describes a time series database connection resource.
+    Get the description of an existing time series database connection.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.

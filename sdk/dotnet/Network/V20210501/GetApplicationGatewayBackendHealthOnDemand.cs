@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210501
     public static class GetApplicationGatewayBackendHealthOnDemand
     {
         /// <summary>
-        /// Result of on demand test probe.
+        /// Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
         /// </summary>
         public static Task<GetApplicationGatewayBackendHealthOnDemandResult> InvokeAsync(GetApplicationGatewayBackendHealthOnDemandArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayBackendHealthOnDemandResult>("azure-native:network/v20210501:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of on demand test probe.
+        /// Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
         /// </summary>
         public static Output<GetApplicationGatewayBackendHealthOnDemandResult> Invoke(GetApplicationGatewayBackendHealthOnDemandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayBackendHealthOnDemandResult>("azure-native:network/v20210501:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandInvokeArgs(), options.WithDefaults());

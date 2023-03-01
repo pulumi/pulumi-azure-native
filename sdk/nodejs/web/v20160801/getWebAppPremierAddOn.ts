@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Premier add-on.
+ * Gets a named add-on of an app.
  */
 export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnResult> {
 
@@ -86,7 +86,7 @@ export interface GetWebAppPremierAddOnResult {
     readonly vendor?: string;
 }
 /**
- * Premier add-on.
+ * Gets a named add-on of an app.
  */
 export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPremierAddOn(a, opts))

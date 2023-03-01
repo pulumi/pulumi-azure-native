@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Define the virtualMachineTemplate.
+ * Implements virtual machine template GET method.
  */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
 
@@ -146,7 +146,7 @@ export interface GetVirtualMachineTemplateResult {
     readonly vCenterId?: string;
 }
 /**
- * Define the virtualMachineTemplate.
+ * Implements virtual machine template GET method.
  */
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineTemplate(a, opts))

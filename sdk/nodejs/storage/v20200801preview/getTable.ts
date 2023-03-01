@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Properties of the table, including Id, resource name, resource type.
+ * Gets the table with the specified table name, under the specified account if it exists.
  */
 /** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
@@ -56,7 +56,7 @@ export interface GetTableResult {
     readonly type: string;
 }
 /**
- * Properties of the table, including Id, resource name, resource type.
+ * Gets the table with the specified table name, under the specified account if it exists.
  */
 /** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {

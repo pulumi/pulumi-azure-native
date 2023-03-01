@@ -79,7 +79,7 @@ def get_entity(filter: Optional[str] = None,
                view: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
-    Describes the result of the request to view entities.
+    List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
 
 
     :param str filter: The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
@@ -120,7 +120,7 @@ def get_entity_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                       view: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
     """
-    Describes the result of the request to view entities.
+    List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
 
 
     :param str filter: The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.

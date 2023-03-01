@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The configuration of service URI and custom headers for the webhook.
+ * Gets the configuration of service URI and custom headers for the webhook.
  */
 export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookCallbackConfigResult> {
 
@@ -46,7 +46,7 @@ export interface GetWebhookCallbackConfigResult {
     readonly serviceUri: string;
 }
 /**
- * The configuration of service URI and custom headers for the webhook.
+ * Gets the configuration of service URI and custom headers for the webhook.
  */
 export function getWebhookCallbackConfigOutput(args: GetWebhookCallbackConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookCallbackConfigResult> {
     return pulumi.output(args).apply((a: any) => getWebhookCallbackConfig(a, opts))

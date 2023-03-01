@@ -85,7 +85,7 @@ def get_config_server(resource_group_name: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigServerResult:
     """
-    Config Server resource
+    Get the config server and its properties.
     API Version: 2020-07-01.
 
 
@@ -110,7 +110,7 @@ def get_config_server_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              service_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigServerResult]:
     """
-    Config Server resource
+    Get the config server and its properties.
     API Version: 2020-07-01.
 
 

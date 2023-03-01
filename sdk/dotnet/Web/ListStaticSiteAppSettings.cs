@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListStaticSiteAppSettings
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the application settings of a static site.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListStaticSiteAppSettingsResult> InvokeAsync(ListStaticSiteAppSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteAppSettingsResult>("azure-native:web:listStaticSiteAppSettings", args ?? new ListStaticSiteAppSettingsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the application settings of a static site.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListStaticSiteAppSettingsResult> Invoke(ListStaticSiteAppSettingsInvokeArgs args, InvokeOptions? options = null)

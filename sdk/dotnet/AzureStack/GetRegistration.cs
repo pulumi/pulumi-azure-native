@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AzureStack
     public static class GetRegistration
     {
         /// <summary>
-        /// Registration information.
+        /// Returns the properties of an Azure Stack registration.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-native:azurestack:getRegistration", args ?? new GetRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Registration information.
+        /// Returns the properties of an Azure Stack registration.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOptions? options = null)

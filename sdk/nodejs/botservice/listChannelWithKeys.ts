@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The ARM channel of list channel with keys operation response.
+ * Lists a Channel registration for a Bot Service including secrets
  * API Version: 2021-03-01.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
@@ -102,7 +102,7 @@ export interface ListChannelWithKeysResult {
     readonly zones: string[];
 }
 /**
- * The ARM channel of list channel with keys operation response.
+ * Lists a Channel registration for a Bot Service including secrets
  * API Version: 2021-03-01.
  */
 export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {

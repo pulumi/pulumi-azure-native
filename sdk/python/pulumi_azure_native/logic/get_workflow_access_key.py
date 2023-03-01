@@ -94,6 +94,7 @@ def get_workflow_access_key(access_key_name: Optional[str] = None,
                             workflow_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowAccessKeyResult:
     """
+    Gets a workflow access key.
     API Version: 2015-02-01-preview.
 
 
@@ -122,6 +123,7 @@ def get_workflow_access_key_output(access_key_name: Optional[pulumi.Input[str]] 
                                    workflow_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowAccessKeyResult]:
     """
+    Gets a workflow access key.
     API Version: 2015-02-01-preview.
 
 

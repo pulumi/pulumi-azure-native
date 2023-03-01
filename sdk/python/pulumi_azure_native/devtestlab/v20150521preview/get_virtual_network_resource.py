@@ -160,7 +160,7 @@ def get_virtual_network_resource(lab_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResourceResult:
     """
-    A virtual network.
+    Get virtual network.
 
 
     :param str lab_name: The name of the lab.
@@ -194,7 +194,7 @@ def get_virtual_network_resource_output(lab_name: Optional[pulumi.Input[str]] = 
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResourceResult]:
     """
-    A virtual network.
+    Get virtual network.
 
 
     :param str lab_name: The name of the lab.

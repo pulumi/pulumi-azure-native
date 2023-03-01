@@ -49,7 +49,7 @@ def list_compute_keys(compute_name: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListComputeKeysResult:
     """
-    Secrets related to a Machine Learning compute. Might differ for every type of compute.
+    Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.
@@ -73,7 +73,7 @@ def list_compute_keys_output(compute_name: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListComputeKeysResult]:
     """
-    Secrets related to a Machine Learning compute. Might differ for every type of compute.
+    Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

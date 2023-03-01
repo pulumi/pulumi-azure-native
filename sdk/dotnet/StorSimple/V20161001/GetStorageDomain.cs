@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public static class GetStorageDomain
     {
         /// <summary>
-        /// The storage domain.
+        /// Returns the properties of the specified storage domain name.
         /// </summary>
         public static Task<GetStorageDomainResult> InvokeAsync(GetStorageDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageDomainResult>("azure-native:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The storage domain.
+        /// Returns the properties of the specified storage domain name.
         /// </summary>
         public static Output<GetStorageDomainResult> Invoke(GetStorageDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageDomainResult>("azure-native:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainInvokeArgs(), options.WithDefaults());

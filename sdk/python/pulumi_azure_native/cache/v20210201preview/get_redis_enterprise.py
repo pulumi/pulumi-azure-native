@@ -193,7 +193,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisEnterpriseResult:
     """
-    Describes the RedisEnterprise cluster
+    Gets information about a RedisEnterprise cluster
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -226,7 +226,7 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisEnterpriseResult]:
     """
-    Describes the RedisEnterprise cluster
+    Gets information about a RedisEnterprise cluster
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

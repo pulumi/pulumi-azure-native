@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Kusto.V20221229
     public static class GetCosmosDbDataConnection
     {
         /// <summary>
-        /// Class representing a CosmosDb data connection.
+        /// Returns a data connection.
         /// </summary>
         public static Task<GetCosmosDbDataConnectionResult> InvokeAsync(GetCosmosDbDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCosmosDbDataConnectionResult>("azure-native:kusto/v20221229:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a CosmosDb data connection.
+        /// Returns a data connection.
         /// </summary>
         public static Output<GetCosmosDbDataConnectionResult> Invoke(GetCosmosDbDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCosmosDbDataConnectionResult>("azure-native:kusto/v20221229:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionInvokeArgs(), options.WithDefaults());

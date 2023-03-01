@@ -148,7 +148,7 @@ def get_analytics_item(id: Optional[str] = None,
                        scope_path: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnalyticsItemResult:
     """
-    Properties that define an Analytics item that is associated to an Application Insights component.
+    Gets a specific Analytics Items defined within an Application Insights component.
     API Version: 2015-05-01.
 
 
@@ -187,7 +187,7 @@ def get_analytics_item_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                               scope_path: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyticsItemResult]:
     """
-    Properties that define an Analytics item that is associated to an Application Insights component.
+    Gets a specific Analytics Items defined within an Application Insights component.
     API Version: 2015-05-01.
 
 

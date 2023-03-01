@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The SAS response that contains the storage account, container and associated SAS token for connection use.
+ * Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
  * API Version: 2016-11-01.
  */
 export function listStorageAccountSasTokens(args: ListStorageAccountSasTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountSasTokensResult> {
@@ -55,7 +55,7 @@ export interface ListStorageAccountSasTokensResult {
     readonly value: outputs.datalakeanalytics.SasTokenInformationResponse[];
 }
 /**
- * The SAS response that contains the storage account, container and associated SAS token for connection use.
+ * Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
  * API Version: 2016-11-01.
  */
 export function listStorageAccountSasTokensOutput(args: ListStorageAccountSasTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountSasTokensResult> {

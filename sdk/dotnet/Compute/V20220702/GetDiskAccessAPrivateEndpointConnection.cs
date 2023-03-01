@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Compute.V20220702
     public static class GetDiskAccessAPrivateEndpointConnection
     {
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets information about a private endpoint connection under a disk access resource.
         /// </summary>
         public static Task<GetDiskAccessAPrivateEndpointConnectionResult> InvokeAsync(GetDiskAccessAPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessAPrivateEndpointConnectionResult>("azure-native:compute/v20220702:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets information about a private endpoint connection under a disk access resource.
         /// </summary>
         public static Output<GetDiskAccessAPrivateEndpointConnectionResult> Invoke(GetDiskAccessAPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskAccessAPrivateEndpointConnectionResult>("azure-native:compute/v20220702:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

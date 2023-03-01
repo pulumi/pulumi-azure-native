@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     public static class GetDscNodeConfiguration
     {
         /// <summary>
-        /// Definition of the dsc node configuration.
+        /// Retrieve the Dsc node configurations by node configuration.
         /// </summary>
         public static Task<GetDscNodeConfigurationResult> InvokeAsync(GetDscNodeConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-native:automation/v20200113preview:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the dsc node configuration.
+        /// Retrieve the Dsc node configurations by node configuration.
         /// </summary>
         public static Output<GetDscNodeConfigurationResult> Invoke(GetDscNodeConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscNodeConfigurationResult>("azure-native:automation/v20200113preview:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationInvokeArgs(), options.WithDefaults());

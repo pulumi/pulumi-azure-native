@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing Traffic Manager User Metrics.
+ * Get the subscription-level key used for Real User Metrics collection.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetricsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerUserMetricsKeyResult> {

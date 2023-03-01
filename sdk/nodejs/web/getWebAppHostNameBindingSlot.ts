@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A hostname binding object.
+ * Get the named hostname binding for an app (or deployment slot, if specified).
  * API Version: 2020-12-01.
  */
 export function getWebAppHostNameBindingSlot(args: GetWebAppHostNameBindingSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingSlotResult> {
@@ -96,7 +96,7 @@ export interface GetWebAppHostNameBindingSlotResult {
     readonly virtualIP: string;
 }
 /**
- * A hostname binding object.
+ * Get the named hostname binding for an app (or deployment slot, if specified).
  * API Version: 2020-12-01.
  */
 export function getWebAppHostNameBindingSlotOutput(args: GetWebAppHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingSlotResult> {

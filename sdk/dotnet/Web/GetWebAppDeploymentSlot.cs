@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppDeploymentSlot
     {
         /// <summary>
-        /// User credentials used for publishing activity.
+        /// Get a deployment by its ID for an app, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppDeploymentSlotResult> InvokeAsync(GetWebAppDeploymentSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentSlotResult>("azure-native:web:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// User credentials used for publishing activity.
+        /// Get a deployment by its ID for an app, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetWebAppDeploymentSlotResult> Invoke(GetWebAppDeploymentSlotInvokeArgs args, InvokeOptions? options = null)

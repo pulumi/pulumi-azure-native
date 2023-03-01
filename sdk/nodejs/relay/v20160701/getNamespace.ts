@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of a Namespace resource.
+ * Returns the description for the specified namespace.
  */
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
@@ -82,7 +82,7 @@ export interface GetNamespaceResult {
     readonly updatedAt: string;
 }
 /**
- * Description of a Namespace resource.
+ * Returns the description for the specified namespace.
  */
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {

@@ -195,7 +195,7 @@ def get_subvolume_metadata(account_name: Optional[str] = None,
                            volume_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubvolumeMetadataResult:
     """
-    Result of the post subvolume and action is to get metadata of the subvolume.
+    Get details of the specified subvolume
 
 
     :param str account_name: The name of the NetApp account
@@ -237,7 +237,7 @@ def get_subvolume_metadata_output(account_name: Optional[pulumi.Input[str]] = No
                                   volume_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubvolumeMetadataResult]:
     """
-    Result of the post subvolume and action is to get metadata of the subvolume.
+    Get details of the specified subvolume
 
 
     :param str account_name: The name of the NetApp account

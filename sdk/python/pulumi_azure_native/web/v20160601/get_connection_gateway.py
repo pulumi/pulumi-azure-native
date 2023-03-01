@@ -119,7 +119,7 @@ def get_connection_gateway(connection_gateway_name: Optional[str] = None,
                            subscription_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionGatewayResult:
     """
-    The gateway definition
+    Gets a specific gateway under a subscription and in a specific resource group
 
 
     :param str connection_gateway_name: The connection gateway name
@@ -149,7 +149,7 @@ def get_connection_gateway_output(connection_gateway_name: Optional[pulumi.Input
                                   subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionGatewayResult]:
     """
-    The gateway definition
+    Gets a specific gateway under a subscription and in a specific resource group
 
 
     :param str connection_gateway_name: The connection gateway name

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomerInsights
     public static class GetHub
     {
         /// <summary>
-        /// Hub resource.
+        /// Gets information about the specified hub.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure-native:customerinsights:getHub", args ?? new GetHubArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Hub resource.
+        /// Gets information about the specified hub.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)

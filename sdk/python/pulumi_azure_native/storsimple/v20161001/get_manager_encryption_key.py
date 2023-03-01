@@ -72,7 +72,7 @@ def get_manager_encryption_key(manager_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerEncryptionKeyResult:
     """
-    This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+    Returns the symmetric encryption key of the manager.
 
 
     :param str manager_name: The manager name
@@ -95,7 +95,7 @@ def get_manager_encryption_key_output(manager_name: Optional[pulumi.Input[str]] 
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerEncryptionKeyResult]:
     """
-    This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+    Returns the symmetric encryption key of the manager.
 
 
     :param str manager_name: The manager name

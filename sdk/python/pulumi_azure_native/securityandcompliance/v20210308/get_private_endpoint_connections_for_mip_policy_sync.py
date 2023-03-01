@@ -122,7 +122,7 @@ def get_private_endpoint_connections_for_mip_policy_sync(private_endpoint_connec
                                                          resource_name: Optional[str] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionsForMIPPolicySyncResult:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -152,7 +152,7 @@ def get_private_endpoint_connections_for_mip_policy_sync_output(private_endpoint
                                                                 resource_name: Optional[pulumi.Input[str]] = None,
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionsForMIPPolicySyncResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

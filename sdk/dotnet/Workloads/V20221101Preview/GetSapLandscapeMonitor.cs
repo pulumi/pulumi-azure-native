@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     public static class GetSapLandscapeMonitor
     {
         /// <summary>
-        /// configuration associated with SAP Landscape Monitor Dashboard.
+        /// Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
         /// </summary>
         public static Task<GetSapLandscapeMonitorResult> InvokeAsync(GetSapLandscapeMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapLandscapeMonitorResult>("azure-native:workloads/v20221101preview:getSapLandscapeMonitor", args ?? new GetSapLandscapeMonitorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// configuration associated with SAP Landscape Monitor Dashboard.
+        /// Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
         /// </summary>
         public static Output<GetSapLandscapeMonitorResult> Invoke(GetSapLandscapeMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapLandscapeMonitorResult>("azure-native:workloads/v20221101preview:getSapLandscapeMonitor", args ?? new GetSapLandscapeMonitorInvokeArgs(), options.WithDefaults());

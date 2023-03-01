@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The manged cluster resource
+ * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
 
@@ -200,7 +200,7 @@ export interface GetManagedClusterResult {
     readonly zonalUpdateMode?: string;
 }
 /**
- * The manged cluster resource
+ * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))

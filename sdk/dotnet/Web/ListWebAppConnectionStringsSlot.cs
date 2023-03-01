@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppConnectionStringsSlot
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the connection strings of an app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppConnectionStringsSlotResult> InvokeAsync(ListWebAppConnectionStringsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsSlotResult>("azure-native:web:listWebAppConnectionStringsSlot", args ?? new ListWebAppConnectionStringsSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the connection strings of an app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppConnectionStringsSlotResult> Invoke(ListWebAppConnectionStringsSlotInvokeArgs args, InvokeOptions? options = null)

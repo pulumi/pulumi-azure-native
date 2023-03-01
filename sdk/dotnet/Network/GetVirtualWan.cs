@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetVirtualWan
     {
         /// <summary>
-        /// VirtualWAN Resource.
+        /// Retrieves the details of a VirtualWAN.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualWanResult> InvokeAsync(GetVirtualWanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWanResult>("azure-native:network:getVirtualWan", args ?? new GetVirtualWanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// VirtualWAN Resource.
+        /// Retrieves the details of a VirtualWAN.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVirtualWanResult> Invoke(GetVirtualWanInvokeArgs args, InvokeOptions? options = null)

@@ -170,7 +170,7 @@ def get_database(cluster_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Describes a database on the RedisEnterprise cluster
+    Gets information about a database in a RedisEnterprise cluster.
     API Version: 2021-03-01.
 
 
@@ -205,7 +205,7 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Describes a database on the RedisEnterprise cluster
+    Gets information about a database in a RedisEnterprise cluster.
     API Version: 2021-03-01.
 
 

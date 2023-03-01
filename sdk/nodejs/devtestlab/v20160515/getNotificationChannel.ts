@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A notification.
+ * Get notification channels.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
@@ -92,7 +92,7 @@ export interface GetNotificationChannelResult {
     readonly webHookUrl?: string;
 }
 /**
- * A notification.
+ * Get notification channels.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {

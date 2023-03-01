@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The integration account map.
+ * Gets an integration account map.
  */
 export function getIntegrationAccountMap(args: GetIntegrationAccountMapArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountMapResult> {
 
@@ -93,7 +93,7 @@ export interface GetIntegrationAccountMapResult {
     readonly type: string;
 }
 /**
- * The integration account map.
+ * Gets an integration account map.
  */
 export function getIntegrationAccountMapOutput(args: GetIntegrationAccountMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountMapResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountMap(a, opts))

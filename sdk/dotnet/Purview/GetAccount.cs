@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Purview
     public static class GetAccount
     {
         /// <summary>
-        /// Account resource
+        /// Get an account
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Account resource
+        /// Get an account
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)

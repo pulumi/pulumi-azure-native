@@ -229,7 +229,7 @@ def get_operationalization_cluster(cluster_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOperationalizationClusterResult:
     """
-    Instance of an Azure ML Operationalization Cluster resource.
+    Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
     API Version: 2017-08-01-preview.
 
 
@@ -266,7 +266,7 @@ def get_operationalization_cluster_output(cluster_name: Optional[pulumi.Input[st
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOperationalizationClusterResult]:
     """
-    Instance of an Azure ML Operationalization Cluster resource.
+    Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
     API Version: 2017-08-01-preview.
 
 

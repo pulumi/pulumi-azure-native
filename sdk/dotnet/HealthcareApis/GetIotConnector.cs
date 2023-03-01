@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HealthcareApis
     public static class GetIotConnector
     {
         /// <summary>
-        /// IoT Connector definition.
+        /// Gets the properties of the specified IoT Connector.
         /// API Version: 2022-05-15.
         /// </summary>
         public static Task<GetIotConnectorResult> InvokeAsync(GetIotConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorResult>("azure-native:healthcareapis:getIotConnector", args ?? new GetIotConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// IoT Connector definition.
+        /// Gets the properties of the specified IoT Connector.
         /// API Version: 2022-05-15.
         /// </summary>
         public static Output<GetIotConnectorResult> Invoke(GetIotConnectorInvokeArgs args, InvokeOptions? options = null)

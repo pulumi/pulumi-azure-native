@@ -157,7 +157,7 @@ def getprivate_link_services_for_mip_policy_sync(resource_group_name: Optional[s
                                                  resource_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForMIPPolicySyncResult:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForMIPPolicySync resource.
     API Version: 2021-03-08.
 
 
@@ -188,7 +188,7 @@ def getprivate_link_services_for_mip_policy_sync_output(resource_group_name: Opt
                                                         resource_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkServicesForMIPPolicySyncResult]:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForMIPPolicySync resource.
     API Version: 2021-03-08.
 
 

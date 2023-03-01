@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * List of data partitions.
+ * Method that gets called when list of partitions is requested.
  * API Version: 2022-04-04-preview.
  */
 export function listEnergyServicePartitions(args: ListEnergyServicePartitionsArgs, opts?: pulumi.InvokeOptions): Promise<ListEnergyServicePartitionsResult> {
@@ -41,7 +41,7 @@ export interface ListEnergyServicePartitionsResult {
     readonly dataPartitionInfo?: outputs.openenergyplatform.DataPartitionPropertiesResponse[];
 }
 /**
- * List of data partitions.
+ * Method that gets called when list of partitions is requested.
  * API Version: 2022-04-04-preview.
  */
 export function listEnergyServicePartitionsOutput(args: ListEnergyServicePartitionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEnergyServicePartitionsResult> {

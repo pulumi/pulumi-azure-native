@@ -96,7 +96,7 @@ def list_static_site_configured_roles(name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteConfiguredRolesResult:
     """
-    String list resource.
+    Lists the roles configured for the static site.
     API Version: 2020-12-01.
 
 
@@ -122,7 +122,7 @@ def list_static_site_configured_roles_output(name: Optional[pulumi.Input[str]] =
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteConfiguredRolesResult]:
     """
-    String list resource.
+    Lists the roles configured for the static site.
     API Version: 2020-12-01.
 
 

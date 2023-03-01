@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The response to an account resource GET request.
+ * Gets the Visual Studio Team Services account resource details.
  * API Version: 2014-04-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -58,7 +58,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * The response to an account resource GET request.
+ * Gets the Visual Studio Team Services account resource details.
  * API Version: 2014-04-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

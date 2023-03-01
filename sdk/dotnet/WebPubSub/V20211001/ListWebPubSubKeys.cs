@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
     public static class ListWebPubSubKeys
     {
         /// <summary>
-        /// A class represents the access keys of the resource.
+        /// Get the access keys of the resource.
         /// </summary>
         public static Task<ListWebPubSubKeysResult> InvokeAsync(ListWebPubSubKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebPubSubKeysResult>("azure-native:webpubsub/v20211001:listWebPubSubKeys", args ?? new ListWebPubSubKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A class represents the access keys of the resource.
+        /// Get the access keys of the resource.
         /// </summary>
         public static Output<ListWebPubSubKeysResult> Invoke(ListWebPubSubKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebPubSubKeysResult>("azure-native:webpubsub/v20211001:listWebPubSubKeys", args ?? new ListWebPubSubKeysInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Virtual Router Peering resource.
+ * Gets the specified Virtual Router Peering.
  */
 export function getVirtualRouterPeering(args: GetVirtualRouterPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterPeeringResult> {
 
@@ -66,7 +66,7 @@ export interface GetVirtualRouterPeeringResult {
     readonly type: string;
 }
 /**
- * Virtual Router Peering resource.
+ * Gets the specified Virtual Router Peering.
  */
 export function getVirtualRouterPeeringOutput(args: GetVirtualRouterPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterPeeringResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRouterPeering(a, opts))

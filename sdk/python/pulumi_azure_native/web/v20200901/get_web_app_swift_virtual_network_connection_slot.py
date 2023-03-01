@@ -122,7 +122,7 @@ def get_web_app_swift_virtual_network_connection_slot(name: Optional[str] = None
                                                       slot: Optional[str] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSwiftVirtualNetworkConnectionSlotResult:
     """
-    Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+    Gets a Swift Virtual Network connection.
 
 
     :param str name: Name of the app.
@@ -152,7 +152,7 @@ def get_web_app_swift_virtual_network_connection_slot_output(name: Optional[pulu
                                                              slot: Optional[pulumi.Input[str]] = None,
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionSlotResult]:
     """
-    Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+    Gets a Swift Virtual Network connection.
 
 
     :param str name: Name of the app.

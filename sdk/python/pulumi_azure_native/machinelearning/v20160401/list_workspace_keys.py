@@ -60,7 +60,7 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    Workspace authorization keys for a workspace.
+    List the authorization keys associated with this workspace.
 
 
     :param str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
@@ -82,7 +82,7 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] 
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
-    Workspace authorization keys for a workspace.
+    List the authorization keys associated with this workspace.
 
 
     :param str resource_group_name: The name of the resource group to which the machine learning workspace belongs.

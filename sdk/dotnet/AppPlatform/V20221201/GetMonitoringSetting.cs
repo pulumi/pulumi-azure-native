@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201
     public static class GetMonitoringSetting
     {
         /// <summary>
-        /// Monitoring Setting resource
+        /// Get the Monitoring Setting and its properties.
         /// </summary>
         public static Task<GetMonitoringSettingResult> InvokeAsync(GetMonitoringSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringSettingResult>("azure-native:appplatform/v20221201:getMonitoringSetting", args ?? new GetMonitoringSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Monitoring Setting resource
+        /// Get the Monitoring Setting and its properties.
         /// </summary>
         public static Output<GetMonitoringSettingResult> Invoke(GetMonitoringSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringSettingResult>("azure-native:appplatform/v20221201:getMonitoringSetting", args ?? new GetMonitoringSettingInvokeArgs(), options.WithDefaults());

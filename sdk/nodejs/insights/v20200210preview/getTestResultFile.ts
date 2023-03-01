@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Test result.
+ * Returns a file test result for the matching test
  */
 export function getTestResultFile(args: GetTestResultFileArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultFileResult> {
 
@@ -66,7 +66,7 @@ export interface GetTestResultFileResult {
     readonly nextLink?: string;
 }
 /**
- * Test result.
+ * Returns a file test result for the matching test
  */
 export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultFileResult> {
     return pulumi.output(args).apply((a: any) => getTestResultFile(a, opts))

@@ -158,7 +158,7 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
                              virtual_network_link_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkLinkResult:
     """
-    Describes a link to virtual network for a Private DNS zone.
+    Gets a virtual network link to the specified Private DNS zone.
     API Version: 2020-06-01.
 
 
@@ -192,7 +192,7 @@ def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[str
                                     virtual_network_link_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkLinkResult]:
     """
-    Describes a link to virtual network for a Private DNS zone.
+    Gets a virtual network link to the specified Private DNS zone.
     API Version: 2020-06-01.
 
 

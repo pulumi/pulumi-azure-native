@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Settings with single toggle.
+ * Gets a setting.
  * API Version: 2021-03-01-preview.
  */
 export function getEyesOn(args: GetEyesOnArgs, opts?: pulumi.InvokeOptions): Promise<GetEyesOnResult> {
@@ -76,7 +76,7 @@ export interface GetEyesOnResult {
     readonly type: string;
 }
 /**
- * Settings with single toggle.
+ * Gets a setting.
  * API Version: 2021-03-01-preview.
  */
 export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEyesOnResult> {

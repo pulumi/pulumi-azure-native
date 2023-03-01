@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Private dns zone group resource.
+ * Gets the private dns zone group resource by specified private dns zone group name.
  * API Version: 2020-11-01.
  */
 export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsZoneGroupResult> {
@@ -62,7 +62,7 @@ export interface GetPrivateDnsZoneGroupResult {
     readonly provisioningState: string;
 }
 /**
- * Private dns zone group resource.
+ * Gets the private dns zone group resource by specified private dns zone group name.
  * API Version: 2020-11-01.
  */
 export function getPrivateDnsZoneGroupOutput(args: GetPrivateDnsZoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsZoneGroupResult> {

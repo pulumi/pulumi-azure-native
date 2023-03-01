@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Linked workspace.
+ * Get the detail of a linked workspace.
  * API Version: 2020-03-01.
  */
 export function getLinkedWorkspace(args: GetLinkedWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedWorkspaceResult> {
@@ -58,7 +58,7 @@ export interface GetLinkedWorkspaceResult {
     readonly type: string;
 }
 /**
- * Linked workspace.
+ * Get the detail of a linked workspace.
  * API Version: 2020-03-01.
  */
 export function getLinkedWorkspaceOutput(args: GetLinkedWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedWorkspaceResult> {

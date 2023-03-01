@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A list of custom API WSDL interfaces
+ * This returns the list of interfaces in the WSDL
  * API Version: 2016-06-01.
  */
 export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<ListCustomApiWsdlInterfacesResult> {
@@ -61,7 +61,7 @@ export interface ListCustomApiWsdlInterfacesResult {
     readonly value?: outputs.web.WsdlServiceResponse[];
 }
 /**
- * A list of custom API WSDL interfaces
+ * This returns the list of interfaces in the WSDL
  * API Version: 2016-06-01.
  */
 export function listCustomApiWsdlInterfacesOutput(args: ListCustomApiWsdlInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCustomApiWsdlInterfacesResult> {

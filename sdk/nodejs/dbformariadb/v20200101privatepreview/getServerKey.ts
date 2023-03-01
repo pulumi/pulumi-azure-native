@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A MariaDB Server key.
+ * Gets a MariaDB Server key.
  */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
 
@@ -66,7 +66,7 @@ export interface GetServerKeyResult {
     readonly uri?: string;
 }
 /**
- * A MariaDB Server key.
+ * Gets a MariaDB Server key.
  */
 export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
     return pulumi.output(args).apply((a: any) => getServerKey(a, opts))

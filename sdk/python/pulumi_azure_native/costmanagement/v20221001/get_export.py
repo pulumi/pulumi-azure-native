@@ -170,7 +170,7 @@ def get_export(expand: Optional[str] = None,
                scope: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    An export resource.
+    The operation to get the export for the defined scope by export name.
 
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
@@ -204,7 +204,7 @@ def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       scope: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
-    An export resource.
+    The operation to get the export for the defined scope by export name.
 
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.

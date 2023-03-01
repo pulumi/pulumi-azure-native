@@ -122,7 +122,7 @@ def get_sql_server_database(database_name: Optional[str] = None,
                             sql_server_instance_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerDatabaseResult:
     """
-    Arc Sql Server database
+    Retrieves an Arc Sql Server database.
 
 
     :param str database_name: Name of the database
@@ -152,7 +152,7 @@ def get_sql_server_database_output(database_name: Optional[pulumi.Input[str]] = 
                                    sql_server_instance_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerDatabaseResult]:
     """
-    Arc Sql Server database
+    Retrieves an Arc Sql Server database.
 
 
     :param str database_name: Name of the database

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Redis item in CreateOrUpdate Operation response.
+ * Gets a Redis cache (resource description).
  */
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
@@ -110,7 +110,7 @@ export interface GetRedisResult {
     readonly virtualNetwork?: string;
 }
 /**
- * A Redis item in CreateOrUpdate Operation response.
+ * Gets a Redis cache (resource description).
  */
 /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {

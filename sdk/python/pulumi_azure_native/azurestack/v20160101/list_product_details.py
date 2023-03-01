@@ -170,7 +170,7 @@ def list_product_details(product_name: Optional[str] = None,
                          resource_group: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductDetailsResult:
     """
-    Extended description about the product required for installing it into Azure Stack.
+    Returns the extended properties of a product.
 
 
     :param str product_name: Name of the product.
@@ -204,7 +204,7 @@ def list_product_details_output(product_name: Optional[pulumi.Input[str]] = None
                                 resource_group: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductDetailsResult]:
     """
-    Extended description about the product required for installing it into Azure Stack.
+    Returns the extended properties of a product.
 
 
     :param str product_name: Name of the product.

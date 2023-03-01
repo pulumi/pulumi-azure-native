@@ -325,7 +325,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainServiceResult:
     """
-    Domain service.
+    The Get Domain Service operation retrieves a json representation of the Domain Service.
 
 
     :param str domain_service_name: The name of the domain service.
@@ -369,7 +369,7 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainServiceResult]:
     """
-    Domain service.
+    The Get Domain Service operation retrieves a json representation of the Domain Service.
 
 
     :param str domain_service_name: The name of the domain service.

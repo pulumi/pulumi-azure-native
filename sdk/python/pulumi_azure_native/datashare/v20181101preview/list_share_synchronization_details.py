@@ -74,7 +74,7 @@ def list_share_synchronization_details(account_name: Optional[str] = None,
                                        synchronization_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSynchronizationDetailsResult:
     """
-    details of synchronization
+    List synchronization details
 
 
     :param str account_name: The name of the share account.
@@ -135,7 +135,7 @@ def list_share_synchronization_details_output(account_name: Optional[pulumi.Inpu
                                               synchronization_id: Optional[pulumi.Input[Optional[str]]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSynchronizationDetailsResult]:
     """
-    details of synchronization
+    List synchronization details
 
 
     :param str account_name: The name of the share account.

@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Gets a job.
  * API Version: 2016-03-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
@@ -54,6 +55,7 @@ export interface GetJobResult {
     readonly type: string;
 }
 /**
+ * Gets a job.
  * API Version: 2016-03-01.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {

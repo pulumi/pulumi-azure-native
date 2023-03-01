@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
     public static class GetPrivateEndpoint
     {
         /// <summary>
-        /// Complete information about the private endpoint.
+        /// Gets information about the specified Private Endpoint.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:streamanalytics/v20200301preview:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Complete information about the private endpoint.
+        /// Gets information about the specified Private Endpoint.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:streamanalytics/v20200301preview:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());

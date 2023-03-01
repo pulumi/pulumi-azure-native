@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class ListNetworkManagerEffectiveSecurityAdminRule
     {
         /// <summary>
-        /// Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
+        /// List all effective security admin rules applied on a virtual network.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<ListNetworkManagerEffectiveSecurityAdminRuleResult> InvokeAsync(ListNetworkManagerEffectiveSecurityAdminRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerEffectiveSecurityAdminRuleResult>("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", args ?? new ListNetworkManagerEffectiveSecurityAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
+        /// List all effective security admin rules applied on a virtual network.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<ListNetworkManagerEffectiveSecurityAdminRuleResult> Invoke(ListNetworkManagerEffectiveSecurityAdminRuleInvokeArgs args, InvokeOptions? options = null)

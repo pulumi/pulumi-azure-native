@@ -95,7 +95,7 @@ class AwaitableGetWorkspaceSettingResult(GetWorkspaceSettingResult):
 def get_workspace_setting(workspace_setting_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceSettingResult:
     """
-    Configures where to store the OMS agent data for workspaces under a scope
+    Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
     API Version: 2017-08-01-preview.
 
 
@@ -118,7 +118,7 @@ def get_workspace_setting(workspace_setting_name: Optional[str] = None,
 def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSettingResult]:
     """
-    Configures where to store the OMS agent data for workspaces under a scope
+    Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
     API Version: 2017-08-01-preview.
 
 

@@ -290,7 +290,7 @@ def get_incident(incident_id: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
-    Represents an incident in Azure Security Insights.
+    Gets an incident.
     API Version: 2020-01-01.
 
 
@@ -335,7 +335,7 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentResult]:
     """
-    Represents an incident in Azure Security Insights.
+    Gets an incident.
     API Version: 2020-01-01.
 
 

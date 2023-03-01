@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetDataMaskingPolicy
     {
         /// <summary>
-        /// Represents a database data masking policy.
+        /// Gets a database data masking policy.
         /// API Version: 2014-04-01.
         /// </summary>
         public static Task<GetDataMaskingPolicyResult> InvokeAsync(GetDataMaskingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataMaskingPolicyResult>("azure-native:sql:getDataMaskingPolicy", args ?? new GetDataMaskingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a database data masking policy.
+        /// Gets a database data masking policy.
         /// API Version: 2014-04-01.
         /// </summary>
         public static Output<GetDataMaskingPolicyResult> Invoke(GetDataMaskingPolicyInvokeArgs args, InvokeOptions? options = null)

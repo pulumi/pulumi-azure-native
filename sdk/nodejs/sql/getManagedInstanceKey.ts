@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A managed instance key.
+ * Gets a managed instance key.
  * API Version: 2020-11-01-preview.
  */
 export function getManagedInstanceKey(args: GetManagedInstanceKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceKeyResult> {
@@ -67,7 +67,7 @@ export interface GetManagedInstanceKeyResult {
     readonly type: string;
 }
 /**
- * A managed instance key.
+ * Gets a managed instance key.
  * API Version: 2020-11-01-preview.
  */
 export function getManagedInstanceKeyOutput(args: GetManagedInstanceKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceKeyResult> {

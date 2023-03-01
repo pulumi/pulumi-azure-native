@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DBforMySQL
     public static class GetServerKey
     {
         /// <summary>
-        /// A MySQL Server key.
+        /// Gets a MySQL Server key.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:dbformysql:getServerKey", args ?? new GetServerKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A MySQL Server key.
+        /// Gets a MySQL Server key.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)

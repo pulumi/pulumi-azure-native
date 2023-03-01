@@ -195,7 +195,7 @@ def get_formula(expand: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFormulaResult:
     """
-    A formula for creating a VM, specifying an image base and other parameters
+    Get formula.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'
@@ -234,7 +234,7 @@ def get_formula_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFormulaResult]:
     """
-    A formula for creating a VM, specifying an image base and other parameters
+    Get formula.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20210101
     public static class ListWebAppSiteBackups
     {
         /// <summary>
-        /// Collection of backup items.
+        /// Gets existing backups of an app.
         /// </summary>
         public static Task<ListWebAppSiteBackupsResult> InvokeAsync(ListWebAppSiteBackupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSiteBackupsResult>("azure-native:web/v20210101:listWebAppSiteBackups", args ?? new ListWebAppSiteBackupsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collection of backup items.
+        /// Gets existing backups of an app.
         /// </summary>
         public static Output<ListWebAppSiteBackupsResult> Invoke(ListWebAppSiteBackupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSiteBackupsResult>("azure-native:web/v20210101:listWebAppSiteBackups", args ?? new ListWebAppSiteBackupsInvokeArgs(), options.WithDefaults());

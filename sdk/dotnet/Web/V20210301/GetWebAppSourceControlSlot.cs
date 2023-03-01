@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20210301
     public static class GetWebAppSourceControlSlot
     {
         /// <summary>
-        /// Source control configuration for an app.
+        /// Gets the source control configuration of an app.
         /// </summary>
         public static Task<GetWebAppSourceControlSlotResult> InvokeAsync(GetWebAppSourceControlSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlSlotResult>("azure-native:web/v20210301:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Source control configuration for an app.
+        /// Gets the source control configuration of an app.
         /// </summary>
         public static Output<GetWebAppSourceControlSlotResult> Invoke(GetWebAppSourceControlSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlSlotResult>("azure-native:web/v20210301:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotInvokeArgs(), options.WithDefaults());

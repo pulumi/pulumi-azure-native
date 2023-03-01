@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A DataSet data transfer object.
+ * Get a DataSet in a share
  */
 /** @deprecated Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, ADLSGen2StorageAccountDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, BlobStorageAccountDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet. */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
@@ -68,7 +68,7 @@ export interface GetDataSetResult {
     readonly type: string;
 }
 /**
- * A DataSet data transfer object.
+ * Get a DataSet in a share
  */
 /** @deprecated Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, ADLSGen2StorageAccountDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, BlobStorageAccountDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet. */
 export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {

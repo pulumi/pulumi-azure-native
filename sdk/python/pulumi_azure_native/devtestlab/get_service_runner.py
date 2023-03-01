@@ -110,7 +110,7 @@ def get_service_runner(lab_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceRunnerResult:
     """
-    A container for a managed identity to execute DevTest lab services.
+    Get service runner.
     API Version: 2018-09-15.
 
 
@@ -140,7 +140,7 @@ def get_service_runner_output(lab_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceRunnerResult]:
     """
-    A container for a managed identity to execute DevTest lab services.
+    Get service runner.
     API Version: 2018-09-15.
 
 

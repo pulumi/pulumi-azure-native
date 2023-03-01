@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Function secrets.
+ * Description for This is to allow calling via powershell and ARM template.
  */
 export function listWebAppSyncFunctionTriggersSlot(args: ListWebAppSyncFunctionTriggersSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersSlotResult> {
 
@@ -46,7 +46,7 @@ export interface ListWebAppSyncFunctionTriggersSlotResult {
     readonly triggerUrl?: string;
 }
 /**
- * Function secrets.
+ * Description for This is to allow calling via powershell and ARM template.
  */
 export function listWebAppSyncFunctionTriggersSlotOutput(args: ListWebAppSyncFunctionTriggersSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppSyncFunctionTriggersSlot(a, opts))

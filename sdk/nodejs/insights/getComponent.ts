@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Application Insights component definition.
+ * Returns an Application Insights component.
  * API Version: 2015-05-01.
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
@@ -133,7 +133,7 @@ export interface GetComponentResult {
     readonly type: string;
 }
 /**
- * An Application Insights component definition.
+ * Returns an Application Insights component.
  * API Version: 2015-05-01.
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {

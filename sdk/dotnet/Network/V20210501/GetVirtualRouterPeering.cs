@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210501
     public static class GetVirtualRouterPeering
     {
         /// <summary>
-        /// Virtual Router Peering resource.
+        /// Gets the specified Virtual Router Peering.
         /// </summary>
         public static Task<GetVirtualRouterPeeringResult> InvokeAsync(GetVirtualRouterPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterPeeringResult>("azure-native:network/v20210501:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Virtual Router Peering resource.
+        /// Gets the specified Virtual Router Peering.
         /// </summary>
         public static Output<GetVirtualRouterPeeringResult> Invoke(GetVirtualRouterPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRouterPeeringResult>("azure-native:network/v20210501:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringInvokeArgs(), options.WithDefaults());

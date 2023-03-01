@@ -136,7 +136,7 @@ def get_iscsi_server(device_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiServerResult:
     """
-    The iSCSI server.
+    Returns the properties of the specified iSCSI server name.
 
 
     :param str device_name: The device name.
@@ -171,7 +171,7 @@ def get_iscsi_server_output(device_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIscsiServerResult]:
     """
-    The iSCSI server.
+    Returns the properties of the specified iSCSI server name.
 
 
     :param str device_name: The device name.

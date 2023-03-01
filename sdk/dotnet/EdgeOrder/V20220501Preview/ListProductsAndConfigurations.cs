@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20220501Preview
     public static class ListProductsAndConfigurations
     {
         /// <summary>
-        /// The list of configurations.
+        /// List configurations for the given product family, product line and product for the given subscription.
         /// </summary>
         public static Task<ListProductsAndConfigurationsResult> InvokeAsync(ListProductsAndConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProductsAndConfigurationsResult>("azure-native:edgeorder/v20220501preview:listProductsAndConfigurations", args ?? new ListProductsAndConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of configurations.
+        /// List configurations for the given product family, product line and product for the given subscription.
         /// </summary>
         public static Output<ListProductsAndConfigurationsResult> Invoke(ListProductsAndConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductsAndConfigurationsResult>("azure-native:edgeorder/v20220501preview:listProductsAndConfigurations", args ?? new ListProductsAndConfigurationsInvokeArgs(), options.WithDefaults());

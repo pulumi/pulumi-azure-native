@@ -79,7 +79,8 @@ def get_entity(filter: Optional[str] = None,
                view: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
-    Describes the result of the request to view entities.
+    List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
+
     API Version: 2020-05-01.
 
 
@@ -127,7 +128,8 @@ def get_entity_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                       view: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
     """
-    Describes the result of the request to view entities.
+    List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
+
     API Version: 2020-05-01.
 
 

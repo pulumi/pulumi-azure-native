@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents a and external administrator to be created.
+ * Gets information about a AAD server administrator.
  * API Version: 2017-12-01.
  */
 export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdministratorResult> {
@@ -62,7 +62,7 @@ export interface GetServerAdministratorResult {
     readonly type: string;
 }
 /**
- * Represents a and external administrator to be created.
+ * Gets information about a AAD server administrator.
  * API Version: 2017-12-01.
  */
 export function getServerAdministratorOutput(args: GetServerAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdministratorResult> {

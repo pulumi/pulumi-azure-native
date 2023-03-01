@@ -351,7 +351,7 @@ def get_scheduled_alert_rule(resource_group_name: Optional[str] = None,
                              workspace_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledAlertRuleResult:
     """
-    Represents scheduled alert rule.
+    Gets the alert rule.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -400,7 +400,7 @@ def get_scheduled_alert_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     workspace_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledAlertRuleResult]:
     """
-    Represents scheduled alert rule.
+    Gets the alert rule.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

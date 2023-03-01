@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomProviders
     public static class GetAssociation
     {
         /// <summary>
-        /// The resource definition of this association.
+        /// Get an association.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetAssociationResult> InvokeAsync(GetAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-native:customproviders:getAssociation", args ?? new GetAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The resource definition of this association.
+        /// Get an association.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOptions? options = null)

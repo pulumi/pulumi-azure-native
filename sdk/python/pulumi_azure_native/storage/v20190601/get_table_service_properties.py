@@ -88,7 +88,7 @@ def get_table_service_properties(account_name: Optional[str] = None,
                                  table_service_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableServicePropertiesResult:
     """
-    The properties of a storage account’s Table service.
+    Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -116,7 +116,7 @@ def get_table_service_properties_output(account_name: Optional[pulumi.Input[str]
                                         table_service_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableServicePropertiesResult]:
     """
-    The properties of a storage account’s Table service.
+    Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

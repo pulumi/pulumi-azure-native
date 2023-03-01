@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the EnterprisePolicy.
+ * Get information about an EnterprisePolicy
  * API Version: 2020-10-30-preview.
  */
 export function getEnterprisePolicy(args: GetEnterprisePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePolicyResult> {
@@ -85,7 +85,7 @@ export interface GetEnterprisePolicyResult {
     readonly type: string;
 }
 /**
- * Definition of the EnterprisePolicy.
+ * Get information about an EnterprisePolicy
  * API Version: 2020-10-30-preview.
  */
 export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePolicyResult> {

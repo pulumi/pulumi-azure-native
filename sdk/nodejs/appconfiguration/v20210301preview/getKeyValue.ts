@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The key-value resource along with all resource properties.
+ * Gets the properties of the specified key-value.
  */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
 
@@ -86,7 +86,7 @@ export interface GetKeyValueResult {
     readonly value?: string;
 }
 /**
- * The key-value resource along with all resource properties.
+ * Gets the properties of the specified key-value.
  */
 export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueResult> {
     return pulumi.output(args).apply((a: any) => getKeyValue(a, opts))

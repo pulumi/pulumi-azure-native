@@ -92,7 +92,8 @@ def get_skus(provider_namespace: Optional[str] = None,
              sku: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets the sku details for the given resource type and sku name.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.
@@ -119,7 +120,8 @@ def get_skus_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                     sku: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets the sku details for the given resource type and sku name.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.

@@ -122,7 +122,7 @@ def get_managed_instance_long_term_retention_policy(database_name: Optional[str]
                                                     resource_group_name: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceLongTermRetentionPolicyResult:
     """
-    A long term retention policy.
+    Gets a managed database's long term retention policy.
 
 
     :param str database_name: The name of the database.
@@ -155,7 +155,7 @@ def get_managed_instance_long_term_retention_policy_output(database_name: Option
                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceLongTermRetentionPolicyResult]:
     """
-    A long term retention policy.
+    Gets a managed database's long term retention policy.
 
 
     :param str database_name: The name of the database.

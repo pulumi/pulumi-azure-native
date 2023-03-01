@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MixedReality
     public static class GetObjectAnchorsAccount
     {
         /// <summary>
-        /// ObjectAnchorsAccount Response.
+        /// Retrieve an Object Anchors Account.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetObjectAnchorsAccountResult> InvokeAsync(GetObjectAnchorsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ObjectAnchorsAccount Response.
+        /// Retrieve an Object Anchors Account.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetObjectAnchorsAccountResult> Invoke(GetObjectAnchorsAccountInvokeArgs args, InvokeOptions? options = null)

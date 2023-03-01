@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * User credentials used for publishing activity.
+ * Gets the Git/FTP publishing credentials of an app.
  */
 export function listWebAppPublishingCredentials(args: ListWebAppPublishingCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsResult> {
 
@@ -69,7 +69,7 @@ export interface ListWebAppPublishingCredentialsResult {
     readonly userName?: string;
 }
 /**
- * User credentials used for publishing activity.
+ * Gets the Git/FTP publishing credentials of an app.
  */
 export function listWebAppPublishingCredentialsOutput(args: ListWebAppPublishingCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppPublishingCredentials(a, opts))

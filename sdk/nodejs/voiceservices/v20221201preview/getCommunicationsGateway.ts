@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A CommunicationsGateway resource
+ * Get a CommunicationsGateway
  */
 export function getCommunicationsGateway(args: GetCommunicationsGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationsGatewayResult> {
 
@@ -92,7 +92,7 @@ export interface GetCommunicationsGatewayResult {
     readonly type: string;
 }
 /**
- * A CommunicationsGateway resource
+ * Get a CommunicationsGateway
  */
 export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationsGatewayResult> {
     return pulumi.output(args).apply((a: any) => getCommunicationsGateway(a, opts))

@@ -46,7 +46,8 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKeyByAutomationAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve the automation keys for an account.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
@@ -66,7 +67,8 @@ def list_key_by_automation_account_output(automation_account_name: Optional[pulu
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKeyByAutomationAccountResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve the automation keys for an account.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.

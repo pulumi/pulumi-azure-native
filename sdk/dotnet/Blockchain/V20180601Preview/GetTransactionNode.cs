@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
     public static class GetTransactionNode
     {
         /// <summary>
-        /// Payload of the transaction node which is the request/response of the resource provider.
+        /// Get the details of the transaction node.
         /// </summary>
         public static Task<GetTransactionNodeResult> InvokeAsync(GetTransactionNodeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransactionNodeResult>("azure-native:blockchain/v20180601preview:getTransactionNode", args ?? new GetTransactionNodeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Payload of the transaction node which is the request/response of the resource provider.
+        /// Get the details of the transaction node.
         /// </summary>
         public static Output<GetTransactionNodeResult> Invoke(GetTransactionNodeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransactionNodeResult>("azure-native:blockchain/v20180601preview:getTransactionNode", args ?? new GetTransactionNodeInvokeArgs(), options.WithDefaults());

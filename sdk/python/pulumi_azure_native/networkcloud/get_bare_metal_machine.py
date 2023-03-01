@@ -433,6 +433,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBareMetalMachineResult:
     """
+    Get properties of the provided bare metal machine.
     API Version: 2022-12-12-preview.
 
 
@@ -487,6 +488,7 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBareMetalMachineResult]:
     """
+    Get properties of the provided bare metal machine.
     API Version: 2022-12-12-preview.
 
 

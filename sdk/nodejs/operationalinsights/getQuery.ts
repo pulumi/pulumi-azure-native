@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Log Analytics QueryPack-Query definition.
+ * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
  * API Version: 2019-09-01.
  */
 export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryResult> {
@@ -94,7 +94,7 @@ export interface GetQueryResult {
     readonly type: string;
 }
 /**
- * A Log Analytics QueryPack-Query definition.
+ * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
  * API Version: 2019-09-01.
  */
 export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryResult> {

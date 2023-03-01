@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20201201
     public static class ListWebAppApplicationSettingsSlot
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the application settings of an app.
         /// </summary>
         public static Task<ListWebAppApplicationSettingsSlotResult> InvokeAsync(ListWebAppApplicationSettingsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsSlotResult>("azure-native:web/v20201201:listWebAppApplicationSettingsSlot", args ?? new ListWebAppApplicationSettingsSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Gets the application settings of an app.
         /// </summary>
         public static Output<ListWebAppApplicationSettingsSlotResult> Invoke(ListWebAppApplicationSettingsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppApplicationSettingsSlotResult>("azure-native:web/v20201201:listWebAppApplicationSettingsSlot", args ?? new ListWebAppApplicationSettingsSlotInvokeArgs(), options.WithDefaults());

@@ -122,7 +122,7 @@ def get_certificate(certificate_id: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Certificate details.
+    Gets the details of the certificate specified by its identifier.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -152,7 +152,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Certificate details.
+    Gets the details of the certificate specified by its identifier.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.

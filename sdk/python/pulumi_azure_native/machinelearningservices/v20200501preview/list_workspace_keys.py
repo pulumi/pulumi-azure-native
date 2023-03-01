@@ -70,7 +70,8 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
+
 
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
@@ -93,7 +94,8 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] 
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
-    Use this data source to access information about an existing resource.
+    Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
+
 
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.

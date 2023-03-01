@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ * Description for Gets the Authentication/Authorization settings of an app.
  */
 export function listWebAppAuthSettingsSlot(args: ListWebAppAuthSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsSlotResult> {
 
@@ -258,7 +258,7 @@ export interface ListWebAppAuthSettingsSlotResult {
     readonly validateIssuer?: boolean;
 }
 /**
- * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ * Description for Gets the Authentication/Authorization settings of an app.
  */
 export function listWebAppAuthSettingsSlotOutput(args: ListWebAppAuthSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppAuthSettingsSlot(a, opts))

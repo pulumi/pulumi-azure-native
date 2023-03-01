@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
     public static class ListVendorSkusCredential
     {
         /// <summary>
-        /// The Sku credential definition.
+        /// Generate credentials for publishing SKU images.
         /// </summary>
         public static Task<ListVendorSkusCredentialResult> InvokeAsync(ListVendorSkusCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVendorSkusCredentialResult>("azure-native:hybridnetwork/v20220101preview:listVendorSkusCredential", args ?? new ListVendorSkusCredentialArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Sku credential definition.
+        /// Generate credentials for publishing SKU images.
         /// </summary>
         public static Output<ListVendorSkusCredentialResult> Invoke(ListVendorSkusCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVendorSkusCredentialResult>("azure-native:hybridnetwork/v20220101preview:listVendorSkusCredential", args ?? new ListVendorSkusCredentialInvokeArgs(), options.WithDefaults());

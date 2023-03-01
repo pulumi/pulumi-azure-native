@@ -135,7 +135,7 @@ def get_profile(profile_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
-    CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
+    Gets a CDN profile with the specified profile name under the specified subscription and resource group.
 
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
@@ -164,7 +164,7 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
-    CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
+    Gets a CDN profile with the specified profile name under the specified subscription and resource group.
 
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.

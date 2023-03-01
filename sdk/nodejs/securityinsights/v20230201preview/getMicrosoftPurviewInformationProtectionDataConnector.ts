@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Microsoft Purview Information Protection data connector.
+ * Gets a data connector.
  */
 export function getMicrosoftPurviewInformationProtectionDataConnector(args: GetMicrosoftPurviewInformationProtectionDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftPurviewInformationProtectionDataConnectorResult> {
 
@@ -74,7 +74,7 @@ export interface GetMicrosoftPurviewInformationProtectionDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents Microsoft Purview Information Protection data connector.
+ * Gets a data connector.
  */
 export function getMicrosoftPurviewInformationProtectionDataConnectorOutput(args: GetMicrosoftPurviewInformationProtectionDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftPurviewInformationProtectionDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMicrosoftPurviewInformationProtectionDataConnector(a, opts))

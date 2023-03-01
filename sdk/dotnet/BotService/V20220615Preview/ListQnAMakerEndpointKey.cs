@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
     public static class ListQnAMakerEndpointKey
     {
         /// <summary>
-        /// Schema for EndpointKeys generate/refresh operations.
+        /// Lists the QnA Maker endpoint keys
         /// </summary>
         public static Task<ListQnAMakerEndpointKeyResult> InvokeAsync(ListQnAMakerEndpointKeyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListQnAMakerEndpointKeyResult>("azure-native:botservice/v20220615preview:listQnAMakerEndpointKey", args ?? new ListQnAMakerEndpointKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema for EndpointKeys generate/refresh operations.
+        /// Lists the QnA Maker endpoint keys
         /// </summary>
         public static Output<ListQnAMakerEndpointKeyResult> Invoke(ListQnAMakerEndpointKeyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListQnAMakerEndpointKeyResult>("azure-native:botservice/v20220615preview:listQnAMakerEndpointKey", args ?? new ListQnAMakerEndpointKeyInvokeArgs(), options.WithDefaults());

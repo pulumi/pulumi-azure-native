@@ -110,7 +110,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
-    Access policies help define the authentication rules, and control access to specific video resources.
+    Retrieves an existing access policy resource with the given name.
 
 
     :param str access_policy_name: The Access Policy name.
@@ -139,7 +139,7 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
-    Access policies help define the authentication rules, and control access to specific video resources.
+    Retrieves an existing access policy resource with the given name.
 
 
     :param str access_policy_name: The Access Policy name.

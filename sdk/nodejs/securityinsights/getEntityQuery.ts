@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Specific entity query.
+ * Gets an entity query.
  * API Version: 2021-03-01-preview.
  */
 /** @deprecated Please use one of the variants: ActivityCustomEntityQuery. */
@@ -73,7 +73,7 @@ export interface GetEntityQueryResult {
     readonly type: string;
 }
 /**
- * Specific entity query.
+ * Gets an entity query.
  * API Version: 2021-03-01-preview.
  */
 /** @deprecated Please use one of the variants: ActivityCustomEntityQuery. */

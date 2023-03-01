@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The customer's ASN that is registered by the peering service provider.
+ * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  * API Version: 2021-01-01.
  */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
@@ -63,7 +63,7 @@ export interface GetRegisteredAsnResult {
     readonly type: string;
 }
 /**
- * The customer's ASN that is registered by the peering service provider.
+ * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  * API Version: 2021-01-01.
  */
 export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredAsnResult> {

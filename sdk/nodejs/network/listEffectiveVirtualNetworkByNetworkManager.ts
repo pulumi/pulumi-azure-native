@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+ * List effective virtual networks in a network manager.
  * API Version: 2021-02-01-preview.
  */
 export function listEffectiveVirtualNetworkByNetworkManager(args: ListEffectiveVirtualNetworkByNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveVirtualNetworkByNetworkManagerResult> {
@@ -60,7 +60,7 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerResult {
     readonly value?: outputs.network.EffectiveVirtualNetworkResponse[];
 }
 /**
- * Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+ * List effective virtual networks in a network manager.
  * API Version: 2021-02-01-preview.
  */
 export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {

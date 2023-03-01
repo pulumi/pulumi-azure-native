@@ -85,7 +85,7 @@ def get_monitoring_setting(resource_group_name: Optional[str] = None,
                            service_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringSettingResult:
     """
-    Monitoring Setting resource
+    Get the Monitoring Setting and its properties.
     API Version: 2020-07-01.
 
 
@@ -110,7 +110,7 @@ def get_monitoring_setting_output(resource_group_name: Optional[pulumi.Input[str
                                   service_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringSettingResult]:
     """
-    Monitoring Setting resource
+    Get the Monitoring Setting and its properties.
     API Version: 2020-07-01.
 
 

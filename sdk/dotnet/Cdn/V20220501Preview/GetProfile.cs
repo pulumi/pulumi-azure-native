@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview
     public static class GetProfile
     {
         /// <summary>
-        /// A profile is a logical grouping of endpoints that share the same settings.
+        /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn/v20220501preview:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A profile is a logical grouping of endpoints that share the same settings.
+        /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn/v20220501preview:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());

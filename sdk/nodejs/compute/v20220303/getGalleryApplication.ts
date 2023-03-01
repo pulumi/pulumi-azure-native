@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Specifies information about the gallery Application Definition that you want to create or update.
+ * Retrieves information about a gallery Application Definition.
  */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
 
@@ -89,7 +89,7 @@ export interface GetGalleryApplicationResult {
     readonly type: string;
 }
 /**
- * Specifies information about the gallery Application Definition that you want to create or update.
+ * Retrieves information about a gallery Application Definition.
  */
 export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {
     return pulumi.output(args).apply((a: any) => getGalleryApplication(a, opts))

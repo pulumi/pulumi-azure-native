@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureArcData.V20211101
     public static class GetSqlServerInstance
     {
         /// <summary>
-        /// A SqlServerInstance.
+        /// Retrieves a SQL Server Instance resource
         /// </summary>
         public static Task<GetSqlServerInstanceResult> InvokeAsync(GetSqlServerInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata/v20211101:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A SqlServerInstance.
+        /// Retrieves a SQL Server Instance resource
         /// </summary>
         public static Output<GetSqlServerInstanceResult> Invoke(GetSqlServerInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata/v20211101:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());

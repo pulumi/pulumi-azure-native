@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a devcenter resource.
+ * Gets a devcenter.
  * API Version: 2022-09-01-preview.
  */
 export function getDevCenter(args: GetDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDevCenterResult> {
@@ -69,7 +69,7 @@ export interface GetDevCenterResult {
     readonly type: string;
 }
 /**
- * Represents a devcenter resource.
+ * Gets a devcenter.
  * API Version: 2022-09-01-preview.
  */
 export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevCenterResult> {

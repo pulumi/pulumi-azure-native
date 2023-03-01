@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetVirtualHubIpConfiguration
     {
         /// <summary>
-        /// IpConfigurations.
+        /// Retrieves the details of a Virtual Hub Ip configuration.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualHubIpConfigurationResult> InvokeAsync(GetVirtualHubIpConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubIpConfigurationResult>("azure-native:network:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// IpConfigurations.
+        /// Retrieves the details of a Virtual Hub Ip configuration.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVirtualHubIpConfigurationResult> Invoke(GetVirtualHubIpConfigurationInvokeArgs args, InvokeOptions? options = null)

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An account data transfer object.
+ * Get an account
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -78,7 +78,7 @@ export interface GetAccountResult {
     readonly userName: string;
 }
 /**
- * An account data transfer object.
+ * Get an account
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

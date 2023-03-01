@@ -49,7 +49,7 @@ def list_database_account_connection_strings(account_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseAccountConnectionStringsResult:
     """
-    The connection strings for the given database account.
+    Lists the connection strings for the specified Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -70,7 +70,7 @@ def list_database_account_connection_strings_output(account_name: Optional[pulum
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseAccountConnectionStringsResult]:
     """
-    The connection strings for the given database account.
+    Lists the connection strings for the specified Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.

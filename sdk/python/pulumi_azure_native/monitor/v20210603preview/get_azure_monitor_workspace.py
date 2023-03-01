@@ -169,7 +169,7 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureMonitorWorkspaceResult:
     """
-    An Azure Monitor Workspace definition
+    Returns the specific Azure Monitor workspace
 
 
     :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
@@ -200,7 +200,7 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureMonitorWorkspaceResult]:
     """
-    An Azure Monitor Workspace definition
+    Returns the specific Azure Monitor workspace
 
 
     :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive

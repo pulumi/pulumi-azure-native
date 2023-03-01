@@ -234,7 +234,7 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
                                                  vm_scale_set_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMRunCommandResult:
     """
-    Describes a Virtual Machine run command.
+    The operation to get the VMSS VM run command.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -280,7 +280,7 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
                                                         vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMRunCommandResult]:
     """
-    Describes a Virtual Machine run command.
+    The operation to get the VMSS VM run command.
 
 
     :param str expand: The expand expression to apply on the operation.

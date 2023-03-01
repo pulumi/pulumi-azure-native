@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get a Hyper-V collector.
  * API Version: 2019-10-01.
  */
 export function getHyperVCollector(args: GetHyperVCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVCollectorResult> {
@@ -43,6 +44,7 @@ export interface GetHyperVCollectorResult {
     readonly type: string;
 }
 /**
+ * Get a Hyper-V collector.
  * API Version: 2019-10-01.
  */
 export function getHyperVCollectorOutput(args: GetHyperVCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVCollectorResult> {

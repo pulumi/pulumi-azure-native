@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The image definition.
+ * Gets data image upload URL.
  * API Version: 2017-04-26.
  */
 export function getImageUploadUrlForData(args: GetImageUploadUrlForDataArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForDataResult> {
@@ -61,7 +61,7 @@ export interface GetImageUploadUrlForDataResult {
     readonly relativePath?: string;
 }
 /**
- * The image definition.
+ * Gets data image upload URL.
  * API Version: 2017-04-26.
  */
 export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForDataResult> {

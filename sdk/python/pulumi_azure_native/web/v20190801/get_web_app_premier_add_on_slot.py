@@ -170,7 +170,7 @@ def get_web_app_premier_add_on_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnSlotResult:
     """
-    Premier add-on.
+    Gets a named add-on of an app.
 
 
     :param str name: Name of the app.
@@ -207,7 +207,7 @@ def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = N
                                            slot: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPremierAddOnSlotResult]:
     """
-    Premier add-on.
+    Gets a named add-on of an app.
 
 
     :param str name: Name of the app.

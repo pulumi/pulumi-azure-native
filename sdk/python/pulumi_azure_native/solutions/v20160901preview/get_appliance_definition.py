@@ -207,7 +207,7 @@ def get_appliance_definition(appliance_definition_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplianceDefinitionResult:
     """
-    Information about appliance definition.
+    Gets the appliance definition.
 
 
     :param str appliance_definition_name: The name of the appliance definition.
@@ -242,7 +242,7 @@ def get_appliance_definition_output(appliance_definition_name: Optional[pulumi.I
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplianceDefinitionResult]:
     """
-    Information about appliance definition.
+    Gets the appliance definition.
 
 
     :param str appliance_definition_name: The name of the appliance definition.

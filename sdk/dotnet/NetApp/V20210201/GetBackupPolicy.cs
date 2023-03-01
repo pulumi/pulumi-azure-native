@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NetApp.V20210201
     public static class GetBackupPolicy
     {
         /// <summary>
-        /// Backup policy information
+        /// Get a particular backup Policy
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:netapp/v20210201:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Backup policy information
+        /// Get a particular backup Policy
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:netapp/v20210201:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());

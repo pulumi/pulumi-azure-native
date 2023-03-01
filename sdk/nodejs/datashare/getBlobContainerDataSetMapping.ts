@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Blob container data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getBlobContainerDataSetMapping(args: GetBlobContainerDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetMappingResult> {
@@ -96,7 +96,7 @@ export interface GetBlobContainerDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A Blob container data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getBlobContainerDataSetMappingOutput(args: GetBlobContainerDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetMappingResult> {

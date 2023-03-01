@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
     public static class GetServerKey
     {
         /// <summary>
-        /// A server key.
+        /// Gets a server key.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:sql/v20150501preview:getServerKey", args ?? new GetServerKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A server key.
+        /// Gets a server key.
         /// </summary>
         public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:sql/v20150501preview:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());

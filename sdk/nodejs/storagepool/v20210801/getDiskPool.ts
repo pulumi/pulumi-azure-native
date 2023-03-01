@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response for Disk Pool request.
+ * Get a Disk pool.
  */
 export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskPoolResult> {
 
@@ -96,7 +96,7 @@ export interface GetDiskPoolResult {
     readonly type: string;
 }
 /**
- * Response for Disk Pool request.
+ * Get a Disk pool.
  */
 export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskPoolResult> {
     return pulumi.output(args).apply((a: any) => getDiskPool(a, opts))

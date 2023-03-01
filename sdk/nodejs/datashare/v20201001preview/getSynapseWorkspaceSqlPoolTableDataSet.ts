@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Synapse Workspace Sql Pool Table data set.
+ * Get a DataSet in a share
  */
 export function getSynapseWorkspaceSqlPoolTableDataSet(args: GetSynapseWorkspaceSqlPoolTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
 
@@ -75,7 +75,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetResult {
     readonly type: string;
 }
 /**
- * A Synapse Workspace Sql Pool Table data set.
+ * Get a DataSet in a share
  */
 export function getSynapseWorkspaceSqlPoolTableDataSetOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
     return pulumi.output(args).apply((a: any) => getSynapseWorkspaceSqlPoolTableDataSet(a, opts))

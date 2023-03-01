@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A sql database resource.
+ * Gets a SqlDatabase.
  */
 /** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlDatabase(args: GetSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDatabaseResult> {
@@ -87,7 +87,7 @@ export interface GetSqlDatabaseResult {
     readonly type: string;
 }
 /**
- * A sql database resource.
+ * Gets a SqlDatabase.
  */
 /** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlDatabaseOutput(args: GetSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDatabaseResult> {

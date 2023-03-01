@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes the cloud service.
+ * Display information about a cloud service.
  * API Version: 2021-03-01.
  */
 export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServiceResult> {
@@ -61,7 +61,7 @@ export interface GetCloudServiceResult {
     readonly type: string;
 }
 /**
- * Describes the cloud service.
+ * Display information about a cloud service.
  * API Version: 2021-03-01.
  */
 export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServiceResult> {

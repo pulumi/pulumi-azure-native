@@ -147,7 +147,7 @@ def get_aks_service(expand: Optional[bool] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAKSServiceResult:
     """
-    Machine Learning service object wrapped into ARM resource envelope.
+    Get a Service by name.
     API Version: 2021-01-01.
 
 
@@ -183,7 +183,7 @@ def get_aks_service_output(expand: Optional[pulumi.Input[Optional[bool]]] = None
                            workspace_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAKSServiceResult]:
     """
-    Machine Learning service object wrapped into ARM resource envelope.
+    Get a Service by name.
     API Version: 2021-01-01.
 
 

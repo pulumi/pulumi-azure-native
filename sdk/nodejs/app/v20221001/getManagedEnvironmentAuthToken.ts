@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Environment Auth Token.
+ * Checks if resource name is available.
  */
 export function getManagedEnvironmentAuthToken(args: GetManagedEnvironmentAuthTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentAuthTokenResult> {
 
@@ -68,7 +68,7 @@ export interface GetManagedEnvironmentAuthTokenResult {
     readonly type: string;
 }
 /**
- * Environment Auth Token.
+ * Checks if resource name is available.
  */
 export function getManagedEnvironmentAuthTokenOutput(args: GetManagedEnvironmentAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentAuthTokenResult> {
     return pulumi.output(args).apply((a: any) => getManagedEnvironmentAuthToken(a, opts))

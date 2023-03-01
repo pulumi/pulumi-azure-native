@@ -159,7 +159,7 @@ def get_policy_assignment_artifact(artifact_name: Optional[str] = None,
                                    management_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentArtifactResult:
     """
-    Blueprint artifact applies Policy assignments.
+    Get a Blueprint artifact.
 
 
     :param str artifact_name: name of the artifact.
@@ -192,7 +192,7 @@ def get_policy_assignment_artifact_output(artifact_name: Optional[pulumi.Input[s
                                           management_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentArtifactResult]:
     """
-    Blueprint artifact applies Policy assignments.
+    Get a Blueprint artifact.
 
 
     :param str artifact_name: name of the artifact.

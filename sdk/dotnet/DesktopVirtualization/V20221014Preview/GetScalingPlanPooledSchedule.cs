@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
     public static class GetScalingPlanPooledSchedule
     {
         /// <summary>
-        /// Represents a ScalingPlanPooledSchedule definition.
+        /// Get a ScalingPlanPooledSchedule.
         /// </summary>
         public static Task<GetScalingPlanPooledScheduleResult> InvokeAsync(GetScalingPlanPooledScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization/v20221014preview:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a ScalingPlanPooledSchedule definition.
+        /// Get a ScalingPlanPooledSchedule.
         /// </summary>
         public static Output<GetScalingPlanPooledScheduleResult> Invoke(GetScalingPlanPooledScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPooledScheduleResult>("azure-native:desktopvirtualization/v20221014preview:getScalingPlanPooledSchedule", args ?? new GetScalingPlanPooledScheduleInvokeArgs(), options.WithDefaults());

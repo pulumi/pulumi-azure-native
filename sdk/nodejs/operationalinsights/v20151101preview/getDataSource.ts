@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Datasources under OMS Workspace.
+ * Gets a datasource instance.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
 
@@ -66,7 +66,7 @@ export interface GetDataSourceResult {
     readonly type: string;
 }
 /**
- * Datasources under OMS Workspace.
+ * Gets a datasource instance.
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
     return pulumi.output(args).apply((a: any) => getDataSource(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The network manager connectivity configuration resource
+ * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
  * API Version: 2021-02-01-preview.
  */
 export function getConnectivityConfiguration(args: GetConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectivityConfigurationResult> {
@@ -94,7 +94,7 @@ export interface GetConnectivityConfigurationResult {
     readonly type: string;
 }
 /**
- * The network manager connectivity configuration resource
+ * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
  * API Version: 2021-02-01-preview.
  */
 export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectivityConfigurationResult> {

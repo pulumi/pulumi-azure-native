@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
     public static class GetReplicationProtectedItem
     {
         /// <summary>
-        /// Replication protected item.
+        /// Gets the details of an ASR replication protected item.
         /// </summary>
         public static Task<GetReplicationProtectedItemResult> InvokeAsync(GetReplicationProtectedItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectedItemResult>("azure-native:recoveryservices/v20210601:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Replication protected item.
+        /// Gets the details of an ASR replication protected item.
         /// </summary>
         public static Output<GetReplicationProtectedItemResult> Invoke(GetReplicationProtectedItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationProtectedItemResult>("azure-native:recoveryservices/v20210601:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemInvokeArgs(), options.WithDefaults());

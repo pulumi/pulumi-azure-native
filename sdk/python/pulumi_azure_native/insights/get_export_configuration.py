@@ -265,7 +265,7 @@ def get_export_configuration(export_id: Optional[str] = None,
                              resource_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportConfigurationResult:
     """
-    Properties that define a Continuous Export configuration.
+    Get the Continuous Export configuration for this export id.
     API Version: 2015-05-01.
 
 
@@ -308,7 +308,7 @@ def get_export_configuration_output(export_id: Optional[pulumi.Input[str]] = Non
                                     resource_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportConfigurationResult]:
     """
-    Properties that define a Continuous Export configuration.
+    Get the Continuous Export configuration for this export id.
     API Version: 2015-05-01.
 
 

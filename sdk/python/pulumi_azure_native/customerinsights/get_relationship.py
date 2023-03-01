@@ -218,7 +218,7 @@ def get_relationship(hub_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRelationshipResult:
     """
-    The relationship resource format.
+    Gets information about the specified relationship.
     API Version: 2017-04-26.
 
 
@@ -257,7 +257,7 @@ def get_relationship_output(hub_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRelationshipResult]:
     """
-    The relationship resource format.
+    Gets information about the specified relationship.
     API Version: 2017-04-26.
 
 

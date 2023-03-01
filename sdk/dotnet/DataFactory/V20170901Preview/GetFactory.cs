@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     public static class GetFactory
     {
         /// <summary>
-        /// Factory resource type.
+        /// Gets a factory.
         /// </summary>
         public static Task<GetFactoryResult> InvokeAsync(GetFactoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure-native:datafactory/v20170901preview:getFactory", args ?? new GetFactoryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Factory resource type.
+        /// Gets a factory.
         /// </summary>
         public static Output<GetFactoryResult> Invoke(GetFactoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFactoryResult>("azure-native:datafactory/v20170901preview:getFactory", args ?? new GetFactoryInvokeArgs(), options.WithDefaults());

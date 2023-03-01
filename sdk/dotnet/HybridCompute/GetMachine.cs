@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridCompute
     public static class GetMachine
     {
         /// <summary>
-        /// Describes a hybrid machine.
+        /// Retrieves information about the model view or the instance view of a hybrid machine.
         /// API Version: 2020-08-02.
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a hybrid machine.
+        /// Retrieves information about the model view or the instance view of a hybrid machine.
         /// API Version: 2020-08-02.
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)

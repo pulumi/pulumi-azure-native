@@ -230,7 +230,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkVirtualApplianceResult:
     """
-    NetworkVirtualAppliance Resource.
+    Gets the specified Network Virtual Appliance.
 
 
     :param str expand: Expands referenced resources.
@@ -269,7 +269,7 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
     """
-    NetworkVirtualAppliance Resource.
+    Gets the specified Network Virtual Appliance.
 
 
     :param str expand: Expands referenced resources.

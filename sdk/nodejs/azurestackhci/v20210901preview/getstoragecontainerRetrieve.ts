@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The storage container resource definition.
+ * Gets storagecontainers by resource name
  */
 export function getstoragecontainerRetrieve(args: GetstoragecontainerRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetstoragecontainerRetrieveResult> {
 
@@ -79,7 +79,7 @@ export interface GetstoragecontainerRetrieveResult {
     readonly type: string;
 }
 /**
- * The storage container resource definition.
+ * Gets storagecontainers by resource name
  */
 export function getstoragecontainerRetrieveOutput(args: GetstoragecontainerRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetstoragecontainerRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getstoragecontainerRetrieve(a, opts))

@@ -222,7 +222,7 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
                                         system_topic_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicEventSubscriptionResult:
     """
-    Event Subscription
+    Get an event subscription.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -260,7 +260,7 @@ def get_system_topic_event_subscription_output(event_subscription_name: Optional
                                                system_topic_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionResult]:
     """
-    Event Subscription
+    Get an event subscription.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

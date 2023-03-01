@@ -206,7 +206,7 @@ def get_data_network(data_network_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataNetworkResult:
     """
-    Data network resource.
+    Gets information about the specified mobile network dataNetwork.
 
 
     :param str data_network_name: The name of the mobile network dataNetwork.
@@ -243,7 +243,7 @@ def get_data_network_output(data_network_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataNetworkResult]:
     """
-    Data network resource.
+    Gets information about the specified mobile network dataNetwork.
 
 
     :param str data_network_name: The name of the mobile network dataNetwork.

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200301
     public static class GetActiveSessions
     {
         /// <summary>
-        /// Response for GetActiveSessions.
+        /// Returns the list of currently active sessions on the Bastion.
         /// </summary>
         public static Task<GetActiveSessionsResult> InvokeAsync(GetActiveSessionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-native:network/v20200301:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for GetActiveSessions.
+        /// Returns the list of currently active sessions on the Bastion.
         /// </summary>
         public static Output<GetActiveSessionsResult> Invoke(GetActiveSessionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveSessionsResult>("azure-native:network/v20200301:getActiveSessions", args ?? new GetActiveSessionsInvokeArgs(), options.WithDefaults());

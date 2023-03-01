@@ -157,7 +157,7 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureTrafficCollectorResult:
     """
-    Azure Traffic Collector resource.
+    Gets the specified Azure Traffic Collector in a specified resource group
     API Version: 2022-05-01.
 
 
@@ -188,7 +188,7 @@ def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureTrafficCollectorResult]:
     """
-    Azure Traffic Collector resource.
+    Gets the specified Azure Traffic Collector in a specified resource group
     API Version: 2022-05-01.
 
 

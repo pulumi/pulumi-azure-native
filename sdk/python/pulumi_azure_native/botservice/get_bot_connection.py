@@ -158,7 +158,7 @@ def get_bot_connection(connection_name: Optional[str] = None,
                        resource_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotConnectionResult:
     """
-    Bot channel resource definition
+    Get a Connection Setting registration for a Bot Service
     API Version: 2021-03-01.
 
 
@@ -192,7 +192,7 @@ def get_bot_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
                               resource_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotConnectionResult]:
     """
-    Bot channel resource definition
+    Get a Connection Setting registration for a Bot Service
     API Version: 2021-03-01.
 
 

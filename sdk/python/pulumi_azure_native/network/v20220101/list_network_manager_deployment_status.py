@@ -65,7 +65,7 @@ def list_network_manager_deployment_status(deployment_types: Optional[Sequence[U
                                            skip_token: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNetworkManagerDeploymentStatusResult:
     """
-    A list of Network Manager Deployment Status
+    Post to List of Network Manager Deployment Status.
 
 
     :param Sequence[Union[str, 'ConfigurationType']] deployment_types: List of deployment types.
@@ -96,7 +96,7 @@ def list_network_manager_deployment_status_output(deployment_types: Optional[pul
                                                   skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerDeploymentStatusResult]:
     """
-    A list of Network Manager Deployment Status
+    Post to List of Network Manager Deployment Status.
 
 
     :param Sequence[Union[str, 'ConfigurationType']] deployment_types: List of deployment types.

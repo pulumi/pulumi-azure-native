@@ -135,7 +135,7 @@ def get_bookmark_relation(bookmark_id: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkRelationResult:
     """
-    Represents a relation between two resources
+    Gets a bookmark relation.
     API Version: 2019-01-01-preview.
 
 
@@ -173,7 +173,7 @@ def get_bookmark_relation_output(bookmark_id: Optional[pulumi.Input[str]] = None
                                  workspace_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBookmarkRelationResult]:
     """
-    Represents a relation between two resources
+    Gets a bookmark relation.
     API Version: 2019-01-01-preview.
 
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+ * Obtains the details of a suppression.
  * API Version: 2020-01-01.
  */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
@@ -63,7 +63,7 @@ export interface GetSuppressionResult {
     readonly type: string;
 }
 /**
- * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+ * Obtains the details of a suppression.
  * API Version: 2020-01-01.
  */
 export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionResult> {

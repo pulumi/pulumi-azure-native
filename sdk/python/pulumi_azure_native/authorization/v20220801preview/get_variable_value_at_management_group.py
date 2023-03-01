@@ -98,7 +98,7 @@ def get_variable_value_at_management_group(management_group_id: Optional[str] = 
                                            variable_value_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableValueAtManagementGroupResult:
     """
-    The variable value.
+    This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
 
 
     :param str management_group_id: The ID of the management group.
@@ -126,7 +126,7 @@ def get_variable_value_at_management_group_output(management_group_id: Optional[
                                                   variable_value_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableValueAtManagementGroupResult]:
     """
-    The variable value.
+    This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
 
 
     :param str management_group_id: The ID of the management group.

@@ -148,7 +148,7 @@ def get_storage_target(cache_name: Optional[str] = None,
                        storage_target_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
-    A storage system being cached by a Cache.
+    Returns a Storage Target from a Cache.
 
 
     :param str cache_name: Name of Cache.
@@ -181,7 +181,7 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
                               storage_target_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageTargetResult]:
     """
-    A storage system being cached by a Cache.
+    Returns a Storage Target from a Cache.
 
 
     :param str cache_name: Name of Cache.

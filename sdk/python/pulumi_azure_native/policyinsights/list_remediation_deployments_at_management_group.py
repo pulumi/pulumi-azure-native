@@ -63,7 +63,7 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
                                                      top: Optional[int] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtManagementGroupResult:
     """
-    List of deployments for a remediation.
+    Gets all deployments for a remediation at management group scope.
     API Version: 2019-07-01.
 
 
@@ -92,7 +92,7 @@ def list_remediation_deployments_at_management_group_output(management_group_id:
                                                             top: Optional[pulumi.Input[Optional[int]]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtManagementGroupResult]:
     """
-    List of deployments for a remediation.
+    Gets all deployments for a remediation at management group scope.
     API Version: 2019-07-01.
 
 

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetTestResultFile
     {
         /// <summary>
-        /// Test result.
+        /// Returns a file test result for the matching test
         /// API Version: 2020-02-10-preview.
         /// </summary>
         public static Task<GetTestResultFileResult> InvokeAsync(GetTestResultFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestResultFileResult>("azure-native:insights:getTestResultFile", args ?? new GetTestResultFileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Test result.
+        /// Returns a file test result for the matching test
         /// API Version: 2020-02-10-preview.
         /// </summary>
         public static Output<GetTestResultFileResult> Invoke(GetTestResultFileInvokeArgs args, InvokeOptions? options = null)

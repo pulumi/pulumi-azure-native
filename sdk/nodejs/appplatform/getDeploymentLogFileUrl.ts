@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Log file URL payload
+ * Get deployment log file URL
  * API Version: 2020-07-01.
  */
 export function getDeploymentLogFileUrl(args: GetDeploymentLogFileUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentLogFileUrlResult> {
@@ -48,7 +48,7 @@ export interface GetDeploymentLogFileUrlResult {
     readonly url: string;
 }
 /**
- * Log file URL payload
+ * Get deployment log file URL
  * API Version: 2020-07-01.
  */
 export function getDeploymentLogFileUrlOutput(args: GetDeploymentLogFileUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentLogFileUrlResult> {

@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Gets the sku details for the given resource type and sku name.
  * API Version: 2020-11-20.
  */
 export function getSkusNestedResourceTypeFirst(args: GetSkusNestedResourceTypeFirstArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeFirstResult> {
@@ -56,6 +57,7 @@ export interface GetSkusNestedResourceTypeFirstResult {
     readonly type: string;
 }
 /**
+ * Gets the sku details for the given resource type and sku name.
  * API Version: 2020-11-20.
  */
 export function getSkusNestedResourceTypeFirstOutput(args: GetSkusNestedResourceTypeFirstOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeFirstResult> {

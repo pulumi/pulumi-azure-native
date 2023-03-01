@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20220301
     public static class GetWebApp
     {
         /// <summary>
-        /// A web app, a mobile app backend, or an API app.
+        /// Description for Gets the details of a web, mobile, or API app.
         /// </summary>
         public static Task<GetWebAppResult> InvokeAsync(GetWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppResult>("azure-native:web/v20220301:getWebApp", args ?? new GetWebAppArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A web app, a mobile app backend, or an API app.
+        /// Description for Gets the details of a web, mobile, or API app.
         /// </summary>
         public static Output<GetWebAppResult> Invoke(GetWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppResult>("azure-native:web/v20220301:getWebApp", args ?? new GetWebAppInvokeArgs(), options.WithDefaults());

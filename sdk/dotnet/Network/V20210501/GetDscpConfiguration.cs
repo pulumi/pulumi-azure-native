@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210501
     public static class GetDscpConfiguration
     {
         /// <summary>
-        /// Differentiated Services Code Point configuration for any given network interface
+        /// Gets a DSCP Configuration.
         /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-native:network/v20210501:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Differentiated Services Code Point configuration for any given network interface
+        /// Gets a DSCP Configuration.
         /// </summary>
         public static Output<GetDscpConfigurationResult> Invoke(GetDscpConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscpConfigurationResult>("azure-native:network/v20210501:getDscpConfiguration", args ?? new GetDscpConfigurationInvokeArgs(), options.WithDefaults());

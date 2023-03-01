@@ -62,7 +62,7 @@ def get_exposure_control_feature_value_by_factory(factory_name: Optional[str] = 
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExposureControlFeatureValueByFactoryResult:
     """
-    The exposure control response.
+    Get exposure control feature for specific factory.
 
 
     :param str factory_name: The factory name.
@@ -90,7 +90,7 @@ def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExposureControlFeatureValueByFactoryResult]:
     """
-    The exposure control response.
+    Get exposure control feature for specific factory.
 
 
     :param str factory_name: The factory name.

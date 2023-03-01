@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
     public static class GetMigration
     {
         /// <summary>
-        /// Represents a migration resource.
+        /// Gets details of a migration.
         /// </summary>
         public static Task<GetMigrationResult> InvokeAsync(GetMigrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrationResult>("azure-native:dbforpostgresql/v20210615privatepreview:getMigration", args ?? new GetMigrationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a migration resource.
+        /// Gets details of a migration.
         /// </summary>
         public static Output<GetMigrationResult> Invoke(GetMigrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationResult>("azure-native:dbforpostgresql/v20210615privatepreview:getMigration", args ?? new GetMigrationInvokeArgs(), options.WithDefaults());

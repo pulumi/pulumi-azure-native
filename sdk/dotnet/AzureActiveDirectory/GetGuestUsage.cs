@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     public static class GetGuestUsage
     {
         /// <summary>
-        /// Guest Usages Resource
+        /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
         /// API Version: 2020-05-01-preview.
         /// </summary>
         public static Task<GetGuestUsageResult> InvokeAsync(GetGuestUsageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Guest Usages Resource
+        /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
         /// API Version: 2020-05-01-preview.
         /// </summary>
         public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOptions? options = null)

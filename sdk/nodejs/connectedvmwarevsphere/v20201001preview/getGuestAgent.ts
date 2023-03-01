@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Defines the GuestAgent.
+ * Implements GuestAgent GET method.
  */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
 
@@ -89,7 +89,7 @@ export interface GetGuestAgentResult {
     readonly uuid: string;
 }
 /**
- * Defines the GuestAgent.
+ * Implements GuestAgent GET method.
  */
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestAgentResult> {
     return pulumi.output(args).apply((a: any) => getGuestAgent(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A database blob auditing policy.
+ * Gets a database's blob auditing policy.
  * API Version: 2020-11-01-preview.
  */
 export function getDatabaseBlobAuditingPolicy(args: GetDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseBlobAuditingPolicyResult> {
@@ -159,7 +159,7 @@ export interface GetDatabaseBlobAuditingPolicyResult {
     readonly type: string;
 }
 /**
- * A database blob auditing policy.
+ * Gets a database's blob auditing policy.
  * API Version: 2020-11-01-preview.
  */
 export function getDatabaseBlobAuditingPolicyOutput(args: GetDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseBlobAuditingPolicyResult> {

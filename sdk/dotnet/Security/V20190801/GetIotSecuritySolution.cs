@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20190801
     public static class GetIotSecuritySolution
     {
         /// <summary>
-        /// IoT Security solution configuration and resource information.
+        /// User this method to get details of a specific IoT Security solution based on solution name
         /// </summary>
         public static Task<GetIotSecuritySolutionResult> InvokeAsync(GetIotSecuritySolutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-native:security/v20190801:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// IoT Security solution configuration and resource information.
+        /// User this method to get details of a specific IoT Security solution based on solution name
         /// </summary>
         public static Output<GetIotSecuritySolutionResult> Invoke(GetIotSecuritySolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotSecuritySolutionResult>("azure-native:security/v20190801:getIotSecuritySolution", args ?? new GetIotSecuritySolutionInvokeArgs(), options.WithDefaults());

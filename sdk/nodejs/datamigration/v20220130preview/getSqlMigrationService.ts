@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL Migration Service.
+ * Retrieve the Database Migration Service
  */
 export function getSqlMigrationService(args: GetSqlMigrationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlMigrationServiceResult> {
 
@@ -50,7 +50,7 @@ export interface GetSqlMigrationServiceResult {
     readonly type: string;
 }
 /**
- * A SQL Migration Service.
+ * Retrieve the Database Migration Service
  */
 export function getSqlMigrationServiceOutput(args: GetSqlMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlMigrationServiceResult> {
     return pulumi.output(args).apply((a: any) => getSqlMigrationService(a, opts))

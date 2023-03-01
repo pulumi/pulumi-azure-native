@@ -97,7 +97,7 @@ def get_deployment(deployment_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
-    Deployment information.
+    Gets a deployment.
 
 
     :param str deployment_name: The name of the deployment.
@@ -122,7 +122,7 @@ def get_deployment_output(deployment_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
-    Deployment information.
+    Gets a deployment.
 
 
     :param str deployment_name: The name of the deployment.

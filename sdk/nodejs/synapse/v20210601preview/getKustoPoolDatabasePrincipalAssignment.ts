@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a database principal assignment.
+ * Gets a Kusto pool database principalAssignment.
  */
 export function getKustoPoolDatabasePrincipalAssignment(args: GetKustoPoolDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolDatabasePrincipalAssignmentResult> {
 
@@ -99,7 +99,7 @@ export interface GetKustoPoolDatabasePrincipalAssignmentResult {
     readonly type: string;
 }
 /**
- * Class representing a database principal assignment.
+ * Gets a Kusto pool database principalAssignment.
  */
 export function getKustoPoolDatabasePrincipalAssignmentOutput(args: GetKustoPoolDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolDatabasePrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getKustoPoolDatabasePrincipalAssignment(a, opts))

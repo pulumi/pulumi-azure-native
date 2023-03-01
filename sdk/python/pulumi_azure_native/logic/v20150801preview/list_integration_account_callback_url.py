@@ -46,7 +46,8 @@ def list_integration_account_callback_url(integration_account_name: Optional[str
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    Lists the integration account callback URL.
+
 
     :param str integration_account_name: The integration account name.
     :param str not_after: The expiry time.
@@ -69,7 +70,8 @@ def list_integration_account_callback_url_output(integration_account_name: Optio
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountCallbackUrlResult]:
     """
-    Use this data source to access information about an existing resource.
+    Lists the integration account callback URL.
+
 
     :param str integration_account_name: The integration account name.
     :param str not_after: The expiry time.

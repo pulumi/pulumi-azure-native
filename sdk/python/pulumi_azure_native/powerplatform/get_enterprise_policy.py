@@ -181,7 +181,7 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterprisePolicyResult:
     """
-    Definition of the EnterprisePolicy.
+    Get information about an EnterprisePolicy
     API Version: 2020-10-30-preview.
 
 
@@ -214,7 +214,7 @@ def get_enterprise_policy_output(enterprise_policy_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterprisePolicyResult]:
     """
-    Definition of the EnterprisePolicy.
+    Get information about an EnterprisePolicy
     API Version: 2020-10-30-preview.
 
 

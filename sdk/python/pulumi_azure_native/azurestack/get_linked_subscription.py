@@ -217,7 +217,7 @@ def get_linked_subscription(linked_subscription_name: Optional[str] = None,
                             resource_group: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedSubscriptionResult:
     """
-    Linked Subscription information.
+    Returns the properties of a Linked Subscription resource.
     API Version: 2020-06-01-preview.
 
 
@@ -253,7 +253,7 @@ def get_linked_subscription_output(linked_subscription_name: Optional[pulumi.Inp
                                    resource_group: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedSubscriptionResult]:
     """
-    Linked Subscription information.
+    Returns the properties of a Linked Subscription resource.
     API Version: 2020-06-01-preview.
 
 

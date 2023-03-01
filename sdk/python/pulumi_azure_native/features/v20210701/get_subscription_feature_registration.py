@@ -82,7 +82,7 @@ def get_subscription_feature_registration(feature_name: Optional[str] = None,
                                           provider_namespace: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionFeatureRegistrationResult:
     """
-    Subscription feature registration details
+    Returns a feature registration
 
 
     :param str feature_name: The feature name.
@@ -106,7 +106,7 @@ def get_subscription_feature_registration_output(feature_name: Optional[pulumi.I
                                                  provider_namespace: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionFeatureRegistrationResult]:
     """
-    Subscription feature registration details
+    Returns a feature registration
 
 
     :param str feature_name: The feature name.

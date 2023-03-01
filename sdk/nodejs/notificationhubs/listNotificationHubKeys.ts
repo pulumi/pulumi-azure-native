@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Namespace/NotificationHub Connection String
+ * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
  * API Version: 2017-04-01.
  */
 export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotificationHubKeysResult> {
@@ -64,7 +64,7 @@ export interface ListNotificationHubKeysResult {
     readonly secondaryKey?: string;
 }
 /**
- * Namespace/NotificationHub Connection String
+ * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
  * API Version: 2017-04-01.
  */
 export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {

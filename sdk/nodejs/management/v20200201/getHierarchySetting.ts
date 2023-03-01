@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Settings defined at the Management Group scope.
+ * Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
  */
 /** @deprecated Version 2020-02-01 will be removed in v2 of the provider. */
 export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi.InvokeOptions): Promise<GetHierarchySettingResult> {
@@ -54,7 +54,7 @@ export interface GetHierarchySettingResult {
     readonly type: string;
 }
 /**
- * Settings defined at the Management Group scope.
+ * Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
  */
 /** @deprecated Version 2020-02-01 will be removed in v2 of the provider. */
 export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHierarchySettingResult> {

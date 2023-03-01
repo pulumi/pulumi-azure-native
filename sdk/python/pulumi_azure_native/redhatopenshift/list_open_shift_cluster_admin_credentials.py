@@ -48,7 +48,7 @@ def list_open_shift_cluster_admin_credentials(resource_group_name: Optional[str]
                                               resource_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenShiftClusterAdminCredentialsResult:
     """
-    OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
+    The operation returns the admin kubeconfig.
     API Version: 2021-09-01-preview.
 
 
@@ -70,7 +70,7 @@ def list_open_shift_cluster_admin_credentials_output(resource_group_name: Option
                                                      resource_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOpenShiftClusterAdminCredentialsResult]:
     """
-    OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
+    The operation returns the admin kubeconfig.
     API Version: 2021-09-01-preview.
 
 

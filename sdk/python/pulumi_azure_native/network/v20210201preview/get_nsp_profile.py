@@ -121,7 +121,7 @@ def get_nsp_profile(network_security_perimeter_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspProfileResult:
     """
-    The network security perimeter profile resource
+    Gets the specified NSP profile.
 
 
     :param str network_security_perimeter_name: The name of the network security perimeter.
@@ -151,7 +151,7 @@ def get_nsp_profile_output(network_security_perimeter_name: Optional[pulumi.Inpu
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspProfileResult]:
     """
-    The network security perimeter profile resource
+    Gets the specified NSP profile.
 
 
     :param str network_security_perimeter_name: The name of the network security perimeter.

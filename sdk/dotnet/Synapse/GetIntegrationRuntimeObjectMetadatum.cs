@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetIntegrationRuntimeObjectMetadatum
     {
         /// <summary>
-        /// A list of SSIS object metadata.
+        /// Get object metadata from an integration runtime
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetIntegrationRuntimeObjectMetadatumResult> InvokeAsync(GetIntegrationRuntimeObjectMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeObjectMetadatumResult>("azure-native:synapse:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A list of SSIS object metadata.
+        /// Get object metadata from an integration runtime
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetIntegrationRuntimeObjectMetadatumResult> Invoke(GetIntegrationRuntimeObjectMetadatumInvokeArgs args, InvokeOptions? options = null)

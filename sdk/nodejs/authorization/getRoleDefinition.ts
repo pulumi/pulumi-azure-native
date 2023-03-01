@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Role definition.
+ * Get role definition by name (GUID).
  * API Version: 2018-01-01-preview.
  */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
@@ -69,7 +69,7 @@ export interface GetRoleDefinitionResult {
     readonly type: string;
 }
 /**
- * Role definition.
+ * Get role definition by name (GUID).
  * API Version: 2018-01-01-preview.
  */
 export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {

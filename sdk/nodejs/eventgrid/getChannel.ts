@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Channel info.
+ * Get properties of a channel.
  * API Version: 2021-10-15-preview.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
@@ -87,7 +87,7 @@ export interface GetChannelResult {
     readonly type: string;
 }
 /**
- * Channel info.
+ * Get properties of a channel.
  * API Version: 2021-10-15-preview.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {

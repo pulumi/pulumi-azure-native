@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The description of the IoT hub.
+ * Get the non-security related metadata of an IoT hub.
  */
 /** @deprecated Version 2019-03-22 will be removed in v2 of the provider. */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
@@ -70,7 +70,7 @@ export interface GetIotHubResourceResult {
     readonly type: string;
 }
 /**
- * The description of the IoT hub.
+ * Get the non-security related metadata of an IoT hub.
  */
 /** @deprecated Version 2019-03-22 will be removed in v2 of the provider. */
 export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceResult> {

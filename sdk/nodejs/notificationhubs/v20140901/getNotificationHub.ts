@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of a NotificationHub Resource.
+ * Lists the notification hubs associated with a namespace.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
@@ -67,7 +67,7 @@ export interface GetNotificationHubResult {
     readonly type?: string;
 }
 /**
- * Description of a NotificationHub Resource.
+ * Lists the notification hubs associated with a namespace.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {

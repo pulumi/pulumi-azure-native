@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20150801
     public static class ListNamespaceKeys
     {
         /// <summary>
-        /// Namespace/EventHub Connection String
+        /// Gets the primary and secondary connection strings for the Namespace.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:eventhub/v20150801:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/EventHub Connection String
+        /// Gets the primary and secondary connection strings for the Namespace.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:eventhub/v20150801:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());

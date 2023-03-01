@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure Cosmos DB storedProcedure.
+ * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
  * API Version: 2021-03-15.
  */
 export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredProcedureArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlStoredProcedureResult> {
@@ -73,7 +73,7 @@ export interface GetSqlResourceSqlStoredProcedureResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB storedProcedure.
+ * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
  * API Version: 2021-03-15.
  */
 export function getSqlResourceSqlStoredProcedureOutput(args: GetSqlResourceSqlStoredProcedureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlStoredProcedureResult> {

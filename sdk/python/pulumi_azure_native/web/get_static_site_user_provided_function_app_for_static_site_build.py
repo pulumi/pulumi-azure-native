@@ -122,7 +122,7 @@ def get_static_site_user_provided_function_app_for_static_site_build(environment
                                                                      resource_group_name: Optional[str] = None,
                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult:
     """
-    Static Site User Provided Function App ARM resource.
+    Gets the details of the user provided function app registered with a static site build
     API Version: 2020-12-01.
 
 
@@ -156,7 +156,7 @@ def get_static_site_user_provided_function_app_for_static_site_build_output(envi
                                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult]:
     """
-    Static Site User Provided Function App ARM resource.
+    Gets the details of the user provided function app registered with a static site build
     API Version: 2020-12-01.
 
 

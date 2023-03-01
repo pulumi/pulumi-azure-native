@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Sim policy resource.
+ * Gets information about the specified sim policy.
  */
 export function getSimPolicy(args: GetSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSimPolicyResult> {
 
@@ -113,7 +113,7 @@ export interface GetSimPolicyResult {
     readonly ueAmbr: outputs.mobilenetwork.v20220301preview.AmbrResponse;
 }
 /**
- * Sim policy resource.
+ * Gets information about the specified sim policy.
  */
 export function getSimPolicyOutput(args: GetSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSimPolicy(a, opts))

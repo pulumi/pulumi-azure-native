@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Logic
     public static class GetIntegrationServiceEnvironmentManagedApi
     {
         /// <summary>
-        /// The integration service environment managed api.
+        /// Gets the integration service environment managed Api.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationServiceEnvironmentManagedApiResult> InvokeAsync(GetIntegrationServiceEnvironmentManagedApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentManagedApiResult>("azure-native:logic:getIntegrationServiceEnvironmentManagedApi", args ?? new GetIntegrationServiceEnvironmentManagedApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The integration service environment managed api.
+        /// Gets the integration service environment managed Api.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationServiceEnvironmentManagedApiResult> Invoke(GetIntegrationServiceEnvironmentManagedApiInvokeArgs args, InvokeOptions? options = null)

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Description of WcfRelays Resource.
+ * Returns the description for the specified WCFRelays.
  */
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
@@ -84,7 +84,7 @@ export interface GetWCFRelayResult {
     readonly userMetadata?: string;
 }
 /**
- * Description of WcfRelays Resource.
+ * Returns the description for the specified WCFRelays.
  */
 /** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {

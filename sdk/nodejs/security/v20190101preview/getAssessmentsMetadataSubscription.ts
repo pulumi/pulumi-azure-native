@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Security assessment metadata
+ * Get metadata information on an assessment type in a specific subscription
  */
 export function getAssessmentsMetadataSubscription(args: GetAssessmentsMetadataSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentsMetadataSubscriptionResult> {
 
@@ -78,7 +78,7 @@ export interface GetAssessmentsMetadataSubscriptionResult {
     readonly userImpact?: string;
 }
 /**
- * Security assessment metadata
+ * Get metadata information on an assessment type in a specific subscription
  */
 export function getAssessmentsMetadataSubscriptionOutput(args: GetAssessmentsMetadataSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentsMetadataSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getAssessmentsMetadataSubscription(a, opts))

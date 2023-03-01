@@ -231,7 +231,7 @@ def get_lab(expand: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
-    Represents a lab.
+    Get lab
     API Version: 2018-10-15.
 
 
@@ -274,7 +274,7 @@ def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
     """
-    Represents a lab.
+    Get lab
     API Version: 2018-10-15.
 
 

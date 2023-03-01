@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Storage.V20220901
     public static class ListLocalUserKeys
     {
         /// <summary>
-        /// The Storage Account Local User keys.
+        /// List SSH authorized keys and shared key of the local user.
         /// </summary>
         public static Task<ListLocalUserKeysResult> InvokeAsync(ListLocalUserKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLocalUserKeysResult>("azure-native:storage/v20220901:listLocalUserKeys", args ?? new ListLocalUserKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Storage Account Local User keys.
+        /// List SSH authorized keys and shared key of the local user.
         /// </summary>
         public static Output<ListLocalUserKeysResult> Invoke(ListLocalUserKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalUserKeysResult>("azure-native:storage/v20220901:listLocalUserKeys", args ?? new ListLocalUserKeysInvokeArgs(), options.WithDefaults());

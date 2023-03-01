@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Attestation
     public static class GetAttestationProvider
     {
         /// <summary>
-        /// Attestation service response message.
+        /// Get the status of Attestation Provider.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-native:attestation:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Attestation service response message.
+        /// Get the status of Attestation Provider.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetAttestationProviderResult> Invoke(GetAttestationProviderInvokeArgs args, InvokeOptions? options = null)

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A set of Azure Batch account keys.
+ * Gets the account keys for the specified Batch account.
  */
 export function listBatchAccountKeys(args: ListBatchAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchAccountKeysResult> {
 
@@ -41,7 +41,7 @@ export interface ListBatchAccountKeysResult {
     readonly secondary?: string;
 }
 /**
- * A set of Azure Batch account keys.
+ * Gets the account keys for the specified Batch account.
  */
 export function listBatchAccountKeysOutput(args: ListBatchAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listBatchAccountKeys(a, opts))

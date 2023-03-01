@@ -349,7 +349,7 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderResult:
     """
-    SSL certificate purchase order.
+    Get a certificate order.
     API Version: 2020-10-01.
 
 
@@ -396,7 +396,7 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderResult]:
     """
-    SSL certificate purchase order.
+    Get a certificate order.
     API Version: 2020-10-01.
 
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An IPSec parameters for a virtual network gateway P2S connection.
+ * The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
  */
 export function getVirtualNetworkGatewayVpnclientIpsecParameters(args: GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
 
@@ -65,7 +65,7 @@ export interface GetVirtualNetworkGatewayVpnclientIpsecParametersResult {
     readonly saLifeTimeSeconds: number;
 }
 /**
- * An IPSec parameters for a virtual network gateway P2S connection.
+ * The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
  */
 export function getVirtualNetworkGatewayVpnclientIpsecParametersOutput(args: GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnclientIpsecParameters(a, opts))

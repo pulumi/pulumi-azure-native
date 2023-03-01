@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Dev Tool Portal resource
+ * Get the Application Live  and its properties.
  */
 export function getDevToolPortal(args: GetDevToolPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetDevToolPortalResult> {
 
@@ -61,7 +61,7 @@ export interface GetDevToolPortalResult {
     readonly type: string;
 }
 /**
- * Dev Tool Portal resource
+ * Get the Application Live  and its properties.
  */
 export function getDevToolPortalOutput(args: GetDevToolPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevToolPortalResult> {
     return pulumi.output(args).apply((a: any) => getDevToolPortal(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents an environment type.
+ * Gets a project environment type.
  */
 export function getProjectEnvironmentType(args: GetProjectEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectEnvironmentTypeResult> {
 
@@ -89,7 +89,7 @@ export interface GetProjectEnvironmentTypeResult {
     readonly userRoleAssignments?: {[key: string]: outputs.devcenter.v20220901preview.UserRoleAssignmentResponse};
 }
 /**
- * Represents an environment type.
+ * Gets a project environment type.
  */
 export function getProjectEnvironmentTypeOutput(args: GetProjectEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectEnvironmentTypeResult> {
     return pulumi.output(args).apply((a: any) => getProjectEnvironmentType(a, opts))

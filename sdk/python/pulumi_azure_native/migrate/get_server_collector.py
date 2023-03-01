@@ -80,6 +80,7 @@ def get_server_collector(project_name: Optional[str] = None,
                          server_collector_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerCollectorResult:
     """
+    Get a Server collector.
     API Version: 2019-10-01.
 
 
@@ -108,6 +109,7 @@ def get_server_collector_output(project_name: Optional[pulumi.Input[str]] = None
                                 server_collector_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCollectorResult]:
     """
+    Get a Server collector.
     API Version: 2019-10-01.
 
 

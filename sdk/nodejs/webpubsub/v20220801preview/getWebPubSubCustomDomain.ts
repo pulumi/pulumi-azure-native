@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A custom domain
+ * Get a custom domain.
  */
 export function getWebPubSubCustomDomain(args: GetWebPubSubCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubCustomDomainResult> {
 
@@ -69,7 +69,7 @@ export interface GetWebPubSubCustomDomainResult {
     readonly type: string;
 }
 /**
- * A custom domain
+ * Get a custom domain.
  */
 export function getWebPubSubCustomDomainOutput(args: GetWebPubSubCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubCustomDomain(a, opts))

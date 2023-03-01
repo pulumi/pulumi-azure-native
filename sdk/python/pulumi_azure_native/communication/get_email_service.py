@@ -133,7 +133,7 @@ def get_email_service(email_service_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailServiceResult:
     """
-    A class representing an EmailService resource.
+    Get the EmailService and its properties.
     API Version: 2021-10-01-preview.
 
 
@@ -162,7 +162,7 @@ def get_email_service_output(email_service_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailServiceResult]:
     """
-    A class representing an EmailService resource.
+    Get the EmailService and its properties.
     API Version: 2021-10-01-preview.
 
 

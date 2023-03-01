@@ -61,7 +61,7 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
                                       workspace_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationRuntimeAuthKeyResult:
     """
-    The integration runtime authentication keys.
+    List authentication keys in an integration runtime
 
 
     :param str integration_runtime_name: Integration runtime name
@@ -86,7 +86,7 @@ def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[
                                              workspace_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeyResult]:
     """
-    The integration runtime authentication keys.
+    List authentication keys in an integration runtime
 
 
     :param str integration_runtime_name: Integration runtime name

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20210101
     public static class GetWebAppPublicCertificateSlot
     {
         /// <summary>
-        /// Public certificate object
+        /// Get the named public certificate for an app (or deployment slot, if specified).
         /// </summary>
         public static Task<GetWebAppPublicCertificateSlotResult> InvokeAsync(GetWebAppPublicCertificateSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateSlotResult>("azure-native:web/v20210101:getWebAppPublicCertificateSlot", args ?? new GetWebAppPublicCertificateSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Public certificate object
+        /// Get the named public certificate for an app (or deployment slot, if specified).
         /// </summary>
         public static Output<GetWebAppPublicCertificateSlotResult> Invoke(GetWebAppPublicCertificateSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateSlotResult>("azure-native:web/v20210101:getWebAppPublicCertificateSlot", args ?? new GetWebAppPublicCertificateSlotInvokeArgs(), options.WithDefaults());

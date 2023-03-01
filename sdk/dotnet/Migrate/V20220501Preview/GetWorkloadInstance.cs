@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Migrate.V20220501Preview
     public static class GetWorkloadInstance
     {
         /// <summary>
-        /// Workload instance model.
+        /// Gets the details of the workload instance.
         /// </summary>
         public static Task<GetWorkloadInstanceResult> InvokeAsync(GetWorkloadInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadInstanceResult>("azure-native:migrate/v20220501preview:getWorkloadInstance", args ?? new GetWorkloadInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workload instance model.
+        /// Gets the details of the workload instance.
         /// </summary>
         public static Output<GetWorkloadInstanceResult> Invoke(GetWorkloadInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadInstanceResult>("azure-native:migrate/v20220501preview:getWorkloadInstance", args ?? new GetWorkloadInstanceInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Network related settings
+ * Gets a network connection resource
  * API Version: 2022-09-01-preview.
  */
 export function getNetworkConnection(args: GetNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkConnectionResult> {
@@ -97,7 +97,7 @@ export interface GetNetworkConnectionResult {
     readonly type: string;
 }
 /**
- * Network related settings
+ * Gets a network connection resource
  * API Version: 2022-09-01-preview.
  */
 export function getNetworkConnectionOutput(args: GetNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkConnectionResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Lists the labs owned by a user
+ * List labs for the user.
  */
 export function listGlobalUserLabs(args: ListGlobalUserLabsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserLabsResult> {
 
@@ -35,7 +35,7 @@ export interface ListGlobalUserLabsResult {
     readonly labs?: outputs.labservices.v20181015.LabDetailsResponse[];
 }
 /**
- * Lists the labs owned by a user
+ * List labs for the user.
  */
 export function listGlobalUserLabsOutput(args: ListGlobalUserLabsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserLabsResult> {
     return pulumi.output(args).apply((a: any) => listGlobalUserLabs(a, opts))

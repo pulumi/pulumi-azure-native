@@ -361,7 +361,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
                                 virtual_network_gateway_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayResult:
     """
-    A common class for general resource information.
+    Gets the specified virtual network gateway by resource group.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -408,7 +408,7 @@ def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Inpu
                                        virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
     """
-    A common class for general resource information.
+    Gets the specified virtual network gateway by resource group.
 
 
     :param str resource_group_name: The name of the resource group.

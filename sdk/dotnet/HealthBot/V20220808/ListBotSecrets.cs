@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HealthBot.V20220808
     public static class ListBotSecrets
     {
         /// <summary>
-        /// Health Bot Keys Response.
+        /// List all secrets of a HealthBot.
         /// </summary>
         public static Task<ListBotSecretsResult> InvokeAsync(ListBotSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBotSecretsResult>("azure-native:healthbot/v20220808:listBotSecrets", args ?? new ListBotSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Health Bot Keys Response.
+        /// List all secrets of a HealthBot.
         /// </summary>
         public static Output<ListBotSecretsResult> Invoke(ListBotSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBotSecretsResult>("azure-native:healthbot/v20220808:listBotSecrets", args ?? new ListBotSecretsInvokeArgs(), options.WithDefaults());

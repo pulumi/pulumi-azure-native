@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response for GetActiveSessions.
+ * Returns the list of currently active sessions on the Bastion.
  */
 export function getActiveSessions(args: GetActiveSessionsArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveSessionsResult> {
 
@@ -44,7 +44,7 @@ export interface GetActiveSessionsResult {
     readonly value?: outputs.network.v20210801.BastionActiveSessionResponse[];
 }
 /**
- * Response for GetActiveSessions.
+ * Returns the list of currently active sessions on the Bastion.
  */
 export function getActiveSessionsOutput(args: GetActiveSessionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveSessionsResult> {
     return pulumi.output(args).apply((a: any) => getActiveSessions(a, opts))

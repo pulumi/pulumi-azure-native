@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220101
     public static class GetP2sVpnGatewayP2sVpnConnectionHealthDetailed
     {
         /// <summary>
-        /// P2S Vpn connection detailed health written to sas url.
+        /// Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
         /// </summary>
         public static Task<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> InvokeAsync(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network/v20220101:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs(), options.WithDefaults());
 
         /// <summary>
-        /// P2S Vpn connection detailed health written to sas url.
+        /// Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
         /// </summary>
         public static Output<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> Invoke(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network/v20220101:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs(), options.WithDefaults());

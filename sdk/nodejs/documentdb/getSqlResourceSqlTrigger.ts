@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure Cosmos DB trigger.
+ * Gets the SQL trigger under an existing Azure Cosmos DB database account.
  * API Version: 2021-03-15.
  */
 export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlTriggerResult> {
@@ -73,7 +73,7 @@ export interface GetSqlResourceSqlTriggerResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB trigger.
+ * Gets the SQL trigger under an existing Azure Cosmos DB database account.
  * API Version: 2021-03-15.
  */
 export function getSqlResourceSqlTriggerOutput(args: GetSqlResourceSqlTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlTriggerResult> {

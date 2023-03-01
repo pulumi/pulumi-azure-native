@@ -200,7 +200,7 @@ def get_project(group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
-    A project resource
+    The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
 
 
     :param str group_name: Name of the resource group
@@ -238,7 +238,7 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
-    A project resource
+    The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
 
 
     :param str group_name: Name of the resource group

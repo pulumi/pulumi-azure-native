@@ -158,7 +158,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
-    Specifies information about the proximity placement group.
+    Retrieves information about a proximity placement group .
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -191,7 +191,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
     """
-    Specifies information about the proximity placement group.
+    Retrieves information about a proximity placement group .
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Factory resource type.
+ * Gets a factory.
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
 
@@ -96,7 +96,7 @@ export interface GetFactoryResult {
     readonly version: string;
 }
 /**
- * Factory resource type.
+ * Gets a factory.
  */
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
     return pulumi.output(args).apply((a: any) => getFactory(a, opts))

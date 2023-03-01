@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DeviceUpdate
     public static class GetAccount
     {
         /// <summary>
-        /// Device Update account details.
+        /// Returns account details for the given account name.
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Device Update account details.
+        /// Returns account details for the given account name.
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)

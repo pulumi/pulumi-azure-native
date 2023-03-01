@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list of build arguments for a build step.
+ * List the build arguments for a step including the secret arguments.
  */
 export function listBuildStepBuildArguments(args: ListBuildStepBuildArgumentsArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildStepBuildArgumentsResult> {
 
@@ -54,7 +54,7 @@ export interface ListBuildStepBuildArgumentsResult {
     readonly value?: outputs.containerregistry.v20180201preview.BuildArgumentResponse[];
 }
 /**
- * The list of build arguments for a build step.
+ * List the build arguments for a step including the secret arguments.
  */
 export function listBuildStepBuildArgumentsOutput(args: ListBuildStepBuildArgumentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildStepBuildArgumentsResult> {
     return pulumi.output(args).apply((a: any) => listBuildStepBuildArguments(a, opts))

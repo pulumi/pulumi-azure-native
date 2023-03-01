@@ -122,7 +122,7 @@ def get_firewall_policy_rule_group(firewall_policy_name: Optional[str] = None,
                                    rule_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyRuleGroupResult:
     """
-    Rule Group resource
+    Gets the specified FirewallPolicyRuleGroup.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -152,7 +152,7 @@ def get_firewall_policy_rule_group_output(firewall_policy_name: Optional[pulumi.
                                           rule_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyRuleGroupResult]:
     """
-    Rule Group resource
+    Gets the specified FirewallPolicyRuleGroup.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.

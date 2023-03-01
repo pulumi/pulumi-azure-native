@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The response to a diagnostic services token query.
+ * Gets an read-only access token for application insights diagnostic service data.
  * API Version: 2021-03-03-preview.
  */
 export function getDiagnosticServiceTokenReadOnly(args: GetDiagnosticServiceTokenReadOnlyArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticServiceTokenReadOnlyResult> {
@@ -33,7 +33,7 @@ export interface GetDiagnosticServiceTokenReadOnlyResult {
     readonly token?: string;
 }
 /**
- * The response to a diagnostic services token query.
+ * Gets an read-only access token for application insights diagnostic service data.
  * API Version: 2021-03-03-preview.
  */
 export function getDiagnosticServiceTokenReadOnlyOutput(args: GetDiagnosticServiceTokenReadOnlyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceTokenReadOnlyResult> {

@@ -290,7 +290,7 @@ def get_job(expand: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Job Resource.
+    Gets information about the specified job.
     API Version: 2020-11-01.
 
 
@@ -335,7 +335,7 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
-    Job Resource.
+    Gets information about the specified job.
     API Version: 2020-11-01.
 
 

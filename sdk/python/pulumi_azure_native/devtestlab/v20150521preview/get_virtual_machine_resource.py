@@ -340,7 +340,7 @@ def get_virtual_machine_resource(lab_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResourceResult:
     """
-    A virtual machine.
+    Get virtual machine.
 
 
     :param str lab_name: The name of the lab.
@@ -389,7 +389,7 @@ def get_virtual_machine_resource_output(lab_name: Optional[pulumi.Input[str]] = 
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResourceResult]:
     """
-    A virtual machine.
+    Get virtual machine.
 
 
     :param str lab_name: The name of the lab.

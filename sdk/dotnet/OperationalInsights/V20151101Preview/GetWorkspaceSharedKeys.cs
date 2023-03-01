@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
     public static class GetWorkspaceSharedKeys
     {
         /// <summary>
-        /// The shared keys for a workspace.
+        /// Gets the shared keys for a workspace.
         /// </summary>
         public static Task<GetWorkspaceSharedKeysResult> InvokeAsync(GetWorkspaceSharedKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSharedKeysResult>("azure-native:operationalinsights/v20151101preview:getWorkspaceSharedKeys", args ?? new GetWorkspaceSharedKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The shared keys for a workspace.
+        /// Gets the shared keys for a workspace.
         /// </summary>
         public static Output<GetWorkspaceSharedKeysResult> Invoke(GetWorkspaceSharedKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSharedKeysResult>("azure-native:operationalinsights/v20151101preview:getWorkspaceSharedKeys", args ?? new GetWorkspaceSharedKeysInvokeArgs(), options.WithDefaults());

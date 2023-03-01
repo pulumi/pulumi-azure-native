@@ -193,7 +193,7 @@ def get_security_connector(resource_group_name: Optional[str] = None,
                            security_connector_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityConnectorResult:
     """
-    The security connector resource.
+    Retrieves details of a specific security connector
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -226,7 +226,7 @@ def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str
                                   security_connector_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityConnectorResult]:
     """
-    The security connector resource.
+    Retrieves details of a specific security connector
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

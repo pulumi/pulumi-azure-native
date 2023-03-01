@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210301
     public static class GetSecurityPartnerProvider
     {
         /// <summary>
-        /// Security Partner Provider resource.
+        /// Gets the specified Security Partner Provider.
         /// </summary>
         public static Task<GetSecurityPartnerProviderResult> InvokeAsync(GetSecurityPartnerProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-native:network/v20210301:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security Partner Provider resource.
+        /// Gets the specified Security Partner Provider.
         /// </summary>
         public static Output<GetSecurityPartnerProviderResult> Invoke(GetSecurityPartnerProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network/v20210301:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithDefaults());

@@ -76,7 +76,7 @@ def list_policy_fragment_references(id: Optional[str] = None,
                                     top: Optional[int] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPolicyFragmentReferencesResult:
     """
-    A collection of resources.
+    Lists policy resources that reference the policy fragment.
     API Version: 2021-12-01-preview.
 
 
@@ -109,7 +109,7 @@ def list_policy_fragment_references_output(id: Optional[pulumi.Input[str]] = Non
                                            top: Optional[pulumi.Input[Optional[int]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicyFragmentReferencesResult]:
     """
-    A collection of resources.
+    Lists policy resources that reference the policy fragment.
     API Version: 2021-12-01-preview.
 
 

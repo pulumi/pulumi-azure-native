@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20220501Preview
     public static class GetTransparentDataEncryption
     {
         /// <summary>
-        /// A logical database transparent data encryption state.
+        /// Gets a logical database's transparent data encryption.
         /// </summary>
         public static Task<GetTransparentDataEncryptionResult> InvokeAsync(GetTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-native:sql/v20220501preview:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A logical database transparent data encryption state.
+        /// Gets a logical database's transparent data encryption.
         /// </summary>
         public static Output<GetTransparentDataEncryptionResult> Invoke(GetTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransparentDataEncryptionResult>("azure-native:sql/v20220501preview:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionInvokeArgs(), options.WithDefaults());

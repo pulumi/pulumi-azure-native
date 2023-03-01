@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Portal
     public static class ListListTenantConfigurationViolation
     {
         /// <summary>
-        /// List of list of items that violate tenant's configuration.
+        /// Gets list of items that violate tenant's configuration.
         /// API Version: 2020-09-01-preview.
         /// </summary>
         public static Task<ListListTenantConfigurationViolationResult> InvokeAsync(ListListTenantConfigurationViolationArgs? args = null, InvokeOptions? options = null)

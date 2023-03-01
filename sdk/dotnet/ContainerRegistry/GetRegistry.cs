@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public static class GetRegistry
     {
         /// <summary>
-        /// An object that represents a container registry.
+        /// Gets the properties of the specified container registry.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-native:containerregistry:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a container registry.
+        /// Gets the properties of the specified container registry.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)

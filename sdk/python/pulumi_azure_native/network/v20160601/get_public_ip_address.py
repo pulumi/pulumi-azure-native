@@ -205,7 +205,7 @@ def get_public_ip_address(expand: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPAddressResult:
     """
-    PublicIPAddress resource
+    The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
 
 
     :param str expand: expand references resources.
@@ -243,7 +243,7 @@ def get_public_ip_address_output(expand: Optional[pulumi.Input[Optional[str]]] =
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPAddressResult]:
     """
-    PublicIPAddress resource
+    The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
 
 
     :param str expand: expand references resources.

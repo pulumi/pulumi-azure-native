@@ -57,7 +57,8 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[str] = N
                                           workspace_collection_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceCollectionAccessKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
+
 
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name
@@ -78,7 +79,8 @@ def list_workspace_collection_access_keys_output(resource_group_name: Optional[p
                                                  workspace_collection_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceCollectionAccessKeysResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
+
 
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name

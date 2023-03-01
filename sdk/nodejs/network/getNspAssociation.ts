@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The NSP resource association resource
+ * Gets the specified NSP association by name.
  * API Version: 2021-02-01-preview.
  */
 export function getNspAssociation(args: GetNspAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetNspAssociationResult> {
@@ -82,7 +82,7 @@ export interface GetNspAssociationResult {
     readonly type: string;
 }
 /**
- * The NSP resource association resource
+ * Gets the specified NSP association by name.
  * API Version: 2021-02-01-preview.
  */
 export function getNspAssociationOutput(args: GetNspAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspAssociationResult> {

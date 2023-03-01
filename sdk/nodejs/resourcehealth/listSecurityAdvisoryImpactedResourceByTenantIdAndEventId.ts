@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The List of eventImpactedResources operation response.
+ * Lists impacted resources in the tenant by an event (Security Advisory).
  * API Version: 2022-10-01-preview.
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventId(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdArgs, opts?: pulumi.InvokeOptions): Promise<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
@@ -45,7 +45,7 @@ export interface ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult 
     readonly value: outputs.resourcehealth.EventImpactedResourceResponse[];
 }
 /**
- * The List of eventImpactedResources operation response.
+ * Lists impacted resources in the tenant by an event (Security Advisory).
  * API Version: 2022-10-01-preview.
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {

@@ -109,7 +109,7 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessControlRecordResult:
     """
-    The access control record.
+    Returns the properties of the specified access control record name.
     API Version: 2017-06-01.
 
 
@@ -139,7 +139,7 @@ def get_access_control_record_output(access_control_record_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessControlRecordResult]:
     """
-    The access control record.
+    Returns the properties of the specified access control record name.
     API Version: 2017-06-01.
 
 

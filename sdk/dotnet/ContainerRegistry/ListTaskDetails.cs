@@ -12,16 +12,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public static class ListTaskDetails
     {
         /// <summary>
-        /// The task that has the ARM resource and task properties. 
-        /// The task will have all information to schedule a run against it.
+        /// Returns a task with extended information that includes all secrets.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The task that has the ARM resource and task properties. 
-        /// The task will have all information to schedule a run against it.
+        /// Returns a task with extended information that includes all secrets.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<ListTaskDetailsResult> Invoke(ListTaskDetailsInvokeArgs args, InvokeOptions? options = null)

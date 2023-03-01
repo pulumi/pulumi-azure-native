@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20140401
     public static class GetServer
     {
         /// <summary>
-        /// Represents a server.
+        /// Gets a server.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql/v20140401:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a server.
+        /// Gets a server.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:sql/v20140401:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());

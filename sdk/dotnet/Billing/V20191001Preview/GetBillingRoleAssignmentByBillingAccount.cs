@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
     public static class GetBillingRoleAssignmentByBillingAccount
     {
         /// <summary>
-        /// The role assignment
+        /// Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
         /// </summary>
         public static Task<GetBillingRoleAssignmentByBillingAccountResult> InvokeAsync(GetBillingRoleAssignmentByBillingAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The role assignment
+        /// Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
         /// </summary>
         public static Output<GetBillingRoleAssignmentByBillingAccountResult> Invoke(GetBillingRoleAssignmentByBillingAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountInvokeArgs(), options.WithDefaults());

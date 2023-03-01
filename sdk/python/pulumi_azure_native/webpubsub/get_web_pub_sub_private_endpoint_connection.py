@@ -122,7 +122,7 @@ def get_web_pub_sub_private_endpoint_connection(private_endpoint_connection_name
                                                 resource_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubPrivateEndpointConnectionResult:
     """
-    A private endpoint connection to an azure resource
+    Get the specified private endpoint connection
     API Version: 2021-04-01-preview.
 
 
@@ -153,7 +153,7 @@ def get_web_pub_sub_private_endpoint_connection_output(private_endpoint_connecti
                                                        resource_name: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubPrivateEndpointConnectionResult]:
     """
-    A private endpoint connection to an azure resource
+    Get the specified private endpoint connection
     API Version: 2021-04-01-preview.
 
 

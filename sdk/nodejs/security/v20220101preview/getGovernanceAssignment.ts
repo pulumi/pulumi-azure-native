@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Governance assignment over a given scope
+ * Get a specific governanceAssignment for the requested scope by AssignmentKey
  */
 export function getGovernanceAssignment(args: GetGovernanceAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGovernanceAssignmentResult> {
 
@@ -77,7 +77,7 @@ export interface GetGovernanceAssignmentResult {
     readonly type: string;
 }
 /**
- * Governance assignment over a given scope
+ * Get a specific governanceAssignment for the requested scope by AssignmentKey
  */
 export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGovernanceAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGovernanceAssignment(a, opts))

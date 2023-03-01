@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Kubernetes.V20211001
     public static class ListConnectedClusterUserCredential
     {
         /// <summary>
-        /// The list of credential result response.
+        /// Gets cluster user credentials of the connected cluster with a specified resource group and name.
         /// </summary>
         public static Task<ListConnectedClusterUserCredentialResult> InvokeAsync(ListConnectedClusterUserCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes/v20211001:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of credential result response.
+        /// Gets cluster user credentials of the connected cluster with a specified resource group and name.
         /// </summary>
         public static Output<ListConnectedClusterUserCredentialResult> Invoke(ListConnectedClusterUserCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectedClusterUserCredentialResult>("azure-native:kubernetes/v20211001:listConnectedClusterUserCredential", args ?? new ListConnectedClusterUserCredentialInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The response from the ListCredentials operation.
+ * Lists the login credentials for the specified container registry.
  * API Version: 2019-05-01.
  */
 export function listRegistryCredentials(args: ListRegistryCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryCredentialsResult> {
@@ -45,7 +45,7 @@ export interface ListRegistryCredentialsResult {
     readonly username?: string;
 }
 /**
- * The response from the ListCredentials operation.
+ * Lists the login credentials for the specified container registry.
  * API Version: 2019-05-01.
  */
 export function listRegistryCredentialsOutput(args: ListRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryCredentialsResult> {

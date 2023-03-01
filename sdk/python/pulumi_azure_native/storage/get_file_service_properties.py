@@ -122,7 +122,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileServicePropertiesResult:
     """
-    The properties of File services in storage account.
+    Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
     API Version: 2021-02-01.
 
 
@@ -153,7 +153,7 @@ def get_file_service_properties_output(account_name: Optional[pulumi.Input[str]]
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileServicePropertiesResult]:
     """
-    The properties of File services in storage account.
+    Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
     API Version: 2021-02-01.
 
 

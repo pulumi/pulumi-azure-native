@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class GetScheduledSynchronizationSetting
     {
         /// <summary>
-        /// A type of synchronization setting based on schedule
+        /// Get a synchronizationSetting in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetScheduledSynchronizationSettingResult> InvokeAsync(GetScheduledSynchronizationSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledSynchronizationSettingResult>("azure-native:datashare:getScheduledSynchronizationSetting", args ?? new GetScheduledSynchronizationSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A type of synchronization setting based on schedule
+        /// Get a synchronizationSetting in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetScheduledSynchronizationSettingResult> Invoke(GetScheduledSynchronizationSettingInvokeArgs args, InvokeOptions? options = null)

@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get properties of the provided rack.
+ */
 export function getRack(args: GetRackArgs, opts?: pulumi.InvokeOptions): Promise<GetRackResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,6 +92,9 @@ export interface GetRackResult {
      */
     readonly type: string;
 }
+/**
+ * Get properties of the provided rack.
+ */
 export function getRackOutput(args: GetRackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRackResult> {
     return pulumi.output(args).apply((a: any) => getRack(a, opts))
 }

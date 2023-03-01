@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An ADLS Gen2 folder data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getADLSGen2FolderDataSetMapping(args: GetADLSGen2FolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetMappingResult> {
@@ -100,7 +100,7 @@ export interface GetADLSGen2FolderDataSetMappingResult {
     readonly type: string;
 }
 /**
- * An ADLS Gen2 folder data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getADLSGen2FolderDataSetMappingOutput(args: GetADLSGen2FolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetMappingResult> {

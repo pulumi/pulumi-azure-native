@@ -577,7 +577,7 @@ def get_database_account(account_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAccountResult:
     """
-    An Azure Cosmos DB database account.
+    Retrieves the properties of an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -642,7 +642,7 @@ def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAccountResult]:
     """
-    An Azure Cosmos DB database account.
+    Retrieves the properties of an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get a resource management private link(resource-level).
+ */
 export function getResourceManagementPrivateLink(args: GetResourceManagementPrivateLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceManagementPrivateLinkResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +49,9 @@ export interface GetResourceManagementPrivateLinkResult {
      */
     readonly type: string;
 }
+/**
+ * Get a resource management private link(resource-level).
+ */
 export function getResourceManagementPrivateLinkOutput(args: GetResourceManagementPrivateLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceManagementPrivateLinkResult> {
     return pulumi.output(args).apply((a: any) => getResourceManagementPrivateLink(a, opts))
 }

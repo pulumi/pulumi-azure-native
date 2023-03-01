@@ -253,7 +253,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
                              rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledQueryRuleResult:
     """
-    The Log Search Rule resource.
+    Gets an Log Search rule
     API Version: 2018-04-16.
 
 
@@ -292,7 +292,7 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     rule_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
     """
-    The Log Search Rule resource.
+    Gets an Log Search rule
     API Version: 2018-04-16.
 
 

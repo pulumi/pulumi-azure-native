@@ -108,7 +108,7 @@ def get_workload_deployment(modernize_project_name: Optional[str] = None,
                             workload_deployment_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadDeploymentResult:
     """
-    Workload deployment model.
+    Gets the details of the workload deployment.
 
 
     :param str modernize_project_name: ModernizeProject name.
@@ -140,7 +140,7 @@ def get_workload_deployment_output(modernize_project_name: Optional[pulumi.Input
                                    workload_deployment_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadDeploymentResult]:
     """
-    Workload deployment model.
+    Gets the details of the workload deployment.
 
 
     :param str modernize_project_name: ModernizeProject name.

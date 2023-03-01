@@ -83,7 +83,8 @@ def get_job(job_collection_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets a job.
+
 
     :param str job_collection_name: The job collection name.
     :param str job_name: The job name.
@@ -109,7 +110,8 @@ def get_job_output(job_collection_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets a job.
+
 
     :param str job_collection_name: The job collection name.
     :param str job_name: The job name.

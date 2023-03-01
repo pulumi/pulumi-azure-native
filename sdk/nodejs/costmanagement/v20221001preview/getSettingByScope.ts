@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Setting definition.
+ * Get the setting from the given scope by name.
  */
 /** @deprecated Please use one of the variants: TagInheritanceSetting. */
 export function getSettingByScope(args: GetSettingByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetSettingByScopeResult> {
@@ -55,7 +55,7 @@ export interface GetSettingByScopeResult {
     readonly type: string;
 }
 /**
- * Setting definition.
+ * Get the setting from the given scope by name.
  */
 /** @deprecated Please use one of the variants: TagInheritanceSetting. */
 export function getSettingByScopeOutput(args: GetSettingByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSettingByScopeResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A DDoS protection plan in a resource group.
+ * Gets information about the specified DDoS protection plan.
  * API Version: 2020-11-01.
  */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
@@ -73,7 +73,7 @@ export interface GetDdosProtectionPlanResult {
     readonly virtualNetworks: outputs.network.SubResourceResponse[];
 }
 /**
- * A DDoS protection plan in a resource group.
+ * Gets information about the specified DDoS protection plan.
  * API Version: 2020-11-01.
  */
 export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosProtectionPlanResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Network base admin rule.
+ * Gets a network manager security configuration admin rule.
  * API Version: 2021-02-01-preview.
  */
 /** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */
@@ -78,7 +78,7 @@ export interface GetAdminRuleResult {
     readonly type: string;
 }
 /**
- * Network base admin rule.
+ * Gets a network manager security configuration admin rule.
  * API Version: 2021-02-01-preview.
  */
 /** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */

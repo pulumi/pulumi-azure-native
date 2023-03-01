@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Information about packet capture session.
+ * Gets a packet capture session by name.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
 
@@ -81,7 +81,7 @@ export interface GetPacketCaptureResult {
     readonly totalBytesPerSession?: number;
 }
 /**
- * Information about packet capture session.
+ * Gets a packet capture session by name.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
     return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200601
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// A private endpoint connection
+        /// Gets the specified private endpoint connection associated with the configuration store.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:appconfiguration/v20200601:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private endpoint connection
+        /// Gets the specified private endpoint connection associated with the configuration store.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:appconfiguration/v20200601:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

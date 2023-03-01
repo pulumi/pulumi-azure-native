@@ -99,7 +99,7 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[str
                                     service_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationAccessPolicyResult:
     """
-    Authorization access policy contract.
+    Gets the details of the authorization access policy specified by its identifier.
 
 
     :param str authorization_access_policy_id: Identifier of the authorization access policy.
@@ -133,7 +133,7 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
                                            service_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationAccessPolicyResult]:
     """
-    Authorization access policy contract.
+    Gets the details of the authorization access policy specified by its identifier.
 
 
     :param str authorization_access_policy_id: Identifier of the authorization access policy.

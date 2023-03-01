@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Spring Cloud Gateway route config resource
+ * Get the Spring Cloud Gateway route configs.
  * API Version: 2022-01-01-preview.
  */
 export function getGatewayRouteConfig(args: GetGatewayRouteConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteConfigResult> {
@@ -67,7 +67,7 @@ export interface GetGatewayRouteConfigResult {
     readonly type: string;
 }
 /**
- * Spring Cloud Gateway route config resource
+ * Get the Spring Cloud Gateway route configs.
  * API Version: 2022-01-01-preview.
  */
 export function getGatewayRouteConfigOutput(args: GetGatewayRouteConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteConfigResult> {

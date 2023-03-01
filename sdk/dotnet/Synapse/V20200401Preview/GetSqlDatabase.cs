@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
     public static class GetSqlDatabase
     {
         /// <summary>
-        /// A sql database resource.
+        /// Gets a SqlDatabase.
         /// </summary>
         public static Task<GetSqlDatabaseResult> InvokeAsync(GetSqlDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDatabaseResult>("azure-native:synapse/v20200401preview:getSqlDatabase", args ?? new GetSqlDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A sql database resource.
+        /// Gets a SqlDatabase.
         /// </summary>
         public static Output<GetSqlDatabaseResult> Invoke(GetSqlDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDatabaseResult>("azure-native:synapse/v20200401preview:getSqlDatabase", args ?? new GetSqlDatabaseInvokeArgs(), options.WithDefaults());

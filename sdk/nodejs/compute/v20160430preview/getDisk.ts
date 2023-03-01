@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Disk resource.
+ * Gets information about a disk.
  */
 /** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
@@ -90,7 +90,7 @@ export interface GetDiskResult {
     readonly type: string;
 }
 /**
- * Disk resource.
+ * Gets information about a disk.
  */
 /** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20150401
     public static class GetAutoscaleSetting
     {
         /// <summary>
-        /// The autoscale setting resource.
+        /// Gets an autoscale setting
         /// </summary>
         public static Task<GetAutoscaleSettingResult> InvokeAsync(GetAutoscaleSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-native:insights/v20150401:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The autoscale setting resource.
+        /// Gets an autoscale setting
         /// </summary>
         public static Output<GetAutoscaleSettingResult> Invoke(GetAutoscaleSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoscaleSettingResult>("azure-native:insights/v20150401:getAutoscaleSetting", args ?? new GetAutoscaleSettingInvokeArgs(), options.WithDefaults());

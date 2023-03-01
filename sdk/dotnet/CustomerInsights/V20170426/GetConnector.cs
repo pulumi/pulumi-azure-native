@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
     public static class GetConnector
     {
         /// <summary>
-        /// The connector resource format.
+        /// Gets a connector in the hub.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:customerinsights/v20170426:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The connector resource format.
+        /// Gets a connector in the hub.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:customerinsights/v20170426:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

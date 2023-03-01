@@ -60,7 +60,7 @@ def get_workspace_shared_keys(resource_group_name: Optional[str] = None,
                               workspace_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceSharedKeysResult:
     """
-    The shared keys for a workspace.
+    Gets the shared keys for a workspace.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
@@ -82,7 +82,7 @@ def get_workspace_shared_keys_output(resource_group_name: Optional[pulumi.Input[
                                      workspace_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSharedKeysResult]:
     """
-    The shared keys for a workspace.
+    Gets the shared keys for a workspace.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.

@@ -12,19 +12,13 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public static class GetCloudServicesNetwork
     {
         /// <summary>
-        /// Upon creation, the additional services that are provided by the platform will be allocated and
-        /// represented in the status of this resource. All resources associated with this cloud services network will be part
-        /// of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
-        /// virtual machines and/or Hybrid AKS clusters.
+        /// Get properties of the provided cloud services network.
         /// </summary>
         public static Task<GetCloudServicesNetworkResult> InvokeAsync(GetCloudServicesNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServicesNetworkResult>("azure-native:networkcloud/v20221212preview:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Upon creation, the additional services that are provided by the platform will be allocated and
-        /// represented in the status of this resource. All resources associated with this cloud services network will be part
-        /// of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
-        /// virtual machines and/or Hybrid AKS clusters.
+        /// Get properties of the provided cloud services network.
         /// </summary>
         public static Output<GetCloudServicesNetworkResult> Invoke(GetCloudServicesNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServicesNetworkResult>("azure-native:networkcloud/v20221212preview:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkInvokeArgs(), options.WithDefaults());

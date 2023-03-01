@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Storage.V20210901
     public static class ListStorageAccountServiceSAS
     {
         /// <summary>
-        /// The List service SAS credentials operation response.
+        /// List service SAS credentials of a specific resource.
         /// </summary>
         public static Task<ListStorageAccountServiceSASResult> InvokeAsync(ListStorageAccountServiceSASArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-native:storage/v20210901:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The List service SAS credentials operation response.
+        /// List service SAS credentials of a specific resource.
         /// </summary>
         public static Output<ListStorageAccountServiceSASResult> Invoke(ListStorageAccountServiceSASInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountServiceSASResult>("azure-native:storage/v20210901:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASInvokeArgs(), options.WithDefaults());

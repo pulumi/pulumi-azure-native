@@ -110,7 +110,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       server_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Represents a server group firewall rule.
+    Gets information about a server group firewall rule.
 
 
     :param str firewall_rule_name: The name of the server group firewall rule.
@@ -139,7 +139,7 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
                              server_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
-    Represents a server group firewall rule.
+    Gets information about a server group firewall rule.
 
 
     :param str firewall_rule_name: The name of the server group firewall rule.

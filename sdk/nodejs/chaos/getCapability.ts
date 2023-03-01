@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Model that represents a Capability resource.
+ * Get a Capability resource that extends a Target resource.
  * API Version: 2021-09-15-preview.
  */
 export function getCapability(args: GetCapabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetCapabilityResult> {
@@ -77,7 +77,7 @@ export interface GetCapabilityResult {
     readonly type: string;
 }
 /**
- * Model that represents a Capability resource.
+ * Get a Capability resource that extends a Target resource.
  * API Version: 2021-09-15-preview.
  */
 export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {

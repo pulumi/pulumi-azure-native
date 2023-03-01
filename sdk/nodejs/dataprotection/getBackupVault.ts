@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Backup Vault Resource
+ * Returns a resource belonging to a resource group.
  * API Version: 2021-01-01.
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
@@ -73,7 +73,7 @@ export interface GetBackupVaultResult {
     readonly type: string;
 }
 /**
- * Backup Vault Resource
+ * Returns a resource belonging to a resource group.
  * API Version: 2021-01-01.
  */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {

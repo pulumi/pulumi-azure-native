@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Registration assignment.
+ * Gets the details of specified registration assignment.
  * API Version: 2019-09-01.
  */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
@@ -58,7 +58,7 @@ export interface GetRegistrationAssignmentResult {
     readonly type: string;
 }
 /**
- * Registration assignment.
+ * Gets the details of specified registration assignment.
  * API Version: 2019-09-01.
  */
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {

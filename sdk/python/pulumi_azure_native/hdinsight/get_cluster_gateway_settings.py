@@ -72,7 +72,7 @@ def get_cluster_gateway_settings(cluster_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterGatewaySettingsResult:
     """
-    Gateway settings.
+    Gets the gateway settings for the specified cluster.
     API Version: 2018-06-01-preview.
 
 
@@ -96,7 +96,7 @@ def get_cluster_gateway_settings_output(cluster_name: Optional[pulumi.Input[str]
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterGatewaySettingsResult]:
     """
-    Gateway settings.
+    Gets the gateway settings for the specified cluster.
     API Version: 2018-06-01-preview.
 
 

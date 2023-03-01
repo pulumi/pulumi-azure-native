@@ -75,7 +75,7 @@ def get_image_upload_url_for_data(entity_type: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageUploadUrlForDataResult:
     """
-    The image definition.
+    Gets data image upload URL.
 
 
     :param str entity_type: Type of entity. Can be Profile or Interaction.
@@ -107,7 +107,7 @@ def get_image_upload_url_for_data_output(entity_type: Optional[pulumi.Input[Opti
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageUploadUrlForDataResult]:
     """
-    The image definition.
+    Gets data image upload URL.
 
 
     :param str entity_type: Type of entity. Can be Profile or Interaction.

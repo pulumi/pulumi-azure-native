@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents an Active Directory administrator.
+ * Gets information about a server.
  */
 export function getAdministrator(args: GetAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAdministratorResult> {
 
@@ -73,7 +73,7 @@ export interface GetAdministratorResult {
     readonly type: string;
 }
 /**
- * Represents an Active Directory administrator.
+ * Gets information about a server.
  */
 export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getAdministrator(a, opts))

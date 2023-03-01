@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Representation of a managed Cassandra cluster.
+ * Get the properties of a managed Cassandra cluster.
  * API Version: 2021-03-01-preview.
  */
 export function getCassandraCluster(args: GetCassandraClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraClusterResult> {
@@ -65,7 +65,7 @@ export interface GetCassandraClusterResult {
     readonly type: string;
 }
 /**
- * Representation of a managed Cassandra cluster.
+ * Get the properties of a managed Cassandra cluster.
  * API Version: 2021-03-01-preview.
  */
 export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraClusterResult> {

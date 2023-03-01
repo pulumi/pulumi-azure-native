@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20211101
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>
-        /// Description of a namespace authorization rule.
+        /// Gets an authorization rule for a namespace by rule name.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus/v20211101:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a namespace authorization rule.
+        /// Gets an authorization rule for a namespace by rule name.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:servicebus/v20211101:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());

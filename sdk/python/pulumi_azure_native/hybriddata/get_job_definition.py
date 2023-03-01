@@ -183,7 +183,7 @@ def get_job_definition(data_manager_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
-    Job Definition.
+    This method gets job definition object by name.
     API Version: 2019-06-01.
 
 
@@ -222,7 +222,7 @@ def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = N
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
-    Job Definition.
+    This method gets job definition object by name.
     API Version: 2019-06-01.
 
 

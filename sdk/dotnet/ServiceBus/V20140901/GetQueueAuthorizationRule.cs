@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
     public static class GetQueueAuthorizationRule
     {
         /// <summary>
-        /// Description of a namespace authorization rule.
+        /// Gets an authorization rule for a queue by rule name.
         /// </summary>
         public static Task<GetQueueAuthorizationRuleResult> InvokeAsync(GetQueueAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20140901:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a namespace authorization rule.
+        /// Gets an authorization rule for a queue by rule name.
         /// </summary>
         public static Output<GetQueueAuthorizationRuleResult> Invoke(GetQueueAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20140901:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());

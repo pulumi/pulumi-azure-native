@@ -181,7 +181,7 @@ def get_tenant_action_group(management_group_id: Optional[str] = None,
                             tenant_action_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTenantActionGroupResult:
     """
-    A tenant action group resource.
+    Get a tenant action group.
 
 
     :param str management_group_id: The management group id.
@@ -213,7 +213,7 @@ def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[st
                                    tenant_action_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantActionGroupResult]:
     """
-    A tenant action group resource.
+    Get a tenant action group.
 
 
     :param str management_group_id: The management group id.

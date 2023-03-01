@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Trigger data transfer object.
+ * Get a Trigger in a shareSubscription
  * API Version: 2020-09-01.
  */
 /** @deprecated Please use one of the variants: ScheduledTrigger. */
@@ -69,7 +69,7 @@ export interface GetTriggerResult {
     readonly type: string;
 }
 /**
- * A Trigger data transfer object.
+ * Get a Trigger in a shareSubscription
  * API Version: 2020-09-01.
  */
 /** @deprecated Please use one of the variants: ScheduledTrigger. */

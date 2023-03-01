@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A server security alert policy.
+ * Get a server's security alert policy.
  */
 export function getServerSecurityAlertPolicy(args: GetServerSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerSecurityAlertPolicyResult> {
 
@@ -82,7 +82,7 @@ export interface GetServerSecurityAlertPolicyResult {
     readonly type: string;
 }
 /**
- * A server security alert policy.
+ * Get a server's security alert policy.
  */
 export function getServerSecurityAlertPolicyOutput(args: GetServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSecurityAlertPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerSecurityAlertPolicy(a, opts))

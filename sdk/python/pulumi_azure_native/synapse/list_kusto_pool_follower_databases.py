@@ -50,7 +50,7 @@ def list_kusto_pool_follower_databases(kusto_pool_name: Optional[str] = None,
                                        workspace_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKustoPoolFollowerDatabasesResult:
     """
-    The list Kusto database principals operation response.
+    Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
     API Version: 2021-06-01-preview.
 
 
@@ -75,7 +75,7 @@ def list_kusto_pool_follower_databases_output(kusto_pool_name: Optional[pulumi.I
                                               workspace_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKustoPoolFollowerDatabasesResult]:
     """
-    The list Kusto database principals operation response.
+    Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
     API Version: 2021-06-01-preview.
 
 

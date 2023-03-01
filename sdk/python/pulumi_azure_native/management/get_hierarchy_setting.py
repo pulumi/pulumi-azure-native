@@ -107,7 +107,8 @@ class AwaitableGetHierarchySettingResult(GetHierarchySettingResult):
 def get_hierarchy_setting(group_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHierarchySettingResult:
     """
-    Settings defined at the Management Group scope.
+    Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
+
     API Version: 2020-05-01.
 
 
@@ -131,7 +132,8 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
 def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHierarchySettingResult]:
     """
-    Settings defined at the Management Group scope.
+    Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
+
     API Version: 2020-05-01.
 
 

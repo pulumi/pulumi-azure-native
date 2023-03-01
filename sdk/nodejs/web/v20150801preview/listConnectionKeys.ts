@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * Lists connection keys.
+ */
 export function listConnectionKeys(args: ListConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionKeysResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,6 +72,9 @@ export interface ListConnectionKeysResult {
      */
     readonly parameterValues?: {[key: string]: any};
 }
+/**
+ * Lists connection keys.
+ */
 export function listConnectionKeysOutput(args: ListConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionKeysResult> {
     return pulumi.output(args).apply((a: any) => listConnectionKeys(a, opts))
 }

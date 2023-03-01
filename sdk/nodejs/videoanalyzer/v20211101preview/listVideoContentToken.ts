@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * "Video content token grants access to the video content URLs."
+ * Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
  */
 export function listVideoContentToken(args: ListVideoContentTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListVideoContentTokenResult> {
 
@@ -46,7 +46,7 @@ export interface ListVideoContentTokenResult {
     readonly token: string;
 }
 /**
- * "Video content token grants access to the video content URLs."
+ * Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
  */
 export function listVideoContentTokenOutput(args: ListVideoContentTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoContentTokenResult> {
     return pulumi.output(args).apply((a: any) => listVideoContentToken(a, opts))

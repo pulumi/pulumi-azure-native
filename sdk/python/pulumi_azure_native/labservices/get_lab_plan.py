@@ -205,7 +205,7 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabPlanResult:
     """
-    Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
+    Retrieves the properties of a Lab Plan.
     API Version: 2021-10-01-preview.
 
 
@@ -240,7 +240,7 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabPlanResult]:
     """
-    Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
+    Retrieves the properties of a Lab Plan.
     API Version: 2021-10-01-preview.
 
 

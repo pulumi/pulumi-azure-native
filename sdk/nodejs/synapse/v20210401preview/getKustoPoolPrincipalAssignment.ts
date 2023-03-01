@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a cluster principal assignment.
+ * Gets a Kusto pool principalAssignment.
  */
 export function getKustoPoolPrincipalAssignment(args: GetKustoPoolPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolPrincipalAssignmentResult> {
 
@@ -90,7 +90,7 @@ export interface GetKustoPoolPrincipalAssignmentResult {
     readonly type: string;
 }
 /**
- * Class representing a cluster principal assignment.
+ * Gets a Kusto pool principalAssignment.
  */
 export function getKustoPoolPrincipalAssignmentOutput(args: GetKustoPoolPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolPrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getKustoPoolPrincipalAssignment(a, opts))

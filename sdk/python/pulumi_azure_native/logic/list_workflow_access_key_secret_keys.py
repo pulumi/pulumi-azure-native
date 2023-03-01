@@ -58,6 +58,7 @@ def list_workflow_access_key_secret_keys(access_key_name: Optional[str] = None,
                                          workflow_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowAccessKeySecretKeysResult:
     """
+    Lists secret keys.
     API Version: 2015-02-01-preview.
 
 
@@ -83,6 +84,7 @@ def list_workflow_access_key_secret_keys_output(access_key_name: Optional[pulumi
                                                 workflow_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowAccessKeySecretKeysResult]:
     """
+    Lists secret keys.
     API Version: 2015-02-01-preview.
 
 

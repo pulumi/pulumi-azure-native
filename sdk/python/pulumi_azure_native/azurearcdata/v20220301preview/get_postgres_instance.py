@@ -145,7 +145,7 @@ def get_postgres_instance(postgres_instance_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPostgresInstanceResult:
     """
-    A Postgres Instance.
+    Retrieves a postgres Instance resource
 
 
     :param str postgres_instance_name: Name of Postgres Instance
@@ -174,7 +174,7 @@ def get_postgres_instance_output(postgres_instance_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPostgresInstanceResult]:
     """
-    A Postgres Instance.
+    Retrieves a postgres Instance resource
 
 
     :param str postgres_instance_name: Name of Postgres Instance

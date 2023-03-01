@@ -75,7 +75,7 @@ def get_image_upload_url_for_entity_type(entity_type: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageUploadUrlForEntityTypeResult:
     """
-    The image definition.
+    Gets entity type (profile or interaction) image upload URL.
     API Version: 2017-04-26.
 
 
@@ -108,7 +108,7 @@ def get_image_upload_url_for_entity_type_output(entity_type: Optional[pulumi.Inp
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageUploadUrlForEntityTypeResult]:
     """
-    The image definition.
+    Gets entity type (profile or interaction) image upload URL.
     API Version: 2017-04-26.
 
 

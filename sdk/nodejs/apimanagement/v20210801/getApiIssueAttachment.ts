@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Issue Attachment Contract details.
+ * Gets the details of the issue Attachment for an API specified by its identifier.
  */
 export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueAttachmentResult> {
 
@@ -72,7 +72,7 @@ export interface GetApiIssueAttachmentResult {
     readonly type: string;
 }
 /**
- * Issue Attachment Contract details.
+ * Gets the details of the issue Attachment for an API specified by its identifier.
  */
 export function getApiIssueAttachmentOutput(args: GetApiIssueAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getApiIssueAttachment(a, opts))

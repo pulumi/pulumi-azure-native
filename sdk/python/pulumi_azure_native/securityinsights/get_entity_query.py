@@ -113,7 +113,7 @@ def get_entity_query(entity_query_id: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityQueryResult:
     """
-    Specific entity query.
+    Gets an entity query.
     API Version: 2021-03-01-preview.
 
 
@@ -147,7 +147,7 @@ def get_entity_query_output(entity_query_id: Optional[pulumi.Input[str]] = None,
                             workspace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityQueryResult]:
     """
-    Specific entity query.
+    Gets an entity query.
     API Version: 2021-03-01-preview.
 
 

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
     public static class GetSolution
     {
         /// <summary>
-        /// Solution resource.
+        /// Get installed Solution details by Solution id.
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:agfoodplatform/v20210901preview:getSolution", args ?? new GetSolutionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Solution resource.
+        /// Get installed Solution details by Solution id.
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:agfoodplatform/v20210901preview:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());

@@ -169,7 +169,8 @@ def get_adaptive_application_control(asc_location: Optional[str] = None,
                                      group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdaptiveApplicationControlResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets an application control VM/server group.
+
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param str group_name: Name of an application control machine group
@@ -200,7 +201,8 @@ def get_adaptive_application_control_output(asc_location: Optional[pulumi.Input[
                                             group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdaptiveApplicationControlResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets an application control VM/server group.
+
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param str group_name: Name of an application control machine group

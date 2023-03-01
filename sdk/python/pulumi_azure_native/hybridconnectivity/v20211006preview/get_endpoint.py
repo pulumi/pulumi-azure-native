@@ -165,7 +165,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  resource_uri: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
-    The endpoint for the target resource.
+    Gets the endpoint to the resource.
 
 
     :param str endpoint_name: The endpoint name.
@@ -196,7 +196,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         resource_uri: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
-    The endpoint for the target resource.
+    Gets the endpoint to the resource.
 
 
     :param str endpoint_name: The endpoint name.

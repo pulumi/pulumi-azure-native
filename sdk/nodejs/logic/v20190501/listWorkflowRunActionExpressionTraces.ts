@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The expression traces.
+ * Lists a workflow run expression trace.
  */
 export function listWorkflowRunActionExpressionTraces(args: ListWorkflowRunActionExpressionTracesArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowRunActionExpressionTracesResult> {
 
@@ -47,7 +47,7 @@ export interface ListWorkflowRunActionExpressionTracesResult {
     readonly inputs?: outputs.logic.v20190501.ExpressionRootResponse[];
 }
 /**
- * The expression traces.
+ * Lists a workflow run expression trace.
  */
 export function listWorkflowRunActionExpressionTracesOutput(args: ListWorkflowRunActionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionExpressionTracesResult> {
     return pulumi.output(args).apply((a: any) => listWorkflowRunActionExpressionTraces(a, opts))

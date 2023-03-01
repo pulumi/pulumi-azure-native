@@ -146,7 +146,7 @@ def get_volume_group(elastic_san_name: Optional[str] = None,
                      volume_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
-    Response for Volume Group request.
+    Get an VolumeGroups.
     API Version: 2021-11-20-preview.
 
 
@@ -179,7 +179,7 @@ def get_volume_group_output(elastic_san_name: Optional[pulumi.Input[str]] = None
                             volume_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
-    Response for Volume Group request.
+    Get an VolumeGroups.
     API Version: 2021-11-20-preview.
 
 

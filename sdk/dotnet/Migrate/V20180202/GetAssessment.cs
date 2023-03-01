@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Migrate.V20180202
     public static class GetAssessment
     {
         /// <summary>
-        /// An assessment created for a group in the Migration project.
+        /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:migrate/v20180202:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An assessment created for a group in the Migration project.
+        /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate/v20180202:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());

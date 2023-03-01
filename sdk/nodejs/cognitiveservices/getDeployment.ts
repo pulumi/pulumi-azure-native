@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Cognitive Services account deployment.
+ * Gets the specified deployments associated with the Cognitive Services account.
  * API Version: 2021-10-01.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
@@ -66,7 +66,7 @@ export interface GetDeploymentResult {
     readonly type: string;
 }
 /**
- * Cognitive Services account deployment.
+ * Gets the specified deployments associated with the Cognitive Services account.
  * API Version: 2021-10-01.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {

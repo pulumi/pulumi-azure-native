@@ -98,7 +98,7 @@ def list_web_app_connection_strings_slot(name: Optional[str] = None,
                                          slot: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppConnectionStringsSlotResult:
     """
-    String dictionary resource.
+    Gets the connection strings of an app.
     API Version: 2020-12-01.
 
 
@@ -127,7 +127,7 @@ def list_web_app_connection_strings_slot_output(name: Optional[pulumi.Input[str]
                                                 slot: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppConnectionStringsSlotResult]:
     """
-    String dictionary resource.
+    Gets the connection strings of an app.
     API Version: 2020-12-01.
 
 

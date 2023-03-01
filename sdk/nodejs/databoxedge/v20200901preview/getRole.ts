@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Compute role.
+ * Gets a specific role by name.
  */
 /** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider. */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
@@ -63,7 +63,7 @@ export interface GetRoleResult {
     readonly type: string;
 }
 /**
- * Compute role.
+ * Gets a specific role by name.
  */
 /** @deprecated Version 2020-09-01-preview will be removed in v2 of the provider. */
 export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {

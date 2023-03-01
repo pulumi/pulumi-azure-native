@@ -135,7 +135,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumerGroupResult:
     """
-    Single item in List or Get Consumer group operation
+    Gets a description for the specified consumer group.
 
 
     :param str consumer_group_name: The consumer group name
@@ -169,7 +169,7 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumerGroupResult]:
     """
-    Single item in List or Get Consumer group operation
+    Gets a description for the specified consumer group.
 
 
     :param str consumer_group_name: The consumer group name

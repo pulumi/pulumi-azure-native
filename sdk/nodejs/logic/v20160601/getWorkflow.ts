@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The workflow type.
+ * Gets a workflow.
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
 
@@ -96,7 +96,7 @@ export interface GetWorkflowResult {
     readonly version: string;
 }
 /**
- * The workflow type.
+ * Gets a workflow.
  */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
     return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * RouteTable resource
+ * The Get RouteTables operation retrieves information about the specified route table.
  */
 /** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
@@ -79,7 +79,7 @@ export interface GetRouteTableResult {
     readonly type: string;
 }
 /**
- * RouteTable resource
+ * The Get RouteTables operation retrieves information about the specified route table.
  */
 /** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {

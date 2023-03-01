@@ -122,7 +122,7 @@ def get_custom_api(api_name: Optional[str] = None,
                    subscription_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomApiResult:
     """
-    A custom API
+    Gets a custom API by name for a specific subscription and resource group
 
 
     :param str api_name: API name
@@ -152,7 +152,7 @@ def get_custom_api_output(api_name: Optional[pulumi.Input[str]] = None,
                           subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomApiResult]:
     """
-    A custom API
+    Gets a custom API by name for a specific subscription and resource group
 
 
     :param str api_name: API name

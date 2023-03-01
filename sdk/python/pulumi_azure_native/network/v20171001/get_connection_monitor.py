@@ -193,7 +193,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorResult:
     """
-    Information about the connection monitor.
+    Gets a connection monitor by name.
 
 
     :param str connection_monitor_name: The name of the connection monitor.
@@ -230,7 +230,7 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionMonitorResult]:
     """
-    Information about the connection monitor.
+    Gets a connection monitor by name.
 
 
     :param str connection_monitor_name: The name of the connection monitor.

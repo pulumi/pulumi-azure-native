@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A group of job targets.
+ * Gets a target group.
  * API Version: 2020-11-01-preview.
  */
 export function getJobTargetGroup(args: GetJobTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTargetGroupResult> {
@@ -63,7 +63,7 @@ export interface GetJobTargetGroupResult {
     readonly type: string;
 }
 /**
- * A group of job targets.
+ * Gets a target group.
  * API Version: 2020-11-01-preview.
  */
 export function getJobTargetGroupOutput(args: GetJobTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTargetGroupResult> {

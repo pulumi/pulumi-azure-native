@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StorageSync
     public static class GetSyncGroup
     {
         /// <summary>
-        /// Sync Group object.
+        /// Get a given SyncGroup.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:storagesync:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Sync Group object.
+        /// Get a given SyncGroup.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)

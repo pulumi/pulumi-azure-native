@@ -63,7 +63,7 @@ def list_list_effective_virtual_network_by_network_group(network_group_name: Opt
                                                          skip_token: Optional[str] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListEffectiveVirtualNetworkByNetworkGroupResult:
     """
-    Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+    Lists all effective virtual networks by specified network group.
 
 
     :param str network_group_name: The name of the network group.
@@ -91,7 +91,7 @@ def list_list_effective_virtual_network_by_network_group_output(network_group_na
                                                                 skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListListEffectiveVirtualNetworkByNetworkGroupResult]:
     """
-    Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
+    Lists all effective virtual networks by specified network group.
 
 
     :param str network_group_name: The name of the network group.

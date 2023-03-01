@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
     public static class ListPolicyFragmentReferences
     {
         /// <summary>
-        /// A collection of resources.
+        /// Lists policy resources that reference the policy fragment.
         /// </summary>
         public static Task<ListPolicyFragmentReferencesResult> InvokeAsync(ListPolicyFragmentReferencesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPolicyFragmentReferencesResult>("azure-native:apimanagement/v20220401preview:listPolicyFragmentReferences", args ?? new ListPolicyFragmentReferencesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A collection of resources.
+        /// Lists policy resources that reference the policy fragment.
         /// </summary>
         public static Output<ListPolicyFragmentReferencesResult> Invoke(ListPolicyFragmentReferencesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicyFragmentReferencesResult>("azure-native:apimanagement/v20220401preview:listPolicyFragmentReferences", args ?? new ListPolicyFragmentReferencesInvokeArgs(), options.WithDefaults());

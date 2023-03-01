@@ -284,7 +284,7 @@ def getagent_pool(agent_pool_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetagentPoolResult:
     """
-    The agentPool resource definition
+    Gets the agent pool in the Hybrid AKS provisioned cluster
     API Version: 2022-05-01-preview.
 
 
@@ -329,7 +329,7 @@ def getagent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetagentPoolResult]:
     """
-    The agentPool resource definition
+    Gets the agent pool in the Hybrid AKS provisioned cluster
     API Version: 2022-05-01-preview.
 
 

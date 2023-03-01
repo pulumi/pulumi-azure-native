@@ -122,7 +122,7 @@ def list_disaster_recovery_config_keys(alias: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDisasterRecoveryConfigKeysResult:
     """
-    Namespace/EventHub Connection String
+    Gets the primary and secondary connection strings for the Namespace.
 
 
     :param str alias: The Disaster Recovery configuration name
@@ -155,7 +155,7 @@ def list_disaster_recovery_config_keys_output(alias: Optional[pulumi.Input[str]]
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDisasterRecoveryConfigKeysResult]:
     """
-    Namespace/EventHub Connection String
+    Gets the primary and secondary connection strings for the Namespace.
 
 
     :param str alias: The Disaster Recovery configuration name

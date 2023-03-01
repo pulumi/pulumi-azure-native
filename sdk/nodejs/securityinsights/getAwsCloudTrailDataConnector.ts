@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents Amazon Web Services CloudTrail data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getAwsCloudTrailDataConnector(args: GetAwsCloudTrailDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsCloudTrailDataConnectorResult> {
@@ -71,7 +71,7 @@ export interface GetAwsCloudTrailDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents Amazon Web Services CloudTrail data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {

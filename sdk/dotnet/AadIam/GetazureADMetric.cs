@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AadIam
     public static class GetazureADMetric
     {
         /// <summary>
-        /// AzureADMetrics resource.
+        /// Gets a azureADMetrics instance with a given name.
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Task<GetazureADMetricResult> InvokeAsync(GetazureADMetricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-native:aadiam:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AzureADMetrics resource.
+        /// Gets a azureADMetrics instance with a given name.
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Output<GetazureADMetricResult> Invoke(GetazureADMetricInvokeArgs args, InvokeOptions? options = null)

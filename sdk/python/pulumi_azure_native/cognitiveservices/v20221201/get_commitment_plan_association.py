@@ -110,7 +110,7 @@ def get_commitment_plan_association(commitment_plan_association_name: Optional[s
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanAssociationResult:
     """
-    The commitment plan association.
+    Gets the association of the Cognitive Services commitment plan.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
@@ -139,7 +139,7 @@ def get_commitment_plan_association_output(commitment_plan_association_name: Opt
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanAssociationResult]:
     """
-    The commitment plan association.
+    Gets the association of the Cognitive Services commitment plan.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account

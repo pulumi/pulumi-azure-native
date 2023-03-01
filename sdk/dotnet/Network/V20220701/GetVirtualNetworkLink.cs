@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220701
     public static class GetVirtualNetworkLink
     {
         /// <summary>
-        /// Describes a virtual network link.
+        /// Gets properties of a virtual network link to a DNS forwarding ruleset.
         /// </summary>
         public static Task<GetVirtualNetworkLinkResult> InvokeAsync(GetVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-native:network/v20220701:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a virtual network link.
+        /// Gets properties of a virtual network link to a DNS forwarding ruleset.
         /// </summary>
         public static Output<GetVirtualNetworkLinkResult> Invoke(GetVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkLinkResult>("azure-native:network/v20220701:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkInvokeArgs(), options.WithDefaults());

@@ -91,7 +91,8 @@ def get_resource_management_private_link(resource_group_name: Optional[str] = No
                                          rmpl_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceManagementPrivateLinkResult:
     """
-    Use this data source to access information about an existing resource.
+    Get a resource management private link(resource-level).
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rmpl_name: The name of the resource management private link.
@@ -115,7 +116,8 @@ def get_resource_management_private_link_output(resource_group_name: Optional[pu
                                                 rmpl_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceManagementPrivateLinkResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get a resource management private link(resource-level).
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rmpl_name: The name of the resource management private link.

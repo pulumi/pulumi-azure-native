@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get a specific private endpoint connection for Power BI by private endpoint name.
  * API Version: 2020-06-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
@@ -66,6 +67,7 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
+ * Get a specific private endpoint connection for Power BI by private endpoint name.
  * API Version: 2020-06-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {

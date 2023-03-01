@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+ * Gets details about the specified output.
  */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetOutputResult> {
 
@@ -85,7 +85,7 @@ export interface GetOutputResult {
     readonly watermarkSettings?: outputs.streamanalytics.v20211001preview.OutputWatermarkPropertiesResponse;
 }
 /**
- * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+ * Gets details about the specified output.
  */
 export function getOutputOutput(args: GetOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutputResult> {
     return pulumi.output(args).apply((a: any) => getOutput(a, opts))

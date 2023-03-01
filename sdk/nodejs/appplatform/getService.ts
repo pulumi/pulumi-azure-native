@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Service resource
+ * Get a Service and its properties.
  * API Version: 2020-07-01.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
@@ -65,7 +65,7 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * Service resource
+ * Get a Service and its properties.
  * API Version: 2020-07-01.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {

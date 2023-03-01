@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataFactory
     public static class GetManagedPrivateEndpoint
     {
         /// <summary>
-        /// Managed private endpoint resource type.
+        /// Gets a managed private endpoint.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Managed private endpoint resource type.
+        /// Gets a managed private endpoint.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)

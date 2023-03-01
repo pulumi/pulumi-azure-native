@@ -196,7 +196,7 @@ def get_threat_intelligence_alert_rule(operational_insights_resource_provider: O
                                        workspace_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThreatIntelligenceAlertRuleResult:
     """
-    Represents Threat Intelligence alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -235,7 +235,7 @@ def get_threat_intelligence_alert_rule_output(operational_insights_resource_prov
                                               workspace_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThreatIntelligenceAlertRuleResult]:
     """
-    Represents Threat Intelligence alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

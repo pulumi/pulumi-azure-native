@@ -157,7 +157,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilitySetResult:
     """
-    The AvailabilitySets resource definition.
+    Implements AvailabilitySet GET method.
     API Version: 2020-06-05-preview.
 
 
@@ -188,7 +188,7 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
     """
-    The AvailabilitySets resource definition.
+    Implements AvailabilitySet GET method.
     API Version: 2020-06-05-preview.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Model that represents a Experiment resource.
+ * Get a Experiment resource.
  * API Version: 2021-09-15-preview.
  */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
@@ -69,7 +69,7 @@ export interface GetExperimentResult {
     readonly type: string;
 }
 /**
- * Model that represents a Experiment resource.
+ * Get a Experiment resource.
  * API Version: 2021-09-15-preview.
  */
 export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {

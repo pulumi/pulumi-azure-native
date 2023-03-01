@@ -48,7 +48,7 @@ def list_device_registration_key(device_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceRegistrationKeyResult:
     """
-    The device registration key.
+    List the registration key for the device.
     API Version: 2020-01-01-preview.
 
 
@@ -70,7 +70,7 @@ def list_device_registration_key_output(device_name: Optional[pulumi.Input[str]]
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceRegistrationKeyResult]:
     """
-    The device registration key.
+    List the registration key for the device.
     API Version: 2020-01-01-preview.
 
 

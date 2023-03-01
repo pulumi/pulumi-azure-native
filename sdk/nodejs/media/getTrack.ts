@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Asset Track resource.
+ * Get the details of a Track in the Asset
  * API Version: 2021-11-01.
  */
 export function getTrack(args: GetTrackArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackResult> {
@@ -67,7 +67,7 @@ export interface GetTrackResult {
     readonly type: string;
 }
 /**
- * An Asset Track resource.
+ * Get the details of a Track in the Asset
  * API Version: 2021-11-01.
  */
 export function getTrackOutput(args: GetTrackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackResult> {

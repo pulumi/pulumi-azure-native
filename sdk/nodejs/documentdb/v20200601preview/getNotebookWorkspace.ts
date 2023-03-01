@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A notebook workspace resource
+ * Gets the notebook workspace for a Cosmos DB account.
  */
 /** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
@@ -60,7 +60,7 @@ export interface GetNotebookWorkspaceResult {
     readonly type: string;
 }
 /**
- * A notebook workspace resource
+ * Gets the notebook workspace for a Cosmos DB account.
  */
 /** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
 export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookWorkspaceResult> {

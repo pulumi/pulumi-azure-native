@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
 {
     public static class ListWorkspaceStorageAccountKeys
     {
+        /// <summary>
+        /// List storage account keys of a workspace.
+        /// </summary>
         public static Task<ListWorkspaceStorageAccountKeysResult> InvokeAsync(ListWorkspaceStorageAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceStorageAccountKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceStorageAccountKeys", args ?? new ListWorkspaceStorageAccountKeysArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// List storage account keys of a workspace.
+        /// </summary>
         public static Output<ListWorkspaceStorageAccountKeysResult> Invoke(ListWorkspaceStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceStorageAccountKeysResult>("azure-native:machinelearningservices/v20220101preview:listWorkspaceStorageAccountKeys", args ?? new ListWorkspaceStorageAccountKeysInvokeArgs(), options.WithDefaults());
     }

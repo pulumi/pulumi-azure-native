@@ -208,7 +208,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOuContainerResult:
     """
-    Resource for OuContainer.
+    Get OuContainer in DomainService instance.
 
 
     :param str domain_service_name: The name of the domain service.
@@ -246,7 +246,7 @@ def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = N
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOuContainerResult]:
     """
-    Resource for OuContainer.
+    Get OuContainer in DomainService instance.
 
 
     :param str domain_service_name: The name of the domain service.

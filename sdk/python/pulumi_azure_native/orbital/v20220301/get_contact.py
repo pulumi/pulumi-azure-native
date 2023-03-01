@@ -290,7 +290,7 @@ def get_contact(contact_name: Optional[str] = None,
                 spacecraft_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactResult:
     """
-    Customer creates a contact resource for a spacecraft resource.
+    Gets the specified contact in a specified resource group.
 
 
     :param str contact_name: Contact name.
@@ -334,7 +334,7 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
                        spacecraft_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
     """
-    Customer creates a contact resource for a spacecraft resource.
+    Gets the specified contact in a specified resource group.
 
 
     :param str contact_name: Contact name.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Container service.
+ * Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.
  */
 /** @deprecated Version 2016-09-30 will be removed in v2 of the provider. */
 export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerServiceResult> {
@@ -94,7 +94,7 @@ export interface GetContainerServiceResult {
     readonly windowsProfile?: outputs.containerservice.v20160930.ContainerServiceWindowsProfileResponse;
 }
 /**
- * Container service.
+ * Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.
  */
 /** @deprecated Version 2016-09-30 will be removed in v2 of the provider. */
 export function getContainerServiceOutput(args: GetContainerServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerServiceResult> {

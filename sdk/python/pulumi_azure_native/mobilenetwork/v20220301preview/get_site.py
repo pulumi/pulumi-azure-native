@@ -206,7 +206,7 @@ def get_site(mobile_network_name: Optional[str] = None,
              site_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
-    Site resource.
+    Gets information about the specified mobile network site.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -243,7 +243,7 @@ def get_site_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                     site_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
-    Site resource.
+    Gets information about the specified mobile network site.
 
 
     :param str mobile_network_name: The name of the mobile network.

@@ -98,7 +98,7 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationHCRPAssignmentResult:
     """
-    Guest configuration assignment is an association between a machine and guest configuration.
+    Get information about a guest configuration assignment
     API Version: 2020-06-25.
 
 
@@ -127,7 +127,7 @@ def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestConfigurationHCRPAssignmentResult]:
     """
-    Guest configuration assignment is an association between a machine and guest configuration.
+    Get information about a guest configuration assignment
     API Version: 2020-06-25.
 
 

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
     public static class GetKubernetesRole
     {
         /// <summary>
-        /// Kubernetes role.
+        /// Gets a specific role by name.
         /// </summary>
         public static Task<GetKubernetesRoleResult> InvokeAsync(GetKubernetesRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge/v20210601:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Kubernetes role.
+        /// Gets a specific role by name.
         /// </summary>
         public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge/v20210601:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithDefaults());

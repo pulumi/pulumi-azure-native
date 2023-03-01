@@ -122,7 +122,7 @@ def get_api_release(api_id: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiReleaseResult:
     """
-    ApiRelease details.
+    Returns the details of an API release.
     API Version: 2020-12-01.
 
 
@@ -156,7 +156,7 @@ def get_api_release_output(api_id: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiReleaseResult]:
     """
-    ApiRelease details.
+    Returns the details of an API release.
     API Version: 2020-12-01.
 
 

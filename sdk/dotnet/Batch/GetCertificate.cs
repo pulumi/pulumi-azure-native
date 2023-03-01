@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Batch
     public static class GetCertificate
     {
         /// <summary>
-        /// Contains information about a certificate.
+        /// Gets information about the specified certificate.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:batch:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Contains information about a certificate.
+        /// Gets information about the specified certificate.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)

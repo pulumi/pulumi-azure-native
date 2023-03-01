@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Specifies information about the gallery Application Version that you want to create or update.
+ * Retrieves information about a gallery Application Version.
  * API Version: 2020-09-30.
  */
 export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationVersionResult> {
@@ -84,7 +84,7 @@ export interface GetGalleryApplicationVersionResult {
     readonly type: string;
 }
 /**
- * Specifies information about the gallery Application Version that you want to create or update.
+ * Retrieves information about a gallery Application Version.
  * API Version: 2020-09-30.
  */
 export function getGalleryApplicationVersionOutput(args: GetGalleryApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationVersionResult> {

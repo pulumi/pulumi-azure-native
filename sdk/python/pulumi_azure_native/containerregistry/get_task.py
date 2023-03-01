@@ -267,8 +267,7 @@ def get_task(registry_name: Optional[str] = None,
              task_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
-    The task that has the ARM resource and task properties.
-    The task will have all information to schedule a run against it.
+    Get the properties of a specified task.
     API Version: 2019-06-01-preview.
 
 
@@ -311,8 +310,7 @@ def get_task_output(registry_name: Optional[pulumi.Input[str]] = None,
                     task_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskResult]:
     """
-    The task that has the ARM resource and task properties.
-    The task will have all information to schedule a run against it.
+    Get the properties of a specified task.
     API Version: 2019-06-01-preview.
 
 

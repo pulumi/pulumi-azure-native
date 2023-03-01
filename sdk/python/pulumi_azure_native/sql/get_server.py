@@ -254,7 +254,7 @@ def get_server(expand: Optional[str] = None,
                server_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    An Azure SQL Database server.
+    Gets a server.
     API Version: 2020-11-01-preview.
 
 
@@ -296,7 +296,7 @@ def get_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
-    An Azure SQL Database server.
+    Gets a server.
     API Version: 2020-11-01-preview.
 
 

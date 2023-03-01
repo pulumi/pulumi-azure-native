@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Monitor PrivateLinkScope definition.
+ * Returns a Azure Monitor PrivateLinkScope.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
 
@@ -72,7 +72,7 @@ export interface GetPrivateLinkScopeResult {
     readonly type: string;
 }
 /**
- * An Azure Monitor PrivateLinkScope definition.
+ * Returns a Azure Monitor PrivateLinkScope.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))

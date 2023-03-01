@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Tag Contract details.
+ * Gets the details of the tag specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
@@ -55,7 +55,7 @@ export interface GetTagResult {
     readonly type: string;
 }
 /**
- * Tag Contract details.
+ * Gets the details of the tag specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {

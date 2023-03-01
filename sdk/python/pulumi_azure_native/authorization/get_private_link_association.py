@@ -82,6 +82,7 @@ def get_private_link_association(group_id: Optional[str] = None,
                                  pla_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAssociationResult:
     """
+    Get a single private link association
     API Version: 2020-05-01.
 
 
@@ -106,6 +107,7 @@ def get_private_link_association_output(group_id: Optional[pulumi.Input[str]] = 
                                         pla_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAssociationResult]:
     """
+    Get a single private link association
     API Version: 2020-05-01.
 
 

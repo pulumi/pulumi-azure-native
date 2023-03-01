@@ -158,7 +158,7 @@ class AwaitableGetRemediationAtSubscriptionResult(GetRemediationAtSubscriptionRe
 def get_remediation_at_subscription(remediation_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtSubscriptionResult:
     """
-    The remediation definition.
+    Gets an existing remediation at subscription scope.
 
 
     :param str remediation_name: The name of the remediation.
@@ -186,7 +186,7 @@ def get_remediation_at_subscription(remediation_name: Optional[str] = None,
 def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtSubscriptionResult]:
     """
-    The remediation definition.
+    Gets an existing remediation at subscription scope.
 
 
     :param str remediation_name: The name of the remediation.

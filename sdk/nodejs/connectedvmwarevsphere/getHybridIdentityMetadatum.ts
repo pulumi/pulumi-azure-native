@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Defines the HybridIdentityMetadata.
+ * Implements HybridIdentityMetadata GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
@@ -74,7 +74,7 @@ export interface GetHybridIdentityMetadatumResult {
     readonly vmId?: string;
 }
 /**
- * Defines the HybridIdentityMetadata.
+ * Implements HybridIdentityMetadata GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public static class GetHybridIdentityMetadatum
     {
         /// <summary>
-        /// Defines the HybridIdentityMetadata.
+        /// Implements HybridIdentityMetadata GET method.
         /// </summary>
         public static Task<GetHybridIdentityMetadatumResult> InvokeAsync(GetHybridIdentityMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridIdentityMetadatumResult>("azure-native:azurestackhci/v20210901preview:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the HybridIdentityMetadata.
+        /// Implements HybridIdentityMetadata GET method.
         /// </summary>
         public static Output<GetHybridIdentityMetadatumResult> Invoke(GetHybridIdentityMetadatumInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadatumResult>("azure-native:azurestackhci/v20210901preview:getHybridIdentityMetadatum", args ?? new GetHybridIdentityMetadatumInvokeArgs(), options.WithDefaults());

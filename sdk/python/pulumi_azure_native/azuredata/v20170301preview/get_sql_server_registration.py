@@ -134,7 +134,7 @@ def get_sql_server_registration(resource_group_name: Optional[str] = None,
                                 sql_server_registration_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerRegistrationResult:
     """
-    A SQL server registration.
+    Gets a SQL Server registration.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -163,7 +163,7 @@ def get_sql_server_registration_output(resource_group_name: Optional[pulumi.Inpu
                                        sql_server_registration_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerRegistrationResult]:
     """
-    A SQL server registration.
+    Gets a SQL Server registration.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

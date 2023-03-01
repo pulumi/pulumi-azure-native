@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Threat Intelligence alert rule.
+ * Gets the alert rule.
  */
 export function getThreatIntelligenceAlertRule(args: GetThreatIntelligenceAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceAlertRuleResult> {
 
@@ -92,7 +92,7 @@ export interface GetThreatIntelligenceAlertRuleResult {
     readonly type: string;
 }
 /**
- * Represents Threat Intelligence alert rule.
+ * Gets the alert rule.
  */
 export function getThreatIntelligenceAlertRuleOutput(args: GetThreatIntelligenceAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getThreatIntelligenceAlertRule(a, opts))

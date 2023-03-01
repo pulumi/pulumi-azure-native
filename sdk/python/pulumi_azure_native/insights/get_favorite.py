@@ -169,7 +169,7 @@ def get_favorite(favorite_id: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFavoriteResult:
     """
-    Properties that define a favorite that is associated to an Application Insights component.
+    Get a single favorite by its FavoriteId, defined within an Application Insights component.
     API Version: 2015-05-01.
 
 
@@ -204,7 +204,7 @@ def get_favorite_output(favorite_id: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFavoriteResult]:
     """
-    Properties that define a favorite that is associated to an Application Insights component.
+    Get a single favorite by its FavoriteId, defined within an Application Insights component.
     API Version: 2015-05-01.
 
 

@@ -277,7 +277,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
                                  vpn_server_configuration_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnServerConfigurationResult:
     """
-    VpnServerConfiguration Resource.
+    Retrieves the details of a VpnServerConfiguration.
 
 
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
@@ -317,7 +317,7 @@ def get_vpn_server_configuration_output(resource_group_name: Optional[pulumi.Inp
                                         vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnServerConfigurationResult]:
     """
-    VpnServerConfiguration Resource.
+    Retrieves the details of a VpnServerConfiguration.
 
 
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.

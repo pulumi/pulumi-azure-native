@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetNamedValue
     {
         /// <summary>
-        /// NamedValue details.
+        /// Gets the details of the named value specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement:getNamedValue", args ?? new GetNamedValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NamedValue details.
+        /// Gets the details of the named value specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetNamedValueResult> Invoke(GetNamedValueInvokeArgs args, InvokeOptions? options = null)

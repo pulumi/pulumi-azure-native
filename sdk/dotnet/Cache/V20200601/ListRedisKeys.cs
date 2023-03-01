@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cache.V20200601
     public static class ListRedisKeys
     {
         /// <summary>
-        /// Redis cache access keys.
+        /// Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
         /// </summary>
         public static Task<ListRedisKeysResult> InvokeAsync(ListRedisKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-native:cache/v20200601:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Redis cache access keys.
+        /// Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
         /// </summary>
         public static Output<ListRedisKeysResult> Invoke(ListRedisKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRedisKeysResult>("azure-native:cache/v20200601:listRedisKeys", args ?? new ListRedisKeysInvokeArgs(), options.WithDefaults());

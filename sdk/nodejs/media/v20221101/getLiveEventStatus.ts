@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Get live event status result.
+ * Gets status telemetry of a live event.
  */
 export function getLiveEventStatus(args: GetLiveEventStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventStatusResult> {
 
@@ -45,7 +45,7 @@ export interface GetLiveEventStatusResult {
     readonly value?: outputs.media.v20221101.LiveEventStatusResponse[];
 }
 /**
- * Get live event status result.
+ * Gets status telemetry of a live event.
  */
 export function getLiveEventStatusOutput(args: GetLiveEventStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventStatusResult> {
     return pulumi.output(args).apply((a: any) => getLiveEventStatus(a, opts))

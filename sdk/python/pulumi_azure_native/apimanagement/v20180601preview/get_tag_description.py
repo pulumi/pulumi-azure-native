@@ -122,7 +122,7 @@ def get_tag_description(api_id: Optional[str] = None,
                         tag_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagDescriptionResult:
     """
-    Contract details.
+    Get Tag description in scope of API
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -155,7 +155,7 @@ def get_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
                                tag_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagDescriptionResult]:
     """
-    Contract details.
+    Get Tag description in scope of API
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

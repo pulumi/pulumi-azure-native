@@ -168,7 +168,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationServiceResult:
     """
-    A class representing a CommunicationService resource.
+    Get the CommunicationService and its properties.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
@@ -199,7 +199,7 @@ def get_communication_service_output(communication_service_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationServiceResult]:
     """
-    A class representing a CommunicationService resource.
+    Get the CommunicationService and its properties.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.

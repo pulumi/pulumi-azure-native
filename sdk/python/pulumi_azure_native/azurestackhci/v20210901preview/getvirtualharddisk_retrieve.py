@@ -241,7 +241,7 @@ def getvirtualharddisk_retrieve(resource_group_name: Optional[str] = None,
                                 virtualharddisks_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetvirtualharddiskRetrieveResult:
     """
-    The virtual hard disk resource definition.
+    Gets virtualharddisks by resource name
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -278,7 +278,7 @@ def getvirtualharddisk_retrieve_output(resource_group_name: Optional[pulumi.Inpu
                                        virtualharddisks_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetvirtualharddiskRetrieveResult]:
     """
-    The virtual hard disk resource definition.
+    Gets virtualharddisks by resource name
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

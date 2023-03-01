@@ -254,7 +254,7 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArcSettingResult:
     """
-    ArcSetting details.
+    Get ArcSetting resource details of HCI Cluster.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -295,7 +295,7 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcSettingResult]:
     """
-    ArcSetting details.
+    Get ArcSetting resource details of HCI Cluster.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.

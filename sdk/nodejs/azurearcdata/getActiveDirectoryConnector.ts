@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Active directory connector resource
+ * Retrieves an Active Directory connector resource
  * API Version: 2022-03-01-preview.
  */
 export function getActiveDirectoryConnector(args: GetActiveDirectoryConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveDirectoryConnectorResult> {
@@ -62,7 +62,7 @@ export interface GetActiveDirectoryConnectorResult {
     readonly type: string;
 }
 /**
- * Active directory connector resource
+ * Retrieves an Active Directory connector resource
  * API Version: 2022-03-01-preview.
  */
 export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Properties of the blob container, including Id, resource name, resource type, Etag.
+ * Gets properties of a specified container.
  */
 /** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
@@ -99,7 +99,7 @@ export interface GetBlobContainerResult {
     readonly type: string;
 }
 /**
- * Properties of the blob container, including Id, resource name, resource type, Etag.
+ * Gets properties of a specified container.
  */
 /** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerResult> {

@@ -518,7 +518,7 @@ def get_node_type(cluster_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeTypeResult:
     """
-    Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+    Get a Service Fabric node type of a given managed cluster.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -581,7 +581,7 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeTypeResult]:
     """
-    Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+    Get a Service Fabric node type of a given managed cluster.
 
 
     :param str cluster_name: The name of the cluster resource.

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
     public static class GetGatewayRouteConfig
     {
         /// <summary>
-        /// Spring Cloud Gateway route config resource
+        /// Get the Spring Cloud Gateway route configs.
         /// </summary>
         public static Task<GetGatewayRouteConfigResult> InvokeAsync(GetGatewayRouteConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayRouteConfigResult>("azure-native:appplatform/v20220501preview:getGatewayRouteConfig", args ?? new GetGatewayRouteConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Spring Cloud Gateway route config resource
+        /// Get the Spring Cloud Gateway route configs.
         /// </summary>
         public static Output<GetGatewayRouteConfigResult> Invoke(GetGatewayRouteConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteConfigResult>("azure-native:appplatform/v20220501preview:getGatewayRouteConfig", args ?? new GetGatewayRouteConfigInvokeArgs(), options.WithDefaults());

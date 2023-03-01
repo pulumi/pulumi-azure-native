@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221201
     public static class GetCommitmentPlan
     {
         /// <summary>
-        /// Cognitive Services account commitment plan.
+        /// Returns a Cognitive Services commitment plan specified by the parameters.
         /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:cognitiveservices/v20221201:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cognitive Services account commitment plan.
+        /// Returns a Cognitive Services commitment plan specified by the parameters.
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:cognitiveservices/v20221201:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());

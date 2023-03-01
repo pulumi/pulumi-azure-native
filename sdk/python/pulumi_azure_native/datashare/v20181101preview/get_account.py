@@ -159,7 +159,7 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    An account data transfer object.
+    Get an account
 
 
     :param str account_name: The name of the share account.
@@ -190,7 +190,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    An account data transfer object.
+    Get an account
 
 
     :param str account_name: The name of the share account.

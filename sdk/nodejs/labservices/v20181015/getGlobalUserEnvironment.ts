@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents the environments details
+ * Gets the virtual machine details
  */
 export function getGlobalUserEnvironment(args: GetGlobalUserEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserEnvironmentResult> {
 
@@ -45,7 +45,7 @@ export interface GetGlobalUserEnvironmentResult {
     readonly environment: outputs.labservices.v20181015.EnvironmentDetailsResponse;
 }
 /**
- * Represents the environments details
+ * Gets the virtual machine details
  */
 export function getGlobalUserEnvironmentOutput(args: GetGlobalUserEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getGlobalUserEnvironment(a, opts))

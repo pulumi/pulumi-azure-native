@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20160801
     public static class ListWebAppHybridConnectionKeys
     {
         /// <summary>
-        /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+        /// Gets the send key name and value for a Hybrid Connection.
         /// </summary>
         public static Task<ListWebAppHybridConnectionKeysResult> InvokeAsync(ListWebAppHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHybridConnectionKeysResult>("azure-native:web/v20160801:listWebAppHybridConnectionKeys", args ?? new ListWebAppHybridConnectionKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+        /// Gets the send key name and value for a Hybrid Connection.
         /// </summary>
         public static Output<ListWebAppHybridConnectionKeysResult> Invoke(ListWebAppHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysResult>("azure-native:web/v20160801:listWebAppHybridConnectionKeys", args ?? new ListWebAppHybridConnectionKeysInvokeArgs(), options.WithDefaults());

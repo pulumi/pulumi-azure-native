@@ -193,7 +193,7 @@ def get_update_summary(cluster_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateSummaryResult:
     """
-    Get the update summaries for the cluster
+    Get all Update summaries under the HCI cluster
 
 
     :param str cluster_name: The name of the cluster.
@@ -226,7 +226,7 @@ def get_update_summary_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUpdateSummaryResult]:
     """
-    Get the update summaries for the cluster
+    Get all Update summaries under the HCI cluster
 
 
     :param str cluster_name: The name of the cluster.

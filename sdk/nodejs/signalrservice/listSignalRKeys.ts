@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A class represents the access keys of SignalR service.
+ * Get the access keys of the SignalR resource.
  * API Version: 2020-05-01.
  */
 export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSignalRKeysResult> {
@@ -50,7 +50,7 @@ export interface ListSignalRKeysResult {
     readonly secondaryKey?: string;
 }
 /**
- * A class represents the access keys of SignalR service.
+ * Get the access keys of the SignalR resource.
  * API Version: 2020-05-01.
  */
 export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSignalRKeysResult> {

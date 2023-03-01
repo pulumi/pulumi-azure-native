@@ -51,7 +51,7 @@ def list_application_tokens(application_name: Optional[str] = None,
                             user_assigned_identities: Optional[Sequence[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApplicationTokensResult:
     """
-    The array of managed identity tokens.
+    List tokens for application.
 
 
     :param str application_name: The name of the managed application.
@@ -78,7 +78,7 @@ def list_application_tokens_output(application_name: Optional[pulumi.Input[str]]
                                    user_assigned_identities: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplicationTokensResult]:
     """
-    The array of managed identity tokens.
+    List tokens for application.
 
 
     :param str application_name: The name of the managed application.

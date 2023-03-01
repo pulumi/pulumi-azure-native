@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     public static class GetSite
     {
         /// <summary>
-        /// Site resource.
+        /// Gets information about the specified mobile network site.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:mobilenetwork:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Site resource.
+        /// Gets information about the specified mobile network site.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)

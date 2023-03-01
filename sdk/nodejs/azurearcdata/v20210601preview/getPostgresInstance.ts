@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Postgres Instance.
+ * Retrieves a postgres Instance resource
  */
 export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetPostgresInstanceResult> {
 
@@ -72,7 +72,7 @@ export interface GetPostgresInstanceResult {
     readonly type: string;
 }
 /**
- * A Postgres Instance.
+ * Retrieves a postgres Instance resource
  */
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {
     return pulumi.output(args).apply((a: any) => getPostgresInstance(a, opts))

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview
     public static class GetCluster
     {
         /// <summary>
-        /// The cluster resource
+        /// Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:servicefabric/v20201201preview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The cluster resource
+        /// Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:servicefabric/v20201201preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An application package which represents a particular version of an application.
+ * Gets information about the specified application package.
  */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
 
@@ -79,7 +79,7 @@ export interface GetApplicationPackageResult {
     readonly type: string;
 }
 /**
- * An application package which represents a particular version of an application.
+ * Gets information about the specified application package.
  */
 export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationPackageResult> {
     return pulumi.output(args).apply((a: any) => getApplicationPackage(a, opts))

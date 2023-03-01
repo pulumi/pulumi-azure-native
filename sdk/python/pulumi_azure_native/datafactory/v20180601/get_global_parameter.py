@@ -98,7 +98,7 @@ def get_global_parameter(factory_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalParameterResult:
     """
-    Global parameters resource type.
+    Gets a Global parameter
 
 
     :param str factory_name: The factory name.
@@ -126,7 +126,7 @@ def get_global_parameter_output(factory_name: Optional[pulumi.Input[str]] = None
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalParameterResult]:
     """
-    Global parameters resource type.
+    Gets a Global parameter
 
 
     :param str factory_name: The factory name.

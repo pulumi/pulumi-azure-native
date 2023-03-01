@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a Kusto cluster.
+ * Gets a Kusto cluster.
  * API Version: 2021-01-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -133,7 +133,7 @@ export interface GetClusterResult {
     readonly zones?: string[];
 }
 /**
- * Class representing a Kusto cluster.
+ * Gets a Kusto cluster.
  * API Version: 2021-01-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

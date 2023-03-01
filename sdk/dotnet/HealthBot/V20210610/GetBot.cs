@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HealthBot.V20210610
     public static class GetBot
     {
         /// <summary>
-        /// Azure Health Bot resource definition
+        /// Get a HealthBot.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:healthbot/v20210610:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Health Bot resource definition
+        /// Get a HealthBot.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:healthbot/v20210610:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+ * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
 
@@ -75,7 +75,7 @@ export interface GetBlobContainerImmutabilityPolicyResult {
     readonly type: string;
 }
 /**
- * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+ * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  */
 export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainerImmutabilityPolicy(a, opts))

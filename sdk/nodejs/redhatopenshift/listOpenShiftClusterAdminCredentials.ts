@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
+ * The operation returns the admin kubeconfig.
  * API Version: 2021-09-01-preview.
  */
 export function listOpenShiftClusterAdminCredentials(args: ListOpenShiftClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterAdminCredentialsResult> {
@@ -38,7 +38,7 @@ export interface ListOpenShiftClusterAdminCredentialsResult {
     readonly kubeconfig?: string;
 }
 /**
- * OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
+ * The operation returns the admin kubeconfig.
  * API Version: 2021-09-01-preview.
  */
 export function listOpenShiftClusterAdminCredentialsOutput(args: ListOpenShiftClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterAdminCredentialsResult> {

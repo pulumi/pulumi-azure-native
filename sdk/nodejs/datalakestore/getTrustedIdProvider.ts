@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Data Lake Store trusted identity provider information.
+ * Gets the specified Data Lake Store trusted identity provider.
  * API Version: 2016-11-01.
  */
 export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedIdProviderResult> {
@@ -55,7 +55,7 @@ export interface GetTrustedIdProviderResult {
     readonly type: string;
 }
 /**
- * Data Lake Store trusted identity provider information.
+ * Gets the specified Data Lake Store trusted identity provider.
  * API Version: 2016-11-01.
  */
 export function getTrustedIdProviderOutput(args: GetTrustedIdProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedIdProviderResult> {

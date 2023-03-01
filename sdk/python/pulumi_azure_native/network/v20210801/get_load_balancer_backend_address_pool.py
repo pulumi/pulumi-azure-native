@@ -206,7 +206,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerBackendAddressPoolResult:
     """
-    Pool of backend IP addresses.
+    Gets load balancer backend address pool.
 
 
     :param str backend_address_pool_name: The name of the backend address pool.
@@ -243,7 +243,7 @@ def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Opt
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerBackendAddressPoolResult]:
     """
-    Pool of backend IP addresses.
+    Gets load balancer backend address pool.
 
 
     :param str backend_address_pool_name: The name of the backend address pool.

@@ -218,7 +218,7 @@ def get_private_store_collection_offer(collection_id: Optional[str] = None,
                                        private_store_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreCollectionOfferResult:
     """
-    The privateStore offer data structure.
+    Gets information about a specific offer.
     API Version: 2021-12-01.
 
 
@@ -257,7 +257,7 @@ def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Inp
                                               private_store_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionOfferResult]:
     """
-    The privateStore offer data structure.
+    Gets information about a specific offer.
     API Version: 2021-12-01.
 
 

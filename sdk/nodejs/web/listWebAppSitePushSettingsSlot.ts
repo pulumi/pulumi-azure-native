@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Push settings for the App.
+ * Gets the Push settings associated with web app.
  * API Version: 2020-12-01.
  */
 export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsSlotResult> {
@@ -74,7 +74,7 @@ export interface ListWebAppSitePushSettingsSlotResult {
     readonly type: string;
 }
 /**
- * Push settings for the App.
+ * Gets the Push settings associated with web app.
  * API Version: 2020-12-01.
  */
 export function listWebAppSitePushSettingsSlotOutput(args: ListWebAppSitePushSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsSlotResult> {

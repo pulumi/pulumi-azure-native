@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * IoT Connector definition.
+ * Gets the properties of the specified IoT Connector.
  */
 export function getIotConnector(args: GetIotConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorResult> {
 
@@ -85,7 +85,7 @@ export interface GetIotConnectorResult {
     readonly type: string;
 }
 /**
- * IoT Connector definition.
+ * Gets the properties of the specified IoT Connector.
  */
 export function getIotConnectorOutput(args: GetIotConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorResult> {
     return pulumi.output(args).apply((a: any) => getIotConnector(a, opts))

@@ -193,7 +193,7 @@ def get_custom_location(resource_group_name: Optional[str] = None,
                         resource_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomLocationResult:
     """
-    Custom Locations definition.
+    Gets the details of the customLocation with a specified resource group and name.
     API Version: 2021-03-15-preview.
 
 
@@ -227,7 +227,7 @@ def get_custom_location_output(resource_group_name: Optional[pulumi.Input[str]] 
                                resource_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomLocationResult]:
     """
-    Custom Locations definition.
+    Gets the details of the customLocation with a specified resource group and name.
     API Version: 2021-03-15-preview.
 
 

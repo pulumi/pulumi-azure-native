@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Portal
     public static class GetConsole
     {
         /// <summary>
-        /// Cloud shell console
+        /// Gets the console for the user.
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:portal:getConsole", args ?? new GetConsoleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cloud shell console
+        /// Gets the console for the user.
         /// API Version: 2018-10-01.
         /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)

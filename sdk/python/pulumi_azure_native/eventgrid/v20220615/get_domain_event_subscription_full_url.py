@@ -49,7 +49,7 @@ def get_domain_event_subscription_full_url(domain_name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainEventSubscriptionFullUrlResult:
     """
-    Full endpoint url of an event subscription
+    Get the full endpoint URL for an event subscription for domain.
 
 
     :param str domain_name: Name of the domain topic.
@@ -73,7 +73,7 @@ def get_domain_event_subscription_full_url_output(domain_name: Optional[pulumi.I
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainEventSubscriptionFullUrlResult]:
     """
-    Full endpoint url of an event subscription
+    Get the full endpoint URL for an event subscription for domain.
 
 
     :param str domain_name: Name of the domain topic.

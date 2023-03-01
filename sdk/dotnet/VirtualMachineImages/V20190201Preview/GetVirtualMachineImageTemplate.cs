@@ -12,9 +12,15 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview
     [Obsolete(@"Version 2019-02-01-preview will be removed in v2 of the provider.")]
     public static class GetVirtualMachineImageTemplate
     {
+        /// <summary>
+        /// Get information about a virtual machine image template
+        /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20190201preview:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get information about a virtual machine image template
+        /// </summary>
         public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20190201preview:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithDefaults());
     }

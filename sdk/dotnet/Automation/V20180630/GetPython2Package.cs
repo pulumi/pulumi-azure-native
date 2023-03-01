@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automation.V20180630
     public static class GetPython2Package
     {
         /// <summary>
-        /// Definition of the module type.
+        /// Retrieve the python 2 package identified by package name.
         /// </summary>
         public static Task<GetPython2PackageResult> InvokeAsync(GetPython2PackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-native:automation/v20180630:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the module type.
+        /// Retrieve the python 2 package identified by package name.
         /// </summary>
         public static Output<GetPython2PackageResult> Invoke(GetPython2PackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPython2PackageResult>("azure-native:automation/v20180630:getPython2Package", args ?? new GetPython2PackageInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20160301
     public static class GetLogProfile
     {
         /// <summary>
-        /// The log profile resource.
+        /// Gets the log profile.
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-native:insights/v20160301:getLogProfile", args ?? new GetLogProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The log profile resource.
+        /// Gets the log profile.
         /// </summary>
         public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights/v20160301:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());

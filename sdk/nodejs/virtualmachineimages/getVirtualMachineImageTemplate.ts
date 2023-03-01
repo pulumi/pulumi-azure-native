@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+ * Get information about a virtual machine image template
  * API Version: 2020-02-14.
  */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
@@ -93,7 +93,7 @@ export interface GetVirtualMachineImageTemplateResult {
     readonly vmProfile?: outputs.virtualmachineimages.ImageTemplateVmProfileResponse;
 }
 /**
- * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+ * Get information about a virtual machine image template
  * API Version: 2020-02-14.
  */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {

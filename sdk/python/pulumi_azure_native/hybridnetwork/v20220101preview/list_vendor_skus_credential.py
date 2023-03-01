@@ -96,7 +96,7 @@ def list_vendor_skus_credential(sku_name: Optional[str] = None,
                                 vendor_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVendorSkusCredentialResult:
     """
-    The Sku credential definition.
+    Generate credentials for publishing SKU images.
 
 
     :param str sku_name: The name of the sku.
@@ -121,7 +121,7 @@ def list_vendor_skus_credential_output(sku_name: Optional[pulumi.Input[str]] = N
                                        vendor_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVendorSkusCredentialResult]:
     """
-    The Sku credential definition.
+    Generate credentials for publishing SKU images.
 
 
     :param str sku_name: The name of the sku.

@@ -313,7 +313,7 @@ def get_static_site(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteResult:
     """
-    Static Site ARM resource.
+    Gets the details of a static site.
 
 
     :param str name: Name of the static site.
@@ -356,7 +356,7 @@ def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteResult]:
     """
-    Static Site ARM resource.
+    Gets the details of a static site.
 
 
     :param str name: Name of the static site.

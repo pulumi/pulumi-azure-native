@@ -343,7 +343,7 @@ def get_server(resource_group_name: Optional[str] = None,
                server_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    Represents a server.
+    Gets information about a server.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -389,7 +389,7 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
-    Represents a server.
+    Gets information about a server.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

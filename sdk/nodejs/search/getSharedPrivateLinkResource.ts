@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+ * Gets the details of the shared private link resource managed by the search service in the given resource group.
  * API Version: 2020-08-01.
  */
 export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedPrivateLinkResourceResult> {
@@ -58,7 +58,7 @@ export interface GetSharedPrivateLinkResourceResult {
     readonly type: string;
 }
 /**
- * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+ * Gets the details of the shared private link resource managed by the search service in the given resource group.
  * API Version: 2020-08-01.
  */
 export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {

@@ -130,7 +130,7 @@ def getstorage_space_retrieve(resource_group_name: Optional[str] = None,
                               storage_spaces_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetstorageSpaceRetrieveResult:
     """
-    The storageSpaces resource definition.
+    Gets the Hybrid AKS storage space object
     API Version: 2022-05-01-preview.
 
 
@@ -159,7 +159,7 @@ def getstorage_space_retrieve_output(resource_group_name: Optional[pulumi.Input[
                                      storage_spaces_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetstorageSpaceRetrieveResult]:
     """
-    The storageSpaces resource definition.
+    Gets the Hybrid AKS storage space object
     API Version: 2022-05-01-preview.
 
 

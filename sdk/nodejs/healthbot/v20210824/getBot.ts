@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Azure Health Bot resource definition
+ * Get a HealthBot.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
 
@@ -72,7 +72,7 @@ export interface GetBotResult {
     readonly type: string;
 }
 /**
- * Azure Health Bot resource definition
+ * Get a HealthBot.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
     return pulumi.output(args).apply((a: any) => getBot(a, opts))

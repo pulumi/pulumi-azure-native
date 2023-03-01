@@ -83,7 +83,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     resource_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The private endpoint connection of a Digital Twin.
+    Get private endpoint connection properties for the given private endpoint.
     API Version: 2020-12-01.
 
 
@@ -111,7 +111,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            resource_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The private endpoint connection of a Digital Twin.
+    Get private endpoint connection properties for the given private endpoint.
     API Version: 2020-12-01.
 
 

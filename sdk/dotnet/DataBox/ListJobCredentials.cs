@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataBox
     public static class ListJobCredentials
     {
         /// <summary>
-        /// List of unencrypted credentials for accessing device.
+        /// This method gets the unencrypted secrets related to the job.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-native:databox:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of unencrypted credentials for accessing device.
+        /// This method gets the unencrypted secrets related to the job.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<ListJobCredentialsResult> Invoke(ListJobCredentialsInvokeArgs args, InvokeOptions? options = null)

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     public static class GetKustoPool
     {
         /// <summary>
-        /// Class representing a Kusto kusto pool.
+        /// Gets a Kusto pool.
         /// </summary>
         public static Task<GetKustoPoolResult> InvokeAsync(GetKustoPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolResult>("azure-native:synapse/v20210601preview:getKustoPool", args ?? new GetKustoPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a Kusto kusto pool.
+        /// Gets a Kusto pool.
         /// </summary>
         public static Output<GetKustoPoolResult> Invoke(GetKustoPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolResult>("azure-native:synapse/v20210601preview:getKustoPool", args ?? new GetKustoPoolInvokeArgs(), options.WithDefaults());

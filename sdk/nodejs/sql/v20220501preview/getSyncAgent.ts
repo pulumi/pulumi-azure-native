@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure SQL Database sync agent.
+ * Gets a sync agent.
  */
 export function getSyncAgent(args: GetSyncAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncAgentResult> {
 
@@ -74,7 +74,7 @@ export interface GetSyncAgentResult {
     readonly version: string;
 }
 /**
- * An Azure SQL Database sync agent.
+ * Gets a sync agent.
  */
 export function getSyncAgentOutput(args: GetSyncAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncAgentResult> {
     return pulumi.output(args).apply((a: any) => getSyncAgent(a, opts))

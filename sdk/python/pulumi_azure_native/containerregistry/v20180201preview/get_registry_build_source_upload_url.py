@@ -60,7 +60,7 @@ def get_registry_build_source_upload_url(registry_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryBuildSourceUploadUrlResult:
     """
-    The properties of a response to source upload request.
+    Get the upload location for the user to be able to upload the source.
 
 
     :param str registry_name: The name of the container registry.
@@ -82,7 +82,7 @@ def get_registry_build_source_upload_url_output(registry_name: Optional[pulumi.I
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryBuildSourceUploadUrlResult]:
     """
-    The properties of a response to source upload request.
+    Get the upload location for the user to be able to upload the source.
 
 
     :param str registry_name: The name of the container registry.

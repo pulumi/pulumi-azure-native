@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public static class GetAddon
     {
         /// <summary>
-        /// Role Addon
+        /// Gets a specific addon by name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:databoxedge:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Role Addon
+        /// Gets a specific addon by name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)

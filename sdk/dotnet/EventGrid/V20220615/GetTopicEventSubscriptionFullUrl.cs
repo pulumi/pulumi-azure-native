@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     public static class GetTopicEventSubscriptionFullUrl
     {
         /// <summary>
-        /// Full endpoint url of an event subscription
+        /// Get the full endpoint URL for an event subscription for topic.
         /// </summary>
         public static Task<GetTopicEventSubscriptionFullUrlResult> InvokeAsync(GetTopicEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20220615:getTopicEventSubscriptionFullUrl", args ?? new GetTopicEventSubscriptionFullUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Full endpoint url of an event subscription
+        /// Get the full endpoint URL for an event subscription for topic.
         /// </summary>
         public static Output<GetTopicEventSubscriptionFullUrlResult> Invoke(GetTopicEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20220615:getTopicEventSubscriptionFullUrl", args ?? new GetTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());

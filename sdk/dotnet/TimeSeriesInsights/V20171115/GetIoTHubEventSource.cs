@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
     public static class GetIoTHubEventSource
     {
         /// <summary>
-        /// An event source that receives its data from an Azure IoTHub.
+        /// Gets the event source with the specified name in the specified environment.
         /// </summary>
         public static Task<GetIoTHubEventSourceResult> InvokeAsync(GetIoTHubEventSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights/v20171115:getIoTHubEventSource", args ?? new GetIoTHubEventSourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An event source that receives its data from an Azure IoTHub.
+        /// Gets the event source with the specified name in the specified environment.
         /// </summary>
         public static Output<GetIoTHubEventSourceResult> Invoke(GetIoTHubEventSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoTHubEventSourceResult>("azure-native:timeseriesinsights/v20171115:getIoTHubEventSource", args ?? new GetIoTHubEventSourceInvokeArgs(), options.WithDefaults());

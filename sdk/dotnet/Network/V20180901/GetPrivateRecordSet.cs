@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20180901
     public static class GetPrivateRecordSet
     {
         /// <summary>
-        /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+        /// Gets a record set.
         /// </summary>
         public static Task<GetPrivateRecordSetResult> InvokeAsync(GetPrivateRecordSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateRecordSetResult>("azure-native:network/v20180901:getPrivateRecordSet", args ?? new GetPrivateRecordSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+        /// Gets a record set.
         /// </summary>
         public static Output<GetPrivateRecordSetResult> Invoke(GetPrivateRecordSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateRecordSetResult>("azure-native:network/v20180901:getPrivateRecordSet", args ?? new GetPrivateRecordSetInvokeArgs(), options.WithDefaults());

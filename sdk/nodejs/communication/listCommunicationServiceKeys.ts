@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A class representing the access keys of a CommunicationService.
+ * Get the access keys of the CommunicationService resource.
  * API Version: 2020-08-20.
  */
 export function listCommunicationServiceKeys(args: ListCommunicationServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListCommunicationServiceKeysResult> {
@@ -50,7 +50,7 @@ export interface ListCommunicationServiceKeysResult {
     readonly secondaryKey?: string;
 }
 /**
- * A class representing the access keys of a CommunicationService.
+ * Get the access keys of the CommunicationService resource.
  * API Version: 2020-08-20.
  */
 export function listCommunicationServiceKeysOutput(args: ListCommunicationServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCommunicationServiceKeysResult> {

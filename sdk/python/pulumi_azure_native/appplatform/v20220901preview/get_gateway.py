@@ -110,7 +110,7 @@ def get_gateway(gateway_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
-    Spring Cloud Gateway resource
+    Get the Spring Cloud Gateway and its properties.
 
 
     :param str gateway_name: The name of Spring Cloud Gateway.
@@ -139,7 +139,7 @@ def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
-    Spring Cloud Gateway resource
+    Get the Spring Cloud Gateway and its properties.
 
 
     :param str gateway_name: The name of Spring Cloud Gateway.

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
     public static class GetVirtualNetworkRule
     {
         /// <summary>
-        /// Data Lake Store virtual network rule information.
+        /// Gets the specified Data Lake Store virtual network rule.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:datalakestore/v20161101:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data Lake Store virtual network rule information.
+        /// Gets the specified Data Lake Store virtual network rule.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:datalakestore/v20161101:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());

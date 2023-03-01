@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
     public static class GetStudent
     {
         /// <summary>
-        /// Student details.
+        /// Get the details for a specific student in the specified lab by student alias
         /// </summary>
         public static Task<GetStudentResult> InvokeAsync(GetStudentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Student details.
+        /// Get the details for a specific student in the specified lab by student alias
         /// </summary>
         public static Output<GetStudentResult> Invoke(GetStudentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());

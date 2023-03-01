@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Bot resource definition
+ * Returns a BotService specified by the parameters.
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
@@ -74,7 +74,7 @@ export interface GetBotResult {
     readonly type: string;
 }
 /**
- * Bot resource definition
+ * Returns a BotService specified by the parameters.
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {

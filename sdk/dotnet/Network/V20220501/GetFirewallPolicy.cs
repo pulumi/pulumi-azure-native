@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220501
     public static class GetFirewallPolicy
     {
         /// <summary>
-        /// FirewallPolicy Resource.
+        /// Gets the specified Firewall Policy.
         /// </summary>
         public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure-native:network/v20220501:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// FirewallPolicy Resource.
+        /// Gets the specified Firewall Policy.
         /// </summary>
         public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure-native:network/v20220501:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());

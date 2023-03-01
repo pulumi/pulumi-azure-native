@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiVersionSet
     {
         /// <summary>
-        /// Api Version Set Contract details.
+        /// Gets the details of the Api Version Set specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure-native:apimanagement:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Api Version Set Contract details.
+        /// Gets the details of the Api Version Set specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOptions? options = null)

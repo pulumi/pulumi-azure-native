@@ -241,7 +241,7 @@ def get_application(application_group_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Schema for Application properties.
+    Get an application.
     API Version: 2021-02-01-preview.
 
 
@@ -282,7 +282,7 @@ def get_application_output(application_group_name: Optional[pulumi.Input[str]] =
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Schema for Application properties.
+    Get an application.
     API Version: 2021-02-01-preview.
 
 

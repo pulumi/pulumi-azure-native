@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
+ */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,6 +36,9 @@ export interface ListWorkspaceKeysResult {
     readonly userStorageKey: string;
     readonly userStorageResourceId: string;
 }
+/**
+ * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
+ */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))
 }

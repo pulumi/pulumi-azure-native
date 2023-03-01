@@ -265,7 +265,7 @@ def get_scope_access_review_history_definition_by_id(history_definition_id: Opti
                                                      scope: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeAccessReviewHistoryDefinitionByIdResult:
     """
-    Access Review History Definition.
+    Get access review history definition by definition Id
     API Version: 2021-12-01-preview.
 
 
@@ -305,7 +305,7 @@ def get_scope_access_review_history_definition_by_id_output(history_definition_i
                                                             scope: Optional[pulumi.Input[str]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeAccessReviewHistoryDefinitionByIdResult]:
     """
-    Access Review History Definition.
+    Get access review history definition by definition Id
     API Version: 2021-12-01-preview.
 
 

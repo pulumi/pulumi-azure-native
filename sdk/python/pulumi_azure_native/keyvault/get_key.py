@@ -179,7 +179,7 @@ def get_key(key_name: Optional[str] = None,
             vault_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    The key resource.
+    Gets the current version of the specified key from the specified key vault.
     API Version: 2019-09-01.
 
 
@@ -215,7 +215,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    vault_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
-    The key resource.
+    Gets the current version of the specified key from the specified key vault.
     API Version: 2019-09-01.
 
 

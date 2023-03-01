@@ -60,7 +60,7 @@ def get_registry_credentials(registry_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryCredentialsResult:
     """
-    The result of a request to get the administrator login credentials for a container registry.
+    Gets the administrator login credentials for the specified container registry.
     API Version: 2016-06-27-preview.
 
 
@@ -83,7 +83,7 @@ def get_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] =
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryCredentialsResult]:
     """
-    The result of a request to get the administrator login credentials for a container registry.
+    Gets the administrator login credentials for the specified container registry.
     API Version: 2016-06-27-preview.
 
 

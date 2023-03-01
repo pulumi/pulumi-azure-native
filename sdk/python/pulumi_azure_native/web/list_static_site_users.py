@@ -62,7 +62,7 @@ def list_static_site_users(authprovider: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteUsersResult:
     """
-    Collection of static site custom users.
+    Gets the list of users of a static site.
     API Version: 2020-12-01.
 
 
@@ -88,7 +88,7 @@ def list_static_site_users_output(authprovider: Optional[pulumi.Input[str]] = No
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteUsersResult]:
     """
-    Collection of static site custom users.
+    Gets the list of users of a static site.
     API Version: 2020-12-01.
 
 

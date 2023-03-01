@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Security
     public static class GetCustomEntityStoreAssignment
     {
         /// <summary>
-        /// Custom entity store assignment
+        /// Gets a single custom entity store assignment by name for the provided subscription and resource group.
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Task<GetCustomEntityStoreAssignmentResult> InvokeAsync(GetCustomEntityStoreAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomEntityStoreAssignmentResult>("azure-native:security:getCustomEntityStoreAssignment", args ?? new GetCustomEntityStoreAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Custom entity store assignment
+        /// Gets a single custom entity store assignment by name for the provided subscription and resource group.
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Output<GetCustomEntityStoreAssignmentResult> Invoke(GetCustomEntityStoreAssignmentInvokeArgs args, InvokeOptions? options = null)

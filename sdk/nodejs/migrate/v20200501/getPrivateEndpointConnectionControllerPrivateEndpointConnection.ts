@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * REST model used to encapsulate the user visible state of a PrivateEndpoint.
+ * Get the private endpoint with the specified name.
  */
 export function getPrivateEndpointConnectionControllerPrivateEndpointConnection(args: GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> {
 
@@ -65,7 +65,7 @@ export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnection
     readonly type: string;
 }
 /**
- * REST model used to encapsulate the user visible state of a PrivateEndpoint.
+ * Get the private endpoint with the specified name.
  */
 export function getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionControllerPrivateEndpointConnection(a, opts))

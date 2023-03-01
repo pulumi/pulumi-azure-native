@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     public static class GetLongTermEnvironment
     {
         /// <summary>
-        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
+        /// Gets the environment with the specified name in the specified subscription and resource group.
         /// </summary>
         public static Task<GetLongTermEnvironmentResult> InvokeAsync(GetLongTermEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLongTermEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getLongTermEnvironment", args ?? new GetLongTermEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
+        /// Gets the environment with the specified name in the specified subscription and resource group.
         /// </summary>
         public static Output<GetLongTermEnvironmentResult> Invoke(GetLongTermEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLongTermEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getLongTermEnvironment", args ?? new GetLongTermEnvironmentInvokeArgs(), options.WithDefaults());

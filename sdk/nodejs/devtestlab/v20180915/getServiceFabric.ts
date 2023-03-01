@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Service Fabric.
+ * Get service fabric.
  */
 export function getServiceFabric(args: GetServiceFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceFabricResult> {
 
@@ -91,7 +91,7 @@ export interface GetServiceFabricResult {
     readonly uniqueIdentifier: string;
 }
 /**
- * A Service Fabric.
+ * Get service fabric.
  */
 export function getServiceFabricOutput(args: GetServiceFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricResult> {
     return pulumi.output(args).apply((a: any) => getServiceFabric(a, opts))

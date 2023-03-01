@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Marketplace
     public static class ListPrivateStoreNewPlansNotifications
     {
         /// <summary>
-        /// List of all new plans notifications for public offers
+        /// List new plans notifications
         /// API Version: 2021-12-01.
         /// </summary>
         public static Task<ListPrivateStoreNewPlansNotificationsResult> InvokeAsync(ListPrivateStoreNewPlansNotificationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of all new plans notifications for public offers
+        /// List new plans notifications
         /// API Version: 2021-12-01.
         /// </summary>
         public static Output<ListPrivateStoreNewPlansNotificationsResult> Invoke(ListPrivateStoreNewPlansNotificationsInvokeArgs args, InvokeOptions? options = null)

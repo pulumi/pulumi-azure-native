@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
     public static class GetDataSource
     {
         /// <summary>
-        /// Datasources under OMS Workspace.
+        /// Gets a datasource instance.
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights/v20151101preview:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Datasources under OMS Workspace.
+        /// Gets a datasource instance.
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights/v20151101preview:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());

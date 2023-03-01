@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An IPv6 server firewall rule.
+ * Gets an IPv6 firewall rule.
  * API Version: 2021-08-01-preview.
  */
 export function getIPv6FirewallRule(args: GetIPv6FirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIPv6FirewallRuleResult> {
@@ -59,7 +59,7 @@ export interface GetIPv6FirewallRuleResult {
     readonly type: string;
 }
 /**
- * An IPv6 server firewall rule.
+ * Gets an IPv6 firewall rule.
  * API Version: 2021-08-01-preview.
  */
 export function getIPv6FirewallRuleOutput(args: GetIPv6FirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPv6FirewallRuleResult> {

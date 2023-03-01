@@ -254,7 +254,7 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
                                                     resource_group: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationServiceEnvironmentManagedApiResult:
     """
-    The integration service environment managed api.
+    Gets the integration service environment managed Api.
 
 
     :param str api_name: The api name.
@@ -295,7 +295,7 @@ def get_integration_service_environment_managed_api_output(api_name: Optional[pu
                                                            resource_group: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentManagedApiResult]:
     """
-    The integration service environment managed api.
+    Gets the integration service environment managed Api.
 
 
     :param str api_name: The api name.

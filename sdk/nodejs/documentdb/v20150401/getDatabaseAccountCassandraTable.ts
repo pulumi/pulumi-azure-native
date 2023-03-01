@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Cassandra table.
+ * Gets the Cassandra table under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDatabaseAccountCassandraTable(args: GetDatabaseAccountCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraTableResult> {
@@ -76,7 +76,7 @@ export interface GetDatabaseAccountCassandraTableResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Cassandra table.
+ * Gets the Cassandra table under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDatabaseAccountCassandraTableOutput(args: GetDatabaseAccountCassandraTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountCassandraTableResult> {

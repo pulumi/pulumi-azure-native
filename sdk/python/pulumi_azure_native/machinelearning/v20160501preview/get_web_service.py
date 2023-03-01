@@ -109,7 +109,7 @@ def get_web_service(resource_group_name: Optional[str] = None,
                     web_service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebServiceResult:
     """
-    Instance of an Azure ML web service resource.
+    Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
 
 
     :param str resource_group_name: Name of the resource group in which the web service is located.
@@ -135,7 +135,7 @@ def get_web_service_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            web_service_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebServiceResult]:
     """
-    Instance of an Azure ML web service resource.
+    Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
 
 
     :param str resource_group_name: Name of the resource group in which the web service is located.

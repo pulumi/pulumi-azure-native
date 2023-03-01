@@ -301,7 +301,7 @@ def get_server(resource_group_name: Optional[str] = None,
                server_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    Represents a server.
+    Gets information about a server.
     API Version: 2017-12-01.
 
 
@@ -344,7 +344,7 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
-    Represents a server.
+    Gets information about a server.
     API Version: 2017-12-01.
 
 

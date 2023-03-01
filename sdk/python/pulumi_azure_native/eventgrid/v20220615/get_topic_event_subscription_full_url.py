@@ -49,7 +49,7 @@ def get_topic_event_subscription_full_url(event_subscription_name: Optional[str]
                                           topic_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicEventSubscriptionFullUrlResult:
     """
-    Full endpoint url of an event subscription
+    Get the full endpoint URL for an event subscription for topic.
 
 
     :param str event_subscription_name: Name of the event subscription.
@@ -73,7 +73,7 @@ def get_topic_event_subscription_full_url_output(event_subscription_name: Option
                                                  topic_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicEventSubscriptionFullUrlResult]:
     """
-    Full endpoint url of an event subscription
+    Get the full endpoint URL for an event subscription for topic.
 
 
     :param str event_subscription_name: Name of the event subscription.

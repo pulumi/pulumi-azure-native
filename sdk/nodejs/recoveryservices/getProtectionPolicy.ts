@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Base class for backup policy. Workload-specific backup policies are derived from this class.
+ * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
+ * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
  * API Version: 2021-02-01.
  */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
@@ -70,7 +71,8 @@ export interface GetProtectionPolicyResult {
     readonly type: string;
 }
 /**
- * Base class for backup policy. Workload-specific backup policies are derived from this class.
+ * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
+ * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
  * API Version: 2021-02-01.
  */
 export function getProtectionPolicyOutput(args: GetProtectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionPolicyResult> {

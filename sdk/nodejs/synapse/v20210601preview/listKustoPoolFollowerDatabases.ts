@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list Kusto database principals operation response.
+ * Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
  */
 export function listKustoPoolFollowerDatabases(args: ListKustoPoolFollowerDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListKustoPoolFollowerDatabasesResult> {
 
@@ -45,7 +45,7 @@ export interface ListKustoPoolFollowerDatabasesResult {
     readonly value?: outputs.synapse.v20210601preview.FollowerDatabaseDefinitionResponse[];
 }
 /**
- * The list Kusto database principals operation response.
+ * Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
  */
 export function listKustoPoolFollowerDatabasesOutput(args: ListKustoPoolFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolFollowerDatabasesResult> {
     return pulumi.output(args).apply((a: any) => listKustoPoolFollowerDatabases(a, opts))

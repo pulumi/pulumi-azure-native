@@ -157,7 +157,7 @@ def get_video_analyzer(account_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVideoAnalyzerResult:
     """
-    A Video Analyzer account.
+    Get the details of the specified Video Analyzer account
     API Version: 2021-05-01-preview.
 
 
@@ -188,7 +188,7 @@ def get_video_analyzer_output(account_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVideoAnalyzerResult]:
     """
-    A Video Analyzer account.
+    Get the details of the specified Video Analyzer account
     API Version: 2021-05-01-preview.
 
 

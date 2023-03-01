@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
     public static class GetOpenIdConnectProvider
     {
         /// <summary>
-        /// OpenId Connect Provider details.
+        /// Gets specific OpenID Connect Provider without secrets.
         /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-native:apimanagement/v20220401preview:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// OpenId Connect Provider details.
+        /// Gets specific OpenID Connect Provider without secrets.
         /// </summary>
         public static Output<GetOpenIdConnectProviderResult> Invoke(GetOpenIdConnectProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenIdConnectProviderResult>("azure-native:apimanagement/v20220401preview:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderInvokeArgs(), options.WithDefaults());

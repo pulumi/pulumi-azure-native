@@ -110,7 +110,7 @@ def get_private_endpoint_connection(cache_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the redis cache.
 
 
     :param str cache_name: The name of the Redis cache.
@@ -139,7 +139,7 @@ def get_private_endpoint_connection_output(cache_name: Optional[pulumi.Input[str
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the redis cache.
 
 
     :param str cache_name: The name of the Redis cache.

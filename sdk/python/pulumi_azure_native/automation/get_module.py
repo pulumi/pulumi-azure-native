@@ -242,7 +242,7 @@ def get_module(automation_account_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModuleResult:
     """
-    Definition of the module type.
+    Retrieve the module identified by module name.
     API Version: 2019-06-01.
 
 
@@ -283,7 +283,7 @@ def get_module_output(automation_account_name: Optional[pulumi.Input[str]] = Non
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModuleResult]:
     """
-    Definition of the module type.
+    Retrieve the module identified by module name.
     API Version: 2019-06-01.
 
 

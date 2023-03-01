@@ -108,7 +108,7 @@ def get_workload_instance(modernize_project_name: Optional[str] = None,
                           workload_instance_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadInstanceResult:
     """
-    Workload instance model.
+    Gets the details of the workload instance.
 
 
     :param str modernize_project_name: ModernizeProject name.
@@ -140,7 +140,7 @@ def get_workload_instance_output(modernize_project_name: Optional[pulumi.Input[s
                                  workload_instance_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadInstanceResult]:
     """
-    Workload instance model.
+    Gets the details of the workload instance.
 
 
     :param str modernize_project_name: ModernizeProject name.

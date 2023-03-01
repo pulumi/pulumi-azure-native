@@ -222,7 +222,7 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
                                         system_topic_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicEventSubscriptionResult:
     """
-    Event Subscription
+    Get an event subscription.
     API Version: 2020-04-01-preview.
 
 
@@ -261,7 +261,7 @@ def get_system_topic_event_subscription_output(event_subscription_name: Optional
                                                system_topic_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionResult]:
     """
-    Event Subscription
+    Get an event subscription.
     API Version: 2020-04-01-preview.
 
 

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     public static class GetVariable
     {
         /// <summary>
-        /// Definition of the variable.
+        /// Retrieve the variable identified by variable name.
         /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation/v20200113preview:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the variable.
+        /// Retrieve the variable identified by variable name.
         /// </summary>
         public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation/v20200113preview:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());

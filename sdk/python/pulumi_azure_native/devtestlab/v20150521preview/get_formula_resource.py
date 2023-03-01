@@ -184,7 +184,7 @@ def get_formula_resource(lab_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFormulaResourceResult:
     """
-    A formula.
+    Get formula.
 
 
     :param str lab_name: The name of the lab.
@@ -220,7 +220,7 @@ def get_formula_resource_output(lab_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFormulaResourceResult]:
     """
-    A formula.
+    Get formula.
 
 
     :param str lab_name: The name of the lab.

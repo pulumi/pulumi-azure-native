@@ -134,7 +134,7 @@ def get_restore_point(resource_group_name: Optional[str] = None,
                       restore_point_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestorePointResult:
     """
-    Restore Point details.
+    The operation to get the restore point.
     API Version: 2021-03-01.
 
 
@@ -166,7 +166,7 @@ def get_restore_point_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              restore_point_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorePointResult]:
     """
-    Restore Point details.
+    The operation to get the restore point.
     API Version: 2021-03-01.
 
 

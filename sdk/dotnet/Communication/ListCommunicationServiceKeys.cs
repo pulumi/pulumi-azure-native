@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Communication
     public static class ListCommunicationServiceKeys
     {
         /// <summary>
-        /// A class representing the access keys of a CommunicationService.
+        /// Get the access keys of the CommunicationService resource.
         /// API Version: 2020-08-20.
         /// </summary>
         public static Task<ListCommunicationServiceKeysResult> InvokeAsync(ListCommunicationServiceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-native:communication:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A class representing the access keys of a CommunicationService.
+        /// Get the access keys of the CommunicationService resource.
         /// API Version: 2020-08-20.
         /// </summary>
         public static Output<ListCommunicationServiceKeysResult> Invoke(ListCommunicationServiceKeysInvokeArgs args, InvokeOptions? options = null)

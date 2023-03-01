@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * EventGrid Partner Namespace.
+ * Get properties of a partner namespace.
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
 
@@ -73,7 +73,7 @@ export interface GetPartnerNamespaceResult {
     readonly type: string;
 }
 /**
- * EventGrid Partner Namespace.
+ * Get properties of a partner namespace.
  */
 export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getPartnerNamespace(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * OpenId Connect Provider details.
+ * Gets specific OpenID Connect Provider without secrets.
  * API Version: 2020-12-01.
  */
 export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
@@ -71,7 +71,7 @@ export interface GetOpenIdConnectProviderResult {
     readonly type: string;
 }
 /**
- * OpenId Connect Provider details.
+ * Gets specific OpenID Connect Provider without secrets.
  * API Version: 2020-12-01.
  */
 export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {

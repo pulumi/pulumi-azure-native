@@ -123,7 +123,7 @@ def get_suppression(name: Optional[str] = None,
                     resource_uri: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSuppressionResult:
     """
-    The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+    Obtains the details of a suppression.
 
 
     :param str name: The name of the suppression.
@@ -154,7 +154,7 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
                            resource_uri: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSuppressionResult]:
     """
-    The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+    Obtains the details of a suppression.
 
 
     :param str name: The name of the suppression.

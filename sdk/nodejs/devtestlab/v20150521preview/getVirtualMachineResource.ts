@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A virtual machine.
+ * Get virtual machine.
  */
 /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getVirtualMachineResource(args: GetVirtualMachineResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResourceResult> {
@@ -143,7 +143,7 @@ export interface GetVirtualMachineResourceResult {
     readonly userName?: string;
 }
 /**
- * A virtual machine.
+ * Get virtual machine.
  */
 /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getVirtualMachineResourceOutput(args: GetVirtualMachineResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResourceResult> {

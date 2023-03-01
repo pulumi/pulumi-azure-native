@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public static class GetVirtualMachine
     {
         /// <summary>
-        /// Define the virtualMachine.
+        /// Implements virtual machine GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:connectedvmwarevsphere:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the virtualMachine.
+        /// Implements virtual machine GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)

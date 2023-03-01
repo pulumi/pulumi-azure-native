@@ -50,7 +50,7 @@ def list_asset_streaming_locators(account_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetStreamingLocatorsResult:
     """
-    The Streaming Locators associated with this Asset.
+    Lists Streaming Locators which are associated with this asset.
     API Version: 2020-05-01.
 
 
@@ -75,7 +75,7 @@ def list_asset_streaming_locators_output(account_name: Optional[pulumi.Input[str
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAssetStreamingLocatorsResult]:
     """
-    The Streaming Locators associated with this Asset.
+    Lists Streaming Locators which are associated with this asset.
     API Version: 2020-05-01.
 
 

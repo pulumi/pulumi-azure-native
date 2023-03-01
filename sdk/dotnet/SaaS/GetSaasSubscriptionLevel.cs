@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SaaS
     public static class GetSaasSubscriptionLevel
     {
         /// <summary>
-        /// SaaS REST API resource definition.
+        /// Gets information about the specified Subscription Level SaaS.
         /// API Version: 2018-03-01-beta.
         /// </summary>
         public static Task<GetSaasSubscriptionLevelResult> InvokeAsync(GetSaasSubscriptionLevelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSaasSubscriptionLevelResult>("azure-native:saas:getSaasSubscriptionLevel", args ?? new GetSaasSubscriptionLevelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SaaS REST API resource definition.
+        /// Gets information about the specified Subscription Level SaaS.
         /// API Version: 2018-03-01-beta.
         /// </summary>
         public static Output<GetSaasSubscriptionLevelResult> Invoke(GetSaasSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)

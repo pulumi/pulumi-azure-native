@@ -265,7 +265,7 @@ def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedCloudNodeResult:
     """
-    Dedicated cloud node model
+    Returns dedicated cloud node
 
 
     :param str dedicated_cloud_node_name: dedicated cloud node name
@@ -304,7 +304,7 @@ def get_dedicated_cloud_node_output(dedicated_cloud_node_name: Optional[pulumi.I
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedCloudNodeResult]:
     """
-    Dedicated cloud node model
+    Returns dedicated cloud node
 
 
     :param str dedicated_cloud_node_name: dedicated cloud node name

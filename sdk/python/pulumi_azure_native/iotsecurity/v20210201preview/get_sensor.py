@@ -205,7 +205,7 @@ def get_sensor(scope: Optional[str] = None,
                sensor_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSensorResult:
     """
-    IoT sensor model
+    Get IoT sensor
 
 
     :param str scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
@@ -239,7 +239,7 @@ def get_sensor_output(scope: Optional[pulumi.Input[str]] = None,
                       sensor_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensorResult]:
     """
-    IoT sensor model
+    Get IoT sensor
 
 
     :param str scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)

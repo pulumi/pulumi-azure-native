@@ -194,7 +194,7 @@ def get_backup_policy(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
-    Backup policy information
+    Get a particular backup Policy
     API Version: 2020-12-01.
 
 
@@ -231,7 +231,7 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
-    Backup policy information
+    Get a particular backup Policy
     API Version: 2020-12-01.
 
 

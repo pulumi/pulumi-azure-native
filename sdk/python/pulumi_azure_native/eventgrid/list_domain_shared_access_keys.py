@@ -60,7 +60,7 @@ def list_domain_shared_access_keys(domain_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainSharedAccessKeysResult:
     """
-    Shared access keys of the Domain.
+    List the two keys used to publish to a domain.
     API Version: 2020-06-01.
 
 
@@ -83,7 +83,7 @@ def list_domain_shared_access_keys_output(domain_name: Optional[pulumi.Input[str
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainSharedAccessKeysResult]:
     """
-    Shared access keys of the Domain.
+    List the two keys used to publish to a domain.
     API Version: 2020-06-01.
 
 

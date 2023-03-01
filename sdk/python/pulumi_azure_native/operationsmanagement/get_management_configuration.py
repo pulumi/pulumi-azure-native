@@ -97,7 +97,7 @@ def get_management_configuration(management_configuration_name: Optional[str] = 
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementConfigurationResult:
     """
-    The container for solution.
+    Retrieves the user ManagementConfiguration.
     API Version: 2015-11-01-preview.
 
 
@@ -123,7 +123,7 @@ def get_management_configuration_output(management_configuration_name: Optional[
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementConfigurationResult]:
     """
-    The container for solution.
+    Retrieves the user ManagementConfiguration.
     API Version: 2015-11-01-preview.
 
 

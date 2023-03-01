@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Devices
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// The private endpoint connection of an IotHub
+        /// Get private endpoint connection properties
         /// API Version: 2020-08-31.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:devices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The private endpoint connection of an IotHub
+        /// Get private endpoint connection properties
         /// API Version: 2020-08-31.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

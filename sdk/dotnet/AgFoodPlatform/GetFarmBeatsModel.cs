@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public static class GetFarmBeatsModel
     {
         /// <summary>
-        /// FarmBeats ARM Resource.
+        /// Get FarmBeats resource.
         /// API Version: 2020-05-12-preview.
         /// </summary>
         public static Task<GetFarmBeatsModelResult> InvokeAsync(GetFarmBeatsModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFarmBeatsModelResult>("azure-native:agfoodplatform:getFarmBeatsModel", args ?? new GetFarmBeatsModelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// FarmBeats ARM Resource.
+        /// Get FarmBeats resource.
         /// API Version: 2020-05-12-preview.
         /// </summary>
         public static Output<GetFarmBeatsModelResult> Invoke(GetFarmBeatsModelInvokeArgs args, InvokeOptions? options = null)

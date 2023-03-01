@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Managed Network Group resource
+ * The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
  * API Version: 2019-06-01-preview.
  */
 export function getManagedNetworkGroup(args: GetManagedNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkGroupResult> {
@@ -86,7 +86,7 @@ export interface GetManagedNetworkGroupResult {
     readonly virtualNetworks?: outputs.managednetwork.ResourceIdResponse[];
 }
 /**
- * The Managed Network Group resource
+ * The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
  * API Version: 2019-06-01-preview.
  */
 export function getManagedNetworkGroupOutput(args: GetManagedNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkGroupResult> {

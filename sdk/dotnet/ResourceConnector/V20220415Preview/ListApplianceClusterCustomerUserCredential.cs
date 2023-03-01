@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ResourceConnector.V20220415Preview
     public static class ListApplianceClusterCustomerUserCredential
     {
         /// <summary>
-        /// The List Cluster Customer User Credential Results appliance.
+        /// Returns the cluster customer user credentials for the dedicated appliance.
         /// </summary>
         public static Task<ListApplianceClusterCustomerUserCredentialResult> InvokeAsync(ListApplianceClusterCustomerUserCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector/v20220415preview:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The List Cluster Customer User Credential Results appliance.
+        /// Returns the cluster customer user credentials for the dedicated appliance.
         /// </summary>
         public static Output<ListApplianceClusterCustomerUserCredentialResult> Invoke(ListApplianceClusterCustomerUserCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplianceClusterCustomerUserCredentialResult>("azure-native:resourceconnector/v20220415preview:listApplianceClusterCustomerUserCredential", args ?? new ListApplianceClusterCustomerUserCredentialInvokeArgs(), options.WithDefaults());

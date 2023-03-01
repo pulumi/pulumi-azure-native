@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents Activity entity query.
+ * Gets an entity query.
  * API Version: 2021-03-01-preview.
  */
 export function getActivityCustomEntityQuery(args: GetActivityCustomEntityQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityCustomEntityQueryResult> {
@@ -116,7 +116,7 @@ export interface GetActivityCustomEntityQueryResult {
     readonly type: string;
 }
 /**
- * Represents Activity entity query.
+ * Gets an entity query.
  * API Version: 2021-03-01-preview.
  */
 export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {

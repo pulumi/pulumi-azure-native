@@ -61,7 +61,7 @@ def list_notebook_workspace_connection_info(account_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotebookWorkspaceConnectionInfoResult:
     """
-    The connection info for the given notebook workspace
+    Retrieves the connection info for the notebook workspace
     API Version: 2021-03-15.
 
 
@@ -87,7 +87,7 @@ def list_notebook_workspace_connection_info_output(account_name: Optional[pulumi
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNotebookWorkspaceConnectionInfoResult]:
     """
-    The connection info for the given notebook workspace
+    Retrieves the connection info for the notebook workspace
     API Version: 2021-03-15.
 
 

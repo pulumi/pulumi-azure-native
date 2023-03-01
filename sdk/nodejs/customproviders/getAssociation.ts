@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The resource definition of this association.
+ * Get an association.
  * API Version: 2018-09-01-preview.
  */
 export function getAssociation(args: GetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationResult> {
@@ -54,7 +54,7 @@ export interface GetAssociationResult {
     readonly type: string;
 }
 /**
- * The resource definition of this association.
+ * Get an association.
  * API Version: 2018-09-01-preview.
  */
 export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {

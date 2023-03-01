@@ -109,7 +109,7 @@ def get_integration_runtime_connection_info(integration_runtime_name: Optional[s
                                             workspace_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeConnectionInfoResult:
     """
-    Connection information for encrypting the on-premises data source credentials.
+    Get connection info for an integration runtime
     API Version: 2021-03-01.
 
 
@@ -139,7 +139,7 @@ def get_integration_runtime_connection_info_output(integration_runtime_name: Opt
                                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
     """
-    Connection information for encrypting the on-premises data source credentials.
+    Get connection info for an integration runtime
     API Version: 2021-03-01.
 
 

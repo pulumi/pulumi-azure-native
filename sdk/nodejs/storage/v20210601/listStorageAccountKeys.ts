@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The response from the ListKeys operation.
+ * Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
  */
 export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountKeysResult> {
 
@@ -45,7 +45,7 @@ export interface ListStorageAccountKeysResult {
     readonly keys: outputs.storage.v20210601.StorageAccountKeyResponse[];
 }
 /**
- * The response from the ListKeys operation.
+ * Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
  */
 export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listStorageAccountKeys(a, opts))

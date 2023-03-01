@@ -108,7 +108,7 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
                                                resource_uri: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestDiagnosticsSettingsAssociationResult:
     """
-    Virtual machine guest diagnostic settings resource.
+    Gets guest diagnostics association settings.
     API Version: 2018-06-01-preview.
 
 
@@ -135,7 +135,7 @@ def get_guest_diagnostics_settings_association_output(association_name: Optional
                                                       resource_uri: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestDiagnosticsSettingsAssociationResult]:
     """
-    Virtual machine guest diagnostic settings resource.
+    Gets guest diagnostics association settings.
     API Version: 2018-06-01-preview.
 
 

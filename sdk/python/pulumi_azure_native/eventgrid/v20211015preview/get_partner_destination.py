@@ -194,7 +194,7 @@ def get_partner_destination(partner_destination_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerDestinationResult:
     """
-    Event Grid Partner Destination.
+    Get properties of a partner destination.
 
 
     :param str partner_destination_name: Name of the partner destination.
@@ -227,7 +227,7 @@ def get_partner_destination_output(partner_destination_name: Optional[pulumi.Inp
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerDestinationResult]:
     """
-    Event Grid Partner Destination.
+    Get properties of a partner destination.
 
 
     :param str partner_destination_name: Name of the partner destination.

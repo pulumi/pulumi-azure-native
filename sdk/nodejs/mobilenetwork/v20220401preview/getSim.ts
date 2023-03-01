@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * SIM resource.
+ * Gets information about the specified SIM.
  */
 export function getSim(args: GetSimArgs, opts?: pulumi.InvokeOptions): Promise<GetSimResult> {
 
@@ -109,7 +109,7 @@ export interface GetSimResult {
     readonly type: string;
 }
 /**
- * SIM resource.
+ * Gets information about the specified SIM.
  */
 export function getSimOutput(args: GetSimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimResult> {
     return pulumi.output(args).apply((a: any) => getSim(a, opts))

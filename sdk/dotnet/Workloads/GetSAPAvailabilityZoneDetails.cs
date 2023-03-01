@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Workloads
     public static class GetSAPAvailabilityZoneDetails
     {
         /// <summary>
-        /// The list of supported availability zone pairs which are part of SAP HA deployment.
+        /// Get the recommended SAP Availability Zone Pair Details for your region.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetSAPAvailabilityZoneDetailsResult> InvokeAsync(GetSAPAvailabilityZoneDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPAvailabilityZoneDetailsResult>("azure-native:workloads:getSAPAvailabilityZoneDetails", args ?? new GetSAPAvailabilityZoneDetailsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of supported availability zone pairs which are part of SAP HA deployment.
+        /// Get the recommended SAP Availability Zone Pair Details for your region.
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetSAPAvailabilityZoneDetailsResult> Invoke(GetSAPAvailabilityZoneDetailsInvokeArgs args, InvokeOptions? options = null)

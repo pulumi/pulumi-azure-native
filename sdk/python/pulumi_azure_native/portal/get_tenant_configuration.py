@@ -83,7 +83,7 @@ class AwaitableGetTenantConfigurationResult(GetTenantConfigurationResult):
 def get_tenant_configuration(configuration_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTenantConfigurationResult:
     """
-    Tenant configuration.
+    Gets the tenant configuration.
     API Version: 2020-09-01-preview.
 
 
@@ -105,7 +105,7 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
 def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantConfigurationResult]:
     """
-    Tenant configuration.
+    Gets the tenant configuration.
     API Version: 2020-09-01-preview.
 
 

@@ -193,7 +193,7 @@ def get_billing_role_assignment_by_enrollment_account(billing_account_name: Opti
                                                       enrollment_account_name: Optional[str] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingRoleAssignmentByEnrollmentAccountResult:
     """
-    The role assignment
+    Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
     API Version: 2019-10-01-preview.
 
 
@@ -230,7 +230,7 @@ def get_billing_role_assignment_by_enrollment_account_output(billing_account_nam
                                                              enrollment_account_name: Optional[pulumi.Input[str]] = None,
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingRoleAssignmentByEnrollmentAccountResult]:
     """
-    The role assignment
+    Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
     API Version: 2019-10-01-preview.
 
 

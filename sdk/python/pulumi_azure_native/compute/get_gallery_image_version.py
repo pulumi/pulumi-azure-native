@@ -148,7 +148,7 @@ def get_gallery_image_version(expand: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageVersionResult:
     """
-    Specifies information about the gallery image version that you want to create or update.
+    Retrieves information about a gallery image version.
     API Version: 2020-09-30.
 
 
@@ -187,7 +187,7 @@ def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageVersionResult]:
     """
-    Specifies information about the gallery image version that you want to create or update.
+    Retrieves information about a gallery image version.
     API Version: 2020-09-30.
 
 

@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Retrieve the automation keys for an account.
  * API Version: 2021-06-22.
  */
 export function listKeyByAutomationAccount(args: ListKeyByAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<ListKeyByAutomationAccountResult> {
@@ -37,6 +38,7 @@ export interface ListKeyByAutomationAccountResult {
     readonly keys?: outputs.automation.KeyResponse[];
 }
 /**
+ * Retrieve the automation keys for an account.
  * API Version: 2021-06-22.
  */
 export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKeyByAutomationAccountResult> {

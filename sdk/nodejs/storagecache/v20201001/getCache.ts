@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+ * Returns a Cache.
  */
 /** @deprecated Version 2020-10-01 will be removed in v2 of the provider. */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
@@ -110,7 +110,7 @@ export interface GetCacheResult {
     readonly upgradeStatus?: outputs.storagecache.v20201001.CacheUpgradeStatusResponse;
 }
 /**
- * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+ * Returns a Cache.
  */
 /** @deprecated Version 2020-10-01 will be removed in v2 of the provider. */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {

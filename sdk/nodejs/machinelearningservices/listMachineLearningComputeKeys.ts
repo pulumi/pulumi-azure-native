@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Secrets related to a Machine Learning compute. Might differ for every type of compute.
+ * Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
  * API Version: 2021-01-01.
  */
 export function listMachineLearningComputeKeys(args: ListMachineLearningComputeKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMachineLearningComputeKeysResult> {
@@ -43,7 +43,7 @@ export interface ListMachineLearningComputeKeysResult {
     readonly computeType: string;
 }
 /**
- * Secrets related to a Machine Learning compute. Might differ for every type of compute.
+ * Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
  * API Version: 2021-01-01.
  */
 export function listMachineLearningComputeKeysOutput(args: ListMachineLearningComputeKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMachineLearningComputeKeysResult> {

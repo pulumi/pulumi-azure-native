@@ -170,7 +170,7 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
                             version_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublishedBlueprintResult:
     """
-    Represents a published blueprint.
+    Get a published version of a blueprint definition.
 
 
     :param str blueprint_name: Name of the blueprint definition.
@@ -204,7 +204,7 @@ def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] =
                                    version_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublishedBlueprintResult]:
     """
-    Represents a published blueprint.
+    Get a published version of a blueprint definition.
 
 
     :param str blueprint_name: Name of the blueprint definition.

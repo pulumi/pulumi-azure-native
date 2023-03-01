@@ -183,7 +183,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
                      scaling_plan_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScalingPlanResult:
     """
-    Represents a scaling plan definition.
+    Get a scaling plan.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -216,7 +216,7 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             scaling_plan_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPlanResult]:
     """
-    Represents a scaling plan definition.
+    Get a scaling plan.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

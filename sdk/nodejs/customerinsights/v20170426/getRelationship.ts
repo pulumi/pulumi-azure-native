@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The relationship resource format.
+ * Gets information about the specified relationship.
  */
 export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipResult> {
 
@@ -101,7 +101,7 @@ export interface GetRelationshipResult {
     readonly type: string;
 }
 /**
- * The relationship resource format.
+ * Gets information about the specified relationship.
  */
 export function getRelationshipOutput(args: GetRelationshipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipResult> {
     return pulumi.output(args).apply((a: any) => getRelationship(a, opts))

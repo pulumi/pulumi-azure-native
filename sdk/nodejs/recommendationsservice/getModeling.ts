@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Modeling resource details.
+ * Returns Modeling resources for a given name.
  * API Version: 2022-02-01.
  */
 export function getModeling(args: GetModelingArgs, opts?: pulumi.InvokeOptions): Promise<GetModelingResult> {
@@ -70,7 +70,7 @@ export interface GetModelingResult {
     readonly type: string;
 }
 /**
- * Modeling resource details.
+ * Returns Modeling resources for a given name.
  * API Version: 2022-02-01.
  */
 export function getModelingOutput(args: GetModelingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelingResult> {

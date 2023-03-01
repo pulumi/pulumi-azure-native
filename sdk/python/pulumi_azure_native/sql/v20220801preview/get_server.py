@@ -290,7 +290,7 @@ def get_server(expand: Optional[str] = None,
                server_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    An Azure SQL Database server.
+    Gets a server.
 
 
     :param str expand: The child resources to include in the response.
@@ -334,7 +334,7 @@ def get_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
-    An Azure SQL Database server.
+    Gets a server.
 
 
     :param str expand: The child resources to include in the response.

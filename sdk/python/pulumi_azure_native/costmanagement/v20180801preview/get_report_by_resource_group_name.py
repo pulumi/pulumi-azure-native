@@ -133,7 +133,7 @@ def get_report_by_resource_group_name(report_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportByResourceGroupNameResult:
     """
-    A report resource.
+    Gets the report for a resource group under a subscription by report name.
 
 
     :param str report_name: Report Name.
@@ -161,7 +161,7 @@ def get_report_by_resource_group_name_output(report_name: Optional[pulumi.Input[
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByResourceGroupNameResult]:
     """
-    A report resource.
+    Gets the report for a resource group under a subscription by report name.
 
 
     :param str report_name: Report Name.

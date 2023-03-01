@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cache.V20210801
     public static class ListDatabaseKeys
     {
         /// <summary>
-        /// The secret access keys used for authenticating connections to redis
+        /// Retrieves the access keys for the RedisEnterprise database.
         /// </summary>
         public static Task<ListDatabaseKeysResult> InvokeAsync(ListDatabaseKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-native:cache/v20210801:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The secret access keys used for authenticating connections to redis
+        /// Retrieves the access keys for the RedisEnterprise database.
         /// </summary>
         public static Output<ListDatabaseKeysResult> Invoke(ListDatabaseKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseKeysResult>("azure-native:cache/v20210801:listDatabaseKeys", args ?? new ListDatabaseKeysInvokeArgs(), options.WithDefaults());

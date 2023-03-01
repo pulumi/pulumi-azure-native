@@ -98,7 +98,7 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
                       vault_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
-    BaseBackupPolicy resource
+    Gets a backup policy belonging to a backup vault
     API Version: 2021-01-01.
 
 
@@ -126,7 +126,7 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
                              vault_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
-    BaseBackupPolicy resource
+    Gets a backup policy belonging to a backup vault
     API Version: 2021-01-01.
 
 

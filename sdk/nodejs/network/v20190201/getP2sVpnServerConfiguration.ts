@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * P2SVpnServerConfiguration Resource.
+ * Retrieves the details of a P2SVpnServerConfiguration.
  */
 export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnServerConfigurationResult> {
 
@@ -93,7 +93,7 @@ export interface GetP2sVpnServerConfigurationResult {
     readonly vpnProtocols?: string[];
 }
 /**
- * P2SVpnServerConfiguration Resource.
+ * Retrieves the details of a P2SVpnServerConfiguration.
  */
 export function getP2sVpnServerConfigurationOutput(args: GetP2sVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnServerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getP2sVpnServerConfiguration(a, opts))

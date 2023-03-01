@@ -128,7 +128,7 @@ def get_modernize_project(modernize_project_name: Optional[str] = None,
                           subscription_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModernizeProjectResult:
     """
-    ModernizeProject model.
+    Gets the details of the modernize project.
 
 
     :param str modernize_project_name: Modernize project name.
@@ -159,7 +159,7 @@ def get_modernize_project_output(modernize_project_name: Optional[pulumi.Input[s
                                  subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModernizeProjectResult]:
     """
-    ModernizeProject model.
+    Gets the details of the modernize project.
 
 
     :param str modernize_project_name: Modernize project name.

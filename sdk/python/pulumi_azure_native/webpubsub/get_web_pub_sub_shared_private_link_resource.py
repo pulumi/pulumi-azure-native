@@ -146,7 +146,7 @@ def get_web_pub_sub_shared_private_link_resource(resource_group_name: Optional[s
                                                  shared_private_link_resource_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubSharedPrivateLinkResourceResult:
     """
-    Describes a Shared Private Link Resource
+    Get the specified shared private link resource
     API Version: 2021-04-01-preview.
 
 
@@ -179,7 +179,7 @@ def get_web_pub_sub_shared_private_link_resource_output(resource_group_name: Opt
                                                         shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubSharedPrivateLinkResourceResult]:
     """
-    Describes a Shared Private Link Resource
+    Get the specified shared private link resource
     API Version: 2021-04-01-preview.
 
 

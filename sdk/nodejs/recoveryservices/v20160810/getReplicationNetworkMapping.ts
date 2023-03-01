@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+ * Gets the details of an ASR network mapping
  */
 /** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
 export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationNetworkMappingResult> {
@@ -73,7 +73,7 @@ export interface GetReplicationNetworkMappingResult {
     readonly type: string;
 }
 /**
- * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+ * Gets the details of an ASR network mapping
  */
 /** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
 export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationNetworkMappingResult> {

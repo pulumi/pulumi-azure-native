@@ -229,7 +229,7 @@ def getmarketplacegalleryimage(marketplacegalleryimages_name: Optional[str] = No
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetmarketplacegalleryimageResult:
     """
-    The marketplace gallery image resource definition.
+    Gets marketplacegalleryimages by resource name
 
 
     :param str marketplacegalleryimages_name: Name of the marketplace gallery image
@@ -265,7 +265,7 @@ def getmarketplacegalleryimage_output(marketplacegalleryimages_name: Optional[pu
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetmarketplacegalleryimageResult]:
     """
-    The marketplace gallery image resource definition.
+    Gets marketplacegalleryimages by resource name
 
 
     :param str marketplacegalleryimages_name: Name of the marketplace gallery image

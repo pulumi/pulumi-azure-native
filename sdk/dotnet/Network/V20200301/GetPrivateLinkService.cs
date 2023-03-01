@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200301
     public static class GetPrivateLinkService
     {
         /// <summary>
-        /// Private link service resource.
+        /// Gets the specified private link service by resource group.
         /// </summary>
         public static Task<GetPrivateLinkServiceResult> InvokeAsync(GetPrivateLinkServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServiceResult>("azure-native:network/v20200301:getPrivateLinkService", args ?? new GetPrivateLinkServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private link service resource.
+        /// Gets the specified private link service by resource group.
         /// </summary>
         public static Output<GetPrivateLinkServiceResult> Invoke(GetPrivateLinkServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServiceResult>("azure-native:network/v20200301:getPrivateLinkService", args ?? new GetPrivateLinkServiceInvokeArgs(), options.WithDefaults());

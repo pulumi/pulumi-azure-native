@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Workload group operations for a sql pool
+ * Get a Sql pool's workload group.
  */
 export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadGroupResult> {
 
@@ -79,7 +79,7 @@ export interface GetSqlPoolWorkloadGroupResult {
     readonly type: string;
 }
 /**
- * Workload group operations for a sql pool
+ * Get a Sql pool's workload group.
  */
 export function getSqlPoolWorkloadGroupOutput(args: GetSqlPoolWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadGroupResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolWorkloadGroup(a, opts))

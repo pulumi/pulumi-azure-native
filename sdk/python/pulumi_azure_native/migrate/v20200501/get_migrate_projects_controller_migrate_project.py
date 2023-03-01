@@ -121,7 +121,7 @@ def get_migrate_projects_controller_migrate_project(migrate_project_name: Option
                                                     resource_group_name: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrateProjectsControllerMigrateProjectResult:
     """
-    Migrate project.
+    Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
 
 
     :param str migrate_project_name: Migrate project name.
@@ -148,7 +148,7 @@ def get_migrate_projects_controller_migrate_project_output(migrate_project_name:
                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrateProjectsControllerMigrateProjectResult]:
     """
-    Migrate project.
+    Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
 
 
     :param str migrate_project_name: Migrate project name.

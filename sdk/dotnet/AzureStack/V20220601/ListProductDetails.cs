@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStack.V20220601
     public static class ListProductDetails
     {
         /// <summary>
-        /// Extended description about the product required for installing it into Azure Stack.
+        /// Returns the extended properties of a product.
         /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-native:azurestack/v20220601:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Extended description about the product required for installing it into Azure Stack.
+        /// Returns the extended properties of a product.
         /// </summary>
         public static Output<ListProductDetailsResult> Invoke(ListProductDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack/v20220601:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithDefaults());

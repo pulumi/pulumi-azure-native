@@ -135,7 +135,7 @@ def get_codeless_api_polling_data_connector(data_connector_id: Optional[str] = N
                                             workspace_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodelessApiPollingDataConnectorResult:
     """
-    Represents Codeless API Polling data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -166,7 +166,7 @@ def get_codeless_api_polling_data_connector_output(data_connector_id: Optional[p
                                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodelessApiPollingDataConnectorResult]:
     """
-    Represents Codeless API Polling data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

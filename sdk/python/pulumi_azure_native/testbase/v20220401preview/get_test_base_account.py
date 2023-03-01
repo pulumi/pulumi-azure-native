@@ -157,7 +157,7 @@ def get_test_base_account(resource_group_name: Optional[str] = None,
                           test_base_account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestBaseAccountResult:
     """
-    The Test Base Account resource.
+    Gets a Test Base Account.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource.
@@ -187,7 +187,7 @@ def get_test_base_account_output(resource_group_name: Optional[pulumi.Input[str]
                                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestBaseAccountResult]:
     """
-    The Test Base Account resource.
+    Gets a Test Base Account.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Integration runtime resource type.
+ * Gets an integration runtime.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeResult> {
@@ -63,7 +63,7 @@ export interface GetIntegrationRuntimeResult {
     readonly type: string;
 }
 /**
- * Integration runtime resource type.
+ * Gets an integration runtime.
  */
 /** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeResult> {

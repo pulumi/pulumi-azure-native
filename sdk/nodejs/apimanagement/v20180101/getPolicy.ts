@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Policy Contract details.
+ * Get the Global policy definition of the Api Management service.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -58,7 +58,7 @@ export interface GetPolicyResult {
     readonly type: string;
 }
 /**
- * Policy Contract details.
+ * Get the Global policy definition of the Api Management service.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

@@ -112,7 +112,7 @@ def get_task(expand: Optional[str] = None,
              task_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
-    A task resource
+    The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
 
 
     :param str expand: Expand the response
@@ -147,7 +147,7 @@ def get_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                     task_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskResult]:
     """
-    A task resource
+    The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
 
 
     :param str expand: Expand the response

@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get a Import collector.
  * API Version: 2019-10-01.
  */
 export function getImportCollector(args: GetImportCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetImportCollectorResult> {
@@ -43,6 +44,7 @@ export interface GetImportCollectorResult {
     readonly type: string;
 }
 /**
+ * Get a Import collector.
  * API Version: 2019-10-01.
  */
 export function getImportCollectorOutput(args: GetImportCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorResult> {

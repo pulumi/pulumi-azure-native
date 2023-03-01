@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Information about the connection monitor.
+ * Gets a connection monitor by name.
  */
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
@@ -92,7 +92,7 @@ export interface GetConnectionMonitorResult {
     readonly type: string;
 }
 /**
- * Information about the connection monitor.
+ * Gets a connection monitor by name.
  */
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {

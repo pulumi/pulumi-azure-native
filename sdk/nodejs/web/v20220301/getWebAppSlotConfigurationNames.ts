@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Slot Config names azure resource.
+ * Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
  */
 export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfigurationNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotConfigurationNamesResult> {
 
@@ -61,7 +61,7 @@ export interface GetWebAppSlotConfigurationNamesResult {
     readonly type: string;
 }
 /**
- * Slot Config names azure resource.
+ * Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
  */
 export function getWebAppSlotConfigurationNamesOutput(args: GetWebAppSlotConfigurationNamesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotConfigurationNamesResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSlotConfigurationNames(a, opts))

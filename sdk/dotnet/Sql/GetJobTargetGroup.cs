@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetJobTargetGroup
     {
         /// <summary>
-        /// A group of job targets.
+        /// Gets a target group.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetJobTargetGroupResult> InvokeAsync(GetJobTargetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobTargetGroupResult>("azure-native:sql:getJobTargetGroup", args ?? new GetJobTargetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A group of job targets.
+        /// Gets a target group.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetJobTargetGroupResult> Invoke(GetJobTargetGroupInvokeArgs args, InvokeOptions? options = null)

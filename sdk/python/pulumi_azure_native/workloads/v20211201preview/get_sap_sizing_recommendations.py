@@ -57,7 +57,7 @@ def get_sap_sizing_recommendations(app_location: Optional[str] = None,
                                    saps: Optional[float] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPSizingRecommendationsResult:
     """
-    The SAP sizing recommendation result.
+    Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
 
 
     :param str app_location: The geo-location where the resource is to be created.
@@ -102,7 +102,7 @@ def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[st
                                           saps: Optional[pulumi.Input[float]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPSizingRecommendationsResult]:
     """
-    The SAP sizing recommendation result.
+    Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
 
 
     :param str app_location: The geo-location where the resource is to be created.

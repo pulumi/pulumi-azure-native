@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Prometheus rule group resource.
+ * Retrieve a Prometheus rule group definition.
  */
 export function getPrometheusRuleGroup(args: GetPrometheusRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrometheusRuleGroupResult> {
 
@@ -84,7 +84,7 @@ export interface GetPrometheusRuleGroupResult {
     readonly type: string;
 }
 /**
- * The Prometheus rule group resource.
+ * Retrieve a Prometheus rule group definition.
  */
 export function getPrometheusRuleGroupOutput(args: GetPrometheusRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrometheusRuleGroupResult> {
     return pulumi.output(args).apply((a: any) => getPrometheusRuleGroup(a, opts))

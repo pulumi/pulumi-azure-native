@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetHubRouteTable
     {
         /// <summary>
-        /// RouteTable resource in a virtual hub.
+        /// Retrieves the details of a RouteTable.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetHubRouteTableResult> InvokeAsync(GetHubRouteTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-native:network:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// RouteTable resource in a virtual hub.
+        /// Retrieves the details of a RouteTable.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetHubRouteTableResult> Invoke(GetHubRouteTableInvokeArgs args, InvokeOptions? options = null)

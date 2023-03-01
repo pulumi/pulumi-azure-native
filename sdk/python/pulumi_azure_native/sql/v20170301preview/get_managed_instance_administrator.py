@@ -121,7 +121,7 @@ def get_managed_instance_administrator(administrator_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceAdministratorResult:
     """
-    An Azure SQL managed instance administrator.
+    Gets a managed instance administrator.
 
 
     :param str administrator_name: The administrator name.
@@ -151,7 +151,7 @@ def get_managed_instance_administrator_output(administrator_name: Optional[pulum
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceAdministratorResult]:
     """
-    An Azure SQL managed instance administrator.
+    Gets a managed instance administrator.
 
 
     :param str administrator_name: The administrator name.

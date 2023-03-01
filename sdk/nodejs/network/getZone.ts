@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a DNS zone.
+ * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  * API Version: 2018-05-01.
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
@@ -89,7 +89,7 @@ export interface GetZoneResult {
     readonly zoneType?: string;
 }
 /**
- * Describes a DNS zone.
+ * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  * API Version: 2018-05-01.
  */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {

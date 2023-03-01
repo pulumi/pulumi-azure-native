@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Concrete tracked resource types can be created by aliasing this type using a specific property type.
+ * Get a TrafficController
  */
 export function getTrafficControllerInterface(args: GetTrafficControllerInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficControllerInterfaceResult> {
 
@@ -76,7 +76,7 @@ export interface GetTrafficControllerInterfaceResult {
     readonly type: string;
 }
 /**
- * Concrete tracked resource types can be created by aliasing this type using a specific property type.
+ * Get a TrafficController
  */
 export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getTrafficControllerInterface(a, opts))

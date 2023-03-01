@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Define the Database resource.
+ * Gets the SAP Database Instance resource.
  */
 export function getSAPDatabaseInstance(args: GetSAPDatabaseInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDatabaseInstanceResult> {
 
@@ -101,7 +101,7 @@ export interface GetSAPDatabaseInstanceResult {
     readonly vmDetails: outputs.workloads.v20211201preview.DatabaseVmDetailsResponse[];
 }
 /**
- * Define the Database resource.
+ * Gets the SAP Database Instance resource.
  */
 export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDatabaseInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPDatabaseInstance(a, opts))

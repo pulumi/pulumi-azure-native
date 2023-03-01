@@ -218,7 +218,7 @@ def get_slice(mobile_network_name: Optional[str] = None,
               slice_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSliceResult:
     """
-    Network slice resource.
+    Gets information about the specified mobile network slice.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -256,7 +256,7 @@ def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                      slice_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSliceResult]:
     """
-    Network slice resource.
+    Gets information about the specified mobile network slice.
 
 
     :param str mobile_network_name: The name of the mobile network.

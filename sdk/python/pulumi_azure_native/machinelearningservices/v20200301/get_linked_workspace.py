@@ -86,7 +86,7 @@ def get_linked_workspace(link_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedWorkspaceResult:
     """
-    Linked workspace.
+    Get the detail of a linked workspace.
 
 
     :param str link_name: Friendly name of the linked workspace
@@ -113,7 +113,7 @@ def get_linked_workspace_output(link_name: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedWorkspaceResult]:
     """
-    Linked workspace.
+    Get the detail of a linked workspace.
 
 
     :param str link_name: Friendly name of the linked workspace

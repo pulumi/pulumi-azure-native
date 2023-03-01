@@ -252,7 +252,7 @@ def get_route(endpoint_name: Optional[str] = None,
               route_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
-    Friendly Routes name mapping to the any Routes or secret related information.
+    Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
     API Version: 2020-09-01.
 
 
@@ -297,7 +297,7 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                      route_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
-    Friendly Routes name mapping to the any Routes or secret related information.
+    Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
     API Version: 2020-09-01.
 
 

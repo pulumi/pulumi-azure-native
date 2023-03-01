@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetSubscriptionDiagnosticSetting
     {
         /// <summary>
-        /// The subscription diagnostic setting resource.
+        /// Gets the active subscription diagnostic settings for the specified resource.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Task<GetSubscriptionDiagnosticSettingResult> InvokeAsync(GetSubscriptionDiagnosticSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDiagnosticSettingResult>("azure-native:insights:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The subscription diagnostic setting resource.
+        /// Gets the active subscription diagnostic settings for the specified resource.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Output<GetSubscriptionDiagnosticSettingResult> Invoke(GetSubscriptionDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)

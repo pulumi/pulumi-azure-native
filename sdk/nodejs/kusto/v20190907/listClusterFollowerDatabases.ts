@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list Kusto database principals operation response.
+ * Returns a list of databases that are owned by this cluster and were followed by another cluster.
  */
 export function listClusterFollowerDatabases(args: ListClusterFollowerDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterFollowerDatabasesResult> {
 
@@ -40,7 +40,7 @@ export interface ListClusterFollowerDatabasesResult {
     readonly value?: outputs.kusto.v20190907.FollowerDatabaseDefinitionResponse[];
 }
 /**
- * The list Kusto database principals operation response.
+ * Returns a list of databases that are owned by this cluster and were followed by another cluster.
  */
 export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
     return pulumi.output(args).apply((a: any) => listClusterFollowerDatabases(a, opts))

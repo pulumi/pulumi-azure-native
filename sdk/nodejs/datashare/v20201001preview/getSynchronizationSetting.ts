@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Synchronization Setting data transfer object.
+ * Get a synchronizationSetting in a share
  */
 /** @deprecated Please use one of the variants: ScheduledSynchronizationSetting. */
 export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynchronizationSettingResult> {
@@ -68,7 +68,7 @@ export interface GetSynchronizationSettingResult {
     readonly type: string;
 }
 /**
- * A Synchronization Setting data transfer object.
+ * Get a synchronizationSetting in a share
  */
 /** @deprecated Please use one of the variants: ScheduledSynchronizationSetting. */
 export function getSynchronizationSettingOutput(args: GetSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynchronizationSettingResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * maintenance configuration.
+ * Gets the details of maintenance configurations by managed cluster and resource group.
  */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
 
@@ -65,7 +65,7 @@ export interface GetMaintenanceConfigurationResult {
     readonly type: string;
 }
 /**
- * maintenance configuration.
+ * Gets the details of maintenance configurations by managed cluster and resource group.
  */
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMaintenanceConfiguration(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL virtual machine group.
+ * Gets a SQL virtual machine group.
  */
 export function getSqlVirtualMachineGroup(args: GetSqlVirtualMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineGroupResult> {
 
@@ -88,7 +88,7 @@ export interface GetSqlVirtualMachineGroupResult {
     readonly wsfcDomainProfile?: outputs.sqlvirtualmachine.v20220201.WsfcDomainProfileResponse;
 }
 /**
- * A SQL virtual machine group.
+ * Gets a SQL virtual machine group.
  */
 export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
     return pulumi.output(args).apply((a: any) => getSqlVirtualMachineGroup(a, opts))

@@ -147,7 +147,7 @@ def get_endpoint_variant(expand: Optional[bool] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointVariantResult:
     """
-    Machine Learning service object wrapped into ARM resource envelope.
+    Get a Service by name.
 
 
     :param bool expand: Set to True to include Model details.
@@ -182,7 +182,7 @@ def get_endpoint_variant_output(expand: Optional[pulumi.Input[Optional[bool]]] =
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointVariantResult]:
     """
-    Machine Learning service object wrapped into ARM resource envelope.
+    Get a Service by name.
 
 
     :param bool expand: Set to True to include Model details.

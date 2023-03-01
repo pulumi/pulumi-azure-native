@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An event source that receives its data from an Azure EventHub.
+ * Gets the event source with the specified name in the specified environment.
  */
 export function getEventHubEventSource(args: GetEventHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubEventSourceResult> {
 
@@ -106,7 +106,7 @@ export interface GetEventHubEventSourceResult {
     readonly type: string;
 }
 /**
- * An event source that receives its data from an Azure EventHub.
+ * Gets the event source with the specified name in the specified environment.
  */
 export function getEventHubEventSourceOutput(args: GetEventHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubEventSourceResult> {
     return pulumi.output(args).apply((a: any) => getEventHubEventSource(a, opts))

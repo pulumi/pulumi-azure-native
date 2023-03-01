@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Define the resourcePool.
+ * Implements resourcePool GET method.
  */
 export function getResourcePool(args: GetResourcePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePoolResult> {
 
@@ -130,7 +130,7 @@ export interface GetResourcePoolResult {
     readonly vCenterId?: string;
 }
 /**
- * Define the resourcePool.
+ * Implements resourcePool GET method.
  */
 export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePoolResult> {
     return pulumi.output(args).apply((a: any) => getResourcePool(a, opts))

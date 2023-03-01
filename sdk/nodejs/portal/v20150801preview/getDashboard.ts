@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The shared dashboard resource definition.
+ * Gets the Dashboard.
  */
 /** @deprecated Version 2015-08-01-preview will be removed in v2 of the provider. */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
@@ -66,7 +66,7 @@ export interface GetDashboardResult {
     readonly type: string;
 }
 /**
- * The shared dashboard resource definition.
+ * Gets the Dashboard.
  */
 /** @deprecated Version 2015-08-01-preview will be removed in v2 of the provider. */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {

@@ -124,7 +124,7 @@ def get_action(action_id: Optional[str] = None,
                workspace_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionResult:
     """
-    Action for alert rule.
+    Gets the action of alert rule.
 
 
     :param str action_id: Action ID
@@ -160,7 +160,7 @@ def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
                       workspace_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionResult]:
     """
-    Action for alert rule.
+    Gets the action of alert rule.
 
 
     :param str action_id: Action ID

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The integration account session.
+ * Gets an integration account session.
  */
 export function getSession(args: GetSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetSessionResult> {
 
@@ -70,7 +70,7 @@ export interface GetSessionResult {
     readonly type: string;
 }
 /**
- * The integration account session.
+ * Gets an integration account session.
  */
 export function getSessionOutput(args: GetSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionResult> {
     return pulumi.output(args).apply((a: any) => getSession(a, opts))

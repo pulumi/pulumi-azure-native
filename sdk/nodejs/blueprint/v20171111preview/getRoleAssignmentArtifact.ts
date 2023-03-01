@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Blueprint artifact applies Azure role assignment.
+ * Get a Blueprint artifact.
  */
 export function getRoleAssignmentArtifact(args: GetRoleAssignmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentArtifactResult> {
 
@@ -79,7 +79,7 @@ export interface GetRoleAssignmentArtifactResult {
     readonly type: string;
 }
 /**
- * Blueprint artifact applies Azure role assignment.
+ * Get a Blueprint artifact.
  */
 export function getRoleAssignmentArtifactOutput(args: GetRoleAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentArtifactResult> {
     return pulumi.output(args).apply((a: any) => getRoleAssignmentArtifact(a, opts))

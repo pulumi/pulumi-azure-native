@@ -156,7 +156,7 @@ def get_controller_details(resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerDetailsResult:
     """
-    Represents an instance of a DNC controller.
+    Gets details about the specified dnc controller.
     API Version: 2021-03-15.
 
 
@@ -187,7 +187,7 @@ def get_controller_details_output(resource_group_name: Optional[pulumi.Input[str
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControllerDetailsResult]:
     """
-    Represents an instance of a DNC controller.
+    Gets details about the specified dnc controller.
     API Version: 2021-03-15.
 
 

@@ -482,7 +482,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    resource_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
-    Agent Pool.
+    Gets the details of the agent pool by managed cluster and resource group.
     API Version: 2021-03-01.
 
 
@@ -543,7 +543,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           resource_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
-    Agent Pool.
+    Gets the details of the agent pool by managed cluster and resource group.
     API Version: 2021-03-01.
 
 

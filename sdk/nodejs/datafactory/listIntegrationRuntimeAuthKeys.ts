@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The integration runtime authentication keys.
+ * Retrieves the authentication keys for an integration runtime.
  * API Version: 2018-06-01.
  */
 export function listIntegrationRuntimeAuthKeys(args: ListIntegrationRuntimeAuthKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationRuntimeAuthKeysResult> {
@@ -47,7 +47,7 @@ export interface ListIntegrationRuntimeAuthKeysResult {
     readonly authKey2?: string;
 }
 /**
- * The integration runtime authentication keys.
+ * Retrieves the authentication keys for an integration runtime.
  * API Version: 2018-06-01.
  */
 export function listIntegrationRuntimeAuthKeysOutput(args: ListIntegrationRuntimeAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationRuntimeAuthKeysResult> {

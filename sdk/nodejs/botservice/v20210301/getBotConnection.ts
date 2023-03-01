@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Bot channel resource definition
+ * Get a Connection Setting registration for a Bot Service
  */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
 
@@ -81,7 +81,7 @@ export interface GetBotConnectionResult {
     readonly zones: string[];
 }
 /**
- * Bot channel resource definition
+ * Get a Connection Setting registration for a Bot Service
  */
 export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotConnectionResult> {
     return pulumi.output(args).apply((a: any) => getBotConnection(a, opts))

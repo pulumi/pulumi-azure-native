@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a definition for a Developer Machine.
+ * Gets a Dev Box definition
  */
 export function getDevBoxDefinition(args: GetDevBoxDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDevBoxDefinitionResult> {
 
@@ -93,7 +93,7 @@ export interface GetDevBoxDefinitionResult {
     readonly type: string;
 }
 /**
- * Represents a definition for a Developer Machine.
+ * Gets a Dev Box definition
  */
 export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevBoxDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getDevBoxDefinition(a, opts))

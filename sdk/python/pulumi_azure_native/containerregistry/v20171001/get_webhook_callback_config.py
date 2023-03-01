@@ -61,7 +61,7 @@ def get_webhook_callback_config(registry_name: Optional[str] = None,
                                 webhook_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookCallbackConfigResult:
     """
-    The configuration of service URI and custom headers for the webhook.
+    Gets the configuration of service URI and custom headers for the webhook.
 
 
     :param str registry_name: The name of the container registry.
@@ -86,7 +86,7 @@ def get_webhook_callback_config_output(registry_name: Optional[pulumi.Input[str]
                                        webhook_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookCallbackConfigResult]:
     """
-    The configuration of service URI and custom headers for the webhook.
+    Gets the configuration of service URI and custom headers for the webhook.
 
 
     :param str registry_name: The name of the container registry.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a VMSS VM Extension.
+ * The operation to get the VMSS VM extension.
  */
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
 
@@ -107,7 +107,7 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
     readonly typeHandlerVersion?: string;
 }
 /**
- * Describes a VMSS VM Extension.
+ * The operation to get the VMSS VM extension.
  */
 export function getVirtualMachineScaleSetVMExtensionOutput(args: GetVirtualMachineScaleSetVMExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMExtension(a, opts))

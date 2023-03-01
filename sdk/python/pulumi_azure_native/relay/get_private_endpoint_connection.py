@@ -134,7 +134,7 @@ def get_private_endpoint_connection(namespace_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Private endpoint connection resource.
+    Gets the specified private endpoint connection associated with the Relay Namespace.
     API Version: 2018-01-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_private_endpoint_connection_output(namespace_name: Optional[pulumi.Input
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Private endpoint connection resource.
+    Gets the specified private endpoint connection associated with the Relay Namespace.
     API Version: 2018-01-01-preview.
 
 

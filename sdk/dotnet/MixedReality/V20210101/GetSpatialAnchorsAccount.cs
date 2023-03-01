@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MixedReality.V20210101
     public static class GetSpatialAnchorsAccount
     {
         /// <summary>
-        /// SpatialAnchorsAccount Response.
+        /// Retrieve a Spatial Anchors Account.
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-native:mixedreality/v20210101:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SpatialAnchorsAccount Response.
+        /// Retrieve a Spatial Anchors Account.
         /// </summary>
         public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure-native:mixedreality/v20210101:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithDefaults());

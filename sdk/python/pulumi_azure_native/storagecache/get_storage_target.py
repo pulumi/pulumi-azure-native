@@ -182,7 +182,7 @@ def get_storage_target(cache_name: Optional[str] = None,
                        storage_target_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
-    Type of the Storage Target.
+    Returns a Storage Target from a Cache.
     API Version: 2021-03-01.
 
 
@@ -218,7 +218,7 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
                               storage_target_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageTargetResult]:
     """
-    Type of the Storage Target.
+    Returns a Storage Target from a Cache.
     API Version: 2021-03-01.
 
 

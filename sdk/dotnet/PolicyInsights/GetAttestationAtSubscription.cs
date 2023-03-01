@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.PolicyInsights
     public static class GetAttestationAtSubscription
     {
         /// <summary>
-        /// An attestation resource.
+        /// Gets an existing attestation at subscription scope.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetAttestationAtSubscriptionResult> InvokeAsync(GetAttestationAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtSubscriptionResult>("azure-native:policyinsights:getAttestationAtSubscription", args ?? new GetAttestationAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An attestation resource.
+        /// Gets an existing attestation at subscription scope.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetAttestationAtSubscriptionResult> Invoke(GetAttestationAtSubscriptionInvokeArgs args, InvokeOptions? options = null)

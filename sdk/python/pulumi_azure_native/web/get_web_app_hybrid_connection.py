@@ -183,7 +183,7 @@ def get_web_app_hybrid_connection(name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionResult:
     """
-    Hybrid Connection contract. This is used to configure a Hybrid Connection.
+    Retrieves a specific Service Bus Hybrid Connection used by this Web App.
     API Version: 2020-12-01.
 
 
@@ -222,7 +222,7 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[str]] = Non
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHybridConnectionResult]:
     """
-    Hybrid Connection contract. This is used to configure a Hybrid Connection.
+    Retrieves a specific Service Bus Hybrid Connection used by this Web App.
     API Version: 2020-12-01.
 
 

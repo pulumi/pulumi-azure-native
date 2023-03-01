@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     public static class GetSqlPoolWorkloadClassifier
     {
         /// <summary>
-        /// Workload classifier operations for a data warehouse
+        /// Get a workload classifier of Sql pool's workload group.
         /// </summary>
         public static Task<GetSqlPoolWorkloadClassifierResult> InvokeAsync(GetSqlPoolWorkloadClassifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse/v20201201:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workload classifier operations for a data warehouse
+        /// Get a workload classifier of Sql pool's workload group.
         /// </summary>
         public static Output<GetSqlPoolWorkloadClassifierResult> Invoke(GetSqlPoolWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse/v20201201:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierInvokeArgs(), options.WithDefaults());

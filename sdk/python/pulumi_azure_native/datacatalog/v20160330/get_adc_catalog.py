@@ -181,7 +181,7 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADCCatalogResult:
     """
-    Azure Data Catalog.
+    The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
 
 
     :param str catalog_name: The name of the data catalog in the specified subscription and resource group.
@@ -213,7 +213,7 @@ def get_adc_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADCCatalogResult]:
     """
-    Azure Data Catalog.
+    The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
 
 
     :param str catalog_name: The name of the data catalog in the specified subscription and resource group.

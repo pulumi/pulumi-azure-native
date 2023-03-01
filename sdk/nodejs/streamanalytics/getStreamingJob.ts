@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A streaming job object, containing all information associated with the named streaming job.
+ * Gets details about the specified streaming job.
  * API Version: 2016-03-01.
  */
 export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
@@ -138,7 +138,7 @@ export interface GetStreamingJobResult {
     readonly type: string;
 }
 /**
- * A streaming job object, containing all information associated with the named streaming job.
+ * Gets details about the specified streaming job.
  * API Version: 2016-03-01.
  */
 export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingJobResult> {

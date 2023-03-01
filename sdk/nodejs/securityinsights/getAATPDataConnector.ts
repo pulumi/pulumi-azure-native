@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents AATP (Azure Advanced Threat Protection) data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getAATPDataConnector(args: GetAATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAATPDataConnectorResult> {
@@ -71,7 +71,7 @@ export interface GetAATPDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents AATP (Azure Advanced Threat Protection) data connector.
+ * Gets a data connector.
  * API Version: 2020-01-01.
  */
 export function getAATPDataConnectorOutput(args: GetAATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAATPDataConnectorResult> {

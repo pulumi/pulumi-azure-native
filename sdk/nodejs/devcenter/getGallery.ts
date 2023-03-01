@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a gallery.
+ * Gets a gallery
  * API Version: 2022-09-01-preview.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
@@ -66,7 +66,7 @@ export interface GetGalleryResult {
     readonly type: string;
 }
 /**
- * Represents a gallery.
+ * Gets a gallery
  * API Version: 2022-09-01-preview.
  */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {

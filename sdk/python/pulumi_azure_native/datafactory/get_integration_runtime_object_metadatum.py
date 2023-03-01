@@ -63,7 +63,7 @@ def get_integration_runtime_object_metadatum(factory_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeObjectMetadatumResult:
     """
-    A list of SSIS object metadata.
+    Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
     API Version: 2018-06-01.
 
 
@@ -92,7 +92,7 @@ def get_integration_runtime_object_metadatum_output(factory_name: Optional[pulum
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeObjectMetadatumResult]:
     """
-    A list of SSIS object metadata.
+    Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
     API Version: 2018-06-01.
 
 

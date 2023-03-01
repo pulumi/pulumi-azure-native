@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The cost allocation rule model definition
+ * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
  * API Version: 2020-03-01-preview.
  */
 export function getCostAllocationRule(args: GetCostAllocationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetCostAllocationRuleResult> {
@@ -53,7 +53,7 @@ export interface GetCostAllocationRuleResult {
     readonly type: string;
 }
 /**
- * The cost allocation rule model definition
+ * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
  * API Version: 2020-03-01-preview.
  */
 export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostAllocationRuleResult> {

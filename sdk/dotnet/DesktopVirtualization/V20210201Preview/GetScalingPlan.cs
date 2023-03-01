@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
     public static class GetScalingPlan
     {
         /// <summary>
-        /// Represents a scaling plan definition.
+        /// Get a scaling plan.
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210201preview:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a scaling plan definition.
+        /// Get a scaling plan.
         /// </summary>
         public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210201preview:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());

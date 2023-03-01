@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
     public static class GetSubscription
     {
         /// <summary>
-        /// Subscription details.
+        /// Gets the specified Subscription entity.
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:apimanagement/v20190101:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Subscription details.
+        /// Gets the specified Subscription entity.
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure-native:apimanagement/v20190101:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());

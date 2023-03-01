@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A sensitivity label.
+ * Gets the sensitivity label of a given column
  */
 export function getManagedDatabaseSensitivityLabel(args: GetManagedDatabaseSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseSensitivityLabelResult> {
 
@@ -107,7 +107,7 @@ export interface GetManagedDatabaseSensitivityLabelResult {
     readonly type: string;
 }
 /**
- * A sensitivity label.
+ * Gets the sensitivity label of a given column
  */
 export function getManagedDatabaseSensitivityLabelOutput(args: GetManagedDatabaseSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseSensitivityLabelResult> {
     return pulumi.output(args).apply((a: any) => getManagedDatabaseSensitivityLabel(a, opts))

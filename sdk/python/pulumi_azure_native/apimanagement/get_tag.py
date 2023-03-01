@@ -85,7 +85,7 @@ def get_tag(resource_group_name: Optional[str] = None,
             tag_id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagResult:
     """
-    Tag Contract details.
+    Gets the details of the tag specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -113,7 +113,7 @@ def get_tag_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    tag_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagResult]:
     """
-    Tag Contract details.
+    Gets the details of the tag specified by its identifier.
     API Version: 2020-12-01.
 
 

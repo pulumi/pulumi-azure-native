@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
     public static class GetAssignment
     {
         /// <summary>
-        /// Security Assignment on a resource group over a given scope
+        /// Get a specific standard assignment for the requested scope by resourceId
         /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-native:security/v20210801preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security Assignment on a resource group over a given scope
+        /// Get a specific standard assignment for the requested scope by resourceId
         /// </summary>
         public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:security/v20210801preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());

@@ -110,7 +110,7 @@ def list_workflow_trigger_callback_url(resource_group_name: Optional[str] = None
                                        workflow_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowTriggerCallbackUrlResult:
     """
-    The workflow trigger callback URL.
+    Get the callback URL for a workflow trigger.
 
 
     :param str resource_group_name: The resource group name.
@@ -139,7 +139,7 @@ def list_workflow_trigger_callback_url_output(resource_group_name: Optional[pulu
                                               workflow_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowTriggerCallbackUrlResult]:
     """
-    The workflow trigger callback URL.
+    Get the callback URL for a workflow trigger.
 
 
     :param str resource_group_name: The resource group name.

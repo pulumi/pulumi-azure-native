@@ -132,7 +132,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosCustomPolicyResult:
     """
-    A DDoS custom policy in a resource group.
+    Gets information about the specified DDoS custom policy.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.
@@ -160,7 +160,7 @@ def get_ddos_custom_policy_output(ddos_custom_policy_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDdosCustomPolicyResult]:
     """
-    A DDoS custom policy in a resource group.
+    Gets information about the specified DDoS custom policy.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.

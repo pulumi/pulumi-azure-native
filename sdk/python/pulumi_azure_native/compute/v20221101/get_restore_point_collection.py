@@ -146,7 +146,7 @@ def get_restore_point_collection(expand: Optional[str] = None,
                                  restore_point_collection_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestorePointCollectionResult:
     """
-    Create or update Restore Point collection parameters.
+    The operation to get the restore point collection.
 
 
     :param str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
@@ -178,7 +178,7 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[s
                                         restore_point_collection_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorePointCollectionResult]:
     """
-    Create or update Restore Point collection parameters.
+    The operation to get the restore point collection.
 
 
     :param str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.

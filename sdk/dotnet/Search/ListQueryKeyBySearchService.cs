@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Search
     public static class ListQueryKeyBySearchService
     {
         /// <summary>
-        /// Response containing the query API keys for a given Azure Cognitive Search service.
+        /// Returns the list of query API keys for the given Azure Cognitive Search service.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<ListQueryKeyBySearchServiceResult> InvokeAsync(ListQueryKeyBySearchServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-native:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response containing the query API keys for a given Azure Cognitive Search service.
+        /// Returns the list of query API keys for the given Azure Cognitive Search service.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOptions? options = null)

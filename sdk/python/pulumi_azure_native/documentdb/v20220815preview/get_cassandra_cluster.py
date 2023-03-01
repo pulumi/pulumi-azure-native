@@ -121,7 +121,7 @@ def get_cassandra_cluster(cluster_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraClusterResult:
     """
-    Representation of a managed Cassandra cluster.
+    Get the properties of a managed Cassandra cluster.
 
 
     :param str cluster_name: Managed Cassandra cluster name.
@@ -148,7 +148,7 @@ def get_cassandra_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraClusterResult]:
     """
-    Representation of a managed Cassandra cluster.
+    Get the properties of a managed Cassandra cluster.
 
 
     :param str cluster_name: Managed Cassandra cluster name.

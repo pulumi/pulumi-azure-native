@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Role Addon
+ * Gets a specific addon by name.
  * API Version: 2020-12-01.
  */
 /** @deprecated Please use one of the variants: ArcAddon, IoTAddon. */
@@ -69,7 +69,7 @@ export interface GetAddonResult {
     readonly type: string;
 }
 /**
- * Role Addon
+ * Gets a specific addon by name.
  * API Version: 2020-12-01.
  */
 /** @deprecated Please use one of the variants: ArcAddon, IoTAddon. */

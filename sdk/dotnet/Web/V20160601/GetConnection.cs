@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20160601
     public static class GetConnection
     {
         /// <summary>
-        /// API connection
+        /// Get a specific connection
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-native:web/v20160601:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// API connection
+        /// Get a specific connection
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:web/v20160601:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());

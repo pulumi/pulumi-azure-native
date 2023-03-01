@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Amazon Web Services S3 data connector.
+ * Gets a data connector.
  */
 export function getAwsS3DataConnector(args: GetAwsS3DataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsS3DataConnectorResult> {
 
@@ -82,7 +82,7 @@ export interface GetAwsS3DataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents Amazon Web Services S3 data connector.
+ * Gets a data connector.
  */
 export function getAwsS3DataConnectorOutput(args: GetAwsS3DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsS3DataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAwsS3DataConnector(a, opts))

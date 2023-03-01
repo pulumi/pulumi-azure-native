@@ -122,7 +122,7 @@ def get_mongo_db_resource_mongo_role_definition(account_name: Optional[str] = No
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMongoDBResourceMongoRoleDefinitionResult:
     """
-    An Azure Cosmos DB Mongo Role Definition.
+    Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
     API Version: 2021-10-15-preview.
 
 
@@ -153,7 +153,7 @@ def get_mongo_db_resource_mongo_role_definition_output(account_name: Optional[pu
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDBResourceMongoRoleDefinitionResult]:
     """
-    An Azure Cosmos DB Mongo Role Definition.
+    Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
     API Version: 2021-10-15-preview.
 
 

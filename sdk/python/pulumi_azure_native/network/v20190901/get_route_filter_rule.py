@@ -133,7 +133,7 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
                           rule_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteFilterRuleResult:
     """
-    Route Filter Rule Resource.
+    Gets the specified rule from a route filter.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -164,7 +164,7 @@ def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]
                                  rule_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteFilterRuleResult]:
     """
-    Route Filter Rule Resource.
+    Gets the specified rule from a route filter.
 
 
     :param str resource_group_name: The name of the resource group.

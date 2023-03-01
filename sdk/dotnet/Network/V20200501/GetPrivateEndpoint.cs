@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200501
     public static class GetPrivateEndpoint
     {
         /// <summary>
-        /// Private endpoint resource.
+        /// Gets the specified private endpoint by resource group.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:network/v20200501:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private endpoint resource.
+        /// Gets the specified private endpoint by resource group.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:network/v20200501:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());

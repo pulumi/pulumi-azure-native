@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview
     public static class GetSourceControlConfiguration
     {
         /// <summary>
-        /// The SourceControl Configuration object.
+        /// Gets details of the Source Control Configuration.
         /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration/v20191101preview:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The SourceControl Configuration object.
+        /// Gets details of the Source Control Configuration.
         /// </summary>
         public static Output<GetSourceControlConfigurationResult> Invoke(GetSourceControlConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration/v20191101preview:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithDefaults());

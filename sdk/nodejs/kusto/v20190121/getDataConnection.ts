@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing an data connection.
+ * Returns a data connection.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection. */
 export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectionResult> {
@@ -65,7 +65,7 @@ export interface GetDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing an data connection.
+ * Returns a data connection.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection. */
 export function getDataConnectionOutput(args: GetDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectionResult> {

@@ -229,7 +229,7 @@ def get_datastore(datastore_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
-    Define the datastore.
+    Implements datastore GET method.
 
 
     :param str datastore_name: Name of the datastore.
@@ -265,7 +265,7 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
     """
-    Define the datastore.
+    Implements datastore GET method.
 
 
     :param str datastore_name: Name of the datastore.

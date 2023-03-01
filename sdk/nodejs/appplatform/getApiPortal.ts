@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API portal resource
+ * Get the API portal and its properties.
  * API Version: 2022-01-01-preview.
  */
 export function getApiPortal(args: GetApiPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPortalResult> {
@@ -66,7 +66,7 @@ export interface GetApiPortalResult {
     readonly type: string;
 }
 /**
- * API portal resource
+ * Get the API portal and its properties.
  * API Version: 2022-01-01-preview.
  */
 export function getApiPortalOutput(args: GetApiPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalResult> {

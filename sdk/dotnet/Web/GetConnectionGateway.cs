@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetConnectionGateway
     {
         /// <summary>
-        /// The gateway definition
+        /// Gets a specific gateway under a subscription and in a specific resource group
         /// API Version: 2016-06-01.
         /// </summary>
         public static Task<GetConnectionGatewayResult> InvokeAsync(GetConnectionGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-native:web:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The gateway definition
+        /// Gets a specific gateway under a subscription and in a specific resource group
         /// API Version: 2016-06-01.
         /// </summary>
         public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOptions? options = null)

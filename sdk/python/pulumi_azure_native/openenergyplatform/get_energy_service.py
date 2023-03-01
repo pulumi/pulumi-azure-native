@@ -115,6 +115,7 @@ def get_energy_service(resource_group_name: Optional[str] = None,
                        resource_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnergyServiceResult:
     """
+    Returns oep resource for a given name.
     API Version: 2022-04-04-preview.
 
 
@@ -142,6 +143,7 @@ def get_energy_service_output(resource_group_name: Optional[pulumi.Input[str]] =
                               resource_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnergyServiceResult]:
     """
+    Returns oep resource for a given name.
     API Version: 2022-04-04-preview.
 
 

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automanage
     public static class GetAccount
     {
         /// <summary>
-        /// Definition of the Automanage account.
+        /// Get information about a Automanage account
         /// API Version: 2020-06-30-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:automanage:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the Automanage account.
+        /// Get information about a Automanage account
         /// API Version: 2020-06-30-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)

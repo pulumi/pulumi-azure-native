@@ -133,7 +133,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
                                           scope: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleManagementPolicyAssignmentResult:
     """
-    Role management policy
+    Get the specified role management policy assignment for a resource scope
     API Version: 2020-10-01.
 
 
@@ -162,7 +162,7 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
                                                  scope: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleManagementPolicyAssignmentResult]:
     """
-    Role management policy
+    Get the specified role management policy assignment for a resource scope
     API Version: 2020-10-01.
 
 

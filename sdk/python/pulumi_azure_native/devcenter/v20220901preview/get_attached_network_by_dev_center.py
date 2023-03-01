@@ -146,7 +146,7 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedNetworkByDevCenterResult:
     """
-    Represents an attached NetworkConnection.
+    Gets an attached NetworkConnection.
 
 
     :param str attached_network_connection_name: The name of the attached NetworkConnection.
@@ -178,7 +178,7 @@ def get_attached_network_by_dev_center_output(attached_network_connection_name: 
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedNetworkByDevCenterResult]:
     """
-    Represents an attached NetworkConnection.
+    Gets an attached NetworkConnection.
 
 
     :param str attached_network_connection_name: The name of the attached NetworkConnection.

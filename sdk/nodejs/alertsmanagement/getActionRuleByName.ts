@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Action rule object containing target scope, conditions and suppression logic
+ * Get a specific action rule
  * API Version: 2019-05-05-preview.
  */
 export function getActionRuleByName(args: GetActionRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetActionRuleByNameResult> {
@@ -61,7 +61,7 @@ export interface GetActionRuleByNameResult {
     readonly type: string;
 }
 /**
- * Action rule object containing target scope, conditions and suppression logic
+ * Get a specific action rule
  * API Version: 2019-05-05-preview.
  */
 export function getActionRuleByNameOutput(args: GetActionRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRuleByNameResult> {

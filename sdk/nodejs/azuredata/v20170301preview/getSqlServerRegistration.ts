@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL server registration.
+ * Gets a SQL Server registration.
  */
 /** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider. */
 export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerRegistrationResult> {
@@ -67,7 +67,7 @@ export interface GetSqlServerRegistrationResult {
     readonly type: string;
 }
 /**
- * A SQL server registration.
+ * Gets a SQL Server registration.
  */
 /** @deprecated Version 2017-03-01-preview will be removed in v2 of the provider. */
 export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerRegistrationResult> {

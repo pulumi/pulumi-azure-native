@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
     public static class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
     {
         /// <summary>
-        /// The list of invoice section properties with create subscription permission.
+        /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
         /// </summary>
         public static Task<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> InvokeAsync(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing/v20191001preview:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of invoice section properties with create subscription permission.
+        /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
         /// </summary>
         public static Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> Invoke(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing/v20191001preview:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs(), options.WithDefaults());

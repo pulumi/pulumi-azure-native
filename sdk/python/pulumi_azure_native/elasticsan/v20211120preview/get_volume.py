@@ -147,7 +147,7 @@ def get_volume(elastic_san_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    Response for Volume request.
+    Get an Volume.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -182,7 +182,7 @@ def get_volume_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                       volume_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
-    Response for Volume request.
+    Get an Volume.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

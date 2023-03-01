@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Public certificate object
+ * Get the named public certificate for an app (or deployment slot, if specified).
  * API Version: 2020-12-01.
  */
 export function getWebAppPublicCertificate(args: GetWebAppPublicCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateResult> {
@@ -67,7 +67,7 @@ export interface GetWebAppPublicCertificateResult {
     readonly type: string;
 }
 /**
- * Public certificate object
+ * Get the named public certificate for an app (or deployment slot, if specified).
  * API Version: 2020-12-01.
  */
 export function getWebAppPublicCertificateOutput(args: GetWebAppPublicCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateResult> {

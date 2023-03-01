@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The essential information related to the peer's ASN.
+ * Gets the peer ASN with the specified name under the given subscription.
  */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
 
@@ -63,7 +63,7 @@ export interface GetPeerAsnResult {
     readonly validationState: string;
 }
 /**
- * The essential information related to the peer's ASN.
+ * Gets the peer ASN with the specified name under the given subscription.
  */
 export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
     return pulumi.output(args).apply((a: any) => getPeerAsn(a, opts))

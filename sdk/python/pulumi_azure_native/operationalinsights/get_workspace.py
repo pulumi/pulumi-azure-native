@@ -253,7 +253,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    The top level Workspace resource container.
+    Gets a workspace instance.
     API Version: 2020-10-01.
 
 
@@ -292,7 +292,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    The top level Workspace resource container.
+    Gets a workspace instance.
     API Version: 2020-10-01.
 
 

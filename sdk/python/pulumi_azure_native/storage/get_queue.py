@@ -94,6 +94,7 @@ def get_queue(account_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
+    Gets the queue with the specified queue name, under the specified account if it exists.
     API Version: 2021-02-01.
 
 
@@ -122,6 +123,7 @@ def get_queue_output(account_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
+    Gets the queue with the specified queue name, under the specified account if it exists.
     API Version: 2021-02-01.
 
 

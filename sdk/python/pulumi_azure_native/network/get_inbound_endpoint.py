@@ -158,7 +158,7 @@ def get_inbound_endpoint(dns_resolver_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInboundEndpointResult:
     """
-    Describes an inbound endpoint for a DNS resolver.
+    Gets properties of an inbound endpoint for a DNS resolver.
     API Version: 2020-04-01-preview.
 
 
@@ -192,7 +192,7 @@ def get_inbound_endpoint_output(dns_resolver_name: Optional[pulumi.Input[str]] =
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInboundEndpointResult]:
     """
-    Describes an inbound endpoint for a DNS resolver.
+    Gets properties of an inbound endpoint for a DNS resolver.
     API Version: 2020-04-01-preview.
 
 

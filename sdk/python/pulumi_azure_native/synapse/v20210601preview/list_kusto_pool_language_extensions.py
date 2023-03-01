@@ -50,7 +50,7 @@ def list_kusto_pool_language_extensions(kusto_pool_name: Optional[str] = None,
                                         workspace_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKustoPoolLanguageExtensionsResult:
     """
-    The list of language extension objects.
+    Returns a list of language extensions that can run within KQL queries.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.
@@ -74,7 +74,7 @@ def list_kusto_pool_language_extensions_output(kusto_pool_name: Optional[pulumi.
                                                workspace_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKustoPoolLanguageExtensionsResult]:
     """
-    The list of language extension objects.
+    Returns a list of language extensions that can run within KQL queries.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.

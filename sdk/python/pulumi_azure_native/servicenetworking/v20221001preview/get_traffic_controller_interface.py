@@ -157,7 +157,7 @@ def get_traffic_controller_interface(resource_group_name: Optional[str] = None,
                                      traffic_controller_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficControllerInterfaceResult:
     """
-    Concrete tracked resource types can be created by aliasing this type using a specific property type.
+    Get a TrafficController
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -187,7 +187,7 @@ def get_traffic_controller_interface_output(resource_group_name: Optional[pulumi
                                             traffic_controller_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficControllerInterfaceResult]:
     """
-    Concrete tracked resource types can be created by aliasing this type using a specific property type.
+    Get a TrafficController
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

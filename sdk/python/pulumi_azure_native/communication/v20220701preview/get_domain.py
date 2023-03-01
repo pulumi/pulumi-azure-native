@@ -218,7 +218,7 @@ def get_domain(domain_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    A class representing a Domains resource.
+    Get the Domains resource and its properties.
 
 
     :param str domain_name: The name of the Domains resource.
@@ -256,7 +256,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
-    A class representing a Domains resource.
+    Get the Domains resource and its properties.
 
 
     :param str domain_name: The name of the Domains resource.

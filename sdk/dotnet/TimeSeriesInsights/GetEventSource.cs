@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public static class GetEventSource
     {
         /// <summary>
-        /// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+        /// Gets the event source with the specified name in the specified environment.
         /// API Version: 2020-05-15.
         /// </summary>
         public static Task<GetEventSourceResult> InvokeAsync(GetEventSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("azure-native:timeseriesinsights:getEventSource", args ?? new GetEventSourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+        /// Gets the event source with the specified name in the specified environment.
         /// API Version: 2020-05-15.
         /// </summary>
         public static Output<GetEventSourceResult> Invoke(GetEventSourceInvokeArgs args, InvokeOptions? options = null)

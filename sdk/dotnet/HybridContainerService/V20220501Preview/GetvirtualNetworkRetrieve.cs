@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
     public static class GetvirtualNetworkRetrieve
     {
         /// <summary>
-        /// The virtualNetworks resource definition.
+        /// Gets the Hybrid AKS virtual network
         /// </summary>
         public static Task<GetvirtualNetworkRetrieveResult> InvokeAsync(GetvirtualNetworkRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetvirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice/v20220501preview:getvirtualNetworkRetrieve", args ?? new GetvirtualNetworkRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The virtualNetworks resource definition.
+        /// Gets the Hybrid AKS virtual network
         /// </summary>
         public static Output<GetvirtualNetworkRetrieveResult> Invoke(GetvirtualNetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetvirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice/v20220501preview:getvirtualNetworkRetrieve", args ?? new GetvirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());

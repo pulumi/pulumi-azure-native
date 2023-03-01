@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public static class GetDataSetMapping
     {
         /// <summary>
-        /// A data set mapping data transfer object.
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Task<GetDataSetMappingResult> InvokeAsync(GetDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-native:datashare/v20201001preview:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A data set mapping data transfer object.
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Output<GetDataSetMappingResult> Invoke(GetDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSetMappingResult>("azure-native:datashare/v20201001preview:getDataSetMapping", args ?? new GetDataSetMappingInvokeArgs(), options.WithDefaults());

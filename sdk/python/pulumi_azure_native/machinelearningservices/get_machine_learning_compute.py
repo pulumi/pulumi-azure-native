@@ -146,7 +146,7 @@ def get_machine_learning_compute(compute_name: Optional[str] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningComputeResult:
     """
-    Machine Learning compute object wrapped into ARM resource envelope.
+    Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
     API Version: 2021-01-01.
 
 
@@ -179,7 +179,7 @@ def get_machine_learning_compute_output(compute_name: Optional[pulumi.Input[str]
                                         workspace_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineLearningComputeResult]:
     """
-    Machine Learning compute object wrapped into ARM resource envelope.
+    Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
     API Version: 2021-01-01.
 
 

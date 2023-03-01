@@ -134,7 +134,7 @@ def get_data_pool(account_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataPoolResult:
     """
-    ADP Data Pool
+    Gets the properties of a Data Pool
 
 
     :param str account_name: The name of the ADP account
@@ -165,7 +165,7 @@ def get_data_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataPoolResult]:
     """
-    ADP Data Pool
+    Gets the properties of a Data Pool
 
 
     :param str account_name: The name of the ADP account

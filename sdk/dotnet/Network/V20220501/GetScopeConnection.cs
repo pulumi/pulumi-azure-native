@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220501
     public static class GetScopeConnection
     {
         /// <summary>
-        /// The Scope Connections resource
+        /// Get specified scope connection created by this Network Manager.
         /// </summary>
         public static Task<GetScopeConnectionResult> InvokeAsync(GetScopeConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeConnectionResult>("azure-native:network/v20220501:getScopeConnection", args ?? new GetScopeConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Scope Connections resource
+        /// Get specified scope connection created by this Network Manager.
         /// </summary>
         public static Output<GetScopeConnectionResult> Invoke(GetScopeConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network/v20220501:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithDefaults());

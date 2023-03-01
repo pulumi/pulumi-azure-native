@@ -84,7 +84,7 @@ class AwaitableGetAliasResult(GetAliasResult):
 def get_alias(alias_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
-    Subscription Information with the alias.
+    Get Alias Subscription.
     API Version: 2020-09-01.
 
 
@@ -106,7 +106,7 @@ def get_alias(alias_name: Optional[str] = None,
 def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
-    Subscription Information with the alias.
+    Get Alias Subscription.
     API Version: 2020-09-01.
 
 

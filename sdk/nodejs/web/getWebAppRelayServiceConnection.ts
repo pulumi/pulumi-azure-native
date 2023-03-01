@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Hybrid Connection for an App Service app.
+ * Gets a hybrid connection configuration by its name.
  * API Version: 2020-12-01.
  */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
@@ -62,7 +62,7 @@ export interface GetWebAppRelayServiceConnectionResult {
     readonly type: string;
 }
 /**
- * Hybrid Connection for an App Service app.
+ * Gets a hybrid connection configuration by its name.
  * API Version: 2020-12-01.
  */
 export function getWebAppRelayServiceConnectionOutput(args: GetWebAppRelayServiceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionResult> {

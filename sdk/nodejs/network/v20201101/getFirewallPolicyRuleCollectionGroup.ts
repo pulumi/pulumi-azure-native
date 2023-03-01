@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Rule Collection Group resource.
+ * Gets the specified FirewallPolicyRuleCollectionGroup.
  */
 export function getFirewallPolicyRuleCollectionGroup(args: GetFirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleCollectionGroupResult> {
 
@@ -69,7 +69,7 @@ export interface GetFirewallPolicyRuleCollectionGroupResult {
     readonly type: string;
 }
 /**
- * Rule Collection Group resource.
+ * Gets the specified FirewallPolicyRuleCollectionGroup.
  */
 export function getFirewallPolicyRuleCollectionGroupOutput(args: GetFirewallPolicyRuleCollectionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleCollectionGroupResult> {
     return pulumi.output(args).apply((a: any) => getFirewallPolicyRuleCollectionGroup(a, opts))

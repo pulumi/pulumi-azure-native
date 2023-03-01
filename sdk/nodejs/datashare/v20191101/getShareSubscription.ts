@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A share subscription data transfer object.
+ * Get a shareSubscription in an account
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getShareSubscription(args: GetShareSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetShareSubscriptionResult> {
@@ -108,7 +108,7 @@ export interface GetShareSubscriptionResult {
     readonly userName: string;
 }
 /**
- * A share subscription data transfer object.
+ * Get a shareSubscription in an account
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getShareSubscriptionOutput(args: GetShareSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareSubscriptionResult> {

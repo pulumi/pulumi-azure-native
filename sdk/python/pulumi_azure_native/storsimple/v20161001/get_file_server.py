@@ -124,7 +124,7 @@ def get_file_server(device_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileServerResult:
     """
-    The file server.
+    Returns the properties of the specified file server name.
 
 
     :param str device_name: The device name.
@@ -158,7 +158,7 @@ def get_file_server_output(device_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileServerResult]:
     """
-    The file server.
+    Returns the properties of the specified file server name.
 
 
     :param str device_name: The device name.

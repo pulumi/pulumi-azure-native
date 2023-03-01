@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20200501
     public static class GetAccountFilter
     {
         /// <summary>
-        /// An Account Filter.
+        /// Get the details of an Account Filter in the Media Services account.
         /// </summary>
         public static Task<GetAccountFilterResult> InvokeAsync(GetAccountFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-native:media/v20200501:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Account Filter.
+        /// Get the details of an Account Filter in the Media Services account.
         /// </summary>
         public static Output<GetAccountFilterResult> Invoke(GetAccountFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountFilterResult>("azure-native:media/v20200501:getAccountFilter", args ?? new GetAccountFilterInvokeArgs(), options.WithDefaults());

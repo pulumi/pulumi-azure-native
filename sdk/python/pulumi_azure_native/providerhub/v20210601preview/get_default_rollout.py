@@ -97,7 +97,7 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
                         rollout_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultRolloutResult:
     """
-    Default rollout definition.
+    Gets the default rollout details.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -122,7 +122,7 @@ def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[str]] =
                                rollout_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultRolloutResult]:
     """
-    Default rollout definition.
+    Gets the default rollout details.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

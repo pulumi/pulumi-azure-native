@@ -385,7 +385,8 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         virtual_machine_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided virtual machine.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: The name of the virtual machine.
@@ -434,7 +435,8 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided virtual machine.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: The name of the virtual machine.

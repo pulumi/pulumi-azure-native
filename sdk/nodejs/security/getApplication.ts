@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Security Application over a given scope
+ * Get a specific application for the requested scope by applicationId
  * API Version: 2022-07-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
@@ -53,7 +53,7 @@ export interface GetApplicationResult {
     readonly type: string;
 }
 /**
- * Security Application over a given scope
+ * Get a specific application for the requested scope by applicationId
  * API Version: 2022-07-01-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {

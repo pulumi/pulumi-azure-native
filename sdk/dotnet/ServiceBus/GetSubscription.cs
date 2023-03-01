@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class GetSubscription
     {
         /// <summary>
-        /// Description of subscription resource.
+        /// Returns a subscription description for the specified topic.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:servicebus:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of subscription resource.
+        /// Returns a subscription description for the specified topic.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)

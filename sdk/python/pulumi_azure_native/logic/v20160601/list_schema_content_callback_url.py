@@ -113,7 +113,7 @@ def list_schema_content_callback_url(integration_account_name: Optional[str] = N
                                      schema_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSchemaContentCallbackUrlResult:
     """
-    The workflow trigger callback URL.
+    Get the content callback url.
 
 
     :param str integration_account_name: The integration account name.
@@ -148,7 +148,7 @@ def list_schema_content_callback_url_output(integration_account_name: Optional[p
                                             schema_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSchemaContentCallbackUrlResult]:
     """
-    The workflow trigger callback URL.
+    Get the content callback url.
 
 
     :param str integration_account_name: The integration account name.

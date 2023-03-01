@@ -65,7 +65,7 @@ def get_test_result_file(continuation_token: Optional[str] = None,
                          web_test_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultFileResult:
     """
-    Test result.
+    Returns a file test result for the matching test
     API Version: 2020-02-10-preview.
 
 
@@ -103,7 +103,7 @@ def get_test_result_file_output(continuation_token: Optional[pulumi.Input[Option
                                 web_test_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultFileResult]:
     """
-    Test result.
+    Returns a file test result for the matching test
     API Version: 2020-02-10-preview.
 
 

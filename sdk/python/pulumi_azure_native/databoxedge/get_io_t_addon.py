@@ -172,7 +172,7 @@ def get_io_t_addon(addon_name: Optional[str] = None,
                    role_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoTAddonResult:
     """
-    IoT Addon.
+    Gets a specific addon by name.
     API Version: 2020-12-01.
 
 
@@ -210,7 +210,7 @@ def get_io_t_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                           role_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoTAddonResult]:
     """
-    IoT Addon.
+    Gets a specific addon by name.
     API Version: 2020-12-01.
 
 

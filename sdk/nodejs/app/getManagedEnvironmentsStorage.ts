@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Storage resource for managedEnvironment.
+ * Get storage for a managedEnvironment.
  * API Version: 2022-03-01.
  */
 export function getManagedEnvironmentsStorage(args: GetManagedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentsStorageResult> {
@@ -62,7 +62,7 @@ export interface GetManagedEnvironmentsStorageResult {
     readonly type: string;
 }
 /**
- * Storage resource for managedEnvironment.
+ * Get storage for a managedEnvironment.
  * API Version: 2022-03-01.
  */
 export function getManagedEnvironmentsStorageOutput(args: GetManagedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentsStorageResult> {

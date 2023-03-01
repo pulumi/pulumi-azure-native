@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An ADLS Gen 2 file data set.
+ * Get a DataSet in a share
  * API Version: 2020-09-01.
  */
 export function getADLSGen2FileDataSet(args: GetADLSGen2FileDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FileDataSetResult> {
@@ -92,7 +92,7 @@ export interface GetADLSGen2FileDataSetResult {
     readonly type: string;
 }
 /**
- * An ADLS Gen 2 file data set.
+ * Get a DataSet in a share
  * API Version: 2020-09-01.
  */
 export function getADLSGen2FileDataSetOutput(args: GetADLSGen2FileDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FileDataSetResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Storage.V20210201
     public static class GetQueueServiceProperties
     {
         /// <summary>
-        /// The properties of a storage account’s Queue service.
+        /// Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
         /// </summary>
         public static Task<GetQueueServicePropertiesResult> InvokeAsync(GetQueueServicePropertiesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage/v20210201:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The properties of a storage account’s Queue service.
+        /// Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
         /// </summary>
         public static Output<GetQueueServicePropertiesResult> Invoke(GetQueueServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueServicePropertiesResult>("azure-native:storage/v20210201:getQueueServiceProperties", args ?? new GetQueueServicePropertiesInvokeArgs(), options.WithDefaults());

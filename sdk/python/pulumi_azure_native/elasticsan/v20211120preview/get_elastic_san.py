@@ -229,7 +229,7 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticSanResult:
     """
-    Response for ElasticSan request.
+    Get a ElasticSan.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -265,7 +265,7 @@ def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticSanResult]:
     """
-    Response for ElasticSan request.
+    Get a ElasticSan.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Specifies information about the Shared Image Gallery that you want to create or update.
+ * Retrieves information about a Shared Image Gallery.
  */
 /** @deprecated Version 2018-06-01 will be removed in v2 of the provider. */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
@@ -70,7 +70,7 @@ export interface GetGalleryResult {
     readonly type: string;
 }
 /**
- * Specifies information about the Shared Image Gallery that you want to create or update.
+ * Retrieves information about a Shared Image Gallery.
  */
 /** @deprecated Version 2018-06-01 will be removed in v2 of the provider. */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {

@@ -277,7 +277,7 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureFirewallResult:
     """
-    Azure Firewall resource.
+    Gets the specified Azure Firewall.
 
 
     :param str azure_firewall_name: The name of the Azure Firewall.
@@ -317,7 +317,7 @@ def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureFirewallResult]:
     """
-    Azure Firewall resource.
+    Gets the specified Azure Firewall.
 
 
     :param str azure_firewall_name: The name of the Azure Firewall.

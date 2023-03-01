@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     public static class GetFactoryGitHubAccessToken
     {
         /// <summary>
-        /// Get GitHub access token response definition.
+        /// Get GitHub Access Token.
         /// </summary>
         public static Task<GetFactoryGitHubAccessTokenResult> InvokeAsync(GetFactoryGitHubAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get GitHub access token response definition.
+        /// Get GitHub Access Token.
         /// </summary>
         public static Output<GetFactoryGitHubAccessTokenResult> Invoke(GetFactoryGitHubAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenInvokeArgs(), options.WithDefaults());

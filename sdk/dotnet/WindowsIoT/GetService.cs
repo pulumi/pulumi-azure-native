@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.WindowsIoT
     public static class GetService
     {
         /// <summary>
-        /// The description of the Windows IoT Device Service.
+        /// Get the non-security related metadata of a Windows IoT Device Service.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:windowsiot:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The description of the Windows IoT Device Service.
+        /// Get the non-security related metadata of a Windows IoT Device Service.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)

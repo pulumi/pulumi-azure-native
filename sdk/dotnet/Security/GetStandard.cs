@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Security
     public static class GetStandard
     {
         /// <summary>
-        /// Security Standard on a resource
+        /// Get a specific security standard for the requested scope
         /// API Version: 2021-08-01-preview.
         /// </summary>
         public static Task<GetStandardResult> InvokeAsync(GetStandardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandardResult>("azure-native:security:getStandard", args ?? new GetStandardArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security Standard on a resource
+        /// Get a specific security standard for the requested scope
         /// API Version: 2021-08-01-preview.
         /// </summary>
         public static Output<GetStandardResult> Invoke(GetStandardInvokeArgs args, InvokeOptions? options = null)

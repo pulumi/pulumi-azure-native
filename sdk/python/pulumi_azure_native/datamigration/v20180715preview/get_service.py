@@ -181,7 +181,7 @@ def get_service(group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    A Database Migration Service resource
+    The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
 
 
     :param str group_name: Name of the resource group
@@ -213,7 +213,7 @@ def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    A Database Migration Service resource
+    The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
 
 
     :param str group_name: Name of the resource group

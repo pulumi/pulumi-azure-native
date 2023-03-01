@@ -194,7 +194,7 @@ def get_query(id: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryResult:
     """
-    A Log Analytics QueryPack-Query definition.
+    Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
     API Version: 2019-09-01.
 
 
@@ -231,7 +231,7 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryResult]:
     """
-    A Log Analytics QueryPack-Query definition.
+    Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
     API Version: 2019-09-01.
 
 

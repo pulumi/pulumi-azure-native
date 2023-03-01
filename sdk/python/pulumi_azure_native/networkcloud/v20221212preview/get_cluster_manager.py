@@ -227,7 +227,8 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterManagerResult:
     """
-    Use this data source to access information about an existing resource.
+    Get the properties of the provided cluster manager.
+
 
     :param str cluster_manager_name: The name of the cluster manager.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -262,7 +263,8 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterManagerResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get the properties of the provided cluster manager.
+
 
     :param str cluster_manager_name: The name of the cluster manager.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

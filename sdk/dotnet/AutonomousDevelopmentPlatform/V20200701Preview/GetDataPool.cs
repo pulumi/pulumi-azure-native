@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
     public static class GetDataPool
     {
         /// <summary>
-        /// An ADP Data Pool.
+        /// Gets the properties of a Data Pool.
         /// </summary>
         public static Task<GetDataPoolResult> InvokeAsync(GetDataPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataPoolResult>("azure-native:autonomousdevelopmentplatform/v20200701preview:getDataPool", args ?? new GetDataPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An ADP Data Pool.
+        /// Gets the properties of a Data Pool.
         /// </summary>
         public static Output<GetDataPoolResult> Invoke(GetDataPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataPoolResult>("azure-native:autonomousdevelopmentplatform/v20200701preview:getDataPool", args ?? new GetDataPoolInvokeArgs(), options.WithDefaults());

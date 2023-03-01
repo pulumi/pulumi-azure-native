@@ -172,7 +172,7 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSmartDetectorAlertRuleResult:
     """
-    The alert rule information
+    Get a specific Smart Detector alert rule.
 
 
     :param str alert_rule_name: The name of the alert rule.
@@ -207,7 +207,7 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSmartDetectorAlertRuleResult]:
     """
-    The alert rule information
+    Get a specific Smart Detector alert rule.
 
 
     :param str alert_rule_name: The name of the alert rule.

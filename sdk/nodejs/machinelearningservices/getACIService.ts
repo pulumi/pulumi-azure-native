@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Machine Learning service object wrapped into ARM resource envelope.
+ * Get a Service by name.
  * API Version: 2021-01-01.
  */
 export function getACIService(args: GetACIServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetACIServiceResult> {
@@ -83,7 +83,7 @@ export interface GetACIServiceResult {
     readonly type: string;
 }
 /**
- * Machine Learning service object wrapped into ARM resource envelope.
+ * Get a Service by name.
  * API Version: 2021-01-01.
  */
 export function getACIServiceOutput(args: GetACIServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACIServiceResult> {

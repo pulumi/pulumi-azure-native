@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Compute
     public static class GetVirtualMachine
     {
         /// <summary>
-        /// Describes a Virtual Machine.
+        /// Retrieves information about the model view or the instance view of a virtual machine.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Virtual Machine.
+        /// Retrieves information about the model view or the instance view of a virtual machine.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)

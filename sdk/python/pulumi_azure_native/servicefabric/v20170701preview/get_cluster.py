@@ -360,7 +360,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 subscription_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    The cluster resource
+    Get cluster resource
 
 
     :param str cluster_name: The name of the cluster resource
@@ -409,7 +409,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    The cluster resource
+    Get cluster resource
 
 
     :param str cluster_name: The name of the cluster resource

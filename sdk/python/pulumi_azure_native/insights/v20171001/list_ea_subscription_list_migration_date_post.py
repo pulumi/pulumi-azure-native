@@ -57,7 +57,7 @@ class AwaitableListEASubscriptionListMigrationDatePostResult(ListEASubscriptionL
 
 def list_ea_subscription_list_migration_date_post(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEASubscriptionListMigrationDatePostResult:
     """
-    Subscription migrate date information properties
+    list date to migrate to new pricing model.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

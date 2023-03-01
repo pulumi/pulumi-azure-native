@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Pageable list of products.
+ * Returns a list of products.
  * API Version: 2017-06-01.
  */
 export function listProducts(args: ListProductsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsResult> {
@@ -50,7 +50,7 @@ export interface ListProductsResult {
     readonly value?: outputs.azurestack.ProductResponse[];
 }
 /**
- * Pageable list of products.
+ * Returns a list of products.
  * API Version: 2017-06-01.
  */
 export function listProductsOutput(args: ListProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsResult> {

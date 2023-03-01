@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+ * Gets a data connector.
  */
 export function getTiTaxiiDataConnector(args: GetTiTaxiiDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetTiTaxiiDataConnectorResult> {
 
@@ -106,7 +106,7 @@ export interface GetTiTaxiiDataConnectorResult {
     readonly workspaceId?: string;
 }
 /**
- * Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+ * Gets a data connector.
  */
 export function getTiTaxiiDataConnectorOutput(args: GetTiTaxiiDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTiTaxiiDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getTiTaxiiDataConnector(a, opts))

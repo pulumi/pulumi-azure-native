@@ -171,7 +171,7 @@ def get_api_operation(api_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationResult:
     """
-    Api Operation details.
+    Gets the details of the API Operation specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -209,7 +209,7 @@ def get_api_operation_output(api_id: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiOperationResult]:
     """
-    Api Operation details.
+    Gets the details of the API Operation specified by its identifier.
     API Version: 2020-12-01.
 
 

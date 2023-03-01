@@ -173,7 +173,7 @@ def get_backup(account_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
-    Backup of a Volume
+    Get a particular backup of the volume
 
 
     :param str account_name: The name of the NetApp account
@@ -214,7 +214,7 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
                       volume_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupResult]:
     """
-    Backup of a Volume
+    Get a particular backup of the volume
 
 
     :param str account_name: The name of the NetApp account

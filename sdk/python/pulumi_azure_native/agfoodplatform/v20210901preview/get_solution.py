@@ -110,7 +110,7 @@ def get_solution(farm_beats_resource_name: Optional[str] = None,
                  solution_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
-    Solution resource.
+    Get installed Solution details by Solution id.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.
@@ -139,7 +139,7 @@ def get_solution_output(farm_beats_resource_name: Optional[pulumi.Input[str]] = 
                         solution_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
     """
-    Solution resource.
+    Get installed Solution details by Solution id.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.

@@ -170,7 +170,7 @@ def get_iot_connector(iot_connector_name: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotConnectorResult:
     """
-    IoT Connector definition.
+    Gets the properties of the specified IoT Connector.
     API Version: 2022-05-15.
 
 
@@ -205,7 +205,7 @@ def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = N
                              workspace_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotConnectorResult]:
     """
-    IoT Connector definition.
+    Gets the properties of the specified IoT Connector.
     API Version: 2022-05-15.
 
 

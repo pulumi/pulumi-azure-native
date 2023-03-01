@@ -169,7 +169,7 @@ def get_dns_resolver(dns_resolver_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResolverResult:
     """
-    Describes a DNS resolver.
+    Gets properties of a DNS resolver.
 
 
     :param str dns_resolver_name: The name of the DNS resolver.
@@ -200,7 +200,7 @@ def get_dns_resolver_output(dns_resolver_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsResolverResult]:
     """
-    Describes a DNS resolver.
+    Gets properties of a DNS resolver.
 
 
     :param str dns_resolver_name: The name of the DNS resolver.

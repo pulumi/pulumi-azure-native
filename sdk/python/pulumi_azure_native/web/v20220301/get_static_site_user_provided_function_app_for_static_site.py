@@ -121,7 +121,7 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
                                                                resource_group_name: Optional[str] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteResult:
     """
-    Static Site User Provided Function App ARM resource.
+    Description for Gets the details of the user provided function app registered with a static site
 
 
     :param str function_app_name: Name of the function app registered with the static site.
@@ -151,7 +151,7 @@ def get_static_site_user_provided_function_app_for_static_site_output(function_a
                                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteResult]:
     """
-    Static Site User Provided Function App ARM resource.
+    Description for Gets the details of the user provided function app registered with a static site
 
 
     :param str function_app_name: Name of the function app registered with the static site.

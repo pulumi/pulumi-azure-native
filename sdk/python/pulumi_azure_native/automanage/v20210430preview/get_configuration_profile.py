@@ -121,7 +121,7 @@ def get_configuration_profile(configuration_profile_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileResult:
     """
-    Definition of the configuration profile.
+    Get information about a configuration profile
 
 
     :param str configuration_profile_name: The configuration profile name.
@@ -148,7 +148,7 @@ def get_configuration_profile_output(configuration_profile_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
-    Definition of the configuration profile.
+    Get information about a configuration profile
 
 
     :param str configuration_profile_name: The configuration profile name.

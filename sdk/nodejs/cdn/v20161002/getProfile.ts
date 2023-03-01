@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
+ * Gets a CDN profile with the specified profile name under the specified subscription and resource group.
  */
 /** @deprecated Version 2016-10-02 will be removed in v2 of the provider. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
@@ -70,7 +70,7 @@ export interface GetProfileResult {
     readonly type: string;
 }
 /**
- * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
+ * Gets a CDN profile with the specified profile name under the specified subscription and resource group.
  */
 /** @deprecated Version 2016-10-02 will be removed in v2 of the provider. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {

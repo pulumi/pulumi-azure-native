@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevTestLab
     public static class GetServiceFabricSchedule
     {
         /// <summary>
-        /// A schedule.
+        /// Get schedule.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetServiceFabricScheduleResult> InvokeAsync(GetServiceFabricScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricScheduleResult>("azure-native:devtestlab:getServiceFabricSchedule", args ?? new GetServiceFabricScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A schedule.
+        /// Get schedule.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<GetServiceFabricScheduleResult> Invoke(GetServiceFabricScheduleInvokeArgs args, InvokeOptions? options = null)

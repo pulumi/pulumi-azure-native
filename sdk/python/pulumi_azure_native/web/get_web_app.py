@@ -609,7 +609,7 @@ def get_web_app(name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppResult:
     """
-    A web app, a mobile app backend, or an API app.
+    Gets the details of a web, mobile, or API app.
     API Version: 2020-12-01.
 
 
@@ -677,7 +677,7 @@ def get_web_app_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppResult]:
     """
-    A web app, a mobile app backend, or an API app.
+    Gets the details of a web, mobile, or API app.
     API Version: 2020-12-01.
 
 

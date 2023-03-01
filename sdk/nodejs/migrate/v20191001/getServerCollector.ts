@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get a Server collector.
+ */
 export function getServerCollector(args: GetServerCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCollectorResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +42,9 @@ export interface GetServerCollectorResult {
     readonly properties: outputs.migrate.v20191001.CollectorPropertiesResponse;
     readonly type: string;
 }
+/**
+ * Get a Server collector.
+ */
 export function getServerCollectorOutput(args: GetServerCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCollectorResult> {
     return pulumi.output(args).apply((a: any) => getServerCollector(a, opts))
 }

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StorSimple
     public static class GetManagerDevicePublicEncryptionKey
     {
         /// <summary>
-        /// The public key.
+        /// Returns the public encryption key of the device.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetManagerDevicePublicEncryptionKeyResult> InvokeAsync(GetManagerDevicePublicEncryptionKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagerDevicePublicEncryptionKeyResult>("azure-native:storsimple:getManagerDevicePublicEncryptionKey", args ?? new GetManagerDevicePublicEncryptionKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The public key.
+        /// Returns the public encryption key of the device.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetManagerDevicePublicEncryptionKeyResult> Invoke(GetManagerDevicePublicEncryptionKeyInvokeArgs args, InvokeOptions? options = null)

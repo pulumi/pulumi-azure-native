@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Resources.V20190301
     public static class GetDeployment
     {
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:resources/v20190301:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:resources/v20190301:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());

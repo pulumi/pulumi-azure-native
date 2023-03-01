@@ -123,7 +123,7 @@ def list_service_fabric_applicable_schedules(lab_name: Optional[str] = None,
                                              user_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServiceFabricApplicableSchedulesResult:
     """
-    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    Lists the applicable start/stop schedules, if any.
     API Version: 2018-09-15.
 
 
@@ -157,7 +157,7 @@ def list_service_fabric_applicable_schedules_output(lab_name: Optional[pulumi.In
                                                     user_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceFabricApplicableSchedulesResult]:
     """
-    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    Lists the applicable start/stop schedules, if any.
     API Version: 2018-09-15.
 
 

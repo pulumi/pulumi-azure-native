@@ -219,7 +219,7 @@ def get_dedicated_host(expand: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
-    Specifies information about the Dedicated host.
+    Retrieves information about a dedicated host.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
@@ -260,7 +260,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
-    Specifies information about the Dedicated host.
+    Retrieves information about a dedicated host.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.

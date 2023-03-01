@@ -135,7 +135,7 @@ def get_office_power_bi_data_connector(data_connector_id: Optional[str] = None,
                                        workspace_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOfficePowerBIDataConnectorResult:
     """
-    Represents Office Microsoft PowerBI data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -166,7 +166,7 @@ def get_office_power_bi_data_connector_output(data_connector_id: Optional[pulumi
                                               workspace_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOfficePowerBIDataConnectorResult]:
     """
-    Represents Office Microsoft PowerBI data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

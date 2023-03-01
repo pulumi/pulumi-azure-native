@@ -146,7 +146,7 @@ def get_application_package(account_name: Optional[str] = None,
                             version_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationPackageResult:
     """
-    An application package which represents a particular version of an application.
+    Gets information about the specified application package.
     API Version: 2021-01-01.
 
 
@@ -182,7 +182,7 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
                                    version_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationPackageResult]:
     """
-    An application package which represents a particular version of an application.
+    Gets information about the specified application package.
     API Version: 2021-01-01.
 
 

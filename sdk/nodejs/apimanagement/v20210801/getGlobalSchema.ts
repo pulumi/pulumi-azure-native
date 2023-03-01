@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Global Schema Contract details.
+ * Gets the details of the Schema specified by its identifier.
  */
 export function getGlobalSchema(args: GetGlobalSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalSchemaResult> {
 
@@ -62,7 +62,7 @@ export interface GetGlobalSchemaResult {
     readonly value?: any;
 }
 /**
- * Global Schema Contract details.
+ * Gets the details of the Schema specified by its identifier.
  */
 export function getGlobalSchemaOutput(args: GetGlobalSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalSchemaResult> {
     return pulumi.output(args).apply((a: any) => getGlobalSchema(a, opts))

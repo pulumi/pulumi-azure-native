@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     public static class GetVolume
     {
         /// <summary>
-        /// This type describes a volume resource.
+        /// Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:servicefabricmesh/v20180901preview:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This type describes a volume resource.
+        /// Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:servicefabricmesh/v20180901preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());

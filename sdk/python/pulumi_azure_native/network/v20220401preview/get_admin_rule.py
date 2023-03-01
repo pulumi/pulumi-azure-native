@@ -114,7 +114,7 @@ def get_admin_rule(configuration_name: Optional[str] = None,
                    rule_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdminRuleResult:
     """
-    Network base admin rule.
+    Gets a network manager security configuration admin rule.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -150,7 +150,7 @@ def get_admin_rule_output(configuration_name: Optional[pulumi.Input[str]] = None
                           rule_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdminRuleResult]:
     """
-    Network base admin rule.
+    Gets a network manager security configuration admin rule.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

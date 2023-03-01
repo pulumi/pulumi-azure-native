@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * VirtualHubRouteTableV2 Resource.
+ * Retrieves the details of a VirtualHubRouteTableV2.
  * API Version: 2020-11-01.
  */
 export function getVirtualHubRouteTableV2(args: GetVirtualHubRouteTableV2Args, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubRouteTableV2Result> {
@@ -66,7 +66,7 @@ export interface GetVirtualHubRouteTableV2Result {
     readonly routes?: outputs.network.VirtualHubRouteV2Response[];
 }
 /**
- * VirtualHubRouteTableV2 Resource.
+ * Retrieves the details of a VirtualHubRouteTableV2.
  * API Version: 2020-11-01.
  */
 export function getVirtualHubRouteTableV2Output(args: GetVirtualHubRouteTableV2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableV2Result> {

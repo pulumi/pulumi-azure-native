@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     public static class GetWorkloadClassifier
     {
         /// <summary>
-        /// Workload classifier operations for a data warehouse
+        /// Gets a workload classifier
         /// </summary>
         public static Task<GetWorkloadClassifierResult> InvokeAsync(GetWorkloadClassifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadClassifierResult>("azure-native:sql/v20201101preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workload classifier operations for a data warehouse
+        /// Gets a workload classifier
         /// </summary>
         public static Output<GetWorkloadClassifierResult> Invoke(GetWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadClassifierResult>("azure-native:sql/v20201101preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierInvokeArgs(), options.WithDefaults());

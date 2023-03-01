@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * SIM group resource.
+ * Gets information about the specified SIM group.
  */
 export function getSimGroup(args: GetSimGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSimGroupResult> {
 
@@ -76,7 +76,7 @@ export interface GetSimGroupResult {
     readonly type: string;
 }
 /**
- * SIM group resource.
+ * Gets information about the specified SIM group.
  */
 export function getSimGroupOutput(args: GetSimGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimGroupResult> {
     return pulumi.output(args).apply((a: any) => getSimGroup(a, opts))

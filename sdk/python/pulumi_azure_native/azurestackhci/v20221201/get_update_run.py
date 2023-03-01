@@ -243,7 +243,7 @@ def get_update_run(cluster_name: Optional[str] = None,
                    update_run_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateRunResult:
     """
-    Details of an Update run
+    Get the Update run for a specified update
 
 
     :param str cluster_name: The name of the cluster.
@@ -286,7 +286,7 @@ def get_update_run_output(cluster_name: Optional[pulumi.Input[str]] = None,
                           update_run_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUpdateRunResult]:
     """
-    Details of an Update run
+    Get the Update run for a specified update
 
 
     :param str cluster_name: The name of the cluster.

@@ -146,7 +146,7 @@ def get_mongo_db_resource_mongo_user_definition(account_name: Optional[str] = No
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMongoDBResourceMongoUserDefinitionResult:
     """
-    An Azure Cosmos DB User Definition
+    Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -178,7 +178,7 @@ def get_mongo_db_resource_mongo_user_definition_output(account_name: Optional[pu
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDBResourceMongoUserDefinitionResult]:
     """
-    An Azure Cosmos DB User Definition
+    Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
 
 
     :param str account_name: Cosmos DB database account name.

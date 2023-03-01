@@ -218,7 +218,7 @@ def get_kube_environment(name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubeEnvironmentResult:
     """
-    A Kubernetes cluster specialized for web workloads by Azure App Service
+    Get the properties of a Kubernetes Environment.
 
 
     :param str name: Name of the Kubernetes Environment.
@@ -253,7 +253,7 @@ def get_kube_environment_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubeEnvironmentResult]:
     """
-    A Kubernetes cluster specialized for web workloads by Azure App Service
+    Get the properties of a Kubernetes Environment.
 
 
     :param str name: Name of the Kubernetes Environment.

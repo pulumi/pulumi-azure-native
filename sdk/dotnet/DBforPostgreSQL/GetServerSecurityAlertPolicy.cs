@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetServerSecurityAlertPolicy
     {
         /// <summary>
-        /// A server security alert policy.
+        /// Get a server's security alert policy.
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetServerSecurityAlertPolicyResult> InvokeAsync(GetServerSecurityAlertPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerSecurityAlertPolicyResult>("azure-native:dbforpostgresql:getServerSecurityAlertPolicy", args ?? new GetServerSecurityAlertPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A server security alert policy.
+        /// Get a server's security alert policy.
         /// API Version: 2017-12-01.
         /// </summary>
         public static Output<GetServerSecurityAlertPolicyResult> Invoke(GetServerSecurityAlertPolicyInvokeArgs args, InvokeOptions? options = null)

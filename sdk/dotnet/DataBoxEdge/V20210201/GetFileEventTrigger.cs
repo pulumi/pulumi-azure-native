@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
     public static class GetFileEventTrigger
     {
         /// <summary>
-        /// Trigger details.
+        /// Get a specific trigger by name.
         /// </summary>
         public static Task<GetFileEventTriggerResult> InvokeAsync(GetFileEventTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileEventTriggerResult>("azure-native:databoxedge/v20210201:getFileEventTrigger", args ?? new GetFileEventTriggerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Trigger details.
+        /// Get a specific trigger by name.
         /// </summary>
         public static Output<GetFileEventTriggerResult> Invoke(GetFileEventTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge/v20210201:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithDefaults());

@@ -210,7 +210,7 @@ class AwaitableGetAssessmentMetadataInSubscriptionResult(GetAssessmentMetadataIn
 def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentMetadataInSubscriptionResult:
     """
-    Security assessment metadata
+    Get metadata information on an assessment type in a specific subscription
     API Version: 2020-01-01.
 
 
@@ -243,7 +243,7 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
 def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentMetadataInSubscriptionResult]:
     """
-    Security assessment metadata
+    Get metadata information on an assessment type in a specific subscription
     API Version: 2020-01-01.
 
 

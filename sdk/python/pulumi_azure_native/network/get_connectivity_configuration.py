@@ -194,7 +194,7 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectivityConfigurationResult:
     """
-    The network manager connectivity configuration resource
+    Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
     API Version: 2021-02-01-preview.
 
 
@@ -231,7 +231,7 @@ def get_connectivity_configuration_output(configuration_name: Optional[pulumi.In
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectivityConfigurationResult]:
     """
-    The network manager connectivity configuration resource
+    Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
     API Version: 2021-02-01-preview.
 
 

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     public static class GetRoleAssignmentArtifact
     {
         /// <summary>
-        /// Blueprint artifact applies Azure role assignment.
+        /// Get a Blueprint artifact.
         /// </summary>
         public static Task<GetRoleAssignmentArtifactResult> InvokeAsync(GetRoleAssignmentArtifactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentArtifactResult>("azure-native:blueprint/v20171111preview:getRoleAssignmentArtifact", args ?? new GetRoleAssignmentArtifactArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Blueprint artifact applies Azure role assignment.
+        /// Get a Blueprint artifact.
         /// </summary>
         public static Output<GetRoleAssignmentArtifactResult> Invoke(GetRoleAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentArtifactResult>("azure-native:blueprint/v20171111preview:getRoleAssignmentArtifact", args ?? new GetRoleAssignmentArtifactInvokeArgs(), options.WithDefaults());

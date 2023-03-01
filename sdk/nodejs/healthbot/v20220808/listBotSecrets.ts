@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Health Bot Keys Response.
+ * List all secrets of a HealthBot.
  */
 export function listBotSecrets(args: ListBotSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotSecretsResult> {
 
@@ -40,7 +40,7 @@ export interface ListBotSecretsResult {
     readonly secrets?: outputs.healthbot.v20220808.HealthBotKeyResponse[];
 }
 /**
- * Health Bot Keys Response.
+ * List all secrets of a HealthBot.
  */
 export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotSecretsResult> {
     return pulumi.output(args).apply((a: any) => listBotSecrets(a, opts))

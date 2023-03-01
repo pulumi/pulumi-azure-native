@@ -156,7 +156,7 @@ class AwaitableGetAlertsSuppressionRuleResult(GetAlertsSuppressionRuleResult):
 def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertsSuppressionRuleResult:
     """
-    Describes the suppression rule
+    Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
     API Version: 2019-01-01-preview.
 
 
@@ -184,7 +184,7 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = No
 def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
     """
-    Describes the suppression rule
+    Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
     API Version: 2019-01-01-preview.
 
 

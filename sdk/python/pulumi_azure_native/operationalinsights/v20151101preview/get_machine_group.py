@@ -149,7 +149,7 @@ def get_machine_group(end_time: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineGroupResult:
     """
-    A user-defined logical grouping of machines.
+    Returns the specified machine group as it existed during the specified time interval.
 
 
     :param str end_time: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
@@ -187,7 +187,7 @@ def get_machine_group_output(end_time: Optional[pulumi.Input[Optional[str]]] = N
                              workspace_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineGroupResult]:
     """
-    A user-defined logical grouping of machines.
+    Returns the specified machine group as it existed during the specified time interval.
 
 
     :param str end_time: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow

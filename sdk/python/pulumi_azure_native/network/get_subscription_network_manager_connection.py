@@ -120,7 +120,7 @@ class AwaitableGetSubscriptionNetworkManagerConnectionResult(GetSubscriptionNetw
 def get_subscription_network_manager_connection(network_manager_connection_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionNetworkManagerConnectionResult:
     """
-    The Network Manager Connection resource
+    Get a specified connection created by this subscription.
     API Version: 2022-02-01-preview.
 
 
@@ -145,7 +145,7 @@ def get_subscription_network_manager_connection(network_manager_connection_name:
 def get_subscription_network_manager_connection_output(network_manager_connection_name: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionNetworkManagerConnectionResult]:
     """
-    The Network Manager Connection resource
+    Get a specified connection created by this subscription.
     API Version: 2022-02-01-preview.
 
 

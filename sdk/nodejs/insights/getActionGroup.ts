@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An action group resource.
+ * Get an action group.
  * API Version: 2019-06-01.
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
@@ -105,7 +105,7 @@ export interface GetActionGroupResult {
     readonly webhookReceivers?: outputs.insights.WebhookReceiverResponse[];
 }
 /**
- * An action group resource.
+ * Get an action group.
  * API Version: 2019-06-01.
  */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {

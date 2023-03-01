@@ -220,7 +220,7 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentSettingResult:
     """
-    Represents settings of an environment, from which environment instances would be created
+    Get environment setting
 
 
     :param str environment_setting_name: The name of the environment Setting.
@@ -264,7 +264,7 @@ def get_environment_setting_output(environment_setting_name: Optional[pulumi.Inp
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentSettingResult]:
     """
-    Represents settings of an environment, from which environment instances would be created
+    Get environment setting
 
 
     :param str environment_setting_name: The name of the environment Setting.

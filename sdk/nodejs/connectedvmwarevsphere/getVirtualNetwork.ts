@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Define the virtualNetwork.
+ * Implements virtual network GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
@@ -101,7 +101,7 @@ export interface GetVirtualNetworkResult {
     readonly vCenterId?: string;
 }
 /**
- * Define the virtualNetwork.
+ * Implements virtual network GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * HubVirtualNetworkConnection Resource.
+ * Retrieves the details of a HubVirtualNetworkConnection.
  * API Version: 2020-11-01.
  */
 export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHubVirtualNetworkConnectionResult> {
@@ -78,7 +78,7 @@ export interface GetHubVirtualNetworkConnectionResult {
     readonly routingConfiguration?: outputs.network.RoutingConfigurationResponse;
 }
 /**
- * HubVirtualNetworkConnection Resource.
+ * Retrieves the details of a HubVirtualNetworkConnection.
  * API Version: 2020-11-01.
  */
 export function getHubVirtualNetworkConnectionOutput(args: GetHubVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubVirtualNetworkConnectionResult> {

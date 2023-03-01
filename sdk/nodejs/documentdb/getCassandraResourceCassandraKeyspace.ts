@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure Cosmos DB Cassandra keyspace.
+ * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  * API Version: 2021-03-15.
  */
 export function getCassandraResourceCassandraKeyspace(args: GetCassandraResourceCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraKeyspaceResult> {
@@ -64,7 +64,7 @@ export interface GetCassandraResourceCassandraKeyspaceResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Cassandra keyspace.
+ * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  * API Version: 2021-03-15.
  */
 export function getCassandraResourceCassandraKeyspaceOutput(args: GetCassandraResourceCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraKeyspaceResult> {

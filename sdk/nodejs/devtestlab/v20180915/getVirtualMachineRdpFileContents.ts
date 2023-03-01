@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a .rdp file
+ * Gets a string that represents the contents of the RDP file for the virtual machine
  */
 export function getVirtualMachineRdpFileContents(args: GetVirtualMachineRdpFileContentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRdpFileContentsResult> {
 
@@ -42,7 +42,7 @@ export interface GetVirtualMachineRdpFileContentsResult {
     readonly contents?: string;
 }
 /**
- * Represents a .rdp file
+ * Gets a string that represents the contents of the RDP file for the virtual machine
  */
 export function getVirtualMachineRdpFileContentsOutput(args: GetVirtualMachineRdpFileContentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRdpFileContentsResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineRdpFileContents(a, opts))

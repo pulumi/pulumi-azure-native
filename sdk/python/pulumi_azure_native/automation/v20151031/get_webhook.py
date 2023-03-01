@@ -206,7 +206,7 @@ def get_webhook(automation_account_name: Optional[str] = None,
                 webhook_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookResult:
     """
-    Definition of the webhook type.
+    Retrieve the webhook identified by webhook name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -243,7 +243,7 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        webhook_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
     """
-    Definition of the webhook type.
+    Retrieve the webhook identified by webhook name.
 
 
     :param str automation_account_name: The name of the automation account.

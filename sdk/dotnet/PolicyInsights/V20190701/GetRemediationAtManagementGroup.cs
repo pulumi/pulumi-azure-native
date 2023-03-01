@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
     public static class GetRemediationAtManagementGroup
     {
         /// <summary>
-        /// The remediation definition.
+        /// Gets an existing remediation at management group scope.
         /// </summary>
         public static Task<GetRemediationAtManagementGroupResult> InvokeAsync(GetRemediationAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtManagementGroupResult>("azure-native:policyinsights/v20190701:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The remediation definition.
+        /// Gets an existing remediation at management group scope.
         /// </summary>
         public static Output<GetRemediationAtManagementGroupResult> Invoke(GetRemediationAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtManagementGroupResult>("azure-native:policyinsights/v20190701:getRemediationAtManagementGroup", args ?? new GetRemediationAtManagementGroupInvokeArgs(), options.WithDefaults());

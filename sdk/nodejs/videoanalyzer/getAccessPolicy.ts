@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Policy that determines how a video can be accessed.
+ * Retrieves an existing access policy resource from an account by name.
  * API Version: 2021-05-01-preview.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
@@ -66,7 +66,7 @@ export interface GetAccessPolicyResult {
     readonly type: string;
 }
 /**
- * Policy that determines how a video can be accessed.
+ * Retrieves an existing access policy resource from an account by name.
  * API Version: 2021-05-01-preview.
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {

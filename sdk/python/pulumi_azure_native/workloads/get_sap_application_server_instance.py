@@ -290,7 +290,7 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
                                         sap_virtual_instance_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPApplicationServerInstanceResult:
     """
-    Define the SAP Application Server Instance resource.
+    Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
     API Version: 2021-12-01-preview.
 
 
@@ -335,7 +335,7 @@ def get_sap_application_server_instance_output(application_instance_name: Option
                                                sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPApplicationServerInstanceResult]:
     """
-    Define the SAP Application Server Instance resource.
+    Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
     API Version: 2021-12-01-preview.
 
 

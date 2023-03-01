@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * P2S Vpn connection detailed health written to sas url.
+ * Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
  * API Version: 2020-11-01.
  */
 export function getP2sVpnGatewayP2sVpnConnectionHealthDetailed(args: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> {
@@ -48,7 +48,7 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult {
     readonly sasUrl?: string;
 }
 /**
- * P2S Vpn connection detailed health written to sas url.
+ * Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
  * API Version: 2020-11-01.
  */
 export function getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput(args: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> {

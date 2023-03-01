@@ -184,7 +184,7 @@ def get_schedule_resource(lab_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResourceResult:
     """
-    A schedule.
+    Get schedule.
 
 
     :param str lab_name: The name of the lab.
@@ -220,7 +220,7 @@ def get_schedule_resource_output(lab_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResourceResult]:
     """
-    A schedule.
+    Get schedule.
 
 
     :param str lab_name: The name of the lab.

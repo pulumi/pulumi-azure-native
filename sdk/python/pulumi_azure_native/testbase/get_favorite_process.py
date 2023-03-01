@@ -99,7 +99,7 @@ def get_favorite_process(favorite_process_resource_name: Optional[str] = None,
                          test_base_account_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFavoriteProcessResult:
     """
-    A favorite process identifier.
+    Gets a favorite process for a Test Base Package.
     API Version: 2022-04-01-preview.
 
 
@@ -131,7 +131,7 @@ def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.
                                 test_base_account_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFavoriteProcessResult]:
     """
-    A favorite process identifier.
+    Gets a favorite process for a Test Base Package.
     API Version: 2022-04-01-preview.
 
 

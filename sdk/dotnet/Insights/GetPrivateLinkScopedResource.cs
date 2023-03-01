@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetPrivateLinkScopedResource
     {
         /// <summary>
-        /// A private link scoped resource
+        /// Gets a scoped resource in a private link scope.
         /// API Version: 2019-10-17-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopedResourceResult> InvokeAsync(GetPrivateLinkScopedResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A private link scoped resource
+        /// Gets a scoped resource in a private link scope.
         /// API Version: 2019-10-17-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopedResourceResult> Invoke(GetPrivateLinkScopedResourceInvokeArgs args, InvokeOptions? options = null)

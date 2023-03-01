@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A web app, a mobile app backend, or an API app.
+ * Gets the details of a web, mobile, or API app.
  * API Version: 2020-12-01.
  */
 export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppResult> {
@@ -233,7 +233,7 @@ export interface GetWebAppResult {
     readonly virtualNetworkSubnetId?: string;
 }
 /**
- * A web app, a mobile app backend, or an API app.
+ * Gets the details of a web, mobile, or API app.
  * API Version: 2020-12-01.
  */
 export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppResult> {

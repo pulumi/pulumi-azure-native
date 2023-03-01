@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.BotService
     public static class GetChannel
     {
         /// <summary>
-        /// Bot channel resource definition
+        /// Returns a BotService Channel registration specified by the parameters.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:botservice:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Bot channel resource definition
+        /// Returns a BotService Channel registration specified by the parameters.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Alert rule.
+ * Gets the alert rule.
  * API Version: 2020-01-01.
  */
 /** @deprecated Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule. */
@@ -61,7 +61,7 @@ export interface GetAlertRuleResult {
     readonly type: string;
 }
 /**
- * Alert rule.
+ * Gets the alert rule.
  * API Version: 2020-01-01.
  */
 /** @deprecated Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule. */

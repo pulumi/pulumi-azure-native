@@ -88,7 +88,7 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[str] = No
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayAuthorizationRuleResult:
     """
-    Description of a Namespace AuthorizationRules.
+    Get authorizationRule for a WCFRelays by name.
 
 
     :param str authorization_rule_name: The authorizationRule name.
@@ -119,7 +119,7 @@ def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pu
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWCFRelayAuthorizationRuleResult]:
     """
-    Description of a Namespace AuthorizationRules.
+    Get authorizationRule for a WCFRelays by name.
 
 
     :param str authorization_rule_name: The authorizationRule name.

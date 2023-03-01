@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Build step resource properties
+ * Gets the build step for a build task.
  */
 export function getBuildStep(args: GetBuildStepArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildStepResult> {
 
@@ -62,7 +62,7 @@ export interface GetBuildStepResult {
     readonly type: string;
 }
 /**
- * Build step resource properties
+ * Gets the build step for a build task.
  */
 export function getBuildStepOutput(args: GetBuildStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildStepResult> {
     return pulumi.output(args).apply((a: any) => getBuildStep(a, opts))

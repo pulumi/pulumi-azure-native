@@ -80,6 +80,7 @@ def get_skus(provider_namespace: Optional[str] = None,
              sku: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusResult:
     """
+    Gets the sku details for the given resource type and sku name.
     API Version: 2020-11-20.
 
 
@@ -107,6 +108,7 @@ def get_skus_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                     sku: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusResult]:
     """
+    Gets the sku details for the given resource type and sku name.
     API Version: 2020-11-20.
 
 

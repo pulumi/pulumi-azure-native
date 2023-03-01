@@ -177,7 +177,8 @@ def get_incident_task(incident_id: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentTaskResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets an incident task.
+
 
     :param str incident_id: Incident ID
     :param str incident_task_id: Incident task ID
@@ -214,7 +215,8 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentTaskResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets an incident task.
+
 
     :param str incident_id: Incident ID
     :param str incident_task_id: Incident task ID

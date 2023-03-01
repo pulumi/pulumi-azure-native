@@ -96,7 +96,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
 def get_connector(connector_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    The connector setting
+    Details of a specific cloud account connector
 
 
     :param str connector_name: Name of the cloud account connector
@@ -118,7 +118,7 @@ def get_connector(connector_name: Optional[str] = None,
 def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    The connector setting
+    Details of a specific cloud account connector
 
 
     :param str connector_name: Name of the cloud account connector

@@ -122,7 +122,7 @@ def get_service_endpoint(account_name: Optional[str] = None,
                          service_endpoint_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointResult:
     """
-    ServiceEndpoint resource details.
+    Returns ServiceEndpoint resources for a given name.
     API Version: 2022-02-01.
 
 
@@ -153,7 +153,7 @@ def get_service_endpoint_output(account_name: Optional[pulumi.Input[str]] = None
                                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointResult]:
     """
-    ServiceEndpoint resource details.
+    Returns ServiceEndpoint resources for a given name.
     API Version: 2022-02-01.
 
 

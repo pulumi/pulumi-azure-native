@@ -135,7 +135,7 @@ def get_secret(expand: Optional[str] = None,
                user_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    A secret.
+    Get secret.
     API Version: 2018-09-15.
 
 
@@ -173,7 +173,7 @@ def get_secret_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       user_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
-    A secret.
+    Get secret.
     API Version: 2018-09-15.
 
 

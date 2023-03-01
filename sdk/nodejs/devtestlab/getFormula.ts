@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A formula for creating a VM, specifying an image base and other parameters
+ * Get formula.
  * API Version: 2018-09-15.
  */
 export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): Promise<GetFormulaResult> {
@@ -99,7 +99,7 @@ export interface GetFormulaResult {
     readonly vm?: outputs.devtestlab.FormulaPropertiesFromVmResponse;
 }
 /**
- * A formula for creating a VM, specifying an image base and other parameters
+ * Get formula.
  * API Version: 2018-09-15.
  */
 export function getFormulaOutput(args: GetFormulaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormulaResult> {

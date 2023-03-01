@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
     public static class GetRequiredAmlFSSubnetsSize
     {
         /// <summary>
-        /// Information about the number of available IP addresses that are required for the AML file system.
+        /// Get the number of available IP addresses needed for the AML file system information provided.
         /// </summary>
         public static Task<GetRequiredAmlFSSubnetsSizeResult> InvokeAsync(GetRequiredAmlFSSubnetsSizeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRequiredAmlFSSubnetsSizeResult>("azure-native:storagecache/v20230301preview:getRequiredAmlFSSubnetsSize", args ?? new GetRequiredAmlFSSubnetsSizeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Information about the number of available IP addresses that are required for the AML file system.
+        /// Get the number of available IP addresses needed for the AML file system information provided.
         /// </summary>
         public static Output<GetRequiredAmlFSSubnetsSizeResult> Invoke(GetRequiredAmlFSSubnetsSizeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequiredAmlFSSubnetsSizeResult>("azure-native:storagecache/v20230301preview:getRequiredAmlFSSubnetsSize", args ?? new GetRequiredAmlFSSubnetsSizeInvokeArgs(), options.WithDefaults());

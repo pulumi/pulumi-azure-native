@@ -112,7 +112,7 @@ def get_storage_domain(manager_name: Optional[str] = None,
                        storage_domain_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageDomainResult:
     """
-    The storage domain.
+    Returns the properties of the specified storage domain name.
 
 
     :param str manager_name: The manager name
@@ -142,7 +142,7 @@ def get_storage_domain_output(manager_name: Optional[pulumi.Input[str]] = None,
                               storage_domain_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageDomainResult]:
     """
-    The storage domain.
+    Returns the properties of the specified storage domain name.
 
 
     :param str manager_name: The manager name

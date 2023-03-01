@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public static class GetLivePipeline
     {
         /// <summary>
-        /// Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
+        /// Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetLivePipelineResult> InvokeAsync(GetLivePipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLivePipelineResult>("azure-native:videoanalyzer:getLivePipeline", args ?? new GetLivePipelineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
+        /// Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetLivePipelineResult> Invoke(GetLivePipelineInvokeArgs args, InvokeOptions? options = null)

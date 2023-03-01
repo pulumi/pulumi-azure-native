@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
     public static class GetReferenceDataSet
     {
         /// <summary>
-        /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+        /// Gets the reference data set with the specified name in the specified environment.
         /// </summary>
         public static Task<GetReferenceDataSetResult> InvokeAsync(GetReferenceDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20171115:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+        /// Gets the reference data set with the specified name in the specified environment.
         /// </summary>
         public static Output<GetReferenceDataSetResult> Invoke(GetReferenceDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20171115:getReferenceDataSet", args ?? new GetReferenceDataSetInvokeArgs(), options.WithDefaults());

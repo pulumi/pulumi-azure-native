@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+ * Get a Maps Creator resource.
  * API Version: 2020-02-01-preview.
  */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
@@ -66,7 +66,7 @@ export interface GetCreatorResult {
     readonly type: string;
 }
 /**
- * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+ * Get a Maps Creator resource.
  * API Version: 2020-02-01-preview.
  */
 export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCreatorResult> {

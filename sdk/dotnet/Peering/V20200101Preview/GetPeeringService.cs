@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
     public static class GetPeeringService
     {
         /// <summary>
-        /// Peering Service
+        /// Gets an existing peering service with the specified name under the given subscription and resource group.
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering/v20200101preview:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Peering Service
+        /// Gets an existing peering service with the specified name under the given subscription and resource group.
         /// </summary>
         public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering/v20200101preview:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithDefaults());

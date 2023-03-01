@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Machine Learning dataset object wrapped into ARM resource envelope.
+ * Get a Dataset by name.
  */
 export function getMachineLearningDataset(args: GetMachineLearningDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatasetResult> {
 
@@ -73,7 +73,7 @@ export interface GetMachineLearningDatasetResult {
     readonly type: string;
 }
 /**
- * Machine Learning dataset object wrapped into ARM resource envelope.
+ * Get a Dataset by name.
  */
 export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatasetResult> {
     return pulumi.output(args).apply((a: any) => getMachineLearningDataset(a, opts))

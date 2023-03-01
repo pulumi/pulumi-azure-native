@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents a webhook for a container registry.
+ * Gets the properties of the specified webhook.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
 
@@ -74,7 +74,7 @@ export interface GetWebhookResult {
     readonly type: string;
 }
 /**
- * An object that represents a webhook for a container registry.
+ * Gets the properties of the specified webhook.
  */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
     return pulumi.output(args).apply((a: any) => getWebhook(a, opts))

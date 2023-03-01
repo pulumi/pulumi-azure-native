@@ -91,6 +91,7 @@ def get_resource_management_private_link(resource_group_name: Optional[str] = No
                                          rmpl_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceManagementPrivateLinkResult:
     """
+    Get a resource management private link(resource-level).
     API Version: 2020-05-01.
 
 
@@ -116,6 +117,7 @@ def get_resource_management_private_link_output(resource_group_name: Optional[pu
                                                 rmpl_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceManagementPrivateLinkResult]:
     """
+    Get a resource management private link(resource-level).
     API Version: 2020-05-01.
 
 

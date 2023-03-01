@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents a blueprint artifact.
+ * Get a blueprint artifact.
  * API Version: 2018-11-01-preview.
  */
 /** @deprecated Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact. */
@@ -57,7 +57,7 @@ export interface GetArtifactResult {
     readonly type: string;
 }
 /**
- * Represents a blueprint artifact.
+ * Get a blueprint artifact.
  * API Version: 2018-11-01-preview.
  */
 /** @deprecated Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact. */

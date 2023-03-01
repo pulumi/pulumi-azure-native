@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents the list of environments owned by a user
+ * List Environments for the user
  * API Version: 2018-10-15.
  */
 export function listGlobalUserEnvironments(args: ListGlobalUserEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserEnvironmentsResult> {
@@ -41,7 +41,7 @@ export interface ListGlobalUserEnvironmentsResult {
     readonly environments?: outputs.labservices.EnvironmentDetailsResponse[];
 }
 /**
- * Represents the list of environments owned by a user
+ * List Environments for the user
  * API Version: 2018-10-15.
  */
 export function listGlobalUserEnvironmentsOutput(args: ListGlobalUserEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserEnvironmentsResult> {

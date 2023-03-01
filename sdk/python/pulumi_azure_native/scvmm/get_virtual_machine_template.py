@@ -337,7 +337,7 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
                                  virtual_machine_template_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineTemplateResult:
     """
-    The VirtualMachineTemplates resource definition.
+    Implements VirtualMachineTemplate GET method.
     API Version: 2020-06-05-preview.
 
 
@@ -383,7 +383,7 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
                                         virtual_machine_template_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineTemplateResult]:
     """
-    The VirtualMachineTemplates resource definition.
+    Implements VirtualMachineTemplate GET method.
     API Version: 2020-06-05-preview.
 
 

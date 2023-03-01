@@ -326,7 +326,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBigDataPoolResult:
     """
-    A Big Data pool
+    Get a Big Data pool.
 
 
     :param str big_data_pool_name: Big Data pool name
@@ -373,7 +373,7 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
                              workspace_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBigDataPoolResult]:
     """
-    A Big Data pool
+    Get a Big Data pool.
 
 
     :param str big_data_pool_name: Big Data pool name

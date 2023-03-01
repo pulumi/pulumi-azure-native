@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class ListMachineLearningComputeKeys
     {
         /// <summary>
-        /// Secrets related to a Machine Learning compute. Might differ for every type of compute.
+        /// Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListMachineLearningComputeKeysResult> InvokeAsync(ListMachineLearningComputeKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Secrets related to a Machine Learning compute. Might differ for every type of compute.
+        /// Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListMachineLearningComputeKeysResult> Invoke(ListMachineLearningComputeKeysInvokeArgs args, InvokeOptions? options = null)

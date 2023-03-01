@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
     public static class ListDnsForwardingRulesetByVirtualNetwork
     {
         /// <summary>
-        /// The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
+        /// Lists DNS forwarding ruleset resource IDs attached to a virtual network.
         /// </summary>
         public static Task<ListDnsForwardingRulesetByVirtualNetworkResult> InvokeAsync(ListDnsForwardingRulesetByVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network/v20200401preview:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response to an enumeration operation on Virtual Network DNS Forwarding Ruleset.
+        /// Lists DNS forwarding ruleset resource IDs attached to a virtual network.
         /// </summary>
         public static Output<ListDnsForwardingRulesetByVirtualNetworkResult> Invoke(ListDnsForwardingRulesetByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network/v20200401preview:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkInvokeArgs(), options.WithDefaults());

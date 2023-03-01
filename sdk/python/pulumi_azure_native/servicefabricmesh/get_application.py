@@ -217,7 +217,7 @@ def get_application(application_resource_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    This type describes an application resource.
+    Gets the information about the application resource with the given name. The information include the description and other properties of the application.
     API Version: 2018-09-01-preview.
 
 
@@ -253,7 +253,7 @@ def get_application_output(application_resource_name: Optional[pulumi.Input[str]
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    This type describes an application resource.
+    Gets the information about the application resource with the given name. The information include the description and other properties of the application.
     API Version: 2018-09-01-preview.
 
 

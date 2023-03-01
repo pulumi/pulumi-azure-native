@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network profile resource.
+ * Gets the specified network profile in a specified resource group.
  */
 export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
 
@@ -81,7 +81,7 @@ export interface GetNetworkProfileResult {
     readonly type: string;
 }
 /**
- * Network profile resource.
+ * Gets the specified network profile in a specified resource group.
  */
 export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
     return pulumi.output(args).apply((a: any) => getNetworkProfile(a, opts))

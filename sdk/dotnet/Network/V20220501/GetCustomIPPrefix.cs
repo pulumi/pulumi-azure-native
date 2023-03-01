@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220501
     public static class GetCustomIPPrefix
     {
         /// <summary>
-        /// Custom IP prefix resource.
+        /// Gets the specified custom IP prefix in a specified resource group.
         /// </summary>
         public static Task<GetCustomIPPrefixResult> InvokeAsync(GetCustomIPPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomIPPrefixResult>("azure-native:network/v20220501:getCustomIPPrefix", args ?? new GetCustomIPPrefixArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Custom IP prefix resource.
+        /// Gets the specified custom IP prefix in a specified resource group.
         /// </summary>
         public static Output<GetCustomIPPrefixResult> Invoke(GetCustomIPPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomIPPrefixResult>("azure-native:network/v20220501:getCustomIPPrefix", args ?? new GetCustomIPPrefixInvokeArgs(), options.WithDefaults());

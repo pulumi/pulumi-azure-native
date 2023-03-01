@@ -79,7 +79,8 @@ def get_resource_type_registration(provider_namespace: Optional[str] = None,
                                    resource_type: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceTypeRegistrationResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets a resource type details in the given subscription and provider.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.
@@ -102,7 +103,8 @@ def get_resource_type_registration_output(provider_namespace: Optional[pulumi.In
                                           resource_type: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets a resource type details in the given subscription and provider.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.

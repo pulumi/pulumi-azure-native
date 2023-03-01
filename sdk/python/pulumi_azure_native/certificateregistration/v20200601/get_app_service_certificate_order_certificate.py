@@ -147,7 +147,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderCertificateResult:
     """
-    Key Vault container ARM resource for a certificate that is purchased through Azure.
+    Get the certificate associated with a certificate order.
 
 
     :param str certificate_order_name: Name of the certificate order.
@@ -180,7 +180,7 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
     """
-    Key Vault container ARM resource for a certificate that is purchased through Azure.
+    Get the certificate associated with a certificate order.
 
 
     :param str certificate_order_name: Name of the certificate order.

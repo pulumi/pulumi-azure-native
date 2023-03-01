@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.Automation.V20190601
 {
     public static class ListKeyByAutomationAccount
     {
+        /// <summary>
+        /// Retrieve the automation keys for an account.
+        /// </summary>
         public static Task<ListKeyByAutomationAccountResult> InvokeAsync(ListKeyByAutomationAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azure-native:automation/v20190601:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve the automation keys for an account.
+        /// </summary>
         public static Output<ListKeyByAutomationAccountResult> Invoke(ListKeyByAutomationAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListKeyByAutomationAccountResult>("azure-native:automation/v20190601:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountInvokeArgs(), options.WithDefaults());
     }

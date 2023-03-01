@@ -78,7 +78,7 @@ def list_user_assigned_identity_associated_resources(filter: Optional[str] = Non
                                                      top: Optional[int] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListUserAssignedIdentityAssociatedResourcesResult:
     """
-    Azure resources returned by the resource action to get a list of assigned resources.
+    Lists the associated resources for this identity.
     API Version: 2022-01-31-preview.
 
 
@@ -117,7 +117,7 @@ def list_user_assigned_identity_associated_resources_output(filter: Optional[pul
                                                             top: Optional[pulumi.Input[Optional[int]]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUserAssignedIdentityAssociatedResourcesResult]:
     """
-    Azure resources returned by the resource action to get a list of assigned resources.
+    Lists the associated resources for this identity.
     API Version: 2022-01-31-preview.
 
 

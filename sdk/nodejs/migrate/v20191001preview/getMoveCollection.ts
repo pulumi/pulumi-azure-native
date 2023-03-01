@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Define the move collection.
+ * Gets the move collection.
  */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
 
@@ -68,7 +68,7 @@ export interface GetMoveCollectionResult {
     readonly type: string;
 }
 /**
- * Define the move collection.
+ * Gets the move collection.
  */
 export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
     return pulumi.output(args).apply((a: any) => getMoveCollection(a, opts))

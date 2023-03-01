@@ -123,7 +123,8 @@ def get_management_group(expand: Optional[str] = None,
                          recurse: Optional[bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupResult:
     """
-    The management group details.
+    Get the details of the management group.
+
     API Version: 2020-05-01.
 
 
@@ -157,7 +158,8 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 recurse: Optional[pulumi.Input[Optional[bool]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupResult]:
     """
-    The management group details.
+    Get the details of the management group.
+
     API Version: 2020-05-01.
 
 

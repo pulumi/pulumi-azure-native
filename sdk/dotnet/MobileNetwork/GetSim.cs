@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     public static class GetSim
     {
         /// <summary>
-        /// SIM resource.
+        /// Gets information about the specified SIM.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetSimResult> InvokeAsync(GetSimArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimResult>("azure-native:mobilenetwork:getSim", args ?? new GetSimArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SIM resource.
+        /// Gets information about the specified SIM.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetSimResult> Invoke(GetSimInvokeArgs args, InvokeOptions? options = null)

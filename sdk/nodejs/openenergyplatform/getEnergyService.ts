@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Returns oep resource for a given name.
  * API Version: 2022-04-04-preview.
  */
 export function getEnergyService(args: GetEnergyServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEnergyServiceResult> {
@@ -58,6 +59,7 @@ export interface GetEnergyServiceResult {
     readonly type: string;
 }
 /**
+ * Returns oep resource for a given name.
  * API Version: 2022-04-04-preview.
  */
 export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {

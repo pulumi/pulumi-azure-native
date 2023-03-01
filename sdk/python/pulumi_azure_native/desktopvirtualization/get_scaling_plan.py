@@ -268,7 +268,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
                      scaling_plan_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScalingPlanResult:
     """
-    Represents a scaling plan definition.
+    Get a scaling plan.
     API Version: 2021-02-01-preview.
 
 
@@ -309,7 +309,7 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             scaling_plan_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPlanResult]:
     """
-    Represents a scaling plan definition.
+    Get a scaling plan.
     API Version: 2021-02-01-preview.
 
 

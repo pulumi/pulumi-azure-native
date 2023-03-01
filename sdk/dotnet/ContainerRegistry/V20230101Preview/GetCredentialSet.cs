@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
     public static class GetCredentialSet
     {
         /// <summary>
-        /// An object that represents a credential set resource for a container registry.
+        /// Gets the properties of the specified credential set resource.
         /// </summary>
         public static Task<GetCredentialSetResult> InvokeAsync(GetCredentialSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialSetResult>("azure-native:containerregistry/v20230101preview:getCredentialSet", args ?? new GetCredentialSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a credential set resource for a container registry.
+        /// Gets the properties of the specified credential set resource.
         /// </summary>
         public static Output<GetCredentialSetResult> Invoke(GetCredentialSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialSetResult>("azure-native:containerregistry/v20230101preview:getCredentialSet", args ?? new GetCredentialSetInvokeArgs(), options.WithDefaults());

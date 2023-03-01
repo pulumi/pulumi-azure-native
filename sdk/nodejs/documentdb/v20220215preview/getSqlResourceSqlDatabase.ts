@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB SQL database.
+ * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getSqlResourceSqlDatabase(args: GetSqlResourceSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlDatabaseResult> {
 
@@ -67,7 +67,7 @@ export interface GetSqlResourceSqlDatabaseResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB SQL database.
+ * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getSqlResourceSqlDatabaseOutput(args: GetSqlResourceSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlDatabase(a, opts))

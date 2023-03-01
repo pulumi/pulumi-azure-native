@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Trigger details.
+ * Get a specific trigger by name.
  */
 export function getFileEventTrigger(args: GetFileEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileEventTriggerResult> {
 
@@ -74,7 +74,7 @@ export interface GetFileEventTriggerResult {
     readonly type: string;
 }
 /**
- * Trigger details.
+ * Get a specific trigger by name.
  */
 export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileEventTriggerResult> {
     return pulumi.output(args).apply((a: any) => getFileEventTrigger(a, opts))

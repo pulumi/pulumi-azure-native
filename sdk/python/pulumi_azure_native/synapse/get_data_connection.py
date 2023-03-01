@@ -114,7 +114,7 @@ def get_data_connection(data_connection_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataConnectionResult:
     """
-    Class representing a data connection.
+    Returns a data connection.
     API Version: 2021-04-01-preview.
 
 
@@ -151,7 +151,7 @@ def get_data_connection_output(data_connection_name: Optional[pulumi.Input[str]]
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataConnectionResult]:
     """
-    Class representing a data connection.
+    Returns a data connection.
     API Version: 2021-04-01-preview.
 
 

@@ -207,7 +207,7 @@ def get_lab(billing_account_name: Optional[str] = None,
             invoice_section_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
-    Lab details.
+    Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
     API Version: 2021-12-01-preview.
 
 
@@ -248,7 +248,7 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                    invoice_section_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
     """
-    Lab details.
+    Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
     API Version: 2021-12-01-preview.
 
 

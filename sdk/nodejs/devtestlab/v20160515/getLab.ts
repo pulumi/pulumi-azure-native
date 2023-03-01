@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A lab.
+ * Get lab.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
@@ -102,7 +102,7 @@ export interface GetLabResult {
     readonly vaultName: string;
 }
 /**
- * A lab.
+ * Get lab.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {

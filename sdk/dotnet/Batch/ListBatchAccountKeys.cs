@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Batch
     public static class ListBatchAccountKeys
     {
         /// <summary>
-        /// A set of Azure Batch account keys.
+        /// This operation applies only to Batch accounts created with a poolAllocationMode of 'BatchService'. If the Batch account was created with a poolAllocationMode of 'UserSubscription', clients cannot use access to keys to authenticate, and must use Azure Active Directory instead. In this case, getting the keys will fail.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListBatchAccountKeysResult> InvokeAsync(ListBatchAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-native:batch:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A set of Azure Batch account keys.
+        /// This operation applies only to Batch accounts created with a poolAllocationMode of 'BatchService'. If the Batch account was created with a poolAllocationMode of 'UserSubscription', clients cannot use access to keys to authenticate, and must use Azure Active Directory instead. In this case, getting the keys will fail.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListBatchAccountKeysResult> Invoke(ListBatchAccountKeysInvokeArgs args, InvokeOptions? options = null)

@@ -231,7 +231,7 @@ def get_source_control(operational_insights_resource_provider: Optional[str] = N
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlResult:
     """
-    Represents a SourceControl in Azure Security Insights.
+    Gets a source control byt its identifier.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -273,7 +273,7 @@ def get_source_control_output(operational_insights_resource_provider: Optional[p
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlResult]:
     """
-    Represents a SourceControl in Azure Security Insights.
+    Gets a source control byt its identifier.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

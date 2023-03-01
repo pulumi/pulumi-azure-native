@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301
     public static class GetReplicationvCenter
     {
         /// <summary>
-        /// vCenter definition.
+        /// Gets the details of a registered vCenter server(Add vCenter server.)
         /// </summary>
         public static Task<GetReplicationvCenterResult> InvokeAsync(GetReplicationvCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationvCenterResult>("azure-native:recoveryservices/v20210301:getReplicationvCenter", args ?? new GetReplicationvCenterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// vCenter definition.
+        /// Gets the details of a registered vCenter server(Add vCenter server.)
         /// </summary>
         public static Output<GetReplicationvCenterResult> Invoke(GetReplicationvCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationvCenterResult>("azure-native:recoveryservices/v20210301:getReplicationvCenter", args ?? new GetReplicationvCenterInvokeArgs(), options.WithDefaults());

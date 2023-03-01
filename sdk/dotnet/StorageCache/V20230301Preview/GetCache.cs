@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
     public static class GetCache
     {
         /// <summary>
-        /// A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        /// Returns a cache.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:storagecache/v20230301preview:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        /// Returns a cache.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache/v20230301preview:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());

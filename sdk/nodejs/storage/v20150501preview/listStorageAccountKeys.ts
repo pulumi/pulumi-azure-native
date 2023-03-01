@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The access keys for the storage account.
+ * Lists the access keys for the specified storage account.
  */
 export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountKeysResult> {
 
@@ -41,7 +41,7 @@ export interface ListStorageAccountKeysResult {
     readonly key2?: string;
 }
 /**
- * The access keys for the storage account.
+ * Lists the access keys for the specified storage account.
  */
 export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listStorageAccountKeys(a, opts))

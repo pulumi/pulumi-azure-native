@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Databricks
     public static class GetAccessConnector
     {
         /// <summary>
-        /// Information about azure databricks accessConnector.
+        /// Gets an azure databricks accessConnector.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetAccessConnectorResult> InvokeAsync(GetAccessConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessConnectorResult>("azure-native:databricks:getAccessConnector", args ?? new GetAccessConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Information about azure databricks accessConnector.
+        /// Gets an azure databricks accessConnector.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOptions? options = null)

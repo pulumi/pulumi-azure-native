@@ -145,7 +145,7 @@ def get_address(address_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddressResult:
     """
-    Address Resource.
+    Get information about the specified address.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
@@ -174,7 +174,7 @@ def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddressResult]:
     """
-    Address Resource.
+    Get information about the specified address.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.

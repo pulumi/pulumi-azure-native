@@ -109,7 +109,7 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudServiceResult:
     """
-    Describes the cloud service.
+    Display information about a cloud service.
     API Version: 2021-03-01.
 
 
@@ -136,7 +136,7 @@ def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudServiceResult]:
     """
-    Describes the cloud service.
+    Display information about a cloud service.
     API Version: 2021-03-01.
 
 

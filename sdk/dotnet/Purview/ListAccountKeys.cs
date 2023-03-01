@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Purview
     public static class ListAccountKeys
     {
         /// <summary>
-        /// The Account access keys.
+        /// List the authorization keys associated with this account.
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:purview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Account access keys.
+        /// List the authorization keys associated with this account.
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The HDInsight cluster application
+ * Gets properties of the specified application.
  * API Version: 2018-06-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
@@ -66,7 +66,7 @@ export interface GetApplicationResult {
     readonly type: string;
 }
 /**
- * The HDInsight cluster application
+ * Gets properties of the specified application.
  * API Version: 2018-06-01-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {

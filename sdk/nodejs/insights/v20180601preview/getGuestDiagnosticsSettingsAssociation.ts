@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Virtual machine guest diagnostic settings resource.
+ * Gets guest diagnostics association settings.
  */
 export function getGuestDiagnosticsSettingsAssociation(args: GetGuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingsAssociationResult> {
 
@@ -57,7 +57,7 @@ export interface GetGuestDiagnosticsSettingsAssociationResult {
     readonly type: string;
 }
 /**
- * Virtual machine guest diagnostic settings resource.
+ * Gets guest diagnostics association settings.
  */
 export function getGuestDiagnosticsSettingsAssociationOutput(args: GetGuestDiagnosticsSettingsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingsAssociationResult> {
     return pulumi.output(args).apply((a: any) => getGuestDiagnosticsSettingsAssociation(a, opts))

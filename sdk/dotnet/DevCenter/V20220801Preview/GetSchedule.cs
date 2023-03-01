@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DevCenter.V20220801Preview
     public static class GetSchedule
     {
         /// <summary>
-        /// Represents a Schedule to execute a task.
+        /// Gets a schedule resource.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:devcenter/v20220801preview:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Schedule to execute a task.
+        /// Gets a schedule resource.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:devcenter/v20220801preview:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());

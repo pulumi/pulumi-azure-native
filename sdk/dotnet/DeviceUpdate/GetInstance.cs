@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DeviceUpdate
     public static class GetInstance
     {
         /// <summary>
-        /// Device Update instance details.
+        /// Returns instance details for the given instance and account name.
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:deviceupdate:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Device Update instance details.
+        /// Returns instance details for the given instance and account name.
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)

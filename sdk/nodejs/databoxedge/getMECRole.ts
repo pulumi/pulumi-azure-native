@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * MEC role.
+ * Gets a specific role by name.
  * API Version: 2020-12-01.
  */
 export function getMECRole(args: GetMECRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetMECRoleResult> {
@@ -71,7 +71,7 @@ export interface GetMECRoleResult {
     readonly type: string;
 }
 /**
- * MEC role.
+ * Gets a specific role by name.
  * API Version: 2020-12-01.
  */
 export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMECRoleResult> {

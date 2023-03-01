@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Namespace/ServiceBus Connection String
+ * Gets the primary and secondary connection strings for the namespace.
  * API Version: 2017-04-01.
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
@@ -67,7 +67,7 @@ export interface ListNamespaceKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Namespace/ServiceBus Connection String
+ * Gets the primary and secondary connection strings for the namespace.
  * API Version: 2017-04-01.
  */
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {

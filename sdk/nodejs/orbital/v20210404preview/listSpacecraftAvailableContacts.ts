@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Response for the ListAvailableContacts API service call.
+ * Return list of available contacts
  */
 export function listSpacecraftAvailableContacts(args: ListSpacecraftAvailableContactsArgs, opts?: pulumi.InvokeOptions): Promise<ListSpacecraftAvailableContactsResult> {
 
@@ -64,7 +64,7 @@ export interface ListSpacecraftAvailableContactsResult {
     readonly value?: outputs.orbital.v20210404preview.AvailableContactsResponse[];
 }
 /**
- * Response for the ListAvailableContacts API service call.
+ * Return list of available contacts
  */
 export function listSpacecraftAvailableContactsOutput(args: ListSpacecraftAvailableContactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpacecraftAvailableContactsResult> {
     return pulumi.output(args).apply((a: any) => listSpacecraftAvailableContacts(a, opts))

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CustomerInsights
     public static class GetConnectorMapping
     {
         /// <summary>
-        /// The connector mapping resource format.
+        /// Gets a connector mapping in the connector.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetConnectorMappingResult> InvokeAsync(GetConnectorMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-native:customerinsights:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The connector mapping resource format.
+        /// Gets a connector mapping in the connector.
         /// API Version: 2017-04-26.
         /// </summary>
         public static Output<GetConnectorMappingResult> Invoke(GetConnectorMappingInvokeArgs args, InvokeOptions? options = null)

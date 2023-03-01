@@ -157,7 +157,7 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorTestResult:
     """
-    The Connection Monitor Test class.
+    Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
     API Version: 2021-06-01.
 
 
@@ -191,7 +191,7 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionMonitorTestResult]:
     """
-    The Connection Monitor Test class.
+    Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
     API Version: 2021-06-01.
 
 

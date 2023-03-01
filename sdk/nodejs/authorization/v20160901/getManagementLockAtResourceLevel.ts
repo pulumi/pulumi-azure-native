@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The lock information.
+ * Get the management lock of a resource or any level below resource.
  */
 /** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
@@ -82,7 +82,7 @@ export interface GetManagementLockAtResourceLevelResult {
     readonly type: string;
 }
 /**
- * The lock information.
+ * Get the management lock of a resource or any level below resource.
  */
 /** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
 export function getManagementLockAtResourceLevelOutput(args: GetManagementLockAtResourceLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceLevelResult> {

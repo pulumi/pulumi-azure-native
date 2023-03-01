@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The VmmServers resource definition.
+ * Implements VMMServer GET method.
  */
 export function getVmmServer(args: GetVmmServerArgs, opts?: pulumi.InvokeOptions): Promise<GetVmmServerResult> {
 
@@ -96,7 +96,7 @@ export interface GetVmmServerResult {
     readonly version: string;
 }
 /**
- * The VmmServers resource definition.
+ * Implements VMMServer GET method.
  */
 export function getVmmServerOutput(args: GetVmmServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmmServerResult> {
     return pulumi.output(args).apply((a: any) => getVmmServer(a, opts))

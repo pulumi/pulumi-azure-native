@@ -110,7 +110,7 @@ def get_gallery(dev_center_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
-    Represents a gallery.
+    Gets a gallery
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -139,7 +139,7 @@ def get_gallery_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryResult]:
     """
-    Represents a gallery.
+    Gets a gallery
 
 
     :param str dev_center_name: The name of the devcenter.

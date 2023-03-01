@@ -148,7 +148,7 @@ def get_route_table(expand: Optional[str] = None,
                     route_table_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableResult:
     """
-    RouteTable resource
+    The Get RouteTables operation retrieves information about the specified route table.
 
 
     :param str expand: expand references resources.
@@ -181,7 +181,7 @@ def get_route_table_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            route_table_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
     """
-    RouteTable resource
+    The Get RouteTables operation retrieves information about the specified route table.
 
 
     :param str expand: expand references resources.

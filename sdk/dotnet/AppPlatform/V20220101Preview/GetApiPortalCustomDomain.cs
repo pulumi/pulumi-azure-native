@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     public static class GetApiPortalCustomDomain
     {
         /// <summary>
-        /// Custom domain of the API portal
+        /// Get the API portal custom domain.
         /// </summary>
         public static Task<GetApiPortalCustomDomainResult> InvokeAsync(GetApiPortalCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiPortalCustomDomainResult>("azure-native:appplatform/v20220101preview:getApiPortalCustomDomain", args ?? new GetApiPortalCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Custom domain of the API portal
+        /// Get the API portal custom domain.
         /// </summary>
         public static Output<GetApiPortalCustomDomainResult> Invoke(GetApiPortalCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalCustomDomainResult>("azure-native:appplatform/v20220101preview:getApiPortalCustomDomain", args ?? new GetApiPortalCustomDomainInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The File Share.
+ * Returns the properties of the specified file share name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
@@ -94,7 +94,7 @@ export interface GetFileShareResult {
     readonly usedCapacityInBytes: number;
 }
 /**
- * The File Share.
+ * Returns the properties of the specified file share name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {

@@ -61,7 +61,7 @@ def list_iot_dps_resource_keys(provisioning_service_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotDpsResourceKeysResult:
     """
-    List of shared access keys.
+    List the primary and secondary keys for a provisioning service.
     API Version: 2020-03-01.
 
 
@@ -84,7 +84,7 @@ def list_iot_dps_resource_keys_output(provisioning_service_name: Optional[pulumi
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotDpsResourceKeysResult]:
     """
-    List of shared access keys.
+    List the primary and secondary keys for a provisioning service.
     API Version: 2020-03-01.
 
 

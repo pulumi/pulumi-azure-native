@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public static class GetVirtualMachineSchedule
     {
         /// <summary>
-        /// A schedule.
+        /// Get schedule.
         /// </summary>
         public static Task<GetVirtualMachineScheduleResult> InvokeAsync(GetVirtualMachineScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScheduleResult>("azure-native:devtestlab/v20160515:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A schedule.
+        /// Get schedule.
         /// </summary>
         public static Output<GetVirtualMachineScheduleResult> Invoke(GetVirtualMachineScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScheduleResult>("azure-native:devtestlab/v20160515:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleInvokeArgs(), options.WithDefaults());

@@ -121,7 +121,7 @@ def get_data_source(data_source_name: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSourceResult:
     """
-    Datasources under OMS Workspace.
+    Gets a datasource instance.
 
 
     :param str data_source_name: Name of the datasource
@@ -151,7 +151,7 @@ def get_data_source_output(data_source_name: Optional[pulumi.Input[str]] = None,
                            workspace_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
     """
-    Datasources under OMS Workspace.
+    Gets a datasource instance.
 
 
     :param str data_source_name: Name of the datasource

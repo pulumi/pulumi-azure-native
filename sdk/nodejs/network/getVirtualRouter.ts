@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * VirtualRouter Resource.
+ * Gets the specified Virtual Router.
  * API Version: 2022-01-01.
  */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
@@ -90,7 +90,7 @@ export interface GetVirtualRouterResult {
     readonly virtualRouterIps?: string[];
 }
 /**
- * VirtualRouter Resource.
+ * Gets the specified Virtual Router.
  * API Version: 2022-01-01.
  */
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {

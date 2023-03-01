@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure Cosmos DB Gremlin graph.
+ * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
  * API Version: 2021-03-15.
  */
 export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinGraphResult> {
@@ -69,7 +69,7 @@ export interface GetGremlinResourceGremlinGraphResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Gremlin graph.
+ * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
  * API Version: 2021-03-15.
  */
 export function getGremlinResourceGremlinGraphOutput(args: GetGremlinResourceGremlinGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinGraphResult> {

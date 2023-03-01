@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
     public static class GetTopic
     {
         /// <summary>
-        /// Description of topic resource.
+        /// Returns a description for the specified topic.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:servicebus/v20170401:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of topic resource.
+        /// Returns a description for the specified topic.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus/v20170401:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());

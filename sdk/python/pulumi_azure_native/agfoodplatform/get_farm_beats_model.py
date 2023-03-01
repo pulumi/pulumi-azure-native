@@ -145,7 +145,7 @@ def get_farm_beats_model(farm_beats_resource_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFarmBeatsModelResult:
     """
-    FarmBeats ARM Resource.
+    Get FarmBeats resource.
     API Version: 2020-05-12-preview.
 
 
@@ -175,7 +175,7 @@ def get_farm_beats_model_output(farm_beats_resource_name: Optional[pulumi.Input[
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFarmBeatsModelResult]:
     """
-    FarmBeats ARM Resource.
+    Get FarmBeats resource.
     API Version: 2020-05-12-preview.
 
 

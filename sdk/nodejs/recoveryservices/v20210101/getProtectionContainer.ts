@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ * Gets details of the specific container registered to your Recovery Services Vault.
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
 
@@ -74,7 +74,7 @@ export interface GetProtectionContainerResult {
     readonly type: string;
 }
 /**
- * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ * Gets details of the specific container registered to your Recovery Services Vault.
  */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
     return pulumi.output(args).apply((a: any) => getProtectionContainer(a, opts))

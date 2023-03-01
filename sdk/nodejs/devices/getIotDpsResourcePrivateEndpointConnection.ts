@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The private endpoint connection of a provisioning service
+ * Get private endpoint connection properties
  * API Version: 2020-03-01.
  */
 export function getIotDpsResourcePrivateEndpointConnection(args: GetIotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourcePrivateEndpointConnectionResult> {
@@ -58,7 +58,7 @@ export interface GetIotDpsResourcePrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * The private endpoint connection of a provisioning service
+ * Get private endpoint connection properties
  * API Version: 2020-03-01.
  */
 export function getIotDpsResourcePrivateEndpointConnectionOutput(args: GetIotDpsResourcePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourcePrivateEndpointConnectionResult> {

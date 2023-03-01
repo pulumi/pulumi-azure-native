@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20180301
     public static class GetMetricAlert
     {
         /// <summary>
-        /// The metric alert resource.
+        /// Retrieve an alert rule definition.
         /// </summary>
         public static Task<GetMetricAlertResult> InvokeAsync(GetMetricAlertArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-native:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The metric alert resource.
+        /// Retrieve an alert rule definition.
         /// </summary>
         public static Output<GetMetricAlertResult> Invoke(GetMetricAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricAlertResult>("azure-native:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertInvokeArgs(), options.WithDefaults());

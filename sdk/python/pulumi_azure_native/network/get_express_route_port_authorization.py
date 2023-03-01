@@ -133,7 +133,7 @@ def get_express_route_port_authorization(authorization_name: Optional[str] = Non
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRoutePortAuthorizationResult:
     """
-    ExpressRoutePort Authorization resource definition.
+    Gets the specified authorization from the specified express route port.
     API Version: 2022-01-01.
 
 
@@ -165,7 +165,7 @@ def get_express_route_port_authorization_output(authorization_name: Optional[pul
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRoutePortAuthorizationResult]:
     """
-    ExpressRoutePort Authorization resource definition.
+    Gets the specified authorization from the specified express route port.
     API Version: 2022-01-01.
 
 

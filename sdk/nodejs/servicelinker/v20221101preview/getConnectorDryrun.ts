@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * a dryrun job resource
+ * get a dryrun job
  */
 export function getConnectorDryrun(args: GetConnectorDryrunArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorDryrunResult> {
 
@@ -78,7 +78,7 @@ export interface GetConnectorDryrunResult {
     readonly type: string;
 }
 /**
- * a dryrun job resource
+ * get a dryrun job
  */
 export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorDryrunResult> {
     return pulumi.output(args).apply((a: any) => getConnectorDryrun(a, opts))

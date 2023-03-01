@@ -101,7 +101,7 @@ def get_data_set(account_name: Optional[str] = None,
                  share_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetResult:
     """
-    A DataSet data transfer object.
+    Get a DataSet in a share
     API Version: 2020-09-01.
 
 
@@ -134,7 +134,7 @@ def get_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
                         share_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
     """
-    A DataSet data transfer object.
+    Get a DataSet in a share
     API Version: 2020-09-01.
 
 

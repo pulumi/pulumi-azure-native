@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120
     public static class GetGuestConfigurationAssignment
     {
         /// <summary>
-        /// Guest configuration assignment is an association between a machine and guest configuration.
+        /// Get information about a guest configuration assignment
         /// </summary>
         public static Task<GetGuestConfigurationAssignmentResult> InvokeAsync(GetGuestConfigurationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/v20181120:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Guest configuration assignment is an association between a machine and guest configuration.
+        /// Get information about a guest configuration assignment
         /// </summary>
         public static Output<GetGuestConfigurationAssignmentResult> Invoke(GetGuestConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/v20181120:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentInvokeArgs(), options.WithDefaults());

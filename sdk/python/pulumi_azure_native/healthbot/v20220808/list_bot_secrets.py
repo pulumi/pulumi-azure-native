@@ -49,7 +49,7 @@ def list_bot_secrets(bot_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotSecretsResult:
     """
-    Health Bot Keys Response.
+    List all secrets of a HealthBot.
 
 
     :param str bot_name: The name of the Bot resource.
@@ -70,7 +70,7 @@ def list_bot_secrets_output(bot_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBotSecretsResult]:
     """
-    Health Bot Keys Response.
+    List all secrets of a HealthBot.
 
 
     :param str bot_name: The name of the Bot resource.

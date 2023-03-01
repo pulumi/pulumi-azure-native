@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class GetKustoDatabaseDataSet
     {
         /// <summary>
-        /// A kusto database data set.
+        /// Get a DataSet in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetKustoDatabaseDataSetResult> InvokeAsync(GetKustoDatabaseDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoDatabaseDataSetResult>("azure-native:datashare:getKustoDatabaseDataSet", args ?? new GetKustoDatabaseDataSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A kusto database data set.
+        /// Get a DataSet in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetKustoDatabaseDataSetResult> Invoke(GetKustoDatabaseDataSetInvokeArgs args, InvokeOptions? options = null)

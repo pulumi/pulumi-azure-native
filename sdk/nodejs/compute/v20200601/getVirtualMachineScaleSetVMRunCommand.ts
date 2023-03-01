@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a Virtual Machine run command.
+ * The operation to get the VMSS VM run command.
  */
 /** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMRunCommandResult> {
@@ -117,7 +117,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
     readonly type: string;
 }
 /**
- * Describes a Virtual Machine run command.
+ * The operation to get the VMSS VM run command.
  */
 /** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSetVMRunCommandOutput(args: GetVirtualMachineScaleSetVMRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMRunCommandResult> {

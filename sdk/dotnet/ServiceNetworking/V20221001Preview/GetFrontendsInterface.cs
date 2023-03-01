@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20221001Preview
     public static class GetFrontendsInterface
     {
         /// <summary>
-        /// Frontend Subresource of Traffic Controller.
+        /// Get a Traffic Controller Frontend
         /// </summary>
         public static Task<GetFrontendsInterfaceResult> InvokeAsync(GetFrontendsInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontendsInterfaceResult>("azure-native:servicenetworking/v20221001preview:getFrontendsInterface", args ?? new GetFrontendsInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Frontend Subresource of Traffic Controller.
+        /// Get a Traffic Controller Frontend
         /// </summary>
         public static Output<GetFrontendsInterfaceResult> Invoke(GetFrontendsInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontendsInterfaceResult>("azure-native:servicenetworking/v20221001preview:getFrontendsInterface", args ?? new GetFrontendsInterfaceInvokeArgs(), options.WithDefaults());

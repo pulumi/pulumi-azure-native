@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A workspace
+ * Gets a workspace
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -126,7 +126,7 @@ export interface GetWorkspaceResult {
     readonly workspaceUID: string;
 }
 /**
- * A workspace
+ * Gets a workspace
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents a pipeline run for a container registry.
+ * Gets the detailed information for a given pipeline run.
  */
 export function getPipelineRun(args: GetPipelineRunArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineRunResult> {
 
@@ -73,7 +73,7 @@ export interface GetPipelineRunResult {
     readonly type: string;
 }
 /**
- * An object that represents a pipeline run for a container registry.
+ * Gets the detailed information for a given pipeline run.
  */
 export function getPipelineRunOutput(args: GetPipelineRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineRunResult> {
     return pulumi.output(args).apply((a: any) => getPipelineRun(a, opts))

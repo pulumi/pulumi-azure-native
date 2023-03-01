@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.WebPubSub
     public static class GetWebPubSub
     {
         /// <summary>
-        /// A class represent a resource.
+        /// Get the resource and its properties.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetWebPubSubResult> InvokeAsync(GetWebPubSubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A class represent a resource.
+        /// Get the resource and its properties.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetWebPubSubResult> Invoke(GetWebPubSubInvokeArgs args, InvokeOptions? options = null)

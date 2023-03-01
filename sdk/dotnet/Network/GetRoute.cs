@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetRoute
     {
         /// <summary>
-        /// Route resource.
+        /// Gets the specified route from a route table.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Route resource.
+        /// Gets the specified route from a route table.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)

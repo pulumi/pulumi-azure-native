@@ -194,7 +194,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
                         snapshot_policy_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotPolicyResult:
     """
-    Snapshot policy information
+    Get a snapshot Policy
 
 
     :param str account_name: The name of the NetApp account
@@ -230,7 +230,7 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                snapshot_policy_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotPolicyResult]:
     """
-    Snapshot policy information
+    Get a snapshot Policy
 
 
     :param str account_name: The name of the NetApp account

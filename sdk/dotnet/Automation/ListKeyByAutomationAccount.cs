@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automation
     public static class ListKeyByAutomationAccount
     {
         /// <summary>
-        /// 
+        /// Retrieve the automation keys for an account.
         /// API Version: 2021-06-22.
         /// </summary>
         public static Task<ListKeyByAutomationAccountResult> InvokeAsync(ListKeyByAutomationAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azure-native:automation:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Retrieve the automation keys for an account.
         /// API Version: 2021-06-22.
         /// </summary>
         public static Output<ListKeyByAutomationAccountResult> Invoke(ListKeyByAutomationAccountInvokeArgs args, InvokeOptions? options = null)

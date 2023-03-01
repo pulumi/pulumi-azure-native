@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Management lock information.
+ * Gets the management lock of a scope.
  */
 /** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
 export function getManagementLock(args: GetManagementLockArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockResult> {
@@ -50,7 +50,7 @@ export interface GetManagementLockResult {
     readonly type: string;
 }
 /**
- * Management lock information.
+ * Gets the management lock of a scope.
  */
 /** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
 export function getManagementLockOutput(args: GetManagementLockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockResult> {

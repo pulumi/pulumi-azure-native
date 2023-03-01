@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class GetInvitation
     {
         /// <summary>
-        /// A Invitation data transfer object.
+        /// Get an invitation in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetInvitationResult> InvokeAsync(GetInvitationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-native:datashare:getInvitation", args ?? new GetInvitationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Invitation data transfer object.
+        /// Get an invitation in a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetInvitationResult> Invoke(GetInvitationInvokeArgs args, InvokeOptions? options = null)

@@ -168,7 +168,7 @@ def get_service(device_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    The description of the Windows IoT Device Service.
+    Get the non-security related metadata of a Windows IoT Device Service.
 
 
     :param str device_name: The name of the Windows IoT Device Service.
@@ -199,7 +199,7 @@ def get_service_output(device_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    The description of the Windows IoT Device Service.
+    Get the non-security related metadata of a Windows IoT Device Service.
 
 
     :param str device_name: The name of the Windows IoT Device Service.

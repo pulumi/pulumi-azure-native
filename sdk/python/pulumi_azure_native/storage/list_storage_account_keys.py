@@ -50,7 +50,7 @@ def list_storage_account_keys(account_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountKeysResult:
     """
-    The response from the ListKeys operation.
+    Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
     API Version: 2021-02-01.
 
 
@@ -75,7 +75,7 @@ def list_storage_account_keys_output(account_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountKeysResult]:
     """
-    The response from the ListKeys operation.
+    Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
     API Version: 2021-02-01.
 
 

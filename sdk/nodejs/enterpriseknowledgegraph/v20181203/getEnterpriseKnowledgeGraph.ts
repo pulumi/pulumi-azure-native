@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * EnterpriseKnowledgeGraph resource definition
+ * Returns a EnterpriseKnowledgeGraph service specified by the parameters.
  */
 export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseKnowledgeGraphResult> {
 
@@ -64,7 +64,7 @@ export interface GetEnterpriseKnowledgeGraphResult {
     readonly type: string;
 }
 /**
- * EnterpriseKnowledgeGraph resource definition
+ * Returns a EnterpriseKnowledgeGraph service specified by the parameters.
  */
 export function getEnterpriseKnowledgeGraphOutput(args: GetEnterpriseKnowledgeGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseKnowledgeGraphResult> {
     return pulumi.output(args).apply((a: any) => getEnterpriseKnowledgeGraph(a, opts))

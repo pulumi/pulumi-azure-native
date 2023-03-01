@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A SqlManagedInstance.
+ * Retrieves a SQL Managed Instance resource
  */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
 
@@ -72,7 +72,7 @@ export interface GetSqlManagedInstanceResult {
     readonly type: string;
 }
 /**
- * A SqlManagedInstance.
+ * Retrieves a SQL Managed Instance resource
  */
 export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSqlManagedInstance(a, opts))

@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes the result of the request to view entities.
+ * List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
+ *
  * API Version: 2020-05-01.
  */
 export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
@@ -86,7 +87,8 @@ export interface GetEntityResult {
     readonly value?: outputs.management.EntityInfoResponse[];
 }
 /**
- * Describes the result of the request to view entities.
+ * List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
+ *
  * API Version: 2020-05-01.
  */
 export function getEntityOutput(args?: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {

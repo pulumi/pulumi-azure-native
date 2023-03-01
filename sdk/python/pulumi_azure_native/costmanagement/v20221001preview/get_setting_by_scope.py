@@ -98,7 +98,7 @@ def get_setting_by_scope(scope: Optional[str] = None,
                          type: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSettingByScopeResult:
     """
-    Setting definition.
+    Get the setting from the given scope by name.
 
 
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
@@ -124,7 +124,7 @@ def get_setting_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
                                 type: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSettingByScopeResult]:
     """
-    Setting definition.
+    Get the setting from the given scope by name.
 
 
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.

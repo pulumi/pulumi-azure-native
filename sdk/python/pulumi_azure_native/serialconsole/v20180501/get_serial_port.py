@@ -87,7 +87,7 @@ def get_serial_port(parent_resource: Optional[str] = None,
                     serial_port: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialPortResult:
     """
-    Represents the serial port of the parent resource.
+    Gets the configured settings for a serial port
 
 
     :param str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
@@ -120,7 +120,7 @@ def get_serial_port_output(parent_resource: Optional[pulumi.Input[str]] = None,
                            serial_port: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSerialPortResult]:
     """
-    Represents the serial port of the parent resource.
+    Gets the configured settings for a serial port
 
 
     :param str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.

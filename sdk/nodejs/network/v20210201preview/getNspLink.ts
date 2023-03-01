@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The network security perimeter link resource
+ * Gets the specified NSP link resource.
  */
 export function getNspLink(args: GetNspLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetNspLinkResult> {
 
@@ -94,7 +94,7 @@ export interface GetNspLinkResult {
     readonly type: string;
 }
 /**
- * The network security perimeter link resource
+ * Gets the specified NSP link resource.
  */
 export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspLinkResult> {
     return pulumi.output(args).apply((a: any) => getNspLink(a, opts))

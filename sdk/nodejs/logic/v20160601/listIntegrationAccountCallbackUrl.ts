@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The callback url.
+ * Gets the integration account callback URL.
  */
 export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountCallbackUrlResult> {
 
@@ -50,7 +50,7 @@ export interface ListIntegrationAccountCallbackUrlResult {
     readonly value?: string;
 }
 /**
- * The callback url.
+ * Gets the integration account callback URL.
  */
 export function listIntegrationAccountCallbackUrlOutput(args: ListIntegrationAccountCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listIntegrationAccountCallbackUrl(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Gets an AuthorizationRule for an Event Hub by rule name.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
@@ -65,7 +65,7 @@ export interface GetEventHubAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Gets an AuthorizationRule for an Event Hub by rule name.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {

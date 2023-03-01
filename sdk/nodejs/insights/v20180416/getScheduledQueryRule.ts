@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Log Search Rule resource.
+ * Gets an Log Search rule
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
 
@@ -108,7 +108,7 @@ export interface GetScheduledQueryRuleResult {
     readonly type: string;
 }
 /**
- * The Log Search Rule resource.
+ * Gets an Log Search rule
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledQueryRule(a, opts))

@@ -208,7 +208,7 @@ def get_relationship_link(hub_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRelationshipLinkResult:
     """
-    The relationship link resource format.
+    Gets information about the specified relationship Link.
 
 
     :param str hub_name: The name of the hub.
@@ -246,7 +246,7 @@ def get_relationship_link_output(hub_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRelationshipLinkResult]:
     """
-    The relationship link resource format.
+    Gets information about the specified relationship Link.
 
 
     :param str hub_name: The name of the hub.

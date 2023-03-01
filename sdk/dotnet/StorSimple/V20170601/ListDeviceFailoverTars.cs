@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public static class ListDeviceFailoverTars
     {
         /// <summary>
-        /// The list of all devices in a resource and their eligibility status as a failover target device.
+        /// Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
         /// </summary>
         public static Task<ListDeviceFailoverTarsResult> InvokeAsync(ListDeviceFailoverTarsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverTarsResult>("azure-native:storsimple/v20170601:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of all devices in a resource and their eligibility status as a failover target device.
+        /// Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
         /// </summary>
         public static Output<ListDeviceFailoverTarsResult> Invoke(ListDeviceFailoverTarsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeviceFailoverTarsResult>("azure-native:storsimple/v20170601:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsInvokeArgs(), options.WithDefaults());

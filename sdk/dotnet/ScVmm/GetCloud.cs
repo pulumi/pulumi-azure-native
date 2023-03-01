@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ScVmm
     public static class GetCloud
     {
         /// <summary>
-        /// The Clouds resource definition.
+        /// Implements Cloud GET method.
         /// API Version: 2020-06-05-preview.
         /// </summary>
         public static Task<GetCloudResult> InvokeAsync(GetCloudArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudResult>("azure-native:scvmm:getCloud", args ?? new GetCloudArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Clouds resource definition.
+        /// Implements Cloud GET method.
         /// API Version: 2020-06-05-preview.
         /// </summary>
         public static Output<GetCloudResult> Invoke(GetCloudInvokeArgs args, InvokeOptions? options = null)

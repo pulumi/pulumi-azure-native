@@ -231,7 +231,7 @@ def get_disk(expand: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
-    A Disk.
+    Get disk.
     API Version: 2018-09-15.
 
 
@@ -277,7 +277,7 @@ def get_disk_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
     """
-    A Disk.
+    Get disk.
     API Version: 2018-09-15.
 
 

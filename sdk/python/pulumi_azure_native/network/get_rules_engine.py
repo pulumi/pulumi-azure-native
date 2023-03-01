@@ -98,7 +98,7 @@ def get_rules_engine(front_door_name: Optional[str] = None,
                      rules_engine_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesEngineResult:
     """
-    A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+    Gets a Rules Engine Configuration with the specified name within the specified Front Door.
     API Version: 2020-05-01.
 
 
@@ -127,7 +127,7 @@ def get_rules_engine_output(front_door_name: Optional[pulumi.Input[str]] = None,
                             rules_engine_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesEngineResult]:
     """
-    A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+    Gets a Rules Engine Configuration with the specified name within the specified Front Door.
     API Version: 2020-05-01.
 
 

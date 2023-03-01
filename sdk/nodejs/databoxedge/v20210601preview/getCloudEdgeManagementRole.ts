@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * CloudEdgeManagementRole role.
+ * Gets a specific role by name.
  */
 export function getCloudEdgeManagementRole(args: GetCloudEdgeManagementRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEdgeManagementRoleResult> {
 
@@ -74,7 +74,7 @@ export interface GetCloudEdgeManagementRoleResult {
     readonly type: string;
 }
 /**
- * CloudEdgeManagementRole role.
+ * Gets a specific role by name.
  */
 export function getCloudEdgeManagementRoleOutput(args: GetCloudEdgeManagementRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEdgeManagementRoleResult> {
     return pulumi.output(args).apply((a: any) => getCloudEdgeManagementRole(a, opts))

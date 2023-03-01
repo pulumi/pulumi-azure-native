@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200601
     public static class GetPrivateZone
     {
         /// <summary>
-        /// Describes a Private DNS zone.
+        /// Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
         /// </summary>
         public static Task<GetPrivateZoneResult> InvokeAsync(GetPrivateZoneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-native:network/v20200601:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Private DNS zone.
+        /// Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
         /// </summary>
         public static Output<GetPrivateZoneResult> Invoke(GetPrivateZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateZoneResult>("azure-native:network/v20200601:getPrivateZone", args ?? new GetPrivateZoneInvokeArgs(), options.WithDefaults());

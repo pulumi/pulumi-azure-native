@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Cdn
     public static class GetSecret
     {
         /// <summary>
-        /// Friendly Secret name mapping to the any Secret or secret related information.
+        /// Gets an existing Secret within a profile.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Friendly Secret name mapping to the any Secret or secret related information.
+        /// Gets an existing Secret within a profile.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)

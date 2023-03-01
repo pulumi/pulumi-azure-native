@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure Traffic Collector resource.
+ * Gets the specified Azure Traffic Collector in a specified resource group
  * API Version: 2022-05-01.
  */
 export function getAzureTrafficCollector(args: GetAzureTrafficCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureTrafficCollectorResult> {
@@ -77,7 +77,7 @@ export interface GetAzureTrafficCollectorResult {
     readonly virtualHub?: outputs.networkfunction.ResourceReferenceResponse;
 }
 /**
- * Azure Traffic Collector resource.
+ * Gets the specified Azure Traffic Collector in a specified resource group
  * API Version: 2022-05-01.
  */
 export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureTrafficCollectorResult> {

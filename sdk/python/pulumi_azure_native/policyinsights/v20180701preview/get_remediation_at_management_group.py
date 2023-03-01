@@ -160,7 +160,7 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
                                         remediation_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtManagementGroupResult:
     """
-    The remediation definition.
+    Gets an existing remediation at management group scope.
 
 
     :param str management_group_id: Management group ID.
@@ -194,7 +194,7 @@ def get_remediation_at_management_group_output(management_group_id: Optional[pul
                                                remediation_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtManagementGroupResult]:
     """
-    The remediation definition.
+    Gets an existing remediation at management group scope.
 
 
     :param str management_group_id: Management group ID.

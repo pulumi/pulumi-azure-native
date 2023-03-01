@@ -192,7 +192,7 @@ def get_private_zone(private_zone_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateZoneResult:
     """
-    Describes a Private DNS zone.
+    Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
@@ -225,7 +225,7 @@ def get_private_zone_output(private_zone_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateZoneResult]:
     """
-    Describes a Private DNS zone.
+    Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).

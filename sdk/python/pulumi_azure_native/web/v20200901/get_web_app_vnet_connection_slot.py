@@ -184,7 +184,7 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
                                      vnet_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionSlotResult:
     """
-    Virtual Network information contract.
+    Gets a virtual network the app (or deployment slot) is connected to by name.
 
 
     :param str name: Name of the app.
@@ -222,7 +222,7 @@ def get_web_app_vnet_connection_slot_output(name: Optional[pulumi.Input[str]] = 
                                             vnet_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppVnetConnectionSlotResult]:
     """
-    Virtual Network information contract.
+    Gets a virtual network the app (or deployment slot) is connected to by name.
 
 
     :param str name: Name of the app.

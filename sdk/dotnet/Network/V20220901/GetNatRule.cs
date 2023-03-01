@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220901
     public static class GetNatRule
     {
         /// <summary>
-        /// VpnGatewayNatRule Resource.
+        /// Retrieves the details of a nat ruleGet.
         /// </summary>
         public static Task<GetNatRuleResult> InvokeAsync(GetNatRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatRuleResult>("azure-native:network/v20220901:getNatRule", args ?? new GetNatRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// VpnGatewayNatRule Resource.
+        /// Retrieves the details of a nat ruleGet.
         /// </summary>
         public static Output<GetNatRuleResult> Invoke(GetNatRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatRuleResult>("azure-native:network/v20220901:getNatRule", args ?? new GetNatRuleInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20220301
     public static class GetWebAppHybridConnectionSlot
     {
         /// <summary>
-        /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+        /// Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
         /// </summary>
         public static Task<GetWebAppHybridConnectionSlotResult> InvokeAsync(GetWebAppHybridConnectionSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionSlotResult>("azure-native:web/v20220301:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+        /// Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
         /// </summary>
         public static Output<GetWebAppHybridConnectionSlotResult> Invoke(GetWebAppHybridConnectionSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionSlotResult>("azure-native:web/v20220301:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotInvokeArgs(), options.WithDefaults());

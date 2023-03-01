@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
     public static class GetAppliance
     {
         /// <summary>
-        /// Information about appliance.
+        /// Gets the appliance.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:solutions/v20160901preview:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Information about appliance.
+        /// Gets the appliance.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:solutions/v20160901preview:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());

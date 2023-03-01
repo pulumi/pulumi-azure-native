@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     public static class ListTenantAccessSecrets
     {
         /// <summary>
-        /// Tenant access information contract of the API Management service.
+        /// Get tenant access information details.
         /// </summary>
         public static Task<ListTenantAccessSecretsResult> InvokeAsync(ListTenantAccessSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessSecretsResult>("azure-native:apimanagement/v20210801:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Tenant access information contract of the API Management service.
+        /// Get tenant access information details.
         /// </summary>
         public static Output<ListTenantAccessSecretsResult> Invoke(ListTenantAccessSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTenantAccessSecretsResult>("azure-native:apimanagement/v20210801:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsInvokeArgs(), options.WithDefaults());

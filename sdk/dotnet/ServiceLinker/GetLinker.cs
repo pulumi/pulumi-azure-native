@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceLinker
     public static class GetLinker
     {
         /// <summary>
-        /// Linker of source and target resource
+        /// Returns Linker resource for a given name.
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetLinkerResult> InvokeAsync(GetLinkerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Linker of source and target resource
+        /// Returns Linker resource for a given name.
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOptions? options = null)

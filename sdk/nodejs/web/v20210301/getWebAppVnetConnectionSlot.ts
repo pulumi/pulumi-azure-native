@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Virtual Network information ARM resource.
+ * Gets a virtual network the app (or deployment slot) is connected to by name.
  */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
 
@@ -91,7 +91,7 @@ export interface GetWebAppVnetConnectionSlotResult {
     readonly vnetResourceId?: string;
 }
 /**
- * Virtual Network information ARM resource.
+ * Gets a virtual network the app (or deployment slot) is connected to by name.
  */
 export function getWebAppVnetConnectionSlotOutput(args: GetWebAppVnetConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppVnetConnectionSlot(a, opts))

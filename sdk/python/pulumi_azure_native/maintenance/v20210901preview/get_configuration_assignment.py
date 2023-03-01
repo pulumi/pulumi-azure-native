@@ -124,7 +124,7 @@ def get_configuration_assignment(configuration_assignment_name: Optional[str] = 
                                  resource_type: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentResult:
     """
-    Configuration Assignment
+    Get configuration for resource.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -160,7 +160,7 @@ def get_configuration_assignment_output(configuration_assignment_name: Optional[
                                         resource_type: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentResult]:
     """
-    Configuration Assignment
+    Get configuration for resource.
 
 
     :param str configuration_assignment_name: Configuration assignment name

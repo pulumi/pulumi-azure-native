@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevCenter
     public static class GetCatalog
     {
         /// <summary>
-        /// Represents a catalog.
+        /// Gets a catalog
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetCatalogResult> InvokeAsync(GetCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogResult>("azure-native:devcenter:getCatalog", args ?? new GetCatalogArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a catalog.
+        /// Gets a catalog
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOptions? options = null)

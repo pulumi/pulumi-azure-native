@@ -130,7 +130,7 @@ def get_cassandra_resource_cassandra_keyspace(account_name: Optional[str] = None
                                               resource_group_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraResourceCassandraKeyspaceResult:
     """
-    An Azure Cosmos DB Cassandra keyspace.
+    Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -162,7 +162,7 @@ def get_cassandra_resource_cassandra_keyspace_output(account_name: Optional[pulu
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraResourceCassandraKeyspaceResult]:
     """
-    An Azure Cosmos DB Cassandra keyspace.
+    Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
 
 
     :param str account_name: Cosmos DB database account name.

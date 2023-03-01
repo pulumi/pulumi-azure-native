@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * SSL certificate purchase order.
+ * Description for Get a certificate order.
  */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
 
@@ -140,7 +140,7 @@ export interface GetAppServiceCertificateOrderResult {
     readonly validityInYears?: number;
 }
 /**
- * SSL certificate purchase order.
+ * Description for Get a certificate order.
  */
 export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrder(a, opts))

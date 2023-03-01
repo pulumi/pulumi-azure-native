@@ -134,7 +134,7 @@ def get_machine_learning_datastore(datastore_name: Optional[str] = None,
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningDatastoreResult:
     """
-    Machine Learning datastore object wrapped into ARM resource envelope.
+    Get a Datastore by name.
     API Version: 2020-05-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_machine_learning_datastore_output(datastore_name: Optional[pulumi.Input[
                                           workspace_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineLearningDatastoreResult]:
     """
-    Machine Learning datastore object wrapped into ARM resource envelope.
+    Get a Datastore by name.
     API Version: 2020-05-01-preview.
 
 

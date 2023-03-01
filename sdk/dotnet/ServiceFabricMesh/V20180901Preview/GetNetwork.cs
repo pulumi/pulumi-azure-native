@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     public static class GetNetwork
     {
         /// <summary>
-        /// This type describes a network resource.
+        /// Gets the information about the network resource with the given name. The information include the description and other properties of the network.
         /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("azure-native:servicefabricmesh/v20180901preview:getNetwork", args ?? new GetNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This type describes a network resource.
+        /// Gets the information about the network resource with the given name. The information include the description and other properties of the network.
         /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("azure-native:servicefabricmesh/v20180901preview:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());

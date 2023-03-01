@@ -205,7 +205,7 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftClusterResult:
     """
-    OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+    The operation returns properties of a OpenShift cluster.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -239,7 +239,7 @@ def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
     """
-    OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+    The operation returns properties of a OpenShift cluster.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

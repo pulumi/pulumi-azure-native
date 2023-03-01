@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class ListIdentityProviderSecrets
     {
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the client secret details of the Identity Provider.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListIdentityProviderSecretsResult> InvokeAsync(ListIdentityProviderSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIdentityProviderSecretsResult>("azure-native:apimanagement:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the client secret details of the Identity Provider.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListIdentityProviderSecretsResult> Invoke(ListIdentityProviderSecretsInvokeArgs args, InvokeOptions? options = null)

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A ProactiveDetection configuration definition.
+ * Get the ProactiveDetection configuration for this configuration id.
  */
 export function getProactiveDetectionConfiguration(args: GetProactiveDetectionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetProactiveDetectionConfigurationResult> {
 
@@ -77,7 +77,7 @@ export interface GetProactiveDetectionConfigurationResult {
     readonly type: string;
 }
 /**
- * A ProactiveDetection configuration definition.
+ * Get the ProactiveDetection configuration for this configuration id.
  */
 export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getProactiveDetectionConfiguration(a, opts))

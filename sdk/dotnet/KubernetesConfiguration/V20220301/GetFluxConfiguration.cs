@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301
     public static class GetFluxConfiguration
     {
         /// <summary>
-        /// The Flux Configuration object returned in Get &amp; Put response.
+        /// Gets details of the Flux Configuration.
         /// </summary>
         public static Task<GetFluxConfigurationResult> InvokeAsync(GetFluxConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration/v20220301:getFluxConfiguration", args ?? new GetFluxConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Flux Configuration object returned in Get &amp; Put response.
+        /// Gets details of the Flux Configuration.
         /// </summary>
         public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration/v20220301:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());

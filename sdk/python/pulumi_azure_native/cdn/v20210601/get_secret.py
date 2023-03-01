@@ -131,7 +131,7 @@ def get_secret(profile_name: Optional[str] = None,
                secret_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Friendly Secret name mapping to the any Secret or secret related information.
+    Gets an existing Secret within a profile.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -162,7 +162,7 @@ def get_secret_output(profile_name: Optional[pulumi.Input[str]] = None,
                       secret_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
-    Friendly Secret name mapping to the any Secret or secret related information.
+    Gets an existing Secret within a profile.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.

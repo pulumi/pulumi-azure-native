@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210201
     public static class GetExpressRouteCircuit
     {
         /// <summary>
-        /// ExpressRouteCircuit resource.
+        /// Gets information about the specified express route circuit.
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-native:network/v20210201:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ExpressRouteCircuit resource.
+        /// Gets information about the specified express route circuit.
         /// </summary>
         public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure-native:network/v20210201:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());

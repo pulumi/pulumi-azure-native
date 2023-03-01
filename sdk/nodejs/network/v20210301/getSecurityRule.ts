@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network security rule.
+ * Get the specified network security rule.
  */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
 
@@ -121,7 +121,7 @@ export interface GetSecurityRuleResult {
     readonly type?: string;
 }
 /**
- * Network security rule.
+ * Get the specified network security rule.
  */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
     return pulumi.output(args).apply((a: any) => getSecurityRule(a, opts))

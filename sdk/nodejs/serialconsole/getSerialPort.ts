@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents the serial port of the parent resource.
+ * Gets the configured settings for a serial port
  * API Version: 2018-05-01.
  */
 export function getSerialPort(args: GetSerialPortArgs, opts?: pulumi.InvokeOptions): Promise<GetSerialPortResult> {
@@ -65,7 +65,7 @@ export interface GetSerialPortResult {
     readonly type: string;
 }
 /**
- * Represents the serial port of the parent resource.
+ * Gets the configured settings for a serial port
  * API Version: 2018-05-01.
  */
 export function getSerialPortOutput(args: GetSerialPortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialPortResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Managed Proxy
+ * Fetches the managed proxy details
  * API Version: 2022-05-01-preview.
  */
 export function listEndpointManagedProxyDetails(args: ListEndpointManagedProxyDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointManagedProxyDetailsResult> {
@@ -52,7 +52,7 @@ export interface ListEndpointManagedProxyDetailsResult {
     readonly proxy: string;
 }
 /**
- * Managed Proxy
+ * Fetches the managed proxy details
  * API Version: 2022-05-01-preview.
  */
 export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {

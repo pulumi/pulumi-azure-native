@@ -110,7 +110,7 @@ def get_api_portal(api_portal_name: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiPortalResult:
     """
-    API portal resource
+    Get the API portal and its properties.
     API Version: 2022-01-01-preview.
 
 
@@ -140,7 +140,7 @@ def get_api_portal_output(api_portal_name: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiPortalResult]:
     """
-    API portal resource
+    Get the API portal and its properties.
     API Version: 2022-01-01-preview.
 
 

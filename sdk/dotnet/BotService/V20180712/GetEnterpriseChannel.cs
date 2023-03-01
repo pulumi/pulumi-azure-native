@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.BotService.V20180712
     public static class GetEnterpriseChannel
     {
         /// <summary>
-        /// Enterprise Channel resource definition
+        /// Returns an Enterprise Channel specified by the parameters.
         /// </summary>
         public static Task<GetEnterpriseChannelResult> InvokeAsync(GetEnterpriseChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseChannelResult>("azure-native:botservice/v20180712:getEnterpriseChannel", args ?? new GetEnterpriseChannelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Enterprise Channel resource definition
+        /// Returns an Enterprise Channel specified by the parameters.
         /// </summary>
         public static Output<GetEnterpriseChannelResult> Invoke(GetEnterpriseChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseChannelResult>("azure-native:botservice/v20180712:getEnterpriseChannel", args ?? new GetEnterpriseChannelInvokeArgs(), options.WithDefaults());

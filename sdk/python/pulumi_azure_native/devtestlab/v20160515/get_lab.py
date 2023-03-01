@@ -221,7 +221,7 @@ def get_lab(expand: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
-    A lab.
+    Get lab.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
@@ -260,7 +260,7 @@ def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
     """
-    A lab.
+    Get lab.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'

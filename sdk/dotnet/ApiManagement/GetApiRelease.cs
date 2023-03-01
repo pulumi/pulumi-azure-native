@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiRelease
     {
         /// <summary>
-        /// ApiRelease details.
+        /// Returns the details of an API release.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiReleaseResult> InvokeAsync(GetApiReleaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-native:apimanagement:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ApiRelease details.
+        /// Returns the details of an API release.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiReleaseResult> Invoke(GetApiReleaseInvokeArgs args, InvokeOptions? options = null)

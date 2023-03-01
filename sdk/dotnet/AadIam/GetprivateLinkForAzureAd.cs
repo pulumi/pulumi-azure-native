@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AadIam
     public static class GetprivateLinkForAzureAd
     {
         /// <summary>
-        /// PrivateLink Policy configuration object.
+        /// Gets a private link policy with a given name.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetprivateLinkForAzureAdResult> InvokeAsync(GetprivateLinkForAzureAdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkForAzureAdResult>("azure-native:aadiam:getprivateLinkForAzureAd", args ?? new GetprivateLinkForAzureAdArgs(), options.WithDefaults());
 
         /// <summary>
-        /// PrivateLink Policy configuration object.
+        /// Gets a private link policy with a given name.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<GetprivateLinkForAzureAdResult> Invoke(GetprivateLinkForAzureAdInvokeArgs args, InvokeOptions? options = null)

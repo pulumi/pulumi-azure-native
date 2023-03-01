@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class GetADLSGen2FileSystemDataSetMapping
     {
         /// <summary>
-        /// An ADLS Gen2 file system data set mapping.
+        /// Get a DataSetMapping in a shareSubscription
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetADLSGen2FileSystemDataSetMappingResult> InvokeAsync(GetADLSGen2FileSystemDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FileSystemDataSetMappingResult>("azure-native:datashare:getADLSGen2FileSystemDataSetMapping", args ?? new GetADLSGen2FileSystemDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An ADLS Gen2 file system data set mapping.
+        /// Get a DataSetMapping in a shareSubscription
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetADLSGen2FileSystemDataSetMappingResult> Invoke(GetADLSGen2FileSystemDataSetMappingInvokeArgs args, InvokeOptions? options = null)

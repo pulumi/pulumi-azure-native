@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
     public static class GetRack
     {
+        /// <summary>
+        /// Get properties of the provided rack.
+        /// </summary>
         public static Task<GetRackResult> InvokeAsync(GetRackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRackResult>("azure-native:networkcloud/v20221212preview:getRack", args ?? new GetRackArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get properties of the provided rack.
+        /// </summary>
         public static Output<GetRackResult> Invoke(GetRackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRackResult>("azure-native:networkcloud/v20221212preview:getRack", args ?? new GetRackInvokeArgs(), options.WithDefaults());
     }

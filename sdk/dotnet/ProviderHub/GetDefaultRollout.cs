@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ProviderHub
     public static class GetDefaultRollout
     {
         /// <summary>
-        /// Default rollout definition.
+        /// Gets the default rollout details.
         /// API Version: 2020-11-20.
         /// </summary>
         public static Task<GetDefaultRolloutResult> InvokeAsync(GetDefaultRolloutArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Default rollout definition.
+        /// Gets the default rollout details.
         /// API Version: 2020-11-20.
         /// </summary>
         public static Output<GetDefaultRolloutResult> Invoke(GetDefaultRolloutInvokeArgs args, InvokeOptions? options = null)

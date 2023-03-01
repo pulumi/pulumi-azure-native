@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
     public static class GetApplication
     {
         /// <summary>
-        /// Schema for Application properties.
+        /// Get an application.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:desktopvirtualization/v20220210preview:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema for Application properties.
+        /// Get an application.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:desktopvirtualization/v20220210preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

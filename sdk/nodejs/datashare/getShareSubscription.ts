@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A share subscription data transfer object.
+ * Get a shareSubscription in an account
  * API Version: 2020-09-01.
  */
 export function getShareSubscription(args: GetShareSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetShareSubscriptionResult> {
@@ -118,7 +118,7 @@ export interface GetShareSubscriptionResult {
     readonly userName: string;
 }
 /**
- * A share subscription data transfer object.
+ * Get a shareSubscription in an account
  * API Version: 2020-09-01.
  */
 export function getShareSubscriptionOutput(args: GetShareSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareSubscriptionResult> {

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Relay
     public static class ListNamespaceKeys
     {
         /// <summary>
-        /// Namespace/Relay Connection String
+        /// Primary and secondary connection strings to the namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:relay:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/Relay Connection String
+        /// Primary and secondary connection strings to the namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)

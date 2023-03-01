@@ -457,7 +457,7 @@ def get_disk(disk_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
-    Disk resource.
+    Gets information about a disk.
     API Version: 2020-12-01.
 
 
@@ -513,7 +513,7 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
     """
-    Disk resource.
+    Gets information about a disk.
     API Version: 2020-12-01.
 
 

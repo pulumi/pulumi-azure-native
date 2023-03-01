@@ -49,7 +49,7 @@ def get_lab_account_regional_availability(lab_account_name: Optional[str] = None
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabAccountRegionalAvailabilityResult:
     """
-    The response model from the GetRegionalAvailability action
+    Get regional availability information for each size category configured under a lab account
     API Version: 2018-10-15.
 
 
@@ -71,7 +71,7 @@ def get_lab_account_regional_availability_output(lab_account_name: Optional[pulu
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabAccountRegionalAvailabilityResult]:
     """
-    The response model from the GetRegionalAvailability action
+    Get regional availability information for each size category configured under a lab account
     API Version: 2018-10-15.
 
 

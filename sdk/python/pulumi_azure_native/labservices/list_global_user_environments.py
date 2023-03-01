@@ -49,7 +49,7 @@ def list_global_user_environments(lab_id: Optional[str] = None,
                                   user_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGlobalUserEnvironmentsResult:
     """
-    Represents the list of environments owned by a user
+    List Environments for the user
     API Version: 2018-10-15.
 
 
@@ -71,7 +71,7 @@ def list_global_user_environments_output(lab_id: Optional[pulumi.Input[Optional[
                                          user_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalUserEnvironmentsResult]:
     """
-    Represents the list of environments owned by a user
+    List Environments for the user
     API Version: 2018-10-15.
 
 

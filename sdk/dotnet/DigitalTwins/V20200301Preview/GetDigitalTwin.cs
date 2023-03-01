@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview
     public static class GetDigitalTwin
     {
         /// <summary>
-        /// The description of the DigitalTwins service.
+        /// Get DigitalTwinsInstances resource.
         /// </summary>
         public static Task<GetDigitalTwinResult> InvokeAsync(GetDigitalTwinArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinResult>("azure-native:digitaltwins/v20200301preview:getDigitalTwin", args ?? new GetDigitalTwinArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The description of the DigitalTwins service.
+        /// Get DigitalTwinsInstances resource.
         /// </summary>
         public static Output<GetDigitalTwinResult> Invoke(GetDigitalTwinInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDigitalTwinResult>("azure-native:digitaltwins/v20200301preview:getDigitalTwin", args ?? new GetDigitalTwinInvokeArgs(), options.WithDefaults());

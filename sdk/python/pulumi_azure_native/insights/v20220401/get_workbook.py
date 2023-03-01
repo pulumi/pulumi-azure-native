@@ -266,7 +266,7 @@ def get_workbook(can_fetch_content: Optional[bool] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
-    A workbook definition.
+    Get a single workbook by its resourceName.
 
 
     :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
@@ -308,7 +308,7 @@ def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
     """
-    A workbook definition.
+    Get a single workbook by its resourceName.
 
 
     :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.

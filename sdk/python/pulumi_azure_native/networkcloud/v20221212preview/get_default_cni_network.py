@@ -285,7 +285,8 @@ def get_default_cni_network(default_cni_network_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultCniNetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided default CNI network.
+
 
     :param str default_cni_network_name: The name of the default CNI network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -325,7 +326,8 @@ def get_default_cni_network_output(default_cni_network_name: Optional[pulumi.Inp
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultCniNetworkResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided default CNI network.
+
 
     :param str default_cni_network_name: The name of the default CNI network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

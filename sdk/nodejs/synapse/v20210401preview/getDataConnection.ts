@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a data connection.
+ * Returns a data connection.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
 export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectionResult> {
@@ -77,7 +77,7 @@ export interface GetDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing a data connection.
+ * Returns a data connection.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
 export function getDataConnectionOutput(args: GetDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectionResult> {

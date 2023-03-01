@@ -192,7 +192,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerNamespaceResult:
     """
-    EventGrid Partner Namespace.
+    Get properties of a partner namespace.
     API Version: 2021-06-01-preview.
 
 
@@ -226,7 +226,7 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerNamespaceResult]:
     """
-    EventGrid Partner Namespace.
+    Get properties of a partner namespace.
     API Version: 2021-06-01-preview.
 
 

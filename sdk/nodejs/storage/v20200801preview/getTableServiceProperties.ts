@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The properties of a storage account’s Table service.
+ * Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getTableServiceProperties(args: GetTableServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetTableServicePropertiesResult> {
@@ -59,7 +59,7 @@ export interface GetTableServicePropertiesResult {
     readonly type: string;
 }
 /**
- * The properties of a storage account’s Table service.
+ * Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableServicePropertiesResult> {

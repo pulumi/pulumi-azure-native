@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AzureStack
     public static class GetRegistrationActivationKey
     {
         /// <summary>
-        /// The resource containing the Azure Stack activation key.
+        /// Returns Azure Stack Activation Key.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetRegistrationActivationKeyResult> InvokeAsync(GetRegistrationActivationKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationActivationKeyResult>("azure-native:azurestack:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The resource containing the Azure Stack activation key.
+        /// Returns Azure Stack Activation Key.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetRegistrationActivationKeyResult> Invoke(GetRegistrationActivationKeyInvokeArgs args, InvokeOptions? options = null)

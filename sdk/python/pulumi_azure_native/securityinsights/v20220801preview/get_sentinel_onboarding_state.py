@@ -110,7 +110,7 @@ def get_sentinel_onboarding_state(resource_group_name: Optional[str] = None,
                                   workspace_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSentinelOnboardingStateResult:
     """
-    Sentinel onboarding state
+    Get Sentinel onboarding state
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -139,7 +139,7 @@ def get_sentinel_onboarding_state_output(resource_group_name: Optional[pulumi.In
                                          workspace_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSentinelOnboardingStateResult]:
     """
-    Sentinel onboarding state
+    Get Sentinel onboarding state
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

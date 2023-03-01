@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An ADLS Gen2 folder data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getADLSGen2FolderDataSetMapping(args: GetADLSGen2FolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetMappingResult> {
 
@@ -92,7 +92,7 @@ export interface GetADLSGen2FolderDataSetMappingResult {
     readonly type: string;
 }
 /**
- * An ADLS Gen2 folder data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getADLSGen2FolderDataSetMappingOutput(args: GetADLSGen2FolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen2FolderDataSetMapping(a, opts))

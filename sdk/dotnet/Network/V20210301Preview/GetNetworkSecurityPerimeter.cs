@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210301Preview
     public static class GetNetworkSecurityPerimeter
     {
         /// <summary>
-        /// The Network Security Perimeter resource
+        /// Gets the specified network security perimeter by the name.
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterResult> InvokeAsync(GetNetworkSecurityPerimeterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterResult>("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Network Security Perimeter resource
+        /// Gets the specified network security perimeter by the name.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterResult> Invoke(GetNetworkSecurityPerimeterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterResult>("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterInvokeArgs(), options.WithDefaults());

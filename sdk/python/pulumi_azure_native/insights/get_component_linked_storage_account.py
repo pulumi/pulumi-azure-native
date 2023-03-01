@@ -85,7 +85,7 @@ def get_component_linked_storage_account(resource_group_name: Optional[str] = No
                                          storage_type: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentLinkedStorageAccountResult:
     """
-    An Application Insights component linked storage accounts
+    Returns the current linked storage settings for an Application Insights component.
     API Version: 2020-03-01-preview.
 
 
@@ -113,7 +113,7 @@ def get_component_linked_storage_account_output(resource_group_name: Optional[pu
                                                 storage_type: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentLinkedStorageAccountResult]:
     """
-    An Application Insights component linked storage accounts
+    Returns the current linked storage settings for an Application Insights component.
     API Version: 2020-03-01-preview.
 
 

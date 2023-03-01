@@ -217,7 +217,7 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
                                               resource_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrchestratorInstanceServiceDetailsResult:
     """
-    Represents an instance of a orchestrator.
+    Gets details about the orchestrator instance.
     API Version: 2021-03-15.
 
 
@@ -253,7 +253,7 @@ def get_orchestrator_instance_service_details_output(resource_group_name: Option
                                                      resource_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrchestratorInstanceServiceDetailsResult]:
     """
-    Represents an instance of a orchestrator.
+    Gets details about the orchestrator instance.
     API Version: 2021-03-15.
 
 

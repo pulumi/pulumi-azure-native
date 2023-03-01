@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public static class GetMachineExtension
     {
         /// <summary>
-        /// Describes a Machine Extension.
+        /// The operation to get the extension.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:connectedvmwarevsphere:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Machine Extension.
+        /// The operation to get the extension.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)

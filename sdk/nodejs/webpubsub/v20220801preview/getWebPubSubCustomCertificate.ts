@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A custom certificate.
+ * Get a custom certificate.
  */
 export function getWebPubSubCustomCertificate(args: GetWebPubSubCustomCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubCustomCertificateResult> {
 
@@ -73,7 +73,7 @@ export interface GetWebPubSubCustomCertificateResult {
     readonly type: string;
 }
 /**
- * A custom certificate.
+ * Get a custom certificate.
  */
 export function getWebPubSubCustomCertificateOutput(args: GetWebPubSubCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomCertificateResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubCustomCertificate(a, opts))

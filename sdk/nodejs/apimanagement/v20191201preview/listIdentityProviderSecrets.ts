@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * Gets the client secret details of the Identity Provider.
  */
 export function listIdentityProviderSecrets(args: ListIdentityProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListIdentityProviderSecretsResult> {
 
@@ -42,7 +42,7 @@ export interface ListIdentityProviderSecretsResult {
     readonly clientSecret?: string;
 }
 /**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * Gets the client secret details of the Identity Provider.
  */
 export function listIdentityProviderSecretsOutput(args: ListIdentityProviderSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIdentityProviderSecretsResult> {
     return pulumi.output(args).apply((a: any) => listIdentityProviderSecrets(a, opts))

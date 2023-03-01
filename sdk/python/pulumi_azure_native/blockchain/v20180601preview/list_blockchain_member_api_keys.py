@@ -49,7 +49,7 @@ def list_blockchain_member_api_keys(blockchain_member_name: Optional[str] = None
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBlockchainMemberApiKeysResult:
     """
-    Collection of the API key payload which is exposed in the response of the resource provider.
+    Lists the API keys for a blockchain member.
 
 
     :param str blockchain_member_name: Blockchain member name.
@@ -70,7 +70,7 @@ def list_blockchain_member_api_keys_output(blockchain_member_name: Optional[pulu
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBlockchainMemberApiKeysResult]:
     """
-    Collection of the API key payload which is exposed in the response of the resource provider.
+    Lists the API keys for a blockchain member.
 
 
     :param str blockchain_member_name: Blockchain member name.

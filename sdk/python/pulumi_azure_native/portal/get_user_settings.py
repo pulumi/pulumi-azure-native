@@ -48,7 +48,7 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
 def get_user_settings(user_settings_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsResult:
     """
-    Response to get user settings
+    Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
     API Version: 2018-10-01.
 
 
@@ -67,7 +67,7 @@ def get_user_settings(user_settings_name: Optional[str] = None,
 def get_user_settings_output(user_settings_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsResult]:
     """
-    Response to get user settings
+    Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
     API Version: 2018-10-01.
 
 

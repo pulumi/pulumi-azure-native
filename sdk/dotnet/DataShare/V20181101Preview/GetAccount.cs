@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     public static class GetAccount
     {
         /// <summary>
-        /// An account data transfer object.
+        /// Get an account
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:datashare/v20181101preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An account data transfer object.
+        /// Get an account
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datashare/v20181101preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

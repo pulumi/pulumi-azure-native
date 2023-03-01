@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
     public static class GetLiveEvent
     {
         /// <summary>
-        /// The Live Event.
+        /// Gets a Live Event.
         /// </summary>
         public static Task<GetLiveEventResult> InvokeAsync(GetLiveEventArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-native:media/v20180601preview:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Live Event.
+        /// Gets a Live Event.
         /// </summary>
         public static Output<GetLiveEventResult> Invoke(GetLiveEventInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventResult>("azure-native:media/v20180601preview:getLiveEvent", args ?? new GetLiveEventInvokeArgs(), options.WithDefaults());

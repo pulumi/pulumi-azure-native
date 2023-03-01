@@ -112,7 +112,7 @@ def get_security_ml_analytics_setting(resource_group_name: Optional[str] = None,
                                       workspace_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityMLAnalyticsSettingResult:
     """
-    Security ML Analytics Setting
+    Gets the Security ML Analytics Settings.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -142,7 +142,7 @@ def get_security_ml_analytics_setting_output(resource_group_name: Optional[pulum
                                              workspace_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMLAnalyticsSettingResult]:
     """
-    Security ML Analytics Setting
+    Gets the Security ML Analytics Settings.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

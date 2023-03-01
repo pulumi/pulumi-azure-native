@@ -173,7 +173,7 @@ def get_file_share(device_name: Optional[str] = None,
                    share_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
-    The File Share.
+    Returns the properties of the specified file share name.
 
 
     :param str device_name: The device name.
@@ -214,7 +214,7 @@ def get_file_share_output(device_name: Optional[pulumi.Input[str]] = None,
                           share_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileShareResult]:
     """
-    The File Share.
+    Returns the properties of the specified file share name.
 
 
     :param str device_name: The device name.

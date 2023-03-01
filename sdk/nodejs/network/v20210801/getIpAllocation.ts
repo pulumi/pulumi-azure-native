@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * IpAllocation resource.
+ * Gets the specified IpAllocation by resource group.
  */
 export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAllocationResult> {
 
@@ -93,7 +93,7 @@ export interface GetIpAllocationResult {
     readonly virtualNetwork: outputs.network.v20210801.SubResourceResponse;
 }
 /**
- * IpAllocation resource.
+ * Gets the specified IpAllocation by resource group.
  */
 export function getIpAllocationOutput(args: GetIpAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAllocationResult> {
     return pulumi.output(args).apply((a: any) => getIpAllocation(a, opts))

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Batch
     public static class GetApplicationPackage
     {
         /// <summary>
-        /// An application package which represents a particular version of an application.
+        /// Gets information about the specified application package.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetApplicationPackageResult> InvokeAsync(GetApplicationPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-native:batch:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An application package which represents a particular version of an application.
+        /// Gets information about the specified application package.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetApplicationPackageResult> Invoke(GetApplicationPackageInvokeArgs args, InvokeOptions? options = null)

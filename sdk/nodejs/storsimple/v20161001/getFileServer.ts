@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The file server.
+ * Returns the properties of the specified file server name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServerResult> {
@@ -73,7 +73,7 @@ export interface GetFileServerResult {
     readonly type: string;
 }
 /**
- * The file server.
+ * Returns the properties of the specified file server name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileServerOutput(args: GetFileServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServerResult> {

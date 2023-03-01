@@ -206,7 +206,7 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreDataPlaneResult:
     """
-    Packet core data plane resource.
+    Gets information about the specified packet core data plane.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -243,7 +243,7 @@ def get_packet_core_data_plane_output(packet_core_control_plane_name: Optional[p
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCoreDataPlaneResult]:
     """
-    Packet core data plane resource.
+    Gets information about the specified packet core data plane.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.

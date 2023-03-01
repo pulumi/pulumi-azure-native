@@ -168,7 +168,8 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineImageTemplateResult:
     """
-    Use this data source to access information about an existing resource.
+    Get information about a virtual machine image template
+
 
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
@@ -199,7 +200,8 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get information about a virtual machine image template
+
 
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.

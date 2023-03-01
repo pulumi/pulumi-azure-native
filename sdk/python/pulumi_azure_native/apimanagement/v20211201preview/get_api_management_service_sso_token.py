@@ -48,7 +48,7 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
                                          service_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceSsoTokenResult:
     """
-    The response of the GetSsoToken operation.
+    Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -69,7 +69,7 @@ def get_api_management_service_sso_token_output(resource_group_name: Optional[pu
                                                 service_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceSsoTokenResult]:
     """
-    The response of the GetSsoToken operation.
+    Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
 
 
     :param str resource_group_name: The name of the resource group.

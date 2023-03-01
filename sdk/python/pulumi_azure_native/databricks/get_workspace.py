@@ -241,7 +241,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Information about workspace.
+    Gets the workspace.
     API Version: 2018-04-01.
 
 
@@ -279,7 +279,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    Information about workspace.
+    Gets the workspace.
     API Version: 2018-04-01.
 
 

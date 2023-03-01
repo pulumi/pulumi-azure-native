@@ -98,7 +98,7 @@ def get_linked_service(factory_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
-    Linked service resource type.
+    Gets a linked service.
     API Version: 2018-06-01.
 
 
@@ -127,7 +127,7 @@ def get_linked_service_output(factory_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServiceResult]:
     """
-    Linked service resource type.
+    Gets a linked service.
     API Version: 2018-06-01.
 
 

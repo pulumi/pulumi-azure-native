@@ -65,7 +65,7 @@ def list_products_and_configuration_product_families(customer_subscription_detai
                                                      skip_token: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductsAndConfigurationProductFamiliesResult:
     """
-    The list of product families.
+    List product families for the given subscription.
 
 
     :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
@@ -93,7 +93,7 @@ def list_products_and_configuration_product_families_output(customer_subscriptio
                                                             skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductsAndConfigurationProductFamiliesResult]:
     """
-    The list of product families.
+    List product families for the given subscription.
 
 
     :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.

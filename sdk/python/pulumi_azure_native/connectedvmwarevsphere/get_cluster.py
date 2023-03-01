@@ -253,7 +253,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Define the cluster.
+    Implements cluster GET method.
     API Version: 2020-10-01-preview.
 
 
@@ -292,7 +292,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Define the cluster.
+    Implements cluster GET method.
     API Version: 2020-10-01-preview.
 
 

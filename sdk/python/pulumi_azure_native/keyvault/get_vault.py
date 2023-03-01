@@ -109,7 +109,7 @@ def get_vault(resource_group_name: Optional[str] = None,
               vault_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
-    Resource information with extended details.
+    Gets the specified Azure key vault.
     API Version: 2019-09-01.
 
 
@@ -136,7 +136,7 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      vault_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
     """
-    Resource information with extended details.
+    Gets the specified Azure key vault.
     API Version: 2019-09-01.
 
 

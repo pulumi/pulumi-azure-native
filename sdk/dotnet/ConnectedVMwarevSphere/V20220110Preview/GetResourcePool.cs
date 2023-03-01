@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     public static class GetResourcePool
     {
         /// <summary>
-        /// Define the resourcePool.
+        /// Implements resourcePool GET method.
         /// </summary>
         public static Task<GetResourcePoolResult> InvokeAsync(GetResourcePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePoolResult>("azure-native:connectedvmwarevsphere/v20220110preview:getResourcePool", args ?? new GetResourcePoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the resourcePool.
+        /// Implements resourcePool GET method.
         /// </summary>
         public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere/v20220110preview:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());

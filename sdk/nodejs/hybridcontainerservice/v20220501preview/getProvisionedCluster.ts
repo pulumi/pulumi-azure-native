@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The provisionedClusters resource definition.
+ * Gets the Hybrid AKS provisioned cluster
  */
 export function getProvisionedCluster(args: GetProvisionedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisionedClusterResult> {
 
@@ -66,7 +66,7 @@ export interface GetProvisionedClusterResult {
     readonly type: string;
 }
 /**
- * The provisionedClusters resource definition.
+ * Gets the Hybrid AKS provisioned cluster
  */
 export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisionedClusterResult> {
     return pulumi.output(args).apply((a: any) => getProvisionedCluster(a, opts))

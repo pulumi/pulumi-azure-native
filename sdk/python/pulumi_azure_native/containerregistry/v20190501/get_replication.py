@@ -122,7 +122,7 @@ def get_replication(registry_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationResult:
     """
-    An object that represents a replication for a container registry.
+    Gets the properties of the specified replication.
 
 
     :param str registry_name: The name of the container registry.
@@ -152,7 +152,7 @@ def get_replication_output(registry_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationResult]:
     """
-    An object that represents a replication for a container registry.
+    Gets the properties of the specified replication.
 
 
     :param str registry_name: The name of the container registry.

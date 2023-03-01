@@ -304,7 +304,7 @@ def get_virtual_machine_scale_set_vm(instance_id: Optional[str] = None,
                                      vm_scale_set_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMResult:
     """
-    Describes a virtual machine scale set virtual machine.
+    Gets a virtual machine from a VM scale set.
 
 
     :param str instance_id: The instance ID of the virtual machine.
@@ -350,7 +350,7 @@ def get_virtual_machine_scale_set_vm_output(instance_id: Optional[pulumi.Input[s
                                             vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMResult]:
     """
-    Describes a virtual machine scale set virtual machine.
+    Gets a virtual machine from a VM scale set.
 
 
     :param str instance_id: The instance ID of the virtual machine.

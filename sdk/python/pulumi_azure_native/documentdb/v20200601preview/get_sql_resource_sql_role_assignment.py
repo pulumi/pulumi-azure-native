@@ -111,7 +111,7 @@ def get_sql_resource_sql_role_assignment(account_name: Optional[str] = None,
                                          role_assignment_id: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlRoleAssignmentResult:
     """
-    An Azure Cosmos DB Role Assignment
+    Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -141,7 +141,7 @@ def get_sql_resource_sql_role_assignment_output(account_name: Optional[pulumi.In
                                                 role_assignment_id: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlRoleAssignmentResult]:
     """
-    An Azure Cosmos DB Role Assignment
+    Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
 
 
     :param str account_name: Cosmos DB database account name.

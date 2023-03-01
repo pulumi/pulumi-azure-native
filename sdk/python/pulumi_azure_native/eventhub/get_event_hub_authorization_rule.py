@@ -86,7 +86,7 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubAuthorizationRuleResult:
     """
-    Single item in a List or Get AuthorizationRule operation
+    Gets an AuthorizationRule for an Event Hub by rule name.
     API Version: 2017-04-01.
 
 
@@ -117,7 +117,7 @@ def get_event_hub_authorization_rule_output(authorization_rule_name: Optional[pu
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubAuthorizationRuleResult]:
     """
-    Single item in a List or Get AuthorizationRule operation
+    Gets an AuthorizationRule for an Event Hub by rule name.
     API Version: 2017-04-01.
 
 

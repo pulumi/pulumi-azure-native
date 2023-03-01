@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Arc Addon.
+ * Gets a specific addon by name.
  * API Version: 2020-12-01.
  */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
@@ -100,7 +100,7 @@ export interface GetArcAddonResult {
     readonly version: string;
 }
 /**
- * Arc Addon.
+ * Gets a specific addon by name.
  * API Version: 2020-12-01.
  */
 export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {

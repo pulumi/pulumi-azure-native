@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StorSimple
     public static class GetBackupSchedule
     {
         /// <summary>
-        /// The backup schedule.
+        /// Gets the properties of the specified backup schedule name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetBackupScheduleResult> InvokeAsync(GetBackupScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleResult>("azure-native:storsimple:getBackupSchedule", args ?? new GetBackupScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The backup schedule.
+        /// Gets the properties of the specified backup schedule name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetBackupScheduleResult> Invoke(GetBackupScheduleInvokeArgs args, InvokeOptions? options = null)

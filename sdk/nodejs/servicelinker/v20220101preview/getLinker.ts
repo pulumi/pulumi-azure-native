@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Linker of source and target resource
+ * Returns Linker resource for a given name.
  */
 export function getLinker(args: GetLinkerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkerResult> {
 
@@ -80,7 +80,7 @@ export interface GetLinkerResult {
     readonly vNetSolution?: outputs.servicelinker.v20220101preview.VNetSolutionResponse;
 }
 /**
- * Linker of source and target resource
+ * Returns Linker resource for a given name.
  */
 export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
     return pulumi.output(args).apply((a: any) => getLinker(a, opts))

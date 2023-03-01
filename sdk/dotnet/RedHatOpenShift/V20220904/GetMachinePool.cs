@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220904
     public static class GetMachinePool
     {
         /// <summary>
-        /// MachinePool represents a MachinePool
+        /// The operation returns properties of a MachinePool.
         /// </summary>
         public static Task<GetMachinePoolResult> InvokeAsync(GetMachinePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachinePoolResult>("azure-native:redhatopenshift/v20220904:getMachinePool", args ?? new GetMachinePoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// MachinePool represents a MachinePool
+        /// The operation returns properties of a MachinePool.
         /// </summary>
         public static Output<GetMachinePoolResult> Invoke(GetMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachinePoolResult>("azure-native:redhatopenshift/v20220904:getMachinePool", args ?? new GetMachinePoolInvokeArgs(), options.WithDefaults());

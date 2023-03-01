@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
     public static class GetTable
     {
         /// <summary>
-        /// Workspace data table definition.
+        /// Gets a Log Analytics workspace table.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:operationalinsights/v20211201preview:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workspace data table definition.
+        /// Gets a Log Analytics workspace table.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights/v20211201preview:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());

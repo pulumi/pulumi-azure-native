@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * String dictionary resource.
+ * Lists the secrets for an existing static site.
  */
 export function listStaticSiteSecrets(args: ListStaticSiteSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteSecretsResult> {
 
@@ -53,7 +53,7 @@ export interface ListStaticSiteSecretsResult {
     readonly type: string;
 }
 /**
- * String dictionary resource.
+ * Lists the secrets for an existing static site.
  */
 export function listStaticSiteSecretsOutput(args: ListStaticSiteSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteSecretsResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteSecrets(a, opts))

@@ -169,7 +169,7 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
                                         server_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDisasterRecoveryConfigurationResult:
     """
-    Represents a disaster recovery configuration.
+    Gets a disaster recovery configuration.
     API Version: 2014-04-01.
 
 
@@ -204,7 +204,7 @@ def get_disaster_recovery_configuration_output(disaster_recovery_configuration_n
                                                server_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDisasterRecoveryConfigurationResult]:
     """
-    Represents a disaster recovery configuration.
+    Gets a disaster recovery configuration.
     API Version: 2014-04-01.
 
 

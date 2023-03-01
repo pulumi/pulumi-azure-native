@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetDatabase
     {
         /// <summary>
-        /// A database resource.
+        /// Gets a database.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:sql:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A database resource.
+        /// Gets a database.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)

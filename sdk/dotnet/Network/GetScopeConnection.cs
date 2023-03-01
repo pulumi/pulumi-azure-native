@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetScopeConnection
     {
         /// <summary>
-        /// The Scope Connections resource
+        /// Get specified scope connection created by this Network Manager.
         /// API Version: 2022-02-01-preview.
         /// </summary>
         public static Task<GetScopeConnectionResult> InvokeAsync(GetScopeConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeConnectionResult>("azure-native:network:getScopeConnection", args ?? new GetScopeConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Scope Connections resource
+        /// Get specified scope connection created by this Network Manager.
         /// API Version: 2022-02-01-preview.
         /// </summary>
         public static Output<GetScopeConnectionResult> Invoke(GetScopeConnectionInvokeArgs args, InvokeOptions? options = null)

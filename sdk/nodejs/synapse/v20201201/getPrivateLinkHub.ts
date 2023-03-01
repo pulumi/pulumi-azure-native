@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A privateLinkHub
+ * Gets a privateLinkHub
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkHubResult> {
@@ -66,7 +66,7 @@ export interface GetPrivateLinkHubResult {
     readonly type: string;
 }
 /**
- * A privateLinkHub
+ * Gets a privateLinkHub
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getPrivateLinkHubOutput(args: GetPrivateLinkHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkHubResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+ * Gets the properties of the specified configuration store.
  * API Version: 2020-06-01.
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
@@ -89,7 +89,7 @@ export interface GetConfigurationStoreResult {
     readonly type: string;
 }
 /**
- * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+ * Gets the properties of the specified configuration store.
  * API Version: 2020-06-01.
  */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {

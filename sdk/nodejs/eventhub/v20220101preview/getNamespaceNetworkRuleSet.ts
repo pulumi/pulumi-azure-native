@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of topic resource.
+ * Gets NetworkRuleSet for a Namespace.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
 
@@ -76,7 +76,7 @@ export interface GetNamespaceNetworkRuleSetResult {
     readonly virtualNetworkRules?: outputs.eventhub.v20220101preview.NWRuleSetVirtualNetworkRulesResponse[];
 }
 /**
- * Description of topic resource.
+ * Gets NetworkRuleSet for a Namespace.
  */
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceNetworkRuleSet(a, opts))

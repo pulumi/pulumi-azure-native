@@ -241,7 +241,7 @@ def get_lab(lab_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
-    The lab resource.
+    Returns the properties of a lab resource.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
@@ -278,7 +278,7 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
     """
-    The lab resource.
+    Returns the properties of a lab resource.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.

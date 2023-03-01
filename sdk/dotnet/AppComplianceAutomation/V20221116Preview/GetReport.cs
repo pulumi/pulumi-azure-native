@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20221116Preview
     public static class GetReport
     {
         /// <summary>
-        /// A class represent an AppComplianceAutomation report resource.
+        /// Get the AppComplianceAutomation report and its properties.
         /// </summary>
         public static Task<GetReportResult> InvokeAsync(GetReportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportResult>("azure-native:appcomplianceautomation/v20221116preview:getReport", args ?? new GetReportArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A class represent an AppComplianceAutomation report resource.
+        /// Get the AppComplianceAutomation report and its properties.
         /// </summary>
         public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:appcomplianceautomation/v20221116preview:getReport", args ?? new GetReportInvokeArgs(), options.WithDefaults());

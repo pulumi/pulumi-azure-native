@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure ML commitment plan resource.
+ * Retrieve an Azure ML commitment plan by its subscription, resource group and name.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
 
@@ -68,7 +68,7 @@ export interface GetCommitmentPlanResult {
     readonly type: string;
 }
 /**
- * An Azure ML commitment plan resource.
+ * Retrieve an Azure ML commitment plan by its subscription, resource group and name.
  */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
     return pulumi.output(args).apply((a: any) => getCommitmentPlan(a, opts))

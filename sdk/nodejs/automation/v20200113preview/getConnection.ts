@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Definition of the connection.
+ * Retrieve the connection identified by connection name.
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
 
@@ -73,7 +73,7 @@ export interface GetConnectionResult {
     readonly type: string;
 }
 /**
- * Definition of the connection.
+ * Retrieve the connection identified by connection name.
  */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))

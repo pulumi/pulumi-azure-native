@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A private endpoint connection to SignalR resource
+ * Get the specified private endpoint connection associated with a SignalR resource.
  * API Version: 2020-05-01.
  */
 export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRPrivateEndpointConnectionResult> {
@@ -66,7 +66,7 @@ export interface GetSignalRPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * A private endpoint connection to SignalR resource
+ * Get the specified private endpoint connection associated with a SignalR resource.
  * API Version: 2020-05-01.
  */
 export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRPrivateEndpointConnectionResult> {

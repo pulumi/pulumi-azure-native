@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Migrate.V20200501
     public static class GetPrivateEndpointConnectionControllerPrivateEndpointConnection
     {
         /// <summary>
-        /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
+        /// Get the private endpoint with the specified name.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate/v20200501:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
+        /// Get the private endpoint with the specified name.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate/v20200501:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

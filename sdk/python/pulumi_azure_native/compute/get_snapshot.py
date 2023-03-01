@@ -325,7 +325,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
                  snapshot_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
-    Snapshot resource.
+    Gets information about a snapshot.
     API Version: 2020-12-01.
 
 
@@ -370,7 +370,7 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         snapshot_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
-    Snapshot resource.
+    Gets information about a snapshot.
     API Version: 2020-12-01.
 
 

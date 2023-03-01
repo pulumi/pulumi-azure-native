@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Pool of backend IP addresses.
+ * Gets load balancer backend address pool.
  * API Version: 2020-11-01.
  */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
@@ -82,7 +82,7 @@ export interface GetLoadBalancerBackendAddressPoolResult {
     readonly type: string;
 }
 /**
- * Pool of backend IP addresses.
+ * Gets load balancer backend address pool.
  * API Version: 2020-11-01.
  */
 export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {

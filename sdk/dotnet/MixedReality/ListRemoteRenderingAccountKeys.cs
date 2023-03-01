@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MixedReality
     public static class ListRemoteRenderingAccountKeys
     {
         /// <summary>
-        /// Developer Keys of account
+        /// List Both of the 2 Keys of a Remote Rendering Account
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListRemoteRenderingAccountKeysResult> InvokeAsync(ListRemoteRenderingAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Developer Keys of account
+        /// List Both of the 2 Keys of a Remote Rendering Account
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListRemoteRenderingAccountKeysResult> Invoke(ListRemoteRenderingAccountKeysInvokeArgs args, InvokeOptions? options = null)

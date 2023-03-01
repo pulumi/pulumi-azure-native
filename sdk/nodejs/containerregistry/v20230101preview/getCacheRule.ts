@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents a cache rule for a container registry.
+ * Gets the properties of the specified cache rule resource.
  */
 export function getCacheRule(args: GetCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheRuleResult> {
 
@@ -78,7 +78,7 @@ export interface GetCacheRuleResult {
     readonly type: string;
 }
 /**
- * An object that represents a cache rule for a container registry.
+ * Gets the properties of the specified cache rule resource.
  */
 export function getCacheRuleOutput(args: GetCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheRuleResult> {
     return pulumi.output(args).apply((a: any) => getCacheRule(a, opts))

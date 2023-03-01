@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automation
     public static class GetSoftwareUpdateConfigurationByName
     {
         /// <summary>
-        /// Software update configuration properties.
+        /// Get a single software update configuration by name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetSoftwareUpdateConfigurationByNameResult> InvokeAsync(GetSoftwareUpdateConfigurationByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Software update configuration properties.
+        /// Get a single software update configuration by name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetSoftwareUpdateConfigurationByNameResult> Invoke(GetSoftwareUpdateConfigurationByNameInvokeArgs args, InvokeOptions? options = null)

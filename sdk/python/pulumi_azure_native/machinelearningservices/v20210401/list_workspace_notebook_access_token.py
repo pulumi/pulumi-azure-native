@@ -105,7 +105,8 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
                                          workspace_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookAccessTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    return notebook access token and refresh token
+
 
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
@@ -132,7 +133,8 @@ def list_workspace_notebook_access_token_output(resource_group_name: Optional[pu
                                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
     """
-    Use this data source to access information about an existing resource.
+    return notebook access token and refresh token
+
 
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.

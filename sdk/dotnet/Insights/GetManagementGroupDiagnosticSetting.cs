@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetManagementGroupDiagnosticSetting
     {
         /// <summary>
-        /// The management group diagnostic setting resource.
+        /// Gets the active management group diagnostic settings for the specified resource.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetManagementGroupDiagnosticSettingResult> InvokeAsync(GetManagementGroupDiagnosticSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupDiagnosticSettingResult>("azure-native:insights:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The management group diagnostic setting resource.
+        /// Gets the active management group diagnostic settings for the specified resource.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetManagementGroupDiagnosticSettingResult> Invoke(GetManagementGroupDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)

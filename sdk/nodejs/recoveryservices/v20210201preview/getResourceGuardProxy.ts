@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Returns ResourceGuardProxy under vault and with the name referenced in request
+ */
 export function getResourceGuardProxy(args: GetResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardProxyResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,6 +62,9 @@ export interface GetResourceGuardProxyResult {
      */
     readonly type: string;
 }
+/**
+ * Returns ResourceGuardProxy under vault and with the name referenced in request
+ */
 export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {
     return pulumi.output(args).apply((a: any) => getResourceGuardProxy(a, opts))
 }

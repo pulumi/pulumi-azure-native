@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
     public static class GetApplication
     {
         /// <summary>
-        /// Security Application over a given scope
+        /// Get a specific application for the requested scope by applicationId
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:security/v20220701preview:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security Application over a given scope
+        /// Get a specific application for the requested scope by applicationId
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:security/v20220701preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

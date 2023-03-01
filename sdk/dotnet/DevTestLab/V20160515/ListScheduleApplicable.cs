@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     public static class ListScheduleApplicable
     {
         /// <summary>
-        /// The response of a list operation.
+        /// Lists all applicable schedules
         /// </summary>
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-native:devtestlab/v20160515:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response of a list operation.
+        /// Lists all applicable schedules
         /// </summary>
         public static Output<ListScheduleApplicableResult> Invoke(ListScheduleApplicableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListScheduleApplicableResult>("azure-native:devtestlab/v20160515:listScheduleApplicable", args ?? new ListScheduleApplicableInvokeArgs(), options.WithDefaults());

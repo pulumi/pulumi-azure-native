@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL Analytics pool
+ * Get SQL pool properties
  */
 export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolResult> {
 
@@ -101,7 +101,7 @@ export interface GetSqlPoolResult {
     readonly type: string;
 }
 /**
- * A SQL Analytics pool
+ * Get SQL pool properties
  */
 export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {
     return pulumi.output(args).apply((a: any) => getSqlPool(a, opts))

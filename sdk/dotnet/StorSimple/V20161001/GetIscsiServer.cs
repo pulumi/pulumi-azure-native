@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public static class GetIscsiServer
     {
         /// <summary>
-        /// The iSCSI server.
+        /// Returns the properties of the specified iSCSI server name.
         /// </summary>
         public static Task<GetIscsiServerResult> InvokeAsync(GetIscsiServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-native:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The iSCSI server.
+        /// Returns the properties of the specified iSCSI server name.
         /// </summary>
         public static Output<GetIscsiServerResult> Invoke(GetIscsiServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiServerResult>("azure-native:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerInvokeArgs(), options.WithDefaults());

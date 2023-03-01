@@ -62,7 +62,7 @@ def list_remediation_deployments_at_resource_group(remediation_name: Optional[st
                                                    top: Optional[int] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtResourceGroupResult:
     """
-    List of deployments for a remediation.
+    Gets all deployments for a remediation at resource group scope.
 
 
     :param str remediation_name: The name of the remediation.
@@ -87,7 +87,7 @@ def list_remediation_deployments_at_resource_group_output(remediation_name: Opti
                                                           top: Optional[pulumi.Input[Optional[int]]] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceGroupResult]:
     """
-    List of deployments for a remediation.
+    Gets all deployments for a remediation at resource group scope.
 
 
     :param str remediation_name: The name of the remediation.

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ResourceConnector
     public static class GetAppliance
     {
         /// <summary>
-        /// Appliances definition.
+        /// Gets the details of an Appliance with a specified resource group and name.
         /// API Version: 2021-10-31-preview.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Appliances definition.
+        /// Gets the details of an Appliance with a specified resource group and name.
         /// API Version: 2021-10-31-preview.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)

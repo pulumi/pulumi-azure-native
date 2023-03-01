@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The response to an enumeration operation on sub-resources.
+ * Lists DNS resolver resource IDs linked to a virtual network.
  * API Version: 2020-04-01-preview.
  */
 export function listDnsResolverByVirtualNetwork(args: ListDnsResolverByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsResolverByVirtualNetworkResult> {
@@ -50,7 +50,7 @@ export interface ListDnsResolverByVirtualNetworkResult {
     readonly value?: outputs.network.SubResourceResponse[];
 }
 /**
- * The response to an enumeration operation on sub-resources.
+ * Lists DNS resolver resource IDs linked to a virtual network.
  * API Version: 2020-04-01-preview.
  */
 export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {

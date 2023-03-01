@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Compute
     public static class GetVirtualMachineExtension
     {
         /// <summary>
-        /// Describes a Virtual Machine Extension.
+        /// The operation to get the extension.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineExtensionResult> InvokeAsync(GetVirtualMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Virtual Machine Extension.
+        /// The operation to get the extension.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetVirtualMachineExtensionResult> Invoke(GetVirtualMachineExtensionInvokeArgs args, InvokeOptions? options = null)

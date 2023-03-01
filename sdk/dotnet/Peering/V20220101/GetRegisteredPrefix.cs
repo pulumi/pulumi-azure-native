@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Peering.V20220101
     public static class GetRegisteredPrefix
     {
         /// <summary>
-        /// The customer's prefix that is registered by the peering service provider.
+        /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
         /// </summary>
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-native:peering/v20220101:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The customer's prefix that is registered by the peering service provider.
+        /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
         /// </summary>
         public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering/v20220101:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     public static class ListGatewayKeys
     {
         /// <summary>
-        /// Gateway authentication keys.
+        /// Retrieves gateway keys.
         /// </summary>
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-native:apimanagement/v20210101preview:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gateway authentication keys.
+        /// Retrieves gateway keys.
         /// </summary>
         public static Output<ListGatewayKeysResult> Invoke(ListGatewayKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGatewayKeysResult>("azure-native:apimanagement/v20210101preview:listGatewayKeys", args ?? new ListGatewayKeysInvokeArgs(), options.WithDefaults());

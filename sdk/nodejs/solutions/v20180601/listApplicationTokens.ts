@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The array of managed identity tokens.
+ * List tokens for application.
  */
 export function listApplicationTokens(args: ListApplicationTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationTokensResult> {
 
@@ -50,7 +50,7 @@ export interface ListApplicationTokensResult {
     readonly value?: outputs.solutions.v20180601.ManagedIdentityTokenResponse[];
 }
 /**
- * The array of managed identity tokens.
+ * List tokens for application.
  */
 export function listApplicationTokensOutput(args: ListApplicationTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationTokensResult> {
     return pulumi.output(args).apply((a: any) => listApplicationTokens(a, opts))

@@ -61,7 +61,7 @@ def list_security_advisory_impacted_resource_by_subscription_id_and_event_id(eve
                                                                              filter: Optional[str] = None,
                                                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult:
     """
-    The List of eventImpactedResources operation response.
+    Lists impacted resources in the subscription by an event (Security Advisory).
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.
@@ -83,7 +83,7 @@ def list_security_advisory_impacted_resource_by_subscription_id_and_event_id_out
                                                                                     filter: Optional[pulumi.Input[Optional[str]]] = None,
                                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult]:
     """
-    The List of eventImpactedResources operation response.
+    Lists impacted resources in the subscription by an event (Security Advisory).
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.

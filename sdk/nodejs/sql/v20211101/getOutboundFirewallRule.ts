@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure SQL DB Server Outbound Firewall Rule.
+ * Gets an outbound firewall rule.
  */
 export function getOutboundFirewallRule(args: GetOutboundFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundFirewallRuleResult> {
 
@@ -51,7 +51,7 @@ export interface GetOutboundFirewallRuleResult {
     readonly type: string;
 }
 /**
- * An Azure SQL DB Server Outbound Firewall Rule.
+ * Gets an outbound firewall rule.
  */
 export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getOutboundFirewallRule(a, opts))

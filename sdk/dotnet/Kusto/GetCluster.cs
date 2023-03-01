@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Kusto
     public static class GetCluster
     {
         /// <summary>
-        /// Class representing a Kusto cluster.
+        /// Gets a Kusto cluster.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a Kusto cluster.
+        /// Gets a Kusto cluster.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)

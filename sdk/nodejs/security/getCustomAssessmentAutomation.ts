@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Custom Assessment Automation
+ * Gets a single custom assessment automation by name for the provided subscription and resource group.
  * API Version: 2021-07-01-preview.
  */
 export function getCustomAssessmentAutomation(args: GetCustomAssessmentAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomAssessmentAutomationResult> {
@@ -81,7 +81,7 @@ export interface GetCustomAssessmentAutomationResult {
     readonly type: string;
 }
 /**
- * Custom Assessment Automation
+ * Gets a single custom assessment automation by name for the provided subscription and resource group.
  * API Version: 2021-07-01-preview.
  */
 export function getCustomAssessmentAutomationOutput(args: GetCustomAssessmentAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomAssessmentAutomationResult> {

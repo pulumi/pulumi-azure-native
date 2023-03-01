@@ -159,7 +159,7 @@ def get_prefix(expand: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixResult:
     """
-    The peering service prefix class.
+    Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
 
 
     :param str expand: The properties to be expanded.
@@ -195,7 +195,7 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixResult]:
     """
-    The peering service prefix class.
+    Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
 
 
     :param str expand: The properties to be expanded.

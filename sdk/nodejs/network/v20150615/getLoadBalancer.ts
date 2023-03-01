@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * LoadBalancer resource
+ * Gets the specified load balancer.
  */
 /** @deprecated Version 2015-06-15 will be removed in v2 of the provider. */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
@@ -103,7 +103,7 @@ export interface GetLoadBalancerResult {
     readonly type: string;
 }
 /**
- * LoadBalancer resource
+ * Gets the specified load balancer.
  */
 /** @deprecated Version 2015-06-15 will be removed in v2 of the provider. */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {

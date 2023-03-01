@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     public static class ListSubscriptionSecrets
     {
         /// <summary>
-        /// Subscription keys.
+        /// Gets the specified Subscription keys.
         /// </summary>
         public static Task<ListSubscriptionSecretsResult> InvokeAsync(ListSubscriptionSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSubscriptionSecretsResult>("azure-native:apimanagement/v20210401preview:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Subscription keys.
+        /// Gets the specified Subscription keys.
         /// </summary>
         public static Output<ListSubscriptionSecretsResult> Invoke(ListSubscriptionSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSubscriptionSecretsResult>("azure-native:apimanagement/v20210401preview:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsInvokeArgs(), options.WithDefaults());

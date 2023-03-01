@@ -138,7 +138,7 @@ def list_configuration_store_key_value(config_store_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationStoreKeyValueResult:
     """
-    The result of a request to retrieve a key-value from the specified configuration store.
+    Lists a configuration store key-value.
     API Version: 2020-06-01.
 
 
@@ -173,7 +173,7 @@ def list_configuration_store_key_value_output(config_store_name: Optional[pulumi
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConfigurationStoreKeyValueResult]:
     """
-    The result of a request to retrieve a key-value from the specified configuration store.
+    Lists a configuration store key-value.
     API Version: 2020-06-01.
 
 

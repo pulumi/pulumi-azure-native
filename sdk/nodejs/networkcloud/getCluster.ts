@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get properties of the provided cluster.
  * API Version: 2022-12-12-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -144,6 +145,7 @@ export interface GetClusterResult {
     readonly workloadResourceIds: string[];
 }
 /**
+ * Get properties of the provided cluster.
  * API Version: 2022-12-12-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

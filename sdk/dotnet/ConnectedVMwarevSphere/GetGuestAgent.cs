@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public static class GetGuestAgent
     {
         /// <summary>
-        /// Defines the GuestAgent.
+        /// Implements GuestAgent GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetGuestAgentResult> InvokeAsync(GetGuestAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:connectedvmwarevsphere:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the GuestAgent.
+        /// Implements GuestAgent GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOptions? options = null)

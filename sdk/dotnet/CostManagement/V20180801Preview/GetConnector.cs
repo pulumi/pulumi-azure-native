@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
     public static class GetConnector
     {
         /// <summary>
-        /// The Connector model definition
+        /// Get a connector definition
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:costmanagement/v20180801preview:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Connector model definition
+        /// Get a connector definition
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:costmanagement/v20180801preview:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

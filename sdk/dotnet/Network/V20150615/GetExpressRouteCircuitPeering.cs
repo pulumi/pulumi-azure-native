@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Network.V20150615
     public static class GetExpressRouteCircuitPeering
     {
         /// <summary>
-        /// Peering in an ExpressRouteCircuit resource.
+        /// Gets the specified authorization from the specified express route circuit.
         /// </summary>
         public static Task<GetExpressRouteCircuitPeeringResult> InvokeAsync(GetExpressRouteCircuitPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitPeeringResult>("azure-native:network/v20150615:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Peering in an ExpressRouteCircuit resource.
+        /// Gets the specified authorization from the specified express route circuit.
         /// </summary>
         public static Output<GetExpressRouteCircuitPeeringResult> Invoke(GetExpressRouteCircuitPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitPeeringResult>("azure-native:network/v20150615:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringInvokeArgs(), options.WithDefaults());

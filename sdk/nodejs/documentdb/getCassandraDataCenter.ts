@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A managed Cassandra data center.
+ * Get the properties of a managed Cassandra data center.
  * API Version: 2021-03-01-preview.
  */
 export function getCassandraDataCenter(args: GetCassandraDataCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraDataCenterResult> {
@@ -58,7 +58,7 @@ export interface GetCassandraDataCenterResult {
     readonly type: string;
 }
 /**
- * A managed Cassandra data center.
+ * Get the properties of a managed Cassandra data center.
  * API Version: 2021-03-01-preview.
  */
 export function getCassandraDataCenterOutput(args: GetCassandraDataCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraDataCenterResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Function secrets.
+ * This is to allow calling via powershell and ARM template.
  * API Version: 2020-12-01.
  */
 export function listWebAppSyncFunctionTriggers(args: ListWebAppSyncFunctionTriggersArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersResult> {
@@ -42,7 +42,7 @@ export interface ListWebAppSyncFunctionTriggersResult {
     readonly triggerUrl?: string;
 }
 /**
- * Function secrets.
+ * This is to allow calling via powershell and ARM template.
  * API Version: 2020-12-01.
  */
 export function listWebAppSyncFunctionTriggersOutput(args: ListWebAppSyncFunctionTriggersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersResult> {

@@ -136,7 +136,7 @@ def get_aad_data_connector(data_connector_id: Optional[str] = None,
                            workspace_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAADDataConnectorResult:
     """
-    Represents AAD (Azure Active Directory) data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -170,7 +170,7 @@ def get_aad_data_connector_output(data_connector_id: Optional[pulumi.Input[str]]
                                   workspace_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAADDataConnectorResult]:
     """
-    Represents AAD (Azure Active Directory) data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

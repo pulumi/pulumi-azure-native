@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a Watchlist in Azure Security Insights.
+ * Gets a watchlist, without its watchlist items.
  */
 export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistResult> {
 
@@ -142,7 +142,7 @@ export interface GetWatchlistResult {
     readonly watchlistType?: string;
 }
 /**
- * Represents a Watchlist in Azure Security Insights.
+ * Gets a watchlist, without its watchlist items.
  */
 export function getWatchlistOutput(args: GetWatchlistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatchlistResult> {
     return pulumi.output(args).apply((a: any) => getWatchlist(a, opts))

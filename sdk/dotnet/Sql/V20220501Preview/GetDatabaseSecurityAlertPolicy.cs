@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20220501Preview
     public static class GetDatabaseSecurityAlertPolicy
     {
         /// <summary>
-        /// A database security alert policy.
+        /// Gets a database's security alert policy.
         /// </summary>
         public static Task<GetDatabaseSecurityAlertPolicyResult> InvokeAsync(GetDatabaseSecurityAlertPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseSecurityAlertPolicyResult>("azure-native:sql/v20220501preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A database security alert policy.
+        /// Gets a database's security alert policy.
         /// </summary>
         public static Output<GetDatabaseSecurityAlertPolicyResult> Invoke(GetDatabaseSecurityAlertPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseSecurityAlertPolicyResult>("azure-native:sql/v20220501preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyInvokeArgs(), options.WithDefaults());

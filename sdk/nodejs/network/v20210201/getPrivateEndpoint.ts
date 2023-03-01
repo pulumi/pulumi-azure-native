@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Private endpoint resource.
+ * Gets the specified private endpoint by resource group.
  */
 export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointResult> {
 
@@ -97,7 +97,7 @@ export interface GetPrivateEndpointResult {
     readonly type: string;
 }
 /**
- * Private endpoint resource.
+ * Gets the specified private endpoint by resource group.
  */
 export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpoint(a, opts))

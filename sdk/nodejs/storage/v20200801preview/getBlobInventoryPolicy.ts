@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The storage account blob inventory policy.
+ * Gets the blob inventory policy associated with the specified storage account.
  */
 /** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
@@ -67,7 +67,7 @@ export interface GetBlobInventoryPolicyResult {
     readonly type: string;
 }
 /**
- * The storage account blob inventory policy.
+ * Gets the blob inventory policy associated with the specified storage account.
  */
 /** @deprecated Version 2020-08-01-preview will be removed in v2 of the provider. */
 export function getBlobInventoryPolicyOutput(args: GetBlobInventoryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobInventoryPolicyResult> {

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HDInsight
     public static class GetApplication
     {
         /// <summary>
-        /// The HDInsight cluster application
+        /// Gets properties of the specified application.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:hdinsight:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The HDInsight cluster application
+        /// Gets properties of the specified application.
         /// API Version: 2018-06-01-preview.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)

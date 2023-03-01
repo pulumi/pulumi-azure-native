@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Authorization.V20150701
     public static class GetRoleAssignment
     {
         /// <summary>
-        /// Role Assignments
+        /// Get the specified role assignment.
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:authorization/v20150701:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Role Assignments
+        /// Get the specified role assignment.
         /// </summary>
         public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization/v20150701:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());

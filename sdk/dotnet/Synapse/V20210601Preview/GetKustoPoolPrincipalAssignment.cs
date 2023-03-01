@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
     public static class GetKustoPoolPrincipalAssignment
     {
         /// <summary>
-        /// Class representing a cluster principal assignment.
+        /// Gets a Kusto pool principalAssignment.
         /// </summary>
         public static Task<GetKustoPoolPrincipalAssignmentResult> InvokeAsync(GetKustoPoolPrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a cluster principal assignment.
+        /// Gets a Kusto pool principalAssignment.
         /// </summary>
         public static Output<GetKustoPoolPrincipalAssignmentResult> Invoke(GetKustoPoolPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentInvokeArgs(), options.WithDefaults());

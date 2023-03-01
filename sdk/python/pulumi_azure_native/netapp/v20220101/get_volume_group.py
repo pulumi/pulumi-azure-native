@@ -122,7 +122,7 @@ def get_volume_group(account_name: Optional[str] = None,
                      volume_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
-    Volume group resource for create
+    Get details of the specified volume group
 
 
     :param str account_name: The name of the NetApp account
@@ -152,7 +152,7 @@ def get_volume_group_output(account_name: Optional[pulumi.Input[str]] = None,
                             volume_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
-    Volume group resource for create
+    Get details of the specified volume group
 
 
     :param str account_name: The name of the NetApp account

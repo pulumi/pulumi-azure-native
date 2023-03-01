@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     public static class GetAuthorizationProvider
     {
         /// <summary>
-        /// Authorization Provider contract.
+        /// Gets the details of the authorization provider specified by its identifier.
         /// </summary>
         public static Task<GetAuthorizationProviderResult> InvokeAsync(GetAuthorizationProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationProviderResult>("azure-native:apimanagement/v20220801:getAuthorizationProvider", args ?? new GetAuthorizationProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Authorization Provider contract.
+        /// Gets the details of the authorization provider specified by its identifier.
         /// </summary>
         public static Output<GetAuthorizationProviderResult> Invoke(GetAuthorizationProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationProviderResult>("azure-native:apimanagement/v20220801:getAuthorizationProvider", args ?? new GetAuthorizationProviderInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Registration definition.
+ * Gets the registration definition details.
  */
 /** @deprecated Version 2019-04-01-preview will be removed in v2 of the provider. */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
@@ -58,7 +58,7 @@ export interface GetRegistrationDefinitionResult {
     readonly type: string;
 }
 /**
- * Registration definition.
+ * Gets the registration definition details.
  */
 /** @deprecated Version 2019-04-01-preview will be removed in v2 of the provider. */
 export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {

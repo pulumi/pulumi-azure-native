@@ -96,7 +96,7 @@ def get_association(association_name: Optional[str] = None,
                     scope: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssociationResult:
     """
-    The resource definition of this association.
+    Get an association.
 
 
     :param str association_name: The name of the association.
@@ -121,7 +121,7 @@ def get_association_output(association_name: Optional[pulumi.Input[str]] = None,
                            scope: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationResult]:
     """
-    The resource definition of this association.
+    Get an association.
 
 
     :param str association_name: The name of the association.

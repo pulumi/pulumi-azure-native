@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Payload of the blockchain member which is exposed in the request/response of the resource provider.
+ * Get details about a blockchain member.
  * API Version: 2018-06-01-preview.
  */
 export function getBlockchainMember(args: GetBlockchainMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetBlockchainMemberResult> {
@@ -117,7 +117,7 @@ export interface GetBlockchainMemberResult {
     readonly validatorNodesSku?: outputs.blockchain.BlockchainMemberNodesSkuResponse;
 }
 /**
- * Payload of the blockchain member which is exposed in the request/response of the resource provider.
+ * Get details about a blockchain member.
  * API Version: 2018-06-01-preview.
  */
 export function getBlockchainMemberOutput(args: GetBlockchainMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlockchainMemberResult> {

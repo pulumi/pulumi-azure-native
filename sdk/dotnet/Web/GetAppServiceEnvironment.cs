@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetAppServiceEnvironment
     {
         /// <summary>
-        /// App Service Environment ARM resource.
+        /// Get the properties of an App Service Environment.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure-native:web:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// App Service Environment ARM resource.
+        /// Get the properties of an App Service Environment.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentResult> Invoke(GetAppServiceEnvironmentInvokeArgs args, InvokeOptions? options = null)

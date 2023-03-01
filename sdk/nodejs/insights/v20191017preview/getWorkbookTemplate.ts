@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Application Insights workbook template definition.
+ * Get a single workbook template by its resourceName.
  */
 export function getWorkbookTemplate(args: GetWorkbookTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookTemplateResult> {
 
@@ -76,7 +76,7 @@ export interface GetWorkbookTemplateResult {
     readonly type: string;
 }
 /**
- * An Application Insights workbook template definition.
+ * Get a single workbook template by its resourceName.
  */
 export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookTemplateResult> {
     return pulumi.output(args).apply((a: any) => getWorkbookTemplate(a, opts))

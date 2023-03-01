@@ -85,7 +85,7 @@ def list_iot_dps_resource_keys_for_key_name(key_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotDpsResourceKeysForKeyNameResult:
     """
-    Description of the shared access key.
+    Get a shared access policy by name from a provisioning service.
 
 
     :param str key_name: Logical key name to get key-values for.
@@ -112,7 +112,7 @@ def list_iot_dps_resource_keys_for_key_name_output(key_name: Optional[pulumi.Inp
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotDpsResourceKeysForKeyNameResult]:
     """
-    Description of the shared access key.
+    Get a shared access policy by name from a provisioning service.
 
 
     :param str key_name: Logical key name to get key-values for.

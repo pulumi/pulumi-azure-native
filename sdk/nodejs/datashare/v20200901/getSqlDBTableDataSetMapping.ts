@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A SQL DB Table data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getSqlDBTableDataSetMapping(args: GetSqlDBTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDBTableDataSetMappingResult> {
 
@@ -95,7 +95,7 @@ export interface GetSqlDBTableDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A SQL DB Table data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getSqlDBTableDataSetMappingOutput(args: GetSqlDBTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDBTableDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getSqlDBTableDataSetMapping(a, opts))

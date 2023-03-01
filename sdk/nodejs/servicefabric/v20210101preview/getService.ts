@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The service resource.
+ * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -74,7 +74,7 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * The service resource.
+ * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

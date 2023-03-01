@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of subscription resource.
+ * Returns a subscription description for the specified topic.
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
 
@@ -126,7 +126,7 @@ export interface GetSubscriptionResult {
     readonly updatedAt: string;
 }
 /**
- * Description of subscription resource.
+ * Returns a subscription description for the specified topic.
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSubscription(a, opts))

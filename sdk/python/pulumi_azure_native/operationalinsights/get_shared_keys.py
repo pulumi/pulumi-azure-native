@@ -60,7 +60,7 @@ def get_shared_keys(resource_group_name: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedKeysResult:
     """
-    The shared keys for a workspace.
+    Gets the shared keys for a workspace.
     API Version: 2020-08-01.
 
 
@@ -83,7 +83,7 @@ def get_shared_keys_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            workspace_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedKeysResult]:
     """
-    The shared keys for a workspace.
+    Gets the shared keys for a workspace.
     API Version: 2020-08-01.
 
 

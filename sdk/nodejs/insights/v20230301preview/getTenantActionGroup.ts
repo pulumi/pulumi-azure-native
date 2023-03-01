@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A tenant action group resource.
+ * Get a tenant action group.
  */
 export function getTenantActionGroup(args: GetTenantActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantActionGroupResult> {
 
@@ -84,7 +84,7 @@ export interface GetTenantActionGroupResult {
     readonly webhookReceivers?: outputs.insights.v20230301preview.WebhookReceiverResponse[];
 }
 /**
- * A tenant action group resource.
+ * Get a tenant action group.
  */
 export function getTenantActionGroupOutput(args: GetTenantActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantActionGroupResult> {
     return pulumi.output(args).apply((a: any) => getTenantActionGroup(a, opts))

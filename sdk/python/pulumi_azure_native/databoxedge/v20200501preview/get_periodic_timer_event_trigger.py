@@ -123,7 +123,7 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeriodicTimerEventTriggerResult:
     """
-    Trigger details.
+    Get a specific trigger by name.
 
 
     :param str device_name: The device name.
@@ -153,7 +153,7 @@ def get_periodic_timer_event_trigger_output(device_name: Optional[pulumi.Input[s
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeriodicTimerEventTriggerResult]:
     """
-    Trigger details.
+    Get a specific trigger by name.
 
 
     :param str device_name: The device name.

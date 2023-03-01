@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Connector model definition
+ * Get a cloud connector definition
  */
 export function getCloudConnector(args: GetCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudConnectorResult> {
 
@@ -108,7 +108,7 @@ export interface GetCloudConnectorResult {
     readonly type: string;
 }
 /**
- * The Connector model definition
+ * Get a cloud connector definition
  */
 export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudConnectorResult> {
     return pulumi.output(args).apply((a: any) => getCloudConnector(a, opts))

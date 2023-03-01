@@ -60,7 +60,7 @@ def list_admin_key(resource_group_name: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAdminKeyResult:
     """
-    Response containing the primary and secondary API keys for a given Azure Search service.
+    Returns the primary and secondary API keys for the given Azure Search service.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription.
@@ -82,7 +82,7 @@ def list_admin_key_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           service_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAdminKeyResult]:
     """
-    Response containing the primary and secondary API keys for a given Azure Search service.
+    Returns the primary and secondary API keys for the given Azure Search service.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription.

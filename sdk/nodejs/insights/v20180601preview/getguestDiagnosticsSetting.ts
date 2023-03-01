@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Virtual machine guest diagnostics settings resource.
+ * Gets guest diagnostics settings.
  */
 export function getguestDiagnosticsSetting(args: GetguestDiagnosticsSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetguestDiagnosticsSettingResult> {
 
@@ -65,7 +65,7 @@ export interface GetguestDiagnosticsSettingResult {
     readonly type: string;
 }
 /**
- * Virtual machine guest diagnostics settings resource.
+ * Gets guest diagnostics settings.
  */
 export function getguestDiagnosticsSettingOutput(args: GetguestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetguestDiagnosticsSettingResult> {
     return pulumi.output(args).apply((a: any) => getguestDiagnosticsSetting(a, opts))

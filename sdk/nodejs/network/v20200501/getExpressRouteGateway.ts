@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * ExpressRoute gateway resource.
+ * Fetches the details of a ExpressRoute gateway in a resource group.
  */
 export function getExpressRouteGateway(args: GetExpressRouteGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteGatewayResult> {
 
@@ -76,7 +76,7 @@ export interface GetExpressRouteGatewayResult {
     readonly virtualHub: outputs.network.v20200501.VirtualHubIdResponse;
 }
 /**
- * ExpressRoute gateway resource.
+ * Fetches the details of a ExpressRoute gateway in a resource group.
  */
 export function getExpressRouteGatewayOutput(args: GetExpressRouteGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteGatewayResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteGateway(a, opts))

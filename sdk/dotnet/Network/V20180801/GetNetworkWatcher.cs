@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20180801
     public static class GetNetworkWatcher
     {
         /// <summary>
-        /// Network watcher in a resource group.
+        /// Gets the specified network watcher by resource group.
         /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-native:network/v20180801:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Network watcher in a resource group.
+        /// Gets the specified network watcher by resource group.
         /// </summary>
         public static Output<GetNetworkWatcherResult> Invoke(GetNetworkWatcherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkWatcherResult>("azure-native:network/v20180801:getNetworkWatcher", args ?? new GetNetworkWatcherInvokeArgs(), options.WithDefaults());

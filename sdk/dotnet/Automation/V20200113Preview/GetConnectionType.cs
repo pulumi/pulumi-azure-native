@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     public static class GetConnectionType
     {
         /// <summary>
-        /// Definition of the connection type.
+        /// Retrieve the connection type identified by connection type name.
         /// </summary>
         public static Task<GetConnectionTypeResult> InvokeAsync(GetConnectionTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azure-native:automation/v20200113preview:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the connection type.
+        /// Retrieve the connection type identified by connection type name.
         /// </summary>
         public static Output<GetConnectionTypeResult> Invoke(GetConnectionTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionTypeResult>("azure-native:automation/v20200113preview:getConnectionType", args ?? new GetConnectionTypeInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ManagedIdentity
     public static class GetFederatedIdentityCredential
     {
         /// <summary>
-        /// Describes a federated identity credential.
+        /// Gets the federated identity credential.
         /// API Version: 2022-01-31-preview.
         /// </summary>
         public static Task<GetFederatedIdentityCredentialResult> InvokeAsync(GetFederatedIdentityCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a federated identity credential.
+        /// Gets the federated identity credential.
         /// API Version: 2022-01-31-preview.
         /// </summary>
         public static Output<GetFederatedIdentityCredentialResult> Invoke(GetFederatedIdentityCredentialInvokeArgs args, InvokeOptions? options = null)

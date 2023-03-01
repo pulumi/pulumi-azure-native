@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Security Partner Provider resource.
+ * Gets the specified Security Partner Provider.
  */
 export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPartnerProviderResult> {
 
@@ -76,7 +76,7 @@ export interface GetSecurityPartnerProviderResult {
     readonly virtualHub?: outputs.network.v20200401.SubResourceResponse;
 }
 /**
- * Security Partner Provider resource.
+ * Gets the specified Security Partner Provider.
  */
 export function getSecurityPartnerProviderOutput(args: GetSecurityPartnerProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPartnerProviderResult> {
     return pulumi.output(args).apply((a: any) => getSecurityPartnerProvider(a, opts))

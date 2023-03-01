@@ -65,7 +65,7 @@ def list_product_families(customer_subscription_details: Optional[pulumi.InputTy
                           skip_token: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductFamiliesResult:
     """
-    The list of product families.
+    This method provides the list of product families for the given subscription.
     API Version: 2021-12-01.
 
 
@@ -94,7 +94,7 @@ def list_product_families_output(customer_subscription_details: Optional[pulumi.
                                  skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductFamiliesResult]:
     """
-    The list of product families.
+    This method provides the list of product families for the given subscription.
     API Version: 2021-12-01.
 
 

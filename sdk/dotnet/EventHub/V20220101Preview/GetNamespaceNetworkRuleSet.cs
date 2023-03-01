@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventHub.V20220101Preview
     public static class GetNamespaceNetworkRuleSet
     {
         /// <summary>
-        /// Description of topic resource.
+        /// Gets NetworkRuleSet for a Namespace.
         /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub/v20220101preview:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of topic resource.
+        /// Gets NetworkRuleSet for a Namespace.
         /// </summary>
         public static Output<GetNamespaceNetworkRuleSetResult> Invoke(GetNamespaceNetworkRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub/v20220101preview:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());

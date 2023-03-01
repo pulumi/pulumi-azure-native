@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+ * Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
  * API Version: 2021-05-01-preview.
  */
 export function getServerTrustCertificate(args: GetServerTrustCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustCertificateResult> {
@@ -63,7 +63,7 @@ export interface GetServerTrustCertificateResult {
     readonly type: string;
 }
 /**
- * Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+ * Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
  * API Version: 2021-05-01-preview.
  */
 export function getServerTrustCertificateOutput(args: GetServerTrustCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustCertificateResult> {

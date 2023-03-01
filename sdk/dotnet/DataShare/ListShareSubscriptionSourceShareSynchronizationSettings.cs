@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataShare
     public static class ListShareSubscriptionSourceShareSynchronizationSettings
     {
         /// <summary>
-        /// List response for get source share Synchronization settings
+        /// Get synchronization settings set on a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<ListShareSubscriptionSourceShareSynchronizationSettingsResult> InvokeAsync(ListShareSubscriptionSourceShareSynchronizationSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSourceShareSynchronizationSettingsResult>("azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings", args ?? new ListShareSubscriptionSourceShareSynchronizationSettingsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List response for get source share Synchronization settings
+        /// Get synchronization settings set on a share
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<ListShareSubscriptionSourceShareSynchronizationSettingsResult> Invoke(ListShareSubscriptionSourceShareSynchronizationSettingsInvokeArgs args, InvokeOptions? options = null)

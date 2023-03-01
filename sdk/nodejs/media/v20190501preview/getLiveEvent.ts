@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Live Event.
+ * Gets a Live Event.
  */
 export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventResult> {
 
@@ -109,7 +109,7 @@ export interface GetLiveEventResult {
     readonly vanityUrl?: boolean;
 }
 /**
- * The Live Event.
+ * Gets a Live Event.
  */
 export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventResult> {
     return pulumi.output(args).apply((a: any) => getLiveEvent(a, opts))

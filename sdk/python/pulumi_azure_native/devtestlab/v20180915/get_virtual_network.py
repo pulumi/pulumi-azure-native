@@ -195,7 +195,7 @@ def get_virtual_network(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
-    A virtual network.
+    Get virtual network.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'
@@ -234,7 +234,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
-    A virtual network.
+    Get virtual network.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'

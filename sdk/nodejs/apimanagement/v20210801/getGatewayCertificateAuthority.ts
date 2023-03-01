@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Gateway certificate authority details.
+ * Get assigned Gateway Certificate Authority details.
  */
 export function getGatewayCertificateAuthority(args: GetGatewayCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCertificateAuthorityResult> {
 
@@ -59,7 +59,7 @@ export interface GetGatewayCertificateAuthorityResult {
     readonly type: string;
 }
 /**
- * Gateway certificate authority details.
+ * Get assigned Gateway Certificate Authority details.
  */
 export function getGatewayCertificateAuthorityOutput(args: GetGatewayCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCertificateAuthorityResult> {
     return pulumi.output(args).apply((a: any) => getGatewayCertificateAuthority(a, opts))

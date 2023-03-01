@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Microsoft Threat Intelligence data connector.
+ * Gets a data connector.
  */
 export function getMSTIDataConnector(args: GetMSTIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMSTIDataConnectorResult> {
 
@@ -79,7 +79,7 @@ export interface GetMSTIDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents Microsoft Threat Intelligence data connector.
+ * Gets a data connector.
  */
 export function getMSTIDataConnectorOutput(args: GetMSTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSTIDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMSTIDataConnector(a, opts))

@@ -136,7 +136,7 @@ def get_scope_map(registry_name: Optional[str] = None,
                   scope_map_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeMapResult:
     """
-    An object that represents a scope map for a container registry.
+    Gets the properties of the specified scope map.
     API Version: 2020-11-01-preview.
 
 
@@ -168,7 +168,7 @@ def get_scope_map_output(registry_name: Optional[pulumi.Input[str]] = None,
                          scope_map_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeMapResult]:
     """
-    An object that represents a scope map for a container registry.
+    Gets the properties of the specified scope map.
     API Version: 2020-11-01-preview.
 
 

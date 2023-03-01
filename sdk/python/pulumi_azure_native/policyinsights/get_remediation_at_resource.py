@@ -169,7 +169,7 @@ def get_remediation_at_resource(remediation_name: Optional[str] = None,
                                 resource_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtResourceResult:
     """
-    The remediation definition.
+    Gets an existing remediation at resource scope.
     API Version: 2019-07-01.
 
 
@@ -201,7 +201,7 @@ def get_remediation_at_resource_output(remediation_name: Optional[pulumi.Input[s
                                        resource_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtResourceResult]:
     """
-    The remediation definition.
+    Gets an existing remediation at resource scope.
     API Version: 2019-07-01.
 
 

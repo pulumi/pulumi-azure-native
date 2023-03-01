@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiIssueComment
     {
         /// <summary>
-        /// Issue Comment Contract details.
+        /// Gets the details of the issue Comment for an API specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiIssueCommentResult> InvokeAsync(GetApiIssueCommentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-native:apimanagement:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Issue Comment Contract details.
+        /// Gets the details of the issue Comment for an API specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiIssueCommentResult> Invoke(GetApiIssueCommentInvokeArgs args, InvokeOptions? options = null)

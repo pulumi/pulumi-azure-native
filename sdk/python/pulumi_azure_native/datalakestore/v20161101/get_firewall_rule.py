@@ -97,7 +97,7 @@ def get_firewall_rule(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Data Lake Store firewall rule information.
+    Gets the specified Data Lake Store firewall rule.
 
 
     :param str account_name: The name of the Data Lake Store account.
@@ -125,7 +125,7 @@ def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
-    Data Lake Store firewall rule information.
+    Gets the specified Data Lake Store firewall rule.
 
 
     :param str account_name: The name of the Data Lake Store account.

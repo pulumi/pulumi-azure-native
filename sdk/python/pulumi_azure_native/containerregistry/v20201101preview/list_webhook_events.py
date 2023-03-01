@@ -62,7 +62,7 @@ def list_webhook_events(registry_name: Optional[str] = None,
                         webhook_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebhookEventsResult:
     """
-    The result of a request to list events for a webhook.
+    Lists recent events for the specified webhook.
 
 
     :param str registry_name: The name of the container registry.
@@ -87,7 +87,7 @@ def list_webhook_events_output(registry_name: Optional[pulumi.Input[str]] = None
                                webhook_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebhookEventsResult]:
     """
-    The result of a request to list events for a webhook.
+    Lists recent events for the specified webhook.
 
 
     :param str registry_name: The name of the container registry.

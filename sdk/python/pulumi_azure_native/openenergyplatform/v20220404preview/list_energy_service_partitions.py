@@ -49,7 +49,7 @@ def list_energy_service_partitions(resource_group_name: Optional[str] = None,
                                    resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEnergyServicePartitionsResult:
     """
-    List of data partitions.
+    Method that gets called when list of partitions is requested.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -70,7 +70,7 @@ def list_energy_service_partitions_output(resource_group_name: Optional[pulumi.I
                                           resource_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEnergyServicePartitionsResult]:
     """
-    List of data partitions.
+    Method that gets called when list of partitions is requested.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

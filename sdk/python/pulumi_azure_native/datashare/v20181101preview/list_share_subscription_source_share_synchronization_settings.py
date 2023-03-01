@@ -63,7 +63,7 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
                                                                   skip_token: Optional[str] = None,
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSourceShareSynchronizationSettingsResult:
     """
-    List response for get source share Synchronization settings
+    Get synchronization settings set on a share
 
 
     :param str account_name: The name of the share account.
@@ -91,7 +91,7 @@ def list_share_subscription_source_share_synchronization_settings_output(account
                                                                          skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSubscriptionSourceShareSynchronizationSettingsResult]:
     """
-    List response for get source share Synchronization settings
+    Get synchronization settings set on a share
 
 
     :param str account_name: The name of the share account.

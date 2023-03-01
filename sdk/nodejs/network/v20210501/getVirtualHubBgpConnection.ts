@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Virtual Appliance Site resource.
+ * Retrieves the details of a Virtual Hub Bgp Connection.
  */
 export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubBgpConnectionResult> {
 
@@ -77,7 +77,7 @@ export interface GetVirtualHubBgpConnectionResult {
     readonly type: string;
 }
 /**
- * Virtual Appliance Site resource.
+ * Retrieves the details of a Virtual Hub Bgp Connection.
  */
 export function getVirtualHubBgpConnectionOutput(args: GetVirtualHubBgpConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubBgpConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHubBgpConnection(a, opts))

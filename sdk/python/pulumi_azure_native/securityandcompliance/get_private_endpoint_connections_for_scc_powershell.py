@@ -122,7 +122,7 @@ def get_private_endpoint_connections_for_scc_powershell(private_endpoint_connect
                                                         resource_name: Optional[str] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionsForSCCPowershellResult:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
     API Version: 2021-03-08.
 
 
@@ -153,7 +153,7 @@ def get_private_endpoint_connections_for_scc_powershell_output(private_endpoint_
                                                                resource_name: Optional[pulumi.Input[str]] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionsForSCCPowershellResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
     API Version: 2021-03-08.
 
 

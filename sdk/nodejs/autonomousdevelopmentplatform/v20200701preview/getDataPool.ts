@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An ADP Data Pool.
+ * Gets the properties of a Data Pool.
  */
 /** @deprecated Version 2020-07-01-preview will be removed in v2 of the provider. */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
@@ -71,7 +71,7 @@ export interface GetDataPoolResult {
     readonly type: string;
 }
 /**
- * An ADP Data Pool.
+ * Gets the properties of a Data Pool.
  */
 /** @deprecated Version 2020-07-01-preview will be removed in v2 of the provider. */
 export function getDataPoolOutput(args: GetDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataPoolResult> {

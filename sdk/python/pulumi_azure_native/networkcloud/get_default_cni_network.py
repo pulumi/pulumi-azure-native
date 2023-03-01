@@ -285,6 +285,7 @@ def get_default_cni_network(default_cni_network_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultCniNetworkResult:
     """
+    Get properties of the provided default CNI network.
     API Version: 2022-12-12-preview.
 
 
@@ -326,6 +327,7 @@ def get_default_cni_network_output(default_cni_network_name: Optional[pulumi.Inp
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultCniNetworkResult]:
     """
+    Get properties of the provided default CNI network.
     API Version: 2022-12-12-preview.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a Shared Private Link Resource
+ * Get the specified shared private link resource
  * API Version: 2021-04-01-preview.
  */
 export function getWebPubSubSharedPrivateLinkResource(args: GetWebPubSubSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubSharedPrivateLinkResourceResult> {
@@ -78,7 +78,7 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
     readonly type: string;
 }
 /**
- * Describes a Shared Private Link Resource
+ * Get the specified shared private link resource
  * API Version: 2021-04-01-preview.
  */
 export function getWebPubSubSharedPrivateLinkResourceOutput(args: GetWebPubSubSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubSharedPrivateLinkResourceResult> {

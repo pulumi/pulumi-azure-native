@@ -446,7 +446,7 @@ def get_virtual_machine(expand: Optional[str] = None,
                         vm_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    Describes a Virtual Machine.
+    Retrieves information about the model view or the instance view of a virtual machine.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
@@ -503,7 +503,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                vm_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
-    Describes a Virtual Machine.
+    Retrieves information about the model view or the instance view of a virtual machine.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.

@@ -97,7 +97,7 @@ def get_firewall_rule(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Data Lake Analytics firewall rule information.
+    Gets the specified Data Lake Analytics firewall rule.
     API Version: 2016-11-01.
 
 
@@ -126,7 +126,7 @@ def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
-    Data Lake Analytics firewall rule information.
+    Gets the specified Data Lake Analytics firewall rule.
     API Version: 2016-11-01.
 
 

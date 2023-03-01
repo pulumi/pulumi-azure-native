@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Class representing an data connection.
+ * Returns a data connection.
  * API Version: 2021-01-01.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
@@ -66,7 +66,7 @@ export interface GetDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing an data connection.
+ * Returns a data connection.
  * API Version: 2021-01-01.
  */
 /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */

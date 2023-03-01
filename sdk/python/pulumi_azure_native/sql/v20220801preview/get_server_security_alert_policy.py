@@ -182,7 +182,7 @@ def get_server_security_alert_policy(resource_group_name: Optional[str] = None,
                                      server_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerSecurityAlertPolicyResult:
     """
-    A server security alert policy.
+    Get a server's security alert policy.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -217,7 +217,7 @@ def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi
                                             server_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerSecurityAlertPolicyResult]:
     """
-    A server security alert policy.
+    Get a server's security alert policy.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

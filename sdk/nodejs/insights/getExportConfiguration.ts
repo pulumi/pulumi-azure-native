@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Properties that define a Continuous Export configuration.
+ * Get the Continuous Export configuration for this export id.
  * API Version: 2015-05-01.
  */
 export function getExportConfiguration(args: GetExportConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetExportConfigurationResult> {
@@ -115,7 +115,7 @@ export interface GetExportConfigurationResult {
     readonly subscriptionId: string;
 }
 /**
- * Properties that define a Continuous Export configuration.
+ * Get the Continuous Export configuration for this export id.
  * API Version: 2015-05-01.
  */
 export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportConfigurationResult> {

@@ -50,7 +50,7 @@ def get_live_event_track_ingest_heartbeats(account_name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveEventTrackIngestHeartbeatsResult:
     """
-    Get live event track ingest heart beats result.
+    Get track ingest heartbeat events telemetry of a live event.
 
 
     :param str account_name: The Media Services account name.
@@ -74,7 +74,7 @@ def get_live_event_track_ingest_heartbeats_output(account_name: Optional[pulumi.
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveEventTrackIngestHeartbeatsResult]:
     """
-    Get live event track ingest heart beats result.
+    Get track ingest heartbeat events telemetry of a live event.
 
 
     :param str account_name: The Media Services account name.

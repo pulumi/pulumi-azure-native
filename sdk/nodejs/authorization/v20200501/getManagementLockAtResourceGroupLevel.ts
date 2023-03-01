@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The lock information.
+ * Gets a management lock at the resource group level.
  */
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
 
@@ -64,7 +64,7 @@ export interface GetManagementLockAtResourceGroupLevelResult {
     readonly type: string;
 }
 /**
- * The lock information.
+ * Gets a management lock at the resource group level.
  */
 export function getManagementLockAtResourceGroupLevelOutput(args: GetManagementLockAtResourceGroupLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceGroupLevelResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockAtResourceGroupLevel(a, opts))

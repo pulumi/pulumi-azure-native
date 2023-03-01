@@ -12,14 +12,16 @@ namespace Pulumi.AzureNative.Management
     public static class GetManagementGroup
     {
         /// <summary>
-        /// The management group details.
+        /// Get the details of the management group.
+        /// 
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-native:management:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The management group details.
+        /// Get the details of the management group.
+        /// 
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs args, InvokeOptions? options = null)

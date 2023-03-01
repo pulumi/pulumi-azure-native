@@ -216,7 +216,7 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginResult:
     """
-    CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    Gets an existing origin within an origin group.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.
@@ -257,7 +257,7 @@ def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDOriginResult]:
     """
-    CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    Gets an existing origin within an origin group.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.

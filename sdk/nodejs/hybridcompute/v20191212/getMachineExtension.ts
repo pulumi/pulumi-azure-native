@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a Machine Extension.
+ * The operation to get the extension.
  */
 /** @deprecated Version 2019-12-12 will be removed in v2 of the provider. */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
@@ -95,7 +95,7 @@ export interface GetMachineExtensionResult {
     readonly typeHandlerVersion?: string;
 }
 /**
- * Describes a Machine Extension.
+ * The operation to get the extension.
  */
 /** @deprecated Version 2019-12-12 will be removed in v2 of the provider. */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Customer subscription which can use a sku.
+ * Gets the preview information of a vendor sku.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
 
@@ -61,7 +61,7 @@ export interface GetVendorSkuPreviewResult {
     readonly type: string;
 }
 /**
- * Customer subscription which can use a sku.
+ * Gets the preview information of a vendor sku.
  */
 export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
     return pulumi.output(args).apply((a: any) => getVendorSkuPreview(a, opts))

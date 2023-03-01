@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get properties of the provided trunked network.
+ */
 export function getTrunkedNetwork(args: GetTrunkedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTrunkedNetworkResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,6 +100,9 @@ export interface GetTrunkedNetworkResult {
      */
     readonly vlans: number[];
 }
+/**
+ * Get properties of the provided trunked network.
+ */
 export function getTrunkedNetworkOutput(args: GetTrunkedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrunkedNetworkResult> {
     return pulumi.output(args).apply((a: any) => getTrunkedNetwork(a, opts))
 }

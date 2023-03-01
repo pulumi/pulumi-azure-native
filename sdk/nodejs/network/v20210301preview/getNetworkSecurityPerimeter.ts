@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The Network Security Perimeter resource
+ * Gets the specified network security perimeter by the name.
  */
 export function getNetworkSecurityPerimeter(args: GetNetworkSecurityPerimeterArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityPerimeterResult> {
 
@@ -69,7 +69,7 @@ export interface GetNetworkSecurityPerimeterResult {
     readonly type: string;
 }
 /**
- * The Network Security Perimeter resource
+ * Gets the specified network security perimeter by the name.
  */
 export function getNetworkSecurityPerimeterOutput(args: GetNetworkSecurityPerimeterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityPerimeterResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSecurityPerimeter(a, opts))

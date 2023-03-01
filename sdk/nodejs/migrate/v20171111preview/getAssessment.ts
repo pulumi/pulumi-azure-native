@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An assessment created for a group in the Migration project.
+ * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
@@ -137,7 +137,7 @@ export interface GetAssessmentResult {
     readonly updatedTimestamp: string;
 }
 /**
- * An assessment created for a group in the Migration project.
+ * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {

@@ -120,7 +120,7 @@ class AwaitableGetSecurityContactResult(GetSecurityContactResult):
 def get_security_contact(security_contact_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityContactResult:
     """
-    Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
+    Get Default Security contact configurations for the subscription
     API Version: 2020-01-01-preview.
 
 
@@ -145,7 +145,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
 def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityContactResult]:
     """
-    Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
+    Get Default Security contact configurations for the subscription
     API Version: 2020-01-01-preview.
 
 

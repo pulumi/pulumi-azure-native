@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Media Graph.
+ * Get the details of a Media Graph in the Media Services account.
  * API Version: 2020-02-01-preview.
  */
 export function getMediaGraph(args: GetMediaGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaGraphResult> {
@@ -78,7 +78,7 @@ export interface GetMediaGraphResult {
     readonly type: string;
 }
 /**
- * The Media Graph.
+ * Get the details of a Media Graph in the Media Services account.
  * API Version: 2020-02-01-preview.
  */
 export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaGraphResult> {

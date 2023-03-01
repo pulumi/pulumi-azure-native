@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource information with extended details.
+ * Gets the specified Azure key vault.
  * API Version: 2019-09-01.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
@@ -61,7 +61,7 @@ export interface GetVaultResult {
     readonly type: string;
 }
 /**
- * Resource information with extended details.
+ * Gets the specified Azure key vault.
  * API Version: 2019-09-01.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {

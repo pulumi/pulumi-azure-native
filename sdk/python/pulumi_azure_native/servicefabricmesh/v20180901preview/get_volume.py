@@ -169,7 +169,7 @@ def get_volume(resource_group_name: Optional[str] = None,
                volume_resource_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    This type describes a volume resource.
+    Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
 
 
     :param str resource_group_name: Azure resource group name
@@ -200,7 +200,7 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       volume_resource_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
-    This type describes a volume resource.
+    Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
 
 
     :param str resource_group_name: Azure resource group name

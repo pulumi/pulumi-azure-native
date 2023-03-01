@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
     public static class ListSqlMigrationServiceMonitoringData
     {
         /// <summary>
-        /// Integration Runtime Monitoring Data.
+        /// Retrieve the Monitoring Data.
         /// </summary>
         public static Task<ListSqlMigrationServiceMonitoringDataResult> InvokeAsync(ListSqlMigrationServiceMonitoringDataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration/v20211030preview:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Integration Runtime Monitoring Data.
+        /// Retrieve the Monitoring Data.
         /// </summary>
         public static Output<ListSqlMigrationServiceMonitoringDataResult> Invoke(ListSqlMigrationServiceMonitoringDataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration/v20211030preview:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataInvokeArgs(), options.WithDefaults());

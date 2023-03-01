@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Gateway settings.
+ * Gets the gateway settings for the specified cluster.
  */
 export function getClusterGatewaySettings(args: GetClusterGatewaySettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterGatewaySettingsResult> {
 
@@ -45,7 +45,7 @@ export interface GetClusterGatewaySettingsResult {
     readonly userName: string;
 }
 /**
- * Gateway settings.
+ * Gets the gateway settings for the specified cluster.
  */
 export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
     return pulumi.output(args).apply((a: any) => getClusterGatewaySettings(a, opts))

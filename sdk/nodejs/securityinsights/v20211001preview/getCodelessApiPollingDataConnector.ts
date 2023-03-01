@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Codeless API Polling data connector.
+ * Gets a data connector.
  */
 export function getCodelessApiPollingDataConnector(args: GetCodelessApiPollingDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCodelessApiPollingDataConnectorResult> {
 
@@ -74,7 +74,7 @@ export interface GetCodelessApiPollingDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents Codeless API Polling data connector.
+ * Gets a data connector.
  */
 export function getCodelessApiPollingDataConnectorOutput(args: GetCodelessApiPollingDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodelessApiPollingDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getCodelessApiPollingDataConnector(a, opts))

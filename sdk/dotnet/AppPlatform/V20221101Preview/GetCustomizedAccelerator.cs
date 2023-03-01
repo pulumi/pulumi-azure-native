@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
     public static class GetCustomizedAccelerator
     {
         /// <summary>
-        /// Customized accelerator resource
+        /// Get the customized accelerator.
         /// </summary>
         public static Task<GetCustomizedAcceleratorResult> InvokeAsync(GetCustomizedAcceleratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomizedAcceleratorResult>("azure-native:appplatform/v20221101preview:getCustomizedAccelerator", args ?? new GetCustomizedAcceleratorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Customized accelerator resource
+        /// Get the customized accelerator.
         /// </summary>
         public static Output<GetCustomizedAcceleratorResult> Invoke(GetCustomizedAcceleratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizedAcceleratorResult>("azure-native:appplatform/v20221101preview:getCustomizedAccelerator", args ?? new GetCustomizedAcceleratorInvokeArgs(), options.WithDefaults());

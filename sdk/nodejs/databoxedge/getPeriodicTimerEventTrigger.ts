@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Trigger details.
+ * Get a specific trigger by name.
  * API Version: 2020-12-01.
  */
 export function getPeriodicTimerEventTrigger(args: GetPeriodicTimerEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetPeriodicTimerEventTriggerResult> {
@@ -75,7 +75,7 @@ export interface GetPeriodicTimerEventTriggerResult {
     readonly type: string;
 }
 /**
- * Trigger details.
+ * Get a specific trigger by name.
  * API Version: 2020-12-01.
  */
 export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     public static class GetAvailabilityGroupListener
     {
         /// <summary>
-        /// A SQL Server availability group listener.
+        /// Gets an availability group listener.
         /// API Version: 2017-03-01-preview.
         /// </summary>
         public static Task<GetAvailabilityGroupListenerResult> InvokeAsync(GetAvailabilityGroupListenerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A SQL Server availability group listener.
+        /// Gets an availability group listener.
         /// API Version: 2017-03-01-preview.
         /// </summary>
         public static Output<GetAvailabilityGroupListenerResult> Invoke(GetAvailabilityGroupListenerInvokeArgs args, InvokeOptions? options = null)

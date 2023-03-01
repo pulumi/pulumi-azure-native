@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The integration account partner.
+ * Gets an integration account partner.
  */
 export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
 
@@ -81,7 +81,7 @@ export interface GetPartnerResult {
     readonly type: string;
 }
 /**
- * The integration account partner.
+ * Gets an integration account partner.
  */
 export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
     return pulumi.output(args).apply((a: any) => getPartner(a, opts))

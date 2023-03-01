@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Route table resource.
+ * Gets the specified route table.
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
 
@@ -81,7 +81,7 @@ export interface GetRouteTableResult {
     readonly type: string;
 }
 /**
- * Route table resource.
+ * Gets the specified route table.
  */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))

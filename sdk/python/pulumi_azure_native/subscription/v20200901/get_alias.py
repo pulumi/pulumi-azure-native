@@ -84,7 +84,7 @@ class AwaitableGetAliasResult(GetAliasResult):
 def get_alias(alias_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
-    Subscription Information with the alias.
+    Get Alias Subscription.
 
 
     :param str alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -105,7 +105,7 @@ def get_alias(alias_name: Optional[str] = None,
 def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
-    Subscription Information with the alias.
+    Get Alias Subscription.
 
 
     :param str alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.

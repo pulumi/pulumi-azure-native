@@ -98,7 +98,7 @@ def get_trigger(factory_name: Optional[str] = None,
                 trigger_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
-    Trigger resource type.
+    Gets a trigger.
     API Version: 2018-06-01.
 
 
@@ -127,7 +127,7 @@ def get_trigger_output(factory_name: Optional[pulumi.Input[str]] = None,
                        trigger_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerResult]:
     """
-    Trigger resource type.
+    Gets a trigger.
     API Version: 2018-06-01.
 
 

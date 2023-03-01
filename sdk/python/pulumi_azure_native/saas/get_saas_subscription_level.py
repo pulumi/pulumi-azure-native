@@ -97,7 +97,7 @@ def get_saas_subscription_level(resource_group_name: Optional[str] = None,
                                 resource_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSaasSubscriptionLevelResult:
     """
-    SaaS REST API resource definition.
+    Gets information about the specified Subscription Level SaaS.
     API Version: 2018-03-01-beta.
 
 
@@ -123,7 +123,7 @@ def get_saas_subscription_level_output(resource_group_name: Optional[pulumi.Inpu
                                        resource_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSaasSubscriptionLevelResult]:
     """
-    SaaS REST API resource definition.
+    Gets information about the specified Subscription Level SaaS.
     API Version: 2018-03-01-beta.
 
 

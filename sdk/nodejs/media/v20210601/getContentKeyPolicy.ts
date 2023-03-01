@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Content Key Policy resource.
+ * Get the details of a Content Key Policy in the Media Services account
  */
 export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyResult> {
 
@@ -77,7 +77,7 @@ export interface GetContentKeyPolicyResult {
     readonly type: string;
 }
 /**
- * A Content Key Policy resource.
+ * Get the details of a Content Key Policy in the Media Services account
  */
 export function getContentKeyPolicyOutput(args: GetContentKeyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyResult> {
     return pulumi.output(args).apply((a: any) => getContentKeyPolicy(a, opts))

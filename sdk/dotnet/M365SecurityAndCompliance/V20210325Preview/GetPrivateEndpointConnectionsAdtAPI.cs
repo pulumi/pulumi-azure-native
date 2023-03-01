@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
     public static class GetPrivateEndpointConnectionsAdtAPI
     {
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets the specified private endpoint connection associated with the service.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsAdtAPIResult> InvokeAsync(GetPrivateEndpointConnectionsAdtAPIArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets the specified private endpoint connection associated with the service.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsAdtAPIResult> Invoke(GetPrivateEndpointConnectionsAdtAPIInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIInvokeArgs(), options.WithDefaults());

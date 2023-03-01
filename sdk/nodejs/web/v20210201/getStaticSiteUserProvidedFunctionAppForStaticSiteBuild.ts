@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Static Site User Provided Function App ARM resource.
+ * Gets the details of the user provided function app registered with a static site build
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
 
@@ -71,7 +71,7 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult {
     readonly type: string;
 }
 /**
- * Static Site User Provided Function App ARM resource.
+ * Gets the details of the user provided function app registered with a static site build
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(a, opts))

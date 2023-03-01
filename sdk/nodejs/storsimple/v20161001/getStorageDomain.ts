@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The storage domain.
+ * Returns the properties of the specified storage domain name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageDomainResult> {
@@ -67,7 +67,7 @@ export interface GetStorageDomainResult {
     readonly type: string;
 }
 /**
- * The storage domain.
+ * Returns the properties of the specified storage domain name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getStorageDomainOutput(args: GetStorageDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageDomainResult> {

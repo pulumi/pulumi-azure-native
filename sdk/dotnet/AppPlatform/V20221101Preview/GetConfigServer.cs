@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20221101Preview
     public static class GetConfigServer
     {
         /// <summary>
-        /// Config Server resource
+        /// Get the config server and its properties.
         /// </summary>
         public static Task<GetConfigServerResult> InvokeAsync(GetConfigServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigServerResult>("azure-native:appplatform/v20221101preview:getConfigServer", args ?? new GetConfigServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Config Server resource
+        /// Get the config server and its properties.
         /// </summary>
         public static Output<GetConfigServerResult> Invoke(GetConfigServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigServerResult>("azure-native:appplatform/v20221101preview:getConfigServer", args ?? new GetConfigServerInvokeArgs(), options.WithDefaults());

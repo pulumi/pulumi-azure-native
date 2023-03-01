@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * this is the management partner operations response
+ * Get the management partner using the partnerId, objectId and tenantId.
  */
 export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
 
@@ -72,7 +72,7 @@ export interface GetPartnerResult {
     readonly version?: number;
 }
 /**
- * this is the management partner operations response
+ * Get the management partner using the partnerId, objectId and tenantId.
  */
 export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
     return pulumi.output(args).apply((a: any) => getPartner(a, opts))

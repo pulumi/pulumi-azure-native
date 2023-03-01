@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Server Endpoint object.
+ * Get a ServerEndpoint.
  */
 /** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerEndpointResult> {
@@ -116,7 +116,7 @@ export interface GetServerEndpointResult {
     readonly volumeFreeSpacePercent?: number;
 }
 /**
- * Server Endpoint object.
+ * Get a ServerEndpoint.
  */
 /** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerEndpointResult> {

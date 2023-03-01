@@ -217,7 +217,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
                  workflow_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowResult:
     """
-    The workflow type.
+    Gets a workflow.
 
 
     :param str resource_group_name: The resource group name.
@@ -252,7 +252,7 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         workflow_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
     """
-    The workflow type.
+    Gets a workflow.
 
 
     :param str resource_group_name: The resource group name.

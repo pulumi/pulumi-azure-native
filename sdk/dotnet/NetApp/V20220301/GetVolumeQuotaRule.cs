@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NetApp.V20220301
     public static class GetVolumeQuotaRule
     {
         /// <summary>
-        /// Quota Rule of a Volume
+        /// Get details of the specified quota rule
         /// </summary>
         public static Task<GetVolumeQuotaRuleResult> InvokeAsync(GetVolumeQuotaRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeQuotaRuleResult>("azure-native:netapp/v20220301:getVolumeQuotaRule", args ?? new GetVolumeQuotaRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Quota Rule of a Volume
+        /// Get details of the specified quota rule
         /// </summary>
         public static Output<GetVolumeQuotaRuleResult> Invoke(GetVolumeQuotaRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeQuotaRuleResult>("azure-native:netapp/v20220301:getVolumeQuotaRule", args ?? new GetVolumeQuotaRuleInvokeArgs(), options.WithDefaults());

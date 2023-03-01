@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Subscription feature registration details
+ * Returns a feature registration
  */
 export function getSubscriptionFeatureRegistration(args: GetSubscriptionFeatureRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionFeatureRegistrationResult> {
 
@@ -49,7 +49,7 @@ export interface GetSubscriptionFeatureRegistrationResult {
     readonly type: string;
 }
 /**
- * Subscription feature registration details
+ * Returns a feature registration
  */
 export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getSubscriptionFeatureRegistration(a, opts))

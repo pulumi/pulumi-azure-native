@@ -148,7 +148,7 @@ def get_pipeline(factory_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
-    Pipeline resource type.
+    Gets a pipeline.
 
 
     :param str factory_name: The factory name.
@@ -181,7 +181,7 @@ def get_pipeline_output(factory_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
     """
-    Pipeline resource type.
+    Gets a pipeline.
 
 
     :param str factory_name: The factory name.

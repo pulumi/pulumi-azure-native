@@ -196,7 +196,7 @@ def get_read_only_following_database(database_name: Optional[str] = None,
                                      workspace_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReadOnlyFollowingDatabaseResult:
     """
-    Class representing a read only following database.
+    Returns a database.
 
 
     :param str database_name: The name of the database in the Kusto pool.
@@ -235,7 +235,7 @@ def get_read_only_following_database_output(database_name: Optional[pulumi.Input
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadOnlyFollowingDatabaseResult]:
     """
-    Class representing a read only following database.
+    Returns a database.
 
 
     :param str database_name: The name of the database in the Kusto pool.

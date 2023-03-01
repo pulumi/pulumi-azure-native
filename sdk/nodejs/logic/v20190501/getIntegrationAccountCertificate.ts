@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The integration account certificate.
+ * Gets an integration account certificate.
  */
 export function getIntegrationAccountCertificate(args: GetIntegrationAccountCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountCertificateResult> {
 
@@ -81,7 +81,7 @@ export interface GetIntegrationAccountCertificateResult {
     readonly type: string;
 }
 /**
- * The integration account certificate.
+ * Gets an integration account certificate.
  */
 export function getIntegrationAccountCertificateOutput(args: GetIntegrationAccountCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountCertificateResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountCertificate(a, opts))

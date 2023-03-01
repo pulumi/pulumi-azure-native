@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220301Preview
     public static class GetReplica
     {
         /// <summary>
-        /// The replica resource.
+        /// Gets the properties of the specified replica.
         /// </summary>
         public static Task<GetReplicaResult> InvokeAsync(GetReplicaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicaResult>("azure-native:appconfiguration/v20220301preview:getReplica", args ?? new GetReplicaArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The replica resource.
+        /// Gets the properties of the specified replica.
         /// </summary>
         public static Output<GetReplicaResult> Invoke(GetReplicaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicaResult>("azure-native:appconfiguration/v20220301preview:getReplica", args ?? new GetReplicaInvokeArgs(), options.WithDefaults());

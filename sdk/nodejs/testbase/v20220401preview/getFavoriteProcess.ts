@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A favorite process identifier.
+ * Gets a favorite process for a Test Base Package.
  */
 export function getFavoriteProcess(args: GetFavoriteProcessArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteProcessResult> {
 
@@ -66,7 +66,7 @@ export interface GetFavoriteProcessResult {
     readonly type: string;
 }
 /**
- * A favorite process identifier.
+ * Gets a favorite process for a Test Base Package.
  */
 export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteProcessResult> {
     return pulumi.output(args).apply((a: any) => getFavoriteProcess(a, opts))

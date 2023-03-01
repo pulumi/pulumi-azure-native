@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Network security rule
+ * The Get NetworkSecurityRule operation retrieves information about the specified network security rule.
  */
 /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
@@ -92,7 +92,7 @@ export interface GetSecurityRuleResult {
     readonly sourcePortRange?: string;
 }
 /**
- * Network security rule
+ * The Get NetworkSecurityRule operation retrieves information about the specified network security rule.
  */
 /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {

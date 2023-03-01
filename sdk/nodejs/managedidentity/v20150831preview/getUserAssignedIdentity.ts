@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Describes an identity resource.
+ * Gets the identity.
  */
 /** @deprecated Version 2015-08-31-preview will be removed in v2 of the provider. */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
@@ -71,7 +71,7 @@ export interface GetUserAssignedIdentityResult {
     readonly type: string;
 }
 /**
- * Describes an identity resource.
+ * Gets the identity.
  */
 /** @deprecated Version 2015-08-31-preview will be removed in v2 of the provider. */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {

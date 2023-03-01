@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a cluster principal assignment.
+ * Gets a Kusto cluster principalAssignment.
  * API Version: 2021-01-01.
  */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
@@ -79,7 +79,7 @@ export interface GetClusterPrincipalAssignmentResult {
     readonly type: string;
 }
 /**
- * Class representing a cluster principal assignment.
+ * Gets a Kusto cluster principalAssignment.
  * API Version: 2021-01-01.
  */
 export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {

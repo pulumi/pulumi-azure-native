@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Management lock information.
+ * Gets a management lock at the resource group level.
  */
 /** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
@@ -55,7 +55,7 @@ export interface GetManagementLockAtResourceGroupLevelResult {
     readonly type: string;
 }
 /**
- * Management lock information.
+ * Gets a management lock at the resource group level.
  */
 /** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
 export function getManagementLockAtResourceGroupLevelOutput(args: GetManagementLockAtResourceGroupLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceGroupLevelResult> {

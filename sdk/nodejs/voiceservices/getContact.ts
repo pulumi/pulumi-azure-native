@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Contact resource
+ * Get a Contact
  * API Version: 2022-12-01-preview.
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
@@ -86,7 +86,7 @@ export interface GetContactResult {
     readonly type: string;
 }
 /**
- * A Contact resource
+ * Get a Contact
  * API Version: 2022-12-01-preview.
  */
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {

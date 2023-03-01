@@ -147,7 +147,7 @@ def get_admin_rule_collection(configuration_name: Optional[str] = None,
                               rule_collection_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdminRuleCollectionResult:
     """
-    Defines the rule collection.
+    Gets a network manager security admin configuration rule collection.
     API Version: 2021-02-01-preview.
 
 
@@ -183,7 +183,7 @@ def get_admin_rule_collection_output(configuration_name: Optional[pulumi.Input[s
                                      rule_collection_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdminRuleCollectionResult]:
     """
-    Defines the rule collection.
+    Gets a network manager security admin configuration rule collection.
     API Version: 2021-02-01-preview.
 
 

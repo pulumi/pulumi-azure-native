@@ -86,7 +86,7 @@ def get_tag_by_api(api_id: Optional[str] = None,
                    tag_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByApiResult:
     """
-    Tag Contract details.
+    Get tag associated with the API.
     API Version: 2020-12-01.
 
 
@@ -117,7 +117,7 @@ def get_tag_by_api_output(api_id: Optional[pulumi.Input[str]] = None,
                           tag_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagByApiResult]:
     """
-    Tag Contract details.
+    Get tag associated with the API.
     API Version: 2020-12-01.
 
 

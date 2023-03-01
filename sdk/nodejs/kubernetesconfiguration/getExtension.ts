@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Extension Instance object.
+ * Gets details of the Kubernetes Cluster Extension Instance.
  * API Version: 2020-07-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
@@ -124,7 +124,7 @@ export interface GetExtensionResult {
     readonly version?: string;
 }
 /**
- * The Extension Instance object.
+ * Gets details of the Kubernetes Cluster Extension Instance.
  * API Version: 2020-07-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {

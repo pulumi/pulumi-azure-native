@@ -159,7 +159,7 @@ def get_user(expand: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Profile of a lab user.
+    Get user profile.
     API Version: 2018-09-15.
 
 
@@ -196,7 +196,7 @@ def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    Profile of a lab user.
+    Get user profile.
     API Version: 2018-09-15.
 
 

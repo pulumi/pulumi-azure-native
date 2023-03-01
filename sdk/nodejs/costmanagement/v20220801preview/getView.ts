@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * States and configurations of Cost Analysis.
+ * Gets the view by view name.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
 
@@ -107,7 +107,7 @@ export interface GetViewResult {
     readonly type: string;
 }
 /**
- * States and configurations of Cost Analysis.
+ * Gets the view by view name.
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
     return pulumi.output(args).apply((a: any) => getView(a, opts))

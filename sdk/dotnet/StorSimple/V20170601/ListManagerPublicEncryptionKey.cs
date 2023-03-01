@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
     public static class ListManagerPublicEncryptionKey
     {
         /// <summary>
-        /// Represents the secrets encrypted using Symmetric Encryption Key.
+        /// Returns the symmetric encrypted public encryption key of the manager.
         /// </summary>
         public static Task<ListManagerPublicEncryptionKeyResult> InvokeAsync(ListManagerPublicEncryptionKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagerPublicEncryptionKeyResult>("azure-native:storsimple/v20170601:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents the secrets encrypted using Symmetric Encryption Key.
+        /// Returns the symmetric encrypted public encryption key of the manager.
         /// </summary>
         public static Output<ListManagerPublicEncryptionKeyResult> Invoke(ListManagerPublicEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagerPublicEncryptionKeyResult>("azure-native:storsimple/v20170601:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyInvokeArgs(), options.WithDefaults());

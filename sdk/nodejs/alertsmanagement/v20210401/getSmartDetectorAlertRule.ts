@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The alert rule information
+ * Get a specific Smart Detector alert rule.
  */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
 
@@ -93,7 +93,7 @@ export interface GetSmartDetectorAlertRuleResult {
     readonly type: string;
 }
 /**
- * The alert rule information
+ * Get a specific Smart Detector alert rule.
  */
 export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getSmartDetectorAlertRule(a, opts))

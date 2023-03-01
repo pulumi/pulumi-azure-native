@@ -53,7 +53,7 @@ def get_get_cached_server_name_execute(location_name: Optional[str] = None,
                                        version: Optional[Union[str, 'ServerVersion']] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGetCachedServerNameExecuteResult:
     """
-    Represents a resource name of a cached server
+    Get available cached server name for fast provisioning
 
 
     :param str location_name: The name of the location.
@@ -83,7 +83,7 @@ def get_get_cached_server_name_execute_output(location_name: Optional[pulumi.Inp
                                               version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGetCachedServerNameExecuteResult]:
     """
-    Represents a resource name of a cached server
+    Get available cached server name for fast provisioning
 
 
     :param str location_name: The name of the location.

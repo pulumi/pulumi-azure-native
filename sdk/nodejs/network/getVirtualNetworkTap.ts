@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Virtual Network Tap resource.
+ * Gets information about the specified virtual network tap.
  * API Version: 2020-11-01.
  */
 export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkTapResult> {
@@ -85,7 +85,7 @@ export interface GetVirtualNetworkTapResult {
     readonly type: string;
 }
 /**
- * Virtual Network Tap resource.
+ * Gets information about the specified virtual network tap.
  * API Version: 2020-11-01.
  */
 export function getVirtualNetworkTapOutput(args: GetVirtualNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkTapResult> {

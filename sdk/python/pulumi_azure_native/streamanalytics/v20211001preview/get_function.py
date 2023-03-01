@@ -86,7 +86,7 @@ def get_function(function_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
-    A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+    Gets details about the specified function.
 
 
     :param str function_name: The name of the function.
@@ -113,7 +113,7 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
-    A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+    Gets details about the specified function.
 
 
     :param str function_name: The name of the function.

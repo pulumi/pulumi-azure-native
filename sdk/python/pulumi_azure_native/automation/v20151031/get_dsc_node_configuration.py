@@ -110,7 +110,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscNodeConfigurationResult:
     """
-    Definition of the dsc node configuration.
+    Retrieve the Dsc node configurations by node configuration.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -139,7 +139,7 @@ def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.I
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscNodeConfigurationResult]:
     """
-    Definition of the dsc node configuration.
+    Retrieve the Dsc node configurations by node configuration.
 
 
     :param str automation_account_name: The name of the automation account.

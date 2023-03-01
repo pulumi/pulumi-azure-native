@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200601
     public static class GetVirtualHub
     {
         /// <summary>
-        /// VirtualHub Resource.
+        /// Retrieves the details of a VirtualHub.
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network/v20200601:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithDefaults());
 
         /// <summary>
-        /// VirtualHub Resource.
+        /// Retrieves the details of a VirtualHub.
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network/v20200601:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * the ISV access token result response.
+ * Gets the ISV access token for a SaaS resource.
  * API Version: 2018-03-01-beta.
  */
 export function listSaasResourceAccessToken(args: ListSaasResourceAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasResourceAccessTokenResult> {
@@ -37,7 +37,7 @@ export interface ListSaasResourceAccessTokenResult {
     readonly token?: string;
 }
 /**
- * the ISV access token result response.
+ * Gets the ISV access token for a SaaS resource.
  * API Version: 2018-03-01-beta.
  */
 export function listSaasResourceAccessTokenOutput(args: ListSaasResourceAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasResourceAccessTokenResult> {

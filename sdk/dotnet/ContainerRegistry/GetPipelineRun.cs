@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public static class GetPipelineRun
     {
         /// <summary>
-        /// An object that represents a pipeline run for a container registry.
+        /// Gets the detailed information for a given pipeline run.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetPipelineRunResult> InvokeAsync(GetPipelineRunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineRunResult>("azure-native:containerregistry:getPipelineRun", args ?? new GetPipelineRunArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a pipeline run for a container registry.
+        /// Gets the detailed information for a given pipeline run.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetPipelineRunResult> Invoke(GetPipelineRunInvokeArgs args, InvokeOptions? options = null)

@@ -109,7 +109,7 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Definition of the Automanage account.
+    Get information about a Automanage account
     API Version: 2020-06-30-preview.
 
 
@@ -136,7 +136,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    Definition of the Automanage account.
+    Get information about a Automanage account
     API Version: 2020-06-30-preview.
 
 

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
     public static class GetCustomAssessmentAutomation
     {
         /// <summary>
-        /// Custom Assessment Automation
+        /// Gets a single custom assessment automation by name for the provided subscription and resource group.
         /// </summary>
         public static Task<GetCustomAssessmentAutomationResult> InvokeAsync(GetCustomAssessmentAutomationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomAssessmentAutomationResult>("azure-native:security/v20210701preview:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Custom Assessment Automation
+        /// Gets a single custom assessment automation by name for the provided subscription and resource group.
         /// </summary>
         public static Output<GetCustomAssessmentAutomationResult> Invoke(GetCustomAssessmentAutomationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomAssessmentAutomationResult>("azure-native:security/v20210701preview:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationInvokeArgs(), options.WithDefaults());

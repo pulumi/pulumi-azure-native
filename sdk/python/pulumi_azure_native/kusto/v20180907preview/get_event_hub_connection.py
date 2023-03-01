@@ -146,7 +146,7 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubConnectionResult:
     """
-    Class representing an event hub connection.
+    Returns an Event Hub connection.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -181,7 +181,7 @@ def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = 
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubConnectionResult]:
     """
-    Class representing an event hub connection.
+    Returns an Event Hub connection.
 
 
     :param str cluster_name: The name of the Kusto cluster.

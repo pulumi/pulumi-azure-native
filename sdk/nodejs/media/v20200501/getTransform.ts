@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+ * Gets a Transform.
  */
 export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetTransformResult> {
 
@@ -73,7 +73,7 @@ export interface GetTransformResult {
     readonly type: string;
 }
 /**
- * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+ * Gets a Transform.
  */
 export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformResult> {
     return pulumi.output(args).apply((a: any) => getTransform(a, opts))

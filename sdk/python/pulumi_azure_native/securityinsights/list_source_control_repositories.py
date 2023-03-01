@@ -62,7 +62,7 @@ def list_source_control_repositories(operational_insights_resource_provider: Opt
                                      workspace_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSourceControlRepositoriesResult:
     """
-    List all the source controls.
+    Gets a list of repositories metadata.
     API Version: 2021-03-01-preview.
 
 
@@ -88,7 +88,7 @@ def list_source_control_repositories_output(operational_insights_resource_provid
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
     """
-    List all the source controls.
+    Gets a list of repositories metadata.
     API Version: 2021-03-01-preview.
 
 

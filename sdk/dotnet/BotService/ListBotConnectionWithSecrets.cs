@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.BotService
     public static class ListBotConnectionWithSecrets
     {
         /// <summary>
-        /// Bot channel resource definition
+        /// Get a Connection Setting registration for a Bot Service
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListBotConnectionWithSecretsResult> InvokeAsync(ListBotConnectionWithSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionWithSecretsResult>("azure-native:botservice:listBotConnectionWithSecrets", args ?? new ListBotConnectionWithSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Bot channel resource definition
+        /// Get a Connection Setting registration for a Bot Service
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<ListBotConnectionWithSecretsResult> Invoke(ListBotConnectionWithSecretsInvokeArgs args, InvokeOptions? options = null)

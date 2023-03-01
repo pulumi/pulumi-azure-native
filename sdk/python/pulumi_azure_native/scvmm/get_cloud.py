@@ -205,7 +205,7 @@ def get_cloud(cloud_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudResult:
     """
-    The Clouds resource definition.
+    Implements Cloud GET method.
     API Version: 2020-06-05-preview.
 
 
@@ -240,7 +240,7 @@ def get_cloud_output(cloud_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudResult]:
     """
-    The Clouds resource definition.
+    Implements Cloud GET method.
     API Version: 2020-06-05-preview.
 
 

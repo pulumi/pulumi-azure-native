@@ -52,7 +52,7 @@ def get_sap_availability_zone_details(app_location: Optional[str] = None,
                                       sap_product: Optional[Union[str, 'SAPProductType']] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPAvailabilityZoneDetailsResult:
     """
-    The list of supported availability zone pairs which are part of SAP HA deployment.
+    Get the recommended SAP Availability Zone Pair Details for your region.
     API Version: 2021-12-01-preview.
 
 
@@ -80,7 +80,7 @@ def get_sap_availability_zone_details_output(app_location: Optional[pulumi.Input
                                              sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPAvailabilityZoneDetailsResult]:
     """
-    The list of supported availability zone pairs which are part of SAP HA deployment.
+    Get the recommended SAP Availability Zone Pair Details for your region.
     API Version: 2021-12-01-preview.
 
 

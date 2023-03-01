@@ -158,7 +158,7 @@ def get_lab_account(expand: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabAccountResult:
     """
-    Represents a lab account.
+    Get lab account
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
@@ -191,7 +191,7 @@ def get_lab_account_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabAccountResult]:
     """
-    Represents a lab account.
+    Get lab account
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'

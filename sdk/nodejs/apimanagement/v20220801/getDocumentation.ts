@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Markdown documentation details.
+ * Gets the details of the Documentation specified by its identifier.
  */
 export function getDocumentation(args: GetDocumentationArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationResult> {
 
@@ -58,7 +58,7 @@ export interface GetDocumentationResult {
     readonly type: string;
 }
 /**
- * Markdown documentation details.
+ * Gets the details of the Documentation specified by its identifier.
  */
 export function getDocumentationOutput(args: GetDocumentationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationResult> {
     return pulumi.output(args).apply((a: any) => getDocumentation(a, opts))

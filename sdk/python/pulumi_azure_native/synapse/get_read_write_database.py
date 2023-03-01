@@ -172,7 +172,7 @@ def get_read_write_database(database_name: Optional[str] = None,
                             workspace_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReadWriteDatabaseResult:
     """
-    Class representing a read write database.
+    Returns a database.
     API Version: 2021-04-01-preview.
 
 
@@ -210,7 +210,7 @@ def get_read_write_database_output(database_name: Optional[pulumi.Input[str]] = 
                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadWriteDatabaseResult]:
     """
-    Class representing a read write database.
+    Returns a database.
     API Version: 2021-04-01-preview.
 
 

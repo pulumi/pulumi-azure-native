@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
     public static class ListStorageAccountSasTokens
     {
         /// <summary>
-        /// The SAS response that contains the storage account, container and associated SAS token for connection use.
+        /// Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
         /// </summary>
         public static Task<ListStorageAccountSasTokensResult> InvokeAsync(ListStorageAccountSasTokensArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The SAS response that contains the storage account, container and associated SAS token for connection use.
+        /// Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
         /// </summary>
         public static Output<ListStorageAccountSasTokensResult> Invoke(ListStorageAccountSasTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensInvokeArgs(), options.WithDefaults());

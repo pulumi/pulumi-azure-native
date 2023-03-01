@@ -226,7 +226,8 @@ def get_workflow(resource_group_name: Optional[str] = None,
                  workflow_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets a workflow.
+
 
     :param str resource_group_name: The resource group name.
     :param str workflow_name: The workflow name.
@@ -261,7 +262,8 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         workflow_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets a workflow.
+
 
     :param str resource_group_name: The resource group name.
     :param str workflow_name: The workflow name.

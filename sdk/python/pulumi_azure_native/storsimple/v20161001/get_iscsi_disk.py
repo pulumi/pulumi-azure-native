@@ -173,7 +173,7 @@ def get_iscsi_disk(device_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiDiskResult:
     """
-    The iSCSI disk.
+    Returns the properties of the specified iSCSI disk name.
 
 
     :param str device_name: The device name.
@@ -214,7 +214,7 @@ def get_iscsi_disk_output(device_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIscsiDiskResult]:
     """
-    The iSCSI disk.
+    Returns the properties of the specified iSCSI disk name.
 
 
     :param str device_name: The device name.

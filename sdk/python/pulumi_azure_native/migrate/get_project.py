@@ -121,7 +121,7 @@ def get_project(project_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
-    Azure Migrate Project.
+    Get the project with the specified name.
     API Version: 2019-10-01.
 
 
@@ -149,7 +149,7 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
-    Azure Migrate Project.
+    Get the project with the specified name.
     API Version: 2019-10-01.
 
 

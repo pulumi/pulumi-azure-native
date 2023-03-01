@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Domain ownership Identifier.
+ * Get ownership identifier for domain
  */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
 
@@ -65,7 +65,7 @@ export interface GetDomainOwnershipIdentifierResult {
     readonly type: string;
 }
 /**
- * Domain ownership Identifier.
+ * Get ownership identifier for domain
  */
 export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
     return pulumi.output(args).apply((a: any) => getDomainOwnershipIdentifier(a, opts))

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public static class GetHost
     {
         /// <summary>
-        /// Define the host.
+        /// Implements host GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetHostResult> InvokeAsync(GetHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the host.
+        /// Implements host GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)

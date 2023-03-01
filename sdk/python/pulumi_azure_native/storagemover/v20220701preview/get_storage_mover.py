@@ -133,7 +133,7 @@ def get_storage_mover(resource_group_name: Optional[str] = None,
                       storage_mover_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageMoverResult:
     """
-    The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+    Gets a Storage Mover resource.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -161,7 +161,7 @@ def get_storage_mover_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              storage_mover_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageMoverResult]:
     """
-    The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+    Gets a Storage Mover resource.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

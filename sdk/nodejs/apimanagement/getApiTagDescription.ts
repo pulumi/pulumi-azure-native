@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Contract details.
+ * Get Tag description in scope of API
  * API Version: 2020-12-01.
  */
 export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiTagDescriptionResult> {
@@ -76,7 +76,7 @@ export interface GetApiTagDescriptionResult {
     readonly type: string;
 }
 /**
- * Contract details.
+ * Get Tag description in scope of API
  * API Version: 2020-12-01.
  */
 export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiTagDescriptionResult> {

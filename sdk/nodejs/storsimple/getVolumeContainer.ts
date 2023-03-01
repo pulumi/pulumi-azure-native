@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The volume container.
+ * Gets the properties of the specified volume container name.
  * API Version: 2017-06-01.
  */
 export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeContainerResult> {
@@ -95,7 +95,7 @@ export interface GetVolumeContainerResult {
     readonly volumeCount: number;
 }
 /**
- * The volume container.
+ * Gets the properties of the specified volume container name.
  * API Version: 2017-06-01.
  */
 export function getVolumeContainerOutput(args: GetVolumeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeContainerResult> {

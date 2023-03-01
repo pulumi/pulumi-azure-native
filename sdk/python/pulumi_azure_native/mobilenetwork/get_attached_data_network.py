@@ -260,7 +260,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDataNetworkResult:
     """
-    Attached data network resource.
+    Gets information about the specified attached data network.
     API Version: 2022-04-01-preview.
 
 
@@ -305,7 +305,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDataNetworkResult]:
     """
-    Attached data network resource.
+    Gets information about the specified attached data network.
     API Version: 2022-04-01-preview.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Machine Learning labeling job object wrapped into ARM resource envelope.
+ * Gets a labeling job by id.
  * API Version: 2020-09-01-preview.
  */
 export function getLabelingJob(args: GetLabelingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelingJobResult> {
@@ -72,7 +72,7 @@ export interface GetLabelingJobResult {
     readonly type: string;
 }
 /**
- * Machine Learning labeling job object wrapped into ARM resource envelope.
+ * Gets a labeling job by id.
  * API Version: 2020-09-01-preview.
  */
 export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelingJobResult> {

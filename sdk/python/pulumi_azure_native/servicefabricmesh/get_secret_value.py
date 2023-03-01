@@ -121,7 +121,7 @@ def get_secret_value(resource_group_name: Optional[str] = None,
                      secret_value_resource_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretValueResult:
     """
-    This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+    Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
     API Version: 2018-09-01-preview.
 
 
@@ -152,7 +152,7 @@ def get_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             secret_value_resource_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretValueResult]:
     """
-    This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+    Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
     API Version: 2018-09-01-preview.
 
 

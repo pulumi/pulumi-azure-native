@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Blueprint
     public static class GetPolicyAssignmentArtifact
     {
         /// <summary>
-        /// Blueprint artifact that applies a Policy assignment.
+        /// Get a blueprint artifact.
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Task<GetPolicyAssignmentArtifactResult> InvokeAsync(GetPolicyAssignmentArtifactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Blueprint artifact that applies a Policy assignment.
+        /// Get a blueprint artifact.
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Output<GetPolicyAssignmentArtifactResult> Invoke(GetPolicyAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)

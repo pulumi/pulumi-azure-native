@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Custom domain resource payload.
+ * Get the custom domain of one lifecycle application.
  * API Version: 2020-07-01.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
@@ -63,7 +63,7 @@ export interface GetCustomDomainResult {
     readonly type: string;
 }
 /**
- * Custom domain resource payload.
+ * Get the custom domain of one lifecycle application.
  * API Version: 2020-07-01.
  */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {

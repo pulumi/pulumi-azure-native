@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Sku sub resource.
+ * Gets information about the specified sku.
  */
 export function getVendorSkus(args: GetVendorSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkusResult> {
 
@@ -84,7 +84,7 @@ export interface GetVendorSkusResult {
     readonly type: string;
 }
 /**
- * Sku sub resource.
+ * Gets information about the specified sku.
  */
 export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
     return pulumi.output(args).apply((a: any) => getVendorSkus(a, opts))

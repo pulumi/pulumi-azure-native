@@ -222,7 +222,7 @@ def get_topic_event_subscription(event_subscription_name: Optional[str] = None,
                                  topic_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicEventSubscriptionResult:
     """
-    Event Subscription
+    Get properties of an event subscription of a topic.
     API Version: 2021-10-15-preview.
 
 
@@ -261,7 +261,7 @@ def get_topic_event_subscription_output(event_subscription_name: Optional[pulumi
                                         topic_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicEventSubscriptionResult]:
     """
-    Event Subscription
+    Get properties of an event subscription of a topic.
     API Version: 2021-10-15-preview.
 
 

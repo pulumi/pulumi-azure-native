@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
     public static class GetConfiguration
     {
         /// <summary>
-        /// Represents a Configuration.
+        /// Gets information about a configuration of server.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql/v20221201:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Configuration.
+        /// Gets information about a configuration of server.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbforpostgresql/v20221201:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());

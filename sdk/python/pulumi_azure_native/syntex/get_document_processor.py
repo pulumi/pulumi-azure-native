@@ -121,7 +121,7 @@ def get_document_processor(processor_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentProcessorResult:
     """
-    Document processor details
+    Returns a document processor for a given name.
     API Version: 2022-09-15-preview.
 
 
@@ -149,7 +149,7 @@ def get_document_processor_output(processor_name: Optional[pulumi.Input[str]] = 
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentProcessorResult]:
     """
-    Document processor details
+    Returns a document processor for a given name.
     API Version: 2022-09-15-preview.
 
 

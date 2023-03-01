@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
     public static class ListVideoContentToken
     {
         /// <summary>
-        /// "Video content token grants access to the video content URLs."
+        /// Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
         /// </summary>
         public static Task<ListVideoContentTokenResult> InvokeAsync(ListVideoContentTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVideoContentTokenResult>("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", args ?? new ListVideoContentTokenArgs(), options.WithDefaults());
 
         /// <summary>
-        /// "Video content token grants access to the video content URLs."
+        /// Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
         /// </summary>
         public static Output<ListVideoContentTokenResult> Invoke(ListVideoContentTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVideoContentTokenResult>("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", args ?? new ListVideoContentTokenInvokeArgs(), options.WithDefaults());

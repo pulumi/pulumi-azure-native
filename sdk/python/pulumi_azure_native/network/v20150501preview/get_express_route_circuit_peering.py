@@ -232,7 +232,7 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitPeeringResult:
     """
-    Peering in a ExpressRouteCircuit resource
+    The GET peering operation retrieves the specified authorization from the ExpressRouteCircuit.
 
 
     :param str circuit_name: The name of the express route circuit.
@@ -272,7 +272,7 @@ def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitPeeringResult]:
     """
-    Peering in a ExpressRouteCircuit resource
+    The GET peering operation retrieves the specified authorization from the ExpressRouteCircuit.
 
 
     :param str circuit_name: The name of the express route circuit.

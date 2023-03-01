@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure SQL Database server.
+ * Gets a server.
  * API Version: 2020-11-01-preview.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
@@ -114,7 +114,7 @@ export interface GetServerResult {
     readonly workspaceFeature: string;
 }
 /**
- * An Azure SQL Database server.
+ * Gets a server.
  * API Version: 2020-11-01-preview.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {

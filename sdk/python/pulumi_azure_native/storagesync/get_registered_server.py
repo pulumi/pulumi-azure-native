@@ -337,7 +337,7 @@ def get_registered_server(resource_group_name: Optional[str] = None,
                           storage_sync_service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredServerResult:
     """
-    Registered Server resource.
+    Get a given registered server.
     API Version: 2020-03-01.
 
 
@@ -386,7 +386,7 @@ def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]
                                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredServerResult]:
     """
-    Registered Server resource.
+    Get a given registered server.
     API Version: 2020-03-01.
 
 

@@ -119,7 +119,7 @@ def get_mongo_db_resource_mongo_db_collection(account_name: Optional[str] = None
                                               resource_group_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMongoDBResourceMongoDBCollectionResult:
     """
-    An Azure Cosmos DB MongoDB collection.
+    Gets the MongoDB collection under an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -153,7 +153,7 @@ def get_mongo_db_resource_mongo_db_collection_output(account_name: Optional[pulu
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDBResourceMongoDBCollectionResult]:
     """
-    An Azure Cosmos DB MongoDB collection.
+    Gets the MongoDB collection under an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.

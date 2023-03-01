@@ -98,7 +98,7 @@ def get_dataset(dataset_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatasetResult:
     """
-    Dataset resource type.
+    Gets a dataset.
     API Version: 2018-06-01.
 
 
@@ -127,7 +127,7 @@ def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
-    Dataset resource type.
+    Gets a dataset.
     API Version: 2018-06-01.
 
 

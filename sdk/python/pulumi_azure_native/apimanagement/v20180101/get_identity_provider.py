@@ -157,7 +157,7 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
                           service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityProviderResult:
     """
-    Identity Provider details.
+    Gets the configuration details of the identity Provider configured in specified service instance.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
@@ -190,7 +190,7 @@ def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[s
                                  service_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
-    Identity Provider details.
+    Gets the configuration details of the identity Provider configured in specified service instance.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.

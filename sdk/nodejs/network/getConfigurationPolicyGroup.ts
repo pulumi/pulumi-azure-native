@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * VpnServerConfigurationPolicyGroup Resource.
+ * Retrieves the details of a ConfigurationPolicyGroup.
  * API Version: 2022-01-01.
  */
 export function getConfigurationPolicyGroup(args: GetConfigurationPolicyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationPolicyGroupResult> {
@@ -78,7 +78,7 @@ export interface GetConfigurationPolicyGroupResult {
     readonly type: string;
 }
 /**
- * VpnServerConfigurationPolicyGroup Resource.
+ * Retrieves the details of a ConfigurationPolicyGroup.
  * API Version: 2022-01-01.
  */
 export function getConfigurationPolicyGroupOutput(args: GetConfigurationPolicyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationPolicyGroupResult> {

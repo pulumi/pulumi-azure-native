@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A TestLine resource
+ * Get a TestLine
  */
 export function getTestLine(args: GetTestLineArgs, opts?: pulumi.InvokeOptions): Promise<GetTestLineResult> {
 
@@ -77,7 +77,7 @@ export interface GetTestLineResult {
     readonly type: string;
 }
 /**
- * A TestLine resource
+ * Get a TestLine
  */
 export function getTestLineOutput(args: GetTestLineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestLineResult> {
     return pulumi.output(args).apply((a: any) => getTestLine(a, opts))

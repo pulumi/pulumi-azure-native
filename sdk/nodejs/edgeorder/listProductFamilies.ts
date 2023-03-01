@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The list of product families.
+ * This method provides the list of product families for the given subscription.
  * API Version: 2021-12-01.
  */
 export function listProductFamilies(args: ListProductFamiliesArgs, opts?: pulumi.InvokeOptions): Promise<ListProductFamiliesResult> {
@@ -55,7 +55,7 @@ export interface ListProductFamiliesResult {
     readonly value: outputs.edgeorder.ProductFamilyResponse[];
 }
 /**
- * The list of product families.
+ * This method provides the list of product families for the given subscription.
  * API Version: 2021-12-01.
  */
 export function listProductFamiliesOutput(args: ListProductFamiliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductFamiliesResult> {

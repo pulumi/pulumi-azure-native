@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Workspace resource.
+ * Gets the properties of the specified workspace.
  * API Version: 2022-05-15.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -69,7 +69,7 @@ export interface GetWorkspaceResult {
     readonly type: string;
 }
 /**
- * Workspace resource.
+ * Gets the properties of the specified workspace.
  * API Version: 2022-05-15.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {

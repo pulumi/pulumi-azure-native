@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
     public static class ListRegistryCredentials
     {
         /// <summary>
-        /// The response from the ListCredentials operation.
+        /// Lists the login credentials for the specified container registry.
         /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry/v20201101preview:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response from the ListCredentials operation.
+        /// Lists the login credentials for the specified container registry.
         /// </summary>
         public static Output<ListRegistryCredentialsResult> Invoke(ListRegistryCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRegistryCredentialsResult>("azure-native:containerregistry/v20201101preview:listRegistryCredentials", args ?? new ListRegistryCredentialsInvokeArgs(), options.WithDefaults());

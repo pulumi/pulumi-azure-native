@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Chaos
     public static class GetTarget
     {
         /// <summary>
-        /// Model that represents a Target resource.
+        /// Get a Target resource that extends a tracked regional resource.
         /// API Version: 2021-09-15-preview.
         /// </summary>
         public static Task<GetTargetResult> InvokeAsync(GetTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTargetResult>("azure-native:chaos:getTarget", args ?? new GetTargetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Model that represents a Target resource.
+        /// Get a Target resource that extends a tracked regional resource.
         /// API Version: 2021-09-15-preview.
         /// </summary>
         public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOptions? options = null)

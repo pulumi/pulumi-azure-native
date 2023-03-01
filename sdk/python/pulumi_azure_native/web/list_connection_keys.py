@@ -64,6 +64,7 @@ def list_connection_keys(connection_name: Optional[str] = None,
                          validity_time_span: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionKeysResult:
     """
+    Lists connection keys.
     API Version: 2015-08-01-preview.
 
 
@@ -107,6 +108,7 @@ def list_connection_keys_output(connection_name: Optional[pulumi.Input[str]] = N
                                 validity_time_span: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionKeysResult]:
     """
+    Lists connection keys.
     API Version: 2015-08-01-preview.
 
 

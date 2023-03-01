@@ -219,7 +219,7 @@ def get_partner_topic(partner_topic_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicResult:
     """
-    Event Grid Partner Topic.
+    Get properties of a partner topic.
     API Version: 2021-10-15-preview.
 
 
@@ -255,7 +255,7 @@ def get_partner_topic_output(partner_topic_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicResult]:
     """
-    Event Grid Partner Topic.
+    Get properties of a partner topic.
     API Version: 2021-10-15-preview.
 
 

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.VoiceServices.V20230131
     public static class GetCommunicationsGateway
     {
         /// <summary>
-        /// A CommunicationsGateway resource
+        /// Get a CommunicationsGateway
         /// </summary>
         public static Task<GetCommunicationsGatewayResult> InvokeAsync(GetCommunicationsGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationsGatewayResult>("azure-native:voiceservices/v20230131:getCommunicationsGateway", args ?? new GetCommunicationsGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A CommunicationsGateway resource
+        /// Get a CommunicationsGateway
         /// </summary>
         public static Output<GetCommunicationsGatewayResult> Invoke(GetCommunicationsGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationsGatewayResult>("azure-native:voiceservices/v20230131:getCommunicationsGateway", args ?? new GetCommunicationsGatewayInvokeArgs(), options.WithDefaults());

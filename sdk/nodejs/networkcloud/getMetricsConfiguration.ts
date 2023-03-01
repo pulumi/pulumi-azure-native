@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get metrics configuration of the provided cluster.
  * API Version: 2022-12-12-preview.
  */
 export function getMetricsConfiguration(args: GetMetricsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsConfigurationResult> {
@@ -90,6 +91,7 @@ export interface GetMetricsConfigurationResult {
     readonly type: string;
 }
 /**
+ * Get metrics configuration of the provided cluster.
  * API Version: 2022-12-12-preview.
  */
 export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsConfigurationResult> {

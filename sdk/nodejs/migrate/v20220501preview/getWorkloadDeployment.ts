@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Workload deployment model.
+ * Gets the details of the workload deployment.
  */
 export function getWorkloadDeployment(args: GetWorkloadDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadDeploymentResult> {
 
@@ -67,7 +67,7 @@ export interface GetWorkloadDeploymentResult {
     readonly type: string;
 }
 /**
- * Workload deployment model.
+ * Gets the details of the workload deployment.
  */
 export function getWorkloadDeploymentOutput(args: GetWorkloadDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadDeployment(a, opts))

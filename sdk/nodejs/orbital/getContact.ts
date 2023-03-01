@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Customer creates a contact resource for a spacecraft resource.
+ * Gets the specified contact in a specified resource group
  * API Version: 2021-04-04-preview.
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
@@ -122,7 +122,7 @@ export interface GetContactResult {
     readonly type: string;
 }
 /**
- * Customer creates a contact resource for a spacecraft resource.
+ * Gets the specified contact in a specified resource group
  * API Version: 2021-04-04-preview.
  */
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {

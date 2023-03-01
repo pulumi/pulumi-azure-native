@@ -146,7 +146,7 @@ def get_video(account_name: Optional[str] = None,
               video_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVideoResult:
     """
-    The representation of a single video in a Video Analyzer account.
+    Retrieves an existing video resource within an account with a given name.
     API Version: 2021-05-01-preview.
 
 
@@ -179,7 +179,7 @@ def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
                      video_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVideoResult]:
     """
-    The representation of a single video in a Video Analyzer account.
+    Retrieves an existing video resource within an account with a given name.
     API Version: 2021-05-01-preview.
 
 

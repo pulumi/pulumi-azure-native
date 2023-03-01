@@ -325,7 +325,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Class representing a Kusto cluster.
+    Gets a Kusto cluster.
     API Version: 2021-01-01.
 
 
@@ -370,7 +370,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Class representing a Kusto cluster.
+    Gets a Kusto cluster.
     API Version: 2021-01-01.
 
 

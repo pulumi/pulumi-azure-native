@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Cache
     public static class GetLinkedServer
     {
         /// <summary>
-        /// Response to put/get linked server (with properties) for Redis cache.
+        /// Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response to put/get linked server (with properties) for Redis cache.
+        /// Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetLinkedServerResult> Invoke(GetLinkedServerInvokeArgs args, InvokeOptions? options = null)

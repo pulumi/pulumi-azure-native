@@ -133,7 +133,7 @@ def get_variable(automation_account_name: Optional[str] = None,
                  variable_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableResult:
     """
-    Definition of the variable.
+    Retrieve the variable identified by variable name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -164,7 +164,7 @@ def get_variable_output(automation_account_name: Optional[pulumi.Input[str]] = N
                         variable_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableResult]:
     """
-    Definition of the variable.
+    Retrieve the variable identified by variable name.
 
 
     :param str automation_account_name: The name of the automation account.

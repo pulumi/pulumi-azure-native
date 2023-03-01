@@ -191,7 +191,8 @@ def get_metrics_configuration(cluster_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricsConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Get metrics configuration of the provided cluster.
+
 
     :param str cluster_name: The name of the cluster.
     :param str metrics_configuration_name: The name of the metrics configuration for the cluster.
@@ -226,7 +227,8 @@ def get_metrics_configuration_output(cluster_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricsConfigurationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get metrics configuration of the provided cluster.
+
 
     :param str cluster_name: The name of the cluster.
     :param str metrics_configuration_name: The name of the metrics configuration for the cluster.

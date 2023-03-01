@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * PublicIPAddress resource
+ * The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
  */
 /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getPublicIpAddress(args: GetPublicIpAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpAddressResult> {
@@ -90,7 +90,7 @@ export interface GetPublicIpAddressResult {
     readonly type: string;
 }
 /**
- * PublicIPAddress resource
+ * The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
  */
 /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getPublicIpAddressOutput(args: GetPublicIpAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpAddressResult> {

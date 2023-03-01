@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Test Base Account resource.
+ * Gets a Test Base Account.
  */
 export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountResult> {
 
@@ -76,7 +76,7 @@ export interface GetTestBaseAccountResult {
     readonly type: string;
 }
 /**
- * The Test Base Account resource.
+ * Gets a Test Base Account.
  */
 export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountResult> {
     return pulumi.output(args).apply((a: any) => getTestBaseAccount(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Registration information.
+ * Returns the properties of an Azure Stack registration.
  * API Version: 2017-06-01.
  */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
@@ -70,7 +70,7 @@ export interface GetRegistrationResult {
     readonly type: string;
 }
 /**
- * Registration information.
+ * Returns the properties of an Azure Stack registration.
  * API Version: 2017-06-01.
  */
 export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationResult> {

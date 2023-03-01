@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataFactory
     public static class GetTrigger
     {
         /// <summary>
-        /// Trigger resource type.
+        /// Gets a trigger.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datafactory:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Trigger resource type.
+        /// Gets a trigger.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)

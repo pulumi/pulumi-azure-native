@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Defines the inventory item.
+ * Implements InventoryItem GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
@@ -82,7 +82,7 @@ export interface GetInventoryItemResult {
     readonly type: string;
 }
 /**
- * Defines the inventory item.
+ * Implements InventoryItem GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {

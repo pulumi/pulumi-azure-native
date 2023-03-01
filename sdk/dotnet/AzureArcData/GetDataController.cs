@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AzureArcData
     public static class GetDataController
     {
         /// <summary>
-        /// Data controller resource
+        /// Retrieves a dataController resource
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data controller resource
+        /// Retrieves a dataController resource
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)

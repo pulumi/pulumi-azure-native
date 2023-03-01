@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     public static class GetEyesOn
     {
         /// <summary>
-        /// Settings with single toggle.
+        /// Gets a setting.
         /// </summary>
         public static Task<GetEyesOnResult> InvokeAsync(GetEyesOnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEyesOnResult>("azure-native:securityinsights/v20190101preview:getEyesOn", args ?? new GetEyesOnArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Settings with single toggle.
+        /// Gets a setting.
         /// </summary>
         public static Output<GetEyesOnResult> Invoke(GetEyesOnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights/v20190101preview:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithDefaults());

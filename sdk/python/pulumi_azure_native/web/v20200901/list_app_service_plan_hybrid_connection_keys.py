@@ -123,7 +123,7 @@ def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAppServicePlanHybridConnectionKeysResult:
     """
-    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    Get the send key name and value of a Hybrid Connection.
 
 
     :param str name: Name of the App Service plan.
@@ -156,7 +156,7 @@ def list_app_service_plan_hybrid_connection_keys_output(name: Optional[pulumi.In
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAppServicePlanHybridConnectionKeysResult]:
     """
-    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    Get the send key name and value of a Hybrid Connection.
 
 
     :param str name: Name of the App Service plan.

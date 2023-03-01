@@ -171,7 +171,7 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
                         virtual_network_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
-    Virtual Network resource
+    The Get VirtualNetwork operation retrieves information about the specified virtual network.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -203,7 +203,7 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
                                virtual_network_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
-    Virtual Network resource
+    The Get VirtualNetwork operation retrieves information about the specified virtual network.
 
 
     :param str resource_group_name: The name of the resource group.

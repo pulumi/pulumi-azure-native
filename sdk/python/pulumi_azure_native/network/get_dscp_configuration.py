@@ -229,7 +229,7 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscpConfigurationResult:
     """
-    DSCP Configuration in a resource group.
+    Gets a DSCP Configuration.
     API Version: 2020-11-01.
 
 
@@ -266,7 +266,7 @@ def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscpConfigurationResult]:
     """
-    DSCP Configuration in a resource group.
+    Gets a DSCP Configuration.
     API Version: 2020-11-01.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Custom IP prefix resource.
+ * Gets the specified custom IP prefix in a specified resource group.
  * API Version: 2020-11-01.
  */
 export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomIPPrefixResult> {
@@ -94,7 +94,7 @@ export interface GetCustomIPPrefixResult {
     readonly zones?: string[];
 }
 /**
- * Custom IP prefix resource.
+ * Gets the specified custom IP prefix in a specified resource group.
  * API Version: 2020-11-01.
  */
 export function getCustomIPPrefixOutput(args: GetCustomIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomIPPrefixResult> {

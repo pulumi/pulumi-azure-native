@@ -242,7 +242,7 @@ def get_sim(resource_group_name: Optional[str] = None,
             sim_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimResult:
     """
-    SIM resource.
+    Gets information about the specified SIM.
     API Version: 2022-04-01-preview.
 
 
@@ -283,7 +283,7 @@ def get_sim_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    sim_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimResult]:
     """
-    SIM resource.
+    Gets information about the specified SIM.
     API Version: 2022-04-01-preview.
 
 

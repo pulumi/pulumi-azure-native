@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public static class GetEventHubEventSource
     {
         /// <summary>
-        /// An event source that receives its data from an Azure EventHub.
+        /// Gets the event source with the specified name in the specified environment.
         /// API Version: 2020-05-15.
         /// </summary>
         public static Task<GetEventHubEventSourceResult> InvokeAsync(GetEventHubEventSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubEventSourceResult>("azure-native:timeseriesinsights:getEventHubEventSource", args ?? new GetEventHubEventSourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An event source that receives its data from an Azure EventHub.
+        /// Gets the event source with the specified name in the specified environment.
         /// API Version: 2020-05-15.
         /// </summary>
         public static Output<GetEventHubEventSourceResult> Invoke(GetEventHubEventSourceInvokeArgs args, InvokeOptions? options = null)

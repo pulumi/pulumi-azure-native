@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     public static class GetProductWiki
     {
         /// <summary>
-        /// Wiki properties
+        /// Gets the details of the Wiki for a Product specified by its identifier.
         /// </summary>
         public static Task<GetProductWikiResult> InvokeAsync(GetProductWikiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductWikiResult>("azure-native:apimanagement/v20220801:getProductWiki", args ?? new GetProductWikiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Wiki properties
+        /// Gets the details of the Wiki for a Product specified by its identifier.
         /// </summary>
         public static Output<GetProductWikiResult> Invoke(GetProductWikiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductWikiResult>("azure-native:apimanagement/v20220801:getProductWiki", args ?? new GetProductWikiInvokeArgs(), options.WithDefaults());

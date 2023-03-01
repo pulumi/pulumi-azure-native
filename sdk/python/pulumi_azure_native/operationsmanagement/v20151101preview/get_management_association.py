@@ -100,7 +100,7 @@ def get_management_association(management_association_name: Optional[str] = None
                                resource_type: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementAssociationResult:
     """
-    The container for solution.
+    Retrieves the user ManagementAssociation.
 
 
     :param str management_association_name: User ManagementAssociation Name.
@@ -134,7 +134,7 @@ def get_management_association_output(management_association_name: Optional[pulu
                                       resource_type: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementAssociationResult]:
     """
-    The container for solution.
+    Retrieves the user ManagementAssociation.
 
 
     :param str management_association_name: User ManagementAssociation Name.

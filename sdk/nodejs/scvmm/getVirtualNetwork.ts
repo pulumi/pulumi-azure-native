@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The VirtualNetworks resource definition.
+ * Implements VirtualNetwork GET method.
  * API Version: 2020-06-05-preview.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
@@ -85,7 +85,7 @@ export interface GetVirtualNetworkResult {
     readonly vmmServerId?: string;
 }
 /**
- * The VirtualNetworks resource definition.
+ * Implements VirtualNetwork GET method.
  * API Version: 2020-06-05-preview.
  */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {

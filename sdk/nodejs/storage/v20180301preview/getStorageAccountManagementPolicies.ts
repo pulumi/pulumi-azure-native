@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The Get Storage Account ManagementPolicies operation response.
+ * Gets the data policy rules associated with the specified storage account.
  */
 /** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
 export function getStorageAccountManagementPolicies(args: GetStorageAccountManagementPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountManagementPoliciesResult> {
@@ -60,7 +60,7 @@ export interface GetStorageAccountManagementPoliciesResult {
     readonly type: string;
 }
 /**
- * The Get Storage Account ManagementPolicies operation response.
+ * Gets the data policy rules associated with the specified storage account.
  */
 /** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
 export function getStorageAccountManagementPoliciesOutput(args: GetStorageAccountManagementPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountManagementPoliciesResult> {

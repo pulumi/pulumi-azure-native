@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The peering service prefix class.
+ * Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
  */
 /** @deprecated Version 2020-10-01 will be removed in v2 of the provider. */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
@@ -88,7 +88,7 @@ export interface GetPrefixResult {
     readonly type: string;
 }
 /**
- * The peering service prefix class.
+ * Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
  */
 /** @deprecated Version 2020-10-01 will be removed in v2 of the provider. */
 export function getPrefixOutput(args: GetPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixResult> {

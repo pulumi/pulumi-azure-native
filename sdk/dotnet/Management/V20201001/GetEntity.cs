@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Management.V20201001
     public static class GetEntity
     {
         /// <summary>
-        /// Describes the result of the request to view entities.
+        /// List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management/v20201001:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes the result of the request to view entities.
+        /// List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management/v20201001:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());

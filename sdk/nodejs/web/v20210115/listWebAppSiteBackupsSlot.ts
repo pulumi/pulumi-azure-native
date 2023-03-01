@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Collection of backup items.
+ * Gets existing backups of an app.
  */
 export function listWebAppSiteBackupsSlot(args: ListWebAppSiteBackupsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSiteBackupsSlotResult> {
 
@@ -49,7 +49,7 @@ export interface ListWebAppSiteBackupsSlotResult {
     readonly value: outputs.web.v20210115.BackupItemResponse[];
 }
 /**
- * Collection of backup items.
+ * Gets existing backups of an app.
  */
 export function listWebAppSiteBackupsSlotOutput(args: ListWebAppSiteBackupsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSiteBackupsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppSiteBackupsSlot(a, opts))

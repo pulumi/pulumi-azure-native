@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Resources.V20210501
     public static class GetTemplateSpec
     {
         /// <summary>
-        /// Template Spec object.
+        /// Gets a Template Spec with a given name.
         /// </summary>
         public static Task<GetTemplateSpecResult> InvokeAsync(GetTemplateSpecArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-native:resources/v20210501:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Template Spec object.
+        /// Gets a Template Spec with a given name.
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources/v20210501:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());

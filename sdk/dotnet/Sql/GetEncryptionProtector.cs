@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetEncryptionProtector
     {
         /// <summary>
-        /// The server encryption protector.
+        /// Gets a server encryption protector.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetEncryptionProtectorResult> InvokeAsync(GetEncryptionProtectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionProtectorResult>("azure-native:sql:getEncryptionProtector", args ?? new GetEncryptionProtectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The server encryption protector.
+        /// Gets a server encryption protector.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetEncryptionProtectorResult> Invoke(GetEncryptionProtectorInvokeArgs args, InvokeOptions? options = null)

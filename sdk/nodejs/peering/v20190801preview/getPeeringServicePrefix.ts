@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The peering service prefix class.
+ * Gets the peering service prefix.
  */
 /** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
 export function getPeeringServicePrefix(args: GetPeeringServicePrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServicePrefixResult> {
@@ -68,7 +68,7 @@ export interface GetPeeringServicePrefixResult {
     readonly type: string;
 }
 /**
- * The peering service prefix class.
+ * Gets the peering service prefix.
  */
 /** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
 export function getPeeringServicePrefixOutput(args: GetPeeringServicePrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringServicePrefixResult> {

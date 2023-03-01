@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Network Manager Connection resource
+ * Get a specified connection created by this subscription.
  */
 export function getSubscriptionNetworkManagerConnection(args: GetSubscriptionNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionNetworkManagerConnectionResult> {
 
@@ -59,7 +59,7 @@ export interface GetSubscriptionNetworkManagerConnectionResult {
     readonly type: string;
 }
 /**
- * The Network Manager Connection resource
+ * Get a specified connection created by this subscription.
  */
 export function getSubscriptionNetworkManagerConnectionOutput(args: GetSubscriptionNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionNetworkManagerConnectionResult> {
     return pulumi.output(args).apply((a: any) => getSubscriptionNetworkManagerConnection(a, opts))

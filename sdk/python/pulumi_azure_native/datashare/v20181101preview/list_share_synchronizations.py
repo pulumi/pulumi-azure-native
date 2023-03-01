@@ -65,7 +65,7 @@ def list_share_synchronizations(account_name: Optional[str] = None,
                                 skip_token: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSynchronizationsResult:
     """
-    List response for get ShareSynchronization.
+    List synchronizations of a share
 
 
     :param str account_name: The name of the share account.
@@ -99,7 +99,7 @@ def list_share_synchronizations_output(account_name: Optional[pulumi.Input[str]]
                                        skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSynchronizationsResult]:
     """
-    List response for get ShareSynchronization.
+    List synchronizations of a share
 
 
     :param str account_name: The name of the share account.

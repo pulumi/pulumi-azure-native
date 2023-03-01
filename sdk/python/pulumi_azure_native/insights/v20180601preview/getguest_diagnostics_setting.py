@@ -130,7 +130,7 @@ def getguest_diagnostics_setting(diagnostic_settings_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetguestDiagnosticsSettingResult:
     """
-    Virtual machine guest diagnostics settings resource.
+    Gets guest diagnostics settings.
 
 
     :param str diagnostic_settings_name: The name of the diagnostic setting.
@@ -158,7 +158,7 @@ def getguest_diagnostics_setting_output(diagnostic_settings_name: Optional[pulum
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetguestDiagnosticsSettingResult]:
     """
-    Virtual machine guest diagnostics settings resource.
+    Gets guest diagnostics settings.
 
 
     :param str diagnostic_settings_name: The name of the diagnostic setting.

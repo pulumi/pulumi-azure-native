@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetComponentCurrentBillingFeature
     {
         /// <summary>
-        /// An Application Insights component billing features
+        /// Returns current billing features for an Application Insights component.
         /// API Version: 2015-05-01.
         /// </summary>
         public static Task<GetComponentCurrentBillingFeatureResult> InvokeAsync(GetComponentCurrentBillingFeatureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-native:insights:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Application Insights component billing features
+        /// Returns current billing features for an Application Insights component.
         /// API Version: 2015-05-01.
         /// </summary>
         public static Output<GetComponentCurrentBillingFeatureResult> Invoke(GetComponentCurrentBillingFeatureInvokeArgs args, InvokeOptions? options = null)

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Restore Point details.
+ * The operation to get the restore point.
  */
 export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointResult> {
 
@@ -86,7 +86,7 @@ export interface GetRestorePointResult {
     readonly type: string;
 }
 /**
- * Restore Point details.
+ * The operation to get the restore point.
  */
 export function getRestorePointOutput(args: GetRestorePointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointResult> {
     return pulumi.output(args).apply((a: any) => getRestorePoint(a, opts))

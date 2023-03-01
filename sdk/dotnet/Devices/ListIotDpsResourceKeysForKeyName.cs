@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Devices
     public static class ListIotDpsResourceKeysForKeyName
     {
         /// <summary>
-        /// Description of the shared access key.
+        /// List primary and secondary keys for a specific key name
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<ListIotDpsResourceKeysForKeyNameResult> InvokeAsync(ListIotDpsResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysForKeyNameResult>("azure-native:devices:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of the shared access key.
+        /// List primary and secondary keys for a specific key name
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<ListIotDpsResourceKeysForKeyNameResult> Invoke(ListIotDpsResourceKeysForKeyNameInvokeArgs args, InvokeOptions? options = null)

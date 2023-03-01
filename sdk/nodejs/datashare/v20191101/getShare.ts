@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A share data transfer object.
+ * Get a share
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
@@ -80,7 +80,7 @@ export interface GetShareResult {
     readonly userName: string;
 }
 /**
- * A share data transfer object.
+ * Get a share
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {

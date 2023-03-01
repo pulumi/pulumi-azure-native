@@ -158,7 +158,7 @@ def get_gallery(gallery_name: Optional[str] = None,
                 select: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
-    Specifies information about the Shared Image Gallery that you want to create or update.
+    Retrieves information about a Shared Image Gallery.
 
 
     :param str gallery_name: The name of the Shared Image Gallery.
@@ -191,7 +191,7 @@ def get_gallery_output(gallery_name: Optional[pulumi.Input[str]] = None,
                        select: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryResult]:
     """
-    Specifies information about the Shared Image Gallery that you want to create or update.
+    Retrieves information about a Shared Image Gallery.
 
 
     :param str gallery_name: The name of the Shared Image Gallery.

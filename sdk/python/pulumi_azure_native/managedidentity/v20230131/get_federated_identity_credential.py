@@ -122,7 +122,7 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
                                       resource_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFederatedIdentityCredentialResult:
     """
-    Describes a federated identity credential.
+    Gets the federated identity credential.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.
@@ -152,7 +152,7 @@ def get_federated_identity_credential_output(federated_identity_credential_resou
                                              resource_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedIdentityCredentialResult]:
     """
-    Describes a federated identity credential.
+    Gets the federated identity credential.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.

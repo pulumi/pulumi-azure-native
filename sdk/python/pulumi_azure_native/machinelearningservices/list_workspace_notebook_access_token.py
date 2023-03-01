@@ -105,6 +105,7 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
                                          workspace_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookAccessTokenResult:
     """
+    return notebook access token and refresh token
     API Version: 2021-01-01.
 
 
@@ -133,6 +134,7 @@ def list_workspace_notebook_access_token_output(resource_group_name: Optional[pu
                                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
     """
+    return notebook access token and refresh token
     API Version: 2021-01-01.
 
 

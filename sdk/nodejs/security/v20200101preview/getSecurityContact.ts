@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
+ * Get Default Security contact configurations for the subscription
  */
 export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityContactResult> {
 
@@ -59,7 +59,7 @@ export interface GetSecurityContactResult {
     readonly type: string;
 }
 /**
- * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
+ * Get Default Security contact configurations for the subscription
  */
 export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityContactResult> {
     return pulumi.output(args).apply((a: any) => getSecurityContact(a, opts))

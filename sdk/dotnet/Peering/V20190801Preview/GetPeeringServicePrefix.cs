@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Peering.V20190801Preview
     public static class GetPeeringServicePrefix
     {
         /// <summary>
-        /// The peering service prefix class.
+        /// Gets the peering service prefix.
         /// </summary>
         public static Task<GetPeeringServicePrefixResult> InvokeAsync(GetPeeringServicePrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServicePrefixResult>("azure-native:peering/v20190801preview:getPeeringServicePrefix", args ?? new GetPeeringServicePrefixArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The peering service prefix class.
+        /// Gets the peering service prefix.
         /// </summary>
         public static Output<GetPeeringServicePrefixResult> Invoke(GetPeeringServicePrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringServicePrefixResult>("azure-native:peering/v20190801preview:getPeeringServicePrefix", args ?? new GetPeeringServicePrefixInvokeArgs(), options.WithDefaults());

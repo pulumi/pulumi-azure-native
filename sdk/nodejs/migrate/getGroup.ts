@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A group created in a Migration project.
+ * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
  * API Version: 2019-10-01.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
@@ -62,7 +62,7 @@ export interface GetGroupResult {
     readonly type: string;
 }
 /**
- * A group created in a Migration project.
+ * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
  * API Version: 2019-10-01.
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {

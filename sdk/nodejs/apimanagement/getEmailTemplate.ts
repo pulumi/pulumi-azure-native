@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Email Template details.
+ * Gets the details of the email template specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
@@ -78,7 +78,7 @@ export interface GetEmailTemplateResult {
     readonly type: string;
 }
 /**
- * Email Template details.
+ * Gets the details of the email template specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {

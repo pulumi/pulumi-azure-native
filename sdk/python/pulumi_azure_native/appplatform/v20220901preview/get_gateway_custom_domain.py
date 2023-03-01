@@ -99,7 +99,7 @@ def get_gateway_custom_domain(domain_name: Optional[str] = None,
                               service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayCustomDomainResult:
     """
-    Custom domain of the Spring Cloud Gateway
+    Get the Spring Cloud Gateway custom domain.
 
 
     :param str domain_name: The name of the Spring Cloud Gateway custom domain.
@@ -130,7 +130,7 @@ def get_gateway_custom_domain_output(domain_name: Optional[pulumi.Input[str]] = 
                                      service_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayCustomDomainResult]:
     """
-    Custom domain of the Spring Cloud Gateway
+    Get the Spring Cloud Gateway custom domain.
 
 
     :param str domain_name: The name of the Spring Cloud Gateway custom domain.

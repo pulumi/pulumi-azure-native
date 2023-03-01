@@ -158,7 +158,7 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountPartnerResult:
     """
-    The integration account partner.
+    Gets an integration account partner.
     API Version: 2019-05-01.
 
 
@@ -192,7 +192,7 @@ def get_integration_account_partner_output(integration_account_name: Optional[pu
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountPartnerResult]:
     """
-    The integration account partner.
+    Gets an integration account partner.
     API Version: 2019-05-01.
 
 

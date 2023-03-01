@@ -55,7 +55,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
                                     url: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCustomApiWsdlInterfacesResult:
     """
-    A list of custom API WSDL interfaces
+    This returns the list of interfaces in the WSDL
 
 
     :param str content: The WSDL content
@@ -88,7 +88,7 @@ def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Option
                                            url: Optional[pulumi.Input[Optional[str]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCustomApiWsdlInterfacesResult]:
     """
-    A list of custom API WSDL interfaces
+    This returns the list of interfaces in the WSDL
 
 
     :param str content: The WSDL content

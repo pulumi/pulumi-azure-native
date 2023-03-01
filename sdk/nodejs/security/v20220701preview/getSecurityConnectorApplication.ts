@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Security Application over a given scope
+ * Get a specific application for the requested scope by applicationId
  */
 export function getSecurityConnectorApplication(args: GetSecurityConnectorApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorApplicationResult> {
 
@@ -62,7 +62,7 @@ export interface GetSecurityConnectorApplicationResult {
     readonly type: string;
 }
 /**
- * Security Application over a given scope
+ * Get a specific application for the requested scope by applicationId
  */
 export function getSecurityConnectorApplicationOutput(args: GetSecurityConnectorApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorApplicationResult> {
     return pulumi.output(args).apply((a: any) => getSecurityConnectorApplication(a, opts))

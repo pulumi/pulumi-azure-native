@@ -363,7 +363,7 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
                                  virtual_machine_template_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineTemplateResult:
     """
-    Define the virtualMachineTemplate.
+    Implements virtual machine template GET method.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -410,7 +410,7 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
                                         virtual_machine_template_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineTemplateResult]:
     """
-    Define the virtualMachineTemplate.
+    Implements virtual machine template GET method.
 
 
     :param str resource_group_name: The Resource Group Name.

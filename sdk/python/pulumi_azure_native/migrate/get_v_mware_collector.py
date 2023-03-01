@@ -80,6 +80,7 @@ def get_v_mware_collector(project_name: Optional[str] = None,
                           vm_ware_collector_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMwareCollectorResult:
     """
+    Get a VMware collector.
     API Version: 2019-10-01.
 
 
@@ -108,6 +109,7 @@ def get_v_mware_collector_output(project_name: Optional[pulumi.Input[str]] = Non
                                  vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVMwareCollectorResult]:
     """
+    Get a VMware collector.
     API Version: 2019-10-01.
 
 

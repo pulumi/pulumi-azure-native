@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The connector mapping resource format.
+ * Gets a connector mapping in the connector.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorMappingResult> {
@@ -120,7 +120,7 @@ export interface GetConnectorMappingResult {
     readonly type: string;
 }
 /**
- * The connector mapping resource format.
+ * Gets a connector mapping in the connector.
  */
 /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getConnectorMappingOutput(args: GetConnectorMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorMappingResult> {

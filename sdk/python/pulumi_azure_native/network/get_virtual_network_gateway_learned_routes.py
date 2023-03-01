@@ -49,7 +49,7 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[str
                                                virtual_network_gateway_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayLearnedRoutesResult:
     """
-    List of virtual network gateway routes.
+    This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
     API Version: 2020-11-01.
 
 
@@ -71,7 +71,7 @@ def get_virtual_network_gateway_learned_routes_output(resource_group_name: Optio
                                                       virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayLearnedRoutesResult]:
     """
-    List of virtual network gateway routes.
+    This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
     API Version: 2020-11-01.
 
 

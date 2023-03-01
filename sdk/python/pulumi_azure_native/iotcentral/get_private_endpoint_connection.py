@@ -134,7 +134,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     resource_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The private endpoint connection resource.
+    Get the metadata of a private endpoint connection for the IoT Central Application.
     API Version: 2021-11-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            resource_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The private endpoint connection resource.
+    Get the metadata of a private endpoint connection for the IoT Central Application.
     API Version: 2021-11-01-preview.
 
 

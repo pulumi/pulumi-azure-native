@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List Replications
+ * List all replications for a specified volume
  */
 export function listVolumeReplications(args: ListVolumeReplicationsArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumeReplicationsResult> {
 
@@ -50,7 +50,7 @@ export interface ListVolumeReplicationsResult {
     readonly value?: outputs.netapp.v20220901.ReplicationResponse[];
 }
 /**
- * List Replications
+ * List all replications for a specified volume
  */
 export function listVolumeReplicationsOutput(args: ListVolumeReplicationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeReplicationsResult> {
     return pulumi.output(args).apply((a: any) => listVolumeReplications(a, opts))

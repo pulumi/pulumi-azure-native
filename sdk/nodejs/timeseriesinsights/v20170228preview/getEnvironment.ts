@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+ * Gets the environment with the specified name in the specified subscription and resource group.
  */
 /** @deprecated Version 2017-02-28-preview will be removed in v2 of the provider. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
@@ -86,7 +86,7 @@ export interface GetEnvironmentResult {
     readonly type: string;
 }
 /**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+ * Gets the environment with the specified name in the specified subscription and resource group.
  */
 /** @deprecated Version 2017-02-28-preview will be removed in v2 of the provider. */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {

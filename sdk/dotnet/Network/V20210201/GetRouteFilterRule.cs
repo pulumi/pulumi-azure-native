@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210201
     public static class GetRouteFilterRule
     {
         /// <summary>
-        /// Route Filter Rule Resource.
+        /// Gets the specified rule from a route filter.
         /// </summary>
         public static Task<GetRouteFilterRuleResult> InvokeAsync(GetRouteFilterRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterRuleResult>("azure-native:network/v20210201:getRouteFilterRule", args ?? new GetRouteFilterRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Route Filter Rule Resource.
+        /// Gets the specified rule from a route filter.
         /// </summary>
         public static Output<GetRouteFilterRuleResult> Invoke(GetRouteFilterRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteFilterRuleResult>("azure-native:network/v20210201:getRouteFilterRule", args ?? new GetRouteFilterRuleInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The privateStore offer data structure.
+ * Gets information about a specific offer.
  */
 export function getPrivateStoreCollectionOffer(args: GetPrivateStoreCollectionOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionOfferResult> {
 
@@ -101,7 +101,7 @@ export interface GetPrivateStoreCollectionOfferResult {
     readonly updateSuppressedDueIdempotence?: boolean;
 }
 /**
- * The privateStore offer data structure.
+ * Gets information about a specific offer.
  */
 export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
     return pulumi.output(args).apply((a: any) => getPrivateStoreCollectionOffer(a, opts))

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Policy Contract details.
+ * Get the policy configuration at the API Operation level.
  */
 export function getApiOperationPolicy(args: GetApiOperationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationPolicyResult> {
 
@@ -64,7 +64,7 @@ export interface GetApiOperationPolicyResult {
     readonly type: string;
 }
 /**
- * Policy Contract details.
+ * Get the policy configuration at the API Operation level.
  */
 export function getApiOperationPolicyOutput(args: GetApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getApiOperationPolicy(a, opts))

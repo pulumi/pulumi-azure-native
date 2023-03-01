@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20181101
     public static class ListWebAppSyncFunctionTriggers
     {
         /// <summary>
-        /// Function secrets.
+        /// This is to allow calling via powershell and ARM template.
         /// </summary>
         public static Task<ListWebAppSyncFunctionTriggersResult> InvokeAsync(ListWebAppSyncFunctionTriggersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersResult>("azure-native:web/v20181101:listWebAppSyncFunctionTriggers", args ?? new ListWebAppSyncFunctionTriggersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Function secrets.
+        /// This is to allow calling via powershell and ARM template.
         /// </summary>
         public static Output<ListWebAppSyncFunctionTriggersResult> Invoke(ListWebAppSyncFunctionTriggersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSyncFunctionTriggersResult>("azure-native:web/v20181101:listWebAppSyncFunctionTriggers", args ?? new ListWebAppSyncFunctionTriggersInvokeArgs(), options.WithDefaults());

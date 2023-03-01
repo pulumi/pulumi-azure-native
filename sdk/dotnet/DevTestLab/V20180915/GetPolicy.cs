@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
     public static class GetPolicy
     {
         /// <summary>
-        /// A Policy.
+        /// Get policy.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:devtestlab/v20180915:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Policy.
+        /// Get policy.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:devtestlab/v20180915:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());

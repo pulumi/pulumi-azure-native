@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A list of deployments resource ids.
+ * List deployments that are using the builder.
  */
 export function listBuildServiceBuilderDeployments(args: ListBuildServiceBuilderDeploymentsArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildServiceBuilderDeploymentsResult> {
 
@@ -47,7 +47,7 @@ export interface ListBuildServiceBuilderDeploymentsResult {
     readonly deployments?: string[];
 }
 /**
- * A list of deployments resource ids.
+ * List deployments that are using the builder.
  */
 export function listBuildServiceBuilderDeploymentsOutput(args: ListBuildServiceBuilderDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildServiceBuilderDeploymentsResult> {
     return pulumi.output(args).apply((a: any) => listBuildServiceBuilderDeployments(a, opts))

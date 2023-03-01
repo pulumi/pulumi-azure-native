@@ -120,7 +120,7 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotConfigurationNamesResult:
     """
-    Slot Config names azure resource.
+    Gets the names of app settings and connection strings that stick to the slot (not swapped).
 
 
     :param str name: Name of the app.
@@ -147,7 +147,7 @@ def get_web_app_slot_configuration_names_output(name: Optional[pulumi.Input[str]
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSlotConfigurationNamesResult]:
     """
-    Slot Config names azure resource.
+    Gets the names of app settings and connection strings that stick to the slot (not swapped).
 
 
     :param str name: Name of the app.

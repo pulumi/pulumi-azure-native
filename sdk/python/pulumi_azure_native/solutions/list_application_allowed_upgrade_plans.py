@@ -49,7 +49,7 @@ def list_application_allowed_upgrade_plans(application_name: Optional[str] = Non
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApplicationAllowedUpgradePlansResult:
     """
-    The array of plan.
+    List allowed upgrade plans for application.
     API Version: 2021-07-01.
 
 
@@ -71,7 +71,7 @@ def list_application_allowed_upgrade_plans_output(application_name: Optional[pul
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplicationAllowedUpgradePlansResult]:
     """
-    The array of plan.
+    List allowed upgrade plans for application.
     API Version: 2021-07-01.
 
 

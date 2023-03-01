@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Role Assignment
+ * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
  */
 export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleAssignmentResult> {
 
@@ -62,7 +62,7 @@ export interface GetSqlResourceSqlRoleAssignmentResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Role Assignment
+ * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
  */
 export function getSqlResourceSqlRoleAssignmentOutput(args: GetSqlResourceSqlRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlRoleAssignment(a, opts))

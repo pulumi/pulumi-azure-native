@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetVpnSite
     {
         /// <summary>
-        /// VpnSite Resource.
+        /// Retrieves the details of a VPN site.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVpnSiteResult> InvokeAsync(GetVpnSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnSiteResult>("azure-native:network:getVpnSite", args ?? new GetVpnSiteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// VpnSite Resource.
+        /// Retrieves the details of a VPN site.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVpnSiteResult> Invoke(GetVpnSiteInvokeArgs args, InvokeOptions? options = null)

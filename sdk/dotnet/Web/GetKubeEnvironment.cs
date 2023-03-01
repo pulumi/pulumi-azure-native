@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetKubeEnvironment
     {
         /// <summary>
-        /// A Kubernetes cluster specialized for web workloads by Azure App Service
+        /// Get the properties of a Kubernetes Environment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetKubeEnvironmentResult> InvokeAsync(GetKubeEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubeEnvironmentResult>("azure-native:web:getKubeEnvironment", args ?? new GetKubeEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Kubernetes cluster specialized for web workloads by Azure App Service
+        /// Get the properties of a Kubernetes Environment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetKubeEnvironmentResult> Invoke(GetKubeEnvironmentInvokeArgs args, InvokeOptions? options = null)

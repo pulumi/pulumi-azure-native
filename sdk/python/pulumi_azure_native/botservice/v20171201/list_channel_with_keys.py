@@ -146,7 +146,7 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListChannelWithKeysResult:
     """
-    Bot channel resource definition
+    Lists a Channel registration for a Bot Service including secrets
 
 
     :param str channel_name: The name of the Channel resource.
@@ -178,7 +178,7 @@ def list_channel_with_keys_output(channel_name: Optional[pulumi.Input[str]] = No
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListChannelWithKeysResult]:
     """
-    Bot channel resource definition
+    Lists a Channel registration for a Bot Service including secrets
 
 
     :param str channel_name: The name of the Channel resource.

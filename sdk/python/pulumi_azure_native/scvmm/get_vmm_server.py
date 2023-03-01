@@ -217,7 +217,7 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
                    vmm_server_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVmmServerResult:
     """
-    The VmmServers resource definition.
+    Implements VMMServer GET method.
     API Version: 2020-06-05-preview.
 
 
@@ -253,7 +253,7 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           vmm_server_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVmmServerResult]:
     """
-    The VmmServers resource definition.
+    Implements VMMServer GET method.
     API Version: 2020-06-05-preview.
 
 

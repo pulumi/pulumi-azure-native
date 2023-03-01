@@ -194,7 +194,7 @@ def get_diagnostic(diagnostic_id: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticResult:
     """
-    Diagnostic details.
+    Gets the details of the Diagnostic specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -231,7 +231,7 @@ def get_diagnostic_output(diagnostic_id: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticResult]:
     """
-    Diagnostic details.
+    Gets the details of the Diagnostic specified by its identifier.
     API Version: 2020-12-01.
 
 

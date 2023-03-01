@@ -110,7 +110,7 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
                                      scope_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopedResourceResult:
     """
-    A private link scoped resource
+    Gets a scoped resource in a private link scope.
 
 
     :param str name: The name of the scoped resource object.
@@ -139,7 +139,7 @@ def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = 
                                             scope_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkScopedResourceResult]:
     """
-    A private link scoped resource
+    Gets a scoped resource in a private link scope.
 
 
     :param str name: The name of the scoped resource object.

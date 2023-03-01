@@ -134,7 +134,7 @@ def get_web_pub_sub_custom_certificate(certificate_name: Optional[str] = None,
                                        resource_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubCustomCertificateResult:
     """
-    A custom certificate.
+    Get a custom certificate.
 
 
     :param str certificate_name: Custom certificate name
@@ -165,7 +165,7 @@ def get_web_pub_sub_custom_certificate_output(certificate_name: Optional[pulumi.
                                               resource_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubCustomCertificateResult]:
     """
-    A custom certificate.
+    Get a custom certificate.
 
 
     :param str certificate_name: Custom certificate name

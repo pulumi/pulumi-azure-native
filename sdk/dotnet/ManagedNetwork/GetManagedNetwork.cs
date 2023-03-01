@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ManagedNetwork
     public static class GetManagedNetwork
     {
         /// <summary>
-        /// The Managed Network resource
+        /// The Get ManagedNetworks operation gets a Managed Network Resource, specified by the resource group and Managed Network name
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetManagedNetworkResult> InvokeAsync(GetManagedNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkResult>("azure-native:managednetwork:getManagedNetwork", args ?? new GetManagedNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Managed Network resource
+        /// The Get ManagedNetworks operation gets a Managed Network Resource, specified by the resource group and Managed Network name
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetManagedNetworkResult> Invoke(GetManagedNetworkInvokeArgs args, InvokeOptions? options = null)

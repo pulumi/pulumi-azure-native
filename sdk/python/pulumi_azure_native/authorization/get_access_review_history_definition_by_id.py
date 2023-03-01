@@ -264,7 +264,7 @@ class AwaitableGetAccessReviewHistoryDefinitionByIdResult(GetAccessReviewHistory
 def get_access_review_history_definition_by_id(history_definition_id: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessReviewHistoryDefinitionByIdResult:
     """
-    Access Review History Definition.
+    Get access review history definition by definition Id
     API Version: 2021-11-16-preview.
 
 
@@ -301,7 +301,7 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[s
 def get_access_review_history_definition_by_id_output(history_definition_id: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessReviewHistoryDefinitionByIdResult]:
     """
-    Access Review History Definition.
+    Get access review history definition by definition Id
     API Version: 2021-11-16-preview.
 
 

@@ -433,7 +433,8 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBareMetalMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided bare metal machine.
+
 
     :param str bare_metal_machine_name: The name of the bare metal machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -486,7 +487,8 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBareMetalMachineResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided bare metal machine.
+
 
     :param str bare_metal_machine_name: The name of the bare metal machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

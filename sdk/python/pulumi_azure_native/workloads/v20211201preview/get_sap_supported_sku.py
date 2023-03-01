@@ -55,7 +55,7 @@ def get_sap_supported_sku(app_location: Optional[str] = None,
                           sap_product: Optional[Union[str, 'SAPProductType']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPSupportedSkuResult:
     """
-    The list of supported SKUs for different resources which are part of SAP deployment.
+    Get a list of SAP supported SKUs for ASCS, Application and Database tier.
 
 
     :param str app_location: The geo-location where the resource is to be created.
@@ -91,7 +91,7 @@ def get_sap_supported_sku_output(app_location: Optional[pulumi.Input[str]] = Non
                                  sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPSupportedSkuResult]:
     """
-    The list of supported SKUs for different resources which are part of SAP deployment.
+    Get a list of SAP supported SKUs for ASCS, Application and Database tier.
 
 
     :param str app_location: The geo-location where the resource is to be created.

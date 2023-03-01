@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Monitoring Setting resource
+ * Get the Monitoring Setting and its properties.
  * API Version: 2020-07-01.
  */
 export function getMonitoringSetting(args: GetMonitoringSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringSettingResult> {
@@ -53,7 +53,7 @@ export interface GetMonitoringSettingResult {
     readonly type: string;
 }
 /**
- * Monitoring Setting resource
+ * Get the Monitoring Setting and its properties.
  * API Version: 2020-07-01.
  */
 export function getMonitoringSettingOutput(args: GetMonitoringSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSettingResult> {

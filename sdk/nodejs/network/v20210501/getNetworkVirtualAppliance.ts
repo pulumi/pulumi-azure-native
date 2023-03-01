@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * NetworkVirtualAppliance Resource.
+ * Gets the specified Network Virtual Appliance.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
 
@@ -117,7 +117,7 @@ export interface GetNetworkVirtualApplianceResult {
     readonly virtualHub?: outputs.network.v20210501.SubResourceResponse;
 }
 /**
- * NetworkVirtualAppliance Resource.
+ * Gets the specified Network Virtual Appliance.
  */
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))

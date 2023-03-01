@@ -147,7 +147,7 @@ def get_peering_service(peering_service_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringServiceResult:
     """
-    Peering Service
+    Gets an existing peering service with the specified name under the given subscription and resource group.
 
 
     :param str peering_service_name: The name of the peering.
@@ -177,7 +177,7 @@ def get_peering_service_output(peering_service_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringServiceResult]:
     """
-    Peering Service
+    Gets an existing peering service with the specified name under the given subscription and resource group.
 
 
     :param str peering_service_name: The name of the peering.

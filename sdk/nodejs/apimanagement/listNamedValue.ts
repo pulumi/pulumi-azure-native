@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * Gets the secret of the named value specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function listNamedValue(args: ListNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<ListNamedValueResult> {
@@ -43,7 +43,7 @@ export interface ListNamedValueResult {
     readonly value?: string;
 }
 /**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * Gets the secret of the named value specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function listNamedValueOutput(args: ListNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamedValueResult> {

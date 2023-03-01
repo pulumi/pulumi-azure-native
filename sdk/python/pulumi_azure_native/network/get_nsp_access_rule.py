@@ -195,7 +195,7 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspAccessRuleResult:
     """
-    The NSP access rule resource
+    Gets the specified NSP access rule by name.
     API Version: 2021-02-01-preview.
 
 
@@ -235,7 +235,7 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspAccessRuleResult]:
     """
-    The NSP access rule resource
+    Gets the specified NSP access rule by name.
     API Version: 2021-02-01-preview.
 
 

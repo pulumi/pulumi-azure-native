@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SignalRService
     public static class GetSignalRSharedPrivateLinkResource
     {
         /// <summary>
-        /// Describes a Shared Private Link Resource
+        /// Get the specified shared private link resource
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetSignalRSharedPrivateLinkResourceResult> InvokeAsync(GetSignalRSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Shared Private Link Resource
+        /// Get the specified shared private link resource
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetSignalRSharedPrivateLinkResourceResult> Invoke(GetSignalRSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)

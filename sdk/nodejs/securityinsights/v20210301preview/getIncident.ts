@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents an incident in Azure Security Insights.
+ * Gets an incident.
  */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
 
@@ -146,7 +146,7 @@ export interface GetIncidentResult {
     readonly type: string;
 }
 /**
- * Represents an incident in Azure Security Insights.
+ * Gets an incident.
  */
 export function getIncidentOutput(args: GetIncidentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentResult> {
     return pulumi.output(args).apply((a: any) => getIncident(a, opts))

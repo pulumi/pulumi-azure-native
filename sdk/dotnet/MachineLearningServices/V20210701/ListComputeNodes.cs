@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210701
     public static class ListComputeNodes
     {
         /// <summary>
-        /// Result of AmlCompute Nodes
+        /// Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
         /// </summary>
         public static Task<ListComputeNodesResult> InvokeAsync(ListComputeNodesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListComputeNodesResult>("azure-native:machinelearningservices/v20210701:listComputeNodes", args ?? new ListComputeNodesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of AmlCompute Nodes
+        /// Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
         /// </summary>
         public static Output<ListComputeNodesResult> Invoke(ListComputeNodesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListComputeNodesResult>("azure-native:machinelearningservices/v20210701:listComputeNodes", args ?? new ListComputeNodesInvokeArgs(), options.WithDefaults());

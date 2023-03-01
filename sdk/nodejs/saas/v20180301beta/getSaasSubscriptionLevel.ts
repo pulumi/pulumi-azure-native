@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * SaaS REST API resource definition.
+ * Gets information about the specified Subscription Level SaaS.
  */
 export function getSaasSubscriptionLevel(args: GetSaasSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetSaasSubscriptionLevelResult> {
 
@@ -56,7 +56,7 @@ export interface GetSaasSubscriptionLevelResult {
     readonly type: string;
 }
 /**
- * SaaS REST API resource definition.
+ * Gets information about the specified Subscription Level SaaS.
  */
 export function getSaasSubscriptionLevelOutput(args: GetSaasSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSaasSubscriptionLevelResult> {
     return pulumi.output(args).apply((a: any) => getSaasSubscriptionLevel(a, opts))

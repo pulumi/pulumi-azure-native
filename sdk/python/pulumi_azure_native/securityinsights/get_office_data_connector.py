@@ -123,7 +123,7 @@ def get_office_data_connector(data_connector_id: Optional[str] = None,
                               workspace_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOfficeDataConnectorResult:
     """
-    Represents office data connector.
+    Gets a data connector.
     API Version: 2020-01-01.
 
 
@@ -154,7 +154,7 @@ def get_office_data_connector_output(data_connector_id: Optional[pulumi.Input[st
                                      workspace_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOfficeDataConnectorResult]:
     """
-    Represents office data connector.
+    Gets a data connector.
     API Version: 2020-01-01.
 
 

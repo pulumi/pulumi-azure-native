@@ -50,7 +50,7 @@ def get_partner_topic_event_subscription_delivery_attributes(event_subscription_
                                                              resource_group_name: Optional[str] = None,
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionDeliveryAttributesResult:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription of a partner topic.
     API Version: 2021-06-01-preview.
 
 
@@ -75,7 +75,7 @@ def get_partner_topic_event_subscription_delivery_attributes_output(event_subscr
                                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionDeliveryAttributesResult]:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription of a partner topic.
     API Version: 2021-06-01-preview.
 
 

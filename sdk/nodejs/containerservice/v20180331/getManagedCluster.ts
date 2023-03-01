@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Managed cluster.
+ * Gets the details of the managed cluster with a specified resource group and name.
  */
 /** @deprecated Version 2018-03-31 will be removed in v2 of the provider. */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
@@ -106,7 +106,7 @@ export interface GetManagedClusterResult {
     readonly type: string;
 }
 /**
- * Managed cluster.
+ * Gets the details of the managed cluster with a specified resource group and name.
  */
 /** @deprecated Version 2018-03-31 will be removed in v2 of the provider. */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {

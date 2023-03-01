@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * String dictionary resource.
+ * Gets the application settings of an app.
  */
 export function listWebAppApplicationSettings(args: ListWebAppApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsResult> {
 
@@ -60,7 +60,7 @@ export interface ListWebAppApplicationSettingsResult {
     readonly type: string;
 }
 /**
- * String dictionary resource.
+ * Gets the application settings of an app.
  */
 export function listWebAppApplicationSettingsOutput(args: ListWebAppApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppApplicationSettings(a, opts))

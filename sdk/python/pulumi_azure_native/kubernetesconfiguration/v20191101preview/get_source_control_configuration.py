@@ -210,7 +210,7 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
                                      source_control_configuration_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlConfigurationResult:
     """
-    The SourceControl Configuration object.
+    Gets details of the Source Control Configuration.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -254,7 +254,7 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
                                             source_control_configuration_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlConfigurationResult]:
     """
-    The SourceControl Configuration object.
+    Gets details of the Source Control Configuration.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

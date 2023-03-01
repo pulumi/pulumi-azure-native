@@ -183,7 +183,7 @@ def get_volume_container(device_name: Optional[str] = None,
                          volume_container_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeContainerResult:
     """
-    The volume container.
+    Gets the properties of the specified volume container name.
 
 
     :param str device_name: The device name
@@ -221,7 +221,7 @@ def get_volume_container_output(device_name: Optional[pulumi.Input[str]] = None,
                                 volume_container_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeContainerResult]:
     """
-    The volume container.
+    Gets the properties of the specified volume container name.
 
 
     :param str device_name: The device name

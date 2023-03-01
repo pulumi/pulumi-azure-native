@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Project resource.
+ * Gets a Project resource.
  * API Version: 2022-07-01-preview.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
@@ -66,7 +66,7 @@ export interface GetProjectResult {
     readonly type: string;
 }
 /**
- * The Project resource.
+ * Gets a Project resource.
  * API Version: 2022-07-01-preview.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {

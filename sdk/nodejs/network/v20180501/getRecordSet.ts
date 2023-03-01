@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a DNS record set (a collection of DNS records with the same name and type).
+ * Gets a record set.
  */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
 
@@ -122,7 +122,7 @@ export interface GetRecordSetResult {
     readonly type: string;
 }
 /**
- * Describes a DNS record set (a collection of DNS records with the same name and type).
+ * Gets a record set.
  */
 export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
     return pulumi.output(args).apply((a: any) => getRecordSet(a, opts))

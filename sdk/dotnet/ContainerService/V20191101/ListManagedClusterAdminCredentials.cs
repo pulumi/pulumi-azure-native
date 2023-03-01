@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerService.V20191101
     public static class ListManagedClusterAdminCredentials
     {
         /// <summary>
-        /// The list of credential result response.
+        /// Gets cluster admin credential of the managed cluster with a specified resource group and name.
         /// </summary>
         public static Task<ListManagedClusterAdminCredentialsResult> InvokeAsync(ListManagedClusterAdminCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAdminCredentialsResult>("azure-native:containerservice/v20191101:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of credential result response.
+        /// Gets cluster admin credential of the managed cluster with a specified resource group and name.
         /// </summary>
         public static Output<ListManagedClusterAdminCredentialsResult> Invoke(ListManagedClusterAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterAdminCredentialsResult>("azure-native:containerservice/v20191101:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsInvokeArgs(), options.WithDefaults());

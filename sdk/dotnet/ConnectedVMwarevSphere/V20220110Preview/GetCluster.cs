@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220110Preview
     public static class GetCluster
     {
         /// <summary>
-        /// Define the cluster.
+        /// Implements cluster GET method.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:connectedvmwarevsphere/v20220110preview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the cluster.
+        /// Implements cluster GET method.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:connectedvmwarevsphere/v20220110preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

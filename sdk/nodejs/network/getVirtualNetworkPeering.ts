@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Peerings in a virtual network resource.
+ * Gets the specified virtual network peering.
  * API Version: 2020-11-01.
  */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
@@ -102,7 +102,7 @@ export interface GetVirtualNetworkPeeringResult {
     readonly useRemoteGateways?: boolean;
 }
 /**
- * Peerings in a virtual network resource.
+ * Gets the specified virtual network peering.
  * API Version: 2020-11-01.
  */
 export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {

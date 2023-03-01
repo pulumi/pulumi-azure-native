@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The resource definition of this association.
+ * Get an association.
  */
 export function getAssociation(args: GetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationResult> {
 
@@ -53,7 +53,7 @@ export interface GetAssociationResult {
     readonly type: string;
 }
 /**
- * The resource definition of this association.
+ * Get an association.
  */
 export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
     return pulumi.output(args).apply((a: any) => getAssociation(a, opts))

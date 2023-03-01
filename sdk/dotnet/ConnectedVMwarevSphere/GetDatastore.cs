@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public static class GetDatastore
     {
         /// <summary>
-        /// Define the datastore.
+        /// Implements datastore GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:connectedvmwarevsphere:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Define the datastore.
+        /// Implements datastore GET method.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)

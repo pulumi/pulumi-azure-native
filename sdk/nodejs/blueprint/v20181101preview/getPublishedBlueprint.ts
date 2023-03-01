@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a published blueprint.
+ * Get a published version of a blueprint definition.
  */
 export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedBlueprintResult> {
 
@@ -85,7 +85,7 @@ export interface GetPublishedBlueprintResult {
     readonly type: string;
 }
 /**
- * Represents a published blueprint.
+ * Get a published version of a blueprint definition.
  */
 export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedBlueprintResult> {
     return pulumi.output(args).apply((a: any) => getPublishedBlueprint(a, opts))

@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get properties of the provided default CNI network.
+ */
 export function getDefaultCniNetwork(args: GetDefaultCniNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultCniNetworkResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -112,6 +115,9 @@ export interface GetDefaultCniNetworkResult {
      */
     readonly vlan: number;
 }
+/**
+ * Get properties of the provided default CNI network.
+ */
 export function getDefaultCniNetworkOutput(args: GetDefaultCniNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultCniNetworkResult> {
     return pulumi.output(args).apply((a: any) => getDefaultCniNetwork(a, opts))
 }

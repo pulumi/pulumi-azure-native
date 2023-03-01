@@ -145,7 +145,7 @@ def get_wordpress_instance(php_workload_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWordpressInstanceResult:
     """
-    WordPress instance resource
+    Gets the WordPress instance resource.
     API Version: 2021-12-01-preview.
 
 
@@ -175,7 +175,7 @@ def get_wordpress_instance_output(php_workload_name: Optional[pulumi.Input[str]]
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWordpressInstanceResult]:
     """
-    WordPress instance resource
+    Gets the WordPress instance resource.
     API Version: 2021-12-01-preview.
 
 

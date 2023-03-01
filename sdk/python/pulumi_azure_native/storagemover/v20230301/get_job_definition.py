@@ -255,7 +255,7 @@ def get_job_definition(job_definition_name: Optional[str] = None,
                        storage_mover_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
-    The Job Definition resource.
+    Gets a Job Definition resource.
 
 
     :param str job_definition_name: The name of the Job Definition resource.
@@ -299,7 +299,7 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
                               storage_mover_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
-    The Job Definition resource.
+    Gets a Job Definition resource.
 
 
     :param str job_definition_name: The name of the Job Definition resource.

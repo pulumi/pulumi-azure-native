@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Clouds resource definition.
+ * Implements Cloud GET method.
  */
 export function getCloud(args: GetCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudResult> {
 
@@ -92,7 +92,7 @@ export interface GetCloudResult {
     readonly vmmServerId?: string;
 }
 /**
- * The Clouds resource definition.
+ * Implements Cloud GET method.
  */
 export function getCloudOutput(args: GetCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudResult> {
     return pulumi.output(args).apply((a: any) => getCloud(a, opts))

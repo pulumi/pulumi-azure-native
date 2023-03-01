@@ -60,7 +60,7 @@ def list_batch_account_keys(account_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBatchAccountKeysResult:
     """
-    A set of Azure Batch account keys.
+    This operation applies only to Batch accounts created with a poolAllocationMode of 'BatchService'. If the Batch account was created with a poolAllocationMode of 'UserSubscription', clients cannot use access to keys to authenticate, and must use Azure Active Directory instead. In this case, getting the keys will fail.
 
 
     :param str account_name: The name of the account.
@@ -82,7 +82,7 @@ def list_batch_account_keys_output(account_name: Optional[pulumi.Input[str]] = N
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBatchAccountKeysResult]:
     """
-    A set of Azure Batch account keys.
+    This operation applies only to Batch accounts created with a poolAllocationMode of 'BatchService'. If the Batch account was created with a poolAllocationMode of 'UserSubscription', clients cannot use access to keys to authenticate, and must use Azure Active Directory instead. In this case, getting the keys will fail.
 
 
     :param str account_name: The name of the account.

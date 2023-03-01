@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20180801
     public static class GetAzureFirewall
     {
         /// <summary>
-        /// Azure Firewall resource
+        /// Gets the specified Azure Firewall.
         /// </summary>
         public static Task<GetAzureFirewallResult> InvokeAsync(GetAzureFirewallArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureFirewallResult>("azure-native:network/v20180801:getAzureFirewall", args ?? new GetAzureFirewallArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Firewall resource
+        /// Gets the specified Azure Firewall.
         /// </summary>
         public static Output<GetAzureFirewallResult> Invoke(GetAzureFirewallInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureFirewallResult>("azure-native:network/v20180801:getAzureFirewall", args ?? new GetAzureFirewallInvokeArgs(), options.WithDefaults());

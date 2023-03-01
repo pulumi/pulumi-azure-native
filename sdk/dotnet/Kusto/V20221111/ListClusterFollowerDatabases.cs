@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Kusto.V20221111
     public static class ListClusterFollowerDatabases
     {
         /// <summary>
-        /// The list Kusto database principals operation response.
+        /// Returns a list of databases that are owned by this cluster and were followed by another cluster.
         /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-native:kusto/v20221111:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list Kusto database principals operation response.
+        /// Returns a list of databases that are owned by this cluster and were followed by another cluster.
         /// </summary>
         public static Output<ListClusterFollowerDatabasesResult> Invoke(ListClusterFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterFollowerDatabasesResult>("azure-native:kusto/v20221111:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesInvokeArgs(), options.WithDefaults());

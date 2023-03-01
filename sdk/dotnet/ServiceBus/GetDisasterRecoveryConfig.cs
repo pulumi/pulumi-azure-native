@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class GetDisasterRecoveryConfig
     {
         /// <summary>
-        /// Single item in List or Get Alias(Disaster Recovery configuration) operation
+        /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:servicebus:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Single item in List or Get Alias(Disaster Recovery configuration) operation
+        /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetDisasterRecoveryConfigResult> Invoke(GetDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)

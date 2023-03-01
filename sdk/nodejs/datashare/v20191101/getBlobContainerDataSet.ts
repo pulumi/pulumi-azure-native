@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure storage blob container data set.
+ * Get a DataSet in a share
  */
 export function getBlobContainerDataSet(args: GetBlobContainerDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetResult> {
 
@@ -80,7 +80,7 @@ export interface GetBlobContainerDataSetResult {
     readonly type: string;
 }
 /**
- * An Azure storage blob container data set.
+ * Get a DataSet in a share
  */
 export function getBlobContainerDataSetOutput(args: GetBlobContainerDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainerDataSet(a, opts))

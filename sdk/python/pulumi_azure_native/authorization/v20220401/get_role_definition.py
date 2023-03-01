@@ -181,7 +181,7 @@ def get_role_definition(role_definition_id: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
-    Role definition.
+    Get role definition by name (GUID).
 
 
     :param str role_definition_id: The ID of the role definition.
@@ -213,7 +213,7 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] =
                                scope: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
     """
-    Role definition.
+    Get role definition by name (GUID).
 
 
     :param str role_definition_id: The ID of the role definition.

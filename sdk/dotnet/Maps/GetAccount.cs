@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Maps
     public static class GetAccount
     {
         /// <summary>
-        /// An Azure resource which represents access to a suite of Maps REST APIs.
+        /// Get a Maps Account.
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure resource which represents access to a suite of Maps REST APIs.
+        /// Get a Maps Account.
         /// API Version: 2018-05-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)

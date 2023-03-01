@@ -63,7 +63,7 @@ def list_network_manager_effective_security_admin_rules(resource_group_name: Opt
                                                         virtual_network_name: Optional[str] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNetworkManagerEffectiveSecurityAdminRulesResult:
     """
-    Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
+    List all effective security admin rules applied on a virtual network.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -91,7 +91,7 @@ def list_network_manager_effective_security_admin_rules_output(resource_group_na
                                                                virtual_network_name: Optional[pulumi.Input[str]] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerEffectiveSecurityAdminRulesResult]:
     """
-    Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
+    List all effective security admin rules applied on a virtual network.
 
 
     :param str resource_group_name: The name of the resource group.

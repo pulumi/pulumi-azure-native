@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Dedicated cloud node model
+ * Returns dedicated cloud node
  * API Version: 2019-04-01.
  */
 export function getDedicatedCloudNode(args: GetDedicatedCloudNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudNodeResult> {
@@ -113,7 +113,7 @@ export interface GetDedicatedCloudNodeResult {
     readonly vmwareClusterName: string;
 }
 /**
- * Dedicated cloud node model
+ * Returns dedicated cloud node
  * API Version: 2019-04-01.
  */
 export function getDedicatedCloudNodeOutput(args: GetDedicatedCloudNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedCloudNodeResult> {

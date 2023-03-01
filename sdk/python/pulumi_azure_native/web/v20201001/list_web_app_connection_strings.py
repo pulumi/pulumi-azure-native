@@ -109,7 +109,7 @@ def list_web_app_connection_strings(name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppConnectionStringsResult:
     """
-    String dictionary resource.
+    Gets the connection strings of an app.
 
 
     :param str name: Name of the app.
@@ -135,7 +135,7 @@ def list_web_app_connection_strings_output(name: Optional[pulumi.Input[str]] = N
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppConnectionStringsResult]:
     """
-    String dictionary resource.
+    Gets the connection strings of an app.
 
 
     :param str name: Name of the app.

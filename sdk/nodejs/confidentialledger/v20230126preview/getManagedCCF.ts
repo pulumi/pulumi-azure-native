@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Managed CCF. Contains the properties of Managed CCF Resource.
+ * Retrieves the properties of a Managed CCF app.
  */
 export function getManagedCCF(args: GetManagedCCFArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedCCFResult> {
 
@@ -64,7 +64,7 @@ export interface GetManagedCCFResult {
     readonly type: string;
 }
 /**
- * Managed CCF. Contains the properties of Managed CCF Resource.
+ * Retrieves the properties of a Managed CCF app.
  */
 export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedCCFResult> {
     return pulumi.output(args).apply((a: any) => getManagedCCF(a, opts))

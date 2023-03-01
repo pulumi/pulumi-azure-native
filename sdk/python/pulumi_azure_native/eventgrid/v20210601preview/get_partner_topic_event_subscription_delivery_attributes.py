@@ -50,7 +50,7 @@ def get_partner_topic_event_subscription_delivery_attributes(event_subscription_
                                                              resource_group_name: Optional[str] = None,
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionDeliveryAttributesResult:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription of a partner topic.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -74,7 +74,7 @@ def get_partner_topic_event_subscription_delivery_attributes_output(event_subscr
                                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionDeliveryAttributesResult]:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription of a partner topic.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

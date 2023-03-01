@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An Log Analytics QueryPack definition.
+ * Returns a Log Analytics QueryPack.
  * API Version: 2019-09-01.
  */
 export function getQueryPack(args: GetQueryPackArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryPackResult> {
@@ -70,7 +70,7 @@ export interface GetQueryPackResult {
     readonly type: string;
 }
 /**
- * An Log Analytics QueryPack definition.
+ * Returns a Log Analytics QueryPack.
  * API Version: 2019-09-01.
  */
 export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryPackResult> {

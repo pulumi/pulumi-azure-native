@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220101
     public static class GetFlowLog
     {
         /// <summary>
-        /// A flow log resource.
+        /// Gets a flow log resource by name.
         /// </summary>
         public static Task<GetFlowLogResult> InvokeAsync(GetFlowLogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azure-native:network/v20220101:getFlowLog", args ?? new GetFlowLogArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A flow log resource.
+        /// Gets a flow log resource by name.
         /// </summary>
         public static Output<GetFlowLogResult> Invoke(GetFlowLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowLogResult>("azure-native:network/v20220101:getFlowLog", args ?? new GetFlowLogInvokeArgs(), options.WithDefaults());

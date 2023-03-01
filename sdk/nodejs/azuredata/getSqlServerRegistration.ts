@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A SQL server registration.
+ * Gets a SQL Server registration.
  * API Version: 2019-07-24-preview.
  */
 export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerRegistrationResult> {
@@ -73,7 +73,7 @@ export interface GetSqlServerRegistrationResult {
     readonly type: string;
 }
 /**
- * A SQL server registration.
+ * Gets a SQL Server registration.
  * API Version: 2019-07-24-preview.
  */
 export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerRegistrationResult> {

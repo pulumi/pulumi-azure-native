@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * App Service plan.
+ * Get an App Service plan.
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
 
@@ -129,7 +129,7 @@ export interface GetAppServicePlanResult {
     readonly workerTierName?: string;
 }
 /**
- * App Service plan.
+ * Get an App Service plan.
  */
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
     return pulumi.output(args).apply((a: any) => getAppServicePlan(a, opts))

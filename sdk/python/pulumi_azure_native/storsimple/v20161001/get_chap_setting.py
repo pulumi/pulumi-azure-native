@@ -89,7 +89,7 @@ def get_chap_setting(chap_user_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChapSettingResult:
     """
-    Challenge-Handshake Authentication Protocol (CHAP) setting
+    Returns the properties of the specified chap setting name.
 
 
     :param str chap_user_name: The user name of chap to be fetched.
@@ -120,7 +120,7 @@ def get_chap_setting_output(chap_user_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChapSettingResult]:
     """
-    Challenge-Handshake Authentication Protocol (CHAP) setting
+    Returns the properties of the specified chap setting name.
 
 
     :param str chap_user_name: The user name of chap to be fetched.

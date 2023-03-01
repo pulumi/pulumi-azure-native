@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Blueprint artifact that applies a Policy assignment.
+ * Get a blueprint artifact.
  * API Version: 2018-11-01-preview.
  */
 export function getPolicyAssignmentArtifact(args: GetPolicyAssignmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentArtifactResult> {
@@ -83,7 +83,7 @@ export interface GetPolicyAssignmentArtifactResult {
     readonly type: string;
 }
 /**
- * Blueprint artifact that applies a Policy assignment.
+ * Get a blueprint artifact.
  * API Version: 2018-11-01-preview.
  */
 export function getPolicyAssignmentArtifactOutput(args: GetPolicyAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentArtifactResult> {

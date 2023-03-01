@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB userDefinedFunction.
+ * Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
 export function getSqlResourceSqlUserDefinedFunction(args: GetSqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlUserDefinedFunctionResult> {
@@ -78,7 +78,7 @@ export interface GetSqlResourceSqlUserDefinedFunctionResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB userDefinedFunction.
+ * Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2020-06-01-preview will be removed in v2 of the provider. */
 export function getSqlResourceSqlUserDefinedFunctionOutput(args: GetSqlResourceSqlUserDefinedFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlUserDefinedFunctionResult> {

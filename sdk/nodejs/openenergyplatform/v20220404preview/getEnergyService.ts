@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Returns oep resource for a given name.
+ */
 export function getEnergyService(args: GetEnergyServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEnergyServiceResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,6 +57,9 @@ export interface GetEnergyServiceResult {
      */
     readonly type: string;
 }
+/**
+ * Returns oep resource for a given name.
+ */
 export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {
     return pulumi.output(args).apply((a: any) => getEnergyService(a, opts))
 }

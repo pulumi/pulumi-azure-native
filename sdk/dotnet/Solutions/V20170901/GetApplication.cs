@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Solutions.V20170901
     public static class GetApplication
     {
         /// <summary>
-        /// Information about managed application.
+        /// Gets the managed application.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:solutions/v20170901:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Information about managed application.
+        /// Gets the managed application.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:solutions/v20170901:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

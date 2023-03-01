@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220301Preview
     public static class GetServiceEndpoint
     {
         /// <summary>
-        /// ServiceEndpoint resource details.
+        /// Returns ServiceEndpoint resources for a given name.
         /// </summary>
         public static Task<GetServiceEndpointResult> InvokeAsync(GetServiceEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointResult>("azure-native:recommendationsservice/v20220301preview:getServiceEndpoint", args ?? new GetServiceEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ServiceEndpoint resource details.
+        /// Returns ServiceEndpoint resources for a given name.
         /// </summary>
         public static Output<GetServiceEndpointResult> Invoke(GetServiceEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointResult>("azure-native:recommendationsservice/v20220301preview:getServiceEndpoint", args ?? new GetServiceEndpointInvokeArgs(), options.WithDefaults());

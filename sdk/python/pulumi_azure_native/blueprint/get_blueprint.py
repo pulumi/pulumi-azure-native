@@ -169,7 +169,7 @@ def get_blueprint(blueprint_name: Optional[str] = None,
                   resource_scope: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlueprintResult:
     """
-    Represents a Blueprint definition.
+    Get a blueprint definition.
     API Version: 2018-11-01-preview.
 
 
@@ -201,7 +201,7 @@ def get_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
                          resource_scope: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlueprintResult]:
     """
-    Represents a Blueprint definition.
+    Get a blueprint definition.
     API Version: 2018-11-01-preview.
 
 

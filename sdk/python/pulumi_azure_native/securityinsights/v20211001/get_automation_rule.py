@@ -191,7 +191,8 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets the automation rule
+
 
     :param str automation_rule_id: Automation rule ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -226,7 +227,8 @@ def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[str]] =
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets the automation rule
+
 
     :param str automation_rule_id: Automation rule ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

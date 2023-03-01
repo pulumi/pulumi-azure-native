@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForEDMUpload resource.
  */
 export function getprivateLinkServicesForEDMUpload(args: GetprivateLinkServicesForEDMUploadArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForEDMUploadResult> {
 
@@ -76,7 +76,7 @@ export interface GetprivateLinkServicesForEDMUploadResult {
     readonly type: string;
 }
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForEDMUpload resource.
  */
 export function getprivateLinkServicesForEDMUploadOutput(args: GetprivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForEDMUploadResult> {
     return pulumi.output(args).apply((a: any) => getprivateLinkServicesForEDMUpload(a, opts))

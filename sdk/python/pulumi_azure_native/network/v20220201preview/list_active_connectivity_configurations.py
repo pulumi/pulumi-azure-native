@@ -63,7 +63,7 @@ def list_active_connectivity_configurations(network_manager_name: Optional[str] 
                                             skip_token: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListActiveConnectivityConfigurationsResult:
     """
-    Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
+    Lists active connectivity configurations in a network manager.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -91,7 +91,7 @@ def list_active_connectivity_configurations_output(network_manager_name: Optiona
                                                    skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListActiveConnectivityConfigurationsResult]:
     """
-    Result of the request to list active connectivity configurations. It contains a list of active connectivity configurations and a skiptoken to get the next set of results.
+    Lists active connectivity configurations in a network manager.
 
 
     :param str network_manager_name: The name of the network manager.

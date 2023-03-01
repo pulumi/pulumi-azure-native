@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Binding resource payload
+ * Get a Binding and its properties.
  */
 export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBindingResult> {
 
@@ -62,7 +62,7 @@ export interface GetBindingResult {
     readonly type: string;
 }
 /**
- * Binding resource payload
+ * Get a Binding and its properties.
  */
 export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBindingResult> {
     return pulumi.output(args).apply((a: any) => getBinding(a, opts))

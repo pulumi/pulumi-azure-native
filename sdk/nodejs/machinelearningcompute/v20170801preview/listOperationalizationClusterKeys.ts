@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Credentials to resources in the cluster.
+ * Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
  */
 export function listOperationalizationClusterKeys(args: ListOperationalizationClusterKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListOperationalizationClusterKeysResult> {
 
@@ -60,7 +60,7 @@ export interface ListOperationalizationClusterKeysResult {
     readonly storageAccount?: outputs.machinelearningcompute.v20170801preview.StorageAccountCredentialsResponse;
 }
 /**
- * Credentials to resources in the cluster.
+ * Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
  */
 export function listOperationalizationClusterKeysOutput(args: ListOperationalizationClusterKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOperationalizationClusterKeysResult> {
     return pulumi.output(args).apply((a: any) => listOperationalizationClusterKeys(a, opts))

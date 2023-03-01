@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Contains information about a pool.
+ * Gets information about the specified pool.
  * API Version: 2021-01-01.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
@@ -138,7 +138,7 @@ export interface GetPoolResult {
     readonly vmSize?: string;
 }
 /**
- * Contains information about a pool.
+ * Gets information about the specified pool.
  * API Version: 2021-01-01.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {

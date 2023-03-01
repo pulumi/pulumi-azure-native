@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a Traffic Manager endpoint.
+ * Gets a Traffic Manager endpoint.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -110,7 +110,7 @@ export interface GetEndpointResult {
     readonly weight?: number;
 }
 /**
- * Class representing a Traffic Manager endpoint.
+ * Gets a Traffic Manager endpoint.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

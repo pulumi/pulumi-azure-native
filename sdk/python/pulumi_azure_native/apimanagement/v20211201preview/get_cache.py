@@ -121,7 +121,7 @@ def get_cache(cache_id: Optional[str] = None,
               service_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
-    Cache details.
+    Gets the details of the Cache specified by its identifier.
 
 
     :param str cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
@@ -151,7 +151,7 @@ def get_cache_output(cache_id: Optional[pulumi.Input[str]] = None,
                      service_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
     """
-    Cache details.
+    Gets the details of the Cache specified by its identifier.
 
 
     :param str cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).

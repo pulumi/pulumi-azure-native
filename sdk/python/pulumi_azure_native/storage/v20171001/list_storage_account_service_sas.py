@@ -67,7 +67,7 @@ def list_storage_account_service_sas(account_name: Optional[str] = None,
                                      shared_access_start_time: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountServiceSASResult:
     """
-    The List service SAS credentials operation response.
+    List service SAS credentials of a specific resource.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -142,7 +142,7 @@ def list_storage_account_service_sas_output(account_name: Optional[pulumi.Input[
                                             shared_access_start_time: Optional[pulumi.Input[Optional[str]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountServiceSASResult]:
     """
-    The List service SAS credentials operation response.
+    List service SAS credentials of a specific resource.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

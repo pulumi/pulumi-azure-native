@@ -64,7 +64,7 @@ def list_configurations(configuration_filters: Optional[Sequence[pulumi.InputTyp
                         skip_token: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationsResult:
     """
-    The list of configurations.
+    This method provides the list of configurations for the given product family, product line and product under subscription.
 
 
     :param Sequence[pulumi.InputType['ConfigurationFilters']] configuration_filters: Holds details about product hierarchy information and filterable property.
@@ -89,7 +89,7 @@ def list_configurations_output(configuration_filters: Optional[pulumi.Input[Sequ
                                skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConfigurationsResult]:
     """
-    The list of configurations.
+    This method provides the list of configurations for the given product family, product line and product under subscription.
 
 
     :param Sequence[pulumi.InputType['ConfigurationFilters']] configuration_filters: Holds details about product hierarchy information and filterable property.

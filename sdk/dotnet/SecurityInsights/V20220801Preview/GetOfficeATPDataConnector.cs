@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     public static class GetOfficeATPDataConnector
     {
         /// <summary>
-        /// Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetOfficeATPDataConnectorResult> InvokeAsync(GetOfficeATPDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOfficeATPDataConnectorResult>("azure-native:securityinsights/v20220801preview:getOfficeATPDataConnector", args ?? new GetOfficeATPDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetOfficeATPDataConnectorResult> Invoke(GetOfficeATPDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfficeATPDataConnectorResult>("azure-native:securityinsights/v20220801preview:getOfficeATPDataConnector", args ?? new GetOfficeATPDataConnectorInvokeArgs(), options.WithDefaults());

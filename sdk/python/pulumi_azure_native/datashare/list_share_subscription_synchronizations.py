@@ -65,7 +65,7 @@ def list_share_subscription_synchronizations(account_name: Optional[str] = None,
                                              skip_token: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSynchronizationsResult:
     """
-    A consumer side list of share subscription synchronizations
+    List synchronizations of a share subscription
     API Version: 2020-09-01.
 
 
@@ -100,7 +100,7 @@ def list_share_subscription_synchronizations_output(account_name: Optional[pulum
                                                     skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSubscriptionSynchronizationsResult]:
     """
-    A consumer side list of share subscription synchronizations
+    List synchronizations of a share subscription
     API Version: 2020-09-01.
 
 

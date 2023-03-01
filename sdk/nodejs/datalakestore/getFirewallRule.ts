@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Data Lake Store firewall rule information.
+ * Gets the specified Data Lake Store firewall rule.
  * API Version: 2016-11-01.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
@@ -59,7 +59,7 @@ export interface GetFirewallRuleResult {
     readonly type: string;
 }
 /**
- * Data Lake Store firewall rule information.
+ * Gets the specified Data Lake Store firewall rule.
  * API Version: 2016-11-01.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {

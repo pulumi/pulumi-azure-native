@@ -61,7 +61,7 @@ def get_package_download_url(package_name: Optional[str] = None,
                              test_base_account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageDownloadURLResult:
     """
-    The response of getting a download URL.
+    Gets the download URL of a package.
     API Version: 2022-04-01-preview.
 
 
@@ -87,7 +87,7 @@ def get_package_download_url_output(package_name: Optional[pulumi.Input[str]] = 
                                     test_base_account_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageDownloadURLResult]:
     """
-    The response of getting a download URL.
+    Gets the download URL of a package.
     API Version: 2022-04-01-preview.
 
 

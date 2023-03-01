@@ -283,7 +283,7 @@ def get_batch_account(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchAccountResult:
     """
-    Contains information about an Azure Batch account.
+    Gets information about the specified Batch account.
 
 
     :param str account_name: The name of the Batch account.
@@ -324,7 +324,7 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchAccountResult]:
     """
-    Contains information about an Azure Batch account.
+    Gets information about the specified Batch account.
 
 
     :param str account_name: The name of the Batch account.

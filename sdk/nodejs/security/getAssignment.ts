@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Security Assignment on a resource group over a given scope
+ * Get a specific standard assignment for the requested scope by resourceId
  * API Version: 2021-08-01-preview.
  */
 export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
@@ -105,7 +105,7 @@ export interface GetAssignmentResult {
     readonly type: string;
 }
 /**
- * Security Assignment on a resource group over a given scope
+ * Get a specific standard assignment for the requested scope by resourceId
  * API Version: 2021-08-01-preview.
  */
 export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {

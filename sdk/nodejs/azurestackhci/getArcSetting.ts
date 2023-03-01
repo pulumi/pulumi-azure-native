@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * ArcSetting details.
+ * Get ArcSetting resource details of HCI Cluster.
  * API Version: 2021-01-01-preview.
  */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
@@ -94,7 +94,7 @@ export interface GetArcSettingResult {
     readonly type: string;
 }
 /**
- * ArcSetting details.
+ * Get ArcSetting resource details of HCI Cluster.
  * API Version: 2021-01-01-preview.
  */
 export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {

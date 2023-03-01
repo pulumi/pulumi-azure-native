@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
     public static class GetDatabaseAccountGremlinGraph
     {
         /// <summary>
-        /// An Azure Cosmos DB Gremlin graph.
+        /// Gets the Gremlin graph under an existing Azure Cosmos DB database account.
         /// </summary>
         public static Task<GetDatabaseAccountGremlinGraphResult> InvokeAsync(GetDatabaseAccountGremlinGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20150408:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Cosmos DB Gremlin graph.
+        /// Gets the Gremlin graph under an existing Azure Cosmos DB database account.
         /// </summary>
         public static Output<GetDatabaseAccountGremlinGraphResult> Invoke(GetDatabaseAccountGremlinGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/v20150408:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphInvokeArgs(), options.WithDefaults());

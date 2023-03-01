@@ -226,6 +226,7 @@ def get_l2_network(l2_network_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL2NetworkResult:
     """
+    Get properties of the provided layer 2 (L2) network.
     API Version: 2022-12-12-preview.
 
 
@@ -262,6 +263,7 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2NetworkResult]:
     """
+    Get properties of the provided layer 2 (L2) network.
     API Version: 2022-12-12-preview.
 
 

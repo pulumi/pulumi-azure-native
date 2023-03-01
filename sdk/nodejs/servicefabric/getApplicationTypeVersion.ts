@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An application type version resource for the specified application type name resource.
+ * Get a Service Fabric application type version resource created or in the process of being created in the Service Fabric application type name resource.
  * API Version: 2020-03-01.
  */
 export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeVersionResult> {
@@ -80,7 +80,7 @@ export interface GetApplicationTypeVersionResult {
     readonly type: string;
 }
 /**
- * An application type version resource for the specified application type name resource.
+ * Get a Service Fabric application type version resource created or in the process of being created in the Service Fabric application type name resource.
  * API Version: 2020-03-01.
  */
 export function getApplicationTypeVersionOutput(args: GetApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeVersionResult> {

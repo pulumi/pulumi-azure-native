@@ -291,7 +291,7 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
                         sync_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerEndpointResult:
     """
-    Server Endpoint object.
+    Get a ServerEndpoint.
     API Version: 2020-03-01.
 
 
@@ -339,7 +339,7 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] 
                                sync_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerEndpointResult]:
     """
-    Server Endpoint object.
+    Get a ServerEndpoint.
     API Version: 2020-03-01.
 
 

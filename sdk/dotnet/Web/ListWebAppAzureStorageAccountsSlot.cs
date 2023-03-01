@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppAzureStorageAccountsSlot
     {
         /// <summary>
-        /// AzureStorageInfo dictionary resource.
+        /// Gets the Azure storage account configurations of an app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppAzureStorageAccountsSlotResult> InvokeAsync(ListWebAppAzureStorageAccountsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsSlotResult>("azure-native:web:listWebAppAzureStorageAccountsSlot", args ?? new ListWebAppAzureStorageAccountsSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AzureStorageInfo dictionary resource.
+        /// Gets the Azure storage account configurations of an app.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppAzureStorageAccountsSlotResult> Invoke(ListWebAppAzureStorageAccountsSlotInvokeArgs args, InvokeOptions? options = null)

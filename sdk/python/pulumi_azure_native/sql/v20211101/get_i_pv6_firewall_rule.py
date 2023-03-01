@@ -97,7 +97,7 @@ def get_i_pv6_firewall_rule(firewall_rule_name: Optional[str] = None,
                             server_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPv6FirewallRuleResult:
     """
-    An IPv6 server firewall rule.
+    Gets an IPv6 firewall rule.
 
 
     :param str firewall_rule_name: The name of the firewall rule.
@@ -125,7 +125,7 @@ def get_i_pv6_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str
                                    server_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPv6FirewallRuleResult]:
     """
-    An IPv6 server firewall rule.
+    Gets an IPv6 firewall rule.
 
 
     :param str firewall_rule_name: The name of the firewall rule.

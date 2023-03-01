@@ -48,7 +48,7 @@ def list_server_gateway_status(resource_group_name: Optional[str] = None,
                                server_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServerGatewayStatusResult:
     """
-    Status of gateway is live.
+    Return the gateway status of the specified Analysis Services server instance.
     API Version: 2017-08-01.
 
 
@@ -70,7 +70,7 @@ def list_server_gateway_status_output(resource_group_name: Optional[pulumi.Input
                                       server_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServerGatewayStatusResult]:
     """
-    Status of gateway is live.
+    Return the gateway status of the specified Analysis Services server instance.
     API Version: 2017-08-01.
 
 

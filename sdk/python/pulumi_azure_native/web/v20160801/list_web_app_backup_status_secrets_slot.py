@@ -252,7 +252,7 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
                                             type: Optional['BackupRestoreOperationType'] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupStatusSecretsSlotResult:
     """
-    Backup description.
+    Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
 
 
     :param str backup_id: ID of backup.
@@ -316,7 +316,7 @@ def list_web_app_backup_status_secrets_slot_output(backup_id: Optional[pulumi.In
                                                    type: Optional[pulumi.Input[Optional['BackupRestoreOperationType']]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupStatusSecretsSlotResult]:
     """
-    Backup description.
+    Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
 
 
     :param str backup_id: ID of backup.

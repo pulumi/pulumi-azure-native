@@ -217,7 +217,7 @@ def get_hana_instance(hana_instance_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHanaInstanceResult:
     """
-    HANA instance info on Azure (ARM properties and HANA properties)
+    Gets properties of a SAP HANA instance for the specified subscription, resource group, and instance name.
     API Version: 2017-11-03-preview.
 
 
@@ -253,7 +253,7 @@ def get_hana_instance_output(hana_instance_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHanaInstanceResult]:
     """
-    HANA instance info on Azure (ARM properties and HANA properties)
+    Gets properties of a SAP HANA instance for the specified subscription, resource group, and instance name.
     API Version: 2017-11-03-preview.
 
 

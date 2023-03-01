@@ -385,7 +385,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    An object that represents a machine learning workspace.
+    Gets the properties of the specified machine learning workspace.
 
 
     :param str resource_group_name: Name of the resource group in which workspace is located.
@@ -434,7 +434,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    An object that represents a machine learning workspace.
+    Gets the properties of the specified machine learning workspace.
 
 
     :param str resource_group_name: Name of the resource group in which workspace is located.

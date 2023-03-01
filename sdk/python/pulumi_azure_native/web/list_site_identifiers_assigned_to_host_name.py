@@ -60,7 +60,7 @@ class AwaitableListSiteIdentifiersAssignedToHostNameResult(ListSiteIdentifiersAs
 def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteIdentifiersAssignedToHostNameResult:
     """
-    Collection of identifiers.
+    List all apps that are assigned to a hostname.
     API Version: 2020-12-01.
 
 
@@ -80,7 +80,7 @@ def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
 def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteIdentifiersAssignedToHostNameResult]:
     """
-    Collection of identifiers.
+    List all apps that are assigned to a hostname.
     API Version: 2020-12-01.
 
 

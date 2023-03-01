@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201
     public static class GetCertificate
     {
         /// <summary>
-        /// Certificate resource payload.
+        /// Get the certificate resource.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:appplatform/v20221201:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Certificate resource payload.
+        /// Get the certificate resource.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:appplatform/v20221201:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

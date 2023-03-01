@@ -205,7 +205,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[str] = 
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthResult:
     """
-    P2SVpnGateway Resource.
+    Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
 
 
     :param str gateway_name: The name of the P2SVpnGateway.
@@ -239,7 +239,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: Optional[
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthResult]:
     """
-    P2SVpnGateway Resource.
+    Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
 
 
     :param str gateway_name: The name of the P2SVpnGateway.

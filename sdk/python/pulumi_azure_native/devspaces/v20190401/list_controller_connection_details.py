@@ -47,7 +47,8 @@ def list_controller_connection_details(name: Optional[str] = None,
                                        target_container_host_resource_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListControllerConnectionDetailsResult:
     """
-    Use this data source to access information about an existing resource.
+    Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
+
 
     :param str name: Name of the resource.
     :param str resource_group_name: Resource group to which the resource belongs.
@@ -70,7 +71,8 @@ def list_controller_connection_details_output(name: Optional[pulumi.Input[str]] 
                                               target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListControllerConnectionDetailsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
+
 
     :param str name: Name of the resource.
     :param str resource_group_name: Resource group to which the resource belongs.

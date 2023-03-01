@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Storage Account Local User keys.
+ * List SSH authorized keys and shared key of the local user.
  */
 export function listLocalUserKeys(args: ListLocalUserKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalUserKeysResult> {
 
@@ -49,7 +49,7 @@ export interface ListLocalUserKeysResult {
     readonly sshAuthorizedKeys?: outputs.storage.v20210901.SshPublicKeyResponse[];
 }
 /**
- * The Storage Account Local User keys.
+ * List SSH authorized keys and shared key of the local user.
  */
 export function listLocalUserKeysOutput(args: ListLocalUserKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalUserKeysResult> {
     return pulumi.output(args).apply((a: any) => listLocalUserKeys(a, opts))

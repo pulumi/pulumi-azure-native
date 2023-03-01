@@ -182,7 +182,7 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
                                          server_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseThreatDetectionPolicyResult:
     """
-    Contains information about a database Threat Detection policy.
+    Gets a database's threat detection policy.
 
 
     :param str database_name: The name of the database for which database Threat Detection policy is defined.
@@ -220,7 +220,7 @@ def get_database_threat_detection_policy_output(database_name: Optional[pulumi.I
                                                 server_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseThreatDetectionPolicyResult]:
     """
-    Contains information about a database Threat Detection policy.
+    Gets a database's threat detection policy.
 
 
     :param str database_name: The name of the database for which database Threat Detection policy is defined.

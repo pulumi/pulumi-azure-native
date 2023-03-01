@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure resource which represents which will provision the ability to create private location data.
+ * [Deprecated] Get a Private Atlas resource.
  */
 export function getPrivateAtlase(args: GetPrivateAtlaseArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAtlaseResult> {
 
@@ -65,7 +65,7 @@ export interface GetPrivateAtlaseResult {
     readonly type: string;
 }
 /**
- * An Azure resource which represents which will provision the ability to create private location data.
+ * [Deprecated] Get a Private Atlas resource.
  */
 export function getPrivateAtlaseOutput(args: GetPrivateAtlaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAtlaseResult> {
     return pulumi.output(args).apply((a: any) => getPrivateAtlase(a, opts))

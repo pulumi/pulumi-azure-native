@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Managed Network Peering Policy resource
+ * The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
  * API Version: 2019-06-01-preview.
  */
 export function getManagedNetworkPeeringPolicy(args: GetManagedNetworkPeeringPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkPeeringPolicyResult> {
@@ -62,7 +62,7 @@ export interface GetManagedNetworkPeeringPolicyResult {
     readonly type: string;
 }
 /**
- * The Managed Network Peering Policy resource
+ * The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
  * API Version: 2019-06-01-preview.
  */
 export function getManagedNetworkPeeringPolicyOutput(args: GetManagedNetworkPeeringPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkPeeringPolicyResult> {

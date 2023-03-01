@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Configurations for source resource, include appSettings, connectionString and serviceBindings
+ * list source configurations for a linker.
  * API Version: 2021-11-01-preview.
  */
 export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListLinkerConfigurationsResult> {
@@ -41,7 +41,7 @@ export interface ListLinkerConfigurationsResult {
     readonly configurations?: outputs.servicelinker.SourceConfigurationResponse[];
 }
 /**
- * Configurations for source resource, include appSettings, connectionString and serviceBindings
+ * list source configurations for a linker.
  * API Version: 2021-11-01-preview.
  */
 export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLinkerConfigurationsResult> {

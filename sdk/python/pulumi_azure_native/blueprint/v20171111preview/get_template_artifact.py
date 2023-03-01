@@ -159,7 +159,7 @@ def get_template_artifact(artifact_name: Optional[str] = None,
                           management_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateArtifactResult:
     """
-    Blueprint artifact deploys Azure resource manager template.
+    Get a Blueprint artifact.
 
 
     :param str artifact_name: name of the artifact.
@@ -192,7 +192,7 @@ def get_template_artifact_output(artifact_name: Optional[pulumi.Input[str]] = No
                                  management_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateArtifactResult]:
     """
-    Blueprint artifact deploys Azure resource manager template.
+    Get a Blueprint artifact.
 
 
     :param str artifact_name: name of the artifact.

@@ -167,7 +167,7 @@ class AwaitableGetPartnerResult(GetPartnerResult):
 def get_partner(partner_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerResult:
     """
-    this is the management partner operations response
+    Get the management partner using the partnerId, objectId and tenantId.
 
 
     :param str partner_id: Id of the Partner
@@ -195,7 +195,7 @@ def get_partner(partner_id: Optional[str] = None,
 def get_partner_output(partner_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerResult]:
     """
-    this is the management partner operations response
+    Get the management partner using the partnerId, objectId and tenantId.
 
 
     :param str partner_id: Id of the Partner

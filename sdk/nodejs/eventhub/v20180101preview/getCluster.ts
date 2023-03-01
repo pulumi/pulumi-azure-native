@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Single Event Hubs Cluster resource in List or Get operations.
+ * Gets the resource description of the specified Event Hubs Cluster.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -76,7 +76,7 @@ export interface GetClusterResult {
     readonly updatedAt: string;
 }
 /**
- * Single Event Hubs Cluster resource in List or Get operations.
+ * Gets the resource description of the specified Event Hubs Cluster.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

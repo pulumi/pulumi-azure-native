@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Settings with single toggle.
+ * Gets a setting.
  * API Version: 2021-03-01-preview.
  */
 export function getEntityAnalytics(args: GetEntityAnalyticsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityAnalyticsResult> {
@@ -76,7 +76,7 @@ export interface GetEntityAnalyticsResult {
     readonly type: string;
 }
 /**
- * Settings with single toggle.
+ * Gets a setting.
  * API Version: 2021-03-01-preview.
  */
 export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityAnalyticsResult> {

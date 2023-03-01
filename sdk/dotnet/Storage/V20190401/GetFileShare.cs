@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Storage.V20190401
     public static class GetFileShare
     {
         /// <summary>
-        /// Properties of the file share, including Id, resource name, resource type, Etag.
+        /// Gets properties of a specified share.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:storage/v20190401:getFileShare", args ?? new GetFileShareArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Properties of the file share, including Id, resource name, resource type, Etag.
+        /// Gets properties of a specified share.
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:storage/v20190401:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());

@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20200601
     public static class GetAppServiceCertificateOrderCertificate
     {
         /// <summary>
-        /// Key Vault container ARM resource for a certificate that is purchased through Azure.
+        /// Get the certificate associated with a certificate order.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderCertificateResult> InvokeAsync(GetAppServiceCertificateOrderCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20200601:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Key Vault container ARM resource for a certificate that is purchased through Azure.
+        /// Get the certificate associated with a certificate order.
         /// </summary>
         public static Output<GetAppServiceCertificateOrderCertificateResult> Invoke(GetAppServiceCertificateOrderCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20200601:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateInvokeArgs(), options.WithDefaults());

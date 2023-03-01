@@ -133,7 +133,7 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
                                  service_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenIdConnectProviderResult:
     """
-    OpenId Connect Provider details.
+    Gets specific OpenID Connect Provider without secrets.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
@@ -164,7 +164,7 @@ def get_open_id_connect_provider_output(opid: Optional[pulumi.Input[str]] = None
                                         service_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenIdConnectProviderResult]:
     """
-    OpenId Connect Provider details.
+    Gets specific OpenID Connect Provider without secrets.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.

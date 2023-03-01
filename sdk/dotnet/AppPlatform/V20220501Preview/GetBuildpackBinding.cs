@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220501Preview
     public static class GetBuildpackBinding
     {
         /// <summary>
-        /// Buildpack Binding Resource object
+        /// Get a buildpack binding by name.
         /// </summary>
         public static Task<GetBuildpackBindingResult> InvokeAsync(GetBuildpackBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildpackBindingResult>("azure-native:appplatform/v20220501preview:getBuildpackBinding", args ?? new GetBuildpackBindingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Buildpack Binding Resource object
+        /// Get a buildpack binding by name.
         /// </summary>
         public static Output<GetBuildpackBindingResult> Invoke(GetBuildpackBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildpackBindingResult>("azure-native:appplatform/v20220501preview:getBuildpackBinding", args ?? new GetBuildpackBindingInvokeArgs(), options.WithDefaults());

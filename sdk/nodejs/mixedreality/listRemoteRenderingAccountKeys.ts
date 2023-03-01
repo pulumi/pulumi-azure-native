@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Developer Keys of account
+ * List Both of the 2 Keys of a Remote Rendering Account
  * API Version: 2021-01-01.
  */
 export function listRemoteRenderingAccountKeys(args: ListRemoteRenderingAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRemoteRenderingAccountKeysResult> {
@@ -42,7 +42,7 @@ export interface ListRemoteRenderingAccountKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Developer Keys of account
+ * List Both of the 2 Keys of a Remote Rendering Account
  * API Version: 2021-01-01.
  */
 export function listRemoteRenderingAccountKeysOutput(args: ListRemoteRenderingAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemoteRenderingAccountKeysResult> {

@@ -155,7 +155,8 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountPartnerResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets an integration account partner.
+
 
     :param str integration_account_name: The integration account name.
     :param str partner_name: The integration account partner name.
@@ -187,7 +188,8 @@ def get_integration_account_partner_output(integration_account_name: Optional[pu
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountPartnerResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets an integration account partner.
+
 
     :param str integration_account_name: The integration account name.
     :param str partner_name: The integration account partner name.

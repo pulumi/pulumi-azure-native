@@ -158,7 +158,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubResult:
     """
-    Single item in List or Get Event Hub operation
+    Gets an Event Hubs description for the specified Event Hub.
 
 
     :param str event_hub_name: The Event Hub name
@@ -191,7 +191,7 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubResult]:
     """
-    Single item in List or Get Event Hub operation
+    Gets an Event Hubs description for the specified Event Hub.
 
 
     :param str event_hub_name: The Event Hub name

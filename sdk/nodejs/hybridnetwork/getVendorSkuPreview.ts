@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Customer subscription which can use a sku.
+ * Gets the preview information of a vendor sku.
  * API Version: 2020-01-01-preview.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
@@ -51,7 +51,7 @@ export interface GetVendorSkuPreviewResult {
     readonly type: string;
 }
 /**
- * Customer subscription which can use a sku.
+ * Gets the preview information of a vendor sku.
  * API Version: 2020-01-01-preview.
  */
 export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {

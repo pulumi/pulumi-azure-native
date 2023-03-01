@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * External OAuth authorization server settings.
+ * Gets the details of the authorization server specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationServerResult> {
@@ -118,7 +118,7 @@ export interface GetAuthorizationServerResult {
     readonly type: string;
 }
 /**
- * External OAuth authorization server settings.
+ * Gets the details of the authorization server specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationServerResult> {

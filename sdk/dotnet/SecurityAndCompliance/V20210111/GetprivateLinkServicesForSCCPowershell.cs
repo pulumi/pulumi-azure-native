@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     public static class GetprivateLinkServicesForSCCPowershell
     {
         /// <summary>
-        /// The description of the service.
+        /// Get the metadata of a privateLinkServicesForSCCPowershell resource.
         /// </summary>
         public static Task<GetprivateLinkServicesForSCCPowershellResult> InvokeAsync(GetprivateLinkServicesForSCCPowershellArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForSCCPowershellResult>("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The description of the service.
+        /// Get the metadata of a privateLinkServicesForSCCPowershell resource.
         /// </summary>
         public static Output<GetprivateLinkServicesForSCCPowershellResult> Invoke(GetprivateLinkServicesForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForSCCPowershellResult>("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellInvokeArgs(), options.WithDefaults());

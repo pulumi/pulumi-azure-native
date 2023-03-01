@@ -113,7 +113,7 @@ def get_alert_rule(operational_insights_resource_provider: Optional[str] = None,
                    workspace_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleResult:
     """
-    Alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -146,7 +146,7 @@ def get_alert_rule_output(operational_insights_resource_provider: Optional[pulum
                           workspace_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
     """
-    Alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

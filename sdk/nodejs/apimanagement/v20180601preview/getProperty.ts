@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Property details.
+ * Gets the details of the property specified by its identifier.
  */
 export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions): Promise<GetPropertyResult> {
 
@@ -66,7 +66,7 @@ export interface GetPropertyResult {
     readonly value: string;
 }
 /**
- * Property details.
+ * Gets the details of the property specified by its identifier.
  */
 export function getPropertyOutput(args: GetPropertyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPropertyResult> {
     return pulumi.output(args).apply((a: any) => getProperty(a, opts))

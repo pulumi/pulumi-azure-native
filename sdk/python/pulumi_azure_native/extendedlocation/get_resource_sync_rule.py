@@ -158,7 +158,7 @@ def get_resource_sync_rule(child_resource_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceSyncRuleResult:
     """
-    Resource Sync Rules definition.
+    Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
     API Version: 2021-08-31-preview.
 
 
@@ -192,7 +192,7 @@ def get_resource_sync_rule_output(child_resource_name: Optional[pulumi.Input[str
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSyncRuleResult]:
     """
-    Resource Sync Rules definition.
+    Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
     API Version: 2021-08-31-preview.
 
 

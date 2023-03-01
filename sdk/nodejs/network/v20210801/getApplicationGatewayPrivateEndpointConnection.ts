@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Private Endpoint connection on an application gateway.
+ * Gets the specified private endpoint connection on application gateway.
  */
 export function getApplicationGatewayPrivateEndpointConnection(args: GetApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayPrivateEndpointConnectionResult> {
 
@@ -73,7 +73,7 @@ export interface GetApplicationGatewayPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Private Endpoint connection on an application gateway.
+ * Gets the specified private endpoint connection on application gateway.
  */
 export function getApplicationGatewayPrivateEndpointConnectionOutput(args: GetApplicationGatewayPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGatewayPrivateEndpointConnection(a, opts))

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automation
     public static class GetModule
     {
         /// <summary>
-        /// Definition of the module type.
+        /// Retrieve the module identified by module name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation:getModule", args ?? new GetModuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the module type.
+        /// Retrieve the module identified by module name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetModuleResult> Invoke(GetModuleInvokeArgs args, InvokeOptions? options = null)

@@ -205,7 +205,7 @@ def get_private_store_offer(offer_id: Optional[str] = None,
                             private_store_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreOfferResult:
     """
-    The privateStore offer data structure.
+    Gets information about a specific offer.
 
 
     :param str offer_id: The offer ID to update or delete
@@ -239,7 +239,7 @@ def get_private_store_offer_output(offer_id: Optional[pulumi.Input[str]] = None,
                                    private_store_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreOfferResult]:
     """
-    The privateStore offer data structure.
+    Gets information about a specific offer.
 
 
     :param str offer_id: The offer ID to update or delete

@@ -337,7 +337,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
                         resource_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
-    Managed cluster.
+    Gets the details of the managed cluster with a specified resource group and name.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -382,7 +382,7 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] 
                                resource_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
-    Managed cluster.
+    Gets the details of the managed cluster with a specified resource group and name.
 
 
     :param str resource_group_name: The name of the resource group.

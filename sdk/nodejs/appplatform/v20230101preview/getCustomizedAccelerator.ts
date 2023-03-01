@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Customized accelerator resource
+ * Get the customized accelerator.
  */
 export function getCustomizedAccelerator(args: GetCustomizedAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizedAcceleratorResult> {
 
@@ -70,7 +70,7 @@ export interface GetCustomizedAcceleratorResult {
     readonly type: string;
 }
 /**
- * Customized accelerator resource
+ * Get the customized accelerator.
  */
 export function getCustomizedAcceleratorOutput(args: GetCustomizedAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizedAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getCustomizedAccelerator(a, opts))

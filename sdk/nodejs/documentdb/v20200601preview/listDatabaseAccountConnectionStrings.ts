@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The connection strings for the given database account.
+ * Lists the connection strings for the specified Azure Cosmos DB database account.
  */
 export function listDatabaseAccountConnectionStrings(args: ListDatabaseAccountConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountConnectionStringsResult> {
 
@@ -40,7 +40,7 @@ export interface ListDatabaseAccountConnectionStringsResult {
     readonly connectionStrings?: outputs.documentdb.v20200601preview.DatabaseAccountConnectionStringResponse[];
 }
 /**
- * The connection strings for the given database account.
+ * Lists the connection strings for the specified Azure Cosmos DB database account.
  */
 export function listDatabaseAccountConnectionStringsOutput(args: ListDatabaseAccountConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountConnectionStringsResult> {
     return pulumi.output(args).apply((a: any) => listDatabaseAccountConnectionStrings(a, opts))

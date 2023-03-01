@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
     public static class GetOnPremiseSensor
     {
         /// <summary>
-        /// On-premise IoT sensor
+        /// Get on-premise IoT sensor
         /// </summary>
         public static Task<GetOnPremiseSensorResult> InvokeAsync(GetOnPremiseSensorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnPremiseSensorResult>("azure-native:iotsecurity/v20210201preview:getOnPremiseSensor", args ?? new GetOnPremiseSensorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// On-premise IoT sensor
+        /// Get on-premise IoT sensor
         /// </summary>
         public static Output<GetOnPremiseSensorResult> Invoke(GetOnPremiseSensorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnPremiseSensorResult>("azure-native:iotsecurity/v20210201preview:getOnPremiseSensor", args ?? new GetOnPremiseSensorInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Definition of the dsc node configuration.
+ * Retrieve the Dsc node configurations by node configuration.
  */
 export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscNodeConfigurationResult> {
 
@@ -65,7 +65,7 @@ export interface GetDscNodeConfigurationResult {
     readonly type: string;
 }
 /**
- * Definition of the dsc node configuration.
+ * Retrieve the Dsc node configurations by node configuration.
  */
 export function getDscNodeConfigurationOutput(args: GetDscNodeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscNodeConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDscNodeConfiguration(a, opts))

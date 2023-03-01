@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Quota Rule of a Volume
+ * Get details of the specified quota rule
  */
 export function getVolumeQuotaRule(args: GetVolumeQuotaRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeQuotaRuleResult> {
 
@@ -91,7 +91,7 @@ export interface GetVolumeQuotaRuleResult {
     readonly type: string;
 }
 /**
- * Quota Rule of a Volume
+ * Get details of the specified quota rule
  */
 export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
     return pulumi.output(args).apply((a: any) => getVolumeQuotaRule(a, opts))

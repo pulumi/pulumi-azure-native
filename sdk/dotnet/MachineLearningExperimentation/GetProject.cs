@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
     public static class GetProject
     {
         /// <summary>
-        /// An object that represents a machine learning project.
+        /// Gets the properties of the specified machine learning project.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:machinelearningexperimentation:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a machine learning project.
+        /// Gets the properties of the specified machine learning project.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)

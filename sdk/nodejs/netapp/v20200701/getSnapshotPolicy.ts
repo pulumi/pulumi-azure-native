@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Snapshot policy information
+ * Get a snapshot Policy
  */
 /** @deprecated Version 2020-07-01 will be removed in v2 of the provider. */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
@@ -87,7 +87,7 @@ export interface GetSnapshotPolicyResult {
     readonly weeklySchedule?: outputs.netapp.v20200701.WeeklyScheduleResponse;
 }
 /**
- * Snapshot policy information
+ * Get a snapshot Policy
  */
 /** @deprecated Version 2020-07-01 will be removed in v2 of the provider. */
 export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {

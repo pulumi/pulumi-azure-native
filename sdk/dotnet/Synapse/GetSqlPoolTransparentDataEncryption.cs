@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetSqlPoolTransparentDataEncryption
     {
         /// <summary>
-        /// Represents a Sql pool transparent data encryption configuration.
+        /// Get a SQL pool's transparent data encryption configuration.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetSqlPoolTransparentDataEncryptionResult> InvokeAsync(GetSqlPoolTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolTransparentDataEncryptionResult>("azure-native:synapse:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Sql pool transparent data encryption configuration.
+        /// Get a SQL pool's transparent data encryption configuration.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetSqlPoolTransparentDataEncryptionResult> Invoke(GetSqlPoolTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)

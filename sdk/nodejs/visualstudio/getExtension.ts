@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The response to an extension resource GET request.
+ * Gets the details of an extension associated with a Visual Studio Team Services account resource.
  * API Version: 2014-04-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
@@ -70,7 +70,7 @@ export interface GetExtensionResult {
     readonly type: string;
 }
 /**
- * The response to an extension resource GET request.
+ * Gets the details of an extension associated with a Visual Studio Team Services account resource.
  * API Version: 2014-04-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {

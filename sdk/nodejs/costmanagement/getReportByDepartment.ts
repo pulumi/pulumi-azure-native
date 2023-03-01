@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A report resource.
+ * Gets the report for a department by report name.
  * API Version: 2018-08-01-preview.
  */
 export function getReportByDepartment(args: GetReportByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByDepartmentResult> {
@@ -69,7 +69,7 @@ export interface GetReportByDepartmentResult {
     readonly type: string;
 }
 /**
- * A report resource.
+ * Gets the report for a department by report name.
  * API Version: 2018-08-01-preview.
  */
 export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByDepartmentResult> {

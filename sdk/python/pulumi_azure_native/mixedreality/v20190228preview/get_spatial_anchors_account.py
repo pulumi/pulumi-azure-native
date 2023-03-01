@@ -135,7 +135,7 @@ def get_spatial_anchors_account(resource_group_name: Optional[str] = None,
                                 spatial_anchors_account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpatialAnchorsAccountResult:
     """
-    SpatialAnchorsAccount Response.
+    Retrieve a Spatial Anchors Account.
 
 
     :param str resource_group_name: Name of an Azure resource group.
@@ -164,7 +164,7 @@ def get_spatial_anchors_account_output(resource_group_name: Optional[pulumi.Inpu
                                        spatial_anchors_account_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpatialAnchorsAccountResult]:
     """
-    SpatialAnchorsAccount Response.
+    Retrieve a Spatial Anchors Account.
 
 
     :param str resource_group_name: Name of an Azure resource group.

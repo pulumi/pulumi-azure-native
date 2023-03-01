@@ -158,7 +158,7 @@ def get_channel(channel_name: Optional[str] = None,
                 resource_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
-    Bot channel resource definition
+    Returns a BotService Channel registration specified by the parameters.
 
 
     :param str channel_name: The name of the Bot resource.
@@ -191,7 +191,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        resource_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
-    Bot channel resource definition
+    Returns a BotService Channel registration specified by the parameters.
 
 
     :param str channel_name: The name of the Bot resource.

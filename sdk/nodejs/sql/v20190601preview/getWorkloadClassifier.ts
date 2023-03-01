@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Workload classifier operations for a data warehouse
+ * Gets a workload classifier
  */
 export function getWorkloadClassifier(args: GetWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadClassifierResult> {
 
@@ -84,7 +84,7 @@ export interface GetWorkloadClassifierResult {
     readonly type: string;
 }
 /**
- * Workload classifier operations for a data warehouse
+ * Gets a workload classifier
  */
 export function getWorkloadClassifierOutput(args: GetWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadClassifierResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadClassifier(a, opts))

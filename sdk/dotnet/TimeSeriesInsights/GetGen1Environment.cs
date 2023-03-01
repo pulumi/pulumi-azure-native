@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public static class GetGen1Environment
     {
         /// <summary>
-        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
+        /// Gets the environment with the specified name in the specified subscription and resource group.
         /// API Version: 2020-05-15.
         /// </summary>
         public static Task<GetGen1EnvironmentResult> InvokeAsync(GetGen1EnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGen1EnvironmentResult>("azure-native:timeseriesinsights:getGen1Environment", args ?? new GetGen1EnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
+        /// Gets the environment with the specified name in the specified subscription and resource group.
         /// API Version: 2020-05-15.
         /// </summary>
         public static Output<GetGen1EnvironmentResult> Invoke(GetGen1EnvironmentInvokeArgs args, InvokeOptions? options = null)

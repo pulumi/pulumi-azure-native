@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     public static class GetReplicationRecoveryServicesProvider
     {
         /// <summary>
-        /// Provider details.
+        /// Gets the details of registered recovery services provider.
         /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationRecoveryServicesProviderResult> InvokeAsync(GetReplicationRecoveryServicesProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryServicesProviderResult>("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provider details.
+        /// Gets the details of registered recovery services provider.
         /// API Version: 2018-07-10.
         /// </summary>
         public static Output<GetReplicationRecoveryServicesProviderResult> Invoke(GetReplicationRecoveryServicesProviderInvokeArgs args, InvokeOptions? options = null)

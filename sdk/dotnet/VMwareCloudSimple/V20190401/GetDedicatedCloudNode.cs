@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
     public static class GetDedicatedCloudNode
     {
         /// <summary>
-        /// Dedicated cloud node model
+        /// Returns dedicated cloud node
         /// </summary>
         public static Task<GetDedicatedCloudNodeResult> InvokeAsync(GetDedicatedCloudNodeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Dedicated cloud node model
+        /// Returns dedicated cloud node
         /// </summary>
         public static Output<GetDedicatedCloudNodeResult> Invoke(GetDedicatedCloudNodeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeInvokeArgs(), options.WithDefaults());

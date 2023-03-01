@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB container.
+ * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getSqlResourceSqlContainer(args: GetSqlResourceSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlContainerResult> {
@@ -69,7 +69,7 @@ export interface GetSqlResourceSqlContainerResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB container.
+ * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getSqlResourceSqlContainerOutput(args: GetSqlResourceSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlContainerResult> {

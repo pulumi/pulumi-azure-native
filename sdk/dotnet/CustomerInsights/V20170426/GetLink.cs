@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
     public static class GetLink
     {
         /// <summary>
-        /// The link resource format.
+        /// Gets a link in the hub.
         /// </summary>
         public static Task<GetLinkResult> InvokeAsync(GetLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("azure-native:customerinsights/v20170426:getLink", args ?? new GetLinkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The link resource format.
+        /// Gets a link in the hub.
         /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("azure-native:customerinsights/v20170426:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());

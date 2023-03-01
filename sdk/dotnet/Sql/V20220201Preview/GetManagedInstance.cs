@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20220201Preview
     public static class GetManagedInstance
     {
         /// <summary>
-        /// An Azure SQL managed instance.
+        /// Gets a managed instance.
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-native:sql/v20220201preview:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure SQL managed instance.
+        /// Gets a managed instance.
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql/v20220201preview:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * IoT Connector FHIR destination definition.
+ * Gets the properties of the specified Iot Connector FHIR destination.
  */
 export function getIotConnectorFhirDestination(args: GetIotConnectorFhirDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorFhirDestinationResult> {
 
@@ -82,7 +82,7 @@ export interface GetIotConnectorFhirDestinationResult {
     readonly type: string;
 }
 /**
- * IoT Connector FHIR destination definition.
+ * Gets the properties of the specified Iot Connector FHIR destination.
  */
 export function getIotConnectorFhirDestinationOutput(args: GetIotConnectorFhirDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorFhirDestinationResult> {
     return pulumi.output(args).apply((a: any) => getIotConnectorFhirDestination(a, opts))

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Resources.V20201001
     public static class GetAzureCliScript
     {
         /// <summary>
-        /// Object model for the Azure CLI script.
+        /// Gets a deployment script with a given name.
         /// </summary>
         public static Task<GetAzureCliScriptResult> InvokeAsync(GetAzureCliScriptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureCliScriptResult>("azure-native:resources/v20201001:getAzureCliScript", args ?? new GetAzureCliScriptArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Object model for the Azure CLI script.
+        /// Gets a deployment script with a given name.
         /// </summary>
         public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources/v20201001:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AnalysisServices
     public static class ListServerGatewayStatus
     {
         /// <summary>
-        /// Status of gateway is live.
+        /// Return the gateway status of the specified Analysis Services server instance.
         /// API Version: 2017-08-01.
         /// </summary>
         public static Task<ListServerGatewayStatusResult> InvokeAsync(ListServerGatewayStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-native:analysisservices:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Status of gateway is live.
+        /// Return the gateway status of the specified Analysis Services server instance.
         /// API Version: 2017-08-01.
         /// </summary>
         public static Output<ListServerGatewayStatusResult> Invoke(ListServerGatewayStatusInvokeArgs args, InvokeOptions? options = null)

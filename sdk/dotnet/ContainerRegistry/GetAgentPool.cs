@@ -12,16 +12,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public static class GetAgentPool
     {
         /// <summary>
-        /// The agentpool that has the ARM resource and properties. 
-        /// The agentpool will have all information to create an agent pool.
+        /// Gets the detailed information for a given agent pool.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerregistry:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The agentpool that has the ARM resource and properties. 
-        /// The agentpool will have all information to create an agent pool.
+        /// Gets the detailed information for a given agent pool.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)

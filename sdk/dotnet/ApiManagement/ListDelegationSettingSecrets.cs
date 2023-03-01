@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class ListDelegationSettingSecrets
     {
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the secret validation key of the DelegationSettings.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Gets the secret validation key of the DelegationSettings.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOptions? options = null)

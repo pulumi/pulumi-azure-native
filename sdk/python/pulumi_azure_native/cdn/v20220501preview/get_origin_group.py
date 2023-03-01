@@ -159,7 +159,7 @@ def get_origin_group(endpoint_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginGroupResult:
     """
-    Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    Gets an existing origin group within an endpoint.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -195,7 +195,7 @@ def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginGroupResult]:
     """
-    Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    Gets an existing origin group within an endpoint.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

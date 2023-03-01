@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the module type.
+ * Retrieve the module identified by module name.
  * API Version: 2019-06-01.
  */
 export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleResult> {
@@ -110,7 +110,7 @@ export interface GetModuleResult {
     readonly version?: string;
 }
 /**
- * Definition of the module type.
+ * Retrieve the module identified by module name.
  * API Version: 2019-06-01.
  */
 export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleResult> {

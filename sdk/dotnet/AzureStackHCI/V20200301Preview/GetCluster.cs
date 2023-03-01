@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20200301Preview
     public static class GetCluster
     {
         /// <summary>
-        /// Cluster details.
+        /// Get HCI cluster.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:azurestackhci/v20200301preview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cluster details.
+        /// Get HCI cluster.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:azurestackhci/v20200301preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

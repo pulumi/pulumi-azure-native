@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Tag Inheritance Setting definition.
+ * Get the setting from the given scope by name.
  */
 export function getTagInheritanceSetting(args: GetTagInheritanceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagInheritanceSettingResult> {
 
@@ -61,7 +61,7 @@ export interface GetTagInheritanceSettingResult {
     readonly type: string;
 }
 /**
- * Tag Inheritance Setting definition.
+ * Get the setting from the given scope by name.
  */
 export function getTagInheritanceSettingOutput(args: GetTagInheritanceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagInheritanceSettingResult> {
     return pulumi.output(args).apply((a: any) => getTagInheritanceSetting(a, opts))

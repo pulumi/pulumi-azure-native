@@ -121,7 +121,7 @@ def get_management_group_network_manager_connection(management_group_id: Optiona
                                                     network_manager_connection_name: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupNetworkManagerConnectionResult:
     """
-    The Network Manager Connection resource
+    Get a specified connection created by this management group.
 
 
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
@@ -148,7 +148,7 @@ def get_management_group_network_manager_connection_output(management_group_id: 
                                                            network_manager_connection_name: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupNetworkManagerConnectionResult]:
     """
-    The Network Manager Connection resource
+    Get a specified connection created by this management group.
 
 
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.

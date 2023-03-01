@@ -192,7 +192,7 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
                                                    billing_role_assignment_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingRoleAssignmentByBillingAccountResult:
     """
-    The role assignment
+    Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -225,7 +225,7 @@ def get_billing_role_assignment_by_billing_account_output(billing_account_name: 
                                                           billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingRoleAssignmentByBillingAccountResult]:
     """
-    The role assignment
+    Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

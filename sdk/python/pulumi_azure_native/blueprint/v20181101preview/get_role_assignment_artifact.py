@@ -158,7 +158,7 @@ def get_role_assignment_artifact(artifact_name: Optional[str] = None,
                                  resource_scope: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentArtifactResult:
     """
-    Blueprint artifact that applies a Role assignment.
+    Get a blueprint artifact.
 
 
     :param str artifact_name: Name of the blueprint artifact.
@@ -191,7 +191,7 @@ def get_role_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str
                                         resource_scope: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentArtifactResult]:
     """
-    Blueprint artifact that applies a Role assignment.
+    Get a blueprint artifact.
 
 
     :param str artifact_name: Name of the blueprint artifact.

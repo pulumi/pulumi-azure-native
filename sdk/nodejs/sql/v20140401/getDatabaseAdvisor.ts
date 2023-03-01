@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Database Advisor.
+ * Returns details of a Database Advisor.
  */
 export function getDatabaseAdvisor(args: GetDatabaseAdvisorArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAdvisorResult> {
 
@@ -79,7 +79,7 @@ export interface GetDatabaseAdvisorResult {
     readonly type: string;
 }
 /**
- * Database Advisor.
+ * Returns details of a Database Advisor.
  */
 export function getDatabaseAdvisorOutput(args: GetDatabaseAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAdvisorResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAdvisor(a, opts))

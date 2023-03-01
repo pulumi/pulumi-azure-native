@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Endpoint resource, which contains information about file sources and targets.
+ * Gets an Endpoint resource.
  * API Version: 2022-07-01-preview.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
@@ -62,7 +62,7 @@ export interface GetEndpointResult {
     readonly type: string;
 }
 /**
- * The Endpoint resource, which contains information about file sources and targets.
+ * Gets an Endpoint resource.
  * API Version: 2022-07-01-preview.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {

@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.HybridData.V20160601
     public static class GetJobDefinition
     {
         /// <summary>
-        /// Job Definition.
+        /// This method gets job definition object by name.
         /// </summary>
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-native:hybriddata/v20160601:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Job Definition.
+        /// This method gets job definition object by name.
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:hybriddata/v20160601:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());

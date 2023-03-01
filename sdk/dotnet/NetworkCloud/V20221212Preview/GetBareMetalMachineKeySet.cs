@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
     public static class GetBareMetalMachineKeySet
     {
+        /// <summary>
+        /// Get bare metal machine key set of the provided cluster.
+        /// </summary>
         public static Task<GetBareMetalMachineKeySetResult> InvokeAsync(GetBareMetalMachineKeySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalMachineKeySetResult>("azure-native:networkcloud/v20221212preview:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get bare metal machine key set of the provided cluster.
+        /// </summary>
         public static Output<GetBareMetalMachineKeySetResult> Invoke(GetBareMetalMachineKeySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineKeySetResult>("azure-native:networkcloud/v20221212preview:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetInvokeArgs(), options.WithDefaults());
     }

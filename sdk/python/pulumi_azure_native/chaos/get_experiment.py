@@ -133,7 +133,7 @@ def get_experiment(experiment_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
-    Model that represents a Experiment resource.
+    Get a Experiment resource.
     API Version: 2021-09-15-preview.
 
 
@@ -162,7 +162,7 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentResult]:
     """
-    Model that represents a Experiment resource.
+    Get a Experiment resource.
     API Version: 2021-09-15-preview.
 
 

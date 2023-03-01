@@ -229,7 +229,7 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
                                    resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftManagedClusterResult:
     """
-    OpenShift Managed cluster.
+    Gets the details of the managed OpenShift cluster with a specified resource group and name.
     API Version: 2019-04-30.
 
 
@@ -266,7 +266,7 @@ def get_open_shift_managed_cluster_output(resource_group_name: Optional[pulumi.I
                                           resource_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftManagedClusterResult]:
     """
-    OpenShift Managed cluster.
+    Gets the details of the managed OpenShift cluster with a specified resource group and name.
     API Version: 2019-04-30.
 
 

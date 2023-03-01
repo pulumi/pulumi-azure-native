@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Authorization
     public static class GetPrivateLinkAssociation
     {
         /// <summary>
-        /// 
+        /// Get a single private link association
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetPrivateLinkAssociationResult> InvokeAsync(GetPrivateLinkAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAssociationResult>("azure-native:authorization:getPrivateLinkAssociation", args ?? new GetPrivateLinkAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Get a single private link association
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetPrivateLinkAssociationResult> Invoke(GetPrivateLinkAssociationInvokeArgs args, InvokeOptions? options = null)

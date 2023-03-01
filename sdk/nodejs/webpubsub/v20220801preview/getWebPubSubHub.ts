@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A hub setting
+ * Get a hub setting.
  */
 export function getWebPubSubHub(args: GetWebPubSubHubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubHubResult> {
 
@@ -61,7 +61,7 @@ export interface GetWebPubSubHubResult {
     readonly type: string;
 }
 /**
- * A hub setting
+ * Get a hub setting.
  */
 export function getWebPubSubHubOutput(args: GetWebPubSubHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubHubResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubHub(a, opts))

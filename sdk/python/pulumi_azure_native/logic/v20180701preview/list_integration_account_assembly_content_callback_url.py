@@ -110,7 +110,7 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
                                                            resource_group_name: Optional[str] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountAssemblyContentCallbackUrlResult:
     """
-    The workflow trigger callback URL.
+    Get the content callback url for an integration account assembly.
 
 
     :param str assembly_artifact_name: The assembly artifact name.
@@ -139,7 +139,7 @@ def list_integration_account_assembly_content_callback_url_output(assembly_artif
                                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountAssemblyContentCallbackUrlResult]:
     """
-    The workflow trigger callback URL.
+    Get the content callback url for an integration account assembly.
 
 
     :param str assembly_artifact_name: The assembly artifact name.

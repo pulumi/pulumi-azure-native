@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets an application control VM/server group.
+ */
 export function getAdaptiveApplicationControl(args: GetAdaptiveApplicationControlArgs, opts?: pulumi.InvokeOptions): Promise<GetAdaptiveApplicationControlResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,6 +71,9 @@ export interface GetAdaptiveApplicationControlResult {
     readonly type: string;
     readonly vmRecommendations?: outputs.security.v20200101.VmRecommendationResponse[];
 }
+/**
+ * Gets an application control VM/server group.
+ */
 export function getAdaptiveApplicationControlOutput(args: GetAdaptiveApplicationControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdaptiveApplicationControlResult> {
     return pulumi.output(args).apply((a: any) => getAdaptiveApplicationControl(a, opts))
 }

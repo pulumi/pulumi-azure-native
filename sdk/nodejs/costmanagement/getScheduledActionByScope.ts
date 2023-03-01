@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Scheduled action definition.
+ * Get the shared scheduled action from the given scope by name.
  * API Version: 2022-04-01-preview.
  */
 export function getScheduledActionByScope(args: GetScheduledActionByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionByScopeResult> {
@@ -89,7 +89,7 @@ export interface GetScheduledActionByScopeResult {
     readonly viewId: string;
 }
 /**
- * Scheduled action definition.
+ * Get the shared scheduled action from the given scope by name.
  * API Version: 2022-04-01-preview.
  */
 export function getScheduledActionByScopeOutput(args: GetScheduledActionByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionByScopeResult> {

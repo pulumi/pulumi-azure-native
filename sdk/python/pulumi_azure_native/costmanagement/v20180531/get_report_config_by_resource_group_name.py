@@ -135,7 +135,7 @@ def get_report_config_by_resource_group_name(report_config_name: Optional[str] =
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportConfigByResourceGroupNameResult:
     """
-    A report config resource.
+    Gets the report config for a resource group under a subscription by report config name.
 
 
     :param str report_config_name: Report Config Name.
@@ -164,7 +164,7 @@ def get_report_config_by_resource_group_name_output(report_config_name: Optional
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportConfigByResourceGroupNameResult]:
     """
-    A report config resource.
+    Gets the report config for a resource group under a subscription by report config name.
 
 
     :param str report_config_name: Report Config Name.

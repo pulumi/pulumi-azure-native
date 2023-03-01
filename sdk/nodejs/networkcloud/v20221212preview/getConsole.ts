@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get properties of the provided virtual machine console.
+ */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,6 +94,9 @@ export interface GetConsoleResult {
      */
     readonly virtualMachineAccessId: string;
 }
+/**
+ * Get properties of the provided virtual machine console.
+ */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
     return pulumi.output(args).apply((a: any) => getConsole(a, opts))
 }

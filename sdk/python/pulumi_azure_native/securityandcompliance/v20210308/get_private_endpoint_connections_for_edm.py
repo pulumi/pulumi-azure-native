@@ -122,7 +122,7 @@ def get_private_endpoint_connections_for_edm(private_endpoint_connection_name: O
                                              resource_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionsForEDMResult:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -152,7 +152,7 @@ def get_private_endpoint_connections_for_edm_output(private_endpoint_connection_
                                                     resource_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionsForEDMResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

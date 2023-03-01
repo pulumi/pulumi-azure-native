@@ -134,7 +134,7 @@ def get_machine_learning_dataset(dataset_name: Optional[str] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningDatasetResult:
     """
-    Machine Learning dataset object wrapped into ARM resource envelope.
+    Get a Dataset by name.
     API Version: 2020-05-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_machine_learning_dataset_output(dataset_name: Optional[pulumi.Input[str]
                                         workspace_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineLearningDatasetResult]:
     """
-    Machine Learning dataset object wrapped into ARM resource envelope.
+    Get a Dataset by name.
     API Version: 2020-05-01-preview.
 
 

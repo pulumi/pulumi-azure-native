@@ -121,7 +121,7 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSwiftVirtualNetworkConnectionResult:
     """
-    Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+    Gets a Swift Virtual Network connection.
     API Version: 2020-10-01.
 
 
@@ -149,7 +149,7 @@ def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.In
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionResult]:
     """
-    Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+    Gets a Swift Virtual Network connection.
     API Version: 2020-10-01.
 
 

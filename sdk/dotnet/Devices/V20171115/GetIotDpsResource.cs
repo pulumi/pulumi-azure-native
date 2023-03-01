@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Devices.V20171115
     public static class GetIotDpsResource
     {
         /// <summary>
-        /// The description of the provisioning service.
+        /// Get the metadata of the provisioning service without SAS keys.
         /// </summary>
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-native:devices/v20171115:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The description of the provisioning service.
+        /// Get the metadata of the provisioning service without SAS keys.
         /// </summary>
         public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices/v20171115:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());

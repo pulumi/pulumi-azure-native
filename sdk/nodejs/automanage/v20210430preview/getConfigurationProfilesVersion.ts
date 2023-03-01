@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Definition of the configuration profile.
+ * Get information about a configuration profile version
  */
 export function getConfigurationProfilesVersion(args: GetConfigurationProfilesVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesVersionResult> {
 
@@ -69,7 +69,7 @@ export interface GetConfigurationProfilesVersionResult {
     readonly type: string;
 }
 /**
- * Definition of the configuration profile.
+ * Get information about a configuration profile version
  */
 export function getConfigurationProfilesVersionOutput(args: GetConfigurationProfilesVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesVersionResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfilesVersion(a, opts))

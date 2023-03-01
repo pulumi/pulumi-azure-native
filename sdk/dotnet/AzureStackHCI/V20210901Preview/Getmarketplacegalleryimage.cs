@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     public static class Getmarketplacegalleryimage
     {
         /// <summary>
-        /// The marketplace gallery image resource definition.
+        /// Gets marketplacegalleryimages by resource name
         /// </summary>
         public static Task<GetmarketplacegalleryimageResult> InvokeAsync(GetmarketplacegalleryimageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetmarketplacegalleryimageResult>("azure-native:azurestackhci/v20210901preview:getmarketplacegalleryimage", args ?? new GetmarketplacegalleryimageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The marketplace gallery image resource definition.
+        /// Gets marketplacegalleryimages by resource name
         /// </summary>
         public static Output<GetmarketplacegalleryimageResult> Invoke(GetmarketplacegalleryimageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetmarketplacegalleryimageResult>("azure-native:azurestackhci/v20210901preview:getmarketplacegalleryimage", args ?? new GetmarketplacegalleryimageInvokeArgs(), options.WithDefaults());

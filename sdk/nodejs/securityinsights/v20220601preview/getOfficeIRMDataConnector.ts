@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
+ * Gets a data connector.
  */
 export function getOfficeIRMDataConnector(args: GetOfficeIRMDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeIRMDataConnectorResult> {
 
@@ -74,7 +74,7 @@ export interface GetOfficeIRMDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
+ * Gets a data connector.
  */
 export function getOfficeIRMDataConnectorOutput(args: GetOfficeIRMDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeIRMDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOfficeIRMDataConnector(a, opts))

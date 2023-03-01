@@ -157,7 +157,7 @@ def getprivate_link_services_for_edm_upload(resource_group_name: Optional[str] =
                                             resource_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForEDMUploadResult:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForEDMUpload resource.
     API Version: 2021-03-08.
 
 
@@ -188,7 +188,7 @@ def getprivate_link_services_for_edm_upload_output(resource_group_name: Optional
                                                    resource_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkServicesForEDMUploadResult]:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForEDMUpload resource.
     API Version: 2021-03-08.
 
 

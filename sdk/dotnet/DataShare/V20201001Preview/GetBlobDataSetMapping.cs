@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public static class GetBlobDataSetMapping
     {
         /// <summary>
-        /// A Blob data set mapping.
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Task<GetBlobDataSetMappingResult> InvokeAsync(GetBlobDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetMappingResult>("azure-native:datashare/v20201001preview:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Blob data set mapping.
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Output<GetBlobDataSetMappingResult> Invoke(GetBlobDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobDataSetMappingResult>("azure-native:datashare/v20201001preview:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingInvokeArgs(), options.WithDefaults());

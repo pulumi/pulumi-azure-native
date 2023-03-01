@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public static class GetWebhook
     {
         /// <summary>
-        /// An object that represents a webhook for a container registry.
+        /// Gets the properties of the specified webhook.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a webhook for a container registry.
+        /// Gets the properties of the specified webhook.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)

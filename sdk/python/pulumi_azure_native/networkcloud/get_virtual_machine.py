@@ -385,6 +385,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         virtual_machine_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
+    Get properties of the provided virtual machine.
     API Version: 2022-12-12-preview.
 
 
@@ -435,6 +436,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
+    Get properties of the provided virtual machine.
     API Version: 2022-12-12-preview.
 
 

@@ -157,7 +157,7 @@ def get_profile(profile_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
-    CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+    Gets a CDN profile with the specified profile name under the specified subscription and resource group.
     API Version: 2020-09-01.
 
 
@@ -188,7 +188,7 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
-    CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+    Gets a CDN profile with the specified profile name under the specified subscription and resource group.
     API Version: 2020-09-01.
 
 

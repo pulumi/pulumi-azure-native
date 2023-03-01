@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in List or Get Migration Config operation
+ * Retrieves Migration Config
  */
 export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationConfigResult> {
 
@@ -70,7 +70,7 @@ export interface GetMigrationConfigResult {
     readonly type: string;
 }
 /**
- * Single item in List or Get Migration Config operation
+ * Retrieves Migration Config
  */
 export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationConfigResult> {
     return pulumi.output(args).apply((a: any) => getMigrationConfig(a, opts))

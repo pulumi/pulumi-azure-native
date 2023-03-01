@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * SecurityPolicy association for AzureFrontDoor profile
+ * Gets an existing security policy within a profile.
  */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
 
@@ -66,7 +66,7 @@ export interface GetSecurityPolicyResult {
     readonly type: string;
 }
 /**
- * SecurityPolicy association for AzureFrontDoor profile
+ * Gets an existing security policy within a profile.
  */
 export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSecurityPolicy(a, opts))

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.NetApp
     public static class GetBackup
     {
         /// <summary>
-        /// Backup of a Volume
+        /// Get a particular backup of the volume
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Backup of a Volume
+        /// Get a particular backup of the volume
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)

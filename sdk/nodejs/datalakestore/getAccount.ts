@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data Lake Store account information.
+ * Gets the specified Data Lake Store account.
  * API Version: 2016-11-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -133,7 +133,7 @@ export interface GetAccountResult {
     readonly virtualNetworkRules: outputs.datalakestore.VirtualNetworkRuleResponse[];
 }
 /**
- * Data Lake Store account information.
+ * Gets the specified Data Lake Store account.
  * API Version: 2016-11-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

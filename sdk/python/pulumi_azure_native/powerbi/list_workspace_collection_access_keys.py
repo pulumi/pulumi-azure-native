@@ -57,6 +57,7 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[str] = N
                                           workspace_collection_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceCollectionAccessKeysResult:
     """
+    Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
     API Version: 2016-01-29.
 
 
@@ -79,6 +80,7 @@ def list_workspace_collection_access_keys_output(resource_group_name: Optional[p
                                                  workspace_collection_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceCollectionAccessKeysResult]:
     """
+    Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
     API Version: 2016-01-29.
 
 

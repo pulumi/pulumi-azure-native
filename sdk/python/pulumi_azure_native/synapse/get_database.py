@@ -113,7 +113,7 @@ def get_database(database_name: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Class representing a Kusto database.
+    Returns a database.
     API Version: 2021-04-01-preview.
 
 
@@ -147,7 +147,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Class representing a Kusto database.
+    Returns a database.
     API Version: 2021-04-01-preview.
 
 

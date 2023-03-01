@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The volume container.
+ * Gets the properties of the specified volume container name.
  */
 export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeContainerResult> {
 
@@ -94,7 +94,7 @@ export interface GetVolumeContainerResult {
     readonly volumeCount: number;
 }
 /**
- * The volume container.
+ * Gets the properties of the specified volume container name.
  */
 export function getVolumeContainerOutput(args: GetVolumeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeContainerResult> {
     return pulumi.output(args).apply((a: any) => getVolumeContainer(a, opts))

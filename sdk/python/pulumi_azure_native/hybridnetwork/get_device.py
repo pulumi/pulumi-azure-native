@@ -145,7 +145,7 @@ def get_device(device_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
-    Device resource.
+    Gets information about the specified device.
     API Version: 2020-01-01-preview.
 
 
@@ -175,7 +175,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
-    Device resource.
+    Gets information about the specified device.
     API Version: 2020-01-01-preview.
 
 

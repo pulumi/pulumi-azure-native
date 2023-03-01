@@ -99,7 +99,7 @@ def get_deployment(app_name: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
-    Deployment resource payload
+    Get a Deployment and its properties.
 
 
     :param str app_name: The name of the App resource.
@@ -130,7 +130,7 @@ def get_deployment_output(app_name: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
-    Deployment resource payload
+    Get a Deployment and its properties.
 
 
     :param str app_name: The name of the App resource.

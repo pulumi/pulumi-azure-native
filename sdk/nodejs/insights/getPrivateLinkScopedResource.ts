@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A private link scoped resource
+ * Gets a scoped resource in a private link scope.
  * API Version: 2019-10-17-preview.
  */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
@@ -59,7 +59,7 @@ export interface GetPrivateLinkScopedResourceResult {
     readonly type: string;
 }
 /**
- * A private link scoped resource
+ * Gets a scoped resource in a private link scope.
  * API Version: 2019-10-17-preview.
  */
 export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {

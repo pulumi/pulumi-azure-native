@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The variable.
+ * This operation retrieves a single variable, given its name and the subscription it was created at.
  */
 export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
 
@@ -51,7 +51,7 @@ export interface GetVariableResult {
     readonly type: string;
 }
 /**
- * The variable.
+ * This operation retrieves a single variable, given its name and the subscription it was created at.
  */
 export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
     return pulumi.output(args).apply((a: any) => getVariable(a, opts))

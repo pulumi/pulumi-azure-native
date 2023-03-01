@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A network interface in a resource group.
+ * Gets information about the specified network interface.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
 
@@ -149,7 +149,7 @@ export interface GetNetworkInterfaceResult {
     readonly workloadType?: string;
 }
 /**
- * A network interface in a resource group.
+ * Gets information about the specified network interface.
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))

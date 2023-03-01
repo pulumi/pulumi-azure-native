@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EventGrid
     public static class GetDomainTopicEventSubscription
     {
         /// <summary>
-        /// Event Subscription
+        /// Get properties of a nested event subscription for a domain topic.
         /// API Version: 2021-10-15-preview.
         /// </summary>
         public static Task<GetDomainTopicEventSubscriptionResult> InvokeAsync(GetDomainTopicEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionResult>("azure-native:eventgrid:getDomainTopicEventSubscription", args ?? new GetDomainTopicEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Event Subscription
+        /// Get properties of a nested event subscription for a domain topic.
         /// API Version: 2021-10-15-preview.
         /// </summary>
         public static Output<GetDomainTopicEventSubscriptionResult> Invoke(GetDomainTopicEventSubscriptionInvokeArgs args, InvokeOptions? options = null)

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Connection information for encrypting the on-premises data source credentials.
+ * Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
  * API Version: 2018-06-01.
  */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
@@ -63,7 +63,7 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
     readonly version: string;
 }
 /**
- * Connection information for encrypting the on-premises data source credentials.
+ * Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
  * API Version: 2018-06-01.
  */
 export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {

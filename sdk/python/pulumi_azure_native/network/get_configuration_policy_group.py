@@ -146,7 +146,7 @@ def get_configuration_policy_group(configuration_policy_group_name: Optional[str
                                    vpn_server_configuration_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationPolicyGroupResult:
     """
-    VpnServerConfigurationPolicyGroup Resource.
+    Retrieves the details of a ConfigurationPolicyGroup.
     API Version: 2022-01-01.
 
 
@@ -179,7 +179,7 @@ def get_configuration_policy_group_output(configuration_policy_group_name: Optio
                                           vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationPolicyGroupResult]:
     """
-    VpnServerConfigurationPolicyGroup Resource.
+    Retrieves the details of a ConfigurationPolicyGroup.
     API Version: 2022-01-01.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An object that represents a scope map for a container registry.
+ * Gets the properties of the specified scope map.
  * API Version: 2020-11-01-preview.
  */
 export function getScopeMap(args: GetScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeMapResult> {
@@ -76,7 +76,7 @@ export interface GetScopeMapResult {
     readonly type: string;
 }
 /**
- * An object that represents a scope map for a container registry.
+ * Gets the properties of the specified scope map.
  * API Version: 2020-11-01-preview.
  */
 export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {

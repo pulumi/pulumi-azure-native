@@ -254,7 +254,7 @@ def get_file_share(account_name: Optional[str] = None,
                    share_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
-    Properties of the file share, including Id, resource name, resource type, Etag.
+    Gets properties of a specified share.
     API Version: 2021-02-01.
 
 
@@ -299,7 +299,7 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
                           share_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileShareResult]:
     """
-    Properties of the file share, including Id, resource name, resource type, Etag.
+    Gets properties of a specified share.
     API Version: 2021-02-01.
 
 

@@ -129,7 +129,7 @@ def get_cassandra_resource_cassandra_view(account_name: Optional[str] = None,
                                           view_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraResourceCassandraViewResult:
     """
-    An Azure Cosmos DB Cassandra view.
+    Gets the Cassandra view under an existing Azure Cosmos DB database account.
     API Version: 2021-07-01-preview.
 
 
@@ -164,7 +164,7 @@ def get_cassandra_resource_cassandra_view_output(account_name: Optional[pulumi.I
                                                  view_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraResourceCassandraViewResult]:
     """
-    An Azure Cosmos DB Cassandra view.
+    Gets the Cassandra view under an existing Azure Cosmos DB database account.
     API Version: 2021-07-01-preview.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The result of a request to list events for a webhook.
+ * Lists recent events for the specified webhook.
  * API Version: 2019-05-01.
  */
 export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebhookEventsResult> {
@@ -50,7 +50,7 @@ export interface ListWebhookEventsResult {
     readonly value?: outputs.containerregistry.EventResponse[];
 }
 /**
- * The result of a request to list events for a webhook.
+ * Lists recent events for the specified webhook.
  * API Version: 2019-05-01.
  */
 export function listWebhookEventsOutput(args: ListWebhookEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebhookEventsResult> {

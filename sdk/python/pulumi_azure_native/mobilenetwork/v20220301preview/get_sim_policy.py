@@ -254,7 +254,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
                    sim_policy_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimPolicyResult:
     """
-    Sim policy resource.
+    Gets information about the specified sim policy.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -295,7 +295,7 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
                           sim_policy_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimPolicyResult]:
     """
-    Sim policy resource.
+    Gets information about the specified sim policy.
 
 
     :param str mobile_network_name: The name of the mobile network.

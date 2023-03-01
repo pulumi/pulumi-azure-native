@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HealthcareApis.V20221201
     public static class GetWorkspace
     {
         /// <summary>
-        /// Workspace resource.
+        /// Gets the properties of the specified workspace.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:healthcareapis/v20221201:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workspace resource.
+        /// Gets the properties of the specified workspace.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:healthcareapis/v20221201:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

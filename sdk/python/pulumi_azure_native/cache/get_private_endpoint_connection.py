@@ -110,7 +110,7 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
     API Version: 2021-03-01.
 
 
@@ -140,7 +140,7 @@ def get_private_endpoint_connection_output(cluster_name: Optional[pulumi.Input[s
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
     API Version: 2021-03-01.
 
 

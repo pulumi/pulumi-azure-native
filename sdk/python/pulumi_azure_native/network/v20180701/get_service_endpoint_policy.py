@@ -146,7 +146,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
                                 service_endpoint_policy_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyResult:
     """
-    Service End point policy resource.
+    Gets the specified service Endpoint Policies in a specified resource group.
 
 
     :param str expand: Expands referenced resources.
@@ -178,7 +178,7 @@ def get_service_endpoint_policy_output(expand: Optional[pulumi.Input[Optional[st
                                        service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointPolicyResult]:
     """
-    Service End point policy resource.
+    Gets the specified service Endpoint Policies in a specified resource group.
 
 
     :param str expand: Expands referenced resources.

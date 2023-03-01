@@ -195,7 +195,7 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
                       security_rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityRuleResult:
     """
-    Network security rule
+    The Get NetworkSecurityRule operation retrieves information about the specified network security rule.
 
 
     :param str network_security_group_name: The name of the network security group.
@@ -232,7 +232,7 @@ def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[
                              security_rule_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityRuleResult]:
     """
-    Network security rule
+    The Get NetworkSecurityRule operation retrieves information about the specified network security rule.
 
 
     :param str network_security_group_name: The name of the network security group.

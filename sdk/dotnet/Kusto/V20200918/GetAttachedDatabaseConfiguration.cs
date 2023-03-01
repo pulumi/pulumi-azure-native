@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Kusto.V20200918
     public static class GetAttachedDatabaseConfiguration
     {
         /// <summary>
-        /// Class representing an attached database configuration.
+        /// Returns an attached database configuration.
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto/v20200918:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing an attached database configuration.
+        /// Returns an attached database configuration.
         /// </summary>
         public static Output<GetAttachedDatabaseConfigurationResult> Invoke(GetAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto/v20200918:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());

@@ -241,7 +241,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtResourceGroupResult:
     """
-    The remediation definition.
+    Gets an existing remediation at resource group scope.
 
 
     :param str remediation_name: The name of the remediation.
@@ -278,7 +278,7 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtResourceGroupResult]:
     """
-    The remediation definition.
+    Gets an existing remediation at resource group scope.
 
 
     :param str remediation_name: The name of the remediation.

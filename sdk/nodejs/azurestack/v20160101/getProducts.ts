@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Pageable list of products.
+ * Returns a list of products.
  */
 export function getProducts(args: GetProductsArgs, opts?: pulumi.InvokeOptions): Promise<GetProductsResult> {
 
@@ -49,7 +49,7 @@ export interface GetProductsResult {
     readonly value?: outputs.azurestack.v20160101.ProductResponse[];
 }
 /**
- * Pageable list of products.
+ * Returns a list of products.
  */
 export function getProductsOutput(args: GetProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductsResult> {
     return pulumi.output(args).apply((a: any) => getProducts(a, opts))

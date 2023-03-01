@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Differentiated Services Code Point configuration for any given network interface
+ * Gets a DSCP Configuration.
  */
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
 
@@ -104,7 +104,7 @@ export interface GetDscpConfigurationResult {
     readonly type: string;
 }
 /**
- * Differentiated Services Code Point configuration for any given network interface
+ * Gets a DSCP Configuration.
  */
 export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDscpConfiguration(a, opts))

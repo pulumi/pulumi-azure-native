@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Batch.V20151201
     public static class GetApplication
     {
         /// <summary>
-        /// Contains information about an application in a Batch account.
+        /// Gets information about the specified application.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:batch/v20151201:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Contains information about an application in a Batch account.
+        /// Gets information about the specified application.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:batch/v20151201:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

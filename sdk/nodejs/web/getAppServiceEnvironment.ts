@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * App Service Environment ARM resource.
+ * Get the properties of an App Service Environment.
  * API Version: 2020-12-01.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
@@ -122,7 +122,7 @@ export interface GetAppServiceEnvironmentResult {
     readonly virtualNetwork: outputs.web.VirtualNetworkProfileResponse;
 }
 /**
- * App Service Environment ARM resource.
+ * Get the properties of an App Service Environment.
  * API Version: 2020-12-01.
  */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {

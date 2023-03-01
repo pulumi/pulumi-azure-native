@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Properties of an artifact source.
+ * Get artifact source.
  * API Version: 2018-09-15.
  */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
@@ -108,7 +108,7 @@ export interface GetArtifactSourceResult {
     readonly uri?: string;
 }
 /**
- * Properties of an artifact source.
+ * Get artifact source.
  * API Version: 2018-09-15.
  */
 export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {

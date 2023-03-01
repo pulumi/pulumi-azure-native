@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * GraphQL API Resolver details.
+ * Gets the details of the GraphQL API Resolver specified by its identifier.
  */
 export function getGraphQLApiResolver(args: GetGraphQLApiResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResolverResult> {
 
@@ -67,7 +67,7 @@ export interface GetGraphQLApiResolverResult {
     readonly type: string;
 }
 /**
- * GraphQL API Resolver details.
+ * Gets the details of the GraphQL API Resolver specified by its identifier.
  */
 export function getGraphQLApiResolverOutput(args: GetGraphQLApiResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverResult> {
     return pulumi.output(args).apply((a: any) => getGraphQLApiResolver(a, opts))

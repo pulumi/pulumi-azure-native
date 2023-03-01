@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
     public static class GetPipelineJob
     {
         /// <summary>
-        /// Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
+        /// Retrieves a specific pipeline job by name. If a pipeline job with that name has been previously created, the call will return the JSON representation of that instance.
         /// </summary>
         public static Task<GetPipelineJobResult> InvokeAsync(GetPipelineJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineJobResult>("azure-native:videoanalyzer/v20211101preview:getPipelineJob", args ?? new GetPipelineJobArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
+        /// Retrieves a specific pipeline job by name. If a pipeline job with that name has been previously created, the call will return the JSON representation of that instance.
         /// </summary>
         public static Output<GetPipelineJobResult> Invoke(GetPipelineJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineJobResult>("azure-native:videoanalyzer/v20211101preview:getPipelineJob", args ?? new GetPipelineJobInvokeArgs(), options.WithDefaults());

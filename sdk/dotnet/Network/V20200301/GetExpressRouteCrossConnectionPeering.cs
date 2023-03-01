@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200301
     public static class GetExpressRouteCrossConnectionPeering
     {
         /// <summary>
-        /// Peering in an ExpressRoute Cross Connection resource.
+        /// Gets the specified peering for the ExpressRouteCrossConnection.
         /// </summary>
         public static Task<GetExpressRouteCrossConnectionPeeringResult> InvokeAsync(GetExpressRouteCrossConnectionPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCrossConnectionPeeringResult>("azure-native:network/v20200301:getExpressRouteCrossConnectionPeering", args ?? new GetExpressRouteCrossConnectionPeeringArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Peering in an ExpressRoute Cross Connection resource.
+        /// Gets the specified peering for the ExpressRouteCrossConnection.
         /// </summary>
         public static Output<GetExpressRouteCrossConnectionPeeringResult> Invoke(GetExpressRouteCrossConnectionPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCrossConnectionPeeringResult>("azure-native:network/v20200301:getExpressRouteCrossConnectionPeering", args ?? new GetExpressRouteCrossConnectionPeeringInvokeArgs(), options.WithDefaults());

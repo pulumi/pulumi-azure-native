@@ -241,7 +241,7 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
                               solution_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotSecuritySolutionResult:
     """
-    IoT Security solution configuration and resource information.
+    User this method to get details of a specific IoT Security solution based on solution name
     API Version: 2019-08-01.
 
 
@@ -279,7 +279,7 @@ def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[
                                      solution_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotSecuritySolutionResult]:
     """
-    IoT Security solution configuration and resource information.
+    User this method to get details of a specific IoT Security solution based on solution name
     API Version: 2019-08-01.
 
 

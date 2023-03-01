@@ -8,8 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The agentpool that has the ARM resource and properties.
- * The agentpool will have all information to create an agent pool.
+ * Gets the detailed information for a given agent pool.
  * API Version: 2019-06-01-preview.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
@@ -88,8 +87,7 @@ export interface GetAgentPoolResult {
     readonly virtualNetworkSubnetResourceId?: string;
 }
 /**
- * The agentpool that has the ARM resource and properties.
- * The agentpool will have all information to create an agent pool.
+ * Gets the detailed information for a given agent pool.
  * API Version: 2019-06-01-preview.
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {

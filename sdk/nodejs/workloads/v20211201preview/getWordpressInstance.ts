@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * WordPress instance resource
+ * Gets the WordPress instance resource.
  */
 export function getWordpressInstance(args: GetWordpressInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetWordpressInstanceResult> {
 
@@ -72,7 +72,7 @@ export interface GetWordpressInstanceResult {
     readonly version: string;
 }
 /**
- * WordPress instance resource
+ * Gets the WordPress instance resource.
  */
 export function getWordpressInstanceOutput(args: GetWordpressInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWordpressInstanceResult> {
     return pulumi.output(args).apply((a: any) => getWordpressInstance(a, opts))

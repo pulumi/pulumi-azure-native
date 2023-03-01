@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Account resource details.
+ * Returns RecommendationsService Account resource for a given name.
  * API Version: 2022-02-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -65,7 +65,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * Account resource details.
+ * Returns RecommendationsService Account resource for a given name.
  * API Version: 2022-02-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

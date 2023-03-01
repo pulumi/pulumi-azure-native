@@ -185,7 +185,7 @@ def get_job_definition(data_manager_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
-    Job Definition.
+    This method gets job definition object by name.
 
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -224,7 +224,7 @@ def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = N
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
-    Job Definition.
+    This method gets job definition object by name.
 
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

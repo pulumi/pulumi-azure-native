@@ -158,7 +158,7 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDisasterRecoveryConfigResult:
     """
-    Single item in List or Get Alias(Disaster Recovery configuration) operation
+    Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
 
 
     :param str alias: The Disaster Recovery configuration name
@@ -191,7 +191,7 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDisasterRecoveryConfigResult]:
     """
-    Single item in List or Get Alias(Disaster Recovery configuration) operation
+    Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
 
 
     :param str alias: The Disaster Recovery configuration name

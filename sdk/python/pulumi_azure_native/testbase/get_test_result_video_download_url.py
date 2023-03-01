@@ -62,7 +62,7 @@ def get_test_result_video_download_url(package_name: Optional[str] = None,
                                        test_result_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultVideoDownloadURLResult:
     """
-    The response of getting a download URL.
+    Gets the download URL of the test execution screen recording.
     API Version: 2022-04-01-preview.
 
 
@@ -91,7 +91,7 @@ def get_test_result_video_download_url_output(package_name: Optional[pulumi.Inpu
                                               test_result_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultVideoDownloadURLResult]:
     """
-    The response of getting a download URL.
+    Gets the download URL of the test execution screen recording.
     API Version: 2022-04-01-preview.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Mongo Role Definition.
+ * Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
  */
 export function getMongoDBResourceMongoRoleDefinition(args: GetMongoDBResourceMongoRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoRoleDefinitionResult> {
 
@@ -69,7 +69,7 @@ export interface GetMongoDBResourceMongoRoleDefinitionResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Mongo Role Definition.
+ * Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
  */
 export function getMongoDBResourceMongoRoleDefinitionOutput(args: GetMongoDBResourceMongoRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoRoleDefinition(a, opts))

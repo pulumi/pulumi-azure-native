@@ -108,7 +108,7 @@ class AwaitableGetDeploymentAtSubscriptionScopeResult(GetDeploymentAtSubscriptio
 def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtSubscriptionScopeResult:
     """
-    Deployment information.
+    Gets a deployment.
 
 
     :param str deployment_name: The name of the deployment.
@@ -131,7 +131,7 @@ def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
 def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtSubscriptionScopeResult]:
     """
-    Deployment information.
+    Gets a deployment.
 
 
     :param str deployment_name: The name of the deployment.

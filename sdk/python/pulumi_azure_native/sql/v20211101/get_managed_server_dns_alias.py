@@ -97,7 +97,7 @@ def get_managed_server_dns_alias(dns_alias_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedServerDnsAliasResult:
     """
-    A managed server DNS alias.
+    Gets a server DNS alias.
 
 
     :param str managed_instance_name: The name of the managed instance.
@@ -124,7 +124,7 @@ def get_managed_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[st
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedServerDnsAliasResult]:
     """
-    A managed server DNS alias.
+    Gets a server DNS alias.
 
 
     :param str managed_instance_name: The name of the managed instance.

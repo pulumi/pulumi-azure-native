@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     public static class GetKustoClusterDataSet
     {
         /// <summary>
-        /// A kusto cluster data set.
+        /// Get a DataSet in a share
         /// </summary>
         public static Task<GetKustoClusterDataSetResult> InvokeAsync(GetKustoClusterDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoClusterDataSetResult>("azure-native:datashare/v20200901:getKustoClusterDataSet", args ?? new GetKustoClusterDataSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A kusto cluster data set.
+        /// Get a DataSet in a share
         /// </summary>
         public static Output<GetKustoClusterDataSetResult> Invoke(GetKustoClusterDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoClusterDataSetResult>("azure-native:datashare/v20200901:getKustoClusterDataSet", args ?? new GetKustoClusterDataSetInvokeArgs(), options.WithDefaults());

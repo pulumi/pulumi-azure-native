@@ -293,7 +293,7 @@ def get_profile(hub_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
-    The profile resource format.
+    Gets information about the specified profile.
 
 
     :param str hub_name: The name of the hub.
@@ -341,7 +341,7 @@ def get_profile_output(hub_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
-    The profile resource format.
+    Gets information about the specified profile.
 
 
     :param str hub_name: The name of the hub.

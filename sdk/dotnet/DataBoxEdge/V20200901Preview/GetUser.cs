@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     public static class GetUser
     {
         /// <summary>
-        /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+        /// Gets the properties of the specified user.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:databoxedge/v20200901preview:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+        /// Gets the properties of the specified user.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge/v20200901preview:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());

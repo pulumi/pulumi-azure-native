@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The metric alert resource.
+ * Retrieve an alert rule definition.
  */
 export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricAlertResult> {
 
@@ -108,7 +108,7 @@ export interface GetMetricAlertResult {
     readonly windowSize: string;
 }
 /**
- * The metric alert resource.
+ * Retrieve an alert rule definition.
  */
 export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricAlertResult> {
     return pulumi.output(args).apply((a: any) => getMetricAlert(a, opts))

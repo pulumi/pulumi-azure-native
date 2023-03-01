@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerService.V20200701
     public static class ListManagedClusterUserCredentials
     {
         /// <summary>
-        /// The list of credential result response.
+        /// Gets cluster user credential of the managed cluster with a specified resource group and name.
         /// </summary>
         public static Task<ListManagedClusterUserCredentialsResult> InvokeAsync(ListManagedClusterUserCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterUserCredentialsResult>("azure-native:containerservice/v20200701:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of credential result response.
+        /// Gets cluster user credential of the managed cluster with a specified resource group and name.
         /// </summary>
         public static Output<ListManagedClusterUserCredentialsResult> Invoke(ListManagedClusterUserCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterUserCredentialsResult>("azure-native:containerservice/v20200701:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A schedule.
+ * Get schedule.
  */
 export function getServiceFabricSchedule(args: GetServiceFabricScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceFabricScheduleResult> {
 
@@ -120,7 +120,7 @@ export interface GetServiceFabricScheduleResult {
     readonly weeklyRecurrence?: outputs.devtestlab.v20180915.WeekDetailsResponse;
 }
 /**
- * A schedule.
+ * Get schedule.
  */
 export function getServiceFabricScheduleOutput(args: GetServiceFabricScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricScheduleResult> {
     return pulumi.output(args).apply((a: any) => getServiceFabricSchedule(a, opts))

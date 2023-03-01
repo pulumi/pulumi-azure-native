@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * NetworkSecurityGroup resource.
+ * Gets the specified network security group.
  * API Version: 2020-11-01.
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
@@ -94,7 +94,7 @@ export interface GetNetworkSecurityGroupResult {
     readonly type: string;
 }
 /**
- * NetworkSecurityGroup resource.
+ * Gets the specified network security group.
  * API Version: 2020-11-01.
  */
 export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {

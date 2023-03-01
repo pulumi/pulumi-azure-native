@@ -112,6 +112,7 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
                              workspace_collection_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceCollectionResult:
     """
+    Retrieves an existing Power BI Workspace Collection.
     API Version: 2016-01-29.
 
 
@@ -139,6 +140,7 @@ def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[s
                                     workspace_collection_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceCollectionResult]:
     """
+    Retrieves an existing Power BI Workspace Collection.
     API Version: 2016-01-29.
 
 

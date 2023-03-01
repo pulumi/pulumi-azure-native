@@ -322,7 +322,7 @@ def get_web_app_site_extension(name: Optional[str] = None,
                                site_extension_id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionResult:
     """
-    Site Extension Information.
+    Get site extension information by its ID for a web site, or a deployment slot.
     API Version: 2020-12-01.
 
 
@@ -370,7 +370,7 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
                                       site_extension_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSiteExtensionResult]:
     """
-    Site Extension Information.
+    Get site extension information by its ID for a web site, or a deployment slot.
     API Version: 2020-12-01.
 
 

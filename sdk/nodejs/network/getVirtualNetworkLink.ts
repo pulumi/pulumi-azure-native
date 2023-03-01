@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a link to virtual network for a Private DNS zone.
+ * Gets a virtual network link to the specified Private DNS zone.
  * API Version: 2020-06-01.
  */
 export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkLinkResult> {
@@ -82,7 +82,7 @@ export interface GetVirtualNetworkLinkResult {
     readonly virtualNetworkLinkState: string;
 }
 /**
- * Describes a link to virtual network for a Private DNS zone.
+ * Gets a virtual network link to the specified Private DNS zone.
  * API Version: 2020-06-01.
  */
 export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {

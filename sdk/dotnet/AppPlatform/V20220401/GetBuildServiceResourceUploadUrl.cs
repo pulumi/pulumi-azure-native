@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220401
     public static class GetBuildServiceResourceUploadUrl
     {
         /// <summary>
-        /// Resource upload definition payload
+        /// Get an resource upload URL for build service, which may be artifacts or source archive.
         /// </summary>
         public static Task<GetBuildServiceResourceUploadUrlResult> InvokeAsync(GetBuildServiceResourceUploadUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform/v20220401:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource upload definition payload
+        /// Get an resource upload URL for build service, which may be artifacts or source archive.
         /// </summary>
         public static Output<GetBuildServiceResourceUploadUrlResult> Invoke(GetBuildServiceResourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform/v20220401:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlInvokeArgs(), options.WithDefaults());

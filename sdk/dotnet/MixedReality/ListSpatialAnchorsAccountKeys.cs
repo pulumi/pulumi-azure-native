@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MixedReality
     public static class ListSpatialAnchorsAccountKeys
     {
         /// <summary>
-        /// Developer Keys of account
+        /// List Both of the 2 Keys of a Spatial Anchors Account
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListSpatialAnchorsAccountKeysResult> InvokeAsync(ListSpatialAnchorsAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSpatialAnchorsAccountKeysResult>("azure-native:mixedreality:listSpatialAnchorsAccountKeys", args ?? new ListSpatialAnchorsAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Developer Keys of account
+        /// List Both of the 2 Keys of a Spatial Anchors Account
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListSpatialAnchorsAccountKeysResult> Invoke(ListSpatialAnchorsAccountKeysInvokeArgs args, InvokeOptions? options = null)

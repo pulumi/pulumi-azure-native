@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Credential resource type.
+ * Gets a credential.
  */
 export function getCredentialOperation(args: GetCredentialOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialOperationResult> {
 
@@ -61,7 +61,7 @@ export interface GetCredentialOperationResult {
     readonly type: string;
 }
 /**
- * Credential resource type.
+ * Gets a credential.
  */
 export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialOperationResult> {
     return pulumi.output(args).apply((a: any) => getCredentialOperation(a, opts))

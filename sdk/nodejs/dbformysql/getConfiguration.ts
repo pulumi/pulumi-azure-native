@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents a Configuration.
+ * Gets information about a configuration of server.
  * API Version: 2017-12-01.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
@@ -75,7 +75,7 @@ export interface GetConfigurationResult {
     readonly value?: string;
 }
 /**
- * Represents a Configuration.
+ * Gets information about a configuration of server.
  * API Version: 2017-12-01.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {

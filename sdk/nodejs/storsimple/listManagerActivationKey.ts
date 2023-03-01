@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The key.
+ * Returns the activation key of the manager.
  * API Version: 2017-06-01.
  */
 export function listManagerActivationKey(args: ListManagerActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListManagerActivationKeyResult> {
@@ -38,7 +38,7 @@ export interface ListManagerActivationKeyResult {
     readonly activationKey: string;
 }
 /**
- * The key.
+ * Returns the activation key of the manager.
  * API Version: 2017-06-01.
  */
 export function listManagerActivationKeyOutput(args: ListManagerActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerActivationKeyResult> {

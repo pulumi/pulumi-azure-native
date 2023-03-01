@@ -122,7 +122,7 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[str] =
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionByHostPoolResult:
     """
-    The Private Endpoint Connection resource.
+    Get a private endpoint connection.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -152,7 +152,7 @@ def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionByHostPoolResult]:
     """
-    The Private Endpoint Connection resource.
+    Get a private endpoint connection.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

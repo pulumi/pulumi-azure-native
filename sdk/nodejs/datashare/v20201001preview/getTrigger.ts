@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Trigger data transfer object.
+ * Get a Trigger in a shareSubscription
  */
 /** @deprecated Please use one of the variants: ScheduledTrigger. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
@@ -68,7 +68,7 @@ export interface GetTriggerResult {
     readonly type: string;
 }
 /**
- * A Trigger data transfer object.
+ * Get a Trigger in a shareSubscription
  */
 /** @deprecated Please use one of the variants: ScheduledTrigger. */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {

@@ -84,7 +84,7 @@ def list_database_account_keys(account_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseAccountKeysResult:
     """
-    The access keys for the given database account.
+    Lists the access keys for the specified Azure Cosmos DB database account.
     API Version: 2021-03-15.
 
 
@@ -109,7 +109,7 @@ def list_database_account_keys_output(account_name: Optional[pulumi.Input[str]] 
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseAccountKeysResult]:
     """
-    The access keys for the given database account.
+    Lists the access keys for the specified Azure Cosmos DB database account.
     API Version: 2021-03-15.
 
 

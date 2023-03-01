@@ -111,7 +111,7 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitAuthorizationResult:
     """
-    Authorization in a ExpressRouteCircuit resource
+    The GET authorization operation retrieves the specified authorization from the specified ExpressRouteCircuit.
 
 
     :param str authorization_name: The name of the authorization.
@@ -141,7 +141,7 @@ def get_express_route_circuit_authorization_output(authorization_name: Optional[
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitAuthorizationResult]:
     """
-    Authorization in a ExpressRouteCircuit resource
+    The GET authorization operation retrieves the specified authorization from the specified ExpressRouteCircuit.
 
 
     :param str authorization_name: The name of the authorization.

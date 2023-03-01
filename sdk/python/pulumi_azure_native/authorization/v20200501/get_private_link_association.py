@@ -82,7 +82,8 @@ def get_private_link_association(group_id: Optional[str] = None,
                                  pla_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAssociationResult:
     """
-    Use this data source to access information about an existing resource.
+    Get a single private link association
+
 
     :param str group_id: The management group ID.
     :param str pla_id: The ID of the PLA
@@ -105,7 +106,8 @@ def get_private_link_association_output(group_id: Optional[pulumi.Input[str]] = 
                                         pla_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAssociationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get a single private link association
+
 
     :param str group_id: The management group ID.
     :param str pla_id: The ID of the PLA

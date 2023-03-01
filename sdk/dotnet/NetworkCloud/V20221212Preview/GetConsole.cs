@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
     public static class GetConsole
     {
+        /// <summary>
+        /// Get properties of the provided virtual machine console.
+        /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:networkcloud/v20221212preview:getConsole", args ?? new GetConsoleArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get properties of the provided virtual machine console.
+        /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:networkcloud/v20221212preview:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
     }

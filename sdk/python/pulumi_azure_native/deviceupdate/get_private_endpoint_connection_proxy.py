@@ -134,7 +134,7 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionProxyResult:
     """
-    Private endpoint connection proxy details.
+    (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
     API Version: 2020-03-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.I
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionProxyResult]:
     """
-    Private endpoint connection proxy details.
+    (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
     API Version: 2020-03-01-preview.
 
 

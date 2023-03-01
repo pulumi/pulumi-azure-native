@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20180801
     public static class GetEndpoint
     {
         /// <summary>
-        /// Class representing a Traffic Manager endpoint.
+        /// Gets a Traffic Manager endpoint.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:network/v20180801:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a Traffic Manager endpoint.
+        /// Gets a Traffic Manager endpoint.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:network/v20180801:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());

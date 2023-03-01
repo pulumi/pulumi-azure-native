@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220501
     public static class GetVirtualNetworkGatewayBgpPeerStatus
     {
         /// <summary>
-        /// Response for list BGP peer status API service call.
+        /// The GetBgpPeerStatus operation retrieves the status of all BGP peers.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayBgpPeerStatusResult> InvokeAsync(GetVirtualNetworkGatewayBgpPeerStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayBgpPeerStatusResult>("azure-native:network/v20220501:getVirtualNetworkGatewayBgpPeerStatus", args ?? new GetVirtualNetworkGatewayBgpPeerStatusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response for list BGP peer status API service call.
+        /// The GetBgpPeerStatus operation retrieves the status of all BGP peers.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayBgpPeerStatusResult> Invoke(GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayBgpPeerStatusResult>("azure-native:network/v20220501:getVirtualNetworkGatewayBgpPeerStatus", args ?? new GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs(), options.WithDefaults());

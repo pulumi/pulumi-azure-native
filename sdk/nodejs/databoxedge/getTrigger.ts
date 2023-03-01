@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Trigger details.
+ * Get a specific trigger by name.
  * API Version: 2020-12-01.
  */
 /** @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger. */
@@ -64,7 +64,7 @@ export interface GetTriggerResult {
     readonly type: string;
 }
 /**
- * Trigger details.
+ * Get a specific trigger by name.
  * API Version: 2020-12-01.
  */
 /** @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger. */

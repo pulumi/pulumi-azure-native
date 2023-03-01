@@ -157,7 +157,7 @@ def get_auto_scale_v_core(resource_group_name: Optional[str] = None,
                           vcore_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoScaleVCoreResult:
     """
-    Represents an instance of an auto scale v-core resource.
+    Gets details about the specified auto scale v-core.
 
 
     :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
@@ -187,7 +187,7 @@ def get_auto_scale_v_core_output(resource_group_name: Optional[pulumi.Input[str]
                                  vcore_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScaleVCoreResult]:
     """
-    Represents an instance of an auto scale v-core resource.
+    Gets details about the specified auto scale v-core.
 
 
     :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.

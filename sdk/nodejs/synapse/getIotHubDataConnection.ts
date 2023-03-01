@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class representing an iot hub data connection.
+ * Returns a data connection.
  * API Version: 2021-04-01-preview.
  */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
@@ -109,7 +109,7 @@ export interface GetIotHubDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing an iot hub data connection.
+ * Returns a data connection.
  * API Version: 2021-04-01-preview.
  */
 export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetVirtualNetworkGatewayAdvertisedRoutes
     {
         /// <summary>
-        /// List of virtual network gateway routes.
+        /// This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayAdvertisedRoutesResult> InvokeAsync(GetVirtualNetworkGatewayAdvertisedRoutesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayAdvertisedRoutesResult>("azure-native:network:getVirtualNetworkGatewayAdvertisedRoutes", args ?? new GetVirtualNetworkGatewayAdvertisedRoutesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of virtual network gateway routes.
+        /// This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayAdvertisedRoutesResult> Invoke(GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs args, InvokeOptions? options = null)

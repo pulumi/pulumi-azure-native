@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Backup policy information
+ * Get a particular backup Policy
  */
 /** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
@@ -95,7 +95,7 @@ export interface GetBackupPolicyResult {
     readonly yearlyBackupsToKeep?: number;
 }
 /**
- * Backup policy information
+ * Get a particular backup Policy
  */
 /** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {

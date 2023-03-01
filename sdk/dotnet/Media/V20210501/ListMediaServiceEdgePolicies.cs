@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.Media.V20210501
 {
     public static class ListMediaServiceEdgePolicies
     {
+        /// <summary>
+        /// List the media edge policies associated with the Media Services account.
+        /// </summary>
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media/v20210501:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// List the media edge policies associated with the Media Services account.
+        /// </summary>
         public static Output<ListMediaServiceEdgePoliciesResult> Invoke(ListMediaServiceEdgePoliciesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMediaServiceEdgePoliciesResult>("azure-native:media/v20210501:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesInvokeArgs(), options.WithDefaults());
     }

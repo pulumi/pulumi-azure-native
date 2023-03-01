@@ -135,7 +135,7 @@ def get_script(cluster_name: Optional[str] = None,
                script_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptResult:
     """
-    Class representing a database script.
+    Gets a Kusto cluster database script.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -169,7 +169,7 @@ def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
                       script_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptResult]:
     """
-    Class representing a database script.
+    Gets a Kusto cluster database script.
 
 
     :param str cluster_name: The name of the Kusto cluster.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents an instance of a orchestrator.
+ * Gets details about the specified dnc DelegatedSubnet Link.
  */
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
@@ -74,7 +74,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
     readonly type: string;
 }
 /**
- * Represents an instance of a orchestrator.
+ * Gets details about the specified dnc DelegatedSubnet Link.
  */
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {

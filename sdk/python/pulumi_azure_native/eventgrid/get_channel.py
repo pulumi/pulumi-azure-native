@@ -171,7 +171,7 @@ def get_channel(channel_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
-    Channel info.
+    Get properties of a channel.
     API Version: 2021-10-15-preview.
 
 
@@ -206,7 +206,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
-    Channel info.
+    Get properties of a channel.
     API Version: 2021-10-15-preview.
 
 

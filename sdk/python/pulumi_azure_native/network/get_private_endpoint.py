@@ -194,7 +194,7 @@ def get_private_endpoint(expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
-    Private endpoint resource.
+    Gets the specified private endpoint by resource group.
     API Version: 2020-11-01.
 
 
@@ -231,7 +231,7 @@ def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
-    Private endpoint resource.
+    Gets the specified private endpoint by resource group.
     API Version: 2020-11-01.
 
 

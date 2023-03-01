@@ -160,7 +160,7 @@ def get_volume_quota_rule(account_name: Optional[str] = None,
                           volume_quota_rule_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeQuotaRuleResult:
     """
-    Quota Rule of a Volume
+    Get details of the specified quota rule
 
 
     :param str account_name: The name of the NetApp account
@@ -199,7 +199,7 @@ def get_volume_quota_rule_output(account_name: Optional[pulumi.Input[str]] = Non
                                  volume_quota_rule_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeQuotaRuleResult]:
     """
-    Quota Rule of a Volume
+    Get details of the specified quota rule
 
 
     :param str account_name: The name of the NetApp account

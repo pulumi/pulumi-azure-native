@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Storage.V20210101
     public static class GetBlobContainerImmutabilityPolicy
     {
         /// <summary>
-        /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+        /// Gets the existing immutability policy along with the corresponding ETag in response headers and body.
         /// </summary>
         public static Task<GetBlobContainerImmutabilityPolicyResult> InvokeAsync(GetBlobContainerImmutabilityPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage/v20210101:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+        /// Gets the existing immutability policy along with the corresponding ETag in response headers and body.
         /// </summary>
         public static Output<GetBlobContainerImmutabilityPolicyResult> Invoke(GetBlobContainerImmutabilityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage/v20210101:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyInvokeArgs(), options.WithDefaults());

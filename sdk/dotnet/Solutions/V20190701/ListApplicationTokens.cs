@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Solutions.V20190701
     public static class ListApplicationTokens
     {
         /// <summary>
-        /// The array of managed identity tokens.
+        /// List tokens for application.
         /// </summary>
         public static Task<ListApplicationTokensResult> InvokeAsync(ListApplicationTokensArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplicationTokensResult>("azure-native:solutions/v20190701:listApplicationTokens", args ?? new ListApplicationTokensArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The array of managed identity tokens.
+        /// List tokens for application.
         /// </summary>
         public static Output<ListApplicationTokensResult> Invoke(ListApplicationTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationTokensResult>("azure-native:solutions/v20190701:listApplicationTokens", args ?? new ListApplicationTokensInvokeArgs(), options.WithDefaults());

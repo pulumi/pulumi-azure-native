@@ -145,7 +145,7 @@ def get_webhook(registry_name: Optional[str] = None,
                 webhook_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookResult:
     """
-    An object that represents a webhook for a container registry.
+    Gets the properties of the specified webhook.
     API Version: 2019-05-01.
 
 
@@ -178,7 +178,7 @@ def get_webhook_output(registry_name: Optional[pulumi.Input[str]] = None,
                        webhook_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
     """
-    An object that represents a webhook for a container registry.
+    Gets the properties of the specified webhook.
     API Version: 2019-05-01.
 
 

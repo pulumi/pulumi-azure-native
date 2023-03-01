@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Cdn
     public static class GetAFDCustomDomain
     {
         /// <summary>
-        /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+        /// Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAFDCustomDomainResult> InvokeAsync(GetAFDCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+        /// Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetAFDCustomDomainResult> Invoke(GetAFDCustomDomainInvokeArgs args, InvokeOptions? options = null)

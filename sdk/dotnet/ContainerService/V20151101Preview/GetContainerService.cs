@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.ContainerService.V20151101Preview
     public static class GetContainerService
     {
         /// <summary>
-        /// Container service
+        /// The operation to get a container service.
         /// </summary>
         public static Task<GetContainerServiceResult> InvokeAsync(GetContainerServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-native:containerservice/v20151101preview:getContainerService", args ?? new GetContainerServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Container service
+        /// The operation to get a container service.
         /// </summary>
         public static Output<GetContainerServiceResult> Invoke(GetContainerServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerServiceResult>("azure-native:containerservice/v20151101preview:getContainerService", args ?? new GetContainerServiceInvokeArgs(), options.WithDefaults());

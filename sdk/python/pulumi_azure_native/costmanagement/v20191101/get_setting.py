@@ -120,7 +120,7 @@ class AwaitableGetSettingResult(GetSettingResult):
 def get_setting(setting_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSettingResult:
     """
-    State of the myscope setting.
+    Retrieves the current value for a specific setting.
 
 
     :param str setting_name: Name of the setting. Allowed values: myscope
@@ -144,7 +144,7 @@ def get_setting(setting_name: Optional[str] = None,
 def get_setting_output(setting_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSettingResult]:
     """
-    State of the myscope setting.
+    Retrieves the current value for a specific setting.
 
 
     :param str setting_name: Name of the setting. Allowed values: myscope

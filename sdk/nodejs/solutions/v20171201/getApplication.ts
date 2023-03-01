@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Information about managed application.
+ * Gets the managed application.
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
@@ -102,7 +102,7 @@ export interface GetApplicationResult {
     readonly uiDefinitionUri?: string;
 }
 /**
- * Information about managed application.
+ * Gets the managed application.
  */
 /** @deprecated Version 2017-12-01 will be removed in v2 of the provider. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {

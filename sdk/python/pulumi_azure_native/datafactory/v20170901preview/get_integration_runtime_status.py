@@ -62,7 +62,7 @@ def get_integration_runtime_status(factory_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeStatusResult:
     """
-    Integration runtime status response.
+    Gets detailed status information for an integration runtime.
 
 
     :param str factory_name: The factory name.
@@ -87,7 +87,7 @@ def get_integration_runtime_status_output(factory_name: Optional[pulumi.Input[st
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeStatusResult]:
     """
-    Integration runtime status response.
+    Gets detailed status information for an integration runtime.
 
 
     :param str factory_name: The factory name.

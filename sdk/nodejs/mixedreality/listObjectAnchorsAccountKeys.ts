@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Developer Keys of account
+ * List Both of the 2 Keys of an object anchors Account
  * API Version: 2021-03-01-preview.
  */
 export function listObjectAnchorsAccountKeys(args: ListObjectAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListObjectAnchorsAccountKeysResult> {
@@ -42,7 +42,7 @@ export interface ListObjectAnchorsAccountKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Developer Keys of account
+ * List Both of the 2 Keys of an object anchors Account
  * API Version: 2021-03-01-preview.
  */
 export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Migrate.V20220501Preview
     public static class GetModernizeProject
     {
         /// <summary>
-        /// ModernizeProject model.
+        /// Gets the details of the modernize project.
         /// </summary>
         public static Task<GetModernizeProjectResult> InvokeAsync(GetModernizeProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModernizeProjectResult>("azure-native:migrate/v20220501preview:getModernizeProject", args ?? new GetModernizeProjectArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ModernizeProject model.
+        /// Gets the details of the modernize project.
         /// </summary>
         public static Output<GetModernizeProjectResult> Invoke(GetModernizeProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModernizeProjectResult>("azure-native:migrate/v20220501preview:getModernizeProject", args ?? new GetModernizeProjectInvokeArgs(), options.WithDefaults());

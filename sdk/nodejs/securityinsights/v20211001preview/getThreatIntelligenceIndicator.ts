@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Threat intelligence information object.
+ * View a threat intelligence indicator by name.
  */
 export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndicatorArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceIndicatorResult> {
 
@@ -66,7 +66,7 @@ export interface GetThreatIntelligenceIndicatorResult {
     readonly type: string;
 }
 /**
- * Threat intelligence information object.
+ * View a threat intelligence indicator by name.
  */
 export function getThreatIntelligenceIndicatorOutput(args: GetThreatIntelligenceIndicatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceIndicatorResult> {
     return pulumi.output(args).apply((a: any) => getThreatIntelligenceIndicator(a, opts))

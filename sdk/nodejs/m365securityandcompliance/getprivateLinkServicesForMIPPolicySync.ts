@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForMIPPolicySync resource.
  * API Version: 2021-03-25-preview.
  */
 export function getprivateLinkServicesForMIPPolicySync(args: GetprivateLinkServicesForMIPPolicySyncArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForMIPPolicySyncResult> {
@@ -77,7 +77,7 @@ export interface GetprivateLinkServicesForMIPPolicySyncResult {
     readonly type: string;
 }
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForMIPPolicySync resource.
  * API Version: 2021-03-25-preview.
  */
 export function getprivateLinkServicesForMIPPolicySyncOutput(args: GetprivateLinkServicesForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForMIPPolicySyncResult> {

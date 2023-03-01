@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.VoiceServices.V20221201Preview
     public static class GetContact
     {
         /// <summary>
-        /// A Contact resource
+        /// Get a Contact
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:voiceservices/v20221201preview:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Contact resource
+        /// Get a Contact
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:voiceservices/v20221201preview:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());

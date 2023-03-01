@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Route Filter Resource.
+ * Gets the specified route filter.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterResult> {
@@ -79,7 +79,7 @@ export interface GetRouteFilterResult {
     readonly type: string;
 }
 /**
- * Route Filter Resource.
+ * Gets the specified route filter.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {

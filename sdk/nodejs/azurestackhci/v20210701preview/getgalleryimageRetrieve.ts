@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The galleryimages resource definition.
+ * Lists all galleryimages under the resource group.
  */
 export function getgalleryimageRetrieve(args: GetgalleryimageRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetgalleryimageRetrieveResult> {
 
@@ -88,7 +88,7 @@ export interface GetgalleryimageRetrieveResult {
     readonly type: string;
 }
 /**
- * The galleryimages resource definition.
+ * Lists all galleryimages under the resource group.
  */
 export function getgalleryimageRetrieveOutput(args: GetgalleryimageRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgalleryimageRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getgalleryimageRetrieve(a, opts))

@@ -158,7 +158,7 @@ def get_security_admin_configuration(configuration_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityAdminConfigurationResult:
     """
-    Defines the security configuration
+    Retrieves a network manager security admin configuration.
     API Version: 2021-02-01-preview.
 
 
@@ -192,7 +192,7 @@ def get_security_admin_configuration_output(configuration_name: Optional[pulumi.
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityAdminConfigurationResult]:
     """
-    Defines the security configuration
+    Retrieves a network manager security admin configuration.
     API Version: 2021-02-01-preview.
 
 

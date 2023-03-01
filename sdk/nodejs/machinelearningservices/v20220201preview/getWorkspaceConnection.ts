@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Workspace connection.
+ * Get the detail of a workspace connection.
  */
 export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceConnectionResult> {
 
@@ -77,7 +77,7 @@ export interface GetWorkspaceConnectionResult {
     readonly valueFormat?: string;
 }
 /**
- * Workspace connection.
+ * Get the detail of a workspace connection.
  */
 export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceConnection(a, opts))

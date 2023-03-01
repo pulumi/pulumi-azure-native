@@ -66,7 +66,7 @@ def list_spacecraft_available_contacts(contact_profile: Optional[pulumi.InputTyp
                                        start_time: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSpacecraftAvailableContactsResult:
     """
-    Response for the ListAvailableContacts API service call.
+    Returns list of available contacts. A contact is available if the spacecraft is visible from the ground station for more than the minimum viable contact duration provided in the contact profile.
 
 
     :param pulumi.InputType['ContactParametersContactProfile'] contact_profile: The reference to the contact profile resource.
@@ -100,7 +100,7 @@ def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.I
                                               start_time: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSpacecraftAvailableContactsResult]:
     """
-    Response for the ListAvailableContacts API service call.
+    Returns list of available contacts. A contact is available if the spacecraft is visible from the ground station for more than the minimum viable contact duration provided in the contact profile.
 
 
     :param pulumi.InputType['ContactParametersContactProfile'] contact_profile: The reference to the contact profile resource.

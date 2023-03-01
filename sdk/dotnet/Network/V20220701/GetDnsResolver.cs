@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220701
     public static class GetDnsResolver
     {
         /// <summary>
-        /// Describes a DNS resolver.
+        /// Gets properties of a DNS resolver.
         /// </summary>
         public static Task<GetDnsResolverResult> InvokeAsync(GetDnsResolverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsResolverResult>("azure-native:network/v20220701:getDnsResolver", args ?? new GetDnsResolverArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a DNS resolver.
+        /// Gets properties of a DNS resolver.
         /// </summary>
         public static Output<GetDnsResolverResult> Invoke(GetDnsResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverResult>("azure-native:network/v20220701:getDnsResolver", args ?? new GetDnsResolverInvokeArgs(), options.WithDefaults());

@@ -156,7 +156,7 @@ def get_rule(profile_name: Optional[str] = None,
              rule_set_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    Friendly Rules name mapping to the any Rules or secret related information.
+    Gets an existing delivery rule within a rule set.
     API Version: 2020-09-01.
 
 
@@ -193,7 +193,7 @@ def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
                     rule_set_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
-    Friendly Rules name mapping to the any Rules or secret related information.
+    Gets an existing delivery rule within a rule set.
     API Version: 2020-09-01.
 
 

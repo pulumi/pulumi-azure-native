@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
     public static class GetPrivateEndpointConnectionsSec
     {
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets the specified private endpoint connection associated with the service.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsSecResult> InvokeAsync(GetPrivateEndpointConnectionsSecArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsSecResult>("azure-native:securityandcompliance/v20210308:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Private Endpoint Connection resource.
+        /// Gets the specified private endpoint connection associated with the service.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsSecResult> Invoke(GetPrivateEndpointConnectionsSecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsSecResult>("azure-native:securityandcompliance/v20210308:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecInvokeArgs(), options.WithDefaults());

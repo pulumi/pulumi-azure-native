@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Tenant configuration.
+ * Gets the tenant configuration.
  * API Version: 2020-09-01-preview.
  */
 export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantConfigurationResult> {
@@ -45,7 +45,7 @@ export interface GetTenantConfigurationResult {
     readonly type: string;
 }
 /**
- * Tenant configuration.
+ * Gets the tenant configuration.
  * API Version: 2020-09-01-preview.
  */
 export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantConfigurationResult> {

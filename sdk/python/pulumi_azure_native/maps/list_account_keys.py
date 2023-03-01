@@ -72,7 +72,7 @@ def list_account_keys(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
-    The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+    Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
     API Version: 2018-05-01.
 
 
@@ -96,7 +96,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
-    The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+    Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
     API Version: 2018-05-01.
 
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Graph Query entity definition.
+ * Get a single graph query by its resourceName.
  * API Version: 2018-09-01-preview.
  */
 export function getGraphQuery(args: GetGraphQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQueryResult> {
@@ -74,7 +74,7 @@ export interface GetGraphQueryResult {
     readonly type: string;
 }
 /**
- * Graph Query entity definition.
+ * Get a single graph query by its resourceName.
  * API Version: 2018-09-01-preview.
  */
 export function getGraphQueryOutput(args: GetGraphQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQueryResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     public static class GetAction
     {
         /// <summary>
-        /// Action for alert rule.
+        /// Gets the action of alert rule.
         /// </summary>
         public static Task<GetActionResult> InvokeAsync(GetActionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("azure-native:securityinsights/v20210901preview:getAction", args ?? new GetActionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Action for alert rule.
+        /// Gets the action of alert rule.
         /// </summary>
         public static Output<GetActionResult> Invoke(GetActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionResult>("azure-native:securityinsights/v20210901preview:getAction", args ?? new GetActionInvokeArgs(), options.WithDefaults());

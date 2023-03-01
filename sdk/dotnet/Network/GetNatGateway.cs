@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetNatGateway
     {
         /// <summary>
-        /// Nat Gateway resource.
+        /// Gets the specified nat gateway in a specified resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-native:network:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Nat Gateway resource.
+        /// Gets the specified nat gateway in a specified resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)

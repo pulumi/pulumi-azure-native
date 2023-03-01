@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
     public static class GetEventHubConnection
     {
         /// <summary>
-        /// Class representing an event hub connection.
+        /// Returns an Event Hub connection.
         /// </summary>
         public static Task<GetEventHubConnectionResult> InvokeAsync(GetEventHubConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azure-native:kusto/v20180907preview:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing an event hub connection.
+        /// Returns an Event Hub connection.
         /// </summary>
         public static Output<GetEventHubConnectionResult> Invoke(GetEventHubConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubConnectionResult>("azure-native:kusto/v20180907preview:getEventHubConnection", args ?? new GetEventHubConnectionInvokeArgs(), options.WithDefaults());

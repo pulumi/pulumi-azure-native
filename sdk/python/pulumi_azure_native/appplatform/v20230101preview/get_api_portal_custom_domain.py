@@ -99,7 +99,7 @@ def get_api_portal_custom_domain(api_portal_name: Optional[str] = None,
                                  service_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiPortalCustomDomainResult:
     """
-    Custom domain of the API portal
+    Get the API portal custom domain.
 
 
     :param str api_portal_name: The name of API portal.
@@ -130,7 +130,7 @@ def get_api_portal_custom_domain_output(api_portal_name: Optional[pulumi.Input[s
                                         service_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiPortalCustomDomainResult]:
     """
-    Custom domain of the API portal
+    Get the API portal custom domain.
 
 
     :param str api_portal_name: The name of API portal.

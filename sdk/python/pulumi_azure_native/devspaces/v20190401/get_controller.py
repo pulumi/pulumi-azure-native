@@ -166,7 +166,8 @@ def get_controller(name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets the properties for an Azure Dev Spaces Controller.
+
 
     :param str name: Name of the resource.
     :param str resource_group_name: Resource group to which the resource belongs.
@@ -196,7 +197,8 @@ def get_controller_output(name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControllerResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets the properties for an Azure Dev Spaces Controller.
+
 
     :param str name: Name of the resource.
     :param str resource_group_name: Resource group to which the resource belongs.

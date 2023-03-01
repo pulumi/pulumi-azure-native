@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The marketplace gallery image resource definition.
+ * Gets marketplacegalleryimages by resource name
  */
 export function getmarketplacegalleryimage(args: GetmarketplacegalleryimageArgs, opts?: pulumi.InvokeOptions): Promise<GetmarketplacegalleryimageResult> {
 
@@ -100,7 +100,7 @@ export interface GetmarketplacegalleryimageResult {
     readonly version?: outputs.azurestackhci.v20210901preview.GalleryImageVersionResponse;
 }
 /**
- * The marketplace gallery image resource definition.
+ * Gets marketplacegalleryimages by resource name
  */
 export function getmarketplacegalleryimageOutput(args: GetmarketplacegalleryimageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmarketplacegalleryimageResult> {
     return pulumi.output(args).apply((a: any) => getmarketplacegalleryimage(a, opts))

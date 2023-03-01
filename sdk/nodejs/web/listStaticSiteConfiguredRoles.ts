@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * String list resource.
+ * Lists the roles configured for the static site.
  * API Version: 2020-12-01.
  */
 export function listStaticSiteConfiguredRoles(args: ListStaticSiteConfiguredRolesArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteConfiguredRolesResult> {
@@ -54,7 +54,7 @@ export interface ListStaticSiteConfiguredRolesResult {
     readonly type: string;
 }
 /**
- * String list resource.
+ * Lists the roles configured for the static site.
  * API Version: 2020-12-01.
  */
 export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {

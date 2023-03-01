@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     public static class GetApiManagementService
     {
         /// <summary>
-        /// A single API Management service resource in List or Get response.
+        /// Gets an API Management service resource description.
         /// </summary>
         public static Task<GetApiManagementServiceResult> InvokeAsync(GetApiManagementServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-native:apimanagement/v20210101preview:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A single API Management service resource in List or Get response.
+        /// Gets an API Management service resource description.
         /// </summary>
         public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement/v20210101preview:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());

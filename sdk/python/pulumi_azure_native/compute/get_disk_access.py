@@ -133,7 +133,7 @@ def get_disk_access(disk_access_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessResult:
     """
-    disk access resource.
+    Gets information about a disk access resource.
     API Version: 2020-12-01.
 
 
@@ -162,7 +162,7 @@ def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessResult]:
     """
-    disk access resource.
+    Gets information about a disk access resource.
     API Version: 2020-12-01.
 
 

@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * Lists the integration account callback URL.
+ */
 export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountCallbackUrlResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,6 +38,9 @@ export interface ListIntegrationAccountCallbackUrlResult {
      */
     readonly value?: string;
 }
+/**
+ * Lists the integration account callback URL.
+ */
 export function listIntegrationAccountCallbackUrlOutput(args: ListIntegrationAccountCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listIntegrationAccountCallbackUrl(a, opts))
 }

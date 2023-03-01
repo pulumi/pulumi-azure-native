@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
     public static class GetOfficeIRMDataConnector
     {
         /// <summary>
-        /// Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetOfficeIRMDataConnectorResult> InvokeAsync(GetOfficeIRMDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOfficeIRMDataConnectorResult>("azure-native:securityinsights/v20220901preview:getOfficeIRMDataConnector", args ?? new GetOfficeIRMDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetOfficeIRMDataConnectorResult> Invoke(GetOfficeIRMDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfficeIRMDataConnectorResult>("azure-native:securityinsights/v20220901preview:getOfficeIRMDataConnector", args ?? new GetOfficeIRMDataConnectorInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a relation between two resources
+ * Gets an incident relation.
  * API Version: 2021-03-01-preview.
  */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
@@ -88,7 +88,7 @@ export interface GetIncidentRelationResult {
     readonly type: string;
 }
 /**
- * Represents a relation between two resources
+ * Gets an incident relation.
  * API Version: 2021-03-01-preview.
  */
 export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentRelationResult> {

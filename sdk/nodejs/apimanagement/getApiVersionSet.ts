@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Api Version Set Contract details.
+ * Gets the details of the Api Version Set specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
@@ -71,7 +71,7 @@ export interface GetApiVersionSetResult {
     readonly versioningScheme: string;
 }
 /**
- * Api Version Set Contract details.
+ * Gets the details of the Api Version Set specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {

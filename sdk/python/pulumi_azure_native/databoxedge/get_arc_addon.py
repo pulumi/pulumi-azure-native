@@ -196,7 +196,7 @@ def get_arc_addon(addon_name: Optional[str] = None,
                   role_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArcAddonResult:
     """
-    Arc Addon.
+    Gets a specific addon by name.
     API Version: 2020-12-01.
 
 
@@ -236,7 +236,7 @@ def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                          role_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcAddonResult]:
     """
-    Arc Addon.
+    Gets a specific addon by name.
     API Version: 2020-12-01.
 
 

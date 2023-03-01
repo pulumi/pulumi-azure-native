@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An assessment created for a group in the Migration project.
+ * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
 
@@ -66,7 +66,7 @@ export interface GetAssessmentResult {
     readonly type: string;
 }
 /**
- * An assessment created for a group in the Migration project.
+ * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
     return pulumi.output(args).apply((a: any) => getAssessment(a, opts))

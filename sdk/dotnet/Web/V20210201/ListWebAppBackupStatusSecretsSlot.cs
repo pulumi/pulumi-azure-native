@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20210201
     public static class ListWebAppBackupStatusSecretsSlot
     {
         /// <summary>
-        /// Backup description.
+        /// Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
         /// </summary>
         public static Task<ListWebAppBackupStatusSecretsSlotResult> InvokeAsync(ListWebAppBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/v20210201:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Backup description.
+        /// Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
         /// </summary>
         public static Output<ListWebAppBackupStatusSecretsSlotResult> Invoke(ListWebAppBackupStatusSecretsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/v20210201:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotInvokeArgs(), options.WithDefaults());

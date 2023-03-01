@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Compute
     public static class GetLogAnalyticExportRequestRateByInterval
     {
         /// <summary>
-        /// LogAnalytics operation status response
+        /// Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetLogAnalyticExportRequestRateByIntervalResult> InvokeAsync(GetLogAnalyticExportRequestRateByIntervalArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithDefaults());
 
         /// <summary>
-        /// LogAnalytics operation status response
+        /// Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetLogAnalyticExportRequestRateByIntervalResult> Invoke(GetLogAnalyticExportRequestRateByIntervalInvokeArgs args, InvokeOptions? options = null)

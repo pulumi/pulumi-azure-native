@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     public static class GetFormulaResource
     {
         /// <summary>
-        /// A formula.
+        /// Get formula.
         /// </summary>
         public static Task<GetFormulaResourceResult> InvokeAsync(GetFormulaResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A formula.
+        /// Get formula.
         /// </summary>
         public static Output<GetFormulaResourceResult> Invoke(GetFormulaResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceInvokeArgs(), options.WithDefaults());

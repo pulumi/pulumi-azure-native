@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridContainerService
     public static class GetagentPool
     {
         /// <summary>
-        /// The agentPool resource definition
+        /// Gets the agent pool in the Hybrid AKS provisioned cluster
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetagentPoolResult> InvokeAsync(GetagentPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetagentPoolResult>("azure-native:hybridcontainerservice:getagentPool", args ?? new GetagentPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The agentPool resource definition
+        /// Gets the agent pool in the Hybrid AKS provisioned cluster
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetagentPoolResult> Invoke(GetagentPoolInvokeArgs args, InvokeOptions? options = null)

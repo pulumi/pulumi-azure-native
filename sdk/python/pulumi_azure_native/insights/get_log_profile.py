@@ -156,7 +156,7 @@ class AwaitableGetLogProfileResult(GetLogProfileResult):
 def get_log_profile(log_profile_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogProfileResult:
     """
-    The log profile resource.
+    Gets the log profile.
     API Version: 2016-03-01.
 
 
@@ -184,7 +184,7 @@ def get_log_profile(log_profile_name: Optional[str] = None,
 def get_log_profile_output(log_profile_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogProfileResult]:
     """
-    The log profile resource.
+    Gets the log profile.
     API Version: 2016-03-01.
 
 

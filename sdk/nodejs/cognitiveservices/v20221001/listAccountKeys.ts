@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The access keys for the cognitive services account.
+ * Lists the account keys for the specified Cognitive Services account.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
 
@@ -41,7 +41,7 @@ export interface ListAccountKeysResult {
     readonly key2?: string;
 }
 /**
- * The access keys for the cognitive services account.
+ * Lists the account keys for the specified Cognitive Services account.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))

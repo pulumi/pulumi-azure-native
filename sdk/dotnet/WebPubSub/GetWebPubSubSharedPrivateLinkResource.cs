@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.WebPubSub
     public static class GetWebPubSubSharedPrivateLinkResource
     {
         /// <summary>
-        /// Describes a Shared Private Link Resource
+        /// Get the specified shared private link resource
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetWebPubSubSharedPrivateLinkResourceResult> InvokeAsync(GetWebPubSubSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Shared Private Link Resource
+        /// Get the specified shared private link resource
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetWebPubSubSharedPrivateLinkResourceResult> Invoke(GetWebPubSubSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)

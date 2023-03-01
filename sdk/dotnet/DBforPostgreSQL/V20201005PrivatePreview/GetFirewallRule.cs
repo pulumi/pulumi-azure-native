@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
     public static class GetFirewallRule
     {
         /// <summary>
-        /// Represents a server group firewall rule.
+        /// Gets information about a server group firewall rule.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbforpostgresql/v20201005privatepreview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a server group firewall rule.
+        /// Gets information about a server group firewall rule.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbforpostgresql/v20201005privatepreview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());

@@ -325,7 +325,7 @@ def get_topic(namespace_name: Optional[str] = None,
               topic_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
-    Description of topic resource.
+    Returns a description for the specified topic.
 
 
     :param str namespace_name: The namespace name
@@ -373,7 +373,7 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      topic_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
-    Description of topic resource.
+    Returns a description for the specified topic.
 
 
     :param str namespace_name: The namespace name

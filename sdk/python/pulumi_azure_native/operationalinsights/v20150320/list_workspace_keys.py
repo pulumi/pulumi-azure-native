@@ -60,7 +60,7 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    The shared keys for a workspace.
+    Gets the shared keys for a Log Analytics Workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace.
 
 
     :param str resource_group_name: The Resource Group name.
@@ -82,7 +82,7 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] 
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
-    The shared keys for a workspace.
+    Gets the shared keys for a Log Analytics Workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace.
 
 
     :param str resource_group_name: The Resource Group name.

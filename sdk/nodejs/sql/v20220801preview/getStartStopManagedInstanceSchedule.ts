@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Managed instance's Start/Stop schedule.
+ * Gets the managed instance's Start/Stop schedule.
  */
 export function getStartStopManagedInstanceSchedule(args: GetStartStopManagedInstanceScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetStartStopManagedInstanceScheduleResult> {
 
@@ -77,7 +77,7 @@ export interface GetStartStopManagedInstanceScheduleResult {
     readonly type: string;
 }
 /**
- * Managed instance's Start/Stop schedule.
+ * Gets the managed instance's Start/Stop schedule.
  */
 export function getStartStopManagedInstanceScheduleOutput(args: GetStartStopManagedInstanceScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStartStopManagedInstanceScheduleResult> {
     return pulumi.output(args).apply((a: any) => getStartStopManagedInstanceSchedule(a, opts))

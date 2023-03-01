@@ -85,7 +85,7 @@ def get_virtual_network_rule(account_name: Optional[str] = None,
                              virtual_network_rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
-    Data Lake Store virtual network rule information.
+    Gets the specified Data Lake Store virtual network rule.
     API Version: 2016-11-01.
 
 
@@ -113,7 +113,7 @@ def get_virtual_network_rule_output(account_name: Optional[pulumi.Input[str]] = 
                                     virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
-    Data Lake Store virtual network rule information.
+    Gets the specified Data Lake Store virtual network rule.
     API Version: 2016-11-01.
 
 

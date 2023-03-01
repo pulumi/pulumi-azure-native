@@ -206,7 +206,7 @@ def get_nat_gateway(expand: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewayResult:
     """
-    Nat Gateway resource.
+    Gets the specified nat gateway in a specified resource group.
     API Version: 2020-11-01.
 
 
@@ -244,7 +244,7 @@ def get_nat_gateway_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
-    Nat Gateway resource.
+    Gets the specified nat gateway in a specified resource group.
     API Version: 2020-11-01.
 
 

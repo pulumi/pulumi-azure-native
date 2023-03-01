@@ -145,7 +145,7 @@ def get_route(resource_group_name: Optional[str] = None,
               route_table_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
-    Route resource.
+    Gets the specified route from a route table.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -177,7 +177,7 @@ def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      route_table_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
-    Route resource.
+    Gets the specified route from a route table.
 
 
     :param str resource_group_name: The name of the resource group.

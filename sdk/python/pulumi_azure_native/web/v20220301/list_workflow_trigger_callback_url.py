@@ -111,7 +111,7 @@ def list_workflow_trigger_callback_url(name: Optional[str] = None,
                                        workflow_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowTriggerCallbackUrlResult:
     """
-    The workflow trigger callback URL.
+    Get the callback URL for a workflow trigger.
 
 
     :param str name: Site name.
@@ -143,7 +143,7 @@ def list_workflow_trigger_callback_url_output(name: Optional[pulumi.Input[str]] 
                                               workflow_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowTriggerCallbackUrlResult]:
     """
-    The workflow trigger callback URL.
+    Get the callback URL for a workflow trigger.
 
 
     :param str name: Site name.

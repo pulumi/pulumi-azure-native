@@ -230,7 +230,7 @@ def get_public_ip_prefix(expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPPrefixResult:
     """
-    Public IP prefix resource.
+    Gets the specified public IP prefix in a specified resource group.
 
 
     :param str expand: Expands referenced resources.
@@ -269,7 +269,7 @@ def get_public_ip_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPPrefixResult]:
     """
-    Public IP prefix resource.
+    Gets the specified public IP prefix in a specified resource group.
 
 
     :param str expand: Expands referenced resources.

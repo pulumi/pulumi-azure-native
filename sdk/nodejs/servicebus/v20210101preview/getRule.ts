@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of Rule Resource.
+ * Retrieves the description for the specified rule.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
 
@@ -83,7 +83,7 @@ export interface GetRuleResult {
     readonly type: string;
 }
 /**
- * Description of Rule Resource.
+ * Retrieves the description for the specified rule.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply((a: any) => getRule(a, opts))

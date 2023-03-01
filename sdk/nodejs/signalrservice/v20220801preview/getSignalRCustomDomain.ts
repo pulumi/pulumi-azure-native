@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A custom domain
+ * Get a custom domain.
  */
 export function getSignalRCustomDomain(args: GetSignalRCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRCustomDomainResult> {
 
@@ -69,7 +69,7 @@ export interface GetSignalRCustomDomainResult {
     readonly type: string;
 }
 /**
- * A custom domain
+ * Get a custom domain.
  */
 export function getSignalRCustomDomainOutput(args: GetSignalRCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getSignalRCustomDomain(a, opts))

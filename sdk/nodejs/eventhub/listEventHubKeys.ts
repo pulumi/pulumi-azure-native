@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Namespace/EventHub Connection String
+ * Gets the ACS and SAS connection strings for the Event Hub.
  * API Version: 2017-04-01.
  */
 export function listEventHubKeys(args: ListEventHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEventHubKeysResult> {
@@ -72,7 +72,7 @@ export interface ListEventHubKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Namespace/EventHub Connection String
+ * Gets the ACS and SAS connection strings for the Event Hub.
  * API Version: 2017-04-01.
  */
 export function listEventHubKeysOutput(args: ListEventHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEventHubKeysResult> {

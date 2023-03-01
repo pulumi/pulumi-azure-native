@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Gets an application control VM/server group.
  * API Version: 2020-01-01.
  */
 export function getAdaptiveApplicationControl(args: GetAdaptiveApplicationControlArgs, opts?: pulumi.InvokeOptions): Promise<GetAdaptiveApplicationControlResult> {
@@ -72,6 +73,7 @@ export interface GetAdaptiveApplicationControlResult {
     readonly vmRecommendations?: outputs.security.VmRecommendationResponse[];
 }
 /**
+ * Gets an application control VM/server group.
  * API Version: 2020-01-01.
  */
 export function getAdaptiveApplicationControlOutput(args: GetAdaptiveApplicationControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdaptiveApplicationControlResult> {

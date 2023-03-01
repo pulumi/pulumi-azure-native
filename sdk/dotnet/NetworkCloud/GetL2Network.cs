@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     public static class GetL2Network
     {
         /// <summary>
-        /// 
+        /// Get properties of the provided layer 2 (L2) network.
         /// API Version: 2022-12-12-preview.
         /// </summary>
         public static Task<GetL2NetworkResult> InvokeAsync(GetL2NetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Get properties of the provided layer 2 (L2) network.
         /// API Version: 2022-12-12-preview.
         /// </summary>
         public static Output<GetL2NetworkResult> Invoke(GetL2NetworkInvokeArgs args, InvokeOptions? options = null)

@@ -96,7 +96,7 @@ def list_service_test_keys(resource_group_name: Optional[str] = None,
                            service_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServiceTestKeysResult:
     """
-    Test keys payload
+    List test keys for a Service.
     API Version: 2020-07-01.
 
 
@@ -122,7 +122,7 @@ def list_service_test_keys_output(resource_group_name: Optional[pulumi.Input[str
                                   service_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceTestKeysResult]:
     """
-    Test keys payload
+    List test keys for a Service.
     API Version: 2020-07-01.
 
 

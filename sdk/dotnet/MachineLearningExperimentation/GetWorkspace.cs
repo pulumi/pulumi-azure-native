@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
     public static class GetWorkspace
     {
         /// <summary>
-        /// An object that represents a machine learning team account workspace.
+        /// Gets the properties of the specified machine learning workspace.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearningexperimentation:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An object that represents a machine learning team account workspace.
+        /// Gets the properties of the specified machine learning workspace.
         /// API Version: 2017-05-01-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)

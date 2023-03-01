@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevCenter
     public static class GetEnvironmentType
     {
         /// <summary>
-        /// Represents an environment type.
+        /// Gets an environment type.
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetEnvironmentTypeResult> InvokeAsync(GetEnvironmentTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentTypeResult>("azure-native:devcenter:getEnvironmentType", args ?? new GetEnvironmentTypeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an environment type.
+        /// Gets an environment type.
         /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetEnvironmentTypeResult> Invoke(GetEnvironmentTypeInvokeArgs args, InvokeOptions? options = null)

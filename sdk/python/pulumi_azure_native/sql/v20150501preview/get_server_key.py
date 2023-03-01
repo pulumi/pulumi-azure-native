@@ -157,7 +157,7 @@ def get_server_key(key_name: Optional[str] = None,
                    server_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerKeyResult:
     """
-    A server key.
+    Gets a server key.
 
 
     :param str key_name: The name of the server key to be retrieved.
@@ -190,7 +190,7 @@ def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
                           server_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerKeyResult]:
     """
-    A server key.
+    Gets a server key.
 
 
     :param str key_name: The name of the server key to be retrieved.

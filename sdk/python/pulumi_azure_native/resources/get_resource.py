@@ -172,7 +172,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
                  resource_type: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Resource information.
+    Gets a resource.
     API Version: 2019-05-01.
 
 
@@ -213,7 +213,7 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
                         resource_type: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Resource information.
+    Gets a resource.
     API Version: 2019-05-01.
 
 

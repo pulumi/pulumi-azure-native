@@ -49,7 +49,7 @@ def list_cluster_language_extensions(cluster_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterLanguageExtensionsResult:
     """
-    The list of language extension objects.
+    Returns a list of language extensions that can run within KQL queries.
     API Version: 2021-01-01.
 
 
@@ -71,7 +71,7 @@ def list_cluster_language_extensions_output(cluster_name: Optional[pulumi.Input[
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterLanguageExtensionsResult]:
     """
-    The list of language extension objects.
+    Returns a list of language extensions that can run within KQL queries.
     API Version: 2021-01-01.
 
 

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform.V20220404Preview
     public static class ListEnergyServicePartitions
     {
         /// <summary>
-        /// List of data partitions.
+        /// Method that gets called when list of partitions is requested.
         /// </summary>
         public static Task<ListEnergyServicePartitionsResult> InvokeAsync(ListEnergyServicePartitionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEnergyServicePartitionsResult>("azure-native:openenergyplatform/v20220404preview:listEnergyServicePartitions", args ?? new ListEnergyServicePartitionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List of data partitions.
+        /// Method that gets called when list of partitions is requested.
         /// </summary>
         public static Output<ListEnergyServicePartitionsResult> Invoke(ListEnergyServicePartitionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEnergyServicePartitionsResult>("azure-native:openenergyplatform/v20220404preview:listEnergyServicePartitions", args ?? new ListEnergyServicePartitionsInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Namespace/ServiceBus Connection String
+ * Gets the primary and secondary connection strings for the topic.
  * API Version: 2017-04-01.
  */
 export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicKeysResult> {
@@ -72,7 +72,7 @@ export interface ListTopicKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Namespace/ServiceBus Connection String
+ * Gets the primary and secondary connection strings for the topic.
  * API Version: 2017-04-01.
  */
 export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicKeysResult> {

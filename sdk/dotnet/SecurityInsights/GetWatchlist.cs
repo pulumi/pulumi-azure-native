@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class GetWatchlist
     {
         /// <summary>
-        /// Represents a Watchlist in Azure Security Insights.
+        /// Gets a watchlist, without its watchlist items.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a Watchlist in Azure Security Insights.
+        /// Gets a watchlist, without its watchlist items.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOptions? options = null)

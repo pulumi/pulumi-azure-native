@@ -119,7 +119,7 @@ def get_cassandra_resource_cassandra_table(account_name: Optional[str] = None,
                                            table_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraResourceCassandraTableResult:
     """
-    An Azure Cosmos DB Cassandra table.
+    Gets the Cassandra table under an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -153,7 +153,7 @@ def get_cassandra_resource_cassandra_table_output(account_name: Optional[pulumi.
                                                   table_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraResourceCassandraTableResult]:
     """
-    An Azure Cosmos DB Cassandra table.
+    Gets the Cassandra table under an existing Azure Cosmos DB database account.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents Office Microsoft PowerBI data connector.
+ * Gets a data connector.
  */
 export function getOfficePowerBIDataConnector(args: GetOfficePowerBIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficePowerBIDataConnectorResult> {
 
@@ -74,7 +74,7 @@ export interface GetOfficePowerBIDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents Office Microsoft PowerBI data connector.
+ * Gets a data connector.
  */
 export function getOfficePowerBIDataConnectorOutput(args: GetOfficePowerBIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficePowerBIDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOfficePowerBIDataConnector(a, opts))

@@ -157,7 +157,7 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
                                   security_partner_provider_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPartnerProviderResult:
     """
-    Security Partner Provider resource.
+    Gets the specified Security Partner Provider.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -187,7 +187,7 @@ def get_security_partner_provider_output(resource_group_name: Optional[pulumi.In
                                          security_partner_provider_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityPartnerProviderResult]:
     """
-    Security Partner Provider resource.
+    Gets the specified Security Partner Provider.
 
 
     :param str resource_group_name: The name of the resource group.

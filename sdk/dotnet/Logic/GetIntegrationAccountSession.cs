@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Logic
     public static class GetIntegrationAccountSession
     {
         /// <summary>
-        /// The integration account session.
+        /// Gets an integration account session.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountSessionResult> InvokeAsync(GetIntegrationAccountSessionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSessionResult>("azure-native:logic:getIntegrationAccountSession", args ?? new GetIntegrationAccountSessionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The integration account session.
+        /// Gets an integration account session.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationAccountSessionResult> Invoke(GetIntegrationAccountSessionInvokeArgs args, InvokeOptions? options = null)

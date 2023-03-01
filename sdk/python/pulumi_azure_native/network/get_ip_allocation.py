@@ -194,7 +194,7 @@ def get_ip_allocation(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpAllocationResult:
     """
-    IpAllocation resource.
+    Gets the specified IpAllocation by resource group.
     API Version: 2020-11-01.
 
 
@@ -231,7 +231,7 @@ def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAllocationResult]:
     """
-    IpAllocation resource.
+    Gets the specified IpAllocation by resource group.
     API Version: 2020-11-01.
 
 

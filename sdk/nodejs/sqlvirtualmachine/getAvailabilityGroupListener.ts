@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A SQL Server availability group listener.
+ * Gets an availability group listener.
  * API Version: 2017-03-01-preview.
  */
 export function getAvailabilityGroupListener(args: GetAvailabilityGroupListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityGroupListenerResult> {
@@ -74,7 +74,7 @@ export interface GetAvailabilityGroupListenerResult {
     readonly type: string;
 }
 /**
- * A SQL Server availability group listener.
+ * Gets an availability group listener.
  * API Version: 2017-03-01-preview.
  */
 export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {

@@ -145,7 +145,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionHostResult:
     """
-    Bastion Host resource.
+    Gets the specified Bastion Host.
     API Version: 2020-11-01.
 
 
@@ -175,7 +175,7 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
     """
-    Bastion Host resource.
+    Gets the specified Bastion Host.
     API Version: 2020-11-01.
 
 

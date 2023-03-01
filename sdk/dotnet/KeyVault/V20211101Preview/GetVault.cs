@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.KeyVault.V20211101Preview
     public static class GetVault
     {
         /// <summary>
-        /// Resource information with extended details.
+        /// Gets the specified Azure key vault.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:keyvault/v20211101preview:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource information with extended details.
+        /// Gets the specified Azure key vault.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault/v20211101preview:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());

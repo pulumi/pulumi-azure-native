@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Storage
     public static class GetQueue
     {
         /// <summary>
-        /// 
+        /// Gets the queue with the specified queue name, under the specified account if it exists.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Gets the queue with the specified queue name, under the specified account if it exists.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)

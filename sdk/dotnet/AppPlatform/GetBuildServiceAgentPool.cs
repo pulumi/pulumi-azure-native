@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppPlatform
     public static class GetBuildServiceAgentPool
     {
         /// <summary>
-        /// The build service agent pool resource
+        /// Get build service agent pool.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetBuildServiceAgentPoolResult> InvokeAsync(GetBuildServiceAgentPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceAgentPoolResult>("azure-native:appplatform:getBuildServiceAgentPool", args ?? new GetBuildServiceAgentPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The build service agent pool resource
+        /// Get build service agent pool.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetBuildServiceAgentPoolResult> Invoke(GetBuildServiceAgentPoolInvokeArgs args, InvokeOptions? options = null)

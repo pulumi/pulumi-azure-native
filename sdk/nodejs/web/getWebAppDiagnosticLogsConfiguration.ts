@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Configuration of App Service site logs.
+ * Gets the logging configuration of an app.
  * API Version: 2020-12-01.
  */
 export function getWebAppDiagnosticLogsConfiguration(args: GetWebAppDiagnosticLogsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDiagnosticLogsConfigurationResult> {
@@ -69,7 +69,7 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
     readonly type: string;
 }
 /**
- * Configuration of App Service site logs.
+ * Gets the logging configuration of an app.
  * API Version: 2020-12-01.
  */
 export function getWebAppDiagnosticLogsConfigurationOutput(args: GetWebAppDiagnosticLogsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationResult> {

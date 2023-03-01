@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class GetQueue
     {
         /// <summary>
-        /// Description of queue Resource.
+        /// Returns a description for the specified queue.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of queue Resource.
+        /// Returns a description for the specified queue.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)

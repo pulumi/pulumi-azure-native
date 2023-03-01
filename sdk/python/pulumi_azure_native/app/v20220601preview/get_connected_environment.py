@@ -193,7 +193,7 @@ def get_connected_environment(connected_environment_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedEnvironmentResult:
     """
-    An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+    Get the properties of an connectedEnvironment.
 
 
     :param str connected_environment_name: Name of the connectedEnvironment.
@@ -226,7 +226,7 @@ def get_connected_environment_output(connected_environment_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentResult]:
     """
-    An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+    Get the properties of an connectedEnvironment.
 
 
     :param str connected_environment_name: Name of the connectedEnvironment.

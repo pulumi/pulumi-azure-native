@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataFactory
     public static class GetGlobalParameter
     {
         /// <summary>
-        /// Global parameters resource type.
+        /// Gets a Global parameter
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetGlobalParameterResult> InvokeAsync(GetGlobalParameterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalParameterResult>("azure-native:datafactory:getGlobalParameter", args ?? new GetGlobalParameterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Global parameters resource type.
+        /// Gets a Global parameter
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetGlobalParameterResult> Invoke(GetGlobalParameterInvokeArgs args, InvokeOptions? options = null)

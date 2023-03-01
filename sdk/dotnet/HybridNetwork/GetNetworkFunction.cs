@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridNetwork
     public static class GetNetworkFunction
     {
         /// <summary>
-        /// Network function resource response.
+        /// Gets information about the specified network function resource.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetNetworkFunctionResult> InvokeAsync(GetNetworkFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Network function resource response.
+        /// Gets information about the specified network function resource.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOptions? options = null)

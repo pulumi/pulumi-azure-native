@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the credential.
+ * Retrieve the credential identified by credential name.
  * API Version: 2019-06-01.
  */
 export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialResult> {
@@ -67,7 +67,7 @@ export interface GetCredentialResult {
     readonly userName: string;
 }
 /**
- * Definition of the credential.
+ * Retrieve the credential identified by credential name.
  * API Version: 2019-06-01.
  */
 export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialResult> {

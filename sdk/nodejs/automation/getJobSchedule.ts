@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the job schedule.
+ * Retrieve the job schedule identified by job schedule name.
  * API Version: 2019-06-01.
  */
 export function getJobSchedule(args: GetJobScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetJobScheduleResult> {
@@ -74,7 +74,7 @@ export interface GetJobScheduleResult {
     readonly type: string;
 }
 /**
- * Definition of the job schedule.
+ * Retrieve the job schedule identified by job schedule name.
  * API Version: 2019-06-01.
  */
 export function getJobScheduleOutput(args: GetJobScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobScheduleResult> {

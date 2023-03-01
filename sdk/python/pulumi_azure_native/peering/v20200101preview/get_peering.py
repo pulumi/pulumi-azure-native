@@ -171,7 +171,7 @@ def get_peering(peering_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringResult:
     """
-    Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+    Gets an existing peering with the specified name under the given subscription and resource group.
 
 
     :param str peering_name: The name of the peering.
@@ -203,7 +203,7 @@ def get_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringResult]:
     """
-    Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+    Gets an existing peering with the specified name under the given subscription and resource group.
 
 
     :param str peering_name: The name of the peering.

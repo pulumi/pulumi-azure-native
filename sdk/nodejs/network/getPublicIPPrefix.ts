@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Public IP prefix resource.
+ * Gets the specified public IP prefix in a specified resource group.
  * API Version: 2020-11-01.
  */
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
@@ -118,7 +118,7 @@ export interface GetPublicIPPrefixResult {
     readonly zones?: string[];
 }
 /**
- * Public IP prefix resource.
+ * Gets the specified public IP prefix in a specified resource group.
  * API Version: 2020-11-01.
  */
 export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {

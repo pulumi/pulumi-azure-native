@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Build result log resource properties payload
+ * Get a KPack build result log download URL.
  * API Version: 2022-01-01-preview.
  */
 export function getBuildServiceBuildResultLog(args: GetBuildServiceBuildResultLogArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuildResultLogResult> {
@@ -53,7 +53,7 @@ export interface GetBuildServiceBuildResultLogResult {
     readonly blobUrl?: string;
 }
 /**
- * Build result log resource properties payload
+ * Get a KPack build result log download URL.
  * API Version: 2022-01-01-preview.
  */
 export function getBuildServiceBuildResultLogOutput(args: GetBuildServiceBuildResultLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuildResultLogResult> {

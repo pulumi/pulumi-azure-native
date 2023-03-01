@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
     public static class GetServerGroup
     {
         /// <summary>
-        /// Represents a server group for create.
+        /// Gets information about a server group.
         /// </summary>
         public static Task<GetServerGroupResult> InvokeAsync(GetServerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerGroupResult>("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a server group for create.
+        /// Gets information about a server group.
         /// </summary>
         public static Output<GetServerGroupResult> Invoke(GetServerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerGroupResult>("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupInvokeArgs(), options.WithDefaults());

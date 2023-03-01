@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network slice resource.
+ * Gets information about the specified network slice.
  */
 export function getSlice(args: GetSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetSliceResult> {
 
@@ -101,7 +101,7 @@ export interface GetSliceResult {
     readonly type: string;
 }
 /**
- * Network slice resource.
+ * Gets information about the specified network slice.
  */
 export function getSliceOutput(args: GetSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSliceResult> {
     return pulumi.output(args).apply((a: any) => getSlice(a, opts))

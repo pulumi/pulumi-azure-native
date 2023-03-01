@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of hybrid runbook worker group.
+ * Retrieve a hybrid runbook worker group.
  * API Version: 2021-06-22.
  */
 export function getHybridRunbookWorkerGroup(args: GetHybridRunbookWorkerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridRunbookWorkerGroupResult> {
@@ -70,7 +70,7 @@ export interface GetHybridRunbookWorkerGroupResult {
     readonly type: string;
 }
 /**
- * Definition of hybrid runbook worker group.
+ * Retrieve a hybrid runbook worker group.
  * API Version: 2021-06-22.
  */
 export function getHybridRunbookWorkerGroupOutput(args: GetHybridRunbookWorkerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerGroupResult> {

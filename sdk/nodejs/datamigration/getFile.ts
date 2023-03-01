@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A file resource
+ * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
  * API Version: 2018-07-15-preview.
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
@@ -67,7 +67,7 @@ export interface GetFileResult {
     readonly type: string;
 }
 /**
- * A file resource
+ * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
  * API Version: 2018-07-15-preview.
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {

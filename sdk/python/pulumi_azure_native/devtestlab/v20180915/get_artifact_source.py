@@ -230,7 +230,7 @@ def get_artifact_source(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactSourceResult:
     """
-    Properties of an artifact source.
+    Get artifact source.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=displayName)'
@@ -272,7 +272,7 @@ def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArtifactSourceResult]:
     """
-    Properties of an artifact source.
+    Get artifact source.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=displayName)'

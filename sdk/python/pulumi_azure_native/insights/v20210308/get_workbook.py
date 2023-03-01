@@ -265,7 +265,7 @@ def get_workbook(resource_group_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
-    An Application Insights workbook definition.
+    Get a single workbook by its resourceName.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -304,7 +304,7 @@ def get_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
     """
-    An Application Insights workbook definition.
+    Get a single workbook by its resourceName.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

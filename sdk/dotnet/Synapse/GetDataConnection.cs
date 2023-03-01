@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class GetDataConnection
     {
         /// <summary>
-        /// Class representing a data connection.
+        /// Returns a data connection.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetDataConnectionResult> InvokeAsync(GetDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-native:synapse:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a data connection.
+        /// Returns a data connection.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetDataConnectionResult> Invoke(GetDataConnectionInvokeArgs args, InvokeOptions? options = null)

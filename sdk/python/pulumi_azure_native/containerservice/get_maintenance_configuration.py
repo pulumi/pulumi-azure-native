@@ -110,7 +110,7 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   resource_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
-    maintenance configuration.
+    Gets the details of maintenance configurations by managed cluster and resource group.
     API Version: 2021-03-01.
 
 
@@ -140,7 +140,7 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
                                          resource_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
-    maintenance configuration.
+    Gets the details of maintenance configurations by managed cluster and resource group.
     API Version: 2021-03-01.
 
 

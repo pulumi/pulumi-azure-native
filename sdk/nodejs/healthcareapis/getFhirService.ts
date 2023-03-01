@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The description of Fhir Service
+ * Gets the properties of the specified FHIR Service.
  * API Version: 2022-05-15.
  */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
@@ -118,7 +118,7 @@ export interface GetFhirServiceResult {
     readonly type: string;
 }
 /**
- * The description of Fhir Service
+ * Gets the properties of the specified FHIR Service.
  * API Version: 2022-05-15.
  */
 export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirServiceResult> {

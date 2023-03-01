@@ -122,7 +122,7 @@ def get_private_endpoint_connections_adt_api(private_endpoint_connection_name: O
                                              resource_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionsAdtAPIResult:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
     API Version: 2021-03-08.
 
 
@@ -153,7 +153,7 @@ def get_private_endpoint_connections_adt_api_output(private_endpoint_connection_
                                                     resource_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionsAdtAPIResult]:
     """
-    The Private Endpoint Connection resource.
+    Gets the specified private endpoint connection associated with the service.
     API Version: 2021-03-08.
 
 

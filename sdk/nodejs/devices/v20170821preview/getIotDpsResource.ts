@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The description of the provisioning service.
+ * Get the non-security related metadata of the provisioning service.
  */
 /** @deprecated Version 2017-08-21-preview will be removed in v2 of the provider. */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
@@ -67,7 +67,7 @@ export interface GetIotDpsResourceResult {
     readonly type: string;
 }
 /**
- * The description of the provisioning service.
+ * Get the non-security related metadata of the provisioning service.
  */
 /** @deprecated Version 2017-08-21-preview will be removed in v2 of the provider. */
 export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {

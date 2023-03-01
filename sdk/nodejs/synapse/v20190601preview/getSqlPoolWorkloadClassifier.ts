@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Workload classifier operations for a data warehouse
+ * Get a workload classifier of Sql pool's workload group.
  */
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadClassifierResult> {
@@ -86,7 +86,7 @@ export interface GetSqlPoolWorkloadClassifierResult {
     readonly type: string;
 }
 /**
- * Workload classifier operations for a data warehouse
+ * Get a workload classifier of Sql pool's workload group.
  */
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolWorkloadClassifierOutput(args: GetSqlPoolWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadClassifierResult> {

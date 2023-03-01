@@ -157,7 +157,7 @@ def getprivate_link_services_for_m365_security_center(resource_group_name: Optio
                                                       resource_name: Optional[str] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForM365SecurityCenterResult:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
     API Version: 2021-03-25-preview.
 
 
@@ -188,7 +188,7 @@ def getprivate_link_services_for_m365_security_center_output(resource_group_name
                                                              resource_name: Optional[pulumi.Input[str]] = None,
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetprivateLinkServicesForM365SecurityCenterResult]:
     """
-    The description of the service.
+    Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
     API Version: 2021-03-25-preview.
 
 

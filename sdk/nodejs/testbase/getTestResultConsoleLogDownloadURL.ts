@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * The response of getting a download URL.
+ * Gets the download URL of the test execution console log file.
  * API Version: 2022-04-01-preview.
  */
 export function getTestResultConsoleLogDownloadURL(args: GetTestResultConsoleLogDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultConsoleLogDownloadURLResult> {
@@ -57,7 +57,7 @@ export interface GetTestResultConsoleLogDownloadURLResult {
     readonly expirationTime: string;
 }
 /**
- * The response of getting a download URL.
+ * Gets the download URL of the test execution console log file.
  * API Version: 2022-04-01-preview.
  */
 export function getTestResultConsoleLogDownloadURLOutput(args: GetTestResultConsoleLogDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultConsoleLogDownloadURLResult> {

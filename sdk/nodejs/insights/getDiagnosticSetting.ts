@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The diagnostic setting resource.
+ * Gets the active diagnostic settings for the specified resource.
  * API Version: 2017-05-01-preview.
  */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
@@ -81,7 +81,7 @@ export interface GetDiagnosticSettingResult {
     readonly workspaceId?: string;
 }
 /**
- * The diagnostic setting resource.
+ * Gets the active diagnostic settings for the specified resource.
  * API Version: 2017-05-01-preview.
  */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {

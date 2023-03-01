@@ -50,7 +50,7 @@ def list_device_failover_sets(device_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverSetsResult:
     """
-    The list of failover sets.
+    Returns all failover sets for a given device and their eligibility for participating in a failover. A failover set refers to a set of volume containers that need to be failed-over as a single unit to maintain data integrity.
 
 
     :param str device_name: The device name
@@ -74,7 +74,7 @@ def list_device_failover_sets_output(device_name: Optional[pulumi.Input[str]] = 
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceFailoverSetsResult]:
     """
-    The list of failover sets.
+    Returns all failover sets for a given device and their eligibility for participating in a failover. A failover set refers to a set of volume containers that need to be failed-over as a single unit to maintain data integrity.
 
 
     :param str device_name: The device name

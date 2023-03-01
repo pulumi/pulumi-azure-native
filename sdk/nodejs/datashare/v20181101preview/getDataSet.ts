@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A DataSet data transfer object.
+ * Get a DataSet in a share
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
@@ -61,7 +61,7 @@ export interface GetDataSetResult {
     readonly type: string;
 }
 /**
- * A DataSet data transfer object.
+ * Get a DataSet in a share
  */
 /** @deprecated Version 2018-11-01-preview will be removed in v2 of the provider. */
 export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {

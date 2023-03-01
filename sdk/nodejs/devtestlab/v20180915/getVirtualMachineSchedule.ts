@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A schedule.
+ * Get schedule.
  */
 export function getVirtualMachineSchedule(args: GetVirtualMachineScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScheduleResult> {
 
@@ -115,7 +115,7 @@ export interface GetVirtualMachineScheduleResult {
     readonly weeklyRecurrence?: outputs.devtestlab.v20180915.WeekDetailsResponse;
 }
 /**
- * A schedule.
+ * Get schedule.
  */
 export function getVirtualMachineScheduleOutput(args: GetVirtualMachineScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScheduleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineSchedule(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Agent resource.
+ * Gets an Agent resource.
  * API Version: 2022-07-01-preview.
  */
 export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
@@ -103,7 +103,7 @@ export interface GetAgentResult {
     readonly uptimeInSeconds: number;
 }
 /**
- * The Agent resource.
+ * Gets an Agent resource.
  * API Version: 2022-07-01-preview.
  */
 export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220930Preview
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Private Endpoint Connection Response Properties
+        /// Get Private Endpoint Connection. This call is made by Backup Admin.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:recoveryservices/v20220930preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private Endpoint Connection Response Properties
+        /// Get Private Endpoint Connection. This call is made by Backup Admin.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:recoveryservices/v20220930preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

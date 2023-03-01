@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Policy Contract details.
+ * Get the policy configuration at the Product level.
  */
 export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProductPolicyResult> {
 
@@ -63,7 +63,7 @@ export interface GetProductPolicyResult {
     readonly type: string;
 }
 /**
- * Policy Contract details.
+ * Get the policy configuration at the Product level.
  */
 export function getProductPolicyOutput(args: GetProductPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductPolicyResult> {
     return pulumi.output(args).apply((a: any) => getProductPolicy(a, opts))

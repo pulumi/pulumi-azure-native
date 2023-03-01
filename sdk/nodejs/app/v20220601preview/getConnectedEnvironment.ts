@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+ * Get the properties of an connectedEnvironment.
  */
 export function getConnectedEnvironment(args: GetConnectedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentResult> {
 
@@ -88,7 +88,7 @@ export interface GetConnectedEnvironmentResult {
     readonly type: string;
 }
 /**
- * An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+ * Get the properties of an connectedEnvironment.
  */
 export function getConnectedEnvironmentOutput(args: GetConnectedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getConnectedEnvironment(a, opts))

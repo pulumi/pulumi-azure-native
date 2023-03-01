@@ -48,7 +48,7 @@ class AwaitableGetConsoleResult(GetConsoleResult):
 def get_console(console_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleResult:
     """
-    Cloud shell console
+    Gets the console for the user.
 
 
     :param str console_name: The name of the console
@@ -66,7 +66,7 @@ def get_console(console_name: Optional[str] = None,
 def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleResult]:
     """
-    Cloud shell console
+    Gets the console for the user.
 
 
     :param str console_name: The name of the console

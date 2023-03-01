@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DigitalTwins
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// The private endpoint connection of a Digital Twin.
+        /// Get private endpoint connection properties for the given private endpoint.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:digitaltwins:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The private endpoint connection of a Digital Twin.
+        /// Get private endpoint connection properties for the given private endpoint.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

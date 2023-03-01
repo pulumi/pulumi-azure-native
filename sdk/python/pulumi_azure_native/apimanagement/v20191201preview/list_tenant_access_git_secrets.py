@@ -85,7 +85,7 @@ def list_tenant_access_git_secrets(access_name: Optional[str] = None,
                                    service_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTenantAccessGitSecretsResult:
     """
-    Tenant access information contract of the API Management service.
+    Gets the Git access configuration for the tenant.
 
 
     :param str access_name: The identifier of the Access configuration.
@@ -112,7 +112,7 @@ def list_tenant_access_git_secrets_output(access_name: Optional[pulumi.Input[str
                                           service_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTenantAccessGitSecretsResult]:
     """
-    Tenant access information contract of the API Management service.
+    Gets the Git access configuration for the tenant.
 
 
     :param str access_name: The identifier of the Access configuration.

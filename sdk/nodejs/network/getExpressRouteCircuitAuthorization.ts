@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Authorization in an ExpressRouteCircuit resource.
+ * Gets the specified authorization from the specified express route circuit.
  * API Version: 2020-11-01.
  */
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
@@ -67,7 +67,7 @@ export interface GetExpressRouteCircuitAuthorizationResult {
     readonly type: string;
 }
 /**
- * Authorization in an ExpressRouteCircuit resource.
+ * Gets the specified authorization from the specified express route circuit.
  * API Version: 2020-11-01.
  */
 export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {

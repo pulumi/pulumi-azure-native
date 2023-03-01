@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The batch configuration resource definition.
+ * Get a batch configuration for an integration account.
  * API Version: 2019-05-01.
  */
 export function getIntegrationAccountBatchConfiguration(args: GetIntegrationAccountBatchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountBatchConfigurationResult> {
@@ -66,7 +66,7 @@ export interface GetIntegrationAccountBatchConfigurationResult {
     readonly type: string;
 }
 /**
- * The batch configuration resource definition.
+ * Get a batch configuration for an integration account.
  * API Version: 2019-05-01.
  */
 export function getIntegrationAccountBatchConfigurationOutput(args: GetIntegrationAccountBatchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountBatchConfigurationResult> {

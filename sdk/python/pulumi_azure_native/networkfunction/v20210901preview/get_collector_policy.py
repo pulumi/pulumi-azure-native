@@ -134,7 +134,7 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCollectorPolicyResult:
     """
-    Collector policy resource.
+    Gets the collector policy in a specified Traffic Collector
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
@@ -165,7 +165,7 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollectorPolicyResult]:
     """
-    Collector policy resource.
+    Gets the collector policy in a specified Traffic Collector
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name

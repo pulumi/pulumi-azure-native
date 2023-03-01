@@ -156,7 +156,7 @@ class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
 def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionResult:
     """
-    The policy set definition.
+    This operation retrieves the policy set definition in the given subscription with the given name.
     API Version: 2020-09-01.
 
 
@@ -184,7 +184,7 @@ def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
 def get_policy_set_definition_output(policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
     """
-    The policy set definition.
+    This operation retrieves the policy set definition in the given subscription with the given name.
     API Version: 2020-09-01.
 
 

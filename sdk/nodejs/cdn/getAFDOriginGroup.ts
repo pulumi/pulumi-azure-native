@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ * Gets an existing origin group within a profile.
  * API Version: 2020-09-01.
  */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
@@ -83,7 +83,7 @@ export interface GetAFDOriginGroupResult {
     readonly type: string;
 }
 /**
- * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ * Gets an existing origin group within a profile.
  * API Version: 2020-09-01.
  */
 export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginGroupResult> {

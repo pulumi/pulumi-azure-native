@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetPrivateLinkServicePrivateEndpointConnection
     {
         /// <summary>
-        /// PrivateEndpointConnection resource.
+        /// Get the specific private end point connection by specific private link service in the resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetPrivateLinkServicePrivateEndpointConnectionResult> InvokeAsync(GetPrivateLinkServicePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicePrivateEndpointConnectionResult>("azure-native:network:getPrivateLinkServicePrivateEndpointConnection", args ?? new GetPrivateLinkServicePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// PrivateEndpointConnection resource.
+        /// Get the specific private end point connection by specific private link service in the resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetPrivateLinkServicePrivateEndpointConnectionResult> Invoke(GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

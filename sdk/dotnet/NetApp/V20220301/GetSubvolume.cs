@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NetApp.V20220301
     public static class GetSubvolume
     {
         /// <summary>
-        /// Subvolume Information properties
+        /// Returns the path associated with the subvolumeName provided
         /// </summary>
         public static Task<GetSubvolumeResult> InvokeAsync(GetSubvolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubvolumeResult>("azure-native:netapp/v20220301:getSubvolume", args ?? new GetSubvolumeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Subvolume Information properties
+        /// Returns the path associated with the subvolumeName provided
         /// </summary>
         public static Output<GetSubvolumeResult> Invoke(GetSubvolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubvolumeResult>("azure-native:netapp/v20220301:getSubvolume", args ?? new GetSubvolumeInvokeArgs(), options.WithDefaults());

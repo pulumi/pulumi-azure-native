@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Retrieve the automation keys for an account.
+ */
 export function listKeyByAutomationAccount(args: ListKeyByAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<ListKeyByAutomationAccountResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,6 +36,9 @@ export interface ListKeyByAutomationAccountResult {
      */
     readonly keys?: outputs.automation.v20210622.KeyResponse[];
 }
+/**
+ * Retrieve the automation keys for an account.
+ */
 export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKeyByAutomationAccountResult> {
     return pulumi.output(args).apply((a: any) => listKeyByAutomationAccount(a, opts))
 }

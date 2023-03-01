@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Site resource. Must be created in the same location as its parent mobile network.
+ * Gets information about the specified mobile network site.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
 
@@ -73,7 +73,7 @@ export interface GetSiteResult {
     readonly type: string;
 }
 /**
- * Site resource. Must be created in the same location as its parent mobile network.
+ * Gets information about the specified mobile network site.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))

@@ -44,7 +44,7 @@ class AwaitableListPrivateStoreSubscriptionsContextResult(ListPrivateStoreSubscr
 def list_private_store_subscriptions_context(private_store_id: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateStoreSubscriptionsContextResult:
     """
-    List of subscription Ids in the private store
+    List all the subscriptions in the private store context
     API Version: 2021-12-01.
 
 
@@ -63,7 +63,7 @@ def list_private_store_subscriptions_context(private_store_id: Optional[str] = N
 def list_private_store_subscriptions_context_output(private_store_id: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateStoreSubscriptionsContextResult]:
     """
-    List of subscription Ids in the private store
+    List all the subscriptions in the private store context
     API Version: 2021-12-01.
 
 

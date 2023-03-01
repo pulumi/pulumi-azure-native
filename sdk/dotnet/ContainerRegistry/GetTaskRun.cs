@@ -12,16 +12,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public static class GetTaskRun
     {
         /// <summary>
-        /// The task run that has the ARM resource and properties. 
-        /// The task run will have the information of request and result of a run.
+        /// Gets the detailed information for a given task run.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetTaskRunResult> InvokeAsync(GetTaskRunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskRunResult>("azure-native:containerregistry:getTaskRun", args ?? new GetTaskRunArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The task run that has the ARM resource and properties. 
-        /// The task run will have the information of request and result of a run.
+        /// Gets the detailed information for a given task run.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetTaskRunResult> Invoke(GetTaskRunInvokeArgs args, InvokeOptions? options = null)

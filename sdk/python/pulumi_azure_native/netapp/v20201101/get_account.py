@@ -147,7 +147,7 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    NetApp account resource
+    Get the NetApp account
 
 
     :param str account_name: The name of the NetApp account
@@ -177,7 +177,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    NetApp account resource
+    Get the NetApp account
 
 
     :param str account_name: The name of the NetApp account

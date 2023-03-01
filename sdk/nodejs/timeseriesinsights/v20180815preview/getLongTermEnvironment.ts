@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
+ * Gets the environment with the specified name in the specified subscription and resource group.
  */
 export function getLongTermEnvironment(args: GetLongTermEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetLongTermEnvironmentResult> {
 
@@ -102,7 +102,7 @@ export interface GetLongTermEnvironmentResult {
     readonly warmStoreConfiguration?: outputs.timeseriesinsights.v20180815preview.WarmStoreConfigurationPropertiesResponse;
 }
 /**
- * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
+ * Gets the environment with the specified name in the specified subscription and resource group.
  */
 export function getLongTermEnvironmentOutput(args: GetLongTermEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLongTermEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getLongTermEnvironment(a, opts))

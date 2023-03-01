@@ -205,7 +205,7 @@ def get_nsp_link(link_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspLinkResult:
     """
-    The network security perimeter link resource
+    Gets the specified NSP link resource.
 
 
     :param str link_name: The name of the NSP link.
@@ -242,7 +242,7 @@ def get_nsp_link_output(link_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspLinkResult]:
     """
-    The network security perimeter link resource
+    Gets the specified NSP link resource.
 
 
     :param str link_name: The name of the NSP link.

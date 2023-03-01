@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Custom domain of the Spring Cloud Gateway
+ * Get the Spring Cloud Gateway custom domain.
  * API Version: 2022-01-01-preview.
  */
 export function getGatewayCustomDomain(args: GetGatewayCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCustomDomainResult> {
@@ -67,7 +67,7 @@ export interface GetGatewayCustomDomainResult {
     readonly type: string;
 }
 /**
- * Custom domain of the Spring Cloud Gateway
+ * Get the Spring Cloud Gateway custom domain.
  * API Version: 2022-01-01-preview.
  */
 export function getGatewayCustomDomainOutput(args: GetGatewayCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCustomDomainResult> {

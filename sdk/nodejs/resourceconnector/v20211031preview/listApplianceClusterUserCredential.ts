@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The List Cluster User Credential appliance.
+ * Returns the cluster user credentials for the dedicated appliance.
  */
 export function listApplianceClusterUserCredential(args: ListApplianceClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceClusterUserCredentialResult> {
 
@@ -44,7 +44,7 @@ export interface ListApplianceClusterUserCredentialResult {
     readonly kubeconfigs: outputs.resourceconnector.v20211031preview.ApplianceCredentialKubeconfigResponse[];
 }
 /**
- * The List Cluster User Credential appliance.
+ * Returns the cluster user credentials for the dedicated appliance.
  */
 export function listApplianceClusterUserCredentialOutput(args: ListApplianceClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceClusterUserCredentialResult> {
     return pulumi.output(args).apply((a: any) => listApplianceClusterUserCredential(a, opts))

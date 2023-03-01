@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ManagedNetwork
     public static class GetScopeAssignment
     {
         /// <summary>
-        /// The Managed Network resource
+        /// Get the specified scope assignment.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetScopeAssignmentResult> InvokeAsync(GetScopeAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeAssignmentResult>("azure-native:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Managed Network resource
+        /// Get the specified scope assignment.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetScopeAssignmentResult> Invoke(GetScopeAssignmentInvokeArgs args, InvokeOptions? options = null)

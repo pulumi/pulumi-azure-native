@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in List or Get Event Hub operation
+ * Gets an Event Hubs description for the specified Event Hub.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
@@ -80,7 +80,7 @@ export interface GetEventHubResult {
     readonly updatedAt: string;
 }
 /**
- * Single item in List or Get Event Hub operation
+ * Gets an Event Hubs description for the specified Event Hub.
  */
 /** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {

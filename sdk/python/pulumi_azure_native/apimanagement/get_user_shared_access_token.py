@@ -52,7 +52,7 @@ def get_user_shared_access_token(expiry: Optional[str] = None,
                                  user_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSharedAccessTokenResult:
     """
-    Get User Token response details.
+    Gets the Shared Access Authorization Token for the User.
     API Version: 2020-12-01.
 
 
@@ -83,7 +83,7 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = No
                                         user_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSharedAccessTokenResult]:
     """
-    Get User Token response details.
+    Gets the Shared Access Authorization Token for the User.
     API Version: 2020-12-01.
 
 

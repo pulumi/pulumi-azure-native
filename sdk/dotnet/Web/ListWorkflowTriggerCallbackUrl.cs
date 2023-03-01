@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListWorkflowTriggerCallbackUrl
     {
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the callback URL for a workflow trigger.
         /// API Version: 2022-03-01.
         /// </summary>
         public static Task<ListWorkflowTriggerCallbackUrlResult> InvokeAsync(ListWorkflowTriggerCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowTriggerCallbackUrlResult>("azure-native:web:listWorkflowTriggerCallbackUrl", args ?? new ListWorkflowTriggerCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the callback URL for a workflow trigger.
         /// API Version: 2022-03-01.
         /// </summary>
         public static Output<ListWorkflowTriggerCallbackUrlResult> Invoke(ListWorkflowTriggerCallbackUrlInvokeArgs args, InvokeOptions? options = null)

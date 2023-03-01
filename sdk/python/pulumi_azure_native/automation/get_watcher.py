@@ -217,7 +217,7 @@ def get_watcher(automation_account_name: Optional[str] = None,
                 watcher_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatcherResult:
     """
-    Definition of the watcher type.
+    Retrieve the watcher identified by watcher name.
     API Version: 2019-06-01.
 
 
@@ -256,7 +256,7 @@ def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        watcher_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatcherResult]:
     """
-    Definition of the watcher type.
+    Retrieve the watcher identified by watcher name.
     API Version: 2019-06-01.
 
 

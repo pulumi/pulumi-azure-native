@@ -98,7 +98,7 @@ def get_data_flow(data_flow_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataFlowResult:
     """
-    Data flow resource type.
+    Gets a data flow.
 
 
     :param str data_flow_name: The data flow name.
@@ -126,7 +126,7 @@ def get_data_flow_output(data_flow_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataFlowResult]:
     """
-    Data flow resource type.
+    Gets a data flow.
 
 
     :param str data_flow_name: The data flow name.

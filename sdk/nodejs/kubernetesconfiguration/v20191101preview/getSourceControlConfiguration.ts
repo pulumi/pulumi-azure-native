@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The SourceControl Configuration object.
+ * Gets details of the Source Control Configuration.
  */
 /** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
@@ -109,7 +109,7 @@ export interface GetSourceControlConfigurationResult {
     readonly type: string;
 }
 /**
- * The SourceControl Configuration object.
+ * Gets details of the Source Control Configuration.
  */
 /** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
 export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlConfigurationResult> {

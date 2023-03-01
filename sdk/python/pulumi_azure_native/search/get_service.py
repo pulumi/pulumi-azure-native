@@ -241,7 +241,7 @@ def get_service(resource_group_name: Optional[str] = None,
                 search_service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Describes an Azure Cognitive Search service and its current state.
+    Gets the search service with the given name in the given resource group.
     API Version: 2020-08-01.
 
 
@@ -279,7 +279,7 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        search_service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Describes an Azure Cognitive Search service and its current state.
+    Gets the search service with the given name in the given resource group.
     API Version: 2020-08-01.
 
 

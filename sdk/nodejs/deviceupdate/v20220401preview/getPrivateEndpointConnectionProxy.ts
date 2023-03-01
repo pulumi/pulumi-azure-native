@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Private endpoint connection proxy details.
+ * (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
  */
 export function getPrivateEndpointConnectionProxy(args: GetPrivateEndpointConnectionProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionProxyResult> {
 
@@ -73,7 +73,7 @@ export interface GetPrivateEndpointConnectionProxyResult {
     readonly type: string;
 }
 /**
- * Private endpoint connection proxy details.
+ * (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
  */
 export function getPrivateEndpointConnectionProxyOutput(args: GetPrivateEndpointConnectionProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionProxyResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionProxy(a, opts))

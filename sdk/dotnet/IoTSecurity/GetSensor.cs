@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.IoTSecurity
     public static class GetSensor
     {
         /// <summary>
-        /// IoT sensor model
+        /// Get IoT sensor
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetSensorResult> InvokeAsync(GetSensorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSensorResult>("azure-native:iotsecurity:getSensor", args ?? new GetSensorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// IoT sensor model
+        /// Get IoT sensor
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetSensorResult> Invoke(GetSensorInvokeArgs args, InvokeOptions? options = null)

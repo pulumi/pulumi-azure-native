@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Migrate.V20220501Preview
     public static class GetMigrateAgent
     {
         /// <summary>
-        /// MigrateAgent model.
+        /// Gets the details of the modernizeProject agent.
         /// </summary>
         public static Task<GetMigrateAgentResult> InvokeAsync(GetMigrateAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrateAgentResult>("azure-native:migrate/v20220501preview:getMigrateAgent", args ?? new GetMigrateAgentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// MigrateAgent model.
+        /// Gets the details of the modernizeProject agent.
         /// </summary>
         public static Output<GetMigrateAgentResult> Invoke(GetMigrateAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrateAgentResult>("azure-native:migrate/v20220501preview:getMigrateAgent", args ?? new GetMigrateAgentInvokeArgs(), options.WithDefaults());

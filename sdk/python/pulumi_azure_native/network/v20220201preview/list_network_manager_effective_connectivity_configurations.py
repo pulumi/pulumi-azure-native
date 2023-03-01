@@ -62,7 +62,7 @@ def list_network_manager_effective_connectivity_configurations(resource_group_na
                                                                virtual_network_name: Optional[str] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNetworkManagerEffectiveConnectivityConfigurationsResult:
     """
-    Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+    List all effective connectivity configurations applied on a virtual network.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -87,7 +87,7 @@ def list_network_manager_effective_connectivity_configurations_output(resource_g
                                                                       virtual_network_name: Optional[pulumi.Input[str]] = None,
                                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerEffectiveConnectivityConfigurationsResult]:
     """
-    Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+    List all effective connectivity configurations applied on a virtual network.
 
 
     :param str resource_group_name: The name of the resource group.

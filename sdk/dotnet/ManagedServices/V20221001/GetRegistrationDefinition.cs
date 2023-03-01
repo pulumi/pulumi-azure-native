@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ManagedServices.V20221001
     public static class GetRegistrationDefinition
     {
         /// <summary>
-        /// The registration definition.
+        /// Gets the registration definition details.
         /// </summary>
         public static Task<GetRegistrationDefinitionResult> InvokeAsync(GetRegistrationDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-native:managedservices/v20221001:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The registration definition.
+        /// Gets the registration definition details.
         /// </summary>
         public static Output<GetRegistrationDefinitionResult> Invoke(GetRegistrationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationDefinitionResult>("azure-native:managedservices/v20221001:getRegistrationDefinition", args ?? new GetRegistrationDefinitionInvokeArgs(), options.WithDefaults());

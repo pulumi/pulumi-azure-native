@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataFactory
     public static class ListIntegrationRuntimeAuthKeys
     {
         /// <summary>
-        /// The integration runtime authentication keys.
+        /// Retrieves the authentication keys for an integration runtime.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeysResult> InvokeAsync(ListIntegrationRuntimeAuthKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeysResult>("azure-native:datafactory:listIntegrationRuntimeAuthKeys", args ?? new ListIntegrationRuntimeAuthKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The integration runtime authentication keys.
+        /// Retrieves the authentication keys for an integration runtime.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<ListIntegrationRuntimeAuthKeysResult> Invoke(ListIntegrationRuntimeAuthKeysInvokeArgs args, InvokeOptions? options = null)

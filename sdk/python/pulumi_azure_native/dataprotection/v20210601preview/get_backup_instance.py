@@ -98,7 +98,7 @@ def get_backup_instance(backup_instance_name: Optional[str] = None,
                         vault_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupInstanceResult:
     """
-    BackupInstance Resource
+    Gets a backup instance with name in a backup vault
 
 
     :param str backup_instance_name: The name of the backup instance
@@ -126,7 +126,7 @@ def get_backup_instance_output(backup_instance_name: Optional[pulumi.Input[str]]
                                vault_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupInstanceResult]:
     """
-    BackupInstance Resource
+    Gets a backup instance with name in a backup vault
 
 
     :param str backup_instance_name: The name of the backup instance

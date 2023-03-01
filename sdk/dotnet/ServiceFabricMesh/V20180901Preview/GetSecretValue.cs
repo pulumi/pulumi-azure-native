@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
     public static class GetSecretValue
     {
         /// <summary>
-        /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+        /// Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
         /// </summary>
         public static Task<GetSecretValueResult> InvokeAsync(GetSecretValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:getSecretValue", args ?? new GetSecretValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+        /// Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
         /// </summary>
         public static Output<GetSecretValueResult> Invoke(GetSecretValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:getSecretValue", args ?? new GetSecretValueInvokeArgs(), options.WithDefaults());

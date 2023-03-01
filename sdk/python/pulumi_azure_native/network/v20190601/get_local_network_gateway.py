@@ -169,7 +169,7 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalNetworkGatewayResult:
     """
-    A common class for general resource information.
+    Gets the specified local network gateway in a resource group.
 
 
     :param str local_network_gateway_name: The name of the local network gateway.
@@ -200,7 +200,7 @@ def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
     """
-    A common class for general resource information.
+    Gets the specified local network gateway in a resource group.
 
 
     :param str local_network_gateway_name: The name of the local network gateway.

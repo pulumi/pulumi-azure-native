@@ -256,7 +256,7 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluxConfigurationResult:
     """
-    The Flux Configuration object returned in Get & Put response.
+    Gets details of the Flux Configuration.
     API Version: 2021-11-01-preview.
 
 
@@ -304,7 +304,7 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluxConfigurationResult]:
     """
-    The Flux Configuration object returned in Get & Put response.
+    Gets details of the Flux Configuration.
     API Version: 2021-11-01-preview.
 
 

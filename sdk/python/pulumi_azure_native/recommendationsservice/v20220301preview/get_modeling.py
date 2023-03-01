@@ -122,7 +122,7 @@ def get_modeling(account_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelingResult:
     """
-    Modeling resource details.
+    Returns Modeling resources for a given name.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.
@@ -152,7 +152,7 @@ def get_modeling_output(account_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelingResult]:
     """
-    Modeling resource details.
+    Returns Modeling resources for a given name.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.

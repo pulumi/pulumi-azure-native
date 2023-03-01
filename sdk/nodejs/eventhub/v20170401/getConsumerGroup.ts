@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in List or Get Consumer group operation
+ * Gets a description for the specified consumer group.
  */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
 
@@ -67,7 +67,7 @@ export interface GetConsumerGroupResult {
     readonly userMetadata?: string;
 }
 /**
- * Single item in List or Get Consumer group operation
+ * Gets a description for the specified consumer group.
  */
 export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumerGroupResult> {
     return pulumi.output(args).apply((a: any) => getConsumerGroup(a, opts))

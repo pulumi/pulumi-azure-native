@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Description of the WCF relay resource.
+ * Returns the description for the specified WCF relay.
  */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
 
@@ -82,7 +82,7 @@ export interface GetWCFRelayResult {
     readonly userMetadata?: string;
 }
 /**
- * Description of the WCF relay resource.
+ * Returns the description for the specified WCF relay.
  */
 export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
     return pulumi.output(args).apply((a: any) => getWCFRelay(a, opts))

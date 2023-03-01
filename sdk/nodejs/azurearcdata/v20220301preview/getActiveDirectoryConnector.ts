@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Active directory connector resource
+ * Retrieves an Active Directory connector resource
  */
 export function getActiveDirectoryConnector(args: GetActiveDirectoryConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveDirectoryConnectorResult> {
 
@@ -61,7 +61,7 @@ export interface GetActiveDirectoryConnectorResult {
     readonly type: string;
 }
 /**
- * Active directory connector resource
+ * Retrieves an Active Directory connector resource
  */
 export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
     return pulumi.output(args).apply((a: any) => getActiveDirectoryConnector(a, opts))

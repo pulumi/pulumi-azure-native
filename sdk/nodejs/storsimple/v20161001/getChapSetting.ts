@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Challenge-Handshake Authentication Protocol (CHAP) setting
+ * Returns the properties of the specified chap setting name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getChapSetting(args: GetChapSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetChapSettingResult> {
@@ -64,7 +64,7 @@ export interface GetChapSettingResult {
     readonly type: string;
 }
 /**
- * Challenge-Handshake Authentication Protocol (CHAP) setting
+ * Returns the properties of the specified chap setting name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getChapSettingOutput(args: GetChapSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChapSettingResult> {

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Synapse
     public static class ListKustoPoolLanguageExtensions
     {
         /// <summary>
-        /// The list of language extension objects.
+        /// Returns a list of language extensions that can run within KQL queries.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<ListKustoPoolLanguageExtensionsResult> InvokeAsync(ListKustoPoolLanguageExtensionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of language extension objects.
+        /// Returns a list of language extensions that can run within KQL queries.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<ListKustoPoolLanguageExtensionsResult> Invoke(ListKustoPoolLanguageExtensionsInvokeArgs args, InvokeOptions? options = null)

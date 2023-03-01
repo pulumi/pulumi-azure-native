@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Machine Learning service object wrapped into ARM resource envelope.
+ * Get a Service by name.
  * API Version: 2021-01-01.
  */
 export function getEndpointVariant(args: GetEndpointVariantArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointVariantResult> {
@@ -83,7 +83,7 @@ export interface GetEndpointVariantResult {
     readonly type: string;
 }
 /**
- * Machine Learning service object wrapped into ARM resource envelope.
+ * Get a Service by name.
  * API Version: 2021-01-01.
  */
 export function getEndpointVariantOutput(args: GetEndpointVariantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointVariantResult> {

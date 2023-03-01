@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a Machine Extension.
+ * The operation to get the extension.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
 
@@ -69,7 +69,7 @@ export interface GetMachineExtensionResult {
     readonly type: string;
 }
 /**
- * Describes a Machine Extension.
+ * The operation to get the extension.
  */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
     return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))

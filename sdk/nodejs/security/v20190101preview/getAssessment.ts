@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Security assessment on a resource
+ * Get a security assessment on your scanned resource
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
 
@@ -73,7 +73,7 @@ export interface GetAssessmentResult {
     readonly type: string;
 }
 /**
- * Security assessment on a resource
+ * Get a security assessment on your scanned resource
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
     return pulumi.output(args).apply((a: any) => getAssessment(a, opts))

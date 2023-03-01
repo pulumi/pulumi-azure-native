@@ -135,7 +135,7 @@ def get_application_type_version(application_type_name: Optional[str] = None,
                                  version: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationTypeVersionResult:
     """
-    An application type version resource for the specified application type name resource.
+    Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
 
 
     :param str application_type_name: The name of the application type name resource.
@@ -169,7 +169,7 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
                                         version: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationTypeVersionResult]:
     """
-    An application type version resource for the specified application type name resource.
+    Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
 
 
     :param str application_type_name: The name of the application type name resource.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An activity log alert resource.
+ * Get an activity log alert.
  */
 export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityLogAlertResult> {
 
@@ -76,7 +76,7 @@ export interface GetActivityLogAlertResult {
     readonly type: string;
 }
 /**
- * An activity log alert resource.
+ * Get an activity log alert.
  */
 export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityLogAlertResult> {
     return pulumi.output(args).apply((a: any) => getActivityLogAlert(a, opts))

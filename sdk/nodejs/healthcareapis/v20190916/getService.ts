@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The description of the service.
+ * Get the metadata of a service instance.
  */
 /** @deprecated Version 2019-09-16 will be removed in v2 of the provider. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
@@ -74,7 +74,7 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * The description of the service.
+ * Get the metadata of a service instance.
  */
 /** @deprecated Version 2019-09-16 will be removed in v2 of the provider. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {

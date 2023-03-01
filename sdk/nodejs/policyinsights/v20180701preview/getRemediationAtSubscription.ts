@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The remediation definition.
+ * Gets an existing remediation at subscription scope.
  */
 /** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getRemediationAtSubscription(args: GetRemediationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtSubscriptionResult> {
@@ -73,7 +73,7 @@ export interface GetRemediationAtSubscriptionResult {
     readonly type: string;
 }
 /**
- * The remediation definition.
+ * Gets an existing remediation at subscription scope.
  */
 /** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {

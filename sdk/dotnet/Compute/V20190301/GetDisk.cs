@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Compute.V20190301
     public static class GetDisk
     {
         /// <summary>
-        /// Disk resource.
+        /// Gets information about a disk.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:compute/v20190301:getDisk", args ?? new GetDiskArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Disk resource.
+        /// Gets information about a disk.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute/v20190301:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());

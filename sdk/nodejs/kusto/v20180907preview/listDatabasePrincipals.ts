@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The list Kusto database principals operation response.
+ * Returns a list of database principals of the given Kusto cluster and database.
  */
 export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasePrincipalsResult> {
 
@@ -45,7 +45,7 @@ export interface ListDatabasePrincipalsResult {
     readonly value?: outputs.kusto.v20180907preview.DatabasePrincipalResponse[];
 }
 /**
- * The list Kusto database principals operation response.
+ * Returns a list of database principals of the given Kusto cluster and database.
  */
 export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasePrincipalsResult> {
     return pulumi.output(args).apply((a: any) => listDatabasePrincipals(a, opts))

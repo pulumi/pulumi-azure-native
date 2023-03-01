@@ -134,7 +134,7 @@ def get_object_replication_policy(account_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectReplicationPolicyResult:
     """
-    The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+    Get the object replication policy of the storage account by policy ID.
     API Version: 2021-02-01.
 
 
@@ -166,7 +166,7 @@ def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectReplicationPolicyResult]:
     """
-    The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+    Get the object replication policy of the storage account by policy ID.
     API Version: 2021-02-01.
 
 

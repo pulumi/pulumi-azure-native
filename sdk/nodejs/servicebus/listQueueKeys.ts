@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Namespace/ServiceBus Connection String
+ * Primary and secondary connection strings to the queue.
  * API Version: 2017-04-01.
  */
 export function listQueueKeys(args: ListQueueKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListQueueKeysResult> {
@@ -72,7 +72,7 @@ export interface ListQueueKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Namespace/ServiceBus Connection String
+ * Primary and secondary connection strings to the queue.
  * API Version: 2017-04-01.
  */
 export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueueKeysResult> {

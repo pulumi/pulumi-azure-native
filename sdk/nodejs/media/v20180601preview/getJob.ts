@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+ * Gets a Job.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
 
@@ -90,7 +90,7 @@ export interface GetJobResult {
     readonly type: string;
 }
 /**
- * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+ * Gets a Job.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))

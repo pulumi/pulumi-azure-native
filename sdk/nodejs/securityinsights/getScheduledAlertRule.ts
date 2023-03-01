@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents scheduled alert rule.
+ * Gets the alert rule.
  * API Version: 2020-01-01.
  */
 export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAlertRuleResult> {
@@ -116,7 +116,7 @@ export interface GetScheduledAlertRuleResult {
     readonly type: string;
 }
 /**
- * Represents scheduled alert rule.
+ * Gets the alert rule.
  * API Version: 2020-01-01.
  */
 export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {

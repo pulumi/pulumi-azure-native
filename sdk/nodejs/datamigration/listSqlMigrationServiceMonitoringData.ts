@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Integration Runtime Monitoring Data.
+ * Retrieve the Monitoring Data.
  * API Version: 2021-10-30-preview.
  */
 export function listSqlMigrationServiceMonitoringData(args: ListSqlMigrationServiceMonitoringDataArgs, opts?: pulumi.InvokeOptions): Promise<ListSqlMigrationServiceMonitoringDataResult> {
@@ -45,7 +45,7 @@ export interface ListSqlMigrationServiceMonitoringDataResult {
     readonly nodes: outputs.datamigration.NodeMonitoringDataResponse[];
 }
 /**
- * Integration Runtime Monitoring Data.
+ * Retrieve the Monitoring Data.
  * API Version: 2021-10-30-preview.
  */
 export function listSqlMigrationServiceMonitoringDataOutput(args: ListSqlMigrationServiceMonitoringDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceMonitoringDataResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Logic.V20190501
     public static class ListWorkflowVersionTriggerCallbackUrl
     {
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the callback url for a trigger of a workflow version.
         /// </summary>
         public static Task<ListWorkflowVersionTriggerCallbackUrlResult> InvokeAsync(ListWorkflowVersionTriggerCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic/v20190501:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the callback url for a trigger of a workflow version.
         /// </summary>
         public static Output<ListWorkflowVersionTriggerCallbackUrlResult> Invoke(ListWorkflowVersionTriggerCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic/v20190501:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlInvokeArgs(), options.WithDefaults());

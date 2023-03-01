@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
     public static class GetFileImport
     {
         /// <summary>
-        /// Represents a file import in Azure Security Insights.
+        /// Gets a file import.
         /// </summary>
         public static Task<GetFileImportResult> InvokeAsync(GetFileImportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileImportResult>("azure-native:securityinsights/v20221101preview:getFileImport", args ?? new GetFileImportArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a file import in Azure Security Insights.
+        /// Gets a file import.
         /// </summary>
         public static Output<GetFileImportResult> Invoke(GetFileImportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileImportResult>("azure-native:securityinsights/v20221101preview:getFileImport", args ?? new GetFileImportInvokeArgs(), options.WithDefaults());

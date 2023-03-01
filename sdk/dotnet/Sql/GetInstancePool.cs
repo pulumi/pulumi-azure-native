@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetInstancePool
     {
         /// <summary>
-        /// An Azure SQL instance pool.
+        /// Gets an instance pool.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetInstancePoolResult> InvokeAsync(GetInstancePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-native:sql:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure SQL instance pool.
+        /// Gets an instance pool.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetInstancePoolResult> Invoke(GetInstancePoolInvokeArgs args, InvokeOptions? options = null)

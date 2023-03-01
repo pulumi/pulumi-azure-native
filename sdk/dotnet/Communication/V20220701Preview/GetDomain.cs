@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Communication.V20220701Preview
     public static class GetDomain
     {
         /// <summary>
-        /// A class representing a Domains resource.
+        /// Get the Domains resource and its properties.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:communication/v20220701preview:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A class representing a Domains resource.
+        /// Get the Domains resource and its properties.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication/v20220701preview:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());

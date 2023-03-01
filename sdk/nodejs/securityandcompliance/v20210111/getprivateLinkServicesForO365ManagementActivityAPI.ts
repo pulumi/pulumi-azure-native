@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
  */
 export function getprivateLinkServicesForO365ManagementActivityAPI(args: GetprivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
 
@@ -76,7 +76,7 @@ export interface GetprivateLinkServicesForO365ManagementActivityAPIResult {
     readonly type: string;
 }
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
  */
 export function getprivateLinkServicesForO365ManagementActivityAPIOutput(args: GetprivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
     return pulumi.output(args).apply((a: any) => getprivateLinkServicesForO365ManagementActivityAPI(a, opts))

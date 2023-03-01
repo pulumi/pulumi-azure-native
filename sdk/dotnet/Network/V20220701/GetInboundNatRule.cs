@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220701
     public static class GetInboundNatRule
     {
         /// <summary>
-        /// Inbound NAT rule of the load balancer.
+        /// Gets the specified load balancer inbound NAT rule.
         /// </summary>
         public static Task<GetInboundNatRuleResult> InvokeAsync(GetInboundNatRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-native:network/v20220701:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Inbound NAT rule of the load balancer.
+        /// Gets the specified load balancer inbound NAT rule.
         /// </summary>
         public static Output<GetInboundNatRuleResult> Invoke(GetInboundNatRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInboundNatRuleResult>("azure-native:network/v20220701:getInboundNatRule", args ?? new GetInboundNatRuleInvokeArgs(), options.WithDefaults());

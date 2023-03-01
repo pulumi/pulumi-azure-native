@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents NRT alert rule.
+ * Gets the alert rule.
  */
 export function getNrtAlertRule(args: GetNrtAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNrtAlertRuleResult> {
 
@@ -126,7 +126,7 @@ export interface GetNrtAlertRuleResult {
     readonly type: string;
 }
 /**
- * Represents NRT alert rule.
+ * Gets the alert rule.
  */
 export function getNrtAlertRuleOutput(args: GetNrtAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNrtAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getNrtAlertRule(a, opts))

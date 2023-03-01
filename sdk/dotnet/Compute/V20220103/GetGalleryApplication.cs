@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Compute.V20220103
     public static class GetGalleryApplication
     {
         /// <summary>
-        /// Specifies information about the gallery Application Definition that you want to create or update.
+        /// Retrieves information about a gallery Application Definition.
         /// </summary>
         public static Task<GetGalleryApplicationResult> InvokeAsync(GetGalleryApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationResult>("azure-native:compute/v20220103:getGalleryApplication", args ?? new GetGalleryApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Specifies information about the gallery Application Definition that you want to create or update.
+        /// Retrieves information about a gallery Application Definition.
         /// </summary>
         public static Output<GetGalleryApplicationResult> Invoke(GetGalleryApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationResult>("azure-native:compute/v20220103:getGalleryApplication", args ?? new GetGalleryApplicationInvokeArgs(), options.WithDefaults());

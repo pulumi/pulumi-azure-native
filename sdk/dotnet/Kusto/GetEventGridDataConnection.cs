@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Kusto
     public static class GetEventGridDataConnection
     {
         /// <summary>
-        /// Class representing an Event Grid data connection.
+        /// Returns a data connection.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetEventGridDataConnectionResult> InvokeAsync(GetEventGridDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing an Event Grid data connection.
+        /// Returns a data connection.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetEventGridDataConnectionResult> Invoke(GetEventGridDataConnectionInvokeArgs args, InvokeOptions? options = null)

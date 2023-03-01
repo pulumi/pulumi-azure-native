@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cdn.V20210601
     public static class GetCustomDomain
     {
         /// <summary>
-        /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+        /// Gets an existing custom domain within an endpoint.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:cdn/v20210601:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+        /// Gets an existing custom domain within an endpoint.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn/v20210601:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());

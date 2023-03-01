@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The result of a request to list API keys.
+ * Lists the access key for the specified configuration store.
  * API Version: 2020-06-01.
  */
 export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeysResult> {
@@ -50,7 +50,7 @@ export interface ListConfigurationStoreKeysResult {
     readonly value?: outputs.appconfiguration.ApiKeyResponse[];
 }
 /**
- * The result of a request to list API keys.
+ * Lists the access key for the specified configuration store.
  * API Version: 2020-06-01.
  */
 export function listConfigurationStoreKeysOutput(args: ListConfigurationStoreKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeysResult> {

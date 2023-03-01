@@ -146,7 +146,7 @@ def get_test_line(communications_gateway_name: Optional[str] = None,
                   test_line_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestLineResult:
     """
-    A TestLine resource
+    Get a TestLine
     API Version: 2022-12-01-preview.
 
 
@@ -179,7 +179,7 @@ def get_test_line_output(communications_gateway_name: Optional[pulumi.Input[str]
                          test_line_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestLineResult]:
     """
-    A TestLine resource
+    Get a TestLine
     API Version: 2022-12-01-preview.
 
 

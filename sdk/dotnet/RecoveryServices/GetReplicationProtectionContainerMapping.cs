@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     public static class GetReplicationProtectionContainerMapping
     {
         /// <summary>
-        /// Protection container mapping object.
+        /// Gets the details of a protection container mapping.
         /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationProtectionContainerMappingResult> InvokeAsync(GetReplicationProtectionContainerMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectionContainerMappingResult>("azure-native:recoveryservices:getReplicationProtectionContainerMapping", args ?? new GetReplicationProtectionContainerMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Protection container mapping object.
+        /// Gets the details of a protection container mapping.
         /// API Version: 2018-07-10.
         /// </summary>
         public static Output<GetReplicationProtectionContainerMappingResult> Invoke(GetReplicationProtectionContainerMappingInvokeArgs args, InvokeOptions? options = null)

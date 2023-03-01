@@ -52,7 +52,7 @@ def list_asset_container_sas(account_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetContainerSasResult:
     """
-    The Asset Storage container SAS URLs.
+    Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
 
 
     :param str account_name: The Media Services account name.
@@ -82,7 +82,7 @@ def list_asset_container_sas_output(account_name: Optional[pulumi.Input[str]] = 
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAssetContainerSasResult]:
     """
-    The Asset Storage container SAS URLs.
+    Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
 
 
     :param str account_name: The Media Services account name.

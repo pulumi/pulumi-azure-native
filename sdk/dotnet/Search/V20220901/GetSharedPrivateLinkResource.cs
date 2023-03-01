@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Search.V20220901
     public static class GetSharedPrivateLinkResource
     {
         /// <summary>
-        /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        /// Gets the details of the shared private link resource managed by the search service in the given resource group.
         /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-native:search/v20220901:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        /// Gets the details of the shared private link resource managed by the search service in the given resource group.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:search/v20220901:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());

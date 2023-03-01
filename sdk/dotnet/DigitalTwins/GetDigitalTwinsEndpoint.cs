@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DigitalTwins
     public static class GetDigitalTwinsEndpoint
     {
         /// <summary>
-        /// DigitalTwinsInstance endpoint resource.
+        /// Get DigitalTwinsInstances Endpoint.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDigitalTwinsEndpointResult> InvokeAsync(GetDigitalTwinsEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// DigitalTwinsInstance endpoint resource.
+        /// Get DigitalTwinsInstances Endpoint.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetDigitalTwinsEndpointResult> Invoke(GetDigitalTwinsEndpointInvokeArgs args, InvokeOptions? options = null)

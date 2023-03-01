@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Gets the sku details for the given resource type and sku name.
+ */
 export function getSkusNestedResourceTypeSecond(args: GetSkusNestedResourceTypeSecondArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeSecondResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,6 +64,9 @@ export interface GetSkusNestedResourceTypeSecondResult {
      */
     readonly type: string;
 }
+/**
+ * Gets the sku details for the given resource type and sku name.
+ */
 export function getSkusNestedResourceTypeSecondOutput(args: GetSkusNestedResourceTypeSecondOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeSecondResult> {
     return pulumi.output(args).apply((a: any) => getSkusNestedResourceTypeSecond(a, opts))
 }

@@ -181,7 +181,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    The top level Workspace resource container.
+    Gets a workspace instance.
 
 
     :param str resource_group_name: The resource group name of the workspace.
@@ -213,7 +213,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    The top level Workspace resource container.
+    Gets a workspace instance.
 
 
     :param str resource_group_name: The resource group name of the workspace.

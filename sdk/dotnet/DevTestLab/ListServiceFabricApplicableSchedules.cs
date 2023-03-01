@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DevTestLab
     public static class ListServiceFabricApplicableSchedules
     {
         /// <summary>
-        /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+        /// Lists the applicable start/stop schedules, if any.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<ListServiceFabricApplicableSchedulesResult> InvokeAsync(ListServiceFabricApplicableSchedulesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListServiceFabricApplicableSchedulesResult>("azure-native:devtestlab:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+        /// Lists the applicable start/stop schedules, if any.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<ListServiceFabricApplicableSchedulesResult> Invoke(ListServiceFabricApplicableSchedulesInvokeArgs args, InvokeOptions? options = null)

@@ -133,7 +133,7 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    An Azure resource which represents access to a suite of Maps REST APIs.
+    Get a Maps Account.
 
 
     :param str account_name: The name of the Maps Account.
@@ -161,7 +161,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    An Azure resource which represents access to a suite of Maps REST APIs.
+    Get a Maps Account.
 
 
     :param str account_name: The name of the Maps Account.

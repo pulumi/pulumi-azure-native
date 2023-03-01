@@ -314,7 +314,7 @@ def get_azure_power_shell_script(resource_group_name: Optional[str] = None,
                                  script_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzurePowerShellScriptResult:
     """
-    Object model for the Azure PowerShell script.
+    Gets a deployment script with a given name.
     API Version: 2020-10-01.
 
 
@@ -358,7 +358,7 @@ def get_azure_power_shell_script_output(resource_group_name: Optional[pulumi.Inp
                                         script_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzurePowerShellScriptResult]:
     """
-    Object model for the Azure PowerShell script.
+    Gets a deployment script with a given name.
     API Version: 2020-10-01.
 
 

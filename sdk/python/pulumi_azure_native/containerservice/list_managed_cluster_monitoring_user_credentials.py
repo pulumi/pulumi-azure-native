@@ -49,7 +49,7 @@ def list_managed_cluster_monitoring_user_credentials(resource_group_name: Option
                                                      resource_name: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterMonitoringUserCredentialsResult:
     """
-    The list of credential result response.
+    Gets cluster monitoring user credential of the managed cluster with a specified resource group and name.
     API Version: 2021-03-01.
 
 
@@ -71,7 +71,7 @@ def list_managed_cluster_monitoring_user_credentials_output(resource_group_name:
                                                             resource_name: Optional[pulumi.Input[str]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterMonitoringUserCredentialsResult]:
     """
-    The list of credential result response.
+    Gets cluster monitoring user credential of the managed cluster with a specified resource group and name.
     API Version: 2021-03-01.
 
 

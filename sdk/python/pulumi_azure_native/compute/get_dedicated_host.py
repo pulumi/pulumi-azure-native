@@ -207,7 +207,7 @@ def get_dedicated_host(expand: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
-    Specifies information about the Dedicated host.
+    Retrieves information about a dedicated host.
     API Version: 2020-12-01.
 
 
@@ -248,7 +248,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
-    Specifies information about the Dedicated host.
+    Retrieves information about a dedicated host.
     API Version: 2020-12-01.
 
 

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     public static class GetAutoScaleVCore
     {
         /// <summary>
-        /// Represents an instance of an auto scale v-core resource.
+        /// Gets details about the specified auto scale v-core.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetAutoScaleVCoreResult> InvokeAsync(GetAutoScaleVCoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoScaleVCoreResult>("azure-native:powerbidedicated:getAutoScaleVCore", args ?? new GetAutoScaleVCoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents an instance of an auto scale v-core resource.
+        /// Gets details about the specified auto scale v-core.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetAutoScaleVCoreResult> Invoke(GetAutoScaleVCoreInvokeArgs args, InvokeOptions? options = null)

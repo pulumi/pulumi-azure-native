@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+ * Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
  * API Version: 2020-08-01.
  */
 export function listAdminKey(args: ListAdminKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListAdminKeyResult> {
@@ -42,7 +42,7 @@ export interface ListAdminKeyResult {
     readonly secondaryKey: string;
 }
 /**
- * Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+ * Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
  * API Version: 2020-08-01.
  */
 export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAdminKeyResult> {

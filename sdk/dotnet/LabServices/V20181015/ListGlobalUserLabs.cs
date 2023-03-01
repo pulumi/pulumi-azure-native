@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     public static class ListGlobalUserLabs
     {
         /// <summary>
-        /// Lists the labs owned by a user
+        /// List labs for the user.
         /// </summary>
         public static Task<ListGlobalUserLabsResult> InvokeAsync(ListGlobalUserLabsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-native:labservices/v20181015:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Lists the labs owned by a user
+        /// List labs for the user.
         /// </summary>
         public static Output<ListGlobalUserLabsResult> Invoke(ListGlobalUserLabsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalUserLabsResult>("azure-native:labservices/v20181015:listGlobalUserLabs", args ?? new ListGlobalUserLabsInvokeArgs(), options.WithDefaults());

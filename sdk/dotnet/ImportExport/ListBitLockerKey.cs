@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ImportExport
     public static class ListBitLockerKey
     {
         /// <summary>
-        /// GetBitLockerKeys response
+        /// Returns the BitLocker Keys for all drives in the specified job.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<ListBitLockerKeyResult> InvokeAsync(ListBitLockerKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-native:importexport:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// GetBitLockerKeys response
+        /// Returns the BitLocker Keys for all drives in the specified job.
         /// API Version: 2020-08-01.
         /// </summary>
         public static Output<ListBitLockerKeyResult> Invoke(ListBitLockerKeyInvokeArgs args, InvokeOptions? options = null)

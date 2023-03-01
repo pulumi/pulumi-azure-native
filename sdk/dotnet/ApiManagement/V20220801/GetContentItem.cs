@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     public static class GetContentItem
     {
         /// <summary>
-        /// Content type contract details.
+        /// Returns the developer portal's content item specified by its identifier.
         /// </summary>
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-native:apimanagement/v20220801:getContentItem", args ?? new GetContentItemArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Content type contract details.
+        /// Returns the developer portal's content item specified by its identifier.
         /// </summary>
         public static Output<GetContentItemResult> Invoke(GetContentItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentItemResult>("azure-native:apimanagement/v20220801:getContentItem", args ?? new GetContentItemInvokeArgs(), options.WithDefaults());

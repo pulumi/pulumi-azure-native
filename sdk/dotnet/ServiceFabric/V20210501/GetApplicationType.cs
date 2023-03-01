@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210501
     public static class GetApplicationType
     {
         /// <summary>
-        /// The application type name resource
+        /// Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
         /// </summary>
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-native:servicefabric/v20210501:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The application type name resource
+        /// Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
         /// </summary>
         public static Output<GetApplicationTypeResult> Invoke(GetApplicationTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationTypeResult>("azure-native:servicefabric/v20210501:getApplicationType", args ?? new GetApplicationTypeInvokeArgs(), options.WithDefaults());

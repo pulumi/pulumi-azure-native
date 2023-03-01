@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The properties of a storage account’s Queue service.
+ * Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getQueueServiceProperties(args: GetQueueServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueServicePropertiesResult> {
@@ -59,7 +59,7 @@ export interface GetQueueServicePropertiesResult {
     readonly type: string;
 }
 /**
- * The properties of a storage account’s Queue service.
+ * Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getQueueServicePropertiesOutput(args: GetQueueServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueServicePropertiesResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
     public static class GetUser
     {
         /// <summary>
-        /// The User registered to a lab
+        /// Get user
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:labservices/v20181015:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The User registered to a lab
+        /// Get user
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices/v20181015:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Registered Server resource.
+ * Get a given registered server.
  */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
 
@@ -138,7 +138,7 @@ export interface GetRegisteredServerResult {
     readonly type: string;
 }
 /**
- * Registered Server resource.
+ * Get a given registered server.
  */
 export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
     return pulumi.output(args).apply((a: any) => getRegisteredServer(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The description of Dicom Service
+ * Gets the properties of the specified DICOM Service.
  * API Version: 2022-05-15.
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
@@ -98,7 +98,7 @@ export interface GetDicomServiceResult {
     readonly type: string;
 }
 /**
- * The description of Dicom Service
+ * Gets the properties of the specified DICOM Service.
  * API Version: 2022-05-15.
  */
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {

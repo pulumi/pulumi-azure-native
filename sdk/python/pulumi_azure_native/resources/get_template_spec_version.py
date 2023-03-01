@@ -170,7 +170,7 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
                               template_spec_version: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecVersionResult:
     """
-    Template Spec Version object.
+    Gets a Template Spec version from a specific Template Spec.
     API Version: 2022-02-01.
 
 
@@ -205,7 +205,7 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
                                      template_spec_version: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
     """
-    Template Spec Version object.
+    Gets a Template Spec version from a specific Template Spec.
     API Version: 2022-02-01.
 
 

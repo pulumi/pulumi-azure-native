@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Collection of key vault keys.
+ * Gets the integration account's Key Vault keys.
  * API Version: 2019-05-01.
  */
 export function listIntegrationAccountKeyVaultKeys(args: ListIntegrationAccountKeyVaultKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountKeyVaultKeysResult> {
@@ -55,7 +55,7 @@ export interface ListIntegrationAccountKeyVaultKeysResult {
     readonly value?: outputs.logic.KeyVaultKeyResponse[];
 }
 /**
- * Collection of key vault keys.
+ * Gets the integration account's Key Vault keys.
  * API Version: 2019-05-01.
  */
 export function listIntegrationAccountKeyVaultKeysOutput(args: ListIntegrationAccountKeyVaultKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountKeyVaultKeysResult> {

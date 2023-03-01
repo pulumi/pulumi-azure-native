@@ -48,7 +48,7 @@ def list_server_gateway_status(resource_group_name: Optional[str] = None,
                                server_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServerGatewayStatusResult:
     """
-    Status of gateway is live
+    Return the gateway status of the specified Analysis Services server instance.
 
 
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -69,7 +69,7 @@ def list_server_gateway_status_output(resource_group_name: Optional[pulumi.Input
                                       server_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServerGatewayStatusResult]:
     """
-    Status of gateway is live
+    Return the gateway status of the specified Analysis Services server instance.
 
 
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.

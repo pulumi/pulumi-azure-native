@@ -134,7 +134,7 @@ def get_data_store(data_manager_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataStoreResult:
     """
-    Data store.
+    This method gets the data store/repository by name.
     API Version: 2019-06-01.
 
 
@@ -166,7 +166,7 @@ def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataStoreResult]:
     """
-    Data store.
+    This method gets the data store/repository by name.
     API Version: 2019-06-01.
 
 

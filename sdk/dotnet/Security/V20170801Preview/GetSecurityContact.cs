@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
     public static class GetSecurityContact
     {
         /// <summary>
-        /// Contact details for security issues
+        /// Security contact configurations for the subscription
         /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Contact details for security issues
+        /// Security contact configurations for the subscription
         /// </summary>
         public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());

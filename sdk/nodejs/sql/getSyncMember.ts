@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An Azure SQL Database sync member.
+ * Gets a sync member.
  * API Version: 2020-11-01-preview.
  */
 export function getSyncMember(args: GetSyncMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncMemberResult> {
@@ -105,7 +105,7 @@ export interface GetSyncMemberResult {
     readonly userName?: string;
 }
 /**
- * An Azure SQL Database sync member.
+ * Gets a sync member.
  * API Version: 2020-11-01-preview.
  */
 export function getSyncMemberOutput(args: GetSyncMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncMemberResult> {

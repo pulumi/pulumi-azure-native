@@ -99,7 +99,7 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
                             v_center_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationvCenterResult:
     """
-    vCenter definition.
+    Gets the details of a registered vCenter server(Add vCenter server.)
     API Version: 2018-07-10.
 
 
@@ -131,7 +131,7 @@ def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = No
                                    v_center_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationvCenterResult]:
     """
-    vCenter definition.
+    Gets the details of a registered vCenter server(Add vCenter server.)
     API Version: 2018-07-10.
 
 

@@ -195,7 +195,7 @@ def get_remote_rendering_account(account_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteRenderingAccountResult:
     """
-    RemoteRenderingAccount Response.
+    Retrieve a Remote Rendering Account.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -229,7 +229,7 @@ def get_remote_rendering_account_output(account_name: Optional[pulumi.Input[str]
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteRenderingAccountResult]:
     """
-    RemoteRenderingAccount Response.
+    Retrieve a Remote Rendering Account.
 
 
     :param str account_name: Name of an Mixed Reality Account.

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents an instance of a DNC controller.
+ * Gets details about the specified dnc controller.
  */
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
@@ -75,7 +75,7 @@ export interface GetControllerDetailsResult {
     readonly type: string;
 }
 /**
- * Represents an instance of a DNC controller.
+ * Gets details about the specified dnc controller.
  */
 /** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerDetailsResult> {

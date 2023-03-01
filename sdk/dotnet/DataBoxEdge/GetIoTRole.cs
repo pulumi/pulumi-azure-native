@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public static class GetIoTRole
     {
         /// <summary>
-        /// Compute role.
+        /// Gets a specific role by name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetIoTRoleResult> InvokeAsync(GetIoTRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoTRoleResult>("azure-native:databoxedge:getIoTRole", args ?? new GetIoTRoleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Compute role.
+        /// Gets a specific role by name.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetIoTRoleResult> Invoke(GetIoTRoleInvokeArgs args, InvokeOptions? options = null)

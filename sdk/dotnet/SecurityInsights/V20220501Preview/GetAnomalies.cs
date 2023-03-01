@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
     public static class GetAnomalies
     {
         /// <summary>
-        /// Settings with single toggle.
+        /// Gets a setting.
         /// </summary>
         public static Task<GetAnomaliesResult> InvokeAsync(GetAnomaliesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnomaliesResult>("azure-native:securityinsights/v20220501preview:getAnomalies", args ?? new GetAnomaliesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Settings with single toggle.
+        /// Gets a setting.
         /// </summary>
         public static Output<GetAnomaliesResult> Invoke(GetAnomaliesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights/v20220501preview:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithDefaults());

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Compute
     public static class GetVirtualMachineRunCommandByVirtualMachine
     {
         /// <summary>
-        /// Describes a Virtual Machine run command.
+        /// The operation to get the run command.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineRunCommandByVirtualMachineResult> InvokeAsync(GetVirtualMachineRunCommandByVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRunCommandByVirtualMachineResult>("azure-native:compute:getVirtualMachineRunCommandByVirtualMachine", args ?? new GetVirtualMachineRunCommandByVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes a Virtual Machine run command.
+        /// The operation to get the run command.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetVirtualMachineRunCommandByVirtualMachineResult> Invoke(GetVirtualMachineRunCommandByVirtualMachineInvokeArgs args, InvokeOptions? options = null)

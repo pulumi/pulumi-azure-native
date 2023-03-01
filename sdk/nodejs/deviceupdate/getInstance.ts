@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Device Update instance details.
+ * Returns instance details for the given instance and account name.
  * API Version: 2020-03-01-preview.
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
@@ -86,7 +86,7 @@ export interface GetInstanceResult {
     readonly type: string;
 }
 /**
- * Device Update instance details.
+ * Returns instance details for the given instance and account name.
  * API Version: 2020-03-01-preview.
  */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {

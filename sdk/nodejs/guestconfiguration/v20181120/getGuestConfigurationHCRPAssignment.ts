@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Guest configuration assignment is an association between a machine and guest configuration.
+ * Get information about a guest configuration assignment
  */
 /** @deprecated Version 2018-11-20 will be removed in v2 of the provider. */
 export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationHCRPAssignmentResult> {
@@ -63,7 +63,7 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
     readonly type: string;
 }
 /**
- * Guest configuration assignment is an association between a machine and guest configuration.
+ * Get information about a guest configuration assignment
  */
 /** @deprecated Version 2018-11-20 will be removed in v2 of the provider. */
 export function getGuestConfigurationHCRPAssignmentOutput(args: GetGuestConfigurationHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationHCRPAssignmentResult> {

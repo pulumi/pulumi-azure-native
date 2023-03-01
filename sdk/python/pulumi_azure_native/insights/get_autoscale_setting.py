@@ -157,7 +157,7 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoscaleSettingResult:
     """
-    The autoscale setting resource.
+    Gets an autoscale setting
     API Version: 2015-04-01.
 
 
@@ -188,7 +188,7 @@ def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoscaleSettingResult]:
     """
-    The autoscale setting resource.
+    Gets an autoscale setting
     API Version: 2015-04-01.
 
 

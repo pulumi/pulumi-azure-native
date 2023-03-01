@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     public static class GetHybridAksCluster
     {
         /// <summary>
-        /// The details are specific to the Network Cloud use of the Hybrid AKS cluster.
+        /// Get the additional details related to the provided Hybrid AKS provisioned cluster.
         /// </summary>
         public static Task<GetHybridAksClusterResult> InvokeAsync(GetHybridAksClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridAksClusterResult>("azure-native:networkcloud/v20221212preview:getHybridAksCluster", args ?? new GetHybridAksClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The details are specific to the Network Cloud use of the Hybrid AKS cluster.
+        /// Get the additional details related to the provided Hybrid AKS provisioned cluster.
         /// </summary>
         public static Output<GetHybridAksClusterResult> Invoke(GetHybridAksClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridAksClusterResult>("azure-native:networkcloud/v20221212preview:getHybridAksCluster", args ?? new GetHybridAksClusterInvokeArgs(), options.WithDefaults());

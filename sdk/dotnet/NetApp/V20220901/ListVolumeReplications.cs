@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NetApp.V20220901
     public static class ListVolumeReplications
     {
         /// <summary>
-        /// List Replications
+        /// List all replications for a specified volume
         /// </summary>
         public static Task<ListVolumeReplicationsResult> InvokeAsync(ListVolumeReplicationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVolumeReplicationsResult>("azure-native:netapp/v20220901:listVolumeReplications", args ?? new ListVolumeReplicationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List Replications
+        /// List all replications for a specified volume
         /// </summary>
         public static Output<ListVolumeReplicationsResult> Invoke(ListVolumeReplicationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVolumeReplicationsResult>("azure-native:netapp/v20220901:listVolumeReplications", args ?? new ListVolumeReplicationsInvokeArgs(), options.WithDefaults());

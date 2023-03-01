@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The list of all devices in a resource and their eligibility status as a failover target device.
+ * Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
  * API Version: 2017-06-01.
  */
 export function listDeviceFailoverTars(args: ListDeviceFailoverTarsArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceFailoverTarsResult> {
@@ -51,7 +51,7 @@ export interface ListDeviceFailoverTarsResult {
     readonly value?: outputs.storsimple.FailoverTargetResponse[];
 }
 /**
- * The list of all devices in a resource and their eligibility status as a failover target device.
+ * Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
  * API Version: 2017-06-01.
  */
 export function listDeviceFailoverTarsOutput(args: ListDeviceFailoverTarsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceFailoverTarsResult> {

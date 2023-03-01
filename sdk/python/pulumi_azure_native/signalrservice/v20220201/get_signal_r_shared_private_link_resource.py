@@ -146,7 +146,7 @@ def get_signal_r_shared_private_link_resource(resource_group_name: Optional[str]
                                               shared_private_link_resource_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRSharedPrivateLinkResourceResult:
     """
-    Describes a Shared Private Link Resource
+    Get the specified shared private link resource
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -178,7 +178,7 @@ def get_signal_r_shared_private_link_resource_output(resource_group_name: Option
                                                      shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRSharedPrivateLinkResourceResult]:
     """
-    Describes a Shared Private Link Resource
+    Get the specified shared private link resource
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

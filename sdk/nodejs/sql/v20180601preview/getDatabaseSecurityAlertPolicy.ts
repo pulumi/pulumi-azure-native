@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A database security alert policy.
+ * Gets a  database's security alert policy.
  */
 export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseSecurityAlertPolicyResult> {
 
@@ -87,7 +87,7 @@ export interface GetDatabaseSecurityAlertPolicyResult {
     readonly type: string;
 }
 /**
- * A database security alert policy.
+ * Gets a  database's security alert policy.
  */
 export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseSecurityAlertPolicy(a, opts))

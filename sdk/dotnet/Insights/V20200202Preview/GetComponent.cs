@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
     public static class GetComponent
     {
         /// <summary>
-        /// An Application Insights component definition.
+        /// Returns an Application Insights component.
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-native:insights/v20200202preview:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Application Insights component definition.
+        /// Returns an Application Insights component.
         /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights/v20200202preview:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());

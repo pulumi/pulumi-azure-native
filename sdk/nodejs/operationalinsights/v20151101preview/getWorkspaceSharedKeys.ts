@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The shared keys for a workspace.
+ * Gets the shared keys for a workspace.
  */
 export function getWorkspaceSharedKeys(args: GetWorkspaceSharedKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSharedKeysResult> {
 
@@ -41,7 +41,7 @@ export interface GetWorkspaceSharedKeysResult {
     readonly secondarySharedKey?: string;
 }
 /**
- * The shared keys for a workspace.
+ * Gets the shared keys for a workspace.
  */
 export function getWorkspaceSharedKeysOutput(args: GetWorkspaceSharedKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSharedKeysResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceSharedKeys(a, opts))

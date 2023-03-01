@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A job step.
+ * Gets a job step in a job's current version.
  */
 export function getJobStep(args: GetJobStepArgs, opts?: pulumi.InvokeOptions): Promise<GetJobStepResult> {
 
@@ -87,7 +87,7 @@ export interface GetJobStepResult {
     readonly type: string;
 }
 /**
- * A job step.
+ * Gets a job step in a job's current version.
  */
 export function getJobStepOutput(args: GetJobStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobStepResult> {
     return pulumi.output(args).apply((a: any) => getJobStep(a, opts))

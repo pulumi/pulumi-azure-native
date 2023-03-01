@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * List response for get source share Synchronization settings
+ * Get synchronization settings set on a share
  */
 export function listShareSubscriptionSourceShareSynchronizationSettings(args: ListShareSubscriptionSourceShareSynchronizationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSourceShareSynchronizationSettingsResult> {
 
@@ -54,7 +54,7 @@ export interface ListShareSubscriptionSourceShareSynchronizationSettingsResult {
     readonly value: outputs.datashare.v20200901.ScheduledSourceSynchronizationSettingResponse[];
 }
 /**
- * List response for get source share Synchronization settings
+ * Get synchronization settings set on a share
  */
 export function listShareSubscriptionSourceShareSynchronizationSettingsOutput(args: ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSourceShareSynchronizationSettingsResult> {
     return pulumi.output(args).apply((a: any) => listShareSubscriptionSourceShareSynchronizationSettings(a, opts))

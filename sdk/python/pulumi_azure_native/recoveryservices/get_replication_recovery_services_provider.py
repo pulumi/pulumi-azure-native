@@ -99,7 +99,7 @@ def get_replication_recovery_services_provider(fabric_name: Optional[str] = None
                                                resource_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryServicesProviderResult:
     """
-    Provider details.
+    Gets the details of registered recovery services provider.
     API Version: 2018-07-10.
 
 
@@ -131,7 +131,7 @@ def get_replication_recovery_services_provider_output(fabric_name: Optional[pulu
                                                       resource_name: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationRecoveryServicesProviderResult]:
     """
-    Provider details.
+    Gets the details of registered recovery services provider.
     API Version: 2018-07-10.
 
 

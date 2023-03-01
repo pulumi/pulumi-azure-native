@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20201101
     public static class GetP2sVpnGateway
     {
         /// <summary>
-        /// P2SVpnGateway Resource.
+        /// Retrieves the details of a virtual wan p2s vpn gateway.
         /// </summary>
         public static Task<GetP2sVpnGatewayResult> InvokeAsync(GetP2sVpnGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayResult>("azure-native:network/v20201101:getP2sVpnGateway", args ?? new GetP2sVpnGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// P2SVpnGateway Resource.
+        /// Retrieves the details of a virtual wan p2s vpn gateway.
         /// </summary>
         public static Output<GetP2sVpnGatewayResult> Invoke(GetP2sVpnGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayResult>("azure-native:network/v20201101:getP2sVpnGateway", args ?? new GetP2sVpnGatewayInvokeArgs(), options.WithDefaults());

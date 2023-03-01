@@ -190,6 +190,7 @@ def get_volume(resource_group_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
+    Get properties of the provided volume.
     API Version: 2022-12-12-preview.
 
 
@@ -223,6 +224,7 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       volume_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
+    Get properties of the provided volume.
     API Version: 2022-12-12-preview.
 
 

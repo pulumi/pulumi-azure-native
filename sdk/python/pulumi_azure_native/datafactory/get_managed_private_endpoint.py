@@ -99,7 +99,7 @@ def get_managed_private_endpoint(factory_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrivateEndpointResult:
     """
-    Managed private endpoint resource type.
+    Gets a managed private endpoint.
     API Version: 2018-06-01.
 
 
@@ -131,7 +131,7 @@ def get_managed_private_endpoint_output(factory_name: Optional[pulumi.Input[str]
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
     """
-    Managed private endpoint resource type.
+    Gets a managed private endpoint.
     API Version: 2018-06-01.
 
 

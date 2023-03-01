@@ -135,7 +135,7 @@ def get_msti_data_connector(data_connector_id: Optional[str] = None,
                             workspace_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMSTIDataConnectorResult:
     """
-    Represents Microsoft Threat Intelligence data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -166,7 +166,7 @@ def get_msti_data_connector_output(data_connector_id: Optional[pulumi.Input[str]
                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMSTIDataConnectorResult]:
     """
-    Represents Microsoft Threat Intelligence data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

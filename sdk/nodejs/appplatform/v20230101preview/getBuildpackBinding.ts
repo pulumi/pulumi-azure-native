@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Buildpack Binding Resource object
+ * Get a buildpack binding by name.
  */
 export function getBuildpackBinding(args: GetBuildpackBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildpackBindingResult> {
 
@@ -71,7 +71,7 @@ export interface GetBuildpackBindingResult {
     readonly type: string;
 }
 /**
- * Buildpack Binding Resource object
+ * Get a buildpack binding by name.
  */
 export function getBuildpackBindingOutput(args: GetBuildpackBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildpackBindingResult> {
     return pulumi.output(args).apply((a: any) => getBuildpackBinding(a, opts))

@@ -61,7 +61,7 @@ def list_web_app_function_secrets(function_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionSecretsResult:
     """
-    Function secrets.
+    Get function secrets for a function in a web site, or a deployment slot.
     API Version: 2020-12-01.
 
 
@@ -87,7 +87,7 @@ def list_web_app_function_secrets_output(function_name: Optional[pulumi.Input[st
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppFunctionSecretsResult]:
     """
-    Function secrets.
+    Get function secrets for a function in a web site, or a deployment slot.
     API Version: 2020-12-01.
 
 

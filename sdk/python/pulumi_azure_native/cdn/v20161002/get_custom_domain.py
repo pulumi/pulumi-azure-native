@@ -160,7 +160,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
-    Customer provided domain for branding purposes, e.g. www.contoso.com.
+    Gets an existing custom domain within an endpoint.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
@@ -197,7 +197,7 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainResult]:
     """
-    Customer provided domain for branding purposes, e.g. www.contoso.com.
+    Gets an existing custom domain within an endpoint.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.

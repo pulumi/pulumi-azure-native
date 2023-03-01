@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
     public static class GetVendorSkuPreview
     {
         /// <summary>
-        /// Customer subscription which can use a sku.
+        /// Gets the preview information of a vendor sku.
         /// </summary>
         public static Task<GetVendorSkuPreviewResult> InvokeAsync(GetVendorSkuPreviewArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-native:hybridnetwork/v20220101preview:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Customer subscription which can use a sku.
+        /// Gets the preview information of a vendor sku.
         /// </summary>
         public static Output<GetVendorSkuPreviewResult> Invoke(GetVendorSkuPreviewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork/v20220101preview:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Search.V20200313
     public static class ListAdminKey
     {
         /// <summary>
-        /// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+        /// Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
         /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search/v20200313:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+        /// Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
         /// </summary>
         public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20200313:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithDefaults());

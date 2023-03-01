@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class of response for listPaths action
+ * List Paths supported by this Streaming Locator
  * API Version: 2020-05-01.
  */
 export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorPathsResult> {
@@ -50,7 +50,7 @@ export interface ListStreamingLocatorPathsResult {
     readonly streamingPaths?: outputs.media.StreamingPathResponse[];
 }
 /**
- * Class of response for listPaths action
+ * List Paths supported by this Streaming Locator
  * API Version: 2020-05-01.
  */
 export function listStreamingLocatorPathsOutput(args: ListStreamingLocatorPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorPathsResult> {

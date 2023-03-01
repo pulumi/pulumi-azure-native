@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetNamespace
     {
         /// <summary>
-        /// Description of a Namespace resource.
+        /// Returns the description for the specified namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a Namespace resource.
+        /// Returns the description for the specified namespace.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)

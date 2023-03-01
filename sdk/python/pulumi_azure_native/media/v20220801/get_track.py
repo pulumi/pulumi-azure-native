@@ -99,7 +99,7 @@ def get_track(account_name: Optional[str] = None,
               track_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrackResult:
     """
-    An Asset Track resource.
+    Get the details of a Track in the Asset
 
 
     :param str account_name: The Media Services account name.
@@ -130,7 +130,7 @@ def get_track_output(account_name: Optional[pulumi.Input[str]] = None,
                      track_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackResult]:
     """
-    An Asset Track resource.
+    Get the details of a Track in the Asset
 
 
     :param str account_name: The Media Services account name.

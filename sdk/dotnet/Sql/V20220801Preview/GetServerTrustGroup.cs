@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
     public static class GetServerTrustGroup
     {
         /// <summary>
-        /// A server trust group.
+        /// Gets a server trust group.
         /// </summary>
         public static Task<GetServerTrustGroupResult> InvokeAsync(GetServerTrustGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustGroupResult>("azure-native:sql/v20220801preview:getServerTrustGroup", args ?? new GetServerTrustGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A server trust group.
+        /// Gets a server trust group.
         /// </summary>
         public static Output<GetServerTrustGroupResult> Invoke(GetServerTrustGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerTrustGroupResult>("azure-native:sql/v20220801preview:getServerTrustGroup", args ?? new GetServerTrustGroupInvokeArgs(), options.WithDefaults());

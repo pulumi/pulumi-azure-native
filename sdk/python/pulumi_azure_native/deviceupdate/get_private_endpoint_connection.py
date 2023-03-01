@@ -134,7 +134,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    The Private Endpoint Connection resource.
+    Get the specified private endpoint connection associated with the device update account.
     API Version: 2020-03-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    The Private Endpoint Connection resource.
+    Get the specified private endpoint connection associated with the device update account.
     API Version: 2020-03-01-preview.
 
 

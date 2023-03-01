@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
     public static class ListTopicKeys
     {
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Gets the primary and secondary connection strings for the topic.
         /// </summary>
         public static Task<ListTopicKeysResult> InvokeAsync(ListTopicKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-native:servicebus/v20210601preview:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Gets the primary and secondary connection strings for the topic.
         /// </summary>
         public static Output<ListTopicKeysResult> Invoke(ListTopicKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopicKeysResult>("azure-native:servicebus/v20210601preview:listTopicKeys", args ?? new ListTopicKeysInvokeArgs(), options.WithDefaults());

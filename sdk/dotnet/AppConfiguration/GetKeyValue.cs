@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppConfiguration
     public static class GetKeyValue
     {
         /// <summary>
-        /// The key-value resource along with all resource properties.
+        /// Gets the properties of the specified key-value.
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Task<GetKeyValueResult> InvokeAsync(GetKeyValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyValueResult>("azure-native:appconfiguration:getKeyValue", args ?? new GetKeyValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The key-value resource along with all resource properties.
+        /// Gets the properties of the specified key-value.
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Output<GetKeyValueResult> Invoke(GetKeyValueInvokeArgs args, InvokeOptions? options = null)

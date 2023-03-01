@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Data Lake Analytics compute policy information.
+ * Gets the specified Data Lake Analytics compute policy.
  */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
 
@@ -66,7 +66,7 @@ export interface GetComputePolicyResult {
     readonly type: string;
 }
 /**
- * Data Lake Analytics compute policy information.
+ * Gets the specified Data Lake Analytics compute policy.
  */
 export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
     return pulumi.output(args).apply((a: any) => getComputePolicy(a, opts))

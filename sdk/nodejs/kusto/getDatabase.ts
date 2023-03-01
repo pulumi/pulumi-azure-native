@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a Kusto database.
+ * Returns a database.
  * API Version: 2021-01-01.
  */
 /** @deprecated Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase. */
@@ -61,7 +61,7 @@ export interface GetDatabaseResult {
     readonly type: string;
 }
 /**
- * Class representing a Kusto database.
+ * Returns a database.
  * API Version: 2021-01-01.
  */
 /** @deprecated Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase. */

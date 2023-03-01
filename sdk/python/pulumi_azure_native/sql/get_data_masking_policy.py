@@ -146,7 +146,7 @@ def get_data_masking_policy(data_masking_policy_name: Optional[str] = None,
                             server_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataMaskingPolicyResult:
     """
-    Represents a database data masking policy.
+    Gets a database data masking policy.
     API Version: 2014-04-01.
 
 
@@ -182,7 +182,7 @@ def get_data_masking_policy_output(data_masking_policy_name: Optional[pulumi.Inp
                                    server_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataMaskingPolicyResult]:
     """
-    Represents a database data masking policy.
+    Gets a database data masking policy.
     API Version: 2014-04-01.
 
 

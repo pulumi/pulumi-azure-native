@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Service End point policy resource.
+ * Gets the specified service Endpoint Policies in a specified resource group.
  */
 export function getServiceEndpointPolicy(args: GetServiceEndpointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyResult> {
 
@@ -77,7 +77,7 @@ export interface GetServiceEndpointPolicyResult {
     readonly type: string;
 }
 /**
- * Service End point policy resource.
+ * Gets the specified service Endpoint Policies in a specified resource group.
  */
 export function getServiceEndpointPolicyOutput(args: GetServiceEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointPolicy(a, opts))

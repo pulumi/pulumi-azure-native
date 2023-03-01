@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * List the media edge policies associated with the Media Services account.
+ */
 export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceEdgePoliciesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,6 +38,9 @@ export interface ListMediaServiceEdgePoliciesArgs {
 export interface ListMediaServiceEdgePoliciesResult {
     readonly usageDataCollectionPolicy?: outputs.media.v20200501.EdgeUsageDataCollectionPolicyResponse;
 }
+/**
+ * List the media edge policies associated with the Media Services account.
+ */
 export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
     return pulumi.output(args).apply((a: any) => listMediaServiceEdgePolicies(a, opts))
 }

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Blob container data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getBlobContainerDataSetMapping(args: GetBlobContainerDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetMappingResult> {
 
@@ -88,7 +88,7 @@ export interface GetBlobContainerDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A Blob container data set mapping.
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getBlobContainerDataSetMappingOutput(args: GetBlobContainerDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainerDataSetMapping(a, opts))

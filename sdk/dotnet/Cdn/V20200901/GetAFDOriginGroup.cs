@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cdn.V20200901
     public static class GetAFDOriginGroup
     {
         /// <summary>
-        /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+        /// Gets an existing origin group within a profile.
         /// </summary>
         public static Task<GetAFDOriginGroupResult> InvokeAsync(GetAFDOriginGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginGroupResult>("azure-native:cdn/v20200901:getAFDOriginGroup", args ?? new GetAFDOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+        /// Gets an existing origin group within a profile.
         /// </summary>
         public static Output<GetAFDOriginGroupResult> Invoke(GetAFDOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn/v20200901:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithDefaults());

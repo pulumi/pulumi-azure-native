@@ -146,7 +146,7 @@ def get_network_group(network_group_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkGroupResult:
     """
-    The network group resource
+    Gets the specified network group.
 
 
     :param str network_group_name: The name of the network group.
@@ -178,7 +178,7 @@ def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkGroupResult]:
     """
-    The network group resource
+    Gets the specified network group.
 
 
     :param str network_group_name: The name of the network group.

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Workspace active directory administrator
+ * Gets a workspace active directory admin
  */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
 
@@ -61,7 +61,7 @@ export interface GetWorkspaceAadAdminResult {
     readonly type: string;
 }
 /**
- * Workspace active directory administrator
+ * Gets a workspace active directory admin
  */
 export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceAadAdmin(a, opts))

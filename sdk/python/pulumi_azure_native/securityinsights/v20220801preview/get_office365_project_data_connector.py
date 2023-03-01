@@ -135,7 +135,7 @@ def get_office365_project_data_connector(data_connector_id: Optional[str] = None
                                          workspace_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOffice365ProjectDataConnectorResult:
     """
-    Represents Office Microsoft Project data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID
@@ -166,7 +166,7 @@ def get_office365_project_data_connector_output(data_connector_id: Optional[pulu
                                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOffice365ProjectDataConnectorResult]:
     """
-    Represents Office Microsoft Project data connector.
+    Gets a data connector.
 
 
     :param str data_connector_id: Connector ID

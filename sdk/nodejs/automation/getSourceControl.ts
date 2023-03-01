@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the source control.
+ * Retrieve the source control identified by source control name.
  * API Version: 2019-06-01.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
@@ -87,7 +87,7 @@ export interface GetSourceControlResult {
     readonly type: string;
 }
 /**
- * Definition of the source control.
+ * Retrieve the source control identified by source control name.
  * API Version: 2019-06-01.
  */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {

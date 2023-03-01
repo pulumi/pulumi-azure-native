@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20190501Preview
     public static class GetStreamingEndpoint
     {
         /// <summary>
-        /// The StreamingEndpoint.
+        /// Gets a StreamingEndpoint.
         /// </summary>
         public static Task<GetStreamingEndpointResult> InvokeAsync(GetStreamingEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-native:media/v20190501preview:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The StreamingEndpoint.
+        /// Gets a StreamingEndpoint.
         /// </summary>
         public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media/v20190501preview:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithDefaults());

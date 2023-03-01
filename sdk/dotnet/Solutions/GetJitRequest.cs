@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Solutions
     public static class GetJitRequest
     {
         /// <summary>
-        /// Information about JIT request definition.
+        /// Gets the JIT request.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Information about JIT request definition.
+        /// Gets the JIT request.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOptions? options = null)

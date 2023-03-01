@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
     public static class GetNotificationHubPnsCredentials
     {
         /// <summary>
-        /// Description of a NotificationHub Resource.
+        /// Lists the PNS Credentials associated with a notification hub .
         /// </summary>
         public static Task<GetNotificationHubPnsCredentialsResult> InvokeAsync(GetNotificationHubPnsCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs/v20140901:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a NotificationHub Resource.
+        /// Lists the PNS Credentials associated with a notification hub .
         /// </summary>
         public static Output<GetNotificationHubPnsCredentialsResult> Invoke(GetNotificationHubPnsCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs/v20140901:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsInvokeArgs(), options.WithDefaults());

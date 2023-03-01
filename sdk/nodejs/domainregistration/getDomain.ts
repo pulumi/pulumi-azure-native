@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Information about a domain.
+ * Get a domain.
  * API Version: 2020-10-01.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
@@ -123,7 +123,7 @@ export interface GetDomainResult {
     readonly type: string;
 }
 /**
- * Information about a domain.
+ * Get a domain.
  * API Version: 2020-10-01.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {

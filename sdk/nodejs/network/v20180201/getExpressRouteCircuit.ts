@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * ExpressRouteCircuit resource
+ * Gets information about the specified express route circuit.
  */
 /** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
@@ -106,7 +106,7 @@ export interface GetExpressRouteCircuitResult {
     readonly type: string;
 }
 /**
- * ExpressRouteCircuit resource
+ * Gets information about the specified express route circuit.
  */
 /** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitResult> {

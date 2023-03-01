@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210831Preview
     public static class GetResourceSyncRule
     {
         /// <summary>
-        /// Resource Sync Rules definition.
+        /// Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
         /// </summary>
         public static Task<GetResourceSyncRuleResult> InvokeAsync(GetResourceSyncRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceSyncRuleResult>("azure-native:extendedlocation/v20210831preview:getResourceSyncRule", args ?? new GetResourceSyncRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Sync Rules definition.
+        /// Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
         /// </summary>
         public static Output<GetResourceSyncRuleResult> Invoke(GetResourceSyncRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceSyncRuleResult>("azure-native:extendedlocation/v20210831preview:getResourceSyncRule", args ?? new GetResourceSyncRuleInvokeArgs(), options.WithDefaults());

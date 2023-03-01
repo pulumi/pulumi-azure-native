@@ -244,10 +244,7 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudServicesNetworkResult:
     """
-    Upon creation, the additional services that are provided by the platform will be allocated and
-    represented in the status of this resource. All resources associated with this cloud services network will be part
-    of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
-    virtual machines and/or Hybrid AKS clusters.
+    Get properties of the provided cloud services network.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.
@@ -284,10 +281,7 @@ def get_cloud_services_network_output(cloud_services_network_name: Optional[pulu
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudServicesNetworkResult]:
     """
-    Upon creation, the additional services that are provided by the platform will be allocated and
-    represented in the status of this resource. All resources associated with this cloud services network will be part
-    of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
-    virtual machines and/or Hybrid AKS clusters.
+    Get properties of the provided cloud services network.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.

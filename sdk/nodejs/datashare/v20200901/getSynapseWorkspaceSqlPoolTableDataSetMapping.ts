@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Synapse Workspace Sql Pool Table data set mapping
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getSynapseWorkspaceSqlPoolTableDataSetMapping(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
 
@@ -83,7 +83,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingResult {
     readonly type: string;
 }
 /**
- * A Synapse Workspace Sql Pool Table data set mapping
+ * Get a DataSetMapping in a shareSubscription
  */
 export function getSynapseWorkspaceSqlPoolTableDataSetMappingOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getSynapseWorkspaceSqlPoolTableDataSetMapping(a, opts))

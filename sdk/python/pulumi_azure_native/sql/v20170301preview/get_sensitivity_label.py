@@ -146,7 +146,7 @@ def get_sensitivity_label(column_name: Optional[str] = None,
                           table_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSensitivityLabelResult:
     """
-    A sensitivity label.
+    Gets the sensitivity label of a given column
 
 
     :param str column_name: The name of the column.
@@ -190,7 +190,7 @@ def get_sensitivity_label_output(column_name: Optional[pulumi.Input[str]] = None
                                  table_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSensitivityLabelResult]:
     """
-    A sensitivity label.
+    Gets the sensitivity label of a given column
 
 
     :param str column_name: The name of the column.

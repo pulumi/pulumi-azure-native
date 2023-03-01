@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource information with extended details.
+ * Gets the specified managed HSM Pool.
  * API Version: 2021-06-01-preview.
  */
 export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHsmResult> {
@@ -69,7 +69,7 @@ export interface GetManagedHsmResult {
     readonly type: string;
 }
 /**
- * Resource information with extended details.
+ * Gets the specified managed HSM Pool.
  * API Version: 2021-06-01-preview.
  */
 export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHsmResult> {

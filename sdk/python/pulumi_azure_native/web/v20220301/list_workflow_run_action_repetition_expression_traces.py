@@ -71,7 +71,7 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
                                                           workflow_name: Optional[str] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowRunActionRepetitionExpressionTracesResult:
     """
-    The expression traces.
+    Lists a workflow run expression trace.
 
 
     :param str action_name: The workflow action name.
@@ -106,7 +106,7 @@ def list_workflow_run_action_repetition_expression_traces_output(action_name: Op
                                                                  workflow_name: Optional[pulumi.Input[str]] = None,
                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowRunActionRepetitionExpressionTracesResult]:
     """
-    The expression traces.
+    Lists a workflow run expression trace.
 
 
     :param str action_name: The workflow action name.

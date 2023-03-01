@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+ * Gets the specified contact Profile in a specified resource group
  * API Version: 2021-04-04-preview.
  */
 export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContactProfileResult> {
@@ -85,7 +85,7 @@ export interface GetContactProfileResult {
     readonly type: string;
 }
 /**
- * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+ * Gets the specified contact Profile in a specified resource group
  * API Version: 2021-04-04-preview.
  */
 export function getContactProfileOutput(args: GetContactProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactProfileResult> {

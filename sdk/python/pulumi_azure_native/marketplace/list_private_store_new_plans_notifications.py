@@ -45,7 +45,7 @@ class AwaitableListPrivateStoreNewPlansNotificationsResult(ListPrivateStoreNewPl
 def list_private_store_new_plans_notifications(private_store_id: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateStoreNewPlansNotificationsResult:
     """
-    List of all new plans notifications for public offers
+    List new plans notifications
     API Version: 2021-12-01.
 
 
@@ -64,7 +64,7 @@ def list_private_store_new_plans_notifications(private_store_id: Optional[str] =
 def list_private_store_new_plans_notifications_output(private_store_id: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateStoreNewPlansNotificationsResult]:
     """
-    List of all new plans notifications for public offers
+    List new plans notifications
     API Version: 2021-12-01.
 
 

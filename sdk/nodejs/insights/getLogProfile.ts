@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The log profile resource.
+ * Gets the log profile.
  * API Version: 2016-03-01.
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
@@ -72,7 +72,7 @@ export interface GetLogProfileResult {
     readonly type: string;
 }
 /**
- * The log profile resource.
+ * Gets the log profile.
  * API Version: 2016-03-01.
  */
 export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Authorization.V20180301
     public static class GetPolicySetDefinition
     {
         /// <summary>
-        /// The policy set definition.
+        /// This operation retrieves the policy set definition in the given subscription with the given name.
         /// </summary>
         public static Task<GetPolicySetDefinitionResult> InvokeAsync(GetPolicySetDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure-native:authorization/v20180301:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The policy set definition.
+        /// This operation retrieves the policy set definition in the given subscription with the given name.
         /// </summary>
         public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure-native:authorization/v20180301:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Devices.V20200615
     public static class ListIotHubResourceKeysForKeyName
     {
         /// <summary>
-        /// The properties of an IoT hub shared access policy.
+        /// Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
         /// </summary>
         public static Task<ListIotHubResourceKeysForKeyNameResult> InvokeAsync(ListIotHubResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices/v20200615:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The properties of an IoT hub shared access policy.
+        /// Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
         /// </summary>
         public static Output<ListIotHubResourceKeysForKeyNameResult> Invoke(ListIotHubResourceKeysForKeyNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices/v20200615:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameInvokeArgs(), options.WithDefaults());

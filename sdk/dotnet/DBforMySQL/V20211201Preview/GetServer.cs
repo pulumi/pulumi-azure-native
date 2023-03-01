@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
     public static class GetServer
     {
         /// <summary>
-        /// Represents a server.
+        /// Gets information about a server.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformysql/v20211201preview:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a server.
+        /// Gets information about a server.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformysql/v20211201preview:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());

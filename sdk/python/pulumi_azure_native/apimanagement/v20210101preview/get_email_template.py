@@ -146,7 +146,7 @@ def get_email_template(resource_group_name: Optional[str] = None,
                        template_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailTemplateResult:
     """
-    Email Template details.
+    Gets the details of the email template specified by its identifier.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -178,7 +178,7 @@ def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] =
                               template_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailTemplateResult]:
     """
-    Email Template details.
+    Gets the details of the email template specified by its identifier.
 
 
     :param str resource_group_name: The name of the resource group.

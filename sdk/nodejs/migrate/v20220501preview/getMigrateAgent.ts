@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * MigrateAgent model.
+ * Gets the details of the modernizeProject agent.
  */
 export function getMigrateAgent(args: GetMigrateAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateAgentResult> {
 
@@ -67,7 +67,7 @@ export interface GetMigrateAgentResult {
     readonly type: string;
 }
 /**
- * MigrateAgent model.
+ * Gets the details of the modernizeProject agent.
  */
 export function getMigrateAgentOutput(args: GetMigrateAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateAgentResult> {
     return pulumi.output(args).apply((a: any) => getMigrateAgent(a, opts))

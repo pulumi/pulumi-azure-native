@@ -158,7 +158,7 @@ def get_image(expand: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+    Gets an image.
     API Version: 2020-12-01.
 
 
@@ -192,7 +192,7 @@ def get_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
-    The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+    Gets an image.
     API Version: 2020-12-01.
 
 

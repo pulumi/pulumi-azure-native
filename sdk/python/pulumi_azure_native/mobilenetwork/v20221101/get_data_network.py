@@ -134,7 +134,7 @@ def get_data_network(data_network_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataNetworkResult:
     """
-    Data network resource. Must be created in the same location as its parent mobile network.
+    Gets information about the specified data network.
 
 
     :param str data_network_name: The name of the data network.
@@ -165,7 +165,7 @@ def get_data_network_output(data_network_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataNetworkResult]:
     """
-    Data network resource. Must be created in the same location as its parent mobile network.
+    Gets information about the specified data network.
 
 
     :param str data_network_name: The name of the data network.

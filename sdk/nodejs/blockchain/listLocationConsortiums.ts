@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Collection of the consortium payload.
+ * Lists the available consortiums for a subscription.
  * API Version: 2018-06-01-preview.
  */
 export function listLocationConsortiums(args: ListLocationConsortiumsArgs, opts?: pulumi.InvokeOptions): Promise<ListLocationConsortiumsResult> {
@@ -36,7 +36,7 @@ export interface ListLocationConsortiumsResult {
     readonly value?: outputs.blockchain.ConsortiumResponse[];
 }
 /**
- * Collection of the consortium payload.
+ * Lists the available consortiums for a subscription.
  * API Version: 2018-06-01-preview.
  */
 export function listLocationConsortiumsOutput(args: ListLocationConsortiumsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocationConsortiumsResult> {

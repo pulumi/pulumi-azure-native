@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
     public static class GetGetPrivateDnsZoneSuffixExecute
     {
         /// <summary>
-        /// The response of get private dns zone suffix.
+        /// Get private DNS zone suffix in the cloud.
         /// </summary>
         public static Task<GetGetPrivateDnsZoneSuffixExecuteResult> InvokeAsync(GetGetPrivateDnsZoneSuffixExecuteArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGetPrivateDnsZoneSuffixExecuteResult>("azure-native:dbformysql/v20210501:getGetPrivateDnsZoneSuffixExecute", args ?? new GetGetPrivateDnsZoneSuffixExecuteArgs(), options.WithDefaults());

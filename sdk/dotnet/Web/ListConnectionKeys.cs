@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class ListConnectionKeys
     {
         /// <summary>
-        /// 
+        /// Lists connection keys.
         /// API Version: 2015-08-01-preview.
         /// </summary>
         public static Task<ListConnectionKeysResult> InvokeAsync(ListConnectionKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-native:web:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Lists connection keys.
         /// API Version: 2015-08-01-preview.
         /// </summary>
         public static Output<ListConnectionKeysResult> Invoke(ListConnectionKeysInvokeArgs args, InvokeOptions? options = null)

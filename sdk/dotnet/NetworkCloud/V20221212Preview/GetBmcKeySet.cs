@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
     public static class GetBmcKeySet
     {
+        /// <summary>
+        /// Get baseboard management controller key set of the provided cluster.
+        /// </summary>
         public static Task<GetBmcKeySetResult> InvokeAsync(GetBmcKeySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBmcKeySetResult>("azure-native:networkcloud/v20221212preview:getBmcKeySet", args ?? new GetBmcKeySetArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get baseboard management controller key set of the provided cluster.
+        /// </summary>
         public static Output<GetBmcKeySetResult> Invoke(GetBmcKeySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBmcKeySetResult>("azure-native:networkcloud/v20221212preview:getBmcKeySet", args ?? new GetBmcKeySetInvokeArgs(), options.WithDefaults());
     }

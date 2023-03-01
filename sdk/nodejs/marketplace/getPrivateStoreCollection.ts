@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Collection data structure.
+ * Gets private store collection
  * API Version: 2021-12-01.
  */
 export function getPrivateStoreCollection(args: GetPrivateStoreCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionResult> {
@@ -81,7 +81,7 @@ export interface GetPrivateStoreCollectionResult {
     readonly type: string;
 }
 /**
- * The Collection data structure.
+ * Gets private store collection
  * API Version: 2021-12-01.
  */
 export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionResult> {

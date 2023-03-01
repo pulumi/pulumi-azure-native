@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     public static class GetBlobFolderDataSetMapping
     {
         /// <summary>
-        /// A Blob folder data set mapping.
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Task<GetBlobFolderDataSetMappingResult> InvokeAsync(GetBlobFolderDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobFolderDataSetMappingResult>("azure-native:datashare/v20181101preview:getBlobFolderDataSetMapping", args ?? new GetBlobFolderDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Blob folder data set mapping.
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Output<GetBlobFolderDataSetMappingResult> Invoke(GetBlobFolderDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobFolderDataSetMappingResult>("azure-native:datashare/v20181101preview:getBlobFolderDataSetMapping", args ?? new GetBlobFolderDataSetMappingInvokeArgs(), options.WithDefaults());

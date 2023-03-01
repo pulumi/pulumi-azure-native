@@ -101,7 +101,7 @@ def get_addon(addon_name: Optional[str] = None,
               role_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
-    Role Addon
+    Gets a specific addon by name.
     API Version: 2020-12-01.
 
 
@@ -134,7 +134,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      role_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
     """
-    Role Addon
+    Gets a specific addon by name.
     API Version: 2020-12-01.
 
 

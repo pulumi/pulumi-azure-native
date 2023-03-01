@@ -99,7 +99,7 @@ def get_database(cluster_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Class representing a Kusto database.
+    Returns a database.
     API Version: 2021-01-01.
 
 
@@ -129,7 +129,7 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Class representing a Kusto database.
+    Returns a database.
     API Version: 2021-01-01.
 
 

@@ -107,7 +107,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 def get_application(application_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Security Application over a given scope
+    Get a specific application for the requested scope by applicationId
 
 
     :param str application_id: The security Application key - unique key for the standard application
@@ -130,7 +130,7 @@ def get_application(application_id: Optional[str] = None,
 def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Security Application over a given scope
+    Get a specific application for the requested scope by applicationId
 
 
     :param str application_id: The security Application key - unique key for the standard application

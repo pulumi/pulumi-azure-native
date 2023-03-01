@@ -8,10 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Upon creation, the additional services that are provided by the platform will be allocated and
- * represented in the status of this resource. All resources associated with this cloud services network will be part
- * of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
- * virtual machines and/or Hybrid AKS clusters.
+ * Get properties of the provided cloud services network.
  * API Version: 2022-12-12-preview.
  */
 export function getCloudServicesNetwork(args: GetCloudServicesNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServicesNetworkResult> {
@@ -111,10 +108,7 @@ export interface GetCloudServicesNetworkResult {
     readonly virtualMachinesAssociatedIds: string[];
 }
 /**
- * Upon creation, the additional services that are provided by the platform will be allocated and
- * represented in the status of this resource. All resources associated with this cloud services network will be part
- * of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
- * virtual machines and/or Hybrid AKS clusters.
+ * Get properties of the provided cloud services network.
  * API Version: 2022-12-12-preview.
  */
 export function getCloudServicesNetworkOutput(args: GetCloudServicesNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServicesNetworkResult> {

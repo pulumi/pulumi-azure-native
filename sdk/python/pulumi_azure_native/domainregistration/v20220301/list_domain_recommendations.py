@@ -61,7 +61,7 @@ def list_domain_recommendations(keywords: Optional[str] = None,
                                 max_domain_recommendations: Optional[int] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainRecommendationsResult:
     """
-    Collection of domain name identifiers.
+    Description for Get domain name recommendations based on keywords.
 
 
     :param str keywords: Keywords to be used for generating domain recommendations.
@@ -83,7 +83,7 @@ def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[
                                        max_domain_recommendations: Optional[pulumi.Input[Optional[int]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
     """
-    Collection of domain name identifiers.
+    Description for Get domain name recommendations based on keywords.
 
 
     :param str keywords: Keywords to be used for generating domain recommendations.

@@ -8,8 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The task run that has the ARM resource and properties.
- * The task run will have the information of request and result of a run.
+ * Gets the detailed information for a given task run.
  */
 export function getTaskRun(args: GetTaskRunArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskRunResult> {
 
@@ -83,8 +82,7 @@ export interface GetTaskRunResult {
     readonly type: string;
 }
 /**
- * The task run that has the ARM resource and properties.
- * The task run will have the information of request and result of a run.
+ * Gets the detailed information for a given task run.
  */
 export function getTaskRunOutput(args: GetTaskRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskRunResult> {
     return pulumi.output(args).apply((a: any) => getTaskRun(a, opts))

@@ -47,7 +47,7 @@ class AwaitableGetLiveTokenResult(GetLiveTokenResult):
 def get_live_token(resource_uri: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveTokenResult:
     """
-    The response to a live token query.
+    **Gets an access token for live metrics stream data.**
     API Version: 2020-06-02-preview.
 
 
@@ -66,7 +66,7 @@ def get_live_token(resource_uri: Optional[str] = None,
 def get_live_token_output(resource_uri: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveTokenResult]:
     """
-    The response to a live token query.
+    **Gets an access token for live metrics stream data.**
     API Version: 2020-06-02-preview.
 
 

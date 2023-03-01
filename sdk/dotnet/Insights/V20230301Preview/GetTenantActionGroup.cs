@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20230301Preview
     public static class GetTenantActionGroup
     {
         /// <summary>
-        /// A tenant action group resource.
+        /// Get a tenant action group.
         /// </summary>
         public static Task<GetTenantActionGroupResult> InvokeAsync(GetTenantActionGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTenantActionGroupResult>("azure-native:insights/v20230301preview:getTenantActionGroup", args ?? new GetTenantActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A tenant action group resource.
+        /// Get a tenant action group.
         /// </summary>
         public static Output<GetTenantActionGroupResult> Invoke(GetTenantActionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantActionGroupResult>("azure-native:insights/v20230301preview:getTenantActionGroup", args ?? new GetTenantActionGroupInvokeArgs(), options.WithDefaults());

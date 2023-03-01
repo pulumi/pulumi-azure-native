@@ -124,7 +124,7 @@ def get_entity_analytics(operational_insights_resource_provider: Optional[str] =
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityAnalyticsResult:
     """
-    Settings with single toggle.
+    Gets a setting.
     API Version: 2021-03-01-preview.
 
 
@@ -158,7 +158,7 @@ def get_entity_analytics_output(operational_insights_resource_provider: Optional
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityAnalyticsResult]:
     """
-    Settings with single toggle.
+    Gets a setting.
     API Version: 2021-03-01-preview.
 
 

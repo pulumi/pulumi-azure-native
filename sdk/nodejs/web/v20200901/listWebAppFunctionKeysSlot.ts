@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * String dictionary resource.
+ * Get function keys for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionKeysSlot(args: ListWebAppFunctionKeysSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionKeysSlotResult> {
 
@@ -70,7 +70,7 @@ export interface ListWebAppFunctionKeysSlotResult {
     readonly type: string;
 }
 /**
- * String dictionary resource.
+ * Get function keys for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionKeysSlotOutput(args: ListWebAppFunctionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppFunctionKeysSlot(a, opts))

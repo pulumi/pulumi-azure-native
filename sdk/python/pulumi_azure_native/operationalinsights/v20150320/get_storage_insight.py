@@ -148,7 +148,7 @@ def get_storage_insight(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageInsightResult:
     """
-    The top level storage insight resource container.
+    Gets a storage insight instance.
 
 
     :param str resource_group_name: The Resource Group name.
@@ -181,7 +181,7 @@ def get_storage_insight_output(resource_group_name: Optional[pulumi.Input[str]] 
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageInsightResult]:
     """
-    The top level storage insight resource container.
+    Gets a storage insight instance.
 
 
     :param str resource_group_name: The Resource Group name.

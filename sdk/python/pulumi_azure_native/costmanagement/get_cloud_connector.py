@@ -253,7 +253,7 @@ def get_cloud_connector(connector_name: Optional[str] = None,
                         expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudConnectorResult:
     """
-    The Connector model definition
+    Get a cloud connector definition
     API Version: 2019-03-01-preview.
 
 
@@ -292,7 +292,7 @@ def get_cloud_connector_output(connector_name: Optional[pulumi.Input[str]] = Non
                                expand: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudConnectorResult]:
     """
-    The Connector model definition
+    Get a cloud connector definition
     API Version: 2019-03-01-preview.
 
 

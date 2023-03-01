@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get the Azure AD B2C tenant resource.
+ */
 export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetB2CTenantResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,6 +64,9 @@ export interface GetB2CTenantResult {
      */
     readonly type: string;
 }
+/**
+ * Get the Azure AD B2C tenant resource.
+ */
 export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
     return pulumi.output(args).apply((a: any) => getB2CTenant(a, opts))
 }

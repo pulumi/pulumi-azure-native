@@ -234,7 +234,7 @@ def get_virtual_machine_schedule(expand: Optional[str] = None,
                                  virtual_machine_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScheduleResult:
     """
-    A schedule.
+    Get schedule.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
@@ -280,7 +280,7 @@ def get_virtual_machine_schedule_output(expand: Optional[pulumi.Input[Optional[s
                                         virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScheduleResult]:
     """
-    A schedule.
+    Get schedule.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'

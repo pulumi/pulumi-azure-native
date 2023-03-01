@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20201101
     public static class GetDdosProtectionPlan
     {
         /// <summary>
-        /// A DDoS protection plan in a resource group.
+        /// Gets information about the specified DDoS protection plan.
         /// </summary>
         public static Task<GetDdosProtectionPlanResult> InvokeAsync(GetDdosProtectionPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-native:network/v20201101:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A DDoS protection plan in a resource group.
+        /// Gets information about the specified DDoS protection plan.
         /// </summary>
         public static Output<GetDdosProtectionPlanResult> Invoke(GetDdosProtectionPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDdosProtectionPlanResult>("azure-native:network/v20201101:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanInvokeArgs(), options.WithDefaults());

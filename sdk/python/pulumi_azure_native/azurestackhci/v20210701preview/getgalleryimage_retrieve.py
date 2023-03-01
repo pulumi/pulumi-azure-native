@@ -193,7 +193,7 @@ def getgalleryimage_retrieve(galleryimages_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetgalleryimageRetrieveResult:
     """
-    The galleryimages resource definition.
+    Lists all galleryimages under the resource group.
 
 
     :param str galleryimages_name: Name of the gallery image
@@ -226,7 +226,7 @@ def getgalleryimage_retrieve_output(galleryimages_name: Optional[pulumi.Input[st
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetgalleryimageRetrieveResult]:
     """
-    The galleryimages resource definition.
+    Lists all galleryimages under the resource group.
 
 
     :param str galleryimages_name: Name of the gallery image

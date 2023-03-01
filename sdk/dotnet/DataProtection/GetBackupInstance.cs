@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataProtection
     public static class GetBackupInstance
     {
         /// <summary>
-        /// BackupInstance Resource
+        /// Gets a backup instance with name in a backup vault
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetBackupInstanceResult> InvokeAsync(GetBackupInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupInstanceResult>("azure-native:dataprotection:getBackupInstance", args ?? new GetBackupInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// BackupInstance Resource
+        /// Gets a backup instance with name in a backup vault
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetBackupInstanceResult> Invoke(GetBackupInstanceInvokeArgs args, InvokeOptions? options = null)

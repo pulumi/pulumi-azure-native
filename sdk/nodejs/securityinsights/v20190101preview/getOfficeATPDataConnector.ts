@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+ * Gets a data connector.
  */
 export function getOfficeATPDataConnector(args: GetOfficeATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeATPDataConnectorResult> {
 
@@ -75,7 +75,7 @@ export interface GetOfficeATPDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+ * Gets a data connector.
  */
 export function getOfficeATPDataConnectorOutput(args: GetOfficeATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeATPDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getOfficeATPDataConnector(a, opts))

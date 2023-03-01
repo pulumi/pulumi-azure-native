@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Capacity pool resource
+ * Get details of the specified capacity pool
  */
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
@@ -76,7 +76,7 @@ export interface GetPoolResult {
     readonly type: string;
 }
 /**
- * Capacity pool resource
+ * Get details of the specified capacity pool
  */
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {

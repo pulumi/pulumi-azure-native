@@ -217,7 +217,7 @@ def get_attestation_at_resource(attestation_name: Optional[str] = None,
                                 resource_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationAtResourceResult:
     """
-    An attestation resource.
+    Gets an existing attestation at resource scope.
 
 
     :param str attestation_name: The name of the attestation.
@@ -252,7 +252,7 @@ def get_attestation_at_resource_output(attestation_name: Optional[pulumi.Input[s
                                        resource_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationAtResourceResult]:
     """
-    An attestation resource.
+    Gets an existing attestation at resource scope.
 
 
     :param str attestation_name: The name of the attestation.

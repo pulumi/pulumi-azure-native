@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The remediation definition.
+ * Gets an existing remediation at management group scope.
  */
 /** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getRemediationAtManagementGroup(args: GetRemediationAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtManagementGroupResult> {
@@ -83,7 +83,7 @@ export interface GetRemediationAtManagementGroupResult {
     readonly type: string;
 }
 /**
- * The remediation definition.
+ * Gets an existing remediation at management group scope.
  */
 /** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {

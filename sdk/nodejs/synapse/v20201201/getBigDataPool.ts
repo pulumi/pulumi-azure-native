@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Big Data pool
+ * Get a Big Data pool.
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
@@ -135,7 +135,7 @@ export interface GetBigDataPoolResult {
     readonly type: string;
 }
 /**
- * A Big Data pool
+ * Get a Big Data pool.
  */
 /** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBigDataPoolResult> {

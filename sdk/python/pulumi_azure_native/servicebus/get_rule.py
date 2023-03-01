@@ -124,7 +124,7 @@ def get_rule(namespace_name: Optional[str] = None,
              topic_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    Description of Rule Resource.
+    Retrieves the description for the specified rule.
     API Version: 2017-04-01.
 
 
@@ -161,7 +161,7 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
                     topic_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
-    Description of Rule Resource.
+    Retrieves the description for the specified rule.
     API Version: 2017-04-01.
 
 

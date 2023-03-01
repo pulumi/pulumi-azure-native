@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Data Migration Service resource
+ * The services resource is the top-level resource that represents the Data Migration Service. The GET method retrieves information about a service instance.
  */
 /** @deprecated Version 2018-03-31-preview will be removed in v2 of the provider. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
@@ -82,7 +82,7 @@ export interface GetServiceResult {
     readonly virtualSubnetId: string;
 }
 /**
- * A Data Migration Service resource
+ * The services resource is the top-level resource that represents the Data Migration Service. The GET method retrieves information about a service instance.
  */
 /** @deprecated Version 2018-03-31-preview will be removed in v2 of the provider. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
     public static class GetTestBaseAccountFileUploadUrl
     {
         /// <summary>
-        /// The URL response
+        /// Gets the file upload URL of a Test Base Account.
         /// </summary>
         public static Task<GetTestBaseAccountFileUploadUrlResult> InvokeAsync(GetTestBaseAccountFileUploadUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase/v20220401preview:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The URL response
+        /// Gets the file upload URL of a Test Base Account.
         /// </summary>
         public static Output<GetTestBaseAccountFileUploadUrlResult> Invoke(GetTestBaseAccountFileUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase/v20220401preview:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlInvokeArgs(), options.WithDefaults());

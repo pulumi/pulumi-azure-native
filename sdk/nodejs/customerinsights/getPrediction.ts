@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The prediction resource format.
+ * Gets a Prediction in the hub.
  * API Version: 2017-04-26.
  */
 export function getPrediction(args: GetPredictionArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionResult> {
@@ -122,7 +122,7 @@ export interface GetPredictionResult {
     readonly type: string;
 }
 /**
- * The prediction resource format.
+ * Gets a Prediction in the hub.
  * API Version: 2017-04-26.
  */
 export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionResult> {

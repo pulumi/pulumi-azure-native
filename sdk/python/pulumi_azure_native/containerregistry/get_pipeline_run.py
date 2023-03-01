@@ -134,7 +134,7 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineRunResult:
     """
-    An object that represents a pipeline run for a container registry.
+    Gets the detailed information for a given pipeline run.
     API Version: 2020-11-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = Non
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineRunResult]:
     """
-    An object that represents a pipeline run for a container registry.
+    Gets the detailed information for a given pipeline run.
     API Version: 2020-11-01-preview.
 
 

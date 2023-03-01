@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public static class GetArcSetting
     {
         /// <summary>
-        /// ArcSetting details.
+        /// Get ArcSetting resource details of HCI Cluster.
         /// API Version: 2021-01-01-preview.
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ArcSetting details.
+        /// Get ArcSetting resource details of HCI Cluster.
         /// API Version: 2021-01-01-preview.
         /// </summary>
         public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOptions? options = null)

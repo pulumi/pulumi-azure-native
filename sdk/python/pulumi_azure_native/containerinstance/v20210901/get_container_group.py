@@ -292,7 +292,7 @@ def get_container_group(container_group_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupResult:
     """
-    A container group.
+    Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
 
 
     :param str container_group_name: The name of the container group.
@@ -333,7 +333,7 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerGroupResult]:
     """
-    A container group.
+    Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
 
 
     :param str container_group_name: The name of the container group.

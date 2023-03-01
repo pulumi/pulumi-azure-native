@@ -167,7 +167,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDCustomDomainResult:
     """
-    Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+    Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
@@ -201,7 +201,7 @@ def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]]
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDCustomDomainResult]:
     """
-    Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+    Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.

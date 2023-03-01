@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
     public static class GetUserRule
     {
         /// <summary>
-        /// Network base rule.
+        /// Gets a user rule.
         /// </summary>
         public static Task<GetUserRuleResult> InvokeAsync(GetUserRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleResult>("azure-native:network/v20220401preview:getUserRule", args ?? new GetUserRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Network base rule.
+        /// Gets a user rule.
         /// </summary>
         public static Output<GetUserRuleResult> Invoke(GetUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleResult>("azure-native:network/v20220401preview:getUserRule", args ?? new GetUserRuleInvokeArgs(), options.WithDefaults());

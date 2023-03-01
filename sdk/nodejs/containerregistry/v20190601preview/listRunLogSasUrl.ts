@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The result of get log link operation.
+ * Gets a link to download the run logs.
  */
 export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRunLogSasUrlResult> {
 
@@ -46,7 +46,7 @@ export interface ListRunLogSasUrlResult {
     readonly logLink?: string;
 }
 /**
- * The result of get log link operation.
+ * Gets a link to download the run logs.
  */
 export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
     return pulumi.output(args).apply((a: any) => listRunLogSasUrl(a, opts))

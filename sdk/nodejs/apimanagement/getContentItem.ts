@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Content type contract details.
+ * Returns the developer portal's content item specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
@@ -60,7 +60,7 @@ export interface GetContentItemResult {
     readonly type: string;
 }
 /**
- * Content type contract details.
+ * Returns the developer portal's content item specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentItemResult> {

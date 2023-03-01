@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The List SAS credentials operation response.
+ * List SAS credentials of a storage account.
  * API Version: 2021-02-01.
  */
 export function listStorageAccountSAS(args: ListStorageAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountSASResult> {
@@ -81,7 +81,7 @@ export interface ListStorageAccountSASResult {
     readonly accountSasToken: string;
 }
 /**
- * The List SAS credentials operation response.
+ * List SAS credentials of a storage account.
  * API Version: 2021-02-01.
  */
 export function listStorageAccountSASOutput(args: ListStorageAccountSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountSASResult> {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Single item in List or Get Alias(Disaster Recovery configuration) operation
+ * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  * API Version: 2017-04-01.
  */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
@@ -71,7 +71,7 @@ export interface GetDisasterRecoveryConfigResult {
     readonly type: string;
 }
 /**
- * Single item in List or Get Alias(Disaster Recovery configuration) operation
+ * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  * API Version: 2017-04-01.
  */
 export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {

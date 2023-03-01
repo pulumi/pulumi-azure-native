@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Compute.V20220404
     public static class GetCloudService
     {
         /// <summary>
-        /// Describes the cloud service.
+        /// Display information about a cloud service.
         /// </summary>
         public static Task<GetCloudServiceResult> InvokeAsync(GetCloudServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-native:compute/v20220404:getCloudService", args ?? new GetCloudServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Describes the cloud service.
+        /// Display information about a cloud service.
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute/v20220404:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
+ * If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
  */
 export function listClusterUpgradableVersions(args: ListClusterUpgradableVersionsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterUpgradableVersionsResult> {
 
@@ -39,7 +39,7 @@ export interface ListClusterUpgradableVersionsResult {
     readonly supportedPath?: string[];
 }
 /**
- * The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
+ * If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
  */
 export function listClusterUpgradableVersionsOutput(args: ListClusterUpgradableVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterUpgradableVersionsResult> {
     return pulumi.output(args).apply((a: any) => listClusterUpgradableVersions(a, opts))

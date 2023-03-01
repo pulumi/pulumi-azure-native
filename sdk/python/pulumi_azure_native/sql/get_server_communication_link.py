@@ -121,7 +121,7 @@ def get_server_communication_link(communication_link_name: Optional[str] = None,
                                   server_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerCommunicationLinkResult:
     """
-    Server communication link.
+    Returns a server communication link.
     API Version: 2014-04-01.
 
 
@@ -152,7 +152,7 @@ def get_server_communication_link_output(communication_link_name: Optional[pulum
                                          server_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCommunicationLinkResult]:
     """
-    Server communication link.
+    Returns a server communication link.
     API Version: 2014-04-01.
 
 

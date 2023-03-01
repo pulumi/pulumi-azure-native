@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The resource containing the Azure Stack activation key.
+ * Returns Azure Stack Activation Key.
  */
 export function getRegistrationActivationKey(args: GetRegistrationActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationActivationKeyResult> {
 
@@ -37,7 +37,7 @@ export interface GetRegistrationActivationKeyResult {
     readonly activationKey?: string;
 }
 /**
- * The resource containing the Azure Stack activation key.
+ * Returns Azure Stack Activation Key.
  */
 export function getRegistrationActivationKeyOutput(args: GetRegistrationActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationActivationKeyResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationActivationKey(a, opts))

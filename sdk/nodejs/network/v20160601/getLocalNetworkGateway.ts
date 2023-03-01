@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A common class for general resource information
+ * The Get LocalNetworkGateway operation retrieves information about the specified local network gateway through Network resource provider.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
@@ -82,7 +82,7 @@ export interface GetLocalNetworkGatewayResult {
     readonly type: string;
 }
 /**
- * A common class for general resource information
+ * The Get LocalNetworkGateway operation retrieves information about the specified local network gateway through Network resource provider.
  */
 /** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {

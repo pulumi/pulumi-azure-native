@@ -84,7 +84,7 @@ def list_web_pub_sub_keys(resource_group_name: Optional[str] = None,
                           resource_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebPubSubKeysResult:
     """
-    A class represents the access keys of the resource.
+    Get the access keys of the resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -108,7 +108,7 @@ def list_web_pub_sub_keys_output(resource_group_name: Optional[pulumi.Input[str]
                                  resource_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebPubSubKeysResult]:
     """
-    A class represents the access keys of the resource.
+    Get the access keys of the resource.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetApplicationGateway
     {
         /// <summary>
-        /// Application gateway resource.
+        /// Gets the specified application gateway.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetApplicationGatewayResult> InvokeAsync(GetApplicationGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure-native:network:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Application gateway resource.
+        /// Gets the specified application gateway.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetApplicationGatewayResult> Invoke(GetApplicationGatewayInvokeArgs args, InvokeOptions? options = null)

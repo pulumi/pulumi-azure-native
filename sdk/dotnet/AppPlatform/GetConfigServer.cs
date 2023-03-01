@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.AppPlatform
     public static class GetConfigServer
     {
         /// <summary>
-        /// Config Server resource
+        /// Get the config server and its properties.
         /// API Version: 2020-07-01.
         /// </summary>
         public static Task<GetConfigServerResult> InvokeAsync(GetConfigServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigServerResult>("azure-native:appplatform:getConfigServer", args ?? new GetConfigServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Config Server resource
+        /// Get the config server and its properties.
         /// API Version: 2020-07-01.
         /// </summary>
         public static Output<GetConfigServerResult> Invoke(GetConfigServerInvokeArgs args, InvokeOptions? options = null)

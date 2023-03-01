@@ -66,7 +66,7 @@ def list_spacecraft_available_contacts(contact_profile: Optional[pulumi.InputTyp
                                        start_time: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSpacecraftAvailableContactsResult:
     """
-    Response for the ListAvailableContacts API service call.
+    Return list of available contacts
     API Version: 2021-04-04-preview.
 
 
@@ -101,7 +101,7 @@ def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.I
                                               start_time: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSpacecraftAvailableContactsResult]:
     """
-    Response for the ListAvailableContacts API service call.
+    Return list of available contacts
     API Version: 2021-04-04-preview.
 
 

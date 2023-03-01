@@ -51,7 +51,7 @@ def get_build_service_build_result_log(build_name: Optional[str] = None,
                                        service_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceBuildResultLogResult:
     """
-    Build result log resource properties payload
+    Get a KPack build result log download URL.
     API Version: 2022-01-01-preview.
 
 
@@ -82,7 +82,7 @@ def get_build_service_build_result_log_output(build_name: Optional[pulumi.Input[
                                               service_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceBuildResultLogResult]:
     """
-    Build result log resource properties payload
+    Get a KPack build result log download URL.
     API Version: 2022-01-01-preview.
 
 

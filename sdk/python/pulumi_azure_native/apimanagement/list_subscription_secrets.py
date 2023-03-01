@@ -61,7 +61,7 @@ def list_subscription_secrets(resource_group_name: Optional[str] = None,
                               sid: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSubscriptionSecretsResult:
     """
-    Subscription keys.
+    Gets the specified Subscription keys.
     API Version: 2020-12-01.
 
 
@@ -87,7 +87,7 @@ def list_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[
                                      sid: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSubscriptionSecretsResult]:
     """
-    Subscription keys.
+    Gets the specified Subscription keys.
     API Version: 2020-12-01.
 
 

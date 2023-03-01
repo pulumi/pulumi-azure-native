@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Devices.V20210331
     public static class GetIotHubResourceEventHubConsumerGroup
     {
         /// <summary>
-        /// The properties of the EventHubConsumerGroupInfo object.
+        /// Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
         /// </summary>
         public static Task<GetIotHubResourceEventHubConsumerGroupResult> InvokeAsync(GetIotHubResourceEventHubConsumerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices/v20210331:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The properties of the EventHubConsumerGroupInfo object.
+        /// Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
         /// </summary>
         public static Output<GetIotHubResourceEventHubConsumerGroupResult> Invoke(GetIotHubResourceEventHubConsumerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotHubResourceEventHubConsumerGroupResult>("azure-native:devices/v20210331:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupInvokeArgs(), options.WithDefaults());

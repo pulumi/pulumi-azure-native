@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Test Base Package resource.
+ * Gets a Test Base Package.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
 
@@ -117,7 +117,7 @@ export interface GetPackageResult {
     readonly version: string;
 }
 /**
- * The Test Base Package resource.
+ * Gets a Test Base Package.
  */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
     return pulumi.output(args).apply((a: any) => getPackage(a, opts))

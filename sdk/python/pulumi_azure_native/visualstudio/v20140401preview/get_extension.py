@@ -122,7 +122,7 @@ def get_extension(account_resource_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
-    The response to an extension resource GET request.
+    Gets the details of an extension associated with a Visual Studio Team Services account resource.
 
 
     :param str account_resource_name: The name of the Visual Studio Team Services account resource.
@@ -152,7 +152,7 @@ def get_extension_output(account_resource_name: Optional[pulumi.Input[str]] = No
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
-    The response to an extension resource GET request.
+    Gets the details of an extension associated with a Visual Studio Team Services account resource.
 
 
     :param str account_resource_name: The name of the Visual Studio Team Services account resource.

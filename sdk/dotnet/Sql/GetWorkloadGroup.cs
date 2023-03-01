@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetWorkloadGroup
     {
         /// <summary>
-        /// Workload group operations for a data warehouse
+        /// Gets a workload group
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetWorkloadGroupResult> InvokeAsync(GetWorkloadGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-native:sql:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Workload group operations for a data warehouse
+        /// Gets a workload group
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetWorkloadGroupResult> Invoke(GetWorkloadGroupInvokeArgs args, InvokeOptions? options = null)

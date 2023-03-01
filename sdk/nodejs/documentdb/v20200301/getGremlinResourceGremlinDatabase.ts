@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Gremlin database.
+ * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
 export function getGremlinResourceGremlinDatabase(args: GetGremlinResourceGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinDatabaseResult> {
@@ -65,7 +65,7 @@ export interface GetGremlinResourceGremlinDatabaseResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Gremlin database.
+ * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
 export function getGremlinResourceGremlinDatabaseOutput(args: GetGremlinResourceGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinDatabaseResult> {

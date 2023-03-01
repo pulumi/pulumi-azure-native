@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automation.V20220808
     public static class GetPython3Package
     {
         /// <summary>
-        /// Definition of the module type.
+        /// Retrieve the python 3 package identified by package name.
         /// </summary>
         public static Task<GetPython3PackageResult> InvokeAsync(GetPython3PackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPython3PackageResult>("azure-native:automation/v20220808:getPython3Package", args ?? new GetPython3PackageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the module type.
+        /// Retrieve the python 3 package identified by package name.
         /// </summary>
         public static Output<GetPython3PackageResult> Invoke(GetPython3PackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPython3PackageResult>("azure-native:automation/v20220808:getPython3Package", args ?? new GetPython3PackageInvokeArgs(), options.WithDefaults());

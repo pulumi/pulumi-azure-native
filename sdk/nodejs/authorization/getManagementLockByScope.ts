@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The lock information.
+ * Get a management lock by scope.
  * API Version: 2017-04-01.
  */
 export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockByScopeResult> {
@@ -61,7 +61,7 @@ export interface GetManagementLockByScopeResult {
     readonly type: string;
 }
 /**
- * The lock information.
+ * Get a management lock by scope.
  * API Version: 2017-04-01.
  */
 export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {

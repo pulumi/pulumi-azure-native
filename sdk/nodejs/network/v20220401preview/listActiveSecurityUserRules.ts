@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
+ * Lists Active Security User Rules in a network manager.
  */
 export function listActiveSecurityUserRules(args: ListActiveSecurityUserRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveSecurityUserRulesResult> {
 
@@ -54,7 +54,7 @@ export interface ListActiveSecurityUserRulesResult {
     readonly value?: (outputs.network.v20220401preview.ActiveDefaultSecurityUserRuleResponse | outputs.network.v20220401preview.ActiveSecurityUserRuleResponse)[];
 }
 /**
- * Result of the request to list active security user rules. It contains a list of active security user rules and a skiptoken to get the next set of results.
+ * Lists Active Security User Rules in a network manager.
  */
 export function listActiveSecurityUserRulesOutput(args: ListActiveSecurityUserRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityUserRulesResult> {
     return pulumi.output(args).apply((a: any) => listActiveSecurityUserRules(a, opts))

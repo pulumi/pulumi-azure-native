@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetApiSchema
     {
         /// <summary>
-        /// Schema Contract details.
+        /// Get the schema configuration at the API level.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema Contract details.
+        /// Get the schema configuration at the API level.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiSchemaResult> Invoke(GetApiSchemaInvokeArgs args, InvokeOptions? options = null)

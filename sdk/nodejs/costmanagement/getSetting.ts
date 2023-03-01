@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * State of the myscope setting.
+ * Retrieves the current value for a specific setting.
  * API Version: 2019-11-01.
  */
 export function getSetting(args: GetSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSettingResult> {
@@ -60,7 +60,7 @@ export interface GetSettingResult {
     readonly type: string;
 }
 /**
- * State of the myscope setting.
+ * Retrieves the current value for a specific setting.
  * API Version: 2019-11-01.
  */
 export function getSettingOutput(args: GetSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSettingResult> {

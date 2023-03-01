@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Source control configuration for an app.
+ * Gets the source control configuration of an app.
  * API Version: 2020-12-01.
  */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
@@ -86,7 +86,7 @@ export interface GetWebAppSourceControlSlotResult {
     readonly type: string;
 }
 /**
- * Source control configuration for an app.
+ * Gets the source control configuration of an app.
  * API Version: 2020-12-01.
  */
 export function getWebAppSourceControlSlotOutput(args: GetWebAppSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlSlotResult> {

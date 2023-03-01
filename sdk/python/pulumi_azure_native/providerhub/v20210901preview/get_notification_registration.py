@@ -94,7 +94,7 @@ def get_notification_registration(notification_registration_name: Optional[str] 
                                   provider_namespace: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationRegistrationResult:
     """
-    The notification registration definition.
+    Gets the notification registration details.
 
 
     :param str notification_registration_name: The notification registration.
@@ -119,7 +119,7 @@ def get_notification_registration_output(notification_registration_name: Optiona
                                          provider_namespace: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationRegistrationResult]:
     """
-    The notification registration definition.
+    Gets the notification registration details.
 
 
     :param str notification_registration_name: The notification registration.

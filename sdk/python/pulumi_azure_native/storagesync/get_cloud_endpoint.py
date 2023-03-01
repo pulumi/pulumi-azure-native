@@ -182,7 +182,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
                        sync_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEndpointResult:
     """
-    Cloud Endpoint object.
+    Get a given CloudEndpoint.
     API Version: 2020-03-01.
 
 
@@ -221,7 +221,7 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
                               sync_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudEndpointResult]:
     """
-    Cloud Endpoint object.
+    Get a given CloudEndpoint.
     API Version: 2020-03-01.
 
 

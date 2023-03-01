@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A common class for general resource information
+ * The Get VirtualNetworkGatewayConnection operation retrieves information about the specified virtual network gateway connection through Network resource provider.
  */
 /** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
@@ -118,7 +118,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     readonly virtualNetworkGateway2?: outputs.network.v20160330.VirtualNetworkGatewayResponse;
 }
 /**
- * A common class for general resource information
+ * The Get VirtualNetworkGatewayConnection operation retrieves information about the specified virtual network gateway connection through Network resource provider.
  */
 /** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getVirtualNetworkGatewayConnectionOutput(args: GetVirtualNetworkGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionResult> {

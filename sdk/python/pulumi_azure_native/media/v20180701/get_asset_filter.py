@@ -111,7 +111,7 @@ def get_asset_filter(account_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetFilterResult:
     """
-    An Asset Filter.
+    Get the details of an Asset Filter associated with the specified Asset.
 
 
     :param str account_name: The Media Services account name.
@@ -143,7 +143,7 @@ def get_asset_filter_output(account_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetFilterResult]:
     """
-    An Asset Filter.
+    Get the details of an Asset Filter associated with the specified Asset.
 
 
     :param str account_name: The Media Services account name.

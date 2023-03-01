@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Network.V20160601
     public static class GetLoadBalancer
     {
         /// <summary>
-        /// LoadBalancer resource
+        /// The Get LoadBalancer operation retrieves information about the specified LoadBalancer.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network/v20160601:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// LoadBalancer resource
+        /// The Get LoadBalancer operation retrieves information about the specified LoadBalancer.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:network/v20160601:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());

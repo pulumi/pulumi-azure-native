@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     public static class GetDedicatedHsm
     {
         /// <summary>
-        /// Resource information with extended details.
+        /// Gets the specified Azure dedicated HSM.
         /// API Version: 2018-10-31-preview.
         /// </summary>
         public static Task<GetDedicatedHsmResult> InvokeAsync(GetDedicatedHsmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource information with extended details.
+        /// Gets the specified Azure dedicated HSM.
         /// API Version: 2018-10-31-preview.
         /// </summary>
         public static Output<GetDedicatedHsmResult> Invoke(GetDedicatedHsmInvokeArgs args, InvokeOptions? options = null)

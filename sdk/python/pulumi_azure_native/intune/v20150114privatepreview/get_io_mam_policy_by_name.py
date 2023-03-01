@@ -277,7 +277,7 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
                               select: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoMAMPolicyByNameResult:
     """
-    iOS Policy entity for Intune MAM.
+    Returns Intune iOS policies.
 
 
     :param str host_name: Location hostName for the tenant
@@ -325,7 +325,7 @@ def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = No
                                      select: Optional[pulumi.Input[Optional[str]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoMAMPolicyByNameResult]:
     """
-    iOS Policy entity for Intune MAM.
+    Returns Intune iOS policies.
 
 
     :param str host_name: Location hostName for the tenant

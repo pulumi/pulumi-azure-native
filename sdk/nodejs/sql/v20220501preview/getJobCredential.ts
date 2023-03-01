@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A stored credential that can be used by a job to connect to target databases.
+ * Gets a jobs credential.
  */
 export function getJobCredential(args: GetJobCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCredentialResult> {
 
@@ -59,7 +59,7 @@ export interface GetJobCredentialResult {
     readonly username: string;
 }
 /**
- * A stored credential that can be used by a job to connect to target databases.
+ * Gets a jobs credential.
  */
 export function getJobCredentialOutput(args: GetJobCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCredentialResult> {
     return pulumi.output(args).apply((a: any) => getJobCredential(a, opts))

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StorSimple
     public static class GetStorageAccountCredential
     {
         /// <summary>
-        /// The storage account credential.
+        /// Gets the properties of the specified storage account credential name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:storsimple:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The storage account credential.
+        /// Gets the properties of the specified storage account credential name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetStorageAccountCredentialResult> Invoke(GetStorageAccountCredentialInvokeArgs args, InvokeOptions? options = null)

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Application Insights component billing features
+ * Returns current billing features for an Application Insights component.
  * API Version: 2015-05-01.
  */
 export function getComponentCurrentBillingFeature(args: GetComponentCurrentBillingFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentCurrentBillingFeatureResult> {
@@ -45,7 +45,7 @@ export interface GetComponentCurrentBillingFeatureResult {
     readonly dataVolumeCap?: outputs.insights.ApplicationInsightsComponentDataVolumeCapResponse;
 }
 /**
- * An Application Insights component billing features
+ * Returns current billing features for an Application Insights component.
  * API Version: 2015-05-01.
  */
 export function getComponentCurrentBillingFeatureOutput(args: GetComponentCurrentBillingFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentCurrentBillingFeatureResult> {

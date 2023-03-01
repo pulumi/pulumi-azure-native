@@ -207,7 +207,7 @@ def get_policy(expand: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    A Policy.
+    Get policy.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'
@@ -250,7 +250,7 @@ def get_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
-    A Policy.
+    Get policy.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'

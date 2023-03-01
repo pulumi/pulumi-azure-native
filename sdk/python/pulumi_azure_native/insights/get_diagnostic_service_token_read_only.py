@@ -47,7 +47,7 @@ class AwaitableGetDiagnosticServiceTokenReadOnlyResult(GetDiagnosticServiceToken
 def get_diagnostic_service_token_read_only(resource_uri: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticServiceTokenReadOnlyResult:
     """
-    The response to a diagnostic services token query.
+    Gets an read-only access token for application insights diagnostic service data.
     API Version: 2021-03-03-preview.
 
 
@@ -66,7 +66,7 @@ def get_diagnostic_service_token_read_only(resource_uri: Optional[str] = None,
 def get_diagnostic_service_token_read_only_output(resource_uri: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticServiceTokenReadOnlyResult]:
     """
-    The response to a diagnostic services token query.
+    Gets an read-only access token for application insights diagnostic service data.
     API Version: 2021-03-03-preview.
 
 

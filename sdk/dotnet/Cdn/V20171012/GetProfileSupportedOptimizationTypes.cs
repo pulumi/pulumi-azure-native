@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cdn.V20171012
     public static class GetProfileSupportedOptimizationTypes
     {
         /// <summary>
-        /// The result of the GetSupportedOptimizationTypes API
+        /// Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
         /// </summary>
         public static Task<GetProfileSupportedOptimizationTypesResult> InvokeAsync(GetProfileSupportedOptimizationTypesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20171012:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The result of the GetSupportedOptimizationTypes API
+        /// Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
         /// </summary>
         public static Output<GetProfileSupportedOptimizationTypesResult> Invoke(GetProfileSupportedOptimizationTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileSupportedOptimizationTypesResult>("azure-native:cdn/v20171012:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesInvokeArgs(), options.WithDefaults());

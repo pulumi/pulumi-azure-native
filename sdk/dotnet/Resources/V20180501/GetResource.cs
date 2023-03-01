@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Resources.V20180501
     public static class GetResource
     {
         /// <summary>
-        /// Resource information.
+        /// Gets a resource.
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources/v20180501:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource information.
+        /// Gets a resource.
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources/v20180501:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());

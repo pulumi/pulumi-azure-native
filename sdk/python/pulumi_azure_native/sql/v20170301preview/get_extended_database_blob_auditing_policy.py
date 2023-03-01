@@ -252,7 +252,7 @@ def get_extended_database_blob_auditing_policy(blob_auditing_policy_name: Option
                                                server_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtendedDatabaseBlobAuditingPolicyResult:
     """
-    An extended database blob auditing policy.
+    Gets an extended database's blob auditing policy.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
@@ -290,7 +290,7 @@ def get_extended_database_blob_auditing_policy_output(blob_auditing_policy_name:
                                                       server_name: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtendedDatabaseBlobAuditingPolicyResult]:
     """
-    An extended database blob auditing policy.
+    Gets an extended database's blob auditing policy.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing an Event Grid data connection.
+ * Returns a data connection.
  */
 export function getEventGridDataConnection(args: GetEventGridDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventGridDataConnectionResult> {
 
@@ -112,7 +112,7 @@ export interface GetEventGridDataConnectionResult {
     readonly type: string;
 }
 /**
- * Class representing an Event Grid data connection.
+ * Returns a data connection.
  */
 export function getEventGridDataConnectionOutput(args: GetEventGridDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventGridDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventGridDataConnection(a, opts))

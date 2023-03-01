@@ -337,7 +337,7 @@ def get_application(application_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Information about managed application.
+    Gets the managed application.
     API Version: 2019-07-01.
 
 
@@ -383,7 +383,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Information about managed application.
+    Gets the managed application.
     API Version: 2019-07-01.
 
 

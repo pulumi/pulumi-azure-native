@@ -96,7 +96,7 @@ def list_service_test_keys(resource_group_name: Optional[str] = None,
                            service_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServiceTestKeysResult:
     """
-    Test keys payload
+    List test keys for a Service.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -121,7 +121,7 @@ def list_service_test_keys_output(resource_group_name: Optional[pulumi.Input[str
                                   service_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceTestKeysResult]:
     """
-    Test keys payload
+    List test keys for a Service.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20150401
     public static class GetDomain
     {
         /// <summary>
-        /// Information about a domain.
+        /// Get a domain.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:domainregistration/v20150401:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Information about a domain.
+        /// Get a domain.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:domainregistration/v20150401:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());

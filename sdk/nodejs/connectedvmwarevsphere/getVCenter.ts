@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Defines the vCenter.
+ * Implements vCenter GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getVCenter(args: GetVCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetVCenterResult> {
@@ -109,7 +109,7 @@ export interface GetVCenterResult {
     readonly version: string;
 }
 /**
- * Defines the vCenter.
+ * Implements vCenter GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVCenterResult> {

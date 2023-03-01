@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Media.V20211101
     public static class GetTransform
     {
         /// <summary>
-        /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+        /// Gets a Transform.
         /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media/v20211101:getTransform", args ?? new GetTransformArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+        /// Gets a Transform.
         /// </summary>
         public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media/v20211101:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());

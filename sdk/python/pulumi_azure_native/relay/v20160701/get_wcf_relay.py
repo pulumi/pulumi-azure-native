@@ -171,7 +171,7 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayResult:
     """
-    Description of WcfRelays Resource.
+    Returns the description for the specified WCFRelays.
 
 
     :param str namespace_name: The Namespace Name
@@ -206,7 +206,7 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWCFRelayResult]:
     """
-    Description of WcfRelays Resource.
+    Returns the description for the specified WCFRelays.
 
 
     :param str namespace_name: The Namespace Name

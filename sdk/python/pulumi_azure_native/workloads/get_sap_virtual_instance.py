@@ -229,7 +229,7 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
                              sap_virtual_instance_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPVirtualInstanceResult:
     """
-    Define the Virtual Instance for SAP solutions resource.
+    Gets a Virtual Instance for SAP solutions resource
     API Version: 2021-12-01-preview.
 
 
@@ -266,7 +266,7 @@ def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[s
                                     sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPVirtualInstanceResult]:
     """
-    Define the Virtual Instance for SAP solutions resource.
+    Gets a Virtual Instance for SAP solutions resource
     API Version: 2021-12-01-preview.
 
 

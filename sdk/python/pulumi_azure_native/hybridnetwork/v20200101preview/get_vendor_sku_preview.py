@@ -73,7 +73,7 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
                            vendor_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorSkuPreviewResult:
     """
-    Customer subscription which can use a sku.
+    Gets the preview information of a vendor sku.
 
 
     :param str preview_subscription: Preview subscription ID.
@@ -99,7 +99,7 @@ def get_vendor_sku_preview_output(preview_subscription: Optional[pulumi.Input[st
                                   vendor_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkuPreviewResult]:
     """
-    Customer subscription which can use a sku.
+    Gets the preview information of a vendor sku.
 
 
     :param str preview_subscription: Preview subscription ID.

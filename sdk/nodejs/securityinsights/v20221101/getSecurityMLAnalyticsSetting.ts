@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Security ML Analytics Setting
+ * Gets the Security ML Analytics Settings.
  */
 /** @deprecated Please use one of the variants: AnomalySecurityMLAnalyticsSettings. */
 export function getSecurityMLAnalyticsSetting(args: GetSecurityMLAnalyticsSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityMLAnalyticsSettingResult> {
@@ -67,7 +67,7 @@ export interface GetSecurityMLAnalyticsSettingResult {
     readonly type: string;
 }
 /**
- * Security ML Analytics Setting
+ * Gets the Security ML Analytics Settings.
  */
 /** @deprecated Please use one of the variants: AnomalySecurityMLAnalyticsSettings. */
 export function getSecurityMLAnalyticsSettingOutput(args: GetSecurityMLAnalyticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMLAnalyticsSettingResult> {

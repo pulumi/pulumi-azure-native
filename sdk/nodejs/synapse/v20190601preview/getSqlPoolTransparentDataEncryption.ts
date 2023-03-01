@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a Sql pool transparent data encryption configuration.
+ * Get a SQL pool's transparent data encryption configuration.
  */
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolTransparentDataEncryptionResult> {
@@ -65,7 +65,7 @@ export interface GetSqlPoolTransparentDataEncryptionResult {
     readonly type: string;
 }
 /**
- * Represents a Sql pool transparent data encryption configuration.
+ * Get a SQL pool's transparent data encryption configuration.
  */
 /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolTransparentDataEncryptionOutput(args: GetSqlPoolTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolTransparentDataEncryptionResult> {

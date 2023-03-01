@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Definition of the configuration profile preference.
+ * Get information about a configuration profile preference
  */
 export function getConfigurationProfilePreference(args: GetConfigurationProfilePreferenceArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilePreferenceResult> {
 
@@ -60,7 +60,7 @@ export interface GetConfigurationProfilePreferenceResult {
     readonly type: string;
 }
 /**
- * Definition of the configuration profile preference.
+ * Get information about a configuration profile preference
  */
 export function getConfigurationProfilePreferenceOutput(args: GetConfigurationProfilePreferenceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilePreferenceResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfilePreference(a, opts))

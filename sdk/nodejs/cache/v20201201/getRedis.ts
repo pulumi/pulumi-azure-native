@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A single Redis item in List or Get Operation.
+ * Gets a Redis cache (resource description).
  */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
 
@@ -140,7 +140,7 @@ export interface GetRedisResult {
     readonly zones?: string[];
 }
 /**
- * A single Redis item in List or Get Operation.
+ * Gets a Redis cache (resource description).
  */
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
     return pulumi.output(args).apply((a: any) => getRedis(a, opts))

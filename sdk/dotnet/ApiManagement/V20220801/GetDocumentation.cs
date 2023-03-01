@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     public static class GetDocumentation
     {
         /// <summary>
-        /// Markdown documentation details.
+        /// Gets the details of the Documentation specified by its identifier.
         /// </summary>
         public static Task<GetDocumentationResult> InvokeAsync(GetDocumentationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationResult>("azure-native:apimanagement/v20220801:getDocumentation", args ?? new GetDocumentationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Markdown documentation details.
+        /// Gets the details of the Documentation specified by its identifier.
         /// </summary>
         public static Output<GetDocumentationResult> Invoke(GetDocumentationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationResult>("azure-native:apimanagement/v20220801:getDocumentation", args ?? new GetDocumentationInvokeArgs(), options.WithDefaults());

@@ -47,7 +47,7 @@ class AwaitableGetDiagnosticServiceTokenReadWriteResult(GetDiagnosticServiceToke
 def get_diagnostic_service_token_read_write(resource_uri: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticServiceTokenReadWriteResult:
     """
-    The response to a diagnostic services token query.
+    Gets an read-write access token for application insights diagnostic service data.
 
 
     :param str resource_uri: The identifier of the resource.
@@ -65,7 +65,7 @@ def get_diagnostic_service_token_read_write(resource_uri: Optional[str] = None,
 def get_diagnostic_service_token_read_write_output(resource_uri: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticServiceTokenReadWriteResult]:
     """
-    The response to a diagnostic services token query.
+    Gets an read-write access token for application insights diagnostic service data.
 
 
     :param str resource_uri: The identifier of the resource.

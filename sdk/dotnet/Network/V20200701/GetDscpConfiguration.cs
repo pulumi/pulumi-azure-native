@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20200701
     public static class GetDscpConfiguration
     {
         /// <summary>
-        /// DSCP Configuration in a resource group.
+        /// Gets a DSCP Configuration.
         /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-native:network/v20200701:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// DSCP Configuration in a resource group.
+        /// Gets a DSCP Configuration.
         /// </summary>
         public static Output<GetDscpConfigurationResult> Invoke(GetDscpConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscpConfigurationResult>("azure-native:network/v20200701:getDscpConfiguration", args ?? new GetDscpConfigurationInvokeArgs(), options.WithDefaults());

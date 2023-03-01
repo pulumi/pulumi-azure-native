@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * HANA instance info on Azure (ARM properties and HANA properties)
+ * Gets properties of a SAP HANA instance for the specified subscription, resource group, and instance name.
  * API Version: 2017-11-03-preview.
  */
 export function getHanaInstance(args: GetHanaInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetHanaInstanceResult> {
@@ -97,7 +97,7 @@ export interface GetHanaInstanceResult {
     readonly type: string;
 }
 /**
- * HANA instance info on Azure (ARM properties and HANA properties)
+ * Gets properties of a SAP HANA instance for the specified subscription, resource group, and instance name.
  * API Version: 2017-11-03-preview.
  */
 export function getHanaInstanceOutput(args: GetHanaInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHanaInstanceResult> {

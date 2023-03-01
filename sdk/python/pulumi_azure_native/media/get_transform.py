@@ -134,7 +134,7 @@ def get_transform(account_name: Optional[str] = None,
                   transform_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransformResult:
     """
-    A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+    Gets a Transform.
     API Version: 2020-05-01.
 
 
@@ -166,7 +166,7 @@ def get_transform_output(account_name: Optional[pulumi.Input[str]] = None,
                          transform_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransformResult]:
     """
-    A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+    Gets a Transform.
     API Version: 2020-05-01.
 
 

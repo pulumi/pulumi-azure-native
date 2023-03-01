@@ -61,7 +61,7 @@ def list_iot_hub_resource_keys(resource_group_name: Optional[str] = None,
                                resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotHubResourceKeysResult:
     """
-    The list of shared access policies with a next link.
+    Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
     API Version: 2020-08-31.
 
 
@@ -84,7 +84,7 @@ def list_iot_hub_resource_keys_output(resource_group_name: Optional[pulumi.Input
                                       resource_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotHubResourceKeysResult]:
     """
-    The list of shared access policies with a next link.
+    Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
     API Version: 2020-08-31.
 
 

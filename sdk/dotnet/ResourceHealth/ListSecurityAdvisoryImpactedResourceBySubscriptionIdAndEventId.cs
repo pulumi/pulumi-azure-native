@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ResourceHealth
     public static class ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId
     {
         /// <summary>
-        /// The List of eventImpactedResources operation response.
+        /// Lists impacted resources in the subscription by an event (Security Advisory).
         /// API Version: 2022-10-01-preview.
         /// </summary>
         public static Task<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> InvokeAsync(ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult>("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The List of eventImpactedResources operation response.
+        /// Lists impacted resources in the subscription by an event (Security Advisory).
         /// API Version: 2022-10-01-preview.
         /// </summary>
         public static Output<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> Invoke(ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdInvokeArgs args, InvokeOptions? options = null)

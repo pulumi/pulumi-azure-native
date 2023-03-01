@@ -218,7 +218,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceAuthorizationRuleResult:
     """
-    Description of a Namespace AuthorizationRules.
+    Gets an authorization rule for a namespace by name.
     API Version: 2017-04-01.
 
 
@@ -257,7 +257,7 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
     """
-    Description of a Namespace AuthorizationRules.
+    Gets an authorization rule for a namespace by name.
     API Version: 2017-04-01.
 
 

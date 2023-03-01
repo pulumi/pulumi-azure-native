@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceNetworking
     public static class GetAssociationsInterface
     {
         /// <summary>
-        /// Association Subresource of Traffic Controller
+        /// Get a Traffic Controller Association
         /// API Version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetAssociationsInterfaceResult> InvokeAsync(GetAssociationsInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssociationsInterfaceResult>("azure-native:servicenetworking:getAssociationsInterface", args ?? new GetAssociationsInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Association Subresource of Traffic Controller
+        /// Get a Traffic Controller Association
         /// API Version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetAssociationsInterfaceResult> Invoke(GetAssociationsInterfaceInvokeArgs args, InvokeOptions? options = null)

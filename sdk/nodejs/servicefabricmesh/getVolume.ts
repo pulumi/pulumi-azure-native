@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * This type describes a volume resource.
+ * Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
  * API Version: 2018-09-01-preview.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
@@ -81,7 +81,7 @@ export interface GetVolumeResult {
     readonly type: string;
 }
 /**
- * This type describes a volume resource.
+ * Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
  * API Version: 2018-09-01-preview.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {

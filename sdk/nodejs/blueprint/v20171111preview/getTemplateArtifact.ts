@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Blueprint artifact deploys Azure resource manager template.
+ * Get a Blueprint artifact.
  */
 export function getTemplateArtifact(args: GetTemplateArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateArtifactResult> {
 
@@ -82,7 +82,7 @@ export interface GetTemplateArtifactResult {
     readonly type: string;
 }
 /**
- * Blueprint artifact deploys Azure resource manager template.
+ * Get a Blueprint artifact.
  */
 export function getTemplateArtifactOutput(args: GetTemplateArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateArtifactResult> {
     return pulumi.output(args).apply((a: any) => getTemplateArtifact(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A sql pool resource.
+ * Gets a SqlPool.
  */
 /** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolsV3(args: GetSqlPoolsV3Args, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolsV3Result> {
@@ -103,7 +103,7 @@ export interface GetSqlPoolsV3Result {
     readonly type: string;
 }
 /**
- * A sql pool resource.
+ * Gets a SqlPool.
  */
 /** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolsV3Output(args: GetSqlPoolsV3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolsV3Result> {

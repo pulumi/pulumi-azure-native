@@ -61,7 +61,7 @@ def list_appliance_cluster_customer_user_credential(resource_group_name: Optiona
                                                     resource_name: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApplianceClusterCustomerUserCredentialResult:
     """
-    The List Cluster Customer User Credential Results appliance.
+    Returns the cluster customer user credentials for the dedicated appliance.
     API Version: 2022-04-15-preview.
 
 
@@ -84,7 +84,7 @@ def list_appliance_cluster_customer_user_credential_output(resource_group_name: 
                                                            resource_name: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplianceClusterCustomerUserCredentialResult]:
     """
-    The List Cluster Customer User Credential Results appliance.
+    Returns the cluster customer user credentials for the dedicated appliance.
     API Version: 2022-04-15-preview.
 
 

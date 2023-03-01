@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Redis cache access keys.
+ * Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
  * API Version: 2020-06-01.
  */
 export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisKeysResult> {
@@ -42,7 +42,7 @@ export interface ListRedisKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Redis cache access keys.
+ * Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
  * API Version: 2020-06-01.
  */
 export function listRedisKeysOutput(args: ListRedisKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRedisKeysResult> {

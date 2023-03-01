@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ServiceBus
     public static class ListQueueKeys
     {
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Primary and secondary connection strings to the queue.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListQueueKeysResult> InvokeAsync(ListQueueKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListQueueKeysResult>("azure-native:servicebus:listQueueKeys", args ?? new ListQueueKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Primary and secondary connection strings to the queue.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListQueueKeysResult> Invoke(ListQueueKeysInvokeArgs args, InvokeOptions? options = null)

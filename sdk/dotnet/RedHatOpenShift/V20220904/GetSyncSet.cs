@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220904
     public static class GetSyncSet
     {
         /// <summary>
-        /// SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
+        /// The operation returns properties of a SyncSet.
         /// </summary>
         public static Task<GetSyncSetResult> InvokeAsync(GetSyncSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncSetResult>("azure-native:redhatopenshift/v20220904:getSyncSet", args ?? new GetSyncSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
+        /// The operation returns properties of a SyncSet.
         /// </summary>
         public static Output<GetSyncSetResult> Invoke(GetSyncSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncSetResult>("azure-native:redhatopenshift/v20220904:getSyncSet", args ?? new GetSyncSetInvokeArgs(), options.WithDefaults());

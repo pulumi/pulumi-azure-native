@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A kusto table data set.
+ * Get a DataSet in a share
  */
 export function getKustoTableDataSet(args: GetKustoTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoTableDataSetResult> {
 
@@ -87,7 +87,7 @@ export interface GetKustoTableDataSetResult {
     readonly type: string;
 }
 /**
- * A kusto table data set.
+ * Get a DataSet in a share
  */
 export function getKustoTableDataSetOutput(args: GetKustoTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoTableDataSetResult> {
     return pulumi.output(args).apply((a: any) => getKustoTableDataSet(a, opts))

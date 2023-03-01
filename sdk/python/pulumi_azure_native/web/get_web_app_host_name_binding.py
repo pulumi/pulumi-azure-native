@@ -193,7 +193,7 @@ def get_web_app_host_name_binding(host_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHostNameBindingResult:
     """
-    A hostname binding object.
+    Get the named hostname binding for an app (or deployment slot, if specified).
     API Version: 2020-12-01.
 
 
@@ -230,7 +230,7 @@ def get_web_app_host_name_binding_output(host_name: Optional[pulumi.Input[str]] 
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHostNameBindingResult]:
     """
-    A hostname binding object.
+    Get the named hostname binding for an app (or deployment slot, if specified).
     API Version: 2020-12-01.
 
 

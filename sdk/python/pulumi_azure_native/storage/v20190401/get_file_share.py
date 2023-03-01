@@ -123,7 +123,7 @@ def get_file_share(account_name: Optional[str] = None,
                    share_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
-    Properties of the file share, including Id, resource name, resource type, Etag.
+    Gets properties of a specified share.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -154,7 +154,7 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
                           share_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileShareResult]:
     """
-    Properties of the file share, including Id, resource name, resource type, Etag.
+    Gets properties of a specified share.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

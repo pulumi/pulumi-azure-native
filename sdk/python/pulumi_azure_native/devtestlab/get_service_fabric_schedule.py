@@ -233,7 +233,7 @@ def get_service_fabric_schedule(expand: Optional[str] = None,
                                 user_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceFabricScheduleResult:
     """
-    A schedule.
+    Get schedule.
     API Version: 2018-09-15.
 
 
@@ -282,7 +282,7 @@ def get_service_fabric_schedule_output(expand: Optional[pulumi.Input[Optional[st
                                        user_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceFabricScheduleResult]:
     """
-    A schedule.
+    Get schedule.
     API Version: 2018-09-15.
 
 

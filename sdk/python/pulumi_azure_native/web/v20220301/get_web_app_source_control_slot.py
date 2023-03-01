@@ -170,7 +170,7 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSourceControlSlotResult:
     """
-    Source control configuration for an app.
+    Description for Gets the source control configuration of an app.
 
 
     :param str name: Name of the app.
@@ -204,7 +204,7 @@ def get_web_app_source_control_slot_output(name: Optional[pulumi.Input[str]] = N
                                            slot: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSourceControlSlotResult]:
     """
-    Source control configuration for an app.
+    Description for Gets the source control configuration of an app.
 
 
     :param str name: Name of the app.

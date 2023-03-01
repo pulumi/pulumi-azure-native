@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Get properties of the provided virtual machine.
  * API Version: 2022-12-12-preview.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
@@ -144,6 +145,7 @@ export interface GetVirtualMachineResult {
     readonly volumes: string[];
 }
 /**
+ * Get properties of the provided virtual machine.
  * API Version: 2022-12-12-preview.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {

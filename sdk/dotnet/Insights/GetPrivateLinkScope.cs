@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetPrivateLinkScope
     {
         /// <summary>
-        /// An Azure Monitor PrivateLinkScope definition.
+        /// Returns a Azure Monitor PrivateLinkScope.
         /// API Version: 2019-10-17-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:insights:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Monitor PrivateLinkScope definition.
+        /// Returns a Azure Monitor PrivateLinkScope.
         /// API Version: 2019-10-17-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)

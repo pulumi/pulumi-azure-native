@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a HostPool definition.
+ * Get a host pool.
  */
 /** @deprecated Version 2019-12-10-preview will be removed in v2 of the provider. */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
@@ -114,7 +114,7 @@ export interface GetHostPoolResult {
     readonly vmTemplate?: string;
 }
 /**
- * Represents a HostPool definition.
+ * Get a host pool.
  */
 /** @deprecated Version 2019-12-10-preview will be removed in v2 of the provider. */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {

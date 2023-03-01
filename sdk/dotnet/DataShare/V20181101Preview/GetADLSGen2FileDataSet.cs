@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     public static class GetADLSGen2FileDataSet
     {
         /// <summary>
-        /// An ADLS Gen 2 file data set.
+        /// Get a DataSet in a share
         /// </summary>
         public static Task<GetADLSGen2FileDataSetResult> InvokeAsync(GetADLSGen2FileDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen2FileDataSetResult>("azure-native:datashare/v20181101preview:getADLSGen2FileDataSet", args ?? new GetADLSGen2FileDataSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An ADLS Gen 2 file data set.
+        /// Get a DataSet in a share
         /// </summary>
         public static Output<GetADLSGen2FileDataSetResult> Invoke(GetADLSGen2FileDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileDataSetResult>("azure-native:datashare/v20181101preview:getADLSGen2FileDataSet", args ?? new GetADLSGen2FileDataSetInvokeArgs(), options.WithDefaults());

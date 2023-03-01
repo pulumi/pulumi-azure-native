@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerService.V20210201
     public static class GetMaintenanceConfiguration
     {
         /// <summary>
-        /// maintenance configuration.
+        /// Gets the details of maintenance configurations by managed cluster and resource group.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:containerservice/v20210201:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// maintenance configuration.
+        /// Gets the details of maintenance configurations by managed cluster and resource group.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:containerservice/v20210201:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());

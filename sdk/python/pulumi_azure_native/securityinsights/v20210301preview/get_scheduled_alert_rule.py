@@ -340,7 +340,7 @@ def get_scheduled_alert_rule(operational_insights_resource_provider: Optional[st
                              workspace_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledAlertRuleResult:
     """
-    Represents scheduled alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -391,7 +391,7 @@ def get_scheduled_alert_rule_output(operational_insights_resource_provider: Opti
                                     workspace_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledAlertRuleResult]:
     """
-    Represents scheduled alert rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

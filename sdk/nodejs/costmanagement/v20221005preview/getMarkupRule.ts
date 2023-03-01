@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Markup rule
+ * Get a markup rule by its rule name.
  */
 export function getMarkupRule(args: GetMarkupRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMarkupRuleResult> {
 
@@ -77,7 +77,7 @@ export interface GetMarkupRuleResult {
     readonly type: string;
 }
 /**
- * Markup rule
+ * Get a markup rule by its rule name.
  */
 export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarkupRuleResult> {
     return pulumi.output(args).apply((a: any) => getMarkupRule(a, opts))

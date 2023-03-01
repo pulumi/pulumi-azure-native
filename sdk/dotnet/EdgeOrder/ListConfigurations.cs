@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EdgeOrder
     public static class ListConfigurations
     {
         /// <summary>
-        /// The list of configurations.
+        /// This method provides the list of configurations for the given product family, product line and product under subscription.
         /// API Version: 2021-12-01.
         /// </summary>
         public static Task<ListConfigurationsResult> InvokeAsync(ListConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-native:edgeorder:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The list of configurations.
+        /// This method provides the list of configurations for the given product family, product line and product under subscription.
         /// API Version: 2021-12-01.
         /// </summary>
         public static Output<ListConfigurationsResult> Invoke(ListConfigurationsInvokeArgs args, InvokeOptions? options = null)

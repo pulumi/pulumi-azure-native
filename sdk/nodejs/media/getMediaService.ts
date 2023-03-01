@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Media Services account.
+ * Get the details of a Media Services account
  * API Version: 2020-05-01.
  */
 export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaServiceResult> {
@@ -78,7 +78,7 @@ export interface GetMediaServiceResult {
     readonly type: string;
 }
 /**
- * A Media Services account.
+ * Get the details of a Media Services account
  * API Version: 2020-05-01.
  */
 export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaServiceResult> {

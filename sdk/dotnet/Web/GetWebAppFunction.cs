@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppFunction
     {
         /// <summary>
-        /// Function information.
+        /// Get function information by its ID for web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-native:web:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Function information.
+        /// Get function information by its ID for web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetWebAppFunctionResult> Invoke(GetWebAppFunctionInvokeArgs args, InvokeOptions? options = null)

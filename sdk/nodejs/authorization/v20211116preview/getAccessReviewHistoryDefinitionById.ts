@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Access Review History Definition.
+ * Get access review history definition by definition Id
  */
 export function getAccessReviewHistoryDefinitionById(args: GetAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewHistoryDefinitionByIdResult> {
 
@@ -107,7 +107,7 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
     readonly userPrincipalName: string;
 }
 /**
- * Access Review History Definition.
+ * Get access review history definition by definition Id
  */
 export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
     return pulumi.output(args).apply((a: any) => getAccessReviewHistoryDefinitionById(a, opts))

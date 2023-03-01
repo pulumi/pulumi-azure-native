@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Automanage.V20220504
     public static class GetConfigurationProfilesVersion
     {
         /// <summary>
-        /// Definition of the configuration profile.
+        /// Get information about a configuration profile version
         /// </summary>
         public static Task<GetConfigurationProfilesVersionResult> InvokeAsync(GetConfigurationProfilesVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilesVersionResult>("azure-native:automanage/v20220504:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the configuration profile.
+        /// Get information about a configuration profile version
         /// </summary>
         public static Output<GetConfigurationProfilesVersionResult> Invoke(GetConfigurationProfilesVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesVersionResult>("azure-native:automanage/v20220504:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionInvokeArgs(), options.WithDefaults());

@@ -253,7 +253,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRoutePortResult:
     """
-    ExpressRoutePort resource definition.
+    Retrieves the requested ExpressRoutePort resource.
     API Version: 2020-11-01.
 
 
@@ -292,7 +292,7 @@ def get_express_route_port_output(express_route_port_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRoutePortResult]:
     """
-    ExpressRoutePort resource definition.
+    Retrieves the requested ExpressRoutePort resource.
     API Version: 2020-11-01.
 
 

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StorSimple
     public static class GetManagerExtendedInfo
     {
         /// <summary>
-        /// The extended info of the manager.
+        /// Returns the extended information of the specified manager name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetManagerExtendedInfoResult> InvokeAsync(GetManagerExtendedInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagerExtendedInfoResult>("azure-native:storsimple:getManagerExtendedInfo", args ?? new GetManagerExtendedInfoArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The extended info of the manager.
+        /// Returns the extended information of the specified manager name.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetManagerExtendedInfoResult> Invoke(GetManagerExtendedInfoInvokeArgs args, InvokeOptions? options = null)

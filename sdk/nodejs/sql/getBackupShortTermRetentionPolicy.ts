@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A short term retention policy.
+ * Gets a database's short term retention policy.
  * API Version: 2020-11-01-preview.
  */
 export function getBackupShortTermRetentionPolicy(args: GetBackupShortTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupShortTermRetentionPolicyResult> {
@@ -60,7 +60,7 @@ export interface GetBackupShortTermRetentionPolicyResult {
     readonly type: string;
 }
 /**
- * A short term retention policy.
+ * Gets a database's short term retention policy.
  * API Version: 2020-11-01-preview.
  */
 export function getBackupShortTermRetentionPolicyOutput(args: GetBackupShortTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupShortTermRetentionPolicyResult> {

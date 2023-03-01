@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetFavorite
     {
         /// <summary>
-        /// Properties that define a favorite that is associated to an Application Insights component.
+        /// Get a single favorite by its FavoriteId, defined within an Application Insights component.
         /// API Version: 2015-05-01.
         /// </summary>
         public static Task<GetFavoriteResult> InvokeAsync(GetFavoriteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-native:insights:getFavorite", args ?? new GetFavoriteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Properties that define a favorite that is associated to an Application Insights component.
+        /// Get a single favorite by its FavoriteId, defined within an Application Insights component.
         /// API Version: 2015-05-01.
         /// </summary>
         public static Output<GetFavoriteResult> Invoke(GetFavoriteInvokeArgs args, InvokeOptions? options = null)

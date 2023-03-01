@@ -145,7 +145,7 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancePoolResult:
     """
-    An Azure SQL instance pool.
+    Gets an instance pool.
     API Version: 2020-11-01-preview.
 
 
@@ -175,7 +175,7 @@ def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancePoolResult]:
     """
-    An Azure SQL instance pool.
+    Gets an instance pool.
     API Version: 2020-11-01-preview.
 
 

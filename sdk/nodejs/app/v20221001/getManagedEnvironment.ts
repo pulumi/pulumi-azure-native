@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An environment for hosting container apps
+ * Get the properties of a Managed Environment used to host container apps.
  */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
 
@@ -118,7 +118,7 @@ export interface GetManagedEnvironmentResult {
     readonly zoneRedundant?: boolean;
 }
 /**
- * An environment for hosting container apps
+ * Get the properties of a Managed Environment used to host container apps.
  */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getManagedEnvironment(a, opts))

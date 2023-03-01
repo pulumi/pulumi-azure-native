@@ -254,7 +254,7 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
                                                resource_group_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCrossConnectionPeeringResult:
     """
-    Peering in an ExpressRoute Cross Connection resource.
+    Gets the specified peering for the ExpressRouteCrossConnection.
     API Version: 2020-11-01.
 
 
@@ -296,7 +296,7 @@ def get_express_route_cross_connection_peering_output(cross_connection_name: Opt
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCrossConnectionPeeringResult]:
     """
-    Peering in an ExpressRoute Cross Connection resource.
+    Gets the specified peering for the ExpressRouteCrossConnection.
     API Version: 2020-11-01.
 
 

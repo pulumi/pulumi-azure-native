@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Role management policy
+ * Get the specified role management policy assignment for a resource scope
  */
 export function getRoleManagementPolicyAssignment(args: GetRoleManagementPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleManagementPolicyAssignmentResult> {
 
@@ -68,7 +68,7 @@ export interface GetRoleManagementPolicyAssignmentResult {
     readonly type: string;
 }
 /**
- * Role management policy
+ * Get the specified role management policy assignment for a resource scope
  */
 export function getRoleManagementPolicyAssignmentOutput(args: GetRoleManagementPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleManagementPolicyAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRoleManagementPolicyAssignment(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Machine Learning service object wrapped into ARM resource envelope.
+ * Get a Service by name.
  */
 /** @deprecated Please use one of the variants: ACIService, AKSService, EndpointVariant. */
 export function getMachineLearningService(args: GetMachineLearningServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningServiceResult> {
@@ -84,7 +84,7 @@ export interface GetMachineLearningServiceResult {
     readonly type: string;
 }
 /**
- * Machine Learning service object wrapped into ARM resource envelope.
+ * Get a Service by name.
  */
 /** @deprecated Please use one of the variants: ACIService, AKSService, EndpointVariant. */
 export function getMachineLearningServiceOutput(args: GetMachineLearningServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningServiceResult> {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Compute role.
+ * Gets a specific role by name.
  * API Version: 2020-12-01.
  */
 /** @deprecated Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole. */
@@ -64,7 +64,7 @@ export interface GetRoleResult {
     readonly type: string;
 }
 /**
- * Compute role.
+ * Gets a specific role by name.
  * API Version: 2020-12-01.
  */
 /** @deprecated Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole. */

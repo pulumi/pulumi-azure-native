@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Storage.V20150615
     public static class ListStorageAccountKeys
     {
         /// <summary>
-        /// The access keys for the storage account.
+        /// Lists the access keys for the specified storage account.
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:storage/v20150615:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The access keys for the storage account.
+        /// Lists the access keys for the specified storage account.
         /// </summary>
         public static Output<ListStorageAccountKeysResult> Invoke(ListStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountKeysResult>("azure-native:storage/v20150615:listStorageAccountKeys", args ?? new ListStorageAccountKeysInvokeArgs(), options.WithDefaults());

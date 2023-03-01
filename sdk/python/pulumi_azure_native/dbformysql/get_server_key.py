@@ -121,7 +121,7 @@ def get_server_key(key_name: Optional[str] = None,
                    server_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerKeyResult:
     """
-    A MySQL Server key.
+    Gets a MySQL Server key.
     API Version: 2020-01-01.
 
 
@@ -152,7 +152,7 @@ def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
                           server_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerKeyResult]:
     """
-    A MySQL Server key.
+    Gets a MySQL Server key.
     API Version: 2020-01-01.
 
 

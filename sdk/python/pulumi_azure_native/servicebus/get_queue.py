@@ -326,7 +326,7 @@ def get_queue(namespace_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
-    Description of queue Resource.
+    Returns a description for the specified queue.
     API Version: 2017-04-01.
 
 
@@ -374,7 +374,7 @@ def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
-    Description of queue Resource.
+    Returns a description for the specified queue.
     API Version: 2017-04-01.
 
 

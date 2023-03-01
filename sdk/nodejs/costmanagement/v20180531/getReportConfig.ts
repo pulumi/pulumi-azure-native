@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A report config resource.
+ * Gets the report config for a subscription by report config name.
  */
 /** @deprecated Version 2018-05-31 will be removed in v2 of the provider. */
 export function getReportConfig(args: GetReportConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetReportConfigResult> {
@@ -65,7 +65,7 @@ export interface GetReportConfigResult {
     readonly type: string;
 }
 /**
- * A report config resource.
+ * Gets the report config for a subscription by report config name.
  */
 /** @deprecated Version 2018-05-31 will be removed in v2 of the provider. */
 export function getReportConfigOutput(args: GetReportConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportConfigResult> {

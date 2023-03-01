@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The integration service environment managed api.
+ * Gets the integration service environment managed Api.
  * API Version: 2019-05-01.
  */
 export function getIntegrationServiceEnvironmentManagedApi(args: GetIntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationServiceEnvironmentManagedApiResult> {
@@ -114,7 +114,7 @@ export interface GetIntegrationServiceEnvironmentManagedApiResult {
     readonly type: string;
 }
 /**
- * The integration service environment managed api.
+ * Gets the integration service environment managed Api.
  * API Version: 2019-05-01.
  */
 export function getIntegrationServiceEnvironmentManagedApiOutput(args: GetIntegrationServiceEnvironmentManagedApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentManagedApiResult> {

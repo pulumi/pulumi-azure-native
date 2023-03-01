@@ -85,7 +85,7 @@ def get_device_group(device_group_name: Optional[str] = None,
                      iot_defender_location: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceGroupResult:
     """
-    Device group
+    Get device group
     API Version: 2021-02-01-preview.
 
 
@@ -110,7 +110,7 @@ def get_device_group_output(device_group_name: Optional[pulumi.Input[str]] = Non
                             iot_defender_location: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceGroupResult]:
     """
-    Device group
+    Get device group
     API Version: 2021-02-01-preview.
 
 

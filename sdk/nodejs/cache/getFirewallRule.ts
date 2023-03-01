@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+ * Gets a single firewall rule in a specified redis cache.
  * API Version: 2020-06-01.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
@@ -59,7 +59,7 @@ export interface GetFirewallRuleResult {
     readonly type: string;
 }
 /**
- * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+ * Gets a single firewall rule in a specified redis cache.
  * API Version: 2020-06-01.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The response model from the GetRegionalAvailability action
+ * Get regional availability information for each size category configured under a lab account
  */
 export function getLabAccountRegionalAvailability(args: GetLabAccountRegionalAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetLabAccountRegionalAvailabilityResult> {
 
@@ -40,7 +40,7 @@ export interface GetLabAccountRegionalAvailabilityResult {
     readonly regionalAvailability?: outputs.labservices.v20181015.RegionalAvailabilityResponse[];
 }
 /**
- * The response model from the GetRegionalAvailability action
+ * Get regional availability information for each size category configured under a lab account
  */
 export function getLabAccountRegionalAvailabilityOutput(args: GetLabAccountRegionalAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountRegionalAvailabilityResult> {
     return pulumi.output(args).apply((a: any) => getLabAccountRegionalAvailability(a, opts))

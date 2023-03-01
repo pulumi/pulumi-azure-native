@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Communication
     public static class GetEmailService
     {
         /// <summary>
-        /// A class representing an EmailService resource.
+        /// Get the EmailService and its properties.
         /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Task<GetEmailServiceResult> InvokeAsync(GetEmailServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailServiceResult>("azure-native:communication:getEmailService", args ?? new GetEmailServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A class representing an EmailService resource.
+        /// Get the EmailService and its properties.
         /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Output<GetEmailServiceResult> Invoke(GetEmailServiceInvokeArgs args, InvokeOptions? options = null)

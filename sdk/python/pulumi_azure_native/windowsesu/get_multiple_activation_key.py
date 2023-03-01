@@ -189,7 +189,7 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMultipleActivationKeyResult:
     """
-    MAK key details.
+    Get a MAK key.
     API Version: 2019-09-16-preview.
 
 
@@ -223,7 +223,7 @@ def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultipleActivationKeyResult]:
     """
-    MAK key details.
+    Get a MAK key.
     API Version: 2019-09-16-preview.
 
 

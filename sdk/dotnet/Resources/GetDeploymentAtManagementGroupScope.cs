@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Resources
     public static class GetDeploymentAtManagementGroupScope
     {
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetDeploymentAtManagementGroupScopeResult> InvokeAsync(GetDeploymentAtManagementGroupScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetDeploymentAtManagementGroupScopeResult> Invoke(GetDeploymentAtManagementGroupScopeInvokeArgs args, InvokeOptions? options = null)

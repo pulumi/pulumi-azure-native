@@ -66,7 +66,7 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
                                             value: Optional[pulumi.InputType['AuthenticationDetailsValue']] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectedClusterUserCredentialsResult:
     """
-    The list of credential result response.
+    Gets cluster user credentials of the connected cluster with a specified resource group and name.
 
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
@@ -97,7 +97,7 @@ def list_connected_cluster_user_credentials_output(authentication_method: Option
                                                    value: Optional[pulumi.Input[pulumi.InputType['AuthenticationDetailsValue']]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedClusterUserCredentialsResult]:
     """
-    The list of credential result response.
+    Gets cluster user credentials of the connected cluster with a specified resource group and name.
 
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.TestBase
     public static class GetPackage
     {
         /// <summary>
-        /// The Test Base Package resource.
+        /// Gets a Test Base Package.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The Test Base Package resource.
+        /// Gets a Test Base Package.
         /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)

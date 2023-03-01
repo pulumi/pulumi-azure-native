@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A Stream Analytics Cluster object
+ * Gets information about the specified cluster.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -84,7 +84,7 @@ export interface GetClusterResult {
     readonly type: string;
 }
 /**
- * A Stream Analytics Cluster object
+ * Gets information about the specified cluster.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

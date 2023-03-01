@@ -135,7 +135,7 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEdgeManagementRoleResult:
     """
-    CloudEdgeManagementRole role.
+    Gets a specific role by name.
 
 
     :param str device_name: The device name.
@@ -166,7 +166,7 @@ def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudEdgeManagementRoleResult]:
     """
-    CloudEdgeManagementRole role.
+    Gets a specific role by name.
 
 
     :param str device_name: The device name.

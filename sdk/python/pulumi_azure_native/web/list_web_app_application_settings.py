@@ -96,7 +96,7 @@ def list_web_app_application_settings(name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppApplicationSettingsResult:
     """
-    String dictionary resource.
+    Gets the application settings of an app.
     API Version: 2020-12-01.
 
 
@@ -122,7 +122,7 @@ def list_web_app_application_settings_output(name: Optional[pulumi.Input[str]] =
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppApplicationSettingsResult]:
     """
-    String dictionary resource.
+    Gets the application settings of an app.
     API Version: 2020-12-01.
 
 

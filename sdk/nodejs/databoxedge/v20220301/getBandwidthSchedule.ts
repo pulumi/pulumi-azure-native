@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The bandwidth schedule details.
+ * Gets the properties of the specified bandwidth schedule.
  */
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {
 
@@ -73,7 +73,7 @@ export interface GetBandwidthScheduleResult {
     readonly type: string;
 }
 /**
- * The bandwidth schedule details.
+ * Gets the properties of the specified bandwidth schedule.
  */
 export function getBandwidthScheduleOutput(args: GetBandwidthScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthScheduleResult> {
     return pulumi.output(args).apply((a: any) => getBandwidthSchedule(a, opts))

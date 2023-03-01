@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppInstanceFunctionSlot
     {
         /// <summary>
-        /// Function information.
+        /// Get function information by its ID for web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppInstanceFunctionSlotResult> InvokeAsync(GetWebAppInstanceFunctionSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppInstanceFunctionSlotResult>("azure-native:web:getWebAppInstanceFunctionSlot", args ?? new GetWebAppInstanceFunctionSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Function information.
+        /// Get function information by its ID for web site, or a deployment slot.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetWebAppInstanceFunctionSlotResult> Invoke(GetWebAppInstanceFunctionSlotInvokeArgs args, InvokeOptions? options = null)

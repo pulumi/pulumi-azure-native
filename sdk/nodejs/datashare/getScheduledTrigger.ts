@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A type of trigger based on schedule
+ * Get a Trigger in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getScheduledTrigger(args: GetScheduledTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledTriggerResult> {
@@ -96,7 +96,7 @@ export interface GetScheduledTriggerResult {
     readonly userName: string;
 }
 /**
- * A type of trigger based on schedule
+ * Get a Trigger in a shareSubscription
  * API Version: 2020-09-01.
  */
 export function getScheduledTriggerOutput(args: GetScheduledTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledTriggerResult> {

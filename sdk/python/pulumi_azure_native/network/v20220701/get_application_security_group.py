@@ -132,7 +132,7 @@ def get_application_security_group(application_security_group_name: Optional[str
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationSecurityGroupResult:
     """
-    An application security group in a resource group.
+    Gets information about the specified application security group.
 
 
     :param str application_security_group_name: The name of the application security group.
@@ -160,7 +160,7 @@ def get_application_security_group_output(application_security_group_name: Optio
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationSecurityGroupResult]:
     """
-    An application security group in a resource group.
+    Gets information about the specified application security group.
 
 
     :param str application_security_group_name: The name of the application security group.

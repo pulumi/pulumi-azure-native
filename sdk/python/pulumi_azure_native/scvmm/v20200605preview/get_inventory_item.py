@@ -158,7 +158,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
                        vmm_server_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInventoryItemResult:
     """
-    Defines the inventory item.
+    Shows an inventory item.
 
 
     :param str inventory_item_name: Name of the inventoryItem.
@@ -191,7 +191,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
                               vmm_server_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
-    Defines the inventory item.
+    Shows an inventory item.
 
 
     :param str inventory_item_name: Name of the inventoryItem.

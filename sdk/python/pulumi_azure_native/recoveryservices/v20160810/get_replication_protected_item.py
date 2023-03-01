@@ -102,7 +102,7 @@ def get_replication_protected_item(fabric_name: Optional[str] = None,
                                    resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationProtectedItemResult:
     """
-    Replication protected item.
+    Gets the details of an ASR replication protected item.
 
 
     :param str fabric_name: Fabric unique name.
@@ -137,7 +137,7 @@ def get_replication_protected_item_output(fabric_name: Optional[pulumi.Input[str
                                           resource_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationProtectedItemResult]:
     """
-    Replication protected item.
+    Gets the details of an ASR replication protected item.
 
 
     :param str fabric_name: Fabric unique name.

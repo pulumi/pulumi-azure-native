@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     public static class GetRack
     {
         /// <summary>
-        /// 
+        /// Get properties of the provided rack.
         /// API Version: 2022-12-12-preview.
         /// </summary>
         public static Task<GetRackResult> InvokeAsync(GetRackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRackResult>("azure-native:networkcloud:getRack", args ?? new GetRackArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Get properties of the provided rack.
         /// API Version: 2022-12-12-preview.
         /// </summary>
         public static Output<GetRackResult> Invoke(GetRackInvokeArgs args, InvokeOptions? options = null)

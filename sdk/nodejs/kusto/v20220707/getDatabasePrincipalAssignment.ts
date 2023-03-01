@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a database principal assignment.
+ * Gets a Kusto cluster database principalAssignment.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
 
@@ -87,7 +87,7 @@ export interface GetDatabasePrincipalAssignmentResult {
     readonly type: string;
 }
 /**
- * Class representing a database principal assignment.
+ * Gets a Kusto cluster database principalAssignment.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))

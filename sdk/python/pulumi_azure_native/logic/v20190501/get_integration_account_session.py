@@ -133,7 +133,7 @@ def get_integration_account_session(integration_account_name: Optional[str] = No
                                     session_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountSessionResult:
     """
-    The integration account session.
+    Gets an integration account session.
 
 
     :param str integration_account_name: The integration account name.
@@ -164,7 +164,7 @@ def get_integration_account_session_output(integration_account_name: Optional[pu
                                            session_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountSessionResult]:
     """
-    The integration account session.
+    Gets an integration account session.
 
 
     :param str integration_account_name: The integration account name.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Details of an Update run
+ * Get the Update run for a specified update
  */
 export function getUpdateRun(args: GetUpdateRunArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateRunResult> {
 
@@ -114,7 +114,7 @@ export interface GetUpdateRunResult {
     readonly type: string;
 }
 /**
- * Details of an Update run
+ * Get the Update run for a specified update
  */
 export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
     return pulumi.output(args).apply((a: any) => getUpdateRun(a, opts))

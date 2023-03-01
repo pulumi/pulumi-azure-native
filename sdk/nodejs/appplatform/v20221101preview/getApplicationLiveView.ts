@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Application Live View resource
+ * Get the Application Live  and its properties.
  */
 export function getApplicationLiveView(args: GetApplicationLiveViewArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationLiveViewResult> {
 
@@ -61,7 +61,7 @@ export interface GetApplicationLiveViewResult {
     readonly type: string;
 }
 /**
- * Application Live View resource
+ * Get the Application Live  and its properties.
  */
 export function getApplicationLiveViewOutput(args: GetApplicationLiveViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationLiveViewResult> {
     return pulumi.output(args).apply((a: any) => getApplicationLiveView(a, opts))

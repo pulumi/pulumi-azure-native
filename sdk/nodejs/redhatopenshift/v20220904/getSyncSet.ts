@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
+ * The operation returns properties of a SyncSet.
  */
 export function getSyncSet(args: GetSyncSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncSetResult> {
 
@@ -61,7 +61,7 @@ export interface GetSyncSetResult {
     readonly type: string;
 }
 /**
- * SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
+ * The operation returns properties of a SyncSet.
  */
 export function getSyncSetOutput(args: GetSyncSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncSetResult> {
     return pulumi.output(args).apply((a: any) => getSyncSet(a, opts))

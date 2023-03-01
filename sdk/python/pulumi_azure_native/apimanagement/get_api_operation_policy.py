@@ -100,7 +100,7 @@ def get_api_operation_policy(api_id: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationPolicyResult:
     """
-    Policy Contract details.
+    Get the policy configuration at the API Operation level.
     API Version: 2020-12-01.
 
 
@@ -138,7 +138,7 @@ def get_api_operation_policy_output(api_id: Optional[pulumi.Input[str]] = None,
                                     service_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiOperationPolicyResult]:
     """
-    Policy Contract details.
+    Get the policy configuration at the API Operation level.
     API Version: 2020-12-01.
 
 

@@ -110,7 +110,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
                                        service_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
-    Gateway hostname configuration details.
+    Gets the details of the Gateway hostname configuration specified by its identifier.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -142,7 +142,7 @@ def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[
                                               service_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayHostnameConfigurationResult]:
     """
-    Gateway hostname configuration details.
+    Gets the details of the Gateway hostname configuration specified by its identifier.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'

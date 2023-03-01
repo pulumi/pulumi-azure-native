@@ -231,7 +231,7 @@ def get_schedule(expand: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
-    A schedule.
+    Get schedule.
     API Version: 2018-09-15.
 
 
@@ -274,7 +274,7 @@ def get_schedule_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
-    A schedule.
+    Get schedule.
     API Version: 2018-09-15.
 
 

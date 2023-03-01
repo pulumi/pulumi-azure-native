@@ -121,7 +121,7 @@ def get_management_group_subscription(group_id: Optional[str] = None,
                                       subscription_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupSubscriptionResult:
     """
-    The details of subscription under management group.
+    Retrieves details about given subscription which is associated with the management group.
 
 
     :param str group_id: Management Group ID.
@@ -148,7 +148,7 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[str
                                              subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupSubscriptionResult]:
     """
-    The details of subscription under management group.
+    Retrieves details about given subscription which is associated with the management group.
 
 
     :param str group_id: Management Group ID.

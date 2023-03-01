@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Live Output.
+ * Gets a live output.
  */
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
 
@@ -106,7 +106,7 @@ export interface GetLiveOutputResult {
     readonly type: string;
 }
 /**
- * The Live Output.
+ * Gets a live output.
  */
 export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {
     return pulumi.output(args).apply((a: any) => getLiveOutput(a, opts))

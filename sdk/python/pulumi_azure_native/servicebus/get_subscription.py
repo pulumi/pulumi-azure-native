@@ -279,7 +279,7 @@ def get_subscription(namespace_name: Optional[str] = None,
                      topic_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
-    Description of subscription resource.
+    Returns a subscription description for the specified topic.
     API Version: 2017-04-01.
 
 
@@ -326,7 +326,7 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
                             topic_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
-    Description of subscription resource.
+    Returns a subscription description for the specified topic.
     API Version: 2017-04-01.
 
 

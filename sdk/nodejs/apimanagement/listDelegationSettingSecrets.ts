@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * Gets the secret validation key of the DelegationSettings.
  * API Version: 2020-12-01.
  */
 export function listDelegationSettingSecrets(args: ListDelegationSettingSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDelegationSettingSecretsResult> {
@@ -38,7 +38,7 @@ export interface ListDelegationSettingSecretsResult {
     readonly validationKey?: string;
 }
 /**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * Gets the secret validation key of the DelegationSettings.
  * API Version: 2020-12-01.
  */
 export function listDelegationSettingSecretsOutput(args: ListDelegationSettingSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDelegationSettingSecretsResult> {

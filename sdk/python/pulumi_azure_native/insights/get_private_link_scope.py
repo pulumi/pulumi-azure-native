@@ -121,7 +121,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
                            scope_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopeResult:
     """
-    An Azure Monitor PrivateLinkScope definition.
+    Returns a Azure Monitor PrivateLinkScope.
     API Version: 2019-10-17-preview.
 
 
@@ -149,7 +149,7 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
                                   scope_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
     """
-    An Azure Monitor PrivateLinkScope definition.
+    Returns a Azure Monitor PrivateLinkScope.
     API Version: 2019-10-17-preview.
 
 

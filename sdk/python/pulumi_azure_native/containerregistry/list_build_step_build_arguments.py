@@ -63,7 +63,7 @@ def list_build_step_build_arguments(build_task_name: Optional[str] = None,
                                     step_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBuildStepBuildArgumentsResult:
     """
-    The list of build arguments for a build step.
+    List the build arguments for a step including the secret arguments.
     API Version: 2018-02-01-preview.
 
 
@@ -92,7 +92,7 @@ def list_build_step_build_arguments_output(build_task_name: Optional[pulumi.Inpu
                                            step_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildStepBuildArgumentsResult]:
     """
-    The list of build arguments for a build step.
+    List the build arguments for a step including the secret arguments.
     API Version: 2018-02-01-preview.
 
 

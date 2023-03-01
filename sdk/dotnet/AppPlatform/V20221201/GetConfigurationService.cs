@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20221201
     public static class GetConfigurationService
     {
         /// <summary>
-        /// Application Configuration Service resource
+        /// Get the Application Configuration Service and its properties.
         /// </summary>
         public static Task<GetConfigurationServiceResult> InvokeAsync(GetConfigurationServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationServiceResult>("azure-native:appplatform/v20221201:getConfigurationService", args ?? new GetConfigurationServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Application Configuration Service resource
+        /// Get the Application Configuration Service and its properties.
         /// </summary>
         public static Output<GetConfigurationServiceResult> Invoke(GetConfigurationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform/v20221201:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithDefaults());

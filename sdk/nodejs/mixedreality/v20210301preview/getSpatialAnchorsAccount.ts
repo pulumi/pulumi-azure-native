@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * SpatialAnchorsAccount Response.
+ * Retrieve a Spatial Anchors Account.
  */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
 
@@ -88,7 +88,7 @@ export interface GetSpatialAnchorsAccountResult {
     readonly type: string;
 }
 /**
- * SpatialAnchorsAccount Response.
+ * Retrieve a Spatial Anchors Account.
  */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     return pulumi.output(args).apply((a: any) => getSpatialAnchorsAccount(a, opts))

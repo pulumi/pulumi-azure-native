@@ -121,7 +121,7 @@ def get_enterprise_knowledge_graph(resource_group_name: Optional[str] = None,
                                    resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterpriseKnowledgeGraphResult:
     """
-    EnterpriseKnowledgeGraph resource definition
+    Returns a EnterpriseKnowledgeGraph service specified by the parameters.
     API Version: 2018-12-03.
 
 
@@ -149,7 +149,7 @@ def get_enterprise_knowledge_graph_output(resource_group_name: Optional[pulumi.I
                                           resource_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseKnowledgeGraphResult]:
     """
-    EnterpriseKnowledgeGraph resource definition
+    Returns a EnterpriseKnowledgeGraph service specified by the parameters.
     API Version: 2018-12-03.
 
 

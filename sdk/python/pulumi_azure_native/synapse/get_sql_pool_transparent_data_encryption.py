@@ -98,7 +98,7 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
                                              workspace_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolTransparentDataEncryptionResult:
     """
-    Represents a Sql pool transparent data encryption configuration.
+    Get a SQL pool's transparent data encryption configuration.
     API Version: 2021-03-01.
 
 
@@ -130,7 +130,7 @@ def get_sql_pool_transparent_data_encryption_output(resource_group_name: Optiona
                                                     workspace_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolTransparentDataEncryptionResult]:
     """
-    Represents a Sql pool transparent data encryption configuration.
+    Get a SQL pool's transparent data encryption configuration.
     API Version: 2021-03-01.
 
 

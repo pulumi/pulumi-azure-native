@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Label details
+ * Returns a label in the given workspace.
  * API Version: 2022-04-01-preview.
  */
 export function getLabelByWorkspace(args: GetLabelByWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelByWorkspaceResult> {
@@ -70,7 +70,7 @@ export interface GetLabelByWorkspaceResult {
     readonly type: string;
 }
 /**
- * Label details
+ * Returns a label in the given workspace.
  * API Version: 2022-04-01-preview.
  */
 export function getLabelByWorkspaceOutput(args: GetLabelByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelByWorkspaceResult> {

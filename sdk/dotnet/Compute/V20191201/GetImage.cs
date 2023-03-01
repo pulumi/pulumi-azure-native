@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Compute.V20191201
     public static class GetImage
     {
         /// <summary>
-        /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        /// Gets an image.
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-native:compute/v20191201:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        /// Gets an image.
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:compute/v20191201:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());

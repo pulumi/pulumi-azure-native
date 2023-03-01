@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Factory resource type.
+ * Gets a factory.
  * API Version: 2018-06-01.
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
@@ -97,7 +97,7 @@ export interface GetFactoryResult {
     readonly version: string;
 }
 /**
- * Factory resource type.
+ * Gets a factory.
  * API Version: 2018-06-01.
  */
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {

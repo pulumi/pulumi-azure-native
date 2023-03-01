@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of a namespace authorization rule.
+ * Gets an authorization rule for a queue by rule name.
  */
 export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueAuthorizationRuleResult> {
 
@@ -70,7 +70,7 @@ export interface GetQueueAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Description of a namespace authorization rule.
+ * Gets an authorization rule for a queue by rule name.
  */
 export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getQueueAuthorizationRule(a, opts))

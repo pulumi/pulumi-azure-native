@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a Virtual Machine run command.
+ * The operation to get the run command.
  * API Version: 2021-03-01.
  */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
@@ -111,7 +111,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
     readonly type: string;
 }
 /**
- * Describes a Virtual Machine run command.
+ * The operation to get the run command.
  * API Version: 2021-03-01.
  */
 export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {

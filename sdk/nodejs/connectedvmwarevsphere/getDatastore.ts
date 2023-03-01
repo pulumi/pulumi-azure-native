@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Define the datastore.
+ * Implements datastore GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
@@ -101,7 +101,7 @@ export interface GetDatastoreResult {
     readonly vCenterId?: string;
 }
 /**
- * Define the datastore.
+ * Implements datastore GET method.
  * API Version: 2020-10-01-preview.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {

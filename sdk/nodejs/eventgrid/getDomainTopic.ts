@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Domain Topic.
+ * Get properties of a domain topic.
  * API Version: 2020-06-01.
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
@@ -62,7 +62,7 @@ export interface GetDomainTopicResult {
     readonly type: string;
 }
 /**
- * Domain Topic.
+ * Get properties of a domain topic.
  * API Version: 2020-06-01.
  */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {

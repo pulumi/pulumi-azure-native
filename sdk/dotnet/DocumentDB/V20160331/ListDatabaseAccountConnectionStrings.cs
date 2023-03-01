@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
     public static class ListDatabaseAccountConnectionStrings
     {
         /// <summary>
-        /// The connection strings for the given database account.
+        /// Lists the connection strings for the specified Azure Cosmos DB database account.
         /// </summary>
         public static Task<ListDatabaseAccountConnectionStringsResult> InvokeAsync(ListDatabaseAccountConnectionStringsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/v20160331:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The connection strings for the given database account.
+        /// Lists the connection strings for the specified Azure Cosmos DB database account.
         /// </summary>
         public static Output<ListDatabaseAccountConnectionStringsResult> Invoke(ListDatabaseAccountConnectionStringsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/v20160331:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsInvokeArgs(), options.WithDefaults());

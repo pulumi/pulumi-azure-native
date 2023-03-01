@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
     public static class GetVendor
     {
         /// <summary>
-        /// Vendor resource.
+        /// Gets information about the specified vendor.
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-native:hybridnetwork/v20210501:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Vendor resource.
+        /// Gets information about the specified vendor.
         /// </summary>
         public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorResult>("azure-native:hybridnetwork/v20210501:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());

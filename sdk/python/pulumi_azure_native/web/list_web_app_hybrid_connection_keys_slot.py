@@ -111,7 +111,7 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
                                              slot: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHybridConnectionKeysSlotResult:
     """
-    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    Gets the send key name and value for a Hybrid Connection.
     API Version: 2018-11-01.
 
 
@@ -147,7 +147,7 @@ def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[
                                                     slot: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppHybridConnectionKeysSlotResult]:
     """
-    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    Gets the send key name and value for a Hybrid Connection.
     API Version: 2018-11-01.
 
 

@@ -101,7 +101,7 @@ def get_trigger(account_name: Optional[str] = None,
                 trigger_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
-    A Trigger data transfer object.
+    Get a Trigger in a shareSubscription
 
 
     :param str account_name: The name of the share account.
@@ -133,7 +133,7 @@ def get_trigger_output(account_name: Optional[pulumi.Input[str]] = None,
                        trigger_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerResult]:
     """
-    A Trigger data transfer object.
+    Get a Trigger in a shareSubscription
 
 
     :param str account_name: The name of the share account.

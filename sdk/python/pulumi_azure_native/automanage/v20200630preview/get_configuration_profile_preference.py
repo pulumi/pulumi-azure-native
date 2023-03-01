@@ -109,7 +109,7 @@ def get_configuration_profile_preference(configuration_profile_preference_name: 
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfilePreferenceResult:
     """
-    Definition of the configuration profile preference.
+    Get information about a configuration profile preference
 
 
     :param str configuration_profile_preference_name: The configuration profile preference name.
@@ -135,7 +135,7 @@ def get_configuration_profile_preference_output(configuration_profile_preference
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfilePreferenceResult]:
     """
-    Definition of the configuration profile preference.
+    Get information about a configuration profile preference
 
 
     :param str configuration_profile_preference_name: The configuration profile preference name.

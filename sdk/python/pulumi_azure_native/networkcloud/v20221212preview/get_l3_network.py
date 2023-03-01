@@ -288,7 +288,8 @@ def get_l3_network(l3_network_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL3NetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided layer 3 (L3) network.
+
 
     :param str l3_network_name: The name of the L3 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -328,7 +329,8 @@ def get_l3_network_output(l3_network_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL3NetworkResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get properties of the provided layer 3 (L3) network.
+
 
     :param str l3_network_name: The name of the L3 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

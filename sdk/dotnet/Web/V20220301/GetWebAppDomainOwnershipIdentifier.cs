@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20220301
     public static class GetWebAppDomainOwnershipIdentifier
     {
         /// <summary>
-        /// A domain specific resource identifier.
+        /// Description for Get domain ownership identifier for web app.
         /// </summary>
         public static Task<GetWebAppDomainOwnershipIdentifierResult> InvokeAsync(GetWebAppDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDomainOwnershipIdentifierResult>("azure-native:web/v20220301:getWebAppDomainOwnershipIdentifier", args ?? new GetWebAppDomainOwnershipIdentifierArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A domain specific resource identifier.
+        /// Description for Get domain ownership identifier for web app.
         /// </summary>
         public static Output<GetWebAppDomainOwnershipIdentifierResult> Invoke(GetWebAppDomainOwnershipIdentifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDomainOwnershipIdentifierResult>("azure-native:web/v20220301:getWebAppDomainOwnershipIdentifier", args ?? new GetWebAppDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());

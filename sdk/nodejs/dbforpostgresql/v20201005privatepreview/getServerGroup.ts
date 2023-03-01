@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a server group for create.
+ * Gets information about a server group.
  */
 export function getServerGroup(args: GetServerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerGroupResult> {
 
@@ -132,7 +132,7 @@ export interface GetServerGroupResult {
     readonly type: string;
 }
 /**
- * Represents a server group for create.
+ * Gets information about a server group.
  */
 export function getServerGroupOutput(args: GetServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerGroupResult> {
     return pulumi.output(args).apply((a: any) => getServerGroup(a, opts))

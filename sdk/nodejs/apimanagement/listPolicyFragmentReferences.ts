@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A collection of resources.
+ * Lists policy resources that reference the policy fragment.
  * API Version: 2021-12-01-preview.
  */
 export function listPolicyFragmentReferences(args: ListPolicyFragmentReferencesArgs, opts?: pulumi.InvokeOptions): Promise<ListPolicyFragmentReferencesResult> {
@@ -64,7 +64,7 @@ export interface ListPolicyFragmentReferencesResult {
     readonly value?: outputs.apimanagement.ResourceCollectionResponseValue[];
 }
 /**
- * A collection of resources.
+ * Lists policy resources that reference the policy fragment.
  * API Version: 2021-12-01-preview.
  */
 export function listPolicyFragmentReferencesOutput(args: ListPolicyFragmentReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyFragmentReferencesResult> {

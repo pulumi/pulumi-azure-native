@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The top level Workspace resource container.
+ * Gets a workspace instance.
  * API Version: 2020-10-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -109,7 +109,7 @@ export interface GetWorkspaceResult {
     readonly workspaceCapping?: outputs.operationalinsights.WorkspaceCappingResponse;
 }
 /**
- * The top level Workspace resource container.
+ * Gets a workspace instance.
  * API Version: 2020-10-01.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {

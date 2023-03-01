@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Defines the inventory item.
+ * Shows an inventory item.
  */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
 
@@ -81,7 +81,7 @@ export interface GetInventoryItemResult {
     readonly uuid: string;
 }
 /**
- * Defines the inventory item.
+ * Shows an inventory item.
  */
 export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
     return pulumi.output(args).apply((a: any) => getInventoryItem(a, opts))

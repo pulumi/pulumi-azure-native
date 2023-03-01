@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
     public static class GetProject
     {
         /// <summary>
-        /// Represents a project resource.
+        /// Gets a specific project.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:devcenter/v20220901preview:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a project resource.
+        /// Gets a specific project.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:devcenter/v20220901preview:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Linked service.
+ * Get the detail of a linked service.
  * API Version: 2020-09-01-preview.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
@@ -66,7 +66,7 @@ export interface GetLinkedServiceResult {
     readonly type: string;
 }
 /**
- * Linked service.
+ * Get the detail of a linked service.
  * API Version: 2020-09-01-preview.
  */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {

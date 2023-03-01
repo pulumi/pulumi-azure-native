@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * VpnSite Resource.
+ * Retrieves the details of a VPN site.
  */
 export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnSiteResult> {
 
@@ -88,7 +88,7 @@ export interface GetVpnSiteResult {
     readonly virtualWAN?: outputs.network.v20180701.SubResourceResponse;
 }
 /**
- * VpnSite Resource.
+ * Retrieves the details of a VPN site.
  */
 export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {
     return pulumi.output(args).apply((a: any) => getVpnSite(a, opts))

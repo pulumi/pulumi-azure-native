@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A virtual network rule.
+ * Gets a virtual network rule.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
 
@@ -62,7 +62,7 @@ export interface GetVirtualNetworkRuleResult {
     readonly virtualNetworkSubnetId: string;
 }
 /**
- * A virtual network rule.
+ * Gets a virtual network rule.
  */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes the suppression rule
+ * Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
  * API Version: 2019-01-01-preview.
  */
 export function getAlertsSuppressionRule(args: GetAlertsSuppressionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertsSuppressionRuleResult> {
@@ -72,7 +72,7 @@ export interface GetAlertsSuppressionRuleResult {
     readonly type: string;
 }
 /**
- * Describes the suppression rule
+ * Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
  * API Version: 2019-01-01-preview.
  */
 export function getAlertsSuppressionRuleOutput(args: GetAlertsSuppressionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertsSuppressionRuleResult> {

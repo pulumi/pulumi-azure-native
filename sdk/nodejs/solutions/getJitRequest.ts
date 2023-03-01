@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Information about JIT request definition.
+ * Gets the JIT request.
  * API Version: 2019-07-01.
  */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
@@ -89,7 +89,7 @@ export interface GetJitRequestResult {
     readonly updatedBy: outputs.solutions.ApplicationClientDetailsResponse;
 }
 /**
- * Information about JIT request definition.
+ * Gets the JIT request.
  * API Version: 2019-07-01.
  */
 export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitRequestResult> {

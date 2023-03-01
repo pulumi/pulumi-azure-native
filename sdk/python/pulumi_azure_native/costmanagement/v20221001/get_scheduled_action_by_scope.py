@@ -205,7 +205,7 @@ def get_scheduled_action_by_scope(name: Optional[str] = None,
                                   scope: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledActionByScopeResult:
     """
-    Scheduled action definition.
+    Get the shared scheduled action from the given scope by name.
 
 
     :param str name: Scheduled action name.
@@ -239,7 +239,7 @@ def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = Non
                                          scope: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionByScopeResult]:
     """
-    Scheduled action definition.
+    Get the shared scheduled action from the given scope by name.
 
 
     :param str name: Scheduled action name.

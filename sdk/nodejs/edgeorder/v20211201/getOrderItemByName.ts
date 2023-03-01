@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents order item contract
+ * Gets an order item.
  */
 export function getOrderItemByName(args: GetOrderItemByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderItemByNameResult> {
 
@@ -81,7 +81,7 @@ export interface GetOrderItemByNameResult {
     readonly type: string;
 }
 /**
- * Represents order item contract
+ * Gets an order item.
  */
 export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemByNameResult> {
     return pulumi.output(args).apply((a: any) => getOrderItemByName(a, opts))

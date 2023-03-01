@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * App Service Environment ARM resource.
+ * Get the properties of an App Service Environment.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
 
@@ -214,7 +214,7 @@ export interface GetAppServiceEnvironmentResult {
     readonly workerPools: outputs.web.v20200901.WorkerPoolResponse[];
 }
 /**
- * App Service Environment ARM resource.
+ * Get the properties of an App Service Environment.
  */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))

@@ -49,7 +49,7 @@ def get_build_log_link(build_id: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildLogLinkResult:
     """
-    The result of get log link operation.
+    Gets a link to download the build logs.
 
 
     :param str build_id: The build ID.
@@ -73,7 +73,7 @@ def get_build_log_link_output(build_id: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildLogLinkResult]:
     """
-    The result of get log link operation.
+    Gets a link to download the build logs.
 
 
     :param str build_id: The build ID.

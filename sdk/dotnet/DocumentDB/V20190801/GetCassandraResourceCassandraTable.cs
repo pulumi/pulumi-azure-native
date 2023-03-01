@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
     public static class GetCassandraResourceCassandraTable
     {
         /// <summary>
-        /// An Azure Cosmos DB Cassandra table.
+        /// Gets the Cassandra table under an existing Azure Cosmos DB database account.
         /// </summary>
         public static Task<GetCassandraResourceCassandraTableResult> InvokeAsync(GetCassandraResourceCassandraTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraTableResult>("azure-native:documentdb/v20190801:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Cosmos DB Cassandra table.
+        /// Gets the Cassandra table under an existing Azure Cosmos DB database account.
         /// </summary>
         public static Output<GetCassandraResourceCassandraTableResult> Invoke(GetCassandraResourceCassandraTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraTableResult>("azure-native:documentdb/v20190801:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableInvokeArgs(), options.WithDefaults());

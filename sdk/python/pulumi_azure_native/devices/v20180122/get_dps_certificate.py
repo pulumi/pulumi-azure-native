@@ -100,7 +100,7 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDpsCertificateResult:
     """
-    The X509 Certificate.
+    Get the certificate from the provisioning service.
 
 
     :param str certificate_name: Name of the certificate to retrieve.
@@ -129,7 +129,7 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDpsCertificateResult]:
     """
-    The X509 Certificate.
+    Get the certificate from the provisioning service.
 
 
     :param str certificate_name: Name of the certificate to retrieve.

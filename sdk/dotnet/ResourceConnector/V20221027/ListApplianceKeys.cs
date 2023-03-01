@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ResourceConnector.V20221027
     public static class ListApplianceKeys
     {
         /// <summary>
-        /// The List Cluster Keys Results appliance.
+        /// Returns the cluster customer credentials for the dedicated appliance.
         /// </summary>
         public static Task<ListApplianceKeysResult> InvokeAsync(ListApplianceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListApplianceKeysResult>("azure-native:resourceconnector/v20221027:listApplianceKeys", args ?? new ListApplianceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The List Cluster Keys Results appliance.
+        /// Returns the cluster customer credentials for the dedicated appliance.
         /// </summary>
         public static Output<ListApplianceKeysResult> Invoke(ListApplianceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplianceKeysResult>("azure-native:resourceconnector/v20221027:listApplianceKeys", args ?? new ListApplianceKeysInvokeArgs(), options.WithDefaults());

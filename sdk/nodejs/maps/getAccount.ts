@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure resource which represents access to a suite of Maps REST APIs.
+ * Get a Maps Account.
  * API Version: 2018-05-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -65,7 +65,7 @@ export interface GetAccountResult {
     readonly type: string;
 }
 /**
- * An Azure resource which represents access to a suite of Maps REST APIs.
+ * Get a Maps Account.
  * API Version: 2018-05-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {

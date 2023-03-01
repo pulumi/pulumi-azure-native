@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
     public static class GetDevToolPortal
     {
         /// <summary>
-        /// Dev Tool Portal resource
+        /// Get the Application Live  and its properties.
         /// </summary>
         public static Task<GetDevToolPortalResult> InvokeAsync(GetDevToolPortalArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevToolPortalResult>("azure-native:appplatform/v20230101preview:getDevToolPortal", args ?? new GetDevToolPortalArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Dev Tool Portal resource
+        /// Get the Application Live  and its properties.
         /// </summary>
         public static Output<GetDevToolPortalResult> Invoke(GetDevToolPortalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevToolPortalResult>("azure-native:appplatform/v20230101preview:getDevToolPortal", args ?? new GetDevToolPortalInvokeArgs(), options.WithDefaults());

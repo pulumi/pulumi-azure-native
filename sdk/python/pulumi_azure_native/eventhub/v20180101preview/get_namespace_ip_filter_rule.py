@@ -109,7 +109,7 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceIpFilterRuleResult:
     """
-    Single item in a List or Get IpFilterRules operation
+    Gets an IpFilterRule for a Namespace by rule name.
 
 
     :param str ip_filter_rule_name: The IP Filter Rule name.
@@ -138,7 +138,7 @@ def get_namespace_ip_filter_rule_output(ip_filter_rule_name: Optional[pulumi.Inp
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceIpFilterRuleResult]:
     """
-    Single item in a List or Get IpFilterRules operation
+    Gets an IpFilterRule for a Namespace by rule name.
 
 
     :param str ip_filter_rule_name: The IP Filter Rule name.

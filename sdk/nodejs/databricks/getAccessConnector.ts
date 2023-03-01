@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Information about azure databricks accessConnector.
+ * Gets an azure databricks accessConnector.
  * API Version: 2022-04-01-preview.
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
@@ -69,7 +69,7 @@ export interface GetAccessConnectorResult {
     readonly type: string;
 }
 /**
- * Information about azure databricks accessConnector.
+ * Gets an azure databricks accessConnector.
  * API Version: 2022-04-01-preview.
  */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {

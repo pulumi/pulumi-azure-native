@@ -267,7 +267,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostPoolResult:
     """
-    Represents a HostPool definition.
+    Get a host pool.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -307,7 +307,7 @@ def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
     """
-    Represents a HostPool definition.
+    Get a host pool.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

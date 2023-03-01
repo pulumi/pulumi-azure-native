@@ -60,7 +60,7 @@ def list_sql_migration_service_auth_keys(resource_group_name: Optional[str] = No
                                          sql_migration_service_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSqlMigrationServiceAuthKeysResult:
     """
-    An authentication key.
+    Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
     API Version: 2021-10-30-preview.
 
 
@@ -83,7 +83,7 @@ def list_sql_migration_service_auth_keys_output(resource_group_name: Optional[pu
                                                 sql_migration_service_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSqlMigrationServiceAuthKeysResult]:
     """
-    An authentication key.
+    Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
     API Version: 2021-10-30-preview.
 
 

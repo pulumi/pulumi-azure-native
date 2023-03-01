@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Logger details.
+ * Gets the details of the logger specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
@@ -72,7 +72,7 @@ export interface GetLoggerResult {
     readonly type: string;
 }
 /**
- * Logger details.
+ * Gets the details of the logger specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerResult> {

@@ -123,7 +123,7 @@ def get_peering_service_prefix(peering_service_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringServicePrefixResult:
     """
-    The peering service prefix class.
+    Gets the peering service prefix.
 
 
     :param str peering_service_name: The peering service name.
@@ -154,7 +154,7 @@ def get_peering_service_prefix_output(peering_service_name: Optional[pulumi.Inpu
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringServicePrefixResult]:
     """
-    The peering service prefix class.
+    Gets the peering service prefix.
 
 
     :param str peering_service_name: The peering service name.

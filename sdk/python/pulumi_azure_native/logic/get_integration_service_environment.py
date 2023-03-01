@@ -133,7 +133,7 @@ def get_integration_service_environment(integration_service_environment_name: Op
                                         resource_group: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationServiceEnvironmentResult:
     """
-    The integration service environment.
+    Gets an integration service environment.
     API Version: 2019-05-01.
 
 
@@ -162,7 +162,7 @@ def get_integration_service_environment_output(integration_service_environment_n
                                                resource_group: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentResult]:
     """
-    The integration service environment.
+    Gets an integration service environment.
     API Version: 2019-05-01.
 
 

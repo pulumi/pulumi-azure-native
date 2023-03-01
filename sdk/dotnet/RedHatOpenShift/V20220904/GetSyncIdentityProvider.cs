@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220904
     public static class GetSyncIdentityProvider
     {
         /// <summary>
-        /// SyncIdentityProvider represents a SyncIdentityProvider
+        /// The operation returns properties of a SyncIdentityProvider.
         /// </summary>
         public static Task<GetSyncIdentityProviderResult> InvokeAsync(GetSyncIdentityProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncIdentityProviderResult>("azure-native:redhatopenshift/v20220904:getSyncIdentityProvider", args ?? new GetSyncIdentityProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SyncIdentityProvider represents a SyncIdentityProvider
+        /// The operation returns properties of a SyncIdentityProvider.
         /// </summary>
         public static Output<GetSyncIdentityProviderResult> Invoke(GetSyncIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncIdentityProviderResult>("azure-native:redhatopenshift/v20220904:getSyncIdentityProvider", args ?? new GetSyncIdentityProviderInvokeArgs(), options.WithDefaults());

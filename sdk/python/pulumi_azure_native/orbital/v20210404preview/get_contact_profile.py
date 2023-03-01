@@ -181,7 +181,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactProfileResult:
     """
-    Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+    Gets the specified contact Profile in a specified resource group
 
 
     :param str contact_profile_name: Contact Profile Name
@@ -213,7 +213,7 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactProfileResult]:
     """
-    Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+    Gets the specified contact Profile in a specified resource group
 
 
     :param str contact_profile_name: Contact Profile Name

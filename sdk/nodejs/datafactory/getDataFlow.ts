@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data flow resource type.
+ * Gets a data flow.
  * API Version: 2018-06-01.
  */
 export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
@@ -62,7 +62,7 @@ export interface GetDataFlowResult {
     readonly type: string;
 }
 /**
- * Data flow resource type.
+ * Gets a data flow.
  * API Version: 2018-06-01.
  */
 export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {

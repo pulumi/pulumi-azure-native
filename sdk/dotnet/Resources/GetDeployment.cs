@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Resources
     public static class GetDeployment
     {
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:resources:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Deployment information.
+        /// Gets a deployment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)

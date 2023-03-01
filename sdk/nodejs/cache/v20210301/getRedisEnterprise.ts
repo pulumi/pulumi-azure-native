@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Describes the RedisEnterprise cluster
+ * Gets information about a RedisEnterprise cluster
  */
 export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisEnterpriseResult> {
 
@@ -88,7 +88,7 @@ export interface GetRedisEnterpriseResult {
     readonly zones?: string[];
 }
 /**
- * Describes the RedisEnterprise cluster
+ * Gets information about a RedisEnterprise cluster
  */
 export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisEnterpriseResult> {
     return pulumi.output(args).apply((a: any) => getRedisEnterprise(a, opts))

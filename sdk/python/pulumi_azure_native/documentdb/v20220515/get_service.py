@@ -86,7 +86,7 @@ def get_service(account_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Properties for the database account.
+    Gets the status of service.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -113,7 +113,7 @@ def get_service_output(account_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Properties for the database account.
+    Gets the status of service.
 
 
     :param str account_name: Cosmos DB database account name.

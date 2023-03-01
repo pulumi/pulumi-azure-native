@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
 {
     public static class GetIncident
     {
+        /// <summary>
+        /// Gets an incident.
+        /// </summary>
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-native:securityinsights/v20221201preview:getIncident", args ?? new GetIncidentArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Gets an incident.
+        /// </summary>
         public static Output<GetIncidentResult> Invoke(GetIncidentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentResult>("azure-native:securityinsights/v20221201preview:getIncident", args ?? new GetIncidentInvokeArgs(), options.WithDefaults());
     }

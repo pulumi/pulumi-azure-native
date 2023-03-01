@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetP2sVpnGatewayP2sVpnConnectionHealthDetailed
     {
         /// <summary>
-        /// P2S Vpn connection detailed health written to sas url.
+        /// Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> InvokeAsync(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs(), options.WithDefaults());
 
         /// <summary>
-        /// P2S Vpn connection detailed health written to sas url.
+        /// Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> Invoke(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedInvokeArgs args, InvokeOptions? options = null)

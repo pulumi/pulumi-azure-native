@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class ListEffectiveConnectivityConfiguration
     {
         /// <summary>
-        /// Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+        /// List all effective connectivity configurations applied on a virtual network.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<ListEffectiveConnectivityConfigurationResult> InvokeAsync(ListEffectiveConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveConnectivityConfigurationResult>("azure-native:network:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
+        /// List all effective connectivity configurations applied on a virtual network.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<ListEffectiveConnectivityConfigurationResult> Invoke(ListEffectiveConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)

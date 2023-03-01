@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Inbound NAT rule of the load balancer.
+ * Gets the specified load balancer inbound nat rule.
  */
 /** @deprecated Version 2017-11-01 will be removed in v2 of the provider. */
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
@@ -92,7 +92,7 @@ export interface GetInboundNatRuleResult {
     readonly provisioningState?: string;
 }
 /**
- * Inbound NAT rule of the load balancer.
+ * Gets the specified load balancer inbound nat rule.
  */
 /** @deprecated Version 2017-11-01 will be removed in v2 of the provider. */
 export function getInboundNatRuleOutput(args: GetInboundNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundNatRuleResult> {

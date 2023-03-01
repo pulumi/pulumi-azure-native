@@ -257,7 +257,7 @@ def get_server_blob_auditing_policy(blob_auditing_policy_name: Optional[str] = N
                                     server_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerBlobAuditingPolicyResult:
     """
-    A server blob auditing policy.
+    Gets a server's blob auditing policy.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
@@ -292,7 +292,7 @@ def get_server_blob_auditing_policy_output(blob_auditing_policy_name: Optional[p
                                            server_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerBlobAuditingPolicyResult]:
     """
-    A server blob auditing policy.
+    Gets a server's blob auditing policy.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.

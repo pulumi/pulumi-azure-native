@@ -109,7 +109,7 @@ def list_static_site_secrets(name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteSecretsResult:
     """
-    String dictionary resource.
+    Lists the secrets for an existing static site.
 
 
     :param str name: Name of the static site.
@@ -135,7 +135,7 @@ def list_static_site_secrets_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteSecretsResult]:
     """
-    String dictionary resource.
+    Lists the secrets for an existing static site.
 
 
     :param str name: Name of the static site.

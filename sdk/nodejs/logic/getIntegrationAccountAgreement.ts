@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The integration account agreement.
+ * Gets an integration account agreement.
  * API Version: 2019-05-01.
  */
 export function getIntegrationAccountAgreement(args: GetIntegrationAccountAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountAgreementResult> {
@@ -98,7 +98,7 @@ export interface GetIntegrationAccountAgreementResult {
     readonly type: string;
 }
 /**
- * The integration account agreement.
+ * Gets an integration account agreement.
  * API Version: 2019-05-01.
  */
 export function getIntegrationAccountAgreementOutput(args: GetIntegrationAccountAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAgreementResult> {

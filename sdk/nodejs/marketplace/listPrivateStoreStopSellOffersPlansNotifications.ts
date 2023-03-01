@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * List of stop sell offers and plans notifications.
+ * List stop sell notifications for both stop sell offers and stop sell plans
  * API Version: 2021-12-01.
  */
 export function listPrivateStoreStopSellOffersPlansNotifications(args: ListPrivateStoreStopSellOffersPlansNotificationsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
@@ -35,7 +35,7 @@ export interface ListPrivateStoreStopSellOffersPlansNotificationsResult {
     readonly stopSellNotifications?: outputs.marketplace.StopSellOffersPlansNotificationsListPropertiesResponse[];
 }
 /**
- * List of stop sell offers and plans notifications.
+ * List stop sell notifications for both stop sell offers and stop sell plans
  * API Version: 2021-12-01.
  */
 export function listPrivateStoreStopSellOffersPlansNotificationsOutput(args: ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> {

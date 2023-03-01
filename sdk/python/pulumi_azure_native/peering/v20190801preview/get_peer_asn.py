@@ -122,7 +122,7 @@ class AwaitableGetPeerAsnResult(GetPeerAsnResult):
 def get_peer_asn(peer_asn_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeerAsnResult:
     """
-    The essential information related to the peer's ASN.
+    Gets the peer ASN with the specified name under the given subscription.
 
 
     :param str peer_asn_name: The peer ASN name.
@@ -147,7 +147,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
 def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeerAsnResult]:
     """
-    The essential information related to the peer's ASN.
+    Gets the peer ASN with the specified name under the given subscription.
 
 
     :param str peer_asn_name: The peer ASN name.

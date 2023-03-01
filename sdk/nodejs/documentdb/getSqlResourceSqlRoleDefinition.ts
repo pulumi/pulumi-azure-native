@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Azure Cosmos DB SQL Role Definition.
+ * Retrieves the properties of an existing Azure Cosmos DB SQL Role Definition with the given Id.
  * API Version: 2021-03-01-preview.
  */
 export function getSqlResourceSqlRoleDefinition(args: GetSqlResourceSqlRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleDefinitionResult> {
@@ -66,7 +66,7 @@ export interface GetSqlResourceSqlRoleDefinitionResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB SQL Role Definition.
+ * Retrieves the properties of an existing Azure Cosmos DB SQL Role Definition with the given Id.
  * API Version: 2021-03-01-preview.
  */
 export function getSqlResourceSqlRoleDefinitionOutput(args: GetSqlResourceSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleDefinitionResult> {

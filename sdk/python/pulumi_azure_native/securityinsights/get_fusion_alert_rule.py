@@ -182,7 +182,7 @@ def get_fusion_alert_rule(resource_group_name: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFusionAlertRuleResult:
     """
-    Represents Fusion alert rule.
+    Gets the alert rule.
     API Version: 2020-01-01.
 
 
@@ -218,7 +218,7 @@ def get_fusion_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]
                                  workspace_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFusionAlertRuleResult]:
     """
-    Represents Fusion alert rule.
+    Gets the alert rule.
     API Version: 2020-01-01.
 
 

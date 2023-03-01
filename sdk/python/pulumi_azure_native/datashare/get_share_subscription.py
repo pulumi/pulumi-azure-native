@@ -266,7 +266,7 @@ def get_share_subscription(account_name: Optional[str] = None,
                            share_subscription_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareSubscriptionResult:
     """
-    A share subscription data transfer object.
+    Get a shareSubscription in an account
     API Version: 2020-09-01.
 
 
@@ -309,7 +309,7 @@ def get_share_subscription_output(account_name: Optional[pulumi.Input[str]] = No
                                   share_subscription_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareSubscriptionResult]:
     """
-    A share subscription data transfer object.
+    Get a shareSubscription in an account
     API Version: 2020-09-01.
 
 

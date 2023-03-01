@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The User registered to a lab
+ * Get user
  * API Version: 2018-10-15.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
@@ -104,7 +104,7 @@ export interface GetUserResult {
     readonly uniqueIdentifier?: string;
 }
 /**
- * The User registered to a lab
+ * Get user
  * API Version: 2018-10-15.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {

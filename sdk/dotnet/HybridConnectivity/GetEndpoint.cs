@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public static class GetEndpoint
     {
         /// <summary>
-        /// The endpoint for the target resource.
+        /// Gets the endpoint to the resource.
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The endpoint for the target resource.
+        /// Gets the endpoint to the resource.
         /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)

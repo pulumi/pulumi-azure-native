@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
     public static class GetRegistryBuildSourceUploadUrl
     {
         /// <summary>
-        /// The properties of a response to source upload request.
+        /// Get the upload location for the user to be able to upload the source.
         /// </summary>
         public static Task<GetRegistryBuildSourceUploadUrlResult> InvokeAsync(GetRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry/v20180201preview:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The properties of a response to source upload request.
+        /// Get the upload location for the user to be able to upload the source.
         /// </summary>
         public static Output<GetRegistryBuildSourceUploadUrlResult> Invoke(GetRegistryBuildSourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry/v20180201preview:getRegistryBuildSourceUploadUrl", args ?? new GetRegistryBuildSourceUploadUrlInvokeArgs(), options.WithDefaults());

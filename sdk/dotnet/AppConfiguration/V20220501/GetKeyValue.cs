@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.AppConfiguration.V20220501
     public static class GetKeyValue
     {
         /// <summary>
-        /// The key-value resource along with all resource properties.
+        /// Gets the properties of the specified key-value.
         /// </summary>
         public static Task<GetKeyValueResult> InvokeAsync(GetKeyValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyValueResult>("azure-native:appconfiguration/v20220501:getKeyValue", args ?? new GetKeyValueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The key-value resource along with all resource properties.
+        /// Gets the properties of the specified key-value.
         /// </summary>
         public static Output<GetKeyValueResult> Invoke(GetKeyValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyValueResult>("azure-native:appconfiguration/v20220501:getKeyValue", args ?? new GetKeyValueInvokeArgs(), options.WithDefaults());

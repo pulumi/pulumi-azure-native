@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The security connector resource.
+ * Retrieves details of a specific security connector
  * API Version: 2021-07-01-preview.
  */
 export function getSecurityConnector(args: GetSecurityConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorResult> {
@@ -85,7 +85,7 @@ export interface GetSecurityConnectorResult {
     readonly type: string;
 }
 /**
- * The security connector resource.
+ * Retrieves details of a specific security connector
  * API Version: 2021-07-01-preview.
  */
 export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorResult> {

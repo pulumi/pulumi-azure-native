@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents AAD (Azure Active Directory) data connector.
+ * Gets a data connector.
  */
 export function getAADDataConnector(args: GetAADDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAADDataConnectorResult> {
 
@@ -74,7 +74,7 @@ export interface GetAADDataConnectorResult {
     readonly type: string;
 }
 /**
- * Represents AAD (Azure Active Directory) data connector.
+ * Gets a data connector.
  */
 export function getAADDataConnectorOutput(args: GetAADDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAADDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAADDataConnector(a, opts))

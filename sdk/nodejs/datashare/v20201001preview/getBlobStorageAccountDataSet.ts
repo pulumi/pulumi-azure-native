@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure blob storage account data set.
+ * Get a DataSet in a share
  */
 export function getBlobStorageAccountDataSet(args: GetBlobStorageAccountDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobStorageAccountDataSetResult> {
 
@@ -83,7 +83,7 @@ export interface GetBlobStorageAccountDataSetResult {
     readonly type: string;
 }
 /**
- * An Azure blob storage account data set.
+ * Get a DataSet in a share
  */
 export function getBlobStorageAccountDataSetOutput(args: GetBlobStorageAccountDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobStorageAccountDataSetResult> {
     return pulumi.output(args).apply((a: any) => getBlobStorageAccountDataSet(a, opts))

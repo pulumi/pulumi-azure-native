@@ -75,7 +75,7 @@ def list_compute_nodes(compute_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListComputeNodesResult:
     """
-    Compute node information related to a AmlCompute.
+    Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.
@@ -101,7 +101,7 @@ def list_compute_nodes_output(compute_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListComputeNodesResult]:
     """
-    Compute node information related to a AmlCompute.
+    Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

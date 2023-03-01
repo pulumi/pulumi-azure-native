@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Defines the admin rule collection.
+ * Gets a network manager security admin configuration rule collection.
  */
 export function getAdminRuleCollection(args: GetAdminRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleCollectionResult> {
 
@@ -78,7 +78,7 @@ export interface GetAdminRuleCollectionResult {
     readonly type: string;
 }
 /**
- * Defines the admin rule collection.
+ * Gets a network manager security admin configuration rule collection.
  */
 export function getAdminRuleCollectionOutput(args: GetAdminRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleCollectionResult> {
     return pulumi.output(args).apply((a: any) => getAdminRuleCollection(a, opts))

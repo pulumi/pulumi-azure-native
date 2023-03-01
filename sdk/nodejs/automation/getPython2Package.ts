@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the module type.
+ * Retrieve the python 2 package identified by package name.
  * API Version: 2019-06-01.
  */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
@@ -110,7 +110,7 @@ export interface GetPython2PackageResult {
     readonly version?: string;
 }
 /**
- * Definition of the module type.
+ * Retrieve the python 2 package identified by package name.
  * API Version: 2019-06-01.
  */
 export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython2PackageResult> {

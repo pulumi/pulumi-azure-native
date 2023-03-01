@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * FirewallPolicy Resource.
+ * Gets the specified Firewall Policy.
  * API Version: 2020-11-01.
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
@@ -122,7 +122,7 @@ export interface GetFirewallPolicyResult {
     readonly type: string;
 }
 /**
- * FirewallPolicy Resource.
+ * Gets the specified Firewall Policy.
  * API Version: 2020-11-01.
  */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {

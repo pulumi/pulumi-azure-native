@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Contains information about an Azure Batch account.
+ * Gets information about the specified Batch account.
  */
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
@@ -96,7 +96,7 @@ export interface GetBatchAccountResult {
     readonly type: string;
 }
 /**
- * Contains information about an Azure Batch account.
+ * Gets information about the specified Batch account.
  */
 /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchAccountResult> {

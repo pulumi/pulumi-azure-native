@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Insights.V20210303Preview
     public static class GetDiagnosticServiceTokenReadWrite
     {
         /// <summary>
-        /// The response to a diagnostic services token query.
+        /// Gets an read-write access token for application insights diagnostic service data.
         /// </summary>
         public static Task<GetDiagnosticServiceTokenReadWriteResult> InvokeAsync(GetDiagnosticServiceTokenReadWriteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticServiceTokenReadWriteResult>("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", args ?? new GetDiagnosticServiceTokenReadWriteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response to a diagnostic services token query.
+        /// Gets an read-write access token for application insights diagnostic service data.
         /// </summary>
         public static Output<GetDiagnosticServiceTokenReadWriteResult> Invoke(GetDiagnosticServiceTokenReadWriteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadWriteResult>("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", args ?? new GetDiagnosticServiceTokenReadWriteInvokeArgs(), options.WithDefaults());

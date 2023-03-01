@@ -171,7 +171,7 @@ def get_budget_by_resource_group_name(budget_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetByResourceGroupNameResult:
     """
-    A budget resource.
+    Gets the budget for a resource group under a subscription by budget name.
 
 
     :param str budget_name: Budget Name.
@@ -203,7 +203,7 @@ def get_budget_by_resource_group_name_output(budget_name: Optional[pulumi.Input[
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetByResourceGroupNameResult]:
     """
-    A budget resource.
+    Gets the budget for a resource group under a subscription by budget name.
 
 
     :param str budget_name: Budget Name.

@@ -121,7 +121,7 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
                                  scope: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockByScopeResult:
     """
-    The lock information.
+    Get a management lock by scope.
 
 
     :param str lock_name: The name of lock.
@@ -148,7 +148,7 @@ def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] =
                                         scope: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockByScopeResult]:
     """
-    The lock information.
+    Get a management lock by scope.
 
 
     :param str lock_name: The name of lock.

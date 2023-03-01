@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
     public static class ListLocationConsortiums
     {
         /// <summary>
-        /// Collection of the consortium payload.
+        /// Lists the available consortiums for a subscription.
         /// </summary>
         public static Task<ListLocationConsortiumsResult> InvokeAsync(ListLocationConsortiumsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLocationConsortiumsResult>("azure-native:blockchain/v20180601preview:listLocationConsortiums", args ?? new ListLocationConsortiumsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collection of the consortium payload.
+        /// Lists the available consortiums for a subscription.
         /// </summary>
         public static Output<ListLocationConsortiumsResult> Invoke(ListLocationConsortiumsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocationConsortiumsResult>("azure-native:blockchain/v20180601preview:listLocationConsortiums", args ?? new ListLocationConsortiumsInvokeArgs(), options.WithDefaults());

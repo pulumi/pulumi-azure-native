@@ -271,7 +271,7 @@ def get_signal_r(resource_group_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRResult:
     """
-    A class represent a SignalR service resource.
+    Get the SignalR service and its properties.
     API Version: 2020-05-01.
 
 
@@ -311,7 +311,7 @@ def get_signal_r_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRResult]:
     """
-    A class represent a SignalR service resource.
+    Get the SignalR service and its properties.
     API Version: 2020-05-01.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Get authorizationRule for a WCF relay by name.
  */
 export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayAuthorizationRuleResult> {
 
@@ -70,7 +70,7 @@ export interface GetWCFRelayAuthorizationRuleResult {
     readonly type: string;
 }
 /**
- * Single item in a List or Get AuthorizationRule operation
+ * Get authorizationRule for a WCF relay by name.
  */
 export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getWCFRelayAuthorizationRule(a, opts))

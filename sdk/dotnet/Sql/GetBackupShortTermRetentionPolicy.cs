@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetBackupShortTermRetentionPolicy
     {
         /// <summary>
-        /// A short term retention policy.
+        /// Gets a database's short term retention policy.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetBackupShortTermRetentionPolicyResult> InvokeAsync(GetBackupShortTermRetentionPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupShortTermRetentionPolicyResult>("azure-native:sql:getBackupShortTermRetentionPolicy", args ?? new GetBackupShortTermRetentionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A short term retention policy.
+        /// Gets a database's short term retention policy.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetBackupShortTermRetentionPolicyResult> Invoke(GetBackupShortTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)

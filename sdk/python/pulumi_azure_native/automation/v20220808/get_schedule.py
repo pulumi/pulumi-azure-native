@@ -242,7 +242,7 @@ def get_schedule(automation_account_name: Optional[str] = None,
                  schedule_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
-    Definition of the schedule.
+    Retrieve the schedule identified by schedule name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -282,7 +282,7 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = N
                         schedule_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
-    Definition of the schedule.
+    Retrieve the schedule identified by schedule name.
 
 
     :param str automation_account_name: The name of the automation account.

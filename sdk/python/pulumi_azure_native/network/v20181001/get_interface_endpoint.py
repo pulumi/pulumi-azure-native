@@ -182,7 +182,7 @@ def get_interface_endpoint(expand: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInterfaceEndpointResult:
     """
-    Interface endpoint resource.
+    Gets the specified interface endpoint by resource group.
 
 
     :param str expand: Expands referenced resources.
@@ -217,7 +217,7 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] 
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInterfaceEndpointResult]:
     """
-    Interface endpoint resource.
+    Gets the specified interface endpoint by resource group.
 
 
     :param str expand: Expands referenced resources.

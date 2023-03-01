@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     public static class GetDomainEventSubscription
     {
         /// <summary>
-        /// Event Subscription
+        /// Get properties of an event subscription of a domain.
         /// </summary>
         public static Task<GetDomainEventSubscriptionResult> InvokeAsync(GetDomainEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainEventSubscriptionResult>("azure-native:eventgrid/v20220615:getDomainEventSubscription", args ?? new GetDomainEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Event Subscription
+        /// Get properties of an event subscription of a domain.
         /// </summary>
         public static Output<GetDomainEventSubscriptionResult> Invoke(GetDomainEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainEventSubscriptionResult>("azure-native:eventgrid/v20220615:getDomainEventSubscription", args ?? new GetDomainEventSubscriptionInvokeArgs(), options.WithDefaults());

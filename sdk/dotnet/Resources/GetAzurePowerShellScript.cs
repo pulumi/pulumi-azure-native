@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Resources
     public static class GetAzurePowerShellScript
     {
         /// <summary>
-        /// Object model for the Azure PowerShell script.
+        /// Gets a deployment script with a given name.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAzurePowerShellScriptResult> InvokeAsync(GetAzurePowerShellScriptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Object model for the Azure PowerShell script.
+        /// Gets a deployment script with a given name.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetAzurePowerShellScriptResult> Invoke(GetAzurePowerShellScriptInvokeArgs args, InvokeOptions? options = null)

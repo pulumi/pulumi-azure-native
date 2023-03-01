@@ -122,7 +122,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    An object that represents a private endpoint connection for a container registry.
+    Get the specified private endpoint connection associated with the container registry.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -152,7 +152,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    An object that represents a private endpoint connection for a container registry.
+    Get the specified private endpoint connection associated with the container registry.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

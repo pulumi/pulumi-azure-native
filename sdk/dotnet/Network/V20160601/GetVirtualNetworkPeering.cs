@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.Network.V20160601
     public static class GetVirtualNetworkPeering
     {
         /// <summary>
-        /// Peerings in a VirtualNetwork resource
+        /// The Get virtual network peering operation retrieves information about the specified virtual network peering.
         /// </summary>
         public static Task<GetVirtualNetworkPeeringResult> InvokeAsync(GetVirtualNetworkPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkPeeringResult>("azure-native:network/v20160601:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Peerings in a VirtualNetwork resource
+        /// The Get virtual network peering operation retrieves information about the specified virtual network peering.
         /// </summary>
         public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure-native:network/v20160601:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());

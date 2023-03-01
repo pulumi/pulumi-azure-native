@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Kusto.V20221111
     public static class GetManagedPrivateEndpoint
     {
         /// <summary>
-        /// Class representing a managed private endpoint.
+        /// Gets a managed private endpoint.
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:kusto/v20221111:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a managed private endpoint.
+        /// Gets a managed private endpoint.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:kusto/v20221111:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());

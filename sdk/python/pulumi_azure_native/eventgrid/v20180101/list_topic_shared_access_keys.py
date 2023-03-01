@@ -60,7 +60,7 @@ def list_topic_shared_access_keys(resource_group_name: Optional[str] = None,
                                   topic_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicSharedAccessKeysResult:
     """
-    Shared access keys of the Topic
+    List the two keys used to publish to a topic
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -82,7 +82,7 @@ def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.In
                                          topic_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicSharedAccessKeysResult]:
     """
-    Shared access keys of the Topic
+    List the two keys used to publish to a topic
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

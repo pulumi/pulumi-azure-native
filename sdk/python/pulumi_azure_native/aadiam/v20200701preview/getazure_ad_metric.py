@@ -106,7 +106,7 @@ def getazure_ad_metric(azure_ad_metrics_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetazureADMetricResult:
     """
-    AzureADMetrics resource.
+    Gets a azureADMetrics instance with a given name.
 
 
     :param str azure_ad_metrics_name: Name of the azureADMetrics instance.
@@ -132,7 +132,7 @@ def getazure_ad_metric_output(azure_ad_metrics_name: Optional[pulumi.Input[str]]
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetazureADMetricResult]:
     """
-    AzureADMetrics resource.
+    Gets a azureADMetrics instance with a given name.
 
 
     :param str azure_ad_metrics_name: Name of the azureADMetrics instance.

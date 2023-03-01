@@ -55,7 +55,7 @@ def get_sap_disk_configurations(app_location: Optional[str] = None,
                                 sap_product: Optional[Union[str, 'SAPProductType']] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPDiskConfigurationsResult:
     """
-    The list of disk configuration for vmSku which are part of SAP deployment.
+    Get the SAP Disk Configuration Layout prod/non-prod SAP System.
     API Version: 2021-12-01-preview.
 
 
@@ -92,7 +92,7 @@ def get_sap_disk_configurations_output(app_location: Optional[pulumi.Input[str]]
                                        sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPDiskConfigurationsResult]:
     """
-    The list of disk configuration for vmSku which are part of SAP deployment.
+    Get the SAP Disk Configuration Layout prod/non-prod SAP System.
     API Version: 2021-12-01-preview.
 
 

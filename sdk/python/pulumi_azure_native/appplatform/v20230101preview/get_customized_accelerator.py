@@ -111,7 +111,7 @@ def get_customized_accelerator(application_accelerator_name: Optional[str] = Non
                                service_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomizedAcceleratorResult:
     """
-    Customized accelerator resource
+    Get the customized accelerator.
 
 
     :param str application_accelerator_name: The name of the application accelerator.
@@ -143,7 +143,7 @@ def get_customized_accelerator_output(application_accelerator_name: Optional[pul
                                       service_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomizedAcceleratorResult]:
     """
-    Customized accelerator resource
+    Get the customized accelerator.
 
 
     :param str application_accelerator_name: The name of the application accelerator.

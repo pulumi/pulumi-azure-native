@@ -197,7 +197,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
-    Class representing a Traffic Manager endpoint.
+    Gets a Traffic Manager endpoint.
 
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.
@@ -237,7 +237,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
-    Class representing a Traffic Manager endpoint.
+    Gets a Traffic Manager endpoint.
 
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.

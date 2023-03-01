@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+ * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
  */
 export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontDoorResult> {
 
@@ -112,7 +112,7 @@ export interface GetFrontDoorResult {
     readonly type: string;
 }
 /**
- * Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+ * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
  */
 export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontDoorResult> {
     return pulumi.output(args).apply((a: any) => getFrontDoor(a, opts))

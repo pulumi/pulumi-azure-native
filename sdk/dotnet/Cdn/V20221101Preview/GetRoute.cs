@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
     public static class GetRoute
     {
         /// <summary>
-        /// Friendly Routes name mapping to the any Routes or secret related information.
+        /// Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:cdn/v20221101preview:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Friendly Routes name mapping to the any Routes or secret related information.
+        /// Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:cdn/v20221101preview:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());

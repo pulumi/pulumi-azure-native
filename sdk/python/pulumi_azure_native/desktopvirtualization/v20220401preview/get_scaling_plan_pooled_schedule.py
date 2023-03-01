@@ -290,7 +290,7 @@ def get_scaling_plan_pooled_schedule(resource_group_name: Optional[str] = None,
                                      scaling_plan_schedule_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScalingPlanPooledScheduleResult:
     """
-    Represents a ScalingPlanPooledSchedule definition.
+    Get a ScalingPlanPooledSchedule.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -334,7 +334,7 @@ def get_scaling_plan_pooled_schedule_output(resource_group_name: Optional[pulumi
                                             scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPlanPooledScheduleResult]:
     """
-    Represents a ScalingPlanPooledSchedule definition.
+    Get a ScalingPlanPooledSchedule.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

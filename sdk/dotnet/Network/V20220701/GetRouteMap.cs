@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20220701
     public static class GetRouteMap
     {
         /// <summary>
-        /// The RouteMap child resource of a Virtual hub.
+        /// Retrieves the details of a RouteMap.
         /// </summary>
         public static Task<GetRouteMapResult> InvokeAsync(GetRouteMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteMapResult>("azure-native:network/v20220701:getRouteMap", args ?? new GetRouteMapArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The RouteMap child resource of a Virtual hub.
+        /// Retrieves the details of a RouteMap.
         /// </summary>
         public static Output<GetRouteMapResult> Invoke(GetRouteMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteMapResult>("azure-native:network/v20220701:getRouteMap", args ?? new GetRouteMapInvokeArgs(), options.WithDefaults());

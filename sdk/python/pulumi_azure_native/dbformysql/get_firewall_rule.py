@@ -97,7 +97,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Represents a server firewall rule.
+    Gets information about a server firewall rule.
     API Version: 2017-12-01.
 
 
@@ -126,7 +126,7 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
                              server_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
-    Represents a server firewall rule.
+    Gets information about a server firewall rule.
     API Version: 2017-12-01.
 
 

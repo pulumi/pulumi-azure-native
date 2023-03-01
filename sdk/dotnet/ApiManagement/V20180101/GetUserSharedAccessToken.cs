@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
     public static class GetUserSharedAccessToken
     {
         /// <summary>
-        /// Get User Token response details.
+        /// Gets the Shared Access Authorization Token for the User.
         /// </summary>
         public static Task<GetUserSharedAccessTokenResult> InvokeAsync(GetUserSharedAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSharedAccessTokenResult>("azure-native:apimanagement/v20180101:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get User Token response details.
+        /// Gets the Shared Access Authorization Token for the User.
         /// </summary>
         public static Output<GetUserSharedAccessTokenResult> Invoke(GetUserSharedAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSharedAccessTokenResult>("azure-native:apimanagement/v20180101:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenInvokeArgs(), options.WithDefaults());

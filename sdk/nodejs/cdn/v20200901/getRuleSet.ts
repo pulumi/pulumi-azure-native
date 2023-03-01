@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Friendly RuleSet name mapping to the any RuleSet or secret related information.
+ * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  */
 export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleSetResult> {
 
@@ -62,7 +62,7 @@ export interface GetRuleSetResult {
     readonly type: string;
 }
 /**
- * Friendly RuleSet name mapping to the any RuleSet or secret related information.
+ * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  */
 export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getRuleSet(a, opts))

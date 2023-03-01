@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.ApiManagement
     public static class GetCache
     {
         /// <summary>
-        /// Cache details.
+        /// Gets the details of the Cache specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:apimanagement:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cache details.
+        /// Gets the details of the Cache specified by its identifier.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)

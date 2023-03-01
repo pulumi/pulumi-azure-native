@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
     public static class GetApiOperationPolicy
     {
         /// <summary>
-        /// Policy Contract details.
+        /// Get the policy configuration at the API Operation level.
         /// </summary>
         public static Task<GetApiOperationPolicyResult> InvokeAsync(GetApiOperationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiOperationPolicyResult>("azure-native:apimanagement/v20200601preview:getApiOperationPolicy", args ?? new GetApiOperationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Policy Contract details.
+        /// Get the policy configuration at the API Operation level.
         /// </summary>
         public static Output<GetApiOperationPolicyResult> Invoke(GetApiOperationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiOperationPolicyResult>("azure-native:apimanagement/v20200601preview:getApiOperationPolicy", args ?? new GetApiOperationPolicyInvokeArgs(), options.WithDefaults());

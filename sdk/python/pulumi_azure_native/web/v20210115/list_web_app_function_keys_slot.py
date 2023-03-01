@@ -98,7 +98,7 @@ def list_web_app_function_keys_slot(function_name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionKeysSlotResult:
     """
-    String dictionary resource.
+    Get function keys for a function in a web site, or a deployment slot.
 
 
     :param str function_name: Function name.
@@ -129,7 +129,7 @@ def list_web_app_function_keys_slot_output(function_name: Optional[pulumi.Input[
                                            slot: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppFunctionKeysSlotResult]:
     """
-    String dictionary resource.
+    Get function keys for a function in a web site, or a deployment slot.
 
 
     :param str function_name: Function name.

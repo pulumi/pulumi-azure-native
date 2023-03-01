@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Relay
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Private endpoint connection resource.
+        /// Gets the specified private endpoint connection associated with the Relay Namespace.
         /// API Version: 2018-01-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:relay:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Private endpoint connection resource.
+        /// Gets the specified private endpoint connection associated with the Relay Namespace.
         /// API Version: 2018-01-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)

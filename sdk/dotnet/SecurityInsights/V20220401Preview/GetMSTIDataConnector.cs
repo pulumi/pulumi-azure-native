@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
     public static class GetMSTIDataConnector
     {
         /// <summary>
-        /// Represents Microsoft Threat Intelligence data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetMSTIDataConnectorResult> InvokeAsync(GetMSTIDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMSTIDataConnectorResult>("azure-native:securityinsights/v20220401preview:getMSTIDataConnector", args ?? new GetMSTIDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents Microsoft Threat Intelligence data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetMSTIDataConnectorResult> Invoke(GetMSTIDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMSTIDataConnectorResult>("azure-native:securityinsights/v20220401preview:getMSTIDataConnector", args ?? new GetMSTIDataConnectorInvokeArgs(), options.WithDefaults());

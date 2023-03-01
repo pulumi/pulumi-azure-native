@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Cassandra keyspace.
+ * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDatabaseAccountCassandraKeyspace(args: GetDatabaseAccountCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraKeyspaceResult> {
@@ -60,7 +60,7 @@ export interface GetDatabaseAccountCassandraKeyspaceResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Cassandra keyspace.
+ * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2015-04-01 will be removed in v2 of the provider. */
 export function getDatabaseAccountCassandraKeyspaceOutput(args: GetDatabaseAccountCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountCassandraKeyspaceResult> {

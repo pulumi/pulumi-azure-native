@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Migrate
     public static class GetHyperVCollector
     {
         /// <summary>
-        /// 
+        /// Get a Hyper-V collector.
         /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetHyperVCollectorResult> InvokeAsync(GetHyperVCollectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-native:migrate:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// 
+        /// Get a Hyper-V collector.
         /// API Version: 2019-10-01.
         /// </summary>
         public static Output<GetHyperVCollectorResult> Invoke(GetHyperVCollectorInvokeArgs args, InvokeOptions? options = null)

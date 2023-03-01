@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The entity timeline result operation response.
+ * Timeline for an entity.
  */
 export function getEntitiesGetTimeline(args: GetEntitiesGetTimelineArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitiesGetTimelineResult> {
 
@@ -74,7 +74,7 @@ export interface GetEntitiesGetTimelineResult {
     readonly value?: (outputs.securityinsights.v20190101preview.ActivityTimelineItemResponse | outputs.securityinsights.v20190101preview.BookmarkTimelineItemResponse | outputs.securityinsights.v20190101preview.SecurityAlertTimelineItemResponse)[];
 }
 /**
- * The entity timeline result operation response.
+ * Timeline for an entity.
  */
 export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
     return pulumi.output(args).apply((a: any) => getEntitiesGetTimeline(a, opts))

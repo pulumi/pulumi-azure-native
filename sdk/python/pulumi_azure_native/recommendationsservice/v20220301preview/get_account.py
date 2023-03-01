@@ -133,7 +133,7 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Account resource details.
+    Returns RecommendationsService Account resource for a given name.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.
@@ -161,7 +161,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    Account resource details.
+    Returns RecommendationsService Account resource for a given name.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.

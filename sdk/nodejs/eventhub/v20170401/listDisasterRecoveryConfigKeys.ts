@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Namespace/EventHub Connection String
+ * Gets the primary and secondary connection strings for the Namespace.
  */
 export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDisasterRecoveryConfigKeysResult> {
 
@@ -71,7 +71,7 @@ export interface ListDisasterRecoveryConfigKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Namespace/EventHub Connection String
+ * Gets the primary and secondary connection strings for the Namespace.
  */
 export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
     return pulumi.output(args).apply((a: any) => listDisasterRecoveryConfigKeys(a, opts))

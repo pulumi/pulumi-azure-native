@@ -98,7 +98,7 @@ def get_configuration_profile_hciassignment(cluster_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileHCIAssignmentResult:
     """
-    Configuration profile assignment is an association between a VM and automanage profile configuration.
+    Get information about a configuration profile assignment
 
 
     :param str cluster_name: The name of the Arc machine.
@@ -126,7 +126,7 @@ def get_configuration_profile_hciassignment_output(cluster_name: Optional[pulumi
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileHCIAssignmentResult]:
     """
-    Configuration profile assignment is an association between a VM and automanage profile configuration.
+    Get information about a configuration profile assignment
 
 
     :param str cluster_name: The name of the Arc machine.

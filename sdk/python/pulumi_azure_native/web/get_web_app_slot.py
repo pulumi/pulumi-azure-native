@@ -610,7 +610,7 @@ def get_web_app_slot(name: Optional[str] = None,
                      slot: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotResult:
     """
-    A web app, a mobile app backend, or an API app.
+    Gets the details of a web, mobile, or API app.
     API Version: 2020-12-01.
 
 
@@ -681,7 +681,7 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
                             slot: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSlotResult]:
     """
-    A web app, a mobile app backend, or an API app.
+    Gets the details of a web, mobile, or API app.
     API Version: 2020-12-01.
 
 

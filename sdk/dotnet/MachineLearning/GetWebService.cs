@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.MachineLearning
     public static class GetWebService
     {
         /// <summary>
-        /// Instance of an Azure ML web service resource.
+        /// Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
         /// API Version: 2017-01-01.
         /// </summary>
         public static Task<GetWebServiceResult> InvokeAsync(GetWebServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-native:machinelearning:getWebService", args ?? new GetWebServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Instance of an Azure ML web service resource.
+        /// Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
         /// API Version: 2017-01-01.
         /// </summary>
         public static Output<GetWebServiceResult> Invoke(GetWebServiceInvokeArgs args, InvokeOptions? options = null)

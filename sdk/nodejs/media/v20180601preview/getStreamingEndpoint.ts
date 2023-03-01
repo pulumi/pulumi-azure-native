@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The StreamingEndpoint.
+ * Gets a StreamingEndpoint.
  */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
 
@@ -125,7 +125,7 @@ export interface GetStreamingEndpointResult {
     readonly type: string;
 }
 /**
- * The StreamingEndpoint.
+ * Gets a StreamingEndpoint.
  */
 export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingEndpointResult> {
     return pulumi.output(args).apply((a: any) => getStreamingEndpoint(a, opts))

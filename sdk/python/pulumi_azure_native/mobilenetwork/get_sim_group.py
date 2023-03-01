@@ -229,7 +229,7 @@ def get_sim_group(resource_group_name: Optional[str] = None,
                   sim_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimGroupResult:
     """
-    SIM group resource.
+    Gets information about the specified SIM group.
     API Version: 2022-04-01-preview.
 
 
@@ -266,7 +266,7 @@ def get_sim_group_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          sim_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimGroupResult]:
     """
-    SIM group resource.
+    Gets information about the specified SIM group.
     API Version: 2022-04-01-preview.
 
 

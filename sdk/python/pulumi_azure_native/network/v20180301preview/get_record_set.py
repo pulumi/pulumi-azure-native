@@ -245,7 +245,7 @@ def get_record_set(record_type: Optional[str] = None,
                    zone_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
     """
-    Describes a DNS record set (a collection of DNS records with the same name and type).
+    Gets a record set.
 
 
     :param str record_type: The type of DNS record in this record set.
@@ -289,7 +289,7 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
                           zone_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordSetResult]:
     """
-    Describes a DNS record set (a collection of DNS records with the same name and type).
+    Gets a record set.
 
 
     :param str record_type: The type of DNS record in this record set.

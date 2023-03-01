@@ -98,7 +98,7 @@ def get_certificate(certificate_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    The X509 Certificate.
+    Returns the certificate.
     API Version: 2020-08-31.
 
 
@@ -127,7 +127,7 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                            resource_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    The X509 Certificate.
+    Returns the certificate.
     API Version: 2020-08-31.
 
 

@@ -158,7 +158,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
 def get_budget(name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetResult:
     """
-    A budget resource.
+    Gets the budget for a subscription by budget name.
 
 
     :param str name: Budget name.
@@ -186,7 +186,7 @@ def get_budget(name: Optional[str] = None,
 def get_budget_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResult]:
     """
-    A budget resource.
+    Gets the budget for a subscription by budget name.
 
 
     :param str name: Budget name.

@@ -121,7 +121,7 @@ def get_property(prop_id: Optional[str] = None,
                  service_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPropertyResult:
     """
-    Property details.
+    Gets the details of the property specified by its identifier.
     API Version: 2019-01-01.
 
 
@@ -152,7 +152,7 @@ def get_property_output(prop_id: Optional[pulumi.Input[str]] = None,
                         service_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPropertyResult]:
     """
-    Property details.
+    Gets the details of the property specified by its identifier.
     API Version: 2019-01-01.
 
 

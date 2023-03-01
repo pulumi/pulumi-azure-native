@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Kubernetes.V20211001
     public static class GetConnectedCluster
     {
         /// <summary>
-        /// Represents a connected cluster.
+        /// Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
         /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-native:kubernetes/v20211001:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a connected cluster.
+        /// Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
         /// </summary>
         public static Output<GetConnectedClusterResult> Invoke(GetConnectedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedClusterResult>("azure-native:kubernetes/v20211001:getConnectedCluster", args ?? new GetConnectedClusterInvokeArgs(), options.WithDefaults());

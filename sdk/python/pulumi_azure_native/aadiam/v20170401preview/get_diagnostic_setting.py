@@ -144,7 +144,7 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
 def get_diagnostic_setting(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticSettingResult:
     """
-    The diagnostic setting resource.
+    Gets the active diagnostic setting for AadIam.
 
 
     :param str name: The name of the diagnostic setting.
@@ -170,7 +170,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
 def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticSettingResult]:
     """
-    The diagnostic setting resource.
+    Gets the active diagnostic setting for AadIam.
 
 
     :param str name: The name of the diagnostic setting.

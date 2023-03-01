@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Network
     public static class GetVirtualRouter
     {
         /// <summary>
-        /// VirtualRouter Resource.
+        /// Gets the specified Virtual Router.
         /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("azure-native:network:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// VirtualRouter Resource.
+        /// Gets the specified Virtual Router.
         /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOptions? options = null)

@@ -11,9 +11,15 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
 {
     public static class GetProviderRegistration
     {
+        /// <summary>
+        /// Gets the provider registration details.
+        /// </summary>
         public static Task<GetProviderRegistrationResult> InvokeAsync(GetProviderRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-native:providerhub/v20210901preview:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Gets the provider registration details.
+        /// </summary>
         public static Output<GetProviderRegistrationResult> Invoke(GetProviderRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderRegistrationResult>("azure-native:providerhub/v20210901preview:getProviderRegistration", args ?? new GetProviderRegistrationInvokeArgs(), options.WithDefaults());
     }

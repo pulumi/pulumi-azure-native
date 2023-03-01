@@ -135,7 +135,7 @@ def get_dedicated_host_group(host_group_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostGroupResult:
     """
-    Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+    Retrieves information about a dedicated host group.
 
 
     :param str host_group_name: The name of the dedicated host group.
@@ -164,7 +164,7 @@ def get_dedicated_host_group_output(host_group_name: Optional[pulumi.Input[str]]
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostGroupResult]:
     """
-    Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+    Retrieves information about a dedicated host group.
 
 
     :param str host_group_name: The name of the dedicated host group.

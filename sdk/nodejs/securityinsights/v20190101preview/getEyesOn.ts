@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Settings with single toggle.
+ * Gets a setting.
  */
 export function getEyesOn(args: GetEyesOnArgs, opts?: pulumi.InvokeOptions): Promise<GetEyesOnResult> {
 
@@ -68,7 +68,7 @@ export interface GetEyesOnResult {
     readonly type: string;
 }
 /**
- * Settings with single toggle.
+ * Gets a setting.
  */
 export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEyesOnResult> {
     return pulumi.output(args).apply((a: any) => getEyesOn(a, opts))

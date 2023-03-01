@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     public static class GetNspLink
     {
         /// <summary>
-        /// The network security perimeter link resource
+        /// Gets the specified NSP link resource.
         /// </summary>
         public static Task<GetNspLinkResult> InvokeAsync(GetNspLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspLinkResult>("azure-native:network/v20210201preview:getNspLink", args ?? new GetNspLinkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The network security perimeter link resource
+        /// Gets the specified NSP link resource.
         /// </summary>
         public static Output<GetNspLinkResult> Invoke(GetNspLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspLinkResult>("azure-native:network/v20210201preview:getNspLink", args ?? new GetNspLinkInvokeArgs(), options.WithDefaults());

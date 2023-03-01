@@ -51,7 +51,7 @@ def list_volume_replications(account_name: Optional[str] = None,
                              volume_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVolumeReplicationsResult:
     """
-    List Replications
+    List all replications for a specified volume
     API Version: 2022-01-01.
 
 
@@ -79,7 +79,7 @@ def list_volume_replications_output(account_name: Optional[pulumi.Input[str]] = 
                                     volume_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumeReplicationsResult]:
     """
-    List Replications
+    List all replications for a specified volume
     API Version: 2022-01-01.
 
 

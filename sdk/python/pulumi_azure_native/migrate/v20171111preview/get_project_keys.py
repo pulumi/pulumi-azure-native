@@ -60,7 +60,7 @@ def get_project_keys(project_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectKeysResult:
     """
-    ID and Key for Migration Project.
+    Gets the Log Analytics Workspace ID and Primary Key for the specified project.
 
 
     :param str project_name: Name of the Azure Migrate project.
@@ -82,7 +82,7 @@ def get_project_keys_output(project_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectKeysResult]:
     """
-    ID and Key for Migration Project.
+    Gets the Log Analytics Workspace ID and Primary Key for the specified project.
 
 
     :param str project_name: Name of the Azure Migrate project.

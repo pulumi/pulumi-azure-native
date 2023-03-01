@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Table.
+ * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
 export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResourceTableResult> {
@@ -65,7 +65,7 @@ export interface GetTableResourceTableResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Table.
+ * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider. */
 export function getTableResourceTableOutput(args: GetTableResourceTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResourceTableResult> {

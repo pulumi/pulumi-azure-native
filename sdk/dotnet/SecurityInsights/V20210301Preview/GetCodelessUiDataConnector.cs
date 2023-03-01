@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     public static class GetCodelessUiDataConnector
     {
         /// <summary>
-        /// Represents Codeless UI data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetCodelessUiDataConnectorResult> InvokeAsync(GetCodelessUiDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodelessUiDataConnectorResult>("azure-native:securityinsights/v20210301preview:getCodelessUiDataConnector", args ?? new GetCodelessUiDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents Codeless UI data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetCodelessUiDataConnectorResult> Invoke(GetCodelessUiDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodelessUiDataConnectorResult>("azure-native:securityinsights/v20210301preview:getCodelessUiDataConnector", args ?? new GetCodelessUiDataConnectorInvokeArgs(), options.WithDefaults());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * PrivateLink Policy configuration object.
+ * Gets a private link policy with a given name.
  * API Version: 2020-03-01.
  */
 export function getprivateLinkForAzureAd(args: GetprivateLinkForAzureAdArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkForAzureAdResult> {
@@ -74,7 +74,7 @@ export interface GetprivateLinkForAzureAdResult {
     readonly type: string;
 }
 /**
- * PrivateLink Policy configuration object.
+ * Gets a private link policy with a given name.
  * API Version: 2020-03-01.
  */
 export function getprivateLinkForAzureAdOutput(args: GetprivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkForAzureAdResult> {

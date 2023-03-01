@@ -101,7 +101,7 @@ def get_capability(capability_name: Optional[str] = None,
                    target_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapabilityResult:
     """
-    Model that represents a Capability resource.
+    Get a Capability resource that extends a Target resource.
 
 
     :param str capability_name: String that represents a Capability resource name.
@@ -138,7 +138,7 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
                           target_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapabilityResult]:
     """
-    Model that represents a Capability resource.
+    Get a Capability resource that extends a Target resource.
 
 
     :param str capability_name: String that represents a Capability resource name.

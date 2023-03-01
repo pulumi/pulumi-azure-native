@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Subnet in a virtual network resource.
+ * Gets the specified subnet by virtual network and resource group.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
 
@@ -134,7 +134,7 @@ export interface GetSubnetResult {
     readonly type?: string;
 }
 /**
- * Subnet in a virtual network resource.
+ * Gets the specified subnet by virtual network and resource group.
  */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
     return pulumi.output(args).apply((a: any) => getSubnet(a, opts))

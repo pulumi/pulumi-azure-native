@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
     public static class GetKustoDatabaseDataSetMapping
     {
         /// <summary>
-        /// A Kusto database data set mapping
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Task<GetKustoDatabaseDataSetMappingResult> InvokeAsync(GetKustoDatabaseDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare/v20201001preview:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Kusto database data set mapping
+        /// Get a DataSetMapping in a shareSubscription
         /// </summary>
         public static Output<GetKustoDatabaseDataSetMappingResult> Invoke(GetKustoDatabaseDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare/v20201001preview:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingInvokeArgs(), options.WithDefaults());

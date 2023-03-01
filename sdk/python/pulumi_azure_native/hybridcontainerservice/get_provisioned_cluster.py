@@ -139,7 +139,7 @@ def get_provisioned_cluster(provisioned_clusters_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProvisionedClusterResult:
     """
-    The provisionedClusters resource definition.
+    Gets the Hybrid AKS provisioned cluster
     API Version: 2022-05-01-preview.
 
 
@@ -169,7 +169,7 @@ def get_provisioned_cluster_output(provisioned_clusters_name: Optional[pulumi.In
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisionedClusterResult]:
     """
-    The provisionedClusters resource definition.
+    Gets the Hybrid AKS provisioned cluster
     API Version: 2022-05-01-preview.
 
 

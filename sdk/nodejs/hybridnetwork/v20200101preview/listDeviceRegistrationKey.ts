@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * The device registration key.
+ * List the registration key for the device.
  */
 export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceRegistrationKeyResult> {
 
@@ -37,7 +37,7 @@ export interface ListDeviceRegistrationKeyResult {
     readonly registrationKey: string;
 }
 /**
- * The device registration key.
+ * List the registration key for the device.
  */
 export function listDeviceRegistrationKeyOutput(args: ListDeviceRegistrationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceRegistrationKeyResult> {
     return pulumi.output(args).apply((a: any) => listDeviceRegistrationKey(a, opts))

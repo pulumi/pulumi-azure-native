@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     public static class GetSecurityMLAnalyticsSetting
     {
         /// <summary>
-        /// Security ML Analytics Setting
+        /// Gets the Security ML Analytics Settings.
         /// </summary>
         public static Task<GetSecurityMLAnalyticsSettingResult> InvokeAsync(GetSecurityMLAnalyticsSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMLAnalyticsSettingResult>("azure-native:securityinsights/v20230201:getSecurityMLAnalyticsSetting", args ?? new GetSecurityMLAnalyticsSettingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Security ML Analytics Setting
+        /// Gets the Security ML Analytics Settings.
         /// </summary>
         public static Output<GetSecurityMLAnalyticsSettingResult> Invoke(GetSecurityMLAnalyticsSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMLAnalyticsSettingResult>("azure-native:securityinsights/v20230201:getSecurityMLAnalyticsSetting", args ?? new GetSecurityMLAnalyticsSettingInvokeArgs(), options.WithDefaults());

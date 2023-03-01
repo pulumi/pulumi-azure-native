@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Developer Keys of account
+ * List Both of the 2 Keys of a Spatial Anchors Account
  * API Version: 2021-01-01.
  */
 export function listSpatialAnchorsAccountKeys(args: ListSpatialAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSpatialAnchorsAccountKeysResult> {
@@ -42,7 +42,7 @@ export interface ListSpatialAnchorsAccountKeysResult {
     readonly secondaryKey: string;
 }
 /**
- * Developer Keys of account
+ * List Both of the 2 Keys of a Spatial Anchors Account
  * API Version: 2021-01-01.
  */
 export function listSpatialAnchorsAccountKeysOutput(args: ListSpatialAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpatialAnchorsAccountKeysResult> {

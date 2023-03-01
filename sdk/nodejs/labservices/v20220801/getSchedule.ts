@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Schedule for automatically turning virtual machines in a lab on and off at specified times.
+ * Returns the properties of a lab Schedule.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -81,7 +81,7 @@ export interface GetScheduleResult {
     readonly type: string;
 }
 /**
- * Schedule for automatically turning virtual machines in a lab on and off at specified times.
+ * Returns the properties of a lab Schedule.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))

@@ -157,7 +157,7 @@ def get_product(product_id: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Product details.
+    Gets the details of the product specified by its identifier.
     API Version: 2020-12-01.
 
 
@@ -191,7 +191,7 @@ def get_product_output(product_id: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
-    Product details.
+    Gets the details of the product specified by its identifier.
     API Version: 2020-12-01.
 
 

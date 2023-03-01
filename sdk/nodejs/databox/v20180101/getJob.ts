@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Job Resource.
+ * Gets information about the specified job.
  */
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
@@ -99,7 +99,7 @@ export interface GetJobResult {
     readonly type: string;
 }
 /**
- * Job Resource.
+ * Gets information about the specified job.
  */
 /** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {

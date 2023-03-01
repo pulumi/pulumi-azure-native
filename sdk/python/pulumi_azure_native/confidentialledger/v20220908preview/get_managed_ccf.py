@@ -121,7 +121,7 @@ def get_managed_ccf(app_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedCCFResult:
     """
-    Managed CCF. Contains the properties of Managed CCF Resource.
+    Retrieves the properties of a Managed CCF app.
 
 
     :param str app_name: Name of the Managed CCF
@@ -148,7 +148,7 @@ def get_managed_ccf_output(app_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedCCFResult]:
     """
-    Managed CCF. Contains the properties of Managed CCF Resource.
+    Retrieves the properties of a Managed CCF app.
 
 
     :param str app_name: Name of the Managed CCF

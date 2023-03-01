@@ -172,7 +172,7 @@ def get_environment(expand: Optional[str] = None,
                     user_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    An environment, which is essentially an ARM template deployment.
+    Get environment.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
@@ -212,7 +212,7 @@ def get_environment_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            user_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
-    An environment, which is essentially an ARM template deployment.
+    Get environment.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'

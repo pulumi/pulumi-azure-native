@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview
     public static class GetConfigurationAssignmentParent
     {
         /// <summary>
-        /// Configuration Assignment
+        /// Get configuration for resource.
         /// </summary>
         public static Task<GetConfigurationAssignmentParentResult> InvokeAsync(GetConfigurationAssignmentParentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentParentResult>("azure-native:maintenance/v20210401preview:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration Assignment
+        /// Get configuration for resource.
         /// </summary>
         public static Output<GetConfigurationAssignmentParentResult> Invoke(GetConfigurationAssignmentParentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentParentResult>("azure-native:maintenance/v20210401preview:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentInvokeArgs(), options.WithDefaults());

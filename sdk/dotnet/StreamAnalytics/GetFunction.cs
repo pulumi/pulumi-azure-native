@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public static class GetFunction
     {
         /// <summary>
-        /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+        /// Gets details about the specified function.
         /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("azure-native:streamanalytics:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+        /// Gets details about the specified function.
         /// API Version: 2016-03-01.
         /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)

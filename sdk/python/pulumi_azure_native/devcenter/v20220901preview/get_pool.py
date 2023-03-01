@@ -170,7 +170,7 @@ def get_pool(pool_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
-    A pool of Virtual Machines.
+    Gets a machine pool
 
 
     :param str pool_name: Name of the pool.
@@ -204,7 +204,7 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
-    A pool of Virtual Machines.
+    Gets a machine pool
 
 
     :param str pool_name: Name of the pool.

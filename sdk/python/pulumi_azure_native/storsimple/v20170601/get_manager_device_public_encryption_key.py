@@ -49,7 +49,7 @@ def get_manager_device_public_encryption_key(device_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerDevicePublicEncryptionKeyResult:
     """
-    The public key.
+    Returns the public encryption key of the device.
 
 
     :param str device_name: The device name
@@ -73,7 +73,7 @@ def get_manager_device_public_encryption_key_output(device_name: Optional[pulumi
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerDevicePublicEncryptionKeyResult]:
     """
-    The public key.
+    Returns the public encryption key of the device.
 
 
     :param str device_name: The device name

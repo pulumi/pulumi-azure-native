@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Azure Migrate Project.
+ * Get the project with the specified name.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
@@ -91,7 +91,7 @@ export interface GetProjectResult {
     readonly updatedTimestamp: string;
 }
 /**
- * Azure Migrate Project.
+ * Get the project with the specified name.
  */
 /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {

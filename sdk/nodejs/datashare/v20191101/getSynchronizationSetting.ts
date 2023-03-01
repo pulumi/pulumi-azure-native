@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Synchronization Setting data transfer object.
+ * Get a synchronizationSetting in a share
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynchronizationSettingResult> {
@@ -61,7 +61,7 @@ export interface GetSynchronizationSettingResult {
     readonly type: string;
 }
 /**
- * A Synchronization Setting data transfer object.
+ * Get a synchronizationSetting in a share
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getSynchronizationSettingOutput(args: GetSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynchronizationSettingResult> {

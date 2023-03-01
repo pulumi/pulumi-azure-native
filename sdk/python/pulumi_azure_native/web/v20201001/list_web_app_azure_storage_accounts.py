@@ -109,7 +109,7 @@ def list_web_app_azure_storage_accounts(name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAzureStorageAccountsResult:
     """
-    AzureStorageInfo dictionary resource.
+    Gets the Azure storage account configurations of an app.
 
 
     :param str name: Name of the app.
@@ -135,7 +135,7 @@ def list_web_app_azure_storage_accounts_output(name: Optional[pulumi.Input[str]]
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAzureStorageAccountsResult]:
     """
-    AzureStorageInfo dictionary resource.
+    Gets the Azure storage account configurations of an app.
 
 
     :param str name: Name of the app.

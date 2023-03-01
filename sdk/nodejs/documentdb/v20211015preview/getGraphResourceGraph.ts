@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An Azure Cosmos DB Graph resource.
+ * Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getGraphResourceGraph(args: GetGraphResourceGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphResourceGraphResult> {
 
@@ -67,7 +67,7 @@ export interface GetGraphResourceGraphResult {
     readonly type: string;
 }
 /**
- * An Azure Cosmos DB Graph resource.
+ * Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getGraphResourceGraphOutput(args: GetGraphResourceGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResourceGraphResult> {
     return pulumi.output(args).apply((a: any) => getGraphResourceGraph(a, opts))

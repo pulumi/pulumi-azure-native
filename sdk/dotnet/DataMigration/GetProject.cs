@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataMigration
     public static class GetProject
     {
         /// <summary>
-        /// A project resource
+        /// The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
         /// API Version: 2018-04-19.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A project resource
+        /// The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
         /// API Version: 2018-04-19.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)

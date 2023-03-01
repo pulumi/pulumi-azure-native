@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public static class GetInput
     {
         /// <summary>
-        /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+        /// Gets details about the specified input.
         /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-native:streamanalytics:getInput", args ?? new GetInputArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+        /// Gets details about the specified input.
         /// API Version: 2016-03-01.
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)

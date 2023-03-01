@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DataFactory
     public static class GetTriggerEventSubscriptionStatus
     {
         /// <summary>
-        /// Defines the response of a trigger subscription operation.
+        /// Get a trigger's event subscription status.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetTriggerEventSubscriptionStatusResult> InvokeAsync(GetTriggerEventSubscriptionStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerEventSubscriptionStatusResult>("azure-native:datafactory:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the response of a trigger subscription operation.
+        /// Get a trigger's event subscription status.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetTriggerEventSubscriptionStatusResult> Invoke(GetTriggerEventSubscriptionStatusInvokeArgs args, InvokeOptions? options = null)

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Kusto
     public static class GetClusterPrincipalAssignment
     {
         /// <summary>
-        /// Class representing a cluster principal assignment.
+        /// Gets a Kusto cluster principalAssignment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetClusterPrincipalAssignmentResult> InvokeAsync(GetClusterPrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterPrincipalAssignmentResult>("azure-native:kusto:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Class representing a cluster principal assignment.
+        /// Gets a Kusto cluster principalAssignment.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetClusterPrincipalAssignmentResult> Invoke(GetClusterPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Association Subresource of Traffic Controller
+ * Get a Traffic Controller Association
  * API Version: 2022-10-01-preview.
  */
 export function getAssociationsInterface(args: GetAssociationsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationsInterfaceResult> {
@@ -78,7 +78,7 @@ export interface GetAssociationsInterfaceResult {
     readonly type: string;
 }
 /**
- * Association Subresource of Traffic Controller
+ * Get a Traffic Controller Association
  * API Version: 2022-10-01-preview.
  */
 export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationsInterfaceResult> {

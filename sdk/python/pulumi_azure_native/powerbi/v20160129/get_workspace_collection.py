@@ -112,7 +112,8 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
                              workspace_collection_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceCollectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves an existing Power BI Workspace Collection.
+
 
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name
@@ -138,7 +139,8 @@ def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[s
                                     workspace_collection_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceCollectionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves an existing Power BI Workspace Collection.
+
 
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name

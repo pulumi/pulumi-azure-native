@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An event source that receives its data from an Azure IoTHub.
+ * Gets the event source with the specified name in the specified environment.
  * API Version: 2020-05-15.
  */
 export function getIoTHubEventSource(args: GetIoTHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTHubEventSourceResult> {
@@ -103,7 +103,7 @@ export interface GetIoTHubEventSourceResult {
     readonly type: string;
 }
 /**
- * An event source that receives its data from an Azure IoTHub.
+ * Gets the event source with the specified name in the specified environment.
  * API Version: 2020-05-15.
  */
 export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTHubEventSourceResult> {

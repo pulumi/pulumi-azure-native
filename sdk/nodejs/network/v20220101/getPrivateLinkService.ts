@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Private link service resource.
+ * Gets the specified private link service by resource group.
  */
 export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServiceResult> {
 
@@ -109,7 +109,7 @@ export interface GetPrivateLinkServiceResult {
     readonly visibility?: outputs.network.v20220101.PrivateLinkServicePropertiesResponseVisibility;
 }
 /**
- * Private link service resource.
+ * Gets the specified private link service by resource group.
  */
 export function getPrivateLinkServiceOutput(args: GetPrivateLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServiceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkService(a, opts))

@@ -207,7 +207,7 @@ def get_microsoft_security_incident_creation_alert_rule(operational_insights_res
                                                         workspace_name: Optional[str] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult:
     """
-    Represents MicrosoftSecurityIncidentCreation rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -247,7 +247,7 @@ def get_microsoft_security_incident_creation_alert_rule_output(operational_insig
                                                                workspace_name: Optional[pulumi.Input[str]] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftSecurityIncidentCreationAlertRuleResult]:
     """
-    Represents MicrosoftSecurityIncidentCreation rule.
+    Gets the alert rule.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

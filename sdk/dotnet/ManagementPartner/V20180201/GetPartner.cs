@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
     public static class GetPartner
     {
         /// <summary>
-        /// this is the management partner operations response
+        /// Get the management partner using the partnerId, objectId and tenantId.
         /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:managementpartner/v20180201:getPartner", args ?? new GetPartnerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// this is the management partner operations response
+        /// Get the management partner using the partnerId, objectId and tenantId.
         /// </summary>
         public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner/v20180201:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());

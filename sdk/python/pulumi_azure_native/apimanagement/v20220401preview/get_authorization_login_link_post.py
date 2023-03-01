@@ -51,7 +51,7 @@ def get_authorization_login_link_post(authorization_id: Optional[str] = None,
                                       service_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationLoginLinkPostResult:
     """
-    Authorization login response contract.
+    Gets authorization login links.
 
 
     :param str authorization_id: Identifier of the authorization.
@@ -81,7 +81,7 @@ def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.I
                                              service_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationLoginLinkPostResult]:
     """
-    Authorization login response contract.
+    Gets authorization login links.
 
 
     :param str authorization_id: Identifier of the authorization.

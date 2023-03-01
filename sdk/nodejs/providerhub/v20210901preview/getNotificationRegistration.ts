@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The notification registration definition.
+ * Gets the notification registration details.
  */
 export function getNotificationRegistration(args: GetNotificationRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRegistrationResult> {
 
@@ -53,7 +53,7 @@ export interface GetNotificationRegistrationResult {
     readonly type: string;
 }
 /**
- * The notification registration definition.
+ * Gets the notification registration details.
  */
 export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getNotificationRegistration(a, opts))

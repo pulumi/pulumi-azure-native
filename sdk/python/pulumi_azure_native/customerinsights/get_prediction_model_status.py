@@ -169,7 +169,7 @@ def get_prediction_model_status(hub_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionModelStatusResult:
     """
-    The prediction model status.
+    Gets model status of the prediction.
     API Version: 2017-04-26.
 
 
@@ -204,7 +204,7 @@ def get_prediction_model_status_output(hub_name: Optional[pulumi.Input[str]] = N
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredictionModelStatusResult]:
     """
-    The prediction model status.
+    Gets model status of the prediction.
     API Version: 2017-04-26.
 
 

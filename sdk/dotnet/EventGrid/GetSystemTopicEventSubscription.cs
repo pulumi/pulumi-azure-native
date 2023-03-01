@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.EventGrid
     public static class GetSystemTopicEventSubscription
     {
         /// <summary>
-        /// Event Subscription
+        /// Get an event subscription.
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetSystemTopicEventSubscriptionResult> InvokeAsync(GetSystemTopicEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicEventSubscriptionResult>("azure-native:eventgrid:getSystemTopicEventSubscription", args ?? new GetSystemTopicEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Event Subscription
+        /// Get an event subscription.
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Output<GetSystemTopicEventSubscriptionResult> Invoke(GetSystemTopicEventSubscriptionInvokeArgs args, InvokeOptions? options = null)

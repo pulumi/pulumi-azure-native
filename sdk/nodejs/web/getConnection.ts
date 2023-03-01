@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API connection
+ * Get a specific connection
  * API Version: 2016-06-01.
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
@@ -67,7 +67,7 @@ export interface GetConnectionResult {
     readonly type: string;
 }
 /**
- * API connection
+ * Get a specific connection
  * API Version: 2016-06-01.
  */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {

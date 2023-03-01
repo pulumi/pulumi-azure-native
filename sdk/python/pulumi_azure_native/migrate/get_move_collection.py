@@ -133,7 +133,7 @@ def get_move_collection(move_collection_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMoveCollectionResult:
     """
-    Define the move collection.
+    Gets the move collection.
     API Version: 2021-01-01.
 
 
@@ -162,7 +162,7 @@ def get_move_collection_output(move_collection_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMoveCollectionResult]:
     """
-    Define the move collection.
+    Gets the move collection.
     API Version: 2021-01-01.
 
 

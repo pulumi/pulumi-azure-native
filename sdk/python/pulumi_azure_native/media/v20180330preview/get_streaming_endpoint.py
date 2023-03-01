@@ -290,7 +290,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
                            streaming_endpoint_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingEndpointResult:
     """
-    The StreamingEndpoint.
+    Gets a StreamingEndpoint.
 
 
     :param str account_name: The Media Services account name.
@@ -334,7 +334,7 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
                                   streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingEndpointResult]:
     """
-    The StreamingEndpoint.
+    Gets a StreamingEndpoint.
 
 
     :param str account_name: The Media Services account name.

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Backup of a Volume
+ * Gets the specified backup of the volume
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
 
@@ -107,7 +107,7 @@ export interface GetBackupResult {
     readonly volumeName: string;
 }
 /**
- * Backup of a Volume
+ * Gets the specified backup of the volume
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
     return pulumi.output(args).apply((a: any) => getBackup(a, opts))

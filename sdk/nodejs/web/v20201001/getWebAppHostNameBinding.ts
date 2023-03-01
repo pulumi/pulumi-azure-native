@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A hostname binding object.
+ * Get the named hostname binding for an app (or deployment slot, if specified).
  */
 export function getWebAppHostNameBinding(args: GetWebAppHostNameBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingResult> {
 
@@ -97,7 +97,7 @@ export interface GetWebAppHostNameBindingResult {
     readonly virtualIP: string;
 }
 /**
- * A hostname binding object.
+ * Get the named hostname binding for an app (or deployment slot, if specified).
  */
 export function getWebAppHostNameBindingOutput(args: GetWebAppHostNameBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingResult> {
     return pulumi.output(args).apply((a: any) => getWebAppHostNameBinding(a, opts))

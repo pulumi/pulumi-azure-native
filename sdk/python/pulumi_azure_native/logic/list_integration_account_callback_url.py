@@ -51,7 +51,7 @@ def list_integration_account_callback_url(integration_account_name: Optional[str
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountCallbackUrlResult:
     """
-    The callback url.
+    Gets the integration account callback URL.
     API Version: 2019-05-01.
 
 
@@ -79,7 +79,7 @@ def list_integration_account_callback_url_output(integration_account_name: Optio
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountCallbackUrlResult]:
     """
-    The callback url.
+    Gets the integration account callback URL.
     API Version: 2019-05-01.
 
 

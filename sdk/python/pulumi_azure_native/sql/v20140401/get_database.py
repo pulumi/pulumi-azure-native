@@ -373,7 +373,7 @@ def get_database(database_name: Optional[str] = None,
                  server_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Represents a database.
+    Gets a database.
 
 
     :param str database_name: The name of the database to be retrieved.
@@ -425,7 +425,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         server_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Represents a database.
+    Gets a database.
 
 
     :param str database_name: The name of the database to be retrieved.

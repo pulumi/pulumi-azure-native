@@ -99,7 +99,7 @@ def get_build_service_builder(build_service_name: Optional[str] = None,
                               service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceBuilderResult:
     """
-    KPack Builder resource
+    Get a KPack builder.
     API Version: 2022-01-01-preview.
 
 
@@ -131,7 +131,7 @@ def get_build_service_builder_output(build_service_name: Optional[pulumi.Input[s
                                      service_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceBuilderResult]:
     """
-    KPack Builder resource
+    Get a KPack builder.
     API Version: 2022-01-01-preview.
 
 

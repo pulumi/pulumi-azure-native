@@ -110,7 +110,7 @@ def get_signal_r_private_endpoint_connection(private_endpoint_connection_name: O
                                              resource_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRPrivateEndpointConnectionResult:
     """
-    A private endpoint connection to SignalR resource
+    Get the specified private endpoint connection associated with a SignalR resource.
     API Version: 2020-05-01.
 
 
@@ -140,7 +140,7 @@ def get_signal_r_private_endpoint_connection_output(private_endpoint_connection_
                                                     resource_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRPrivateEndpointConnectionResult]:
     """
-    A private endpoint connection to SignalR resource
+    Get the specified private endpoint connection associated with a SignalR resource.
     API Version: 2020-05-01.
 
 

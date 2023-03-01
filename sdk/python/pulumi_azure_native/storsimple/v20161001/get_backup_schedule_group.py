@@ -89,7 +89,7 @@ def get_backup_schedule_group(device_name: Optional[str] = None,
                               schedule_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupScheduleGroupResult:
     """
-    The Backup Schedule Group
+    Returns the properties of the specified backup schedule group name.
 
 
     :param str device_name: The name of the device.
@@ -120,7 +120,7 @@ def get_backup_schedule_group_output(device_name: Optional[pulumi.Input[str]] = 
                                      schedule_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupScheduleGroupResult]:
     """
-    The Backup Schedule Group
+    Returns the properties of the specified backup schedule group name.
 
 
     :param str device_name: The name of the device.

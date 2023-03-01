@@ -122,7 +122,7 @@ def get_application_type(application_type_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationTypeResult:
     """
-    The application type name resource
+    Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
 
 
     :param str application_type_name: The name of the application type name resource.
@@ -152,7 +152,7 @@ def get_application_type_output(application_type_name: Optional[pulumi.Input[str
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationTypeResult]:
     """
-    The application type name resource
+    Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
 
 
     :param str application_type_name: The name of the application type name resource.

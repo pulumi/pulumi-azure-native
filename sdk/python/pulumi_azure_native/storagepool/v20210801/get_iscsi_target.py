@@ -218,7 +218,7 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiTargetResult:
     """
-    Response for iSCSI Target requests.
+    Get an iSCSI Target.
 
 
     :param str disk_pool_name: The name of the Disk Pool.
@@ -256,7 +256,7 @@ def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIscsiTargetResult]:
     """
-    Response for iSCSI Target requests.
+    Get an iSCSI Target.
 
 
     :param str disk_pool_name: The name of the Disk Pool.

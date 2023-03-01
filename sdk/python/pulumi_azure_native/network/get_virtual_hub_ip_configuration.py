@@ -146,7 +146,7 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
                                      virtual_hub_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubIpConfigurationResult:
     """
-    IpConfigurations.
+    Retrieves the details of a Virtual Hub Ip configuration.
     API Version: 2020-11-01.
 
 
@@ -179,7 +179,7 @@ def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Inpu
                                             virtual_hub_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubIpConfigurationResult]:
     """
-    IpConfigurations.
+    Retrieves the details of a Virtual Hub Ip configuration.
     API Version: 2020-11-01.
 
 

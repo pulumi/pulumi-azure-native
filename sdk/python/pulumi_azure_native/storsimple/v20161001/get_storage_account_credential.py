@@ -148,7 +148,7 @@ def get_storage_account_credential(credential_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
-    The storage account credential
+    Returns the properties of the specified storage account credential name.
 
 
     :param str credential_name: The name of storage account credential to be fetched.
@@ -181,7 +181,7 @@ def get_storage_account_credential_output(credential_name: Optional[pulumi.Input
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
     """
-    The storage account credential
+    Returns the properties of the specified storage account credential name.
 
 
     :param str credential_name: The name of storage account credential to be fetched.

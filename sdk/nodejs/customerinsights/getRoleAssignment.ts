@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Role Assignment resource format.
+ * Gets the role assignment in the hub.
  * API Version: 2017-04-26.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
@@ -134,7 +134,7 @@ export interface GetRoleAssignmentResult {
     readonly widgetTypes?: outputs.customerinsights.ResourceSetDescriptionResponse;
 }
 /**
- * The Role Assignment resource format.
+ * Gets the role assignment in the hub.
  * API Version: 2017-04-26.
  */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {

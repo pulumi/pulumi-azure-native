@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Cloud Endpoint object.
+ * Get a given CloudEndpoint.
  */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
 
@@ -102,7 +102,7 @@ export interface GetCloudEndpointResult {
     readonly type: string;
 }
 /**
- * Cloud Endpoint object.
+ * Get a given CloudEndpoint.
  */
 export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {
     return pulumi.output(args).apply((a: any) => getCloudEndpoint(a, opts))

@@ -60,7 +60,7 @@ def list_partner_namespace_shared_access_keys(partner_namespace_name: Optional[s
                                               resource_group_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPartnerNamespaceSharedAccessKeysResult:
     """
-    Shared access keys of the partner namespace.
+    List the two keys used to publish to a partner namespace.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -82,7 +82,7 @@ def list_partner_namespace_shared_access_keys_output(partner_namespace_name: Opt
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPartnerNamespaceSharedAccessKeysResult]:
     """
-    Shared access keys of the partner namespace.
+    List the two keys used to publish to a partner namespace.
 
 
     :param str partner_namespace_name: Name of the partner namespace.

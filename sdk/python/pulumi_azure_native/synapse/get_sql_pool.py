@@ -238,7 +238,7 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolResult:
     """
-    A SQL Analytics pool
+    Get SQL pool properties
     API Version: 2021-03-01.
 
 
@@ -278,7 +278,7 @@ def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolResult]:
     """
-    A SQL Analytics pool
+    Get SQL pool properties
     API Version: 2021-03-01.
 
 

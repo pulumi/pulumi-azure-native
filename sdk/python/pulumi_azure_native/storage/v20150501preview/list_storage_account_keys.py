@@ -60,7 +60,7 @@ def list_storage_account_keys(account_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountKeysResult:
     """
-    The access keys for the storage account.
+    Lists the access keys for the specified storage account.
 
 
     :param str account_name: The name of the storage account.
@@ -82,7 +82,7 @@ def list_storage_account_keys_output(account_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountKeysResult]:
     """
-    The access keys for the storage account.
+    Lists the access keys for the specified storage account.
 
 
     :param str account_name: The name of the storage account.

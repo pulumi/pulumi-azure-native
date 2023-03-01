@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Pipeline resource type.
+ * Gets a pipeline.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
 
@@ -93,7 +93,7 @@ export interface GetPipelineResult {
     readonly variables?: {[key: string]: outputs.datafactory.v20180601.VariableSpecificationResponse};
 }
 /**
- * Pipeline resource type.
+ * Gets a pipeline.
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply((a: any) => getPipeline(a, opts))

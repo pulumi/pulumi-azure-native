@@ -119,6 +119,7 @@ def get_resource_guard_proxy(resource_group_name: Optional[str] = None,
                              vault_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGuardProxyResult:
     """
+    Returns ResourceGuardProxy under vault and with the name referenced in request
     API Version: 2021-02-01-preview.
 
 
@@ -148,6 +149,7 @@ def get_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[s
                                     vault_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGuardProxyResult]:
     """
+    Returns ResourceGuardProxy under vault and with the name referenced in request
     API Version: 2021-02-01-preview.
 
 

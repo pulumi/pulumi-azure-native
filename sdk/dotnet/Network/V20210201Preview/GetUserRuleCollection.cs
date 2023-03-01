@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     public static class GetUserRuleCollection
     {
         /// <summary>
-        /// Defines the rule collection.
+        /// Gets a network manager security user configuration rule collection.
         /// </summary>
         public static Task<GetUserRuleCollectionResult> InvokeAsync(GetUserRuleCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleCollectionResult>("azure-native:network/v20210201preview:getUserRuleCollection", args ?? new GetUserRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines the rule collection.
+        /// Gets a network manager security user configuration rule collection.
         /// </summary>
         public static Output<GetUserRuleCollectionResult> Invoke(GetUserRuleCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network/v20210201preview:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithDefaults());

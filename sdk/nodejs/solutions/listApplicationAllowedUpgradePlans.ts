@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The array of plan.
+ * List allowed upgrade plans for application.
  * API Version: 2021-07-01.
  */
 export function listApplicationAllowedUpgradePlans(args: ListApplicationAllowedUpgradePlansArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationAllowedUpgradePlansResult> {
@@ -41,7 +41,7 @@ export interface ListApplicationAllowedUpgradePlansResult {
     readonly value?: outputs.solutions.PlanResponse[];
 }
 /**
- * The array of plan.
+ * List allowed upgrade plans for application.
  * API Version: 2021-07-01.
  */
 export function listApplicationAllowedUpgradePlansOutput(args: ListApplicationAllowedUpgradePlansOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationAllowedUpgradePlansResult> {

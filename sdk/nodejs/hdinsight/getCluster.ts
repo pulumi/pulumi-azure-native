@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The HDInsight cluster.
+ * Gets the specified cluster.
  * API Version: 2018-06-01-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -69,7 +69,7 @@ export interface GetClusterResult {
     readonly type: string;
 }
 /**
- * The HDInsight cluster.
+ * Gets the specified cluster.
  * API Version: 2018-06-01-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

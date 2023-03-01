@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A workspace key
+ * Gets a workspace key
  * API Version: 2021-03-01.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
@@ -59,7 +59,7 @@ export interface GetKeyResult {
     readonly type: string;
 }
 /**
- * A workspace key
+ * Gets a workspace key
  * API Version: 2021-03-01.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {

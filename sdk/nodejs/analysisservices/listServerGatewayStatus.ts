@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Status of gateway is live.
+ * Return the gateway status of the specified Analysis Services server instance.
  * API Version: 2017-08-01.
  */
 export function listServerGatewayStatus(args: ListServerGatewayStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListServerGatewayStatusResult> {
@@ -38,7 +38,7 @@ export interface ListServerGatewayStatusResult {
     readonly status?: number;
 }
 /**
- * Status of gateway is live.
+ * Return the gateway status of the specified Analysis Services server instance.
  * API Version: 2017-08-01.
  */
 export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerGatewayStatusResult> {

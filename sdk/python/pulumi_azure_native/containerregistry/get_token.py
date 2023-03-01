@@ -146,7 +146,7 @@ def get_token(registry_name: Optional[str] = None,
               token_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTokenResult:
     """
-    An object that represents a token for a container registry.
+    Gets the properties of the specified token.
     API Version: 2020-11-01-preview.
 
 
@@ -179,7 +179,7 @@ def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
                      token_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTokenResult]:
     """
-    An object that represents a token for a container registry.
+    Gets the properties of the specified token.
     API Version: 2020-11-01-preview.
 
 

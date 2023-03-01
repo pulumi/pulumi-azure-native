@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.CognitiveServices
     public static class GetAccount
     {
         /// <summary>
-        /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+        /// Returns a Cognitive Services account specified by the parameters.
         /// API Version: 2017-04-18.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:cognitiveservices:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+        /// Returns a Cognitive Services account specified by the parameters.
         /// API Version: 2017-04-18.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)

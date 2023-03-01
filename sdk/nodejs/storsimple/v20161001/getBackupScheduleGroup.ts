@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Backup Schedule Group
+ * Returns the properties of the specified backup schedule group name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getBackupScheduleGroup(args: GetBackupScheduleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupScheduleGroupResult> {
@@ -64,7 +64,7 @@ export interface GetBackupScheduleGroupResult {
     readonly type: string;
 }
 /**
- * The Backup Schedule Group
+ * Returns the properties of the specified backup schedule group name.
  */
 /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getBackupScheduleGroupOutput(args: GetBackupScheduleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleGroupResult> {

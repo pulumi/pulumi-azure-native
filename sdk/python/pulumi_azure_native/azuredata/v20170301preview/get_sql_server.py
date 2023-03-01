@@ -124,7 +124,7 @@ def get_sql_server(expand: Optional[str] = None,
                    sql_server_registration_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerResult:
     """
-    A SQL server.
+    Gets a SQL Server.
 
 
     :param str expand: The child resources to include in the response.
@@ -158,7 +158,7 @@ def get_sql_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                           sql_server_registration_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerResult]:
     """
-    A SQL server.
+    Gets a SQL Server.
 
 
     :param str expand: The child resources to include in the response.

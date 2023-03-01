@@ -230,7 +230,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
-    VpnConnection Resource.
+    Retrieves the details of a vpn connection.
 
 
     :param str connection_name: The name of the vpn connection.
@@ -269,7 +269,7 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
-    VpnConnection Resource.
+    Retrieves the details of a vpn connection.
 
 
     :param str connection_name: The name of the vpn connection.

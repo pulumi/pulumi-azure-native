@@ -85,7 +85,7 @@ def get_server_dns_alias(dns_alias_name: Optional[str] = None,
                          server_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerDnsAliasResult:
     """
-    A server DNS alias.
+    Gets a server DNS alias.
     API Version: 2020-11-01-preview.
 
 
@@ -113,7 +113,7 @@ def get_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[str]] = No
                                 server_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerDnsAliasResult]:
     """
-    A server DNS alias.
+    Gets a server DNS alias.
     API Version: 2020-11-01-preview.
 
 

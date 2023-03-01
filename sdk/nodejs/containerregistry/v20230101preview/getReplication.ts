@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents a replication for a container registry.
+ * Gets the properties of the specified replication.
  */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
 
@@ -81,7 +81,7 @@ export interface GetReplicationResult {
     readonly zoneRedundancy?: string;
 }
 /**
- * An object that represents a replication for a container registry.
+ * Gets the properties of the specified replication.
  */
 export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
     return pulumi.output(args).apply((a: any) => getReplication(a, opts))

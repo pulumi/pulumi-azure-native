@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Access policies help define the authentication rules, and control access to specific video resources.
+ * Retrieves an existing access policy resource with the given name.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
 
@@ -65,7 +65,7 @@ export interface GetAccessPolicyResult {
     readonly type: string;
 }
 /**
- * Access policies help define the authentication rules, and control access to specific video resources.
+ * Retrieves an existing access policy resource with the given name.
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))

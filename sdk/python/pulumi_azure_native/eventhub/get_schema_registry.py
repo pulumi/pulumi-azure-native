@@ -164,7 +164,7 @@ def get_schema_registry(namespace_name: Optional[str] = None,
                         schema_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryResult:
     """
-    Single item in List or Get Schema Group operation
+    Gets the details of an EventHub schema group.
     API Version: 2022-01-01-preview.
 
 
@@ -199,7 +199,7 @@ def get_schema_registry_output(namespace_name: Optional[pulumi.Input[str]] = Non
                                schema_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryResult]:
     """
-    Single item in List or Get Schema Group operation
+    Gets the details of an EventHub schema group.
     API Version: 2022-01-01-preview.
 
 

@@ -265,7 +265,7 @@ def get_automation_account(automation_account_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationAccountResult:
     """
-    Definition of the automation account type.
+    Get information about an Automation Account.
     API Version: 2021-06-22.
 
 
@@ -305,7 +305,7 @@ def get_automation_account_output(automation_account_name: Optional[pulumi.Input
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationAccountResult]:
     """
-    Definition of the automation account type.
+    Get information about an Automation Account.
     API Version: 2021-06-22.
 
 

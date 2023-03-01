@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Description of hybrid connection resource.
+ * Returns the description for the specified hybrid connection.
  */
 export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionResult> {
 
@@ -81,7 +81,7 @@ export interface GetHybridConnectionResult {
     readonly userMetadata?: string;
 }
 /**
- * Description of hybrid connection resource.
+ * Returns the description for the specified hybrid connection.
  */
 export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
     return pulumi.output(args).apply((a: any) => getHybridConnection(a, opts))

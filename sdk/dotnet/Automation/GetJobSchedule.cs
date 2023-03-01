@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Automation
     public static class GetJobSchedule
     {
         /// <summary>
-        /// Definition of the job schedule.
+        /// Retrieve the job schedule identified by job schedule name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetJobScheduleResult> InvokeAsync(GetJobScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-native:automation:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of the job schedule.
+        /// Retrieve the job schedule identified by job schedule name.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetJobScheduleResult> Invoke(GetJobScheduleInvokeArgs args, InvokeOptions? options = null)

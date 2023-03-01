@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
     public static class ListConnectionConsentLinks
     {
         /// <summary>
-        /// Collection of consent links
+        /// Lists consent links of a connection.
         /// </summary>
         public static Task<ListConnectionConsentLinksResult> InvokeAsync(ListConnectionConsentLinksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azure-native:web/v20150801preview:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Collection of consent links
+        /// Lists consent links of a connection.
         /// </summary>
         public static Output<ListConnectionConsentLinksResult> Invoke(ListConnectionConsentLinksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionConsentLinksResult>("azure-native:web/v20150801preview:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksInvokeArgs(), options.WithDefaults());

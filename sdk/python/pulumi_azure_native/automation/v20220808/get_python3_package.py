@@ -242,7 +242,7 @@ def get_python3_package(automation_account_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPython3PackageResult:
     """
-    Definition of the module type.
+    Retrieve the python 3 package identified by package name.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -282,7 +282,7 @@ def get_python3_package_output(automation_account_name: Optional[pulumi.Input[st
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPython3PackageResult]:
     """
-    Definition of the module type.
+    Retrieve the python 3 package identified by package name.
 
 
     :param str automation_account_name: The name of the automation account.

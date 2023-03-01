@@ -115,7 +115,7 @@ def get_sql_migration_service(resource_group_name: Optional[str] = None,
                               sql_migration_service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlMigrationServiceResult:
     """
-    A SQL Migration Service.
+    Retrieve the Migration Service.
     API Version: 2021-10-30-preview.
 
 
@@ -144,7 +144,7 @@ def get_sql_migration_service_output(resource_group_name: Optional[pulumi.Input[
                                      sql_migration_service_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlMigrationServiceResult]:
     """
-    A SQL Migration Service.
+    Retrieve the Migration Service.
     API Version: 2021-10-30-preview.
 
 

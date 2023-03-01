@@ -196,7 +196,7 @@ def get_user(expand: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    The User registered to a lab
+    Get user
     API Version: 2018-10-15.
 
 
@@ -239,7 +239,7 @@ def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    The User registered to a lab
+    Get user
     API Version: 2018-10-15.
 
 

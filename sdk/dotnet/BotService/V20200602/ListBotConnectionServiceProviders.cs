@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.BotService.V20200602
     public static class ListBotConnectionServiceProviders
     {
         /// <summary>
-        /// The list of bot service providers response.
+        /// Lists the available Service Providers for creating Connection Settings
         /// </summary>
         public static Task<ListBotConnectionServiceProvidersResult> InvokeAsync(ListBotConnectionServiceProvidersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionServiceProvidersResult>("azure-native:botservice/v20200602:listBotConnectionServiceProviders", args ?? new ListBotConnectionServiceProvidersArgs(), options.WithDefaults());

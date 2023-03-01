@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * An object that represents a machine learning workspace.
+ * Gets the properties of the specified machine learning workspace.
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -106,7 +106,7 @@ export interface GetWorkspaceResult {
     readonly workspaceId: string;
 }
 /**
- * An object that represents a machine learning workspace.
+ * Gets the properties of the specified machine learning workspace.
  */
 /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {

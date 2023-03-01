@@ -241,7 +241,7 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
                               solution_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotSecuritySolutionResult:
     """
-    IoT Security solution configuration and resource information.
+    User this method to get details of a specific IoT Security solution based on solution name
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -278,7 +278,7 @@ def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[
                                      solution_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotSecuritySolutionResult]:
     """
-    IoT Security solution configuration and resource information.
+    User this method to get details of a specific IoT Security solution based on solution name
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

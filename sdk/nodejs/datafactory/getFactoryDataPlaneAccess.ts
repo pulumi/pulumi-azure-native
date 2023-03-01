@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get Data Plane read only token response definition.
+ * Get Data Plane access.
  * API Version: 2018-06-01.
  */
 export function getFactoryDataPlaneAccess(args: GetFactoryDataPlaneAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryDataPlaneAccessResult> {
@@ -74,7 +74,7 @@ export interface GetFactoryDataPlaneAccessResult {
     readonly policy?: outputs.datafactory.UserAccessPolicyResponse;
 }
 /**
- * Get Data Plane read only token response definition.
+ * Get Data Plane access.
  * API Version: 2018-06-01.
  */
 export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {

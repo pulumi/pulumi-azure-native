@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
     public static class GetIoTDataConnector
     {
         /// <summary>
-        /// Represents IoT data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Task<GetIoTDataConnectorResult> InvokeAsync(GetIoTDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoTDataConnectorResult>("azure-native:securityinsights/v20220501preview:getIoTDataConnector", args ?? new GetIoTDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents IoT data connector.
+        /// Gets a data connector.
         /// </summary>
         public static Output<GetIoTDataConnectorResult> Invoke(GetIoTDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoTDataConnectorResult>("azure-native:securityinsights/v20220501preview:getIoTDataConnector", args ?? new GetIoTDataConnectorInvokeArgs(), options.WithDefaults());

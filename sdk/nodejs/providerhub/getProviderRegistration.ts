@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Gets the provider registration details.
  * API Version: 2020-11-20.
  */
 export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
@@ -41,6 +42,7 @@ export interface GetProviderRegistrationResult {
     readonly type: string;
 }
 /**
+ * Gets the provider registration details.
  * API Version: 2020-11-20.
  */
 export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {

@@ -289,7 +289,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Class representing a Kusto cluster.
+    Gets a Kusto cluster.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -330,7 +330,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Class representing a Kusto cluster.
+    Gets a Kusto cluster.
 
 
     :param str cluster_name: The name of the Kusto cluster.

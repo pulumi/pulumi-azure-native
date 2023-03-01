@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of the runbook type.
+ * Retrieve the runbook identified by runbook name.
  * API Version: 2019-06-01.
  */
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
@@ -126,7 +126,7 @@ export interface GetRunbookResult {
     readonly type: string;
 }
 /**
- * Definition of the runbook type.
+ * Retrieve the runbook identified by runbook name.
  * API Version: 2019-06-01.
  */
 export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {

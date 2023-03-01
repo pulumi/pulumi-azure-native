@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The virtual machine resource definition.
+ * Gets virtual machines by resource name
  */
 export function getvirtualmachineRetrieve(args: GetvirtualmachineRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualmachineRetrieveResult> {
 
@@ -102,7 +102,7 @@ export interface GetvirtualmachineRetrieveResult {
     readonly vmId: string;
 }
 /**
- * The virtual machine resource definition.
+ * Gets virtual machines by resource name
  */
 export function getvirtualmachineRetrieveOutput(args: GetvirtualmachineRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualmachineRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getvirtualmachineRetrieve(a, opts))

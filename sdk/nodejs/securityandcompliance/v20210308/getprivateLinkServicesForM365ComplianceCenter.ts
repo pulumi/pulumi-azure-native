@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
  */
 export function getprivateLinkServicesForM365ComplianceCenter(args: GetprivateLinkServicesForM365ComplianceCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForM365ComplianceCenterResult> {
 
@@ -76,7 +76,7 @@ export interface GetprivateLinkServicesForM365ComplianceCenterResult {
     readonly type: string;
 }
 /**
- * The description of the service.
+ * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
  */
 export function getprivateLinkServicesForM365ComplianceCenterOutput(args: GetprivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForM365ComplianceCenterResult> {
     return pulumi.output(args).apply((a: any) => getprivateLinkServicesForM365ComplianceCenter(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Represents the properties of the Dns Resource Reference Result.
+ * Returns the DNS records specified by the referencing targetResourceIds.
  */
 export function getDnsResourceReferenceByTarResources(args?: GetDnsResourceReferenceByTarResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResourceReferenceByTarResourcesResult> {
     args = args || {};
@@ -36,7 +36,7 @@ export interface GetDnsResourceReferenceByTarResourcesResult {
     readonly dnsResourceReferences?: outputs.network.v20180501.DnsResourceReferenceResponse[];
 }
 /**
- * Represents the properties of the Dns Resource Reference Result.
+ * Returns the DNS records specified by the referencing targetResourceIds.
  */
 export function getDnsResourceReferenceByTarResourcesOutput(args?: GetDnsResourceReferenceByTarResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResourceReferenceByTarResourcesResult> {
     return pulumi.output(args).apply((a: any) => getDnsResourceReferenceByTarResources(a, opts))

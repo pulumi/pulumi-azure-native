@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * SAP monitor info on Azure (ARM properties and SAP monitor properties)
+ * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  * API Version: 2021-12-01-preview.
  */
 export function getmonitor(args: GetmonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetmonitorResult> {
@@ -105,7 +105,7 @@ export interface GetmonitorResult {
     readonly zoneRedundancyPreference?: string;
 }
 /**
- * SAP monitor info on Azure (ARM properties and SAP monitor properties)
+ * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  * API Version: 2021-12-01-preview.
  */
 export function getmonitorOutput(args: GetmonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmonitorResult> {

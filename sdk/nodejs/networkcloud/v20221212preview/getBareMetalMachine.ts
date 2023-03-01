@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get properties of the provided bare metal machine.
+ */
 export function getBareMetalMachine(args: GetBareMetalMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -156,6 +159,9 @@ export interface GetBareMetalMachineResult {
      */
     readonly virtualMachinesAssociatedIds: string[];
 }
+/**
+ * Get properties of the provided bare metal machine.
+ */
 export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalMachine(a, opts))
 }

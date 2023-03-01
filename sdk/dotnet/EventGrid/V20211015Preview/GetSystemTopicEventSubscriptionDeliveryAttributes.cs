@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
     public static class GetSystemTopicEventSubscriptionDeliveryAttributes
     {
         /// <summary>
-        /// Result of the Get delivery attributes operation.
+        /// Get all delivery attributes for an event subscription.
         /// </summary>
         public static Task<GetSystemTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetSystemTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20211015preview:getSystemTopicEventSubscriptionDeliveryAttributes", args ?? new GetSystemTopicEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Result of the Get delivery attributes operation.
+        /// Get all delivery attributes for an event subscription.
         /// </summary>
         public static Output<GetSystemTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20211015preview:getSystemTopicEventSubscriptionDeliveryAttributes", args ?? new GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());

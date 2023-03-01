@@ -245,7 +245,7 @@ def get_environment(environment_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    Represents an environment instance
+    Get environment
 
 
     :param str environment_name: The name of the environment.
@@ -294,7 +294,7 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
-    Represents an environment instance
+    Get environment
 
 
     :param str environment_name: The name of the environment.

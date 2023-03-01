@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
     public static class ListNamespaceKeys
     {
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Gets the primary and secondary connection strings for the namespace.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:servicebus/v20210601preview:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Namespace/ServiceBus Connection String
+        /// Gets the primary and secondary connection strings for the namespace.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:servicebus/v20210601preview:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());

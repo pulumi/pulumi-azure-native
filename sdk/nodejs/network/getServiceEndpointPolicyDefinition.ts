@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Service Endpoint policy definitions.
+ * Get the specified service endpoint policy definitions from service endpoint policy.
  * API Version: 2020-11-01.
  */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
@@ -67,7 +67,7 @@ export interface GetServiceEndpointPolicyDefinitionResult {
     readonly serviceResources?: string[];
 }
 /**
- * Service Endpoint policy definitions.
+ * Get the specified service endpoint policy definitions from service endpoint policy.
  * API Version: 2020-11-01.
  */
 export function getServiceEndpointPolicyDefinitionOutput(args: GetServiceEndpointPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyDefinitionResult> {

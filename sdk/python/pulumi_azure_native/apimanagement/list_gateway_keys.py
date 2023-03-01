@@ -61,7 +61,7 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGatewayKeysResult:
     """
-    Gateway authentication keys.
+    Retrieves gateway keys.
     API Version: 2020-12-01.
 
 
@@ -87,7 +87,7 @@ def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGatewayKeysResult]:
     """
-    Gateway authentication keys.
+    Retrieves gateway keys.
     API Version: 2020-12-01.
 
 

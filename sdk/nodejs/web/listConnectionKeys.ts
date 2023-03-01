@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Lists connection keys.
  * API Version: 2015-08-01-preview.
  */
 export function listConnectionKeys(args: ListConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionKeysResult> {
@@ -73,6 +74,7 @@ export interface ListConnectionKeysResult {
     readonly parameterValues?: {[key: string]: any};
 }
 /**
+ * Lists connection keys.
  * API Version: 2015-08-01-preview.
  */
 export function listConnectionKeysOutput(args: ListConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionKeysResult> {

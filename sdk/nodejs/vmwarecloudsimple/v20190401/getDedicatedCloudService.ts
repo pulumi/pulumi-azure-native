@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Dedicated cloud service model
+ * Returns Dedicate Cloud Service
  */
 export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudServiceResult> {
 
@@ -69,7 +69,7 @@ export interface GetDedicatedCloudServiceResult {
     readonly type: string;
 }
 /**
- * Dedicated cloud service model
+ * Returns Dedicate Cloud Service
  */
 export function getDedicatedCloudServiceOutput(args: GetDedicatedCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedCloudServiceResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedCloudService(a, opts))

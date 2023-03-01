@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.ManagedServices.V20220101Preview
     public static class GetRegistrationAssignment
     {
         /// <summary>
-        /// The registration assignment.
+        /// Gets the details of the specified registration assignment.
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices/v20220101preview:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The registration assignment.
+        /// Gets the details of the specified registration assignment.
         /// </summary>
         public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices/v20220101preview:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());

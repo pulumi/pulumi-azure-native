@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Azure resources returned by the resource action to get a list of assigned resources.
+ * Lists the associated resources for this identity.
  */
 export function listUserAssignedIdentityAssociatedResources(args: ListUserAssignedIdentityAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListUserAssignedIdentityAssociatedResourcesResult> {
 
@@ -73,7 +73,7 @@ export interface ListUserAssignedIdentityAssociatedResourcesResult {
     readonly value: outputs.managedidentity.v20210930preview.AzureResourceResponse[];
 }
 /**
- * Azure resources returned by the resource action to get a list of assigned resources.
+ * Lists the associated resources for this identity.
  */
 export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
     return pulumi.output(args).apply((a: any) => listUserAssignedIdentityAssociatedResources(a, opts))

@@ -86,7 +86,7 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
                                          vm_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileAssignmentResult:
     """
-    Configuration profile assignment is an association between a VM and automanage profile configuration.
+    Get information about a configuration profile assignment
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
@@ -113,7 +113,7 @@ def get_configuration_profile_assignment_output(configuration_profile_assignment
                                                 vm_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileAssignmentResult]:
     """
-    Configuration profile assignment is an association between a VM and automanage profile configuration.
+    Get information about a configuration profile assignment
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.

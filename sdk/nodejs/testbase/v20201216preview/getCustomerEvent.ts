@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Customer Notification Event resource.
+ * Gets a Test Base CustomerEvent.
  */
 /** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
 export function getCustomerEvent(args: GetCustomerEventArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerEventResult> {
@@ -67,7 +67,7 @@ export interface GetCustomerEventResult {
     readonly type: string;
 }
 /**
- * The Customer Notification Event resource.
+ * Gets a Test Base CustomerEvent.
  */
 /** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
 export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerEventResult> {

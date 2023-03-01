@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Template Spec Version object.
+ * Gets a Template Spec version from a specific Template Spec.
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
 
@@ -77,7 +77,7 @@ export interface GetTemplateSpecVersionResult {
     readonly type: string;
 }
 /**
- * Template Spec Version object.
+ * Gets a Template Spec version from a specific Template Spec.
  */
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
     return pulumi.output(args).apply((a: any) => getTemplateSpecVersion(a, opts))

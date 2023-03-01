@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A flow log resource.
+ * Gets a flow log resource by name.
  * API Version: 2020-11-01.
  */
 export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
@@ -98,7 +98,7 @@ export interface GetFlowLogResult {
     readonly type: string;
 }
 /**
- * A flow log resource.
+ * Gets a flow log resource by name.
  * API Version: 2020-11-01.
  */
 export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {

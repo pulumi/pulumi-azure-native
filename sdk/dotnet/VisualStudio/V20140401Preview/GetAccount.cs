@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
     public static class GetAccount
     {
         /// <summary>
-        /// The response to an account resource GET request.
+        /// Gets the Visual Studio Team Services account resource details.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:visualstudio/v20140401preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The response to an account resource GET request.
+        /// Gets the Visual Studio Team Services account resource details.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:visualstudio/v20140401preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

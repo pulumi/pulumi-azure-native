@@ -133,7 +133,7 @@ def get_report_by_department(department_id: Optional[str] = None,
                              report_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportByDepartmentResult:
     """
-    A report resource.
+    Gets the report for a department by report name.
 
 
     :param str department_id: Department ID
@@ -161,7 +161,7 @@ def get_report_by_department_output(department_id: Optional[pulumi.Input[str]] =
                                     report_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByDepartmentResult]:
     """
-    A report resource.
+    Gets the report for a department by report name.
 
 
     :param str department_id: Department ID

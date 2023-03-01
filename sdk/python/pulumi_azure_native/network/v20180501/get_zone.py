@@ -193,7 +193,7 @@ def get_zone(resource_group_name: Optional[str] = None,
              zone_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZoneResult:
     """
-    Describes a DNS zone.
+    Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -226,7 +226,7 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     zone_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
     """
-    Describes a DNS zone.
+    Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
 
 
     :param str resource_group_name: The name of the resource group.

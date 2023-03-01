@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     public static class GetFileShare
     {
         /// <summary>
-        /// The File Share.
+        /// Returns the properties of the specified file share name.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:storsimple/v20161001:getFileShare", args ?? new GetFileShareArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The File Share.
+        /// Returns the properties of the specified file share name.
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:storsimple/v20161001:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());

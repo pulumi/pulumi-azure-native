@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Geo backup policy.
+ * Gets a Geo backup policy for the given database resource.
  */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
 
@@ -71,7 +71,7 @@ export interface GetGeoBackupPolicyResult {
     readonly type: string;
 }
 /**
- * A Geo backup policy.
+ * Gets a Geo backup policy for the given database resource.
  */
 export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getGeoBackupPolicy(a, opts))

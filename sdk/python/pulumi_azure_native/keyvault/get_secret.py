@@ -110,7 +110,7 @@ def get_secret(resource_group_name: Optional[str] = None,
                vault_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Resource information with extended details.
+    Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
     API Version: 2019-09-01.
 
 
@@ -140,7 +140,7 @@ def get_secret_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       vault_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
-    Resource information with extended details.
+    Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
     API Version: 2019-09-01.
 
 

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The policy set definition.
+ * This operation retrieves the policy set definition in the given management group with the given name.
  */
 export function getPolicySetDefinitionAtManagementGroup(args: GetPolicySetDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionAtManagementGroupResult> {
 
@@ -76,7 +76,7 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
     readonly type: string;
 }
 /**
- * The policy set definition.
+ * This operation retrieves the policy set definition in the given management group with the given name.
  */
 export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPolicySetDefinitionAtManagementGroup(a, opts))

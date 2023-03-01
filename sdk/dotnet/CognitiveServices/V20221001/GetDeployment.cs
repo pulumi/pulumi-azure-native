@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221001
     public static class GetDeployment
     {
         /// <summary>
-        /// Cognitive Services account deployment.
+        /// Gets the specified deployments associated with the Cognitive Services account.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:cognitiveservices/v20221001:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Cognitive Services account deployment.
+        /// Gets the specified deployments associated with the Cognitive Services account.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:cognitiveservices/v20221001:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());

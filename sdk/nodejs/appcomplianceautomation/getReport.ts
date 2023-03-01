@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A class represent an AppComplianceAutomation report resource.
+ * Get the AppComplianceAutomation report and its properties.
  * API Version: 2022-11-16-preview.
  */
 export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
@@ -52,7 +52,7 @@ export interface GetReportResult {
     readonly type: string;
 }
 /**
- * A class represent an AppComplianceAutomation report resource.
+ * Get the AppComplianceAutomation report and its properties.
  * API Version: 2022-11-16-preview.
  */
 export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {

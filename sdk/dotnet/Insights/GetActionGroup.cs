@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Insights
     public static class GetActionGroup
     {
         /// <summary>
-        /// An action group resource.
+        /// Get an action group.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An action group resource.
+        /// Get an action group.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)

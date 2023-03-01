@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     public static class GetOpenShiftCluster
     {
         /// <summary>
-        /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+        /// The operation returns properties of a OpenShift cluster.
         /// API Version: 2020-04-30.
         /// </summary>
         public static Task<GetOpenShiftClusterResult> InvokeAsync(GetOpenShiftClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-native:redhatopenshift:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+        /// The operation returns properties of a OpenShift cluster.
         /// API Version: 2020-04-30.
         /// </summary>
         public static Output<GetOpenShiftClusterResult> Invoke(GetOpenShiftClusterInvokeArgs args, InvokeOptions? options = null)

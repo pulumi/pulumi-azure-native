@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The virtualNetworks resource definition.
+ * Gets the Hybrid AKS virtual network
  */
 export function getvirtualNetworkRetrieve(args: GetvirtualNetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetvirtualNetworkRetrieveResult> {
 
@@ -65,7 +65,7 @@ export interface GetvirtualNetworkRetrieveResult {
     readonly type: string;
 }
 /**
- * The virtualNetworks resource definition.
+ * Gets the Hybrid AKS virtual network
  */
 export function getvirtualNetworkRetrieveOutput(args: GetvirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvirtualNetworkRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getvirtualNetworkRetrieve(a, opts))

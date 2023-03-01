@@ -86,7 +86,7 @@ def get_input(input_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInputResult:
     """
-    An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+    Gets details about the specified input.
     API Version: 2016-03-01.
 
 
@@ -114,7 +114,7 @@ def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInputResult]:
     """
-    An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+    Gets details about the specified input.
     API Version: 2016-03-01.
 
 

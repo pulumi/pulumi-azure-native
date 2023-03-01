@@ -134,7 +134,7 @@ def get_provider_instance(monitor_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderInstanceResult:
     """
-    A provider instance associated with SAP monitor.
+    Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
     API Version: 2021-12-01-preview.
 
 
@@ -166,7 +166,7 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderInstanceResult]:
     """
-    A provider instance associated with SAP monitor.
+    Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
     API Version: 2021-12-01-preview.
 
 

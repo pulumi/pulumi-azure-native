@@ -230,7 +230,7 @@ def get_live_event(account_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveEventResult:
     """
-    The Live Event.
+    Gets a Live Event.
 
 
     :param str account_name: The Media Services account name.
@@ -269,7 +269,7 @@ def get_live_event_output(account_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveEventResult]:
     """
-    The Live Event.
+    Gets a Live Event.
 
 
     :param str account_name: The Media Services account name.

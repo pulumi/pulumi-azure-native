@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * ApiRelease details.
+ * Returns the details of an API release.
  */
 export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetApiReleaseResult> {
 
@@ -71,7 +71,7 @@ export interface GetApiReleaseResult {
     readonly updatedDateTime: string;
 }
 /**
- * ApiRelease details.
+ * Returns the details of an API release.
  */
 export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
     return pulumi.output(args).apply((a: any) => getApiRelease(a, opts))

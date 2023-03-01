@@ -8,6 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Gets a resource type details in the given subscription and provider.
  * API Version: 2020-11-20.
  */
 export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTypeRegistrationResult> {
@@ -46,6 +47,7 @@ export interface GetResourceTypeRegistrationResult {
     readonly type: string;
 }
 /**
+ * Gets a resource type details in the given subscription and provider.
  * API Version: 2020-11-20.
  */
 export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTypeRegistrationResult> {

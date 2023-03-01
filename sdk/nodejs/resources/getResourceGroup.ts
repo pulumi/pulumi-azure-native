@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource group information.
+ * Gets a resource group.
  * API Version: 2019-05-01.
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
@@ -60,7 +60,7 @@ export interface GetResourceGroupResult {
     readonly type: string;
 }
 /**
- * Resource group information.
+ * Gets a resource group.
  * API Version: 2019-05-01.
  */
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {

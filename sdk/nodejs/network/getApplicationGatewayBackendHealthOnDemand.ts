@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Result of on demand test probe.
+ * Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
  * API Version: 2020-11-01.
  */
 export function getApplicationGatewayBackendHealthOnDemand(args: GetApplicationGatewayBackendHealthOnDemandArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayBackendHealthOnDemandResult> {
@@ -90,7 +90,7 @@ export interface GetApplicationGatewayBackendHealthOnDemandResult {
     readonly backendHealthHttpSettings?: outputs.network.ApplicationGatewayBackendHealthHttpSettingsResponse;
 }
 /**
- * Result of on demand test probe.
+ * Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
  * API Version: 2020-11-01.
  */
 export function getApplicationGatewayBackendHealthOnDemandOutput(args: GetApplicationGatewayBackendHealthOnDemandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayBackendHealthOnDemandResult> {

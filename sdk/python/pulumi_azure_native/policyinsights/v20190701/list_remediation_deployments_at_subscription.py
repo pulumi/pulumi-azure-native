@@ -61,7 +61,7 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[str]
                                                  top: Optional[int] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtSubscriptionResult:
     """
-    List of deployments for a remediation.
+    Gets all deployments for a remediation at subscription scope.
 
 
     :param str remediation_name: The name of the remediation.
@@ -83,7 +83,7 @@ def list_remediation_deployments_at_subscription_output(remediation_name: Option
                                                         top: Optional[pulumi.Input[Optional[int]]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtSubscriptionResult]:
     """
-    List of deployments for a remediation.
+    Gets all deployments for a remediation at subscription scope.
 
 
     :param str remediation_name: The name of the remediation.

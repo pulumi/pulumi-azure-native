@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * A common class for general resource information
+ * Gets the specified virtual network gateway by resource group.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
@@ -106,7 +106,7 @@ export interface GetVirtualNetworkGatewayResult {
     readonly vpnType?: string;
 }
 /**
- * A common class for general resource information
+ * Gets the specified virtual network gateway by resource group.
  */
 /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {

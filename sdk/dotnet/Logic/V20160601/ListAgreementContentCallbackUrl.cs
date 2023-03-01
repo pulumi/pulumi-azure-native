@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Logic.V20160601
     public static class ListAgreementContentCallbackUrl
     {
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the content callback url.
         /// </summary>
         public static Task<ListAgreementContentCallbackUrlResult> InvokeAsync(ListAgreementContentCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAgreementContentCallbackUrlResult>("azure-native:logic/v20160601:listAgreementContentCallbackUrl", args ?? new ListAgreementContentCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The workflow trigger callback URL.
+        /// Get the content callback url.
         /// </summary>
         public static Output<ListAgreementContentCallbackUrlResult> Invoke(ListAgreementContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAgreementContentCallbackUrlResult>("azure-native:logic/v20160601:listAgreementContentCallbackUrl", args ?? new ListAgreementContentCallbackUrlInvokeArgs(), options.WithDefaults());

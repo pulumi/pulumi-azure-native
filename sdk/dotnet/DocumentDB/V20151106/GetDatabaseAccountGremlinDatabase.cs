@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
     public static class GetDatabaseAccountGremlinDatabase
     {
         /// <summary>
-        /// An Azure Cosmos DB Gremlin database.
+        /// Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
         /// </summary>
         public static Task<GetDatabaseAccountGremlinDatabaseResult> InvokeAsync(GetDatabaseAccountGremlinDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinDatabaseResult>("azure-native:documentdb/v20151106:getDatabaseAccountGremlinDatabase", args ?? new GetDatabaseAccountGremlinDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An Azure Cosmos DB Gremlin database.
+        /// Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
         /// </summary>
         public static Output<GetDatabaseAccountGremlinDatabaseResult> Invoke(GetDatabaseAccountGremlinDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountGremlinDatabaseResult>("azure-native:documentdb/v20151106:getDatabaseAccountGremlinDatabase", args ?? new GetDatabaseAccountGremlinDatabaseInvokeArgs(), options.WithDefaults());

@@ -231,7 +231,7 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInboundNatRuleResult:
     """
-    Inbound NAT rule of the load balancer.
+    Gets the specified load balancer inbound nat rule.
 
 
     :param str expand: Expands referenced resources.
@@ -273,7 +273,7 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInboundNatRuleResult]:
     """
-    Inbound NAT rule of the load balancer.
+    Gets the specified load balancer inbound nat rule.
 
 
     :param str expand: Expands referenced resources.

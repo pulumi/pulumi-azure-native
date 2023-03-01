@@ -194,7 +194,7 @@ def get_web_app_host_name_binding_slot(host_name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHostNameBindingSlotResult:
     """
-    A hostname binding object.
+    Get the named hostname binding for an app (or deployment slot, if specified).
     API Version: 2020-12-01.
 
 
@@ -234,7 +234,7 @@ def get_web_app_host_name_binding_slot_output(host_name: Optional[pulumi.Input[s
                                               slot: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHostNameBindingSlotResult]:
     """
-    A hostname binding object.
+    Get the named hostname binding for an app (or deployment slot, if specified).
     API Version: 2020-12-01.
 
 

@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * Get properties of the provided layer 2 (L2) network.
+ */
 export function getL2Network(args: GetL2NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL2NetworkResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,6 +96,9 @@ export interface GetL2NetworkResult {
      */
     readonly virtualMachinesAssociatedIds: string[];
 }
+/**
+ * Get properties of the provided layer 2 (L2) network.
+ */
 export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {
     return pulumi.output(args).apply((a: any) => getL2Network(a, opts))
 }

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Web.V20200601
     public static class ListStaticSiteSecrets
     {
         /// <summary>
-        /// String dictionary resource.
+        /// Lists the secrets for an existing static site.
         /// </summary>
         public static Task<ListStaticSiteSecretsResult> InvokeAsync(ListStaticSiteSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-native:web/v20200601:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// String dictionary resource.
+        /// Lists the secrets for an existing static site.
         /// </summary>
         public static Output<ListStaticSiteSecretsResult> Invoke(ListStaticSiteSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteSecretsResult>("azure-native:web/v20200601:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Specifies information about the gallery Image Definition that you want to create or update.
+ * Retrieves information about a gallery Image Definition.
  */
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
@@ -115,7 +115,7 @@ export interface GetGalleryImageResult {
     readonly type: string;
 }
 /**
- * Specifies information about the gallery Image Definition that you want to create or update.
+ * Retrieves information about a gallery Image Definition.
  */
 /** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {

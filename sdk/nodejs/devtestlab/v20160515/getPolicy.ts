@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * A Policy.
+ * Get policy.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
@@ -106,7 +106,7 @@ export interface GetPolicyResult {
     readonly uniqueIdentifier?: string;
 }
 /**
- * A Policy.
+ * Get policy.
  */
 /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {

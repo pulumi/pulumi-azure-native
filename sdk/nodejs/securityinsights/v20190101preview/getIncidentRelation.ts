@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a relation between two resources
+ * Gets an incident relation.
  */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
 
@@ -80,7 +80,7 @@ export interface GetIncidentRelationResult {
     readonly type: string;
 }
 /**
- * Represents a relation between two resources
+ * Gets an incident relation.
  */
 export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentRelationResult> {
     return pulumi.output(args).apply((a: any) => getIncidentRelation(a, opts))

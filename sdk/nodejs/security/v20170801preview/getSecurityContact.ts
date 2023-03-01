@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Contact details for security issues
+ * Security contact configurations for the subscription
  */
 export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityContactResult> {
 
@@ -56,7 +56,7 @@ export interface GetSecurityContactResult {
     readonly type: string;
 }
 /**
- * Contact details for security issues
+ * Security contact configurations for the subscription
  */
 export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityContactResult> {
     return pulumi.output(args).apply((a: any) => getSecurityContact(a, opts))

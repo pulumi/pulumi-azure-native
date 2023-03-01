@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A TestLine resource
+ * Get a TestLine
  * API Version: 2022-12-01-preview.
  */
 export function getTestLine(args: GetTestLineArgs, opts?: pulumi.InvokeOptions): Promise<GetTestLineResult> {
@@ -78,7 +78,7 @@ export interface GetTestLineResult {
     readonly type: string;
 }
 /**
- * A TestLine resource
+ * Get a TestLine
  * API Version: 2022-12-01-preview.
  */
 export function getTestLineOutput(args: GetTestLineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestLineResult> {

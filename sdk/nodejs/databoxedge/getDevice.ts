@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Data Box Edge/Gateway device.
+ * Gets the properties of the Data Box Edge/Data Box Gateway device.
  * API Version: 2020-12-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
@@ -141,7 +141,7 @@ export interface GetDeviceResult {
     readonly type: string;
 }
 /**
- * The Data Box Edge/Gateway device.
+ * Gets the properties of the Data Box Edge/Data Box Gateway device.
  * API Version: 2020-12-01.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {

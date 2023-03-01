@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Contract details.
+ * Gets the details of the group specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
@@ -67,7 +67,7 @@ export interface GetGroupResult {
     readonly type: string;
 }
 /**
- * Contract details.
+ * Gets the details of the group specified by its identifier.
  * API Version: 2020-12-01.
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {

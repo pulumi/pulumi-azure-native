@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.HybridNetwork
     public static class GetVendorSkus
     {
         /// <summary>
-        /// Sku sub resource.
+        /// Gets information about the specified sku.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetVendorSkusResult> InvokeAsync(GetVendorSkusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkusResult>("azure-native:hybridnetwork:getVendorSkus", args ?? new GetVendorSkusArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Sku sub resource.
+        /// Gets information about the specified sku.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetVendorSkusResult> Invoke(GetVendorSkusInvokeArgs args, InvokeOptions? options = null)

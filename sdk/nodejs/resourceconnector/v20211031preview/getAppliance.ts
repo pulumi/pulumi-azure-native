@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Appliances definition.
+ * Gets the details of an Appliance with a specified resource group and name.
  */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
 
@@ -88,7 +88,7 @@ export interface GetApplianceResult {
     readonly version: string;
 }
 /**
- * Appliances definition.
+ * Gets the details of an Appliance with a specified resource group and name.
  */
 export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
     return pulumi.output(args).apply((a: any) => getAppliance(a, opts))

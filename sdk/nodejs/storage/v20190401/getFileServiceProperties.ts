@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The properties of File services in storage account.
+ * Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServicePropertiesResult> {
@@ -59,7 +59,7 @@ export interface GetFileServicePropertiesResult {
     readonly type: string;
 }
 /**
- * The properties of File services in storage account.
+ * Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
  */
 /** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServicePropertiesResult> {

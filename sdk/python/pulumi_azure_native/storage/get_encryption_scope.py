@@ -146,7 +146,7 @@ def get_encryption_scope(account_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEncryptionScopeResult:
     """
-    The Encryption Scope resource.
+    Returns the properties for the specified encryption scope.
     API Version: 2021-02-01.
 
 
@@ -179,7 +179,7 @@ def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncryptionScopeResult]:
     """
-    The Encryption Scope resource.
+    Returns the properties for the specified encryption scope.
     API Version: 2021-02-01.
 
 

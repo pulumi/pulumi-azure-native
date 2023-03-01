@@ -98,7 +98,7 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
                       vault_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
-    BaseBackupPolicy resource
+    Gets a backup policy belonging to a backup vault
 
 
     :param str resource_group_name: The name of the resource group where the backup vault is present.
@@ -125,7 +125,7 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
                              vault_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
-    BaseBackupPolicy resource
+    Gets a backup policy belonging to a backup vault
 
 
     :param str resource_group_name: The name of the resource group where the backup vault is present.

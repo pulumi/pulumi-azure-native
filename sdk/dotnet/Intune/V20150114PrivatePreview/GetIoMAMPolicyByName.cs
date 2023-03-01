@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Intune.V20150114PrivatePreview
     public static class GetIoMAMPolicyByName
     {
         /// <summary>
-        /// iOS Policy entity for Intune MAM.
+        /// Returns Intune iOS policies.
         /// </summary>
         public static Task<GetIoMAMPolicyByNameResult> InvokeAsync(GetIoMAMPolicyByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-native:intune/v20150114privatepreview:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// iOS Policy entity for Intune MAM.
+        /// Returns Intune iOS policies.
         /// </summary>
         public static Output<GetIoMAMPolicyByNameResult> Invoke(GetIoMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoMAMPolicyByNameResult>("azure-native:intune/v20150114privatepreview:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameInvokeArgs(), options.WithDefaults());

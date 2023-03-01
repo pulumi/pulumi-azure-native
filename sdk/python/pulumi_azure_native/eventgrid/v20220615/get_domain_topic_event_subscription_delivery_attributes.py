@@ -51,7 +51,7 @@ def get_domain_topic_event_subscription_delivery_attributes(domain_name: Optiona
                                                             topic_name: Optional[str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainTopicEventSubscriptionDeliveryAttributesResult:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription for domain topic.
 
 
     :param str domain_name: Name of the top level domain.
@@ -78,7 +78,7 @@ def get_domain_topic_event_subscription_delivery_attributes_output(domain_name: 
                                                                    topic_name: Optional[pulumi.Input[str]] = None,
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionDeliveryAttributesResult]:
     """
-    Result of the Get delivery attributes operation.
+    Get all delivery attributes for an event subscription for domain topic.
 
 
     :param str domain_name: Name of the top level domain.

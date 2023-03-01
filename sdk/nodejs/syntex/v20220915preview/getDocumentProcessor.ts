@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Document processor details
+ * Returns a document processor for a given name.
  */
 export function getDocumentProcessor(args: GetDocumentProcessorArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentProcessorResult> {
 
@@ -64,7 +64,7 @@ export interface GetDocumentProcessorResult {
     readonly type: string;
 }
 /**
- * Document processor details
+ * Returns a document processor for a given name.
  */
 export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentProcessorResult> {
     return pulumi.output(args).apply((a: any) => getDocumentProcessor(a, opts))

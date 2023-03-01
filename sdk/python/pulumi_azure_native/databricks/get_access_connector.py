@@ -133,7 +133,7 @@ def get_access_connector(connector_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessConnectorResult:
     """
-    Information about azure databricks accessConnector.
+    Gets an azure databricks accessConnector.
     API Version: 2022-04-01-preview.
 
 
@@ -162,7 +162,7 @@ def get_access_connector_output(connector_name: Optional[pulumi.Input[str]] = No
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessConnectorResult]:
     """
-    Information about azure databricks accessConnector.
+    Gets an azure databricks accessConnector.
     API Version: 2022-04-01-preview.
 
 

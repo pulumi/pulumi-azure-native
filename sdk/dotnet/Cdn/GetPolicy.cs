@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Cdn
     public static class GetPolicy
     {
         /// <summary>
-        /// Defines web application firewall policy for Azure CDN.
+        /// Retrieve protection policy with specified name within a resource group.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:cdn:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Defines web application firewall policy for Azure CDN.
+        /// Retrieve protection policy with specified name within a resource group.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)

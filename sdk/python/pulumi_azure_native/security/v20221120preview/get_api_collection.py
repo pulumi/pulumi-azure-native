@@ -97,7 +97,7 @@ def get_api_collection(api_collection_id: Optional[str] = None,
                        service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAPICollectionResult:
     """
-    An API collection as represented by Defender for APIs.
+    Gets an Azure API Management API if it has been onboarded to Defender for APIs. If an Azure API Management API is onboarded to Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
 
 
     :param str api_collection_id: A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
@@ -125,7 +125,7 @@ def get_api_collection_output(api_collection_id: Optional[pulumi.Input[str]] = N
                               service_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAPICollectionResult]:
     """
-    An API collection as represented by Defender for APIs.
+    Gets an Azure API Management API if it has been onboarded to Defender for APIs. If an Azure API Management API is onboarded to Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
 
 
     :param str api_collection_id: A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.

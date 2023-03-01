@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
     public static class GetPartnerNamespace
     {
         /// <summary>
-        /// EventGrid Partner Namespace.
+        /// Get properties of a partner namespace.
         /// </summary>
         public static Task<GetPartnerNamespaceResult> InvokeAsync(GetPartnerNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azure-native:eventgrid/v20210601preview:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// EventGrid Partner Namespace.
+        /// Get properties of a partner namespace.
         /// </summary>
         public static Output<GetPartnerNamespaceResult> Invoke(GetPartnerNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerNamespaceResult>("azure-native:eventgrid/v20210601preview:getPartnerNamespace", args ?? new GetPartnerNamespaceInvokeArgs(), options.WithDefaults());

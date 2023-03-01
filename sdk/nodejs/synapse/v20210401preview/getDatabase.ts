@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Class representing a Kusto database.
+ * Returns a database.
  */
 /** @deprecated Please use one of the variants: ReadWriteDatabase. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
@@ -72,7 +72,7 @@ export interface GetDatabaseResult {
     readonly type: string;
 }
 /**
- * Class representing a Kusto database.
+ * Returns a database.
  */
 /** @deprecated Please use one of the variants: ReadWriteDatabase. */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {

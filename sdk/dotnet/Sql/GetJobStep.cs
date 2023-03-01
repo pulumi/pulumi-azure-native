@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Sql
     public static class GetJobStep
     {
         /// <summary>
-        /// A job step.
+        /// Gets a job step in a job's current version.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetJobStepResult> InvokeAsync(GetJobStepArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-native:sql:getJobStep", args ?? new GetJobStepArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A job step.
+        /// Gets a job step in a job's current version.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetJobStepResult> Invoke(GetJobStepInvokeArgs args, InvokeOptions? options = null)

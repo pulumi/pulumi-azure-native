@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Class representing a Traffic Manager profile.
+ * Gets a Traffic Manager profile.
  * API Version: 2018-08-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
@@ -89,7 +89,7 @@ export interface GetProfileResult {
     readonly type?: string;
 }
 /**
- * Class representing a Traffic Manager profile.
+ * Gets a Traffic Manager profile.
  * API Version: 2018-08-01.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {

@@ -96,7 +96,7 @@ class AwaitableGetVariableResult(GetVariableResult):
 def get_variable(variable_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableResult:
     """
-    The variable.
+    This operation retrieves a single variable, given its name and the subscription it was created at.
 
 
     :param str variable_name: The name of the variable to operate on.
@@ -118,7 +118,7 @@ def get_variable(variable_name: Optional[str] = None,
 def get_variable_output(variable_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableResult]:
     """
-    The variable.
+    This operation retrieves a single variable, given its name and the subscription it was created at.
 
 
     :param str variable_name: The name of the variable to operate on.

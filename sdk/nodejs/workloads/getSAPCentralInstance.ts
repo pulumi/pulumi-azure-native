@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Define the SAP Central Services Instance resource.
+ * Gets the SAP Central Services Instance resource.
  * API Version: 2021-12-01-preview.
  */
 export function getSAPCentralInstance(args: GetSAPCentralInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPCentralInstanceResult> {
@@ -122,7 +122,7 @@ export interface GetSAPCentralInstanceResult {
     readonly vmDetails: outputs.workloads.CentralServerVmDetailsResponse[];
 }
 /**
- * Define the SAP Central Services Instance resource.
+ * Gets the SAP Central Services Instance resource.
  * API Version: 2021-12-01-preview.
  */
 export function getSAPCentralInstanceOutput(args: GetSAPCentralInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPCentralInstanceResult> {

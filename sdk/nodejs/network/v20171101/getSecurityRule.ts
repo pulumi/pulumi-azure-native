@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network security rule.
+ * Get the specified network security rule.
  */
 /** @deprecated Version 2017-11-01 will be removed in v2 of the provider. */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
@@ -119,7 +119,7 @@ export interface GetSecurityRuleResult {
     readonly sourcePortRanges?: string[];
 }
 /**
- * Network security rule.
+ * Get the specified network security rule.
  */
 /** @deprecated Version 2017-11-01 will be removed in v2 of the provider. */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
