@@ -8,7 +8,7 @@ VERSION=${1}
 git tag "v${VERSION}"
 
 # This script tags all go modules in the repository with the current version
-find . -name "go.mod" -type f -mindepth 2 -maxdepth 2 -exec sh -c '
+find . -name "go.mod" -type f -mindepth 2 -maxdepth 2 -exec sh -cx '
   DIR=$(dirname ${1})
   BASE=$(basename $DIR)
   TAG="${BASE}/v${VERSION}"
