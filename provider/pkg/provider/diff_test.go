@@ -31,6 +31,7 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 						"p6": {Type: "array", Items: &resources.AzureAPIProperty{
 							Ref: "#/types/azure-native:foobar/v20200101:SomeType",
 						}},
+						"location": {Type: "string"},
 					},
 				},
 			},
@@ -103,6 +104,10 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 					},
 				},
 			},
+			"location": {
+				Old: resource.PropertyValue{V: "East US"},
+				New: resource.PropertyValue{V: "East US 2"},
+			},
 		},
 		Adds: map[resource.PropertyKey]resource.PropertyValue{
 			"p2": {V: 123},
@@ -126,6 +131,7 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 		"p5[2]":       {Kind: rpc.PropertyDiff_DELETE},
 		"p6[0].p61":   {Kind: rpc.PropertyDiff_UPDATE},
 		"p6[0].p62":   {Kind: rpc.PropertyDiff_ADD},
+		"location":    {Kind: rpc.PropertyDiff_UPDATE},
 	}
 	assert.Equal(t, expected, actual)
 }
@@ -321,4 +327,37 @@ func TestApplyDiff(t *testing.T) {
 		"p3": {V: "newkey"},
 	}
 	assert.Equal(t, expected, actual)
+}
+
+func TestLocationDiffingIsInsensitiveToSpacesAndCasing(t *testing.T) {
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"location": {Type: "string"},
+					},
+				},
+			},
+		},
+	}
+	variantsSame := []string{"West US 2", "WestUS2", "west us 2", "westus2"}
+	for _, oldValue := range variantsSame {
+		for _, newValue := range variantsSame {
+			diff := resource.ObjectDiff{
+				Updates: map[resource.PropertyKey]resource.ValueDiff{
+					"location": {
+						Old: resource.PropertyValue{V: oldValue},
+						New: resource.PropertyValue{V: newValue},
+					},
+				},
+			}
+			emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
+			actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+			expected := map[string]*rpc.PropertyDiff{}
+			assert.Equal(t, expected, actual)
+		}
+	}
 }

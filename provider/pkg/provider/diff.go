@@ -53,6 +53,8 @@ func calculateDetailedDiff(resource *resources.AzureAPIResource, types resources
 		}
 	}
 
+	applyAzureSpecificDiff(diff)
+
 	d := differ{replaceKeys: replaceKeys}
 	return d.calculateObjectDiff(diff, "", "")
 }
@@ -161,4 +163,27 @@ func applyDiff(values resource.PropertyMap, diff *resource.ObjectDiff) resource.
 		result[key] = value.New
 	}
 	return result
+}
+
+// applyAzureSpecificDiff modifies a generic diff calculated by the Platform with any
+// Azure-specific diffing adjustments.
+func applyAzureSpecificDiff(diff *resource.ObjectDiff) {
+	updates := map[resource.PropertyKey]resource.ValueDiff{}
+	for k, v := range diff.Updates {
+		// Apply special diffing logic to top-level properties called "location".
+		// Those are special in the sense that casing and spaces are not significant.
+		if string(k) == "location" && v.Old.IsString() && v.New.IsString() {
+			if normalizedLocation(v.Old.StringValue()) == normalizedLocation(v.New.StringValue()) {
+				continue
+			}
+		}
+		updates[k] = v
+	}
+	diff.Updates = updates
+}
+
+// normalizedLocation converts Azure location values of a format like "West US 2" and
+// "WestUS2" to the lowercase and no-space format of "westus2".
+func normalizedLocation(location string) string {
+	return strings.ToLower(strings.ReplaceAll(location, " ", ""))
 }
