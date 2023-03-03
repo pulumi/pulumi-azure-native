@@ -1012,6 +1012,8 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 				TypeSpec: pschema.TypeSpec{
 					Type: param.Type,
 				},
+				// All path parameters are part of resource ID, so they always cause replacement.
+				WillReplaceOnChanges: param.In == "path",
 			}
 
 			// Check each parameter for auto-naming.
