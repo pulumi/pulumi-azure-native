@@ -5,6 +5,7 @@ package resources
 import (
 	"context"
 	"net/http"
+	"regexp"
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
@@ -593,43 +594,24 @@ func (r *blob) read(ctx context.Context, id string, properties resource.Property
 	}, true, nil
 }
 
+var blobIDPattern = regexp.MustCompile(`(?i)^/subscriptions/(.+)/resourceGroups/(.+)/providers/Microsoft.Storage/storageAccounts/(.+)/blobServices/default/containers/(.+)/blobs/(.+)$`)
+
 // parseBlobIdProperties parses an ID of a Blob resource to its identified properties.
 // For instance, it will convert
-// subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Storage/storageAccounts/mysa/blobServices/default/containers/myc/blobs/log.txt
+// /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Storage/storageAccounts/mysa/blobServices/default/containers/myc/blobs/log.txt
 // to a map of
 // resourceGroupName=myrg,accountName=mysa,containerName=myc,blobName=log.txt.
 func parseBlobIdProperties(id string) (resource.PropertyMap, bool) {
-	id = strings.ToLower(id)
-	resourceGroupsParts := strings.Split(id, "/resourcegroups/")
-	if len(resourceGroupsParts) != 2 {
+	match := blobIDPattern.FindStringSubmatch(id)
+	if len(match) != 6 {
 		return nil, false
 	}
-	providersParts := strings.Split(resourceGroupsParts[1], "/providers/")
-	if len(providersParts) != 2 {
-		return nil, false
-	}
-	rg := providersParts[0]
-	storageAccountsParts := strings.Split(id, "/storageaccounts/")
-	if len(storageAccountsParts) != 2 {
-		return nil, false
-	}
-	blobServicesParts := strings.Split(storageAccountsParts[1], "/blobservices/default/containers/")
-	if len(blobServicesParts) != 2 {
-		return nil, false
-	}
-	acc := blobServicesParts[0]
-	blobsParts := strings.Split(blobServicesParts[1], "/blobs/")
-	if len(blobsParts) != 2 {
-		return nil, false
-	}
-	container := blobsParts[0]
-	name := blobsParts[1]
 
 	clientProperties := resource.PropertyMap{}
-	clientProperties[resourceGroupName] = resource.NewStringProperty(rg)
-	clientProperties[accountName] = resource.NewStringProperty(acc)
-	clientProperties[containerName] = resource.NewStringProperty(container)
-	clientProperties[blobName] = resource.NewStringProperty(name)
+	clientProperties[resourceGroupName] = resource.NewStringProperty(match[2])
+	clientProperties[accountName] = resource.NewStringProperty(match[3])
+	clientProperties[containerName] = resource.NewStringProperty(match[4])
+	clientProperties[blobName] = resource.NewStringProperty(match[5])
 	return clientProperties, true
 }
 
