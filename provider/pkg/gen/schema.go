@@ -1120,15 +1120,19 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		// Change the name to lowerCamelCase.
 		sdkName = ToLowerCamel(sdkName)
 
-		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
-		// If the type is marked as a dictionary, ignore the extension and proceed with modeling this property explicitly.
-		// We can't flatten dictionaries in a type-safe manner.
-		isDict := resolvedProperty.AdditionalProperties != nil
-		//TODO: Remove when https://github.com/Azure/azure-rest-api-specs/pull/14550 is rolled back
-		workaroundDelegatedNetworkBreakingChange := property.Ref.String() == "#/definitions/OrchestratorResourceProperties" ||
-			property.Ref.String() == "#/definitions/DelegatedSubnetProperties" ||
-			property.Ref.String() == "#/definitions/DelegatedControllerProperties"
-		if flatten, ok := property.Extensions.GetBool(extensionClientFlatten); (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
+		isRequired := false
+		for _, req := range resolvedSchema.Required {
+			if req == name || req == sdkName {
+				isRequired = true
+				break
+			}
+		}
+
+		flatten, _ := property.Extensions.GetBool(extensionClientFlatten)
+
+		if shouldFlatten(property.Ref.String(), resolvedProperty.AdditionalProperties, flatten, isRequired) {
+			log.Printf("Flattening %s\n", property.Ref.String())
+
 			bag, err := m.genProperties(resolvedProperty, isOutput, isType)
 			if err != nil {
 				return nil, err
@@ -1155,7 +1159,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		propertySpec, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, isOutput)
+		propertySpec, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, isOutput, isRequired)
 		if err != nil {
 			return nil, err
 		}
@@ -1259,6 +1263,29 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 	}
 	return result, nil
+}
+
+func shouldFlatten(propertyUrl string, additionalProperties *spec.SchemaOrBool, hasExtensionClientFlatten, isRequired bool) bool {
+	//TODO: Remove when https://github.com/Azure/azure-rest-api-specs/pull/14550 is rolled back
+	workaroundDelegatedNetworkBreakingChange := propertyUrl == "#/definitions/OrchestratorResourceProperties" ||
+		propertyUrl == "#/definitions/DelegatedSubnetProperties" ||
+		propertyUrl == "#/definitions/DelegatedControllerProperties"
+	if workaroundDelegatedNetworkBreakingChange {
+		return true
+	}
+
+	// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
+	// If the type is marked as a dictionary, ignore the extension and proceed with modeling this property explicitly.
+	// We can't flatten dictionaries in a type-safe manner.
+	isDict := additionalProperties != nil
+
+	canFlatten := hasExtensionClientFlatten && !isDict
+
+	if canFlatten && isRequired {
+		// We might need it as an empty input property because it's required.
+		log.Printf("Would flatten %s but it's marked as required", propertyUrl)
+	}
+	return !isRequired && canFlatten
 }
 
 // getDiscriminator returns a property name and description for a discriminator if it's defined on the schema.
@@ -1431,13 +1458,13 @@ func getPropertyDescription(schema *spec.Schema, context *openapi.ReferenceConte
 	return description, nil
 }
 
-func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
+func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput, isRequired bool) (*pschema.PropertySpec, error) {
 	description, err := getPropertyDescription(schema, context)
 	if err != nil {
 		return nil, err
 	}
 
-	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput)
+	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput, isRequired)
 	if err != nil {
 		return nil, err
 	}
@@ -1494,7 +1521,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	return &propertySpec, nil
 }
 
-func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
+func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput, isRequired bool) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
 	if err != nil {
 		return nil, err
@@ -1550,8 +1577,12 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 			// Don't generate a type definition for a typed object with zero properties.
 			if len(props.specs) == 0 {
-				delete(m.visitedTypes, tok)
-				return nil, nil
+				if isRequired {
+					log.Printf("Preserving empty but required type %s", tok)
+				} else {
+					delete(m.visitedTypes, tok)
+					return nil, nil
+				}
 			}
 
 			// https://github.com/Azure/azure-rest-api-specs/issues/21431
@@ -1604,7 +1635,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 	case resolvedSchema.Items != nil && resolvedSchema.Items.Schema != nil:
 		// Resolve the element type for array types.
-		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, isOutput)
+		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, isOutput, false)
 		if err != nil {
 			return nil, err
 		}
@@ -1621,7 +1652,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 	case resolvedSchema.AdditionalProperties != nil && resolvedSchema.AdditionalProperties.Schema != nil:
 		// Define the type of maps (untyped objects).
-		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
+		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput, false)
 		if err != nil {
 			return nil, err
 		}
@@ -1825,7 +1856,7 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 		return nil, false, err
 	}
 	for _, subtype := range subtypes {
-		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isOutput)
+		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isOutput, false)
 		if err != nil {
 			return nil, false, err
 		}
